@@ -6,15 +6,16 @@ first thing the next agent reads.
 
 ## Current Status
 
-- **Phase:** 1 - H003 gameplay fixes implemented on the prototype.
-- **App state:** Monorepo scaffolded. Game engine built with 24 passing tests.
-  20-round Classic Run playable with deep-navy son color palette, two-line confidence
-  buttons, call-locked suspense state, wrong All-In instant bust, optional free-text
-  Call the Company scoring, reset-between-rounds fix, scoring explainer, and
-  rebalanced placeholder sample returns. No auth, no DB, no server-side logic.
-- **Next task:** Auditor review A001 on H001 + H002 + H003 combined; manual walkthrough
-  of scoring, locked/reveal states, company-call outcomes, and 375px viewport.
-- **Blocked/Questions:** none.
+- **Phase:** 1 - playable prototype COMMITTED (`232aa19`), covering H001+H002+H003.
+- **App state:** Monorepo scaffolded. Game engine: 24 passing tests. 20-round
+  Classic Run playable - deep-navy `son` palette, two-line confidence buttons,
+  call-locked state, wrong All-In bust (D014), Call the Company guess (D015), $1
+  bankruptcy floor (D016), proportional payout (D017). No auth, no DB, no server.
+- **Next task:** Auditor pass A001 (assigned via handoff H004, GPT 5.5) covering
+  H001+H002+H003 - full browser walkthrough, math spot-checks, locked-rule
+  compliance. Then: scoring-model design memo for the composite-score open question.
+- **Blocked/Questions:** none. One MINOR carried to A001: Netflix reveal shows
+  +1136.0% (data value is `11.36`; doc text says +1135.6%).
 
 ## How to Run (updated as the app grows)
 
