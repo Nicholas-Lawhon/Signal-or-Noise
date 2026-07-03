@@ -11,11 +11,12 @@ first thing the next agent reads.
   Classic Run playable - deep-navy `son` palette, two-line confidence buttons,
   call-locked state, wrong All-In bust (D014), Call the Company guess (D015), $1
   bankruptcy floor (D016), proportional payout (D017). No auth, no DB, no server.
-- **Next task:** Auditor pass A001 (assigned via handoff H004, GPT 5.5) covering
-  H001+H002+H003 - full browser walkthrough, math spot-checks, locked-rule
-  compliance. Then: scoring-model design memo for the composite-score open question.
-- **Blocked/Questions:** none. One MINOR carried to A001: Netflix reveal shows
-  +1136.0% (data value is `11.36`; doc text says +1135.6%).
+- **Next task:** Run fix-up handoff **H005** (Implementor) resolving both A001
+  BLOCKERs (final-round dead-end, confidence/decision color ramp) + content leaks
+  (Amazon, Microsoft "Windows", BlackBerry title, D018) + Netflix precision.
+  Then **re-audit A002** → orchestrator commits and closes Phase 1.
+- **Blocked/Questions:** none. A001 FAILed with 2 BLOCKERs — both verified in code
+  by the orchestrator and addressed in H005; audit at `agents/audits/A001_H001-H003.md`.
 
 ## How to Run (updated as the app grows)
 
@@ -53,6 +54,25 @@ All from repo root. Requires Node.js LTS and pnpm 9.x.
 ---
 
 ## Session Log
+
+### 2026-07-03 — Orchestrator — A001 review + H005 fix-up
+
+**What changed:**
+- Reviewed audit A001 (verdict FAIL). Independently verified both BLOCKERs in code:
+  final-round guard at run/page.tsx:71 wrongly includes `view === 'locked'`, and
+  confidence/decision buttons build Tailwind classes from runtime-interpolated
+  color names (JIT never emits them).
+- Found an additional content leak the audit missed: Microsoft card names the
+  product "Windows" (same class as the Amazon MAJOR).
+- Logged D018 (placeholder content still bound by soul.md content integrity).
+- Authored `H005_a001_fixups.md` (approved) with exact before/after code for both
+  blockers and exact replacement text for 4 content strings + Netflix precision.
+
+**Next recommended task:** Run H005 (Implementor) → R005 → re-audit A002 → commit.
+
+### 2026-07-03 - Auditor - A001
+
+Audit filed at `agents/audits/A001_H001-H003.md` with verdict FAIL: full 20-round runs dead-end after Round 20 Lock In, and selected confidence ramp styles do not render.
 
 ### 2026-07-03 - Implementor - H003 Gameplay Fixes
 

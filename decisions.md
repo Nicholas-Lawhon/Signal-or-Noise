@@ -174,6 +174,19 @@ IS the payoff — a $1,250 low-confidence stake on Netflix 2012–2017 (+1,135.6
 correctly pays ≈$14,200. Swing management is handled by deck composition (D013),
 not by changing the math.
 
+## D018 — Placeholder content is still bound by soul.md content integrity
+
+**Date:** 2026-07-03 · **Status:** Orchestrator decision
+
+Audit A001 found the Amazon placeholder card leaked identity (famous book-title
+reference, founder reference, Amazon's literal mission statement); the orchestrator
+also found a Microsoft card naming the product "Windows" and a near-unmistakable
+BlackBerry title. Prototype/placeholder data (D006) does NOT get a pass on the
+`soul.md` content-integrity rules — no company name, ticker, founder/CEO reference,
+or unmistakable product name/slogan in hidden-card content, ever, even before the
+Phase 3 curated replacement. Fixed in H005. The Content Curator role file already
+encodes this for Phase 3+; D018 makes it retroactive to placeholder data.
+
 ## Open Design Question — composite Final Score / Information Tiers (NOT a decision)
 
 **Date:** 2026-07-03 · **Status:** Exploration pending
