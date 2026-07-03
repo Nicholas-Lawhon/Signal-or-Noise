@@ -161,6 +161,19 @@ decision-quality stat.
 A run ends in bankruptcy when bankroll drops below $1, not only at exactly $0 —
 prevents unplayable "zombie runs" at $3 after repeated High-confidence losses.
 
+## D017 — Payout model re-confirmed: proportional to real historical return
+
+**Date:** 2026-07-03 · **Status:** User approved (explicitly re-confirmed after
+playtest question)
+
+`pnl = stake × actualReturnPercent` stands, exactly as specified in docs 02/06/10
+and soul.md. Alternatives considered and rejected: even-money 1:1 (magnitude of
+the historical move would carry no gameplay weight; reads as betting) and capped
+proportional (gains capped at +100% of stake). The size of the real market move
+IS the payoff — a $1,250 low-confidence stake on Netflix 2012–2017 (+1,135.6%)
+correctly pays ≈$14,200. Swing management is handled by deck composition (D013),
+not by changing the math.
+
 ## Open Design Question — composite Final Score / Information Tiers (NOT a decision)
 
 **Date:** 2026-07-03 · **Status:** Exploration pending
