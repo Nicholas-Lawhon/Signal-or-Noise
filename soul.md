@@ -76,8 +76,23 @@ Preserves streak, does not increase it
 
 - Long: `pnl = stake × actualReturnPercent`
 - Short: `pnl = stake × (−actualReturnPercent)`, **loss capped at stake**
+- **All-In exception (D014): a wrong All-In call loses the entire stake — bankroll
+  goes to $0 and the run ends, regardless of the return's magnitude.**
 - `actualReturnPercent` is a decimal (`+35% = 0.35`, `−20% = −0.20`)
-- Bankroll can never go below $0. At $0 the run ends (bankruptcy), score is logged.
+- Bankroll can never go below $0. At $0 — or below $1 (D016) — the run ends
+  (bankruptcy), score is logged.
+
+### Call the Company (D015)
+
+Before locking a call, the player may optionally name the hidden company:
+
+```text
+Correct guess: +2 Signal Score
+Wrong guess:   −1 Signal Score
+No guess:      no change
+Allowed with any action, including Pass.
+Never affects bankroll.
+```
 
 ### Signal Score (secondary score)
 

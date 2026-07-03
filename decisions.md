@@ -120,3 +120,55 @@ uncommitted. The orchestrator reviews the report + diff, approves or rejects, an
 only the orchestrator commits to git. Consultant memos and Auditor audit files
 serve as those roles' reports. H001 was executed before this rule existed and has
 no R-report; its review happens via orchestrator review + audit A001.
+
+## D013 — Return-mix guideline; placeholder data rebalanced
+
+**Date:** 2026-07-03 · **Status:** User approved
+
+Playtest found every prototype round felt like a lottery because all 6 placeholder
+scenarios had extreme returns. The engine math is correct (stake × real historical
+return IS the game); the deck was skewed. Fix: rebalance samples to 2 dramatic /
+4 modest, and lock a content guideline for Phase 3+: **~70% of scenario cards have
+modest returns (±10–60%), ~30% dramatic (>±80%)**, mixed windows. Content Curator
+enforces this per daily pool and pack.
+
+## D014 — Wrong All-In = instant bust
+
+**Date:** 2026-07-03 · **Status:** User approved (user's call over orchestrator's
+proportional-loss recommendation)
+
+An incorrect All-In call loses the entire stake: bankroll → $0, run ends,
+regardless of return magnitude. Correct All-In still earns the full historical
+return on the stake. Rationale: All-In should feel like total risk; under
+proportional losses bankruptcy was nearly impossible and All-In read as "95%".
+`soul.md` amended.
+
+## D015 — "Call the Company" bonus guess
+
+**Date:** 2026-07-03 · **Status:** User approved
+
+Optional company guess before Lock In: correct +2 Signal Score, wrong −1, blank 0.
+Allowed with any action including Pass. Never affects bankroll. The wrong-guess
+penalty exists so guessing is a real declaration, not free spam. Matching is
+normalized (lowercase, alphanumerics only) against a per-scenario accepted-names
+list. This folds "what the player knew" into Signal Score's identity as the
+decision-quality stat.
+
+## D016 — Bankruptcy floor at $1
+
+**Date:** 2026-07-03 · **Status:** Orchestrator decision (complements D014)
+
+A run ends in bankruptcy when bankroll drops below $1, not only at exactly $0 —
+prevents unplayable "zombie runs" at $3 after repeated High-confidence losses.
+
+## Open Design Question — composite Final Score / Information Tiers (NOT a decision)
+
+**Date:** 2026-07-03 · **Status:** Exploration pending
+
+User is considering restructuring scoring around three axes: Bankroll (outcome),
+Signal Score (decision quality), Information Tier (what the player knew), possibly
+with a composite final score — potentially demoting or removing bankroll.
+Orchestrator position: bankroll is the core product fantasy per soul.md and all
+docs; do not remove it casually. Agreed path: a design memo with 2–3 concrete
+scoring models after audit A001, then a deliberate decision. Until then, bankroll
+remains the primary score.

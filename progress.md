@@ -6,12 +6,13 @@ first thing the next agent reads.
 
 ## Current Status
 
-- **Phase:** 0 + 1 — scaffold and playable Classic Run prototype complete.
+- **Phase:** 1 — prototype restyled to canonical design pack. Call-locked flow added.
 - **App state:** Monorepo scaffolded. Game engine built with 18 passing tests.
-  20-round Classic Run is playable at `/play/classic/run?difficulty=<easy|medium|hard>`.
-  No auth, no DB, no server-side logic.
-- **Next task:** Auditor pass A001 on handoff H001; verify acceptance criteria 7–14
-  manually (UI walkthrough).
+  20-round Classic Run playable with deep-navy son color palette, two-line confidence
+  buttons (cyan/green/amber/violet ramp), call-locked suspense state, and difficulty
+  explainer copy. No zinc/teal classes remain. No auth, no DB, no server-side logic.
+- **Next task:** Auditor review A001 on H001 + H002 combined; manual walkthrough of
+  locked state, confidence color ramp, 375px viewport.
 - **Blocked/Questions:** none.
 
 ## How to Run (updated as the app grows)
@@ -50,6 +51,46 @@ All from repo root. Requires Node.js LTS and pnpm 9.x.
 ---
 
 ## Session Log
+
+### 2026-07-03 — Orchestrator — Playtest decisions D013–D016 + H003
+
+**What changed:**
+- User playtest findings triaged: reset-between-rounds bug confirmed
+  (run/page.tsx handleNext); "$14,200 gain" verified as correct math on the
+  Netflix +1,135.6% card (deck balance issue, not engine bug).
+- Decisions logged: D013 return-mix rebalance + content guideline, D014 wrong
+  All-In = instant bust (soul.md amended), D015 "Call the Company" bonus guess
+  (+2/−1/0, soul.md amended), D016 $1 bankruptcy floor.
+- Open design question logged (NOT decided): composite Final Score /
+  Information Tiers; bankroll remains primary score pending a design memo.
+- Authored `H003_gameplay_fixes.md` (approved) covering all of the above.
+
+**Next recommended task:** Run H003 (Implementor) → R003 review → then Auditor
+A001 covering H001+H002+H003 → orchestrator commits the prototype.
+
+### 2026-07-03 — Implementor — H002 Design Alignment
+
+**What changed:**
+- Extended Tailwind config with `son` color namespace from `docs/design/04_design_tokens.json` (deep-navy bg #08111F, signalBlue #4DA3FF, signalCyan #38D5E6, green #35D07F, amber #FFB84D, red #FF5C73, violet #A875FF)
+- Replaced all `zinc-*` and `teal-*` classes across every screen with `son-*` tokens (grep clean: zero zinc/teal remaining)
+- Redesigned confidence buttons to exactly two lines: `Label (40%)` / `$amount` (large bold), removed Signal Score impact from buttons (D010)
+- Confidence color ramp: Low=son-signalCyan, Medium=son-green, High=son-amber, All-In=son-violet
+- Decision button accents: Long=son-green, Short=son-red, Pass=son-textSecondary
+- Sparkline component: added `variant` prop — lookback always son-signalCyan, outcome son-green/son-red by direction
+- Difficulty selector: added explainer line per difficulty (Easy→"More direct clues.", Medium→"Balanced clues.", Hard→"Less obvious company context.")
+- Added "Call locked" view state between round and reveal (D011): Lock In → centered card with "Call locked.", your call/confidence/at risk, "Reveal Result" button → reveal
+- Primary action buttons (Play Now, Lock In, Next Round, Reveal Result, See Summary) use `son-signalBlue` with dark `son-textInverse` text
+- Cards use `rounded-2xl`, buttons use `rounded-lg` per token radius scale
+
+**How to run:** unchanged — `pnpm install && pnpm dev && pnpm test` from repo root
+
+**Tests:** 18 passing / 0 failing — `pnpm test` (all H001 tests still green)
+
+**Known issues:** none
+
+**Blocked/Questions:** none
+
+**Next recommended task:** Auditor review (A001) of H001 + H002 combined; manual walkthrough of locked state flow, confidence color ramp, 375px viewport
 
 ### 2026-07-03 — Orchestrator — Report workflow + design pack adoption
 
