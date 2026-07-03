@@ -22,17 +22,24 @@ import { formatMoney, formatSignedMoney, formatPercent, formatSignalScore } from
 import { normalizeGuess } from '@/lib/guess';
 import Sparkline from '@/components/Sparkline';
 
-const CONFIDENCE_COLORS: Record<Confidence, string> = {
-  low: 'son-signalCyan',
-  medium: 'son-green',
-  high: 'son-amber',
-  all_in: 'son-violet',
+// Fully-literal class strings so Tailwind's JIT compiler emits them.
+// Do NOT build these by interpolating color names at runtime.
+const CONFIDENCE_SELECTED_BOX: Record<Confidence, string> = {
+  low: 'border-son-signalCyan bg-son-signalCyan/10',
+  medium: 'border-son-green bg-son-green/10',
+  high: 'border-son-amber bg-son-amber/10',
+  all_in: 'border-son-violet bg-son-violet/10',
 };
-
-const DECISION_COLORS: Record<RoundAction, string> = {
-  long: 'son-green',
-  short: 'son-red',
-  pass: 'son-textSecondary',
+const CONFIDENCE_SELECTED_TEXT: Record<Confidence, string> = {
+  low: 'text-son-signalCyan',
+  medium: 'text-son-green',
+  high: 'text-son-amber',
+  all_in: 'text-son-violet',
+};
+const DECISION_SELECTED: Record<RoundAction, string> = {
+  long: 'border-son-green bg-son-green/10 text-son-green',
+  short: 'border-son-red bg-son-red/10 text-son-red',
+  pass: 'border-son-textSecondary bg-son-textSecondary/10 text-son-textSecondary',
 };
 
 export default function ClassicRunClient() {
@@ -68,7 +75,7 @@ export default function ClassicRunClient() {
   }
 
   const scenario = scenarios[run.currentRoundIndex];
-  if (!scenario && (view === 'round' || view === 'locked')) {
+  if (!scenario && view === 'round') {
     return (
       <main className="flex min-h-screen items-center justify-center bg-son-bg">
         <p className="text-son-textMuted">No scenario available.</p>
@@ -119,21 +126,6 @@ export default function ClassicRunClient() {
   const summary = summarizeRun(run);
 
   const scenarioByLookup = Object.fromEntries(scenarios.map((s) => [s.id, s]));
-
-  const confidenceColorClass = (level: Confidence, selected: boolean, disabled: boolean) => {
-    if (disabled) return 'cursor-not-allowed border-son-borderSubtle/50 bg-son-surface/30 text-son-textMuted';
-    const color = CONFIDENCE_COLORS[level];
-    if (selected) return `border-${color} bg-${color}/10 text-${color} shadow-[0_0_16px_rgba(var(--tw-color-shadow),0.15)]`;
-    return `border-son-border bg-son-card text-son-textSecondary hover:border-son-borderStrong`;
-  };
-
-  const decisionColorClass = (a: RoundAction, selected: boolean) => {
-    if (selected) {
-      const color = DECISION_COLORS[a];
-      return `border-${color} bg-${color}/10 font-semibold`;
-    }
-    return 'border-son-border bg-son-card text-son-textSecondary hover:border-son-borderStrong';
-  };
 
   // ---- Round View ----
   if (view === 'round' && scenario) {
@@ -223,7 +215,7 @@ export default function ClassicRunClient() {
                     }}
                     className={`flex-1 rounded-lg border px-4 py-2.5 text-sm transition-colors ${
                       isSelected
-                        ? `border-${DECISION_COLORS[a]} bg-${DECISION_COLORS[a]}/10 text-${DECISION_COLORS[a]} font-semibold`
+                        ? `${DECISION_SELECTED[a]} font-semibold`
                         : 'border-son-border bg-son-card text-son-textSecondary hover:border-son-borderStrong'
                     }`}
                   >
@@ -243,14 +235,13 @@ export default function ClassicRunClient() {
                 const stake = calculateStake(run.currentBankroll, level);
                 const disabled = action === 'pass' || action === null;
                 const pct = (config.bankrollPercent * 100).toFixed(0);
-                const color = CONFIDENCE_COLORS[level];
                 const selected = confidence === level;
 
                 let classes = '';
                 if (disabled) {
                   classes = 'cursor-not-allowed border-son-borderSubtle/50 bg-son-surface/30 text-son-textMuted';
                 } else if (selected) {
-                  classes = `border-${color} bg-${color}/10`;
+                  classes = CONFIDENCE_SELECTED_BOX[level];
                 } else {
                   classes = 'border-son-border bg-son-card hover:border-son-borderStrong';
                 }
@@ -263,10 +254,10 @@ export default function ClassicRunClient() {
                     onClick={() => setConfidence(level)}
                     className={`rounded-lg border p-3 text-left transition-colors ${classes}`}
                   >
-                    <div className={`text-xs ${disabled ? '' : selected ? `text-${color}` : 'text-son-textSecondary'}`}>
+                    <div className={`text-xs ${disabled ? '' : selected ? CONFIDENCE_SELECTED_TEXT[level] : 'text-son-textSecondary'}`}>
                       {config.label} ({pct}%)
                     </div>
-                    <div className={`mt-0.5 text-lg font-bold tabular-nums ${disabled ? '' : selected ? `text-${color}` : 'text-son-text'}`}>
+                    <div className={`mt-0.5 text-lg font-bold tabular-nums ${disabled ? '' : selected ? CONFIDENCE_SELECTED_TEXT[level] : 'text-son-text'}`}>
                       {formatMoney(stake)}
                     </div>
                   </button>
@@ -360,6 +351,25 @@ export default function ClassicRunClient() {
       <main className="flex min-h-screen flex-col items-center px-4 py-6">
         <div className="w-full max-w-md">
           <div className="rounded-2xl border border-son-border bg-son-card p-5">
+            {/* Win/loss/pass banner */}
+            {lastRound.action === 'pass' ? (
+              <div className="rounded-lg bg-son-surface px-4 py-3 mb-4 text-center text-lg font-bold text-son-textSecondary">
+                You passed
+              </div>
+            ) : lastRound.pnlAmount > 0 ? (
+              <div className="rounded-lg bg-son-green/15 px-4 py-3 mb-4 text-center text-lg font-bold text-son-green">
+                You won {formatSignedMoney(lastRound.pnlAmount)}
+              </div>
+            ) : lastRound.pnlAmount < 0 ? (
+              <div className="rounded-lg bg-son-red/15 px-4 py-3 mb-4 text-center text-lg font-bold text-son-red">
+                You lost {formatSignedMoney(lastRound.pnlAmount)}
+              </div>
+            ) : (
+              <div className="rounded-lg bg-son-surface px-4 py-3 mb-4 text-center text-lg font-bold text-son-textSecondary">
+                Break-even
+              </div>
+            )}
+
             <h2 className="text-2xl font-bold text-son-text">
               That was {revealScenario?.companyName ?? '?'}.
             </h2>
