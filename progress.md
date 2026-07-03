@@ -6,18 +6,19 @@ first thing the next agent reads.
 
 ## Current Status
 
-- **Phase:** 1 - playable prototype COMMITTED (`232aa19`). H005 fix-ups UNCOMMITTED in working tree (awaiting re-audit + orchestrator review).
+- **Phase:** 1 - playable prototype COMMITTED (`232aa19`). H005+H006 fix-ups UNCOMMITTED in working tree (awaiting re-audit A002 + orchestrator review).
 - **App state:** Monorepo scaffolded. Game engine: 24 passing tests. 20-round
   Classic Run playable - deep-navy `son` palette, two-line confidence buttons,
   call-locked state, wrong All-In bust (D014), Call the Company guess (D015), $1
-  bankruptcy floor (D016), proportional payout (D017). Both A001 BLOCKERs fixed.
-  Color ramp renders with static literal class maps. Content leaks removed.
-  Netflix now shows +1135.6%. No auth, no DB, no server.
-- **Next task:** Run **H006** on the same uncommitted tree (variety pool 6→12,
-  no-repeat shuffle, win/loss reveal banner) — non-overlapping with H005's edits.
-  Then a single **re-audit A002** covering H005 + H006 → orchestrator commits both
-  and closes Phase 1.
-- **Blocked/Questions:** none.
+  bankruptcy floor (D016), proportional payout (D017). 12 placeholder scenarios
+  (pool doubled, no-repeat shuffle). Color ramp renders with static literal maps.
+  Content leaks removed. Netflix shows +1135.6%. Reveal win/loss/pass banner.
+  No auth, no DB, no server.
+- **Next task:** **Re-audit A002** (handoff H007, GPT 5.5) covering H005 + H006 —
+  browser-verify the two former blockers + variety/banner + 12-card leak scan.
+  Orchestrator then commits both and closes Phase 1.
+- **Blocked/Questions:** none. Orchestrator pre-review clean: 24/24 tests, 0
+  interpolated Tailwind classes, guard fixed, 12 cards, 0 leak-string matches.
 
 ## How to Run (updated as the app grows)
 
@@ -55,6 +56,25 @@ All from repo root. Requires Node.js LTS and pnpm 9.x.
 ---
 
 ## Session Log
+
+### 2026-07-03 — Implementor — H006 Scenario Variety + Win/Loss Reveal
+
+**What changed:**
+- Part A: Appended 6 new placeholder scenarios (Coca-Cola, Starbucks, Nvidia, GE, Boeing, Visa) to SCENARIOS array — total pool now 12. All hidden-card fields leak-checked per D018.
+- Part B: Rewrote `buildRunScenarioList` — exhausts full pool in shuffled laps before repeating, with boundary-repeat guard (swaps first entry of new lap if it matches last emitted card).
+- Part C: Added win/loss/pass/break-even banner at top of reveal card: green `+$…` for wins, red `−$…` for losses, neutral `You passed` / `Break-even`.
+
+**Files changed:** `apps/web/lib/sampleScenarios.ts`, `apps/web/app/play/classic/run/page.tsx`
+
+**How to run:** unchanged
+
+**Tests:** 24 passing / 0 failing — `pnpm test`; `pnpm typecheck` clean; `pnpm lint` clean (no warnings or errors).
+
+**Known issues:** None.
+
+**Blocked/Questions:** None.
+
+**Next recommended task:** Re-audit A002 covering H005+H006, then orchestrator commits and closes Phase 1.
 
 ### 2026-07-03 — Implementor — H005 A001 Fix-ups
 
