@@ -187,6 +187,29 @@ or unmistakable product name/slogan in hidden-card content, ever, even before th
 Phase 3 curated replacement. Fixed in H005. The Content Curator role file already
 encodes this for Phase 3+; D018 makes it retroactive to placeholder data.
 
+## D019 — Content-leakage is a standing audit check + Phase 3 automated validator
+
+**Date:** 2026-07-03 · **Status:** User-requested
+
+Two-layer defense against identifying information in hidden-card content:
+1. **Now:** every Auditor pass that touches scenario content runs a content-leakage
+   scan (company name / ticker / founder / product-name-or-slogan) — added to
+   `agents/roles/auditor.md`. A001 already caught the Amazon leak this way.
+2. **Phase 3:** the content pipeline (`packages/content`) ships an automated
+   leakage/difficulty validator (Zod schema + a rules check) so cards fail
+   validation before a human ever reviews them. Logged in `roadmap.md` Phase 3.
+
+## D020 — Prototype needs more placeholder scenarios to reduce repetition
+
+**Date:** 2026-07-03 · **Status:** User-reported, orchestrator decision
+
+Playtest: a 20-round run only showed ~4–5 distinct companies because the pool has
+6 cards and `buildRunScenarioList` cycles them. Fix (H006): expand placeholder pool
+to 12 orchestrator-authored cards and make `buildRunScenarioList` exhaust the pool
+before repeating (no card twice until all shown; no back-to-back repeat at lap
+boundaries). Still placeholder-grade (D006); Phase 3 replaces all of it with 100
+curated cards, so this is a demo-quality stopgap, not final content.
+
 ## Open Design Question — composite Final Score / Information Tiers (NOT a decision)
 
 **Date:** 2026-07-03 · **Status:** Exploration pending

@@ -55,6 +55,21 @@ All from repo root. Requires Node.js LTS and pnpm 9.x.
 
 ## Session Log
 
+### 2026-07-03 — Orchestrator — Playtest round 2 (D019/D020, H006, role/roadmap)
+
+**What changed:**
+- Triaged 4 more playtest notes. Point "guess by name/ticker, case-forgiving" was
+  already implemented (normalizeGuess + tickers in acceptedNames) — no work.
+- D019: content-leakage is now a standing Auditor check (added to
+  `agents/roles/auditor.md`) + an automated leakage/difficulty validator scheduled
+  for the Phase 3 content pipeline (roadmap updated).
+- D020 + H006: expand placeholder pool 6→12 (orchestrator-authored, leak-checked)
+  and make `buildRunScenarioList` exhaust the pool before repeating; plus a clearer
+  win/loss reveal banner. H006 depends on H005 (same files) — runs after it.
+- Sounds/animation logged as a Phase 9 TODO (roadmap).
+
+**Next recommended task:** Run H005 → re-audit A002 → commit/close Phase 1 → run H006.
+
 ### 2026-07-03 — Orchestrator — A001 review + H005 fix-up
 
 **What changed:**

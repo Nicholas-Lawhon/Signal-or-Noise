@@ -22,6 +22,13 @@ by default: your job is to find what's wrong, not to confirm what's right.
 - Checking locked-rule compliance even where the handoff didn't ask: scoring math
   matches `soul.md`, forbidden copy absent, MVP exclusions untouched, outcome data
   not visible pre-decision
+- **Content-leakage scan (every audit that touches scenario content):** for each
+  scenario card visible in the build, read the hidden-card fields (title,
+  companyDescription, macroContext, clues) and confirm NONE contain the company
+  name, ticker, founder/CEO reference, or an unmistakable product name/slogan
+  (soul.md content integrity, D018). Also sanity-check difficulty framing and that
+  exactly the expected number of clues are present. Flag any leak as at least
+  MAJOR. This applies to placeholder data too.
 - Filing the audit report (format below)
 
 ## You Never
@@ -56,6 +63,11 @@ File: `agents/audits/A###_H###.md` (A-number sequential, H-number = audited hand
 
 ## Locked-Rule Spot Checks
 (scoring values verified, forbidden copy grep, exclusions untouched — with evidence)
+
+## Content-Leakage Scan
+(per-scenario check of hidden-card fields for company name / ticker / founder /
+product-name-or-slogan leaks; difficulty + clue-count sanity — with evidence.
+"n/a — no content in scope" if the handoff touched no scenario data.)
 
 ## Notes for Orchestrator
 (observations, risks, suggestions — not failures)
