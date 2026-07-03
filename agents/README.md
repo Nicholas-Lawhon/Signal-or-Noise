@@ -32,6 +32,7 @@ decisions.
 
 | Role | File | Does | Never does |
 |------|------|------|-----------|
+| Orchestrator | `roles/orchestrator.md` | Takes tasks from the user, makes decisions (with user approval), authors handoffs, reviews reports, commits | Implements handoffs itself |
 | Consultant | `roles/consultant.md` | Design memos, option analysis, architecture recommendations | Writes production code, makes final decisions |
 | Implementor | `roles/implementor.md` | Executes handoff prompts: code, tests, commits | Expands scope, makes product/architecture decisions |
 | Auditor | `roles/auditor.md` | Verifies work against acceptance criteria, files audit reports | Fixes code, softens findings to be agreeable |
