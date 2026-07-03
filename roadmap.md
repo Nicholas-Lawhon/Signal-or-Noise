@@ -1,21 +1,21 @@
 # roadmap.md — Signal or Noise?
 
-> **Current phase: Phase 0 (not started).** Groundwork/agent-workflow setup is complete.
-> Only the orchestrator updates this file.
+> **Current phase: Phase 2 (next).** Phases 0 + 1 are COMPLETE and audited
+> (A002 PASS). Only the orchestrator updates this file.
 
 Phases follow `docs/10_agentic_coding_handoff.md`. Each phase ships as one or more
 numbered handoff prompts (`agents/handoffs/H###_*.md`). A phase is complete only when
 its acceptance criteria pass and an audit (`agents/audits/`) signs off.
 
-## Phase 0 — Project Setup ⬜
+## Phase 0 — Project Setup ✅
 
 Monorepo scaffold: pnpm workspace, Next.js app in `apps/web`, `packages/game-engine`,
 `packages/content`, `.env.example`, README, lint/format basics, Vitest wiring.
 
 **Accept:** app runs locally; game-engine builds; tests run; docs + agent files present.
-**Handoff:** H001 (combined with Phase 1).
+**Handoffs:** H001. **Done:** delivered in H001, audited A002 PASS.
 
-## Phase 1 — Static Classic Run Prototype ⬜
+## Phase 1 — Static Classic Run Prototype ✅
 
 Playable 20-round Classic Run with hardcoded scenario data. Landing → mode select →
 classic setup → scenario card (lookback chart placeholder) → Long/Short/Pass +
@@ -23,7 +23,10 @@ confidence → reveal → next round → end summary. Bankruptcy handling. No au
 
 **Accept:** full run completable; bankroll and Signal Score math correct; Pass = −0.25;
 All-In can bankrupt; outcome hidden before decision; engine unit tests pass.
-**Handoff:** H001.
+**Handoffs:** H001 → H002 (design) → H003 (gameplay fixes) → H005 (A001 fixups) →
+H006 (variety + reveal banner). **Audits:** A001 (FAIL) → fixed → A002 (PASS).
+**Done 2026-07-03.** 12 placeholder cards, 24 engine tests. Adds beyond original
+scope: Call the Company (D015), wrong-All-In bust (D014), win/loss banner.
 
 ## Phase 2 — Game Engine Hardening ⬜
 

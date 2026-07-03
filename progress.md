@@ -6,19 +6,19 @@ first thing the next agent reads.
 
 ## Current Status
 
-- **Phase:** 1 - playable prototype COMMITTED (`232aa19`). H005+H006 fix-ups UNCOMMITTED in working tree (awaiting re-audit A002 + orchestrator review).
+- **Phase:** 0 + 1 COMPLETE and audited (A002 PASS). All work committed. Phase 2
+  (Game Engine Hardening) is next.
 - **App state:** Monorepo scaffolded. Game engine: 24 passing tests. 20-round
   Classic Run playable - deep-navy `son` palette, two-line confidence buttons,
   call-locked state, wrong All-In bust (D014), Call the Company guess (D015), $1
   bankruptcy floor (D016), proportional payout (D017). 12 placeholder scenarios
-  (pool doubled, no-repeat shuffle). Color ramp renders with static literal maps.
-  Content leaks removed. Netflix shows +1135.6%. Reveal win/loss/pass banner.
-  No auth, no DB, no server.
-- **Next task:** **Re-audit A002** (handoff H007, GPT 5.5) covering H005 + H006 —
-  browser-verify the two former blockers + variety/banner + 12-card leak scan.
-  Orchestrator then commits both and closes Phase 1.
-- **Blocked/Questions:** none. Orchestrator pre-review clean: 24/24 tests, 0
-  interpolated Tailwind classes, guard fixed, 12 cards, 0 leak-string matches.
+  (no-repeat shuffle). Color ramp via static maps. Netflix +1135.6%. Reveal
+  win/loss banner. No auth, no DB, no server.
+- **Next task:** Orchestrator to choose the next thread now that Phase 1 is closed:
+  (a) Gate A Growth work (positioning one-pager — Phase 1 done opens this gate),
+  (b) composite Final Score / Information-Tier design memo (open question), or
+  (c) Phase 2 engine hardening (run-state API completion + full test matrix).
+- **Blocked/Questions:** none.
 
 ## How to Run (updated as the app grows)
 
@@ -56,6 +56,23 @@ All from repo root. Requires Node.js LTS and pnpm 9.x.
 ---
 
 ## Session Log
+
+### 2026-07-03 — Orchestrator — A002 review, Phase 1 closed
+
+**What changed:**
+- Reviewed A002 (PASS, 0 findings). Independently re-ran tests (24/24) and static
+  checks earlier; accepted the browser-only criteria on the auditor's evidence.
+- Committed H005+H006 app changes (audited) as the Phase-1 closeout commit.
+- Acted on the audit's one note: stopped tracking `apps/web/tsconfig.tsbuildinfo`
+  (build artifact) and added `*.tsbuildinfo` to `.gitignore`.
+- Marked R005/R006 approved; roadmap Phases 0 + 1 → ✅; current phase → 2.
+
+**Next recommended task:** Orchestrator + user pick the next thread — Gate A Growth
+positioning, the composite-score design memo, or Phase 2 engine hardening.
+
+### 2026-07-03 - Auditor - A002
+
+Audit filed at `agents/audits/A002_H005-H006.md` with verdict PASS: H005/H006 criteria verified, former blockers fixed, 12-card leakage scan clean.
 
 ### 2026-07-03 — Implementor — H006 Scenario Variety + Win/Loss Reveal
 
