@@ -2,7 +2,7 @@
 
 **Role:** Implementor
 **Phase:** 1 (fix-up)
-**Status:** approved
+**Status:** complete
 **Depends on:** H001, H002 (both executed; work is uncommitted in the working tree)
 **Estimated scope:** medium — one engine rule change, one new engine mechanic,
 one UI bug fix, one data rebalance, explainer copy.

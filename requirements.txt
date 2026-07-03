@@ -1,0 +1,55 @@
+# Signal or Noise? — Developer Requirements
+#
+# PREREQUISITES (install manually):
+#
+# 1. Node.js LTS (v24.18.0 tested; v18+ or v20+ should work)
+#    Download: https://nodejs.org/
+#    Verify:   node --version
+#
+# 2. pnpm 9.15.0 (specified in package.json > packageManager)
+#    Install:  corepack enable pnpm  OR  npm install -g pnpm
+#    Verify:   pnpm --version
+#
+# 3. PowerShell execution policy (Windows only)
+#    If you get "running scripts is disabled":
+#      Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+#    Or run .cmd binaries directly (e.g. pnpm.cmd dev)
+#
+# ---
+#
+# MANAGED DEPENDENCIES (installed by `pnpm install`):
+#
+# Root workspace:
+#   (none — scripts only)
+#
+# packages/game-engine:
+#   devDependencies:
+#     typescript     ^5.6.0
+#     vitest         ^2.1.0
+#
+# apps/web:
+#   dependencies:
+#     @signal-or-noise/game-engine  workspace:*
+#     next              ^14.2.0
+#     react             ^18.3.0
+#     react-dom         ^18.3.0
+#   devDependencies:
+#     @types/node       ^20.14.0
+#     @types/react      ^18.3.0
+#     @types/react-dom  ^18.3.0
+#     autoprefixer      ^10.5.2
+#     eslint            ^8.57.0
+#     eslint-config-next ^14.2.0
+#     postcss           ^8.4.0
+#     tailwindcss       ^3.4.0
+#     typescript        ^5.6.0
+#
+# ---
+#
+# QUICKSTART:
+#
+#   pnpm install          # install all dependencies
+#   pnpm dev              # start dev server at http://localhost:3000
+#   pnpm test             # run game-engine tests
+#   pnpm typecheck        # run TypeScript type checking
+#   pnpm lint             # run ESLint

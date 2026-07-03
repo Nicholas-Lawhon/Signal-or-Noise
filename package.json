@@ -1,0 +1,12 @@
+{
+  "name": "signal-or-noise",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter web dev",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "pnpm --filter web lint"
+  },
+  "packageManager": "pnpm@9.15.0"
+}

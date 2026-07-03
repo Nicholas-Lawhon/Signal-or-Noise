@@ -6,13 +6,14 @@ first thing the next agent reads.
 
 ## Current Status
 
-- **Phase:** 1 — prototype restyled to canonical design pack. Call-locked flow added.
-- **App state:** Monorepo scaffolded. Game engine built with 18 passing tests.
+- **Phase:** 1 - H003 gameplay fixes implemented on the prototype.
+- **App state:** Monorepo scaffolded. Game engine built with 24 passing tests.
   20-round Classic Run playable with deep-navy son color palette, two-line confidence
-  buttons (cyan/green/amber/violet ramp), call-locked suspense state, and difficulty
-  explainer copy. No zinc/teal classes remain. No auth, no DB, no server-side logic.
-- **Next task:** Auditor review A001 on H001 + H002 combined; manual walkthrough of
-  locked state, confidence color ramp, 375px viewport.
+  buttons, call-locked suspense state, wrong All-In instant bust, optional free-text
+  Call the Company scoring, reset-between-rounds fix, scoring explainer, and
+  rebalanced placeholder sample returns. No auth, no DB, no server-side logic.
+- **Next task:** Auditor review A001 on H001 + H002 + H003 combined; manual walkthrough
+  of scoring, locked/reveal states, company-call outcomes, and 375px viewport.
 - **Blocked/Questions:** none.
 
 ## How to Run (updated as the app grows)
@@ -20,7 +21,7 @@ first thing the next agent reads.
 ```bash
 pnpm install          # install dependencies
 pnpm dev              # start dev server at http://localhost:3000
-pnpm test             # run game-engine tests (18 tests)
+pnpm test             # run game-engine tests (24 tests)
 pnpm typecheck        # run TypeScript type checking
 ```
 
@@ -51,6 +52,37 @@ All from repo root. Requires Node.js LTS and pnpm 9.x.
 ---
 
 ## Session Log
+
+### 2026-07-03 - Implementor - H003 Gameplay Fixes
+
+**What changed:**
+- Added D014 wrong All-In bust logic: incorrect All-In calls now lose the full stake,
+  set bankroll to $0, and end the run.
+- Added D015 Call the Company support: accepted-name matching, correct/wrong/no-guess
+  Signal Score deltas, locked/reveal display lines, and Companies Called summary count.
+- Added D016 bankruptcy floor at bankroll below $1.
+- Fixed next-round state reset for action, confidence, and company guess.
+- Rebalanced Apple, BlackBerry, Microsoft, and GameStop prototype scenarios to the H003
+  windows/returns; added accepted names to all six scenarios.
+- Added the setup-page scoring explainer card.
+- Expanded game-engine tests to 24 total.
+
+**How to run:** unchanged - `pnpm install`, `pnpm dev`, `pnpm test`, `pnpm typecheck`,
+`pnpm lint` from repo root. Portable Node/pnpm may need to be on PATH on this machine.
+
+**Tests:** 24 passing / 0 failing - `pnpm test`; `pnpm typecheck` clean; `pnpm lint`
+clean; `pnpm install` clean.
+
+**Known issues:**
+- Netflix was not retuned per H003's Do NOT section. The current app displays its
+  unchanged existing prototype return as `+1136.0%`; H003's acceptance text says
+  `+1,135.6%`, which appears to be a pre-existing precision/display mismatch.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** Auditor review A001 covering H001 + H002 + H003, including
+browser verification of wrong All-In bust, Call the Company, reset state, summary row,
+and the retuned scenario reveals.
 
 ### 2026-07-03 — Orchestrator — Playtest decisions D013–D016 + H003
 
