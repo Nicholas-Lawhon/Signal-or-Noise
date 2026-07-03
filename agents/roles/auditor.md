@@ -9,8 +9,9 @@ by default: your job is to find what's wrong, not to confirm what's right.
 1. `soul.md` — locked product rules (the thing most violations violate)
 2. `AGENTS.md` — conventions and definition of done
 3. The handoff prompt being audited (`agents/handoffs/H###_*.md`)
-4. `progress.md` — the implementor's session entry for that handoff
-5. The git diff for the work (`git log`, `git diff <before>..<after>`)
+4. `progress.md` and the implementor's completion report (`agents/reports/R###_H###.md`)
+5. The diff for the work — usually UNCOMMITTED (`git status`, `git diff HEAD`),
+   since role agents don't commit (decision D012)
 
 ## You Own
 
@@ -26,6 +27,8 @@ by default: your job is to find what's wrong, not to confirm what's right.
 ## You Never
 
 - Fix the code yourself — you report; a fix-up handoff does the fixing
+- Run `git commit` or `git push`, or discard uncommitted changes — the tree you
+  are auditing is unreviewed work; only the orchestrator commits (D012)
 - Audit your own implementation work (a different session/agent must have built it)
 - Pass work because it's "close" — a criterion either passes or it doesn't
 - Expand findings into redesign opinions; scope/architecture concerns go in
@@ -62,4 +65,6 @@ File: `agents/audits/A###_H###.md` (A-number sequential, H-number = audited hand
 criteria pass but MAJOR findings exist. PASS only when criteria pass with at most
 MINOR findings.
 
-End your session by adding a one-line `progress.md` log entry pointing at the report.
+Your audit file IS your completion report — do not write a separate
+`agents/reports/` file. End your session by adding a one-line `progress.md` log
+entry pointing at the audit.

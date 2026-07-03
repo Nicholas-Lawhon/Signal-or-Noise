@@ -9,12 +9,20 @@ prompts; **role agents** (any coding assistant) execute them exactly.
 ```text
 1. Orchestrator drafts a handoff prompt  →  agents/handoffs/H###_*.md
 2. User approves the handoff (status: approved)
-3. Implementor (or Curator/Growth) executes it exactly, updates progress.md
-4. Auditor reviews the result against the handoff's acceptance criteria
-   →  agents/audits/A###_H###.md  (PASS / PASS WITH FINDINGS / FAIL)
-5. Orchestrator resolves findings (fix-up handoff if needed), updates
-   roadmap.md + decisions.md, drafts the next handoff
+3. Executing agent (Implementor/Curator/Growth) does the work, updates
+   progress.md, and writes a completion report → agents/reports/R###_H###.md
+   ── WITHOUT committing anything to git
+4. Orchestrator reviews the report + uncommitted diff, and approves or rejects.
+   Code-heavy handoffs also get an Auditor pass → agents/audits/A###_H###.md
+5. On approval, the ORCHESTRATOR commits the work, updates roadmap.md +
+   decisions.md, and drafts the next handoff.
+   On rejection, a fix-up handoff goes back to step 2.
 ```
+
+**Nothing reaches git history without an orchestrator-approved report (decision
+D012).** Role agents never run `git commit` or `git push`; the uncommitted
+working tree IS the review artifact. Consultant memos and Auditor audit files
+serve as those roles' reports — they don't write a separate R### file.
 
 Consultant is invoked *before* steps with real design ambiguity (currently gated:
 Phase 4 database, Phase 5 auth) and produces a memo the orchestrator turns into
@@ -37,6 +45,7 @@ agents/
   README.md            this file
   roles/               role definitions (read yours before working)
   handoffs/            numbered handoff prompts (H001, H002, ...) + TEMPLATE.md
+  reports/             completion reports (R001_H001.md, ...) + TEMPLATE.md
   audits/              auditor reports (A001_H001.md, ...)
   consultations/       consultant memos (C001_database.md, ...)
 ```

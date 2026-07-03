@@ -1,0 +1,147 @@
+{
+  "name": "Signal or Noise Design Tokens",
+  "version": "0.1.0",
+  "brand": {
+    "productName": "Signal or Noise?",
+    "taglines": [
+      "Can you find the signal through the noise?",
+      "Read the clues. Make the call. Beat the reveal.",
+      "Play daily, climb leaderboards, and challenge friends."
+    ]
+  },
+  "colors": {
+    "background": {
+      "app": "#08111F",
+      "surface": "#0E1A2D",
+      "card": "#111F35",
+      "cardElevated": "#17263D"
+    },
+    "border": {
+      "subtle": "#1B2A42",
+      "default": "#24324A",
+      "strong": "#38506F"
+    },
+    "text": {
+      "primary": "#F4F7FB",
+      "secondary": "#A9B7CA",
+      "muted": "#66758C",
+      "inverse": "#06101E"
+    },
+    "accent": {
+      "signalBlue": "#4DA3FF",
+      "signalCyan": "#38D5E6",
+      "successGreen": "#35D07F",
+      "warningAmber": "#FFB84D",
+      "dangerRed": "#FF5C73",
+      "allInViolet": "#A875FF",
+      "noiseGray": "#4E5C70"
+    },
+    "confidence": {
+      "low": "#38D5E6",
+      "medium": "#35D07F",
+      "high": "#FFB84D",
+      "allIn": "#A875FF"
+    },
+    "decision": {
+      "long": "#35D07F",
+      "short": "#FF5C73",
+      "pass": "#A9B7CA"
+    }
+  },
+  "typography": {
+    "fontFamily": {
+      "sans": "Inter, Geist, Satoshi, Manrope, system-ui, sans-serif",
+      "mono": "IBM Plex Mono, JetBrains Mono, ui-monospace, SFMono-Regular, monospace"
+    },
+    "fontWeights": {
+      "regular": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700,
+      "black": 800
+    },
+    "scale": {
+      "xs": "0.75rem",
+      "sm": "0.875rem",
+      "base": "1rem",
+      "lg": "1.125rem",
+      "xl": "1.25rem",
+      "2xl": "1.5rem",
+      "3xl": "1.875rem",
+      "4xl": "2.25rem",
+      "5xl": "3rem"
+    }
+  },
+  "spacing": {
+    "1": "0.25rem",
+    "2": "0.5rem",
+    "3": "0.75rem",
+    "4": "1rem",
+    "5": "1.25rem",
+    "6": "1.5rem",
+    "8": "2rem",
+    "10": "2.5rem",
+    "12": "3rem",
+    "16": "4rem"
+  },
+  "radius": {
+    "sm": "0.5rem",
+    "md": "0.75rem",
+    "lg": "1rem",
+    "xl": "1.25rem",
+    "2xl": "1.5rem",
+    "full": "999px"
+  },
+  "shadow": {
+    "card": "0 12px 32px rgba(0, 0, 0, 0.28)",
+    "glowBlue": "0 0 24px rgba(77, 163, 255, 0.28)",
+    "glowCyan": "0 0 24px rgba(56, 213, 230, 0.20)",
+    "glowViolet": "0 0 24px rgba(168, 117, 255, 0.24)"
+  },
+  "motion": {
+    "duration": {
+      "fast": "120ms",
+      "normal": "220ms",
+      "slow": "420ms"
+    },
+    "easing": {
+      "standard": "cubic-bezier(0.2, 0.8, 0.2, 1)",
+      "emphasized": "cubic-bezier(0.16, 1, 0.3, 1)"
+    }
+  },
+  "game": {
+    "classicRunRounds": 20,
+    "dailyChallengeRounds": 10,
+    "confidenceLevels": [
+      {
+        "name": "Low",
+        "bankrollPercent": 10,
+        "signalScoreImpact": 1,
+        "colorToken": "confidence.low"
+      },
+      {
+        "name": "Medium",
+        "bankrollPercent": 40,
+        "signalScoreImpact": 2,
+        "colorToken": "confidence.medium"
+      },
+      {
+        "name": "High",
+        "bankrollPercent": 70,
+        "signalScoreImpact": 3,
+        "colorToken": "confidence.high"
+      },
+      {
+        "name": "All-In",
+        "bankrollPercent": 100,
+        "signalScoreImpact": 5,
+        "colorToken": "confidence.allIn"
+      }
+    ],
+    "difficultyStartingBankrollSuggestion": {
+      "easy": 12500,
+      "medium": 10000,
+      "hard": 7500
+    }
+  }
+}

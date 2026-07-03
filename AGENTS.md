@@ -98,18 +98,30 @@ Work is done only when:
 2. `pnpm install`, `pnpm dev`, and `pnpm test` work from the repo root.
 3. All tests pass (existing and new).
 4. No TypeScript errors (`pnpm typecheck` if configured, else `tsc --noEmit`).
-5. `progress.md` is updated (see below).
+5. `progress.md` is updated and a completion report is written (see below).
 
 ## Session End Protocol
 
-At the end of every session, append a session log entry to `progress.md` using the
-template at the top of that file. Include: what changed, how to run it, test status,
-known issues, blocked questions, and the next recommended task. Update the
-"Current Status" section. Never edit `soul.md`, `decisions.md`, or `roadmap.md`
-phase definitions — those belong to the orchestrator.
+At the end of every session:
 
-## Commit Rules
+1. Append a session log entry to `progress.md` using the template at the top of
+   that file (what changed, how to run, test status, known issues, blocked
+   questions, next recommended task) and update its "Current Status" section.
+2. Write a completion report to `agents/reports/R###_H###.md` following
+   `agents/reports/TEMPLATE.md` (next sequential R-number). The orchestrator
+   reads this report to approve or reject your work. No report = no review =
+   the work doesn't count. (Consultants and Auditors: your memo/audit file is
+   your report.)
 
-- Commit at logical checkpoints with clear messages: `phase1: add scenario card screen`.
-- Never commit `.env`, secrets, or `node_modules`.
-- Do not push unless the handoff explicitly says to.
+Never edit `soul.md`, `decisions.md`, or `roadmap.md` phase definitions — those
+belong to the orchestrator.
+
+## Git Rules (decision D012)
+
+- **Role agents never run `git commit` or `git push`.** Leave all work
+  uncommitted in the working tree — that diff, together with your completion
+  report, is what the orchestrator reviews. Only the orchestrator commits, and
+  only after approving the report.
+- Never stage or write `.env`, secrets, or `node_modules`.
+- Never discard or revert uncommitted changes you didn't make — they may be
+  another agent's work awaiting review; escalate instead.

@@ -57,4 +57,6 @@ File: `agents/consultations/C###_<topic>.md`
 (concrete steps/gotchas the orchestrator should bake into the handoff prompt)
 ```
 
-End your session with a one-line `progress.md` entry pointing at the memo.
+Your memo IS your completion report — do not write a separate `agents/reports/`
+file. Never run `git commit`/`git push` (decision D012). End your session with a
+one-line `progress.md` entry pointing at the memo.

@@ -16,10 +16,12 @@ into working, tested code. You are a precise executor, not a designer.
 - Writing the code, tests, and config specified in the handoff
 - Small mechanical judgment calls: internal variable names, file-internal structure,
   obvious idiomatic choices the handoff doesn't dictate
-- Committing at logical checkpoints with clear messages
 - Updating the handoff's status field (`in_progress` when you start, `complete` when
   every acceptance criterion passes)
 - Appending a session log entry to `progress.md` before ending every session
+- Writing a completion report to `agents/reports/R###_H###.md` (per
+  `agents/reports/TEMPLATE.md`) — the orchestrator approves or rejects your work
+  based on this report plus the uncommitted diff
 
 ## You Never
 
@@ -29,7 +31,9 @@ into working, tested code. You are a precise executor, not a designer.
 - Edit `soul.md`, `decisions.md`, `roadmap.md`, role files, or other handoffs
 - Guess when the handoff is ambiguous about behavior, scope, or product intent
 - Mark work complete with failing tests or unmet acceptance criteria
-- Push to the remote unless the handoff explicitly says to
+- Run `git commit` or `git push` — EVER. Leave all work uncommitted; the
+  orchestrator commits after approving your report (decision D012)
+- Discard or revert uncommitted changes you didn't make
 
 ## Working Procedure
 
@@ -37,8 +41,9 @@ into working, tested code. You are a precise executor, not a designer.
 2. Implement in the order the handoff prescribes. Run tests as you go.
 3. Verify every acceptance criterion literally — run the command, click the flow,
    check the number. "Should work" is not verified.
-4. Commit. Update handoff status. Write your `progress.md` session entry: what
-   changed, how to run, test counts, known issues, next recommended task.
+4. Update handoff status. Write your `progress.md` session entry (what changed,
+   how to run, test counts, known issues, next recommended task) and your
+   completion report `agents/reports/R###_H###.md`. Do NOT commit anything.
 
 ## When Blocked
 

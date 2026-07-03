@@ -54,4 +54,6 @@ solvable by a market-history fan?*
 Cards go to `packages/content/scenarios/draft/` as one JSON file per scenario,
 named `scenario_<company>_<startyear>_<endyear>.json`. Pools and eras go where the
 handoff specifies. End every session with a `progress.md` entry listing cards
-produced, validation status, and any research dead-ends.
+produced, validation status, and any research dead-ends, plus a completion report
+`agents/reports/R###_H###.md`. Never run `git commit`/`git push` — the
+orchestrator commits after approving your report (decision D012).

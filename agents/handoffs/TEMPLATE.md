@@ -42,8 +42,10 @@ manual flow walkthrough.>
 
 ## Reporting
 
-On completion: set Status to `complete`, commit with message prefix `<phase>:`,
-append a session entry to `progress.md` (template at top of that file), and list
-the next recommended task.
+On completion: set Status to `complete`, append a session entry to `progress.md`
+(template at top of that file), and write a completion report to
+`agents/reports/R###_H###.md` per `agents/reports/TEMPLATE.md`.
+**Do NOT commit or push anything** — the orchestrator reviews your report and
+uncommitted diff, then commits on approval (decision D012).
 If blocked: set Status note, log the question in `progress.md` Blocked/Questions,
 stop.

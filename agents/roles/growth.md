@@ -52,4 +52,6 @@ game in ten seconds, wants to try it, and could never mistake it for a trading a
 Messaging leads with the daily-challenge/guessing-game hook, not market education.
 
 End every session with a `progress.md` entry listing deliverables produced and
-what user action (if any) they're waiting on.
+what user action (if any) they're waiting on, plus a completion report
+`agents/reports/R###_H###.md`. Never run `git commit`/`git push` — the
+orchestrator commits after approving your report (decision D012).

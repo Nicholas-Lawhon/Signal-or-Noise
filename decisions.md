@@ -79,3 +79,44 @@ confusion.
 
 All package.json scripts and tooling must be cross-platform (no bash-only commands).
 Agents verify commands run under PowerShell.
+
+## D009 — Starting bankrolls: locked values win over design pack
+
+**Date:** 2026-07-03 · **Status:** User approved
+
+The `docs/design/` pack shipped with Easy $15,000 / Hard $5,000. The locked values
+stand: **Easy $12,500 / Medium $10,000 / Hard $7,500**. Design files (02, 04, 05)
+corrected to match `soul.md`.
+
+## D010 — Signal Score impact is a hidden formula; two-line confidence buttons
+
+**Date:** 2026-07-03 · **Status:** User approved
+
+Confidence buttons display exactly two lines: `Label (40%)` then the dollar amount
+(dollar amount visually dominant). The ±Signal Score impact is NEVER shown on the
+buttons — players see Signal Score changes only in results/reveal contexts.
+Design docs (DESIGN.md, 02, 03, 05) updated. Supersedes the design pack's
+four-line button spec.
+
+## D011 — docs/design/ pack adopted as canonical UI/UX source
+
+**Date:** 2026-07-03 · **Status:** User approved
+
+`docs/design/` (especially `04_design_tokens.json`) is the canonical visual source:
+deep-navy palette (#08111F bg), confidence color ramp (cyan/green/amber/violet),
+typography and motion tokens. Tailwind theme derives from the tokens file. Also
+adopted: difficulty-selector explainer copy and the brief "decision locked"
+suspense state before reveal. Applied to the built prototype via handoff H002.
+H001's zinc/teal palette direction is superseded (H001 is not edited — it was
+already executed; fix-ups get new handoffs).
+
+## D012 — Report-approval workflow: role agents never commit
+
+**Date:** 2026-07-03 · **Status:** User approved
+
+Every executing agent ends its handoff by writing a completion report to
+`agents/reports/R###_H###.md` (template in that folder) and leaves ALL work
+uncommitted. The orchestrator reviews the report + diff, approves or rejects, and
+only the orchestrator commits to git. Consultant memos and Auditor audit files
+serve as those roles' reports. H001 was executed before this rule existed and has
+no R-report; its review happens via orchestrator review + audit A001.
