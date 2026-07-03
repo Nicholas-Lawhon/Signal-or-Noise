@@ -6,17 +6,18 @@ first thing the next agent reads.
 
 ## Current Status
 
-- **Phase:** 1 - playable prototype COMMITTED (`232aa19`), covering H001+H002+H003.
+- **Phase:** 1 - playable prototype COMMITTED (`232aa19`). H005 fix-ups UNCOMMITTED in working tree (awaiting re-audit + orchestrator review).
 - **App state:** Monorepo scaffolded. Game engine: 24 passing tests. 20-round
   Classic Run playable - deep-navy `son` palette, two-line confidence buttons,
   call-locked state, wrong All-In bust (D014), Call the Company guess (D015), $1
-  bankruptcy floor (D016), proportional payout (D017). No auth, no DB, no server.
-- **Next task:** Run fix-up handoff **H005** (Implementor) resolving both A001
-  BLOCKERs (final-round dead-end, confidence/decision color ramp) + content leaks
-  (Amazon, Microsoft "Windows", BlackBerry title, D018) + Netflix precision.
-  Then **re-audit A002** → orchestrator commits and closes Phase 1.
-- **Blocked/Questions:** none. A001 FAILed with 2 BLOCKERs — both verified in code
-  by the orchestrator and addressed in H005; audit at `agents/audits/A001_H001-H003.md`.
+  bankruptcy floor (D016), proportional payout (D017). Both A001 BLOCKERs fixed.
+  Color ramp renders with static literal class maps. Content leaks removed.
+  Netflix now shows +1135.6%. No auth, no DB, no server.
+- **Next task:** Run **H006** on the same uncommitted tree (variety pool 6→12,
+  no-repeat shuffle, win/loss reveal banner) — non-overlapping with H005's edits.
+  Then a single **re-audit A002** covering H005 + H006 → orchestrator commits both
+  and closes Phase 1.
+- **Blocked/Questions:** none.
 
 ## How to Run (updated as the app grows)
 
@@ -54,6 +55,26 @@ All from repo root. Requires Node.js LTS and pnpm 9.x.
 ---
 
 ## Session Log
+
+### 2026-07-03 — Implementor — H005 A001 Fix-ups
+
+**What changed:**
+- Part A: Fixed final-round dead-end in `run/page.tsx` — guard no longer blocks locked/reveal/summary views when `scenario` is undefined (changed `(view === 'round' || view === 'locked')` to `view === 'round'`).
+- Part B: Replaced runtime-interpolated Tailwind classes with fully-literal static maps (`CONFIDENCE_SELECTED_BOX`, `CONFIDENCE_SELECTED_TEXT`, `DECISION_SELECTED`). Deleted dead `confidenceColorClass`, `decisionColorClass`, and `const color = CONFIDENCE_COLORS[level]`. Confidence ramp and decision colors now render correctly.
+- Part C: De-identified 4 placeholder strings: Amazon title ("Growth at Any Cost"), Amazon clue 1 (removed founder/mission-statement reference), Microsoft clue (removed "Windows"), BlackBerry title ("Losing the Screen War").
+- Part D: Netflix `actualReturnPercent` corrected from 11.36 to 11.356 for `+1135.6%` display.
+
+**Files changed:** `apps/web/app/play/classic/run/page.tsx`, `apps/web/lib/sampleScenarios.ts`
+
+**How to run:** unchanged
+
+**Tests:** 24 passing / 0 failing — `pnpm test`; `pnpm typecheck` clean; `pnpm lint` clean (no warnings or errors). grep for interpolated `border-${`/`bg-${`/`text-${` in run/page.tsx returned zero matches.
+
+**Known issues:** None.
+
+**Blocked/Questions:** None.
+
+**Next recommended task:** Re-audit A002, then orchestrator commits and closes Phase 1. Then H006.
 
 ### 2026-07-03 — Orchestrator — Playtest round 2 (D019/D020, H006, role/roadmap)
 

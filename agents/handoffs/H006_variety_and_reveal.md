@@ -3,8 +3,12 @@
 **Role:** Implementor
 **Phase:** 1 (demo-quality enhancement)
 **Status:** approved
-**Depends on:** **H005 must be complete and committed first** (both touch
-`sampleScenarios.ts` and the reveal view — do not run in parallel).
+**Depends on:** **Apply H005 first, then H006 on the same working tree.** Both edit
+`apps/web/lib/sampleScenarios.ts` and `apps/web/app/play/classic/run/page.tsx`, but
+in non-overlapping regions (H005: existing-card text + Netflix precision + round-view
+guard + button color maps; H006: appends new cards, rewrites `buildRunScenarioList`,
+adds a reveal banner). Do NOT do H006 before H005's edits are in the tree, and do NOT
+revert any H005 change. Neither is committed — one audit (A002) covers both.
 **Estimated scope:** small/medium — paste 6 provided card objects, one shuffle
 helper rewrite, one reveal banner.
 
@@ -250,4 +254,5 @@ motion here.)
 ## Reporting
 
 Set Status `complete`, update `progress.md`, write `agents/reports/R006_H006.md`.
-Do NOT commit — orchestrator reviews and commits (D012).
+Do NOT commit — orchestrator reviews both R005 and R006, then a single re-audit
+(A002) covers H005 + H006 together before the orchestrator commits (D012).
