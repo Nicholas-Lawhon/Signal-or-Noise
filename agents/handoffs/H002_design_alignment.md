@@ -94,17 +94,14 @@ centered on a `son-cardElevated` panel:
 - Button: `Reveal Result` → `view = 'reveal'`.
 No timers or auto-advance; the button gates the reveal.
 
-### 7. Cleanup
-
-Delete `requirements.txt`; move its prerequisites content (Node LTS + pnpm 9.x
-install/verify instructions) into a "Prerequisites" section of `README.md`.
-
 ## Do NOT
 
 - Touch `packages/game-engine` (no logic or test changes).
 - Change any copy other than what's specified above.
 - Add animation libraries or motion beyond simple CSS transitions.
 - Redesign layouts — this is a restyle + two additions, not a rebuild.
+- Delete or modify `requirements.txt` — it is intentional (user-requested
+  prerequisites file).
 - Commit or push anything (D012).
 - Anything on the MVP exclusion list in `soul.md`.
 
@@ -122,8 +119,7 @@ install/verify instructions) into a "Prerequisites" section of `README.md`.
 7. Difficulty cards show the three explainer lines. — *open `/play/classic`*
 8. Lock In → locked view (call/confidence/at-risk) → Reveal Result → reveal.
    Pass shows the pass variant. — *play it*
-9. `requirements.txt` is gone; README has the Prerequisites section. — *check*
-10. 375px viewport: no horizontal scroll. — *devtools*
+9. 375px viewport: no horizontal scroll. — *devtools*
 
 ## Verification Steps for the Implementor
 
