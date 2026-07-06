@@ -210,6 +210,38 @@ before repeating (no card twice until all shown; no back-to-back repeat at lap
 boundaries). Still placeholder-grade (D006); Phase 3 replaces all of it with 100
 curated cards, so this is a demo-quality stopgap, not final content.
 
+## D021 — Model routing & risk-tiered execution
+
+**Date:** 2026-07-06 · **Status:** User approved
+
+The workflow becomes routing-first: for every task the orchestrator classifies
+type and risk, then routes to the cheapest execution tier that can do the work
+without making judgment calls. Full policy in `agents/routing.md` (single source
+of truth). Summary:
+
+- **Orchestrator/planner:** Claude Fable (interactive session). Routes, decides,
+  authors handoffs, reviews, commits. Does not implement mechanical work itself.
+- **Cheap tier — DeepSeek** (manual handoff): easy, fully-prescribed tasks.
+- **Medium tier — Claude Sonnet/Opus subagent** (orchestrator spawns in-session):
+  medium-strength tasks, or anything too subtle for the cheap tier. Subagents
+  follow the identical procedure as external agents — no commits, R### report,
+  orchestrator review (D012 unchanged).
+- **Strong tier — GPT 5.5** (manual handoff): architecture, scoring design,
+  security, ambiguous bugs, high-stakes review.
+
+Auditor passes are now gated by the handoff's **risk level** (low/medium/high per
+`agents/routing.md`) instead of the vague "code-heavy" rule. Ad-hoc specialist
+needs are met with **micro-roles** — task-specific framing written inside the
+handoff on top of a base role — never new permanent role files (reinforces D001).
+
+**Rationale:** Goal is efficiency and lower token cost. The existing handoff/
+report/review machinery already matched best practice (task packets, output
+contracts, review gates); what was missing was explicit model routing and
+risk-based gating. Rejected from the external proposal that prompted this:
+lifecycle folders (`queued/active/done` — status headers already track this),
+role renames (cosmetic churn), a `workflows/` process-doc folder (context bloat),
+and splitting memory files (violates one-source-of-truth).
+
 ## Open Design Question — composite Final Score / Information Tiers (NOT a decision)
 
 **Date:** 2026-07-03 · **Status:** Exploration pending

@@ -3,6 +3,8 @@
 **Role:** Implementor | Auditor | Consultant | Content Curator | Growth
 **Phase:** <roadmap phase>
 **Status:** draft | approved | in_progress | complete | audited
+**Model tier:** deepseek | claude-subagent | gpt-5.5 (per `agents/routing.md`)
+**Risk:** low | medium | high (per `agents/routing.md`)
 **Depends on:** <handoff IDs or "none">
 **Estimated scope:** <one line: small / medium / large + what "large" means here>
 
@@ -10,6 +12,13 @@
 
 <2–5 sentences: where the project stands, why this task exists now, what the agent
 can assume already works. Link the docs sections that matter.>
+
+## Task Framing (micro-role) — optional
+
+<Only when the task needs a specialist hat on top of the base role, e.g. "For this
+task, act as a database migration reviewer. Review only schema consistency,
+migration safety, rollback, indexing. Ignore UI, naming style, unrelated code."
+Delete this section if the base role framing is sufficient.>
 
 ## Objective
 

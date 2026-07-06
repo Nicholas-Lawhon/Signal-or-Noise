@@ -7,13 +7,18 @@ prompts; **role agents** (any coding assistant) execute them exactly.
 ## The Loop
 
 ```text
-1. Orchestrator drafts a handoff prompt  →  agents/handoffs/H###_*.md
+1. Orchestrator routes the task (type, risk, model tier per routing.md) and
+   drafts a handoff prompt  →  agents/handoffs/H###_*.md
 2. User approves the handoff (status: approved)
 3. Executing agent (Implementor/Curator/Growth) does the work, updates
    progress.md, and writes a completion report → agents/reports/R###_H###.md
    ── WITHOUT committing anything to git
+   The executor is either an external session (DeepSeek, GPT 5.5) the user runs
+   manually, or a Claude Sonnet/Opus subagent the orchestrator spawns in-session
+   — identical rules either way.
 4. Orchestrator reviews the report + uncommitted diff, and approves or rejects.
-   Code-heavy handoffs also get an Auditor pass → agents/audits/A###_H###.md
+   Medium/high-risk handoffs (per the Risk header) also get an Auditor pass
+   → agents/audits/A###_H###.md
 5. On approval, the ORCHESTRATOR commits the work, updates roadmap.md +
    decisions.md, and drafts the next handoff.
    On rejection, a fix-up handoff goes back to step 2.
@@ -44,6 +49,7 @@ decisions.
 ```text
 agents/
   README.md            this file
+  routing.md           model routing & risk policy (D021) — orchestrator consults per task
   roles/               role definitions (read yours before working)
   handoffs/            numbered handoff prompts (H001, H002, ...) + TEMPLATE.md
   reports/             completion reports (R001_H001.md, ...) + TEMPLATE.md
@@ -61,6 +67,10 @@ agents/
 - Handoff prompts are written for a **lower-reasoning model**: exact file paths,
   exact function signatures, exact expected values in tests, explicit "do not build"
   lists. When in doubt, over-specify.
+- Every handoff header declares a **Model tier** and **Risk level** per
+  `routing.md`. When a task needs a specialist hat (e.g. "migration reviewer"),
+  the orchestrator writes a **micro-role** framing inside the handoff on top of a
+  base role — no new permanent role files (D001, D021).
 
 ## Escalation
 

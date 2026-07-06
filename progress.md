@@ -57,6 +57,32 @@ All from repo root. Requires Node.js LTS and pnpm 9.x.
 
 ## Session Log
 
+### 2026-07-06 — Orchestrator — Workflow rework: model routing & risk tiers (D021)
+
+**What changed:**
+- Recorded D021 in `decisions.md`: routing-first workflow — orchestrator (Fable)
+  classifies every task's type + risk and routes to the cheapest capable tier:
+  DeepSeek (easy, manual handoff), Claude Sonnet/Opus subagent (medium,
+  orchestrator-spawned in-session), GPT 5.5 (hard, manual handoff). Goal:
+  efficiency + lower token cost. D012 review loop unchanged.
+- New `agents/routing.md`: tier table, risk levels (low/medium/high) with review
+  gates (Auditor pass now risk-driven, replacing "code-heavy"), micro-role policy.
+- `agents/handoffs/TEMPLATE.md`: added Model tier + Risk header fields and an
+  optional Task Framing (micro-role) section.
+- `agents/roles/orchestrator.md`: added Route step to the loop, in-session
+  subagent execution procedure, token-economy rules, micro-role guidance.
+- `agents/README.md` + `agents/roles/implementor.md`: synced to the above.
+- Rejected (recorded in D021 rationale): lifecycle folders, role renames,
+  workflows/ dir, memory-file split.
+
+**Tests:** n/a — docs-only change.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** unchanged — pick the next thread (Gate A Growth
+positioning, composite-score design memo, or Phase 2 hardening) and route it
+through the new `agents/routing.md` as its first real exercise.
+
 ### 2026-07-03 — Orchestrator — A002 review, Phase 1 closed
 
 **What changed:**
