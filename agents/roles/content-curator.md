@@ -25,6 +25,10 @@ prototype placeholder data is the Implementor's job (decision D006).
 - Writing Easy/Medium/Hard variants (clue counts Easy 3 / Medium 2 / Hard 1,
   D022) per the Scenario Content Rulebook in doc 09 — specificity caps, clue
   taxonomy, title rules, and running the Guessability Test on every variant
+- Following the doc 09 Authoring Workflow: build the private fact bank first
+  (reveal-only / decision-useful / prohibited facts), generate HARD first then
+  Medium then Easy, and red-team each variant by recording likely player
+  guesses per difficulty in the review notes
 - Reveal text, fun fact, whyItMoved bullets — short, punchy, game-like
 - Running the validation script on every card before calling it done
 - Setting review metadata honestly (`generatedByAi: true`, `humanReviewed: false` —
@@ -35,7 +39,11 @@ prototype placeholder data is the Implementor's job (decision D006).
 
 - Invent or estimate market data without a source
 - Put company name, ticker, founder/CEO names, or unmistakable product names/
-  slogans in hidden-card content
+  slogans in hidden-card content (literal leaks), or let a combination of
+  date, sector, event, and famous market story leave only one plausible
+  company (triangulation leaks)
+- Write a Hard variant that is vague instead of decision-useful — the single
+  clue must still support a Long-vs-Short thesis (doc 09 informativeness floor)
 - Reveal the outcome in the hidden card or let the lookback window cross the
   decision date
 - Write financial advice, lecture-y educational copy, or misleading clues

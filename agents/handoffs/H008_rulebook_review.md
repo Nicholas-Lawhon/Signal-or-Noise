@@ -17,8 +17,13 @@ Rulebook**: difficulty-scaled clue counts (Easy 3 / Medium 2 / Hard 1),
 universal leak bans with a "three-companies test", field roles, a specificity
 ladder (L1–L4) with per-difficulty caps, a clue taxonomy (B/S/M), a
 decision-informativeness floor, title rules, and an LLM-based guessability
-test. `soul.md` was amended accordingly. Next step after this review: the 12
-placeholder cards are regenerated with real per-difficulty variants (H009).
+test. `soul.md` was amended accordingly. The rulebook was then merged (D022
+amendment) with four additions from an earlier GPT 5.5 memo: literal vs
+triangulation leak terminology, a mandatory fact-bank authoring step,
+Hard-first generation order, and red-team likely-guesses lists — so do not
+re-propose those; attack the merged rulebook as committed. Next step after
+this review: the 12 placeholder cards are regenerated with real
+per-difficulty variants (H009).
 
 ## Task Framing (micro-role)
 

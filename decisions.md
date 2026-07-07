@@ -281,6 +281,20 @@ razor-specific clue. Risk accepted: Hard's single clue may feel random; the
 decision-informativeness rule mitigates, and playtest verdicts can revisit the
 1-clue count without reopening the rest of this decision.
 
+**Amended 2026-07-06 (user approved):** merged four additions from an
+independent GPT 5.5 memo the user commissioned on the same problem:
+(1) literal-leak vs triangulation-leak terminology; (2) a mandatory private
+**fact bank** authoring step (reveal-only / decision-useful / prohibited
+facts, enumerated before writing); (3) **Hard-first generation order** (write
+Hard, add specificity for Medium, then Easy — never vague Easy down);
+(4) **red-team likely-guesses lists** per variant as required curator output
+(Phase 3 schema metadata later), with Medium calibrated to "2–4 plausible
+alternatives". The memo's retention of 3-clues-everywhere was explicitly
+rejected by the user — 3/2/1 stands. Its claim that triangulation can't be
+auto-checked was rejected too: the LLM guessability check performs
+triangulation by construction; term-list warnings become a supplementary
+Phase 3 validator layer only.
+
 ## Open Design Question — composite Final Score / Information Tiers (NOT a decision)
 
 **Date:** 2026-07-03 · **Status:** Exploration pending

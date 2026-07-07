@@ -126,7 +126,10 @@ Each of Easy, Medium, and Hard includes:
 - generatedByAi
 - humanReviewed
 - source URLs
-- review notes
+- review notes, including the private fact bank and likely player guesses per
+  difficulty (`easyLikelyGuesses` / `mediumLikelyGuesses` / `hardLikelyGuesses`
+  — required curator output now; Phase 3 schema fields later) and Guessability
+  Test results
 
 ## Scenario Content Rulebook (D022)
 
@@ -138,6 +141,14 @@ about company obscurity — fame mix is a separate axis (60/30/10, see Scenario
 Mix Recommendation).
 
 ### Universal Bans (every field, every difficulty)
+
+Leaks come in two forms. **Literal leaks** name the company outright: name,
+ticker, founder, product, slogan. **Triangulation leaks** identify it by
+combination — a date, sector, strategic event, and famous market story that
+together leave only one plausible company, even though no single sentence
+names it. The bans below plus the three-companies test catch literal and
+single-sentence leaks; whole-card triangulation is caught by the red-team
+guess list (authoring step 7) and the Guessability Test.
 
 Extends the soul.md content-integrity list. Hidden-card content (title,
 companyDescription, macroContext, clues) must never contain:
@@ -226,7 +237,8 @@ companyDescription, macroContext, clues) into a fresh LLM session and ask:
 - **Easy:** the correct company should appear in the top 3 (it MAY be #1).
   If the model can't place it top-3, the variant is too vague — fail.
 - **Medium:** the correct company may appear in the top 3, but must not be a
-  single confident #1. If the model names it first with high confidence — fail.
+  single confident #1 — the card should leave 2–4 plausible alternatives. If
+  the model names it first with high confidence — fail.
 - **Hard:** the correct company must NOT appear in the top 3 — fail if it does.
 
 Use a mid-tier model consistently (a stronger guesser = a stricter test; note
@@ -234,19 +246,34 @@ which model was used in the card's review notes). The Phase 3 validator (D019)
 automates this with one model call per variant; until then it is a manual step
 in the Human Review Checklist.
 
-## AI Generation Workflow
+## Authoring Workflow
 
-Recommended workflow:
+Required workflow (one scenario = one company + one window, with three
+hidden-card variants — never three separate scenario records):
 
 1. Choose scenario candidate.
-2. Gather source URLs.
-3. Confirm decision date and end date.
-4. Confirm split-adjusted price return.
-5. Generate schema-valid scenario JSON.
-6. Validate JSON.
-7. Review content quality.
-8. Playtest difficulty.
-9. Mark reviewed.
+2. Gather source URLs; confirm decision date, end date, and split-adjusted
+   price return.
+3. **Build a private fact bank** (kept in review notes, never shown to
+   players) with three lists:
+   - Reveal-only facts (name, products, famous story beats — reveal/funFact
+     material)
+   - Allowed decision-useful facts (the tension, drivers, era conditions)
+   - Prohibited identity-leak facts (anything failing the Universal Bans or
+     three-companies test — enumerate these BEFORE writing, so they can't
+     sneak in)
+4. **Generate Hard first** (1 clue, L1–L2), then Medium by adding controlled
+   specificity (2 clues), then Easy (3 clues, up to L3). Never write Easy
+   first and "vague it down" — that leaves triangulation residue in the
+   harder variants.
+5. **Red-team each variant:** list the likely player guesses per difficulty
+   in the review notes. If Medium doesn't leave 2–4 plausible alternatives,
+   or Hard has one obvious guess, revise. If Hard gives no rational basis
+   for Long vs Short (Decision-Informativeness Floor), revise.
+6. Run the Guessability Test per variant; record model used and results.
+7. Validate schema and leakage rules.
+8. Review content quality; playtest difficulty.
+9. Mark reviewed (human only).
 10. Import into database.
 
 ## AI Prompt Template
@@ -254,35 +281,54 @@ Recommended workflow:
 Use a prompt like this for scenario generation:
 
 ```text
-You are helping create content for Signal or Noise?, a market-history guessing game.
+You are creating one curated scenario card for Signal or Noise?, a mobile-first market-history guessing game.
 
-Generate one schema-valid scenario card as JSON only.
+Create one scenario for this company and historical window:
+- Company:
+- Ticker:
+- Decision date:
+- End date:
+- Holding period:
 
-The player must not see the company name or ticker before the reveal.
+This is ONE scenario with Easy, Medium, and Hard hidden-card variants — never separate scenario records per difficulty. The player sees the hidden card and a pre-decision lookback chart, then chooses Long, Short, or Pass. Before locking a call the player must never see: company name, ticker, founder/CEO names, unmistakable product names, unique slogans, reveal text, outcome return, end price, or outcome chart.
 
-The scenario is a public company during a specific historical window. The player will see a pre-decision lookback chart, then choose Long, Short, or Pass for the future outcome period.
+STEP 1 — Build a private fact bank (goes in review notes, never shown to players):
+1. Reveal-only facts (name, products, famous story beats)
+2. Allowed decision-useful facts (the tension, drivers, era conditions)
+3. Prohibited identity-leak facts (anything a player could identify the company from)
 
-Requirements:
-- Create Easy, Medium, and Hard hidden-card variants.
-- Each difficulty variant must include:
-  - companyDescription
-  - macroContext
-  - clues: exactly 3 for Easy, 2 for Medium, 1 for Hard
-- Follow the Scenario Content Rulebook: every variant needs a Situation clue
-  stating this window's strategic tension; respect each difficulty's
-  specificity caps; every hidden sentence must plausibly describe at least
-  three real companies.
-- The scenario title is shown pre-decision at every difficulty: it must not
-  identify the company even combined with the dates shown.
-- Do not mention the company name, ticker, exact product names that make the company too obvious, founder names, CEO names, or unique slogans in hidden-card content.
-- Reveal content may mention the company name.
-- Include short reveal text, a fun fact, and 3 whyItMoved bullets.
-- Include source URLs for review.
-- Use concise, game-like language.
-- Do not write financial advice.
-- The product is entertainment/trivia, not investing guidance.
+STEP 2 — Generate the hidden-card variants, HARD FIRST, then Medium, then Easy:
 
-Return JSON only using the approved schema.
+Hard (1 clue):
+- The single clue is a Situation clue: this window's strategic tension, stated abstractly (sector-level language) but concretely enough that a player can argue both the Long case and the Short case.
+- No famous-story framing. Company identity may stay uncertain even for good players — but never random or purely vague.
+
+Medium (2 clues):
+- One Situation clue, plus one Business-model or Market-position clue.
+- No single clue identifies the company. The full card may make it guessable but must leave 2–4 plausible alternatives.
+- Category-level language, not famous hindsight framing.
+
+Easy (3 clues):
+- One Business-model, one Situation, one Market-position/era clue.
+- More direct industry and business-model language is allowed; the company guess ("Call the Company") should be realistically attainable.
+- Still no literal leaks.
+
+Rules for ALL hidden content (title, companyDescription, macroContext, clues):
+- Every sentence must plausibly describe at least three real companies.
+- The scenario title is shown pre-decision at every difficulty: it must not identify the company even combined with the dates shown.
+- No company name, ticker, founder/CEO names, product names, slogans, mission statements, one-answer superlatives, or company-unique events in recognizable phrasing.
+- macroContext describes the era, never the company.
+
+STEP 3 — Red-team: for each variant, list the likely player guesses in review notes. Revise if Medium collapses to one obvious guess or Hard's clue gives no decision signal.
+
+Also include:
+- reveal.shortText, reveal.funFact, reveal.whyItMoved (exactly 3 bullets) — reveal content MAY name the company
+- source URLs for price data and context
+- review notes with the fact bank and likely player guesses per difficulty
+
+Use short, punchy, game-like copy. No financial advice — this is entertainment/trivia, not investing guidance.
+
+Return schema-valid JSON only.
 ```
 
 ## Scenario Validation Checklist
@@ -297,6 +343,11 @@ A scenario card should fail validation if:
 - Title fails the Hard identifiability bar
 - Guessability test fails for any variant (automated in the Phase 3
   validator, D019)
+- Review notes missing the fact bank or the likely-player-guesses lists
+
+The Phase 3 validator additionally WARNS (without auto-rejecting) on
+configured high-risk triangulation terms; the guessability check and human
+review remain the authority on combined-specificity leaks.
 - Hidden card reveals the outcome
 - Pre-decision chart overlaps outcome period incorrectly
 - Decision date is after end date

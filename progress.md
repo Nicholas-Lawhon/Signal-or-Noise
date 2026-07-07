@@ -58,6 +58,31 @@ All from repo root. Requires Node.js LTS and pnpm 9.x.
 
 ## Session Log
 
+### 2026-07-06 — Orchestrator — D022 amendment: merged GPT 5.5 memo additions into the rulebook
+
+**What changed:**
+- User shared an independent GPT 5.5 memo on scenario difficulty. Compared it
+  against the committed rulebook; adopted 4 additions (D022 amendment, user
+  approved): literal/triangulation leak terminology, mandatory fact-bank
+  authoring step, Hard-first generation order, red-team likely-guesses lists
+  (Medium calibrated to 2–4 plausible alternatives). Rejected: its retention
+  of 3-clues-everywhere (user re-confirmed 3/2/1) and its claim that
+  triangulation can't be auto-checked (guessability test does exactly that).
+- Doc 09: rewrote AI Generation Workflow → Authoring Workflow (fact bank,
+  Hard-first, red-team steps), merged the prompt template, extended review
+  metadata + validation checklist, added leak terminology to Universal Bans.
+- Curator role: fact bank + red-team duties added; triangulation leaks and
+  vague-Hard added to Never list.
+- H008 (still draft) context updated so the reviewer attacks the merged
+  rulebook instead of re-proposing the memo's ideas.
+
+**Tests:** n/a — docs only.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** unchanged — user approves + runs H008 on GPT 5.5,
+then H009 placeholder regeneration.
+
 ### 2026-07-06 — Orchestrator — D022: difficulty-scaled clues + Scenario Content Rulebook
 
 **What changed:**
