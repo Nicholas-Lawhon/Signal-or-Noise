@@ -14,10 +14,11 @@ first thing the next agent reads.
   bankruptcy floor (D016), proportional payout (D017). 12 placeholder scenarios
   (no-repeat shuffle). Color ramp via static maps. Netflix +1135.6%. Reveal
   win/loss banner. No auth, no DB, no server.
-- **Next task:** Orchestrator to choose the next thread now that Phase 1 is closed:
-  (a) Gate A Growth work (positioning one-pager — Phase 1 done opens this gate),
-  (b) composite Final Score / Information-Tier design memo (open question), or
-  (c) Phase 2 engine hardening (run-state API completion + full test matrix).
+- **Next task:** User approves H008 (draft) and runs it on GPT 5.5 — adversarial
+  review of the new Scenario Content Rulebook (D022). After the memo: revise
+  rulebook if needed, then author H009 (regenerate 12 placeholder cards with
+  real per-difficulty variants, cheap tier). Parallel threads still open:
+  Gate A Growth positioning, composite-score design memo, Phase 2 hardening.
 - **Blocked/Questions:** none.
 
 ## How to Run (updated as the app grows)
@@ -56,6 +57,35 @@ All from repo root. Requires Node.js LTS and pnpm 9.x.
 ---
 
 ## Session Log
+
+### 2026-07-06 — Orchestrator — D022: difficulty-scaled clues + Scenario Content Rulebook
+
+**What changed:**
+- Playtest feedback: repetition (expected — 12 cards, 20 rounds) and trivial
+  company guessability even on Medium. Root causes found: placeholder cards
+  have NO per-difficulty variants (one hidden-text set for all difficulties,
+  D006 shortcut — difficulty only changed bankroll), and doc 09's difficulty
+  rules were one vague sentence per level.
+- Recorded D022 (user approved): clue counts scale Easy 3 / Medium 2 / Hard 1;
+  binding Scenario Content Rulebook written into doc 09 — universal bans +
+  three-companies test, field roles, L1–L4 specificity ladder with per-
+  difficulty caps, B/S/M clue taxonomy, decision-informativeness floor,
+  title-must-pass-Hard-bar rule, LLM guessability test (manual now, automated
+  in the Phase 3 validator per D019).
+- Amended `soul.md` (Difficulty section + content-integrity clue rule + title
+  rule). Synced `content-curator.md` and `auditor.md` clue-count checks.
+- Authored H008 (draft): GPT 5.5 adversarial review of the rulebook →
+  `agents/consultations/C001`. First handoff using the D021 routing fields.
+- Known code follow-up for H009: `apps/web/lib/sampleScenarios.ts` type is
+  `clues: [string, string, string]` and has no difficulty variants; run page
+  must select variant by chosen difficulty.
+
+**Tests:** n/a — docs only; no code touched.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** user approves + runs H008 on GPT 5.5; then H009
+placeholder regeneration under the final rulebook.
 
 ### 2026-07-06 — Orchestrator — Workflow rework: model routing & risk tiers (D021)
 

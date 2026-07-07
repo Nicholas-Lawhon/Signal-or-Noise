@@ -111,9 +111,10 @@ Daily Challenge:  10 rounds, same scenarios for everyone, mixed difficulty,
 
 ### Difficulty
 
-Difficulty changes only the hidden-card presentation (how identifying the clues and
-descriptions are). It never changes the company, dates, actual return, reveal, or
-scoring math.
+Difficulty changes only the hidden-card presentation: how MUCH information is
+shown (Easy 3 clues / Medium 2 / Hard 1 — D022) and how IDENTIFYING that
+information is (specificity rules in `docs/09_content_and_round_creation.md`).
+It never changes the company, dates, actual return, reveal, or scoring math.
 
 ## Content Integrity Rules
 
@@ -123,7 +124,11 @@ scoring math.
 - Before decision submission, the client must never receive: company name, ticker,
   end price, actual return, reveal text, or outcome chart (relaxed for local
   prototype only).
-- Every scenario has Easy/Medium/Hard variants, each with exactly 3 clues.
+- Every scenario has Easy/Medium/Hard variants with difficulty-scaled clue
+  counts: Easy 3, Medium 2, Hard 1 (D022). Specificity limits, title rules, and
+  the guessability test live in the Scenario Content Rulebook (docs/09).
+- Scenario titles are pre-decision content: they must meet the HARD-difficulty
+  identifiability bar, since every difficulty sees them.
 - Source URLs are stored for review, never shown to players.
 
 ## Copy Rules

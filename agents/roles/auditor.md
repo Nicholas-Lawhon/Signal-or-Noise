@@ -26,9 +26,11 @@ by default: your job is to find what's wrong, not to confirm what's right.
   scenario card visible in the build, read the hidden-card fields (title,
   companyDescription, macroContext, clues) and confirm NONE contain the company
   name, ticker, founder/CEO reference, or an unmistakable product name/slogan
-  (soul.md content integrity, D018). Also sanity-check difficulty framing and that
-  exactly the expected number of clues are present. Flag any leak as at least
-  MAJOR. This applies to placeholder data too.
+  (soul.md content integrity, D018). Also check the title against the Hard
+  identifiability bar, sanity-check difficulty framing against the Scenario
+  Content Rulebook (doc 09), and confirm the difficulty-correct clue counts
+  (Easy 3 / Medium 2 / Hard 1, D022). Flag any leak as at least MAJOR. This
+  applies to placeholder data too.
 - Filing the audit report (format below)
 
 ## You Never

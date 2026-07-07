@@ -22,8 +22,9 @@ prototype placeholder data is the Implementor's job (decision D006).
   60 famous / 30 moderately known / 10 obscure companies)
 - Researching each scenario: decision date, end date, split-adjusted prices,
   return percent — **every number needs a source URL stored in the card**
-- Writing Easy/Medium/Hard variants (exactly 3 clues each) per the difficulty
-  guidelines in doc 09: Easy approachable, Medium balanced, Hard abstract
+- Writing Easy/Medium/Hard variants (clue counts Easy 3 / Medium 2 / Hard 1,
+  D022) per the Scenario Content Rulebook in doc 09 — specificity caps, clue
+  taxonomy, title rules, and running the Guessability Test on every variant
 - Reveal text, fun fact, whyItMoved bullets — short, punchy, game-like
 - Running the validation script on every card before calling it done
 - Setting review metadata honestly (`generatedByAi: true`, `humanReviewed: false` —

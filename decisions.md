@@ -242,6 +242,45 @@ lifecycle folders (`queued/active/done` — status headers already track this),
 role renames (cosmetic churn), a `workflows/` process-doc folder (context bloat),
 and splitting memory files (violates one-source-of-truth).
 
+## D022 — Difficulty-scaled clue counts (3/2/1) + Scenario Content Rulebook
+
+**Date:** 2026-07-06 · **Status:** User approved
+
+Playtesting found the company is trivially guessable even on Medium. Two causes:
+(1) the prototype's placeholder cards have NO per-difficulty variants — one
+hidden-text set is shown at every difficulty (a D006 shortcut), so difficulty
+only changed bankroll; (2) the difficulty guidelines in doc 09 were one vague
+example sentence per level with no testable rules.
+
+Decision, amending `soul.md`'s "exactly 3 clues at every difficulty" rule:
+
+1. **Clue counts scale with difficulty: Easy 3 / Medium 2 / Hard 1.** Difficulty
+   now scales both the QUANTITY of information (clue count) and the IDENTIFYING
+   POWER of every hidden field (specificity rules).
+2. **The Scenario Content Rulebook lives in `docs/09_content_and_round_creation.md`**
+   (one source of truth; it was already the Curator's manual): clue taxonomy,
+   specificity ladder with per-difficulty caps, universal leak bans (extending
+   soul.md's list), title rules (titles are pre-decision content and must meet
+   the HARD bar at every difficulty), a decision-informativeness requirement
+   (anti-randomness floor, especially for Hard's single clue), and a falsifiable
+   **guessability test**: ask a fresh LLM to name the company from the hidden
+   card — Easy: correct answer should appear in its top 3; Medium: may appear
+   but must not be a single confident #1; Hard: must not appear in top 3. The
+   Phase 3 validator (D019) automates this with a model call per variant.
+3. **Sequencing:** orchestrator drafts the rulebook (this session) → GPT 5.5
+   reviews it via handoff H008 (strong tier, high risk per routing.md) →
+   placeholder cards regenerated with real per-difficulty variants in a
+   follow-up cheap-tier handoff (H009) so playtests exercise the rulebook.
+   No placeholder pool expansion — repetition is solved by Phase 3 content.
+
+**Rationale:** count scaling is legible to players the way bankroll scaling is
+("Hard = less info"), dovetails with the open Information-Tier design question,
+and makes Hard cards cheaper to author. The specificity rules and guessability
+test carry the real anti-leak burden — fewer clues alone would not fix a single
+razor-specific clue. Risk accepted: Hard's single clue may feel random; the
+decision-informativeness rule mitigates, and playtest verdicts can revisit the
+1-clue count without reopening the rest of this decision.
+
 ## Open Design Question — composite Final Score / Information Tiers (NOT a decision)
 
 **Date:** 2026-07-03 · **Status:** Exploration pending

@@ -47,7 +47,7 @@ The MVP content library should include:
 10 daily challenge pools
 10 famous market eras
 Easy / Medium / Hard variants for every scenario
-3 clues per difficulty level
+Difficulty-scaled clues: Easy 3 / Medium 2 / Hard 1 (D022)
 Pre-decision lookback chart data
 Outcome chart data
 Reveal text
@@ -113,7 +113,7 @@ Each of Easy, Medium, and Hard includes:
 
 - Hidden company description
 - Macro context
-- 3 clues
+- Clues, count scaled by difficulty (D022): **Easy 3, Medium 2, Hard 1**
 
 ### Reveal
 
@@ -128,59 +128,111 @@ Each of Easy, Medium, and Hard includes:
 - source URLs
 - review notes
 
-## Difficulty Guidelines
+## Scenario Content Rulebook (D022)
 
-### Easy
+This is the binding rulebook for ALL hidden-card content — placeholder and
+curated alike (D018). Difficulty scales two things and only two things: how
+many clues the player gets (Easy 3 / Medium 2 / Hard 1) and how identifying
+every hidden field may be. Difficulty is about **information given**, never
+about company obscurity — fame mix is a separate axis (60/30/10, see Scenario
+Mix Recommendation).
 
-Easy should be approachable.
+### Universal Bans (every field, every difficulty)
 
-Easy can include:
+Extends the soul.md content-integrity list. Hidden-card content (title,
+companyDescription, macroContext, clues) must never contain:
 
-- More recognizable business-model clues
-- More specific industry language
-- Clearer macro context
-- More obvious clues
-- Better contextual hints
+- Company name, ticker, or brand names (soul.md)
+- Founder, CEO, or other executive references (soul.md)
+- Unmistakable product names or slogans (soul.md)
+- Mission statements or widely quoted company phrases, even paraphrased
+- Company-unique events in recognizable phrasing ("split its service in two
+  after a price hike" = one company; "damaged customer trust with a pricing
+  decision" = many companies)
+- Superlatives with one answer ("the largest online retailer", "the first
+  trillion-dollar company")
+- Widely memed numbers or facts ("$99 price point", "founded in a garage")
+- Headquarters city or region combined with industry ("a Seattle software
+  giant")
 
-Example style:
+The test for all of these: **could the sentence describe at least three real
+companies?** If not, rewrite it.
 
-```text
-A subscription entertainment company trying to move from physical media to streaming.
-```
+### Field Roles
 
-### Medium
+- **Title** — flavor and framing only. Titles are shown pre-decision at every
+  difficulty, so every title must meet the HARD identifiability bar (soul.md).
+  "The Streaming Pivot" fails (one company, given the date); "Against the
+  Current" passes.
+- **companyDescription** — what kind of business this is. This is the identity
+  axis: its specificity cap (below) is what makes a variant Easy or Hard.
+- **macroContext** — the world around the company: rates, adoption curves,
+  crises, sentiment. Must be true of the whole era, never identity-bearing —
+  a macroContext that only fits one company is a leaked clue.
+- **clues** — decision-relevant information (see Clue Taxonomy).
 
-Medium should be the default balanced experience.
+### Specificity Ladder
 
-Medium can include:
-
-- Some identifying context
-- Generalized industry language
-- Balanced macro clues
-- Moderate ambiguity
-
-Example style:
-
-```text
-A U.S. entertainment company with a recurring-revenue model and a controversial strategic transition.
-```
-
-### Hard
-
-Hard should be more abstract.
-
-Hard can include:
-
-- Broader sector terms
-- Fewer identifying details
-- More ambiguous clues
-- Less specific macro context
-
-Example style:
+Every hidden sentence sits on this ladder. Per-difficulty caps below.
 
 ```text
-A consumer-facing media business attempting a major distribution shift.
+L1  Sector-level      "A consumer-facing technology company."
+L2  Industry-level    "A home-entertainment company."
+L3  Model-level       "A subscription service moving from physical media
+                       to digital delivery."
+L4  Situation-unique  "A DVD-by-mail service whose price-change announcement
+                       triggered mass cancellations."  ← identifying; BANNED
+                       everywhere (fails the three-companies test)
 ```
+
+### Clue Taxonomy
+
+Every clue is one of three types:
+
+- **B — Business-model clue:** what the company does or sells, how it earns.
+- **S — Situation clue:** the strategic tension of THIS window — the pivot,
+  threat, scandal, or bet whose resolution decides the outcome.
+- **M — Market-position/era clue:** scale, competitive standing, or how the
+  era treats companies like this.
+
+### Per-Difficulty Specification
+
+| | Easy | Medium | Hard |
+|---|---|---|---|
+| Clues | 3 — one B, one S, one M | 2 — one B or M, one S | 1 — S only |
+| companyDescription cap | L3 | L2 | L1 |
+| Clue specificity cap | L3 | L3 in the S clue only, L2 otherwise | L2 |
+| macroContext | Era-specific allowed | Era-specific allowed | Broad era only |
+
+Every variant at every difficulty must include an S clue: the situation is the
+game. The S clue states the tension abstractly enough to pass the
+three-companies test but concretely enough to reason about.
+
+### Decision-Informativeness Floor (anti-randomness)
+
+A variant fails — regardless of difficulty — if a thoughtful player could not
+articulate, after reading it, why Long might be right AND why Short might be
+right. Hard's single clue carries this alone: it must present a genuine
+unresolved tension, not a vague description. "A company facing challenges"
+fails; "an incumbent betting its cash cow on an unproven distribution model
+while a cheaper rival scales" passes.
+
+### The Guessability Test (falsifiable gate)
+
+For each variant, paste the full pre-decision content (title, era, dates label,
+companyDescription, macroContext, clues) into a fresh LLM session and ask:
+"Name the most likely company. Give your top 3 guesses with confidence."
+
+- **Easy:** the correct company should appear in the top 3 (it MAY be #1).
+  If the model can't place it top-3, the variant is too vague — fail.
+- **Medium:** the correct company may appear in the top 3, but must not be a
+  single confident #1. If the model names it first with high confidence — fail.
+- **Hard:** the correct company must NOT appear in the top 3 — fail if it does.
+
+Use a mid-tier model consistently (a stronger guesser = a stricter test; note
+which model was used in the card's review notes). The Phase 3 validator (D019)
+automates this with one model call per variant; until then it is a manual step
+in the Human Review Checklist.
 
 ## AI Generation Workflow
 
@@ -215,7 +267,13 @@ Requirements:
 - Each difficulty variant must include:
   - companyDescription
   - macroContext
-  - exactly 3 clues
+  - clues: exactly 3 for Easy, 2 for Medium, 1 for Hard
+- Follow the Scenario Content Rulebook: every variant needs a Situation clue
+  stating this window's strategic tension; respect each difficulty's
+  specificity caps; every hidden sentence must plausibly describe at least
+  three real companies.
+- The scenario title is shown pre-decision at every difficulty: it must not
+  identify the company even combined with the dates shown.
 - Do not mention the company name, ticker, exact product names that make the company too obvious, founder names, CEO names, or unique slogans in hidden-card content.
 - Reveal content may mention the company name.
 - Include short reveal text, a fun fact, and 3 whyItMoved bullets.
@@ -233,9 +291,12 @@ A scenario card should fail validation if:
 
 - Missing required fields
 - Missing any difficulty variant
-- Any difficulty has fewer or more than 3 clues
+- Wrong clue count for the difficulty (Easy 3 / Medium 2 / Hard 1, D022)
 - Hidden card mentions company name
 - Hidden card mentions ticker
+- Title fails the Hard identifiability bar
+- Guessability test fails for any variant (automated in the Phase 3
+  validator, D019)
 - Hidden card reveals the outcome
 - Pre-decision chart overlaps outcome period incorrectly
 - Decision date is after end date
@@ -249,9 +310,12 @@ A scenario card should fail validation if:
 A human reviewer should check:
 
 - Is the scenario fun?
-- Is the company hidden enough?
+- Is the company hidden enough? (Run the Guessability Test per variant and
+  record the results — manual until the Phase 3 validator automates it.)
+- Does the title pass the Hard bar?
 - Is Easy too obvious?
-- Is Hard too vague?
+- Is Hard too vague, or its single clue uninformative? (Decision-Informativeness
+  Floor)
 - Are the clues fair?
 - Is the macro context useful?
 - Does the lookback period make sense?
