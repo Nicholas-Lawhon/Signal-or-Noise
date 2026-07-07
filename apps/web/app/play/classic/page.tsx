@@ -5,9 +5,9 @@ const DIFFICULTIES: {
   label: string;
   explainer: string;
 }[] = [
-  { key: 'easy', label: 'Easy', explainer: 'More direct clues.' },
-  { key: 'medium', label: 'Medium', explainer: 'Balanced clues.' },
-  { key: 'hard', label: 'Hard', explainer: 'Less obvious company context.' },
+  { key: 'easy', label: 'Easy', explainer: '3 direct clues.' },
+  { key: 'medium', label: 'Medium', explainer: '2 balanced clues.' },
+  { key: 'hard', label: 'Hard', explainer: '1 abstract clue.' },
 ];
 
 export default function ClassicSetupPage() {

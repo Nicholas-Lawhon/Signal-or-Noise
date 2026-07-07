@@ -1,6 +1,12 @@
 // PROTOTYPE PLACEHOLDER DATA (decision D006).
 // Approximate returns, unverified. Replaced by curated content in Phase 3.
 
+export type HiddenCardVariant = {
+  companyDescription: string;
+  macroContext: string;
+  clues: string[]; // Easy 3, Medium 2, Hard 1 (D022)
+};
+
 export type PrototypeScenario = {
   id: string;
   companyName: string;
@@ -12,9 +18,11 @@ export type PrototypeScenario = {
   outcomeLabel: string;
   holdingPeriodLabel: string;
   actualReturnPercent: number;
-  companyDescription: string;
-  macroContext: string;
-  clues: [string, string, string];
+  hidden: {
+    easy: HiddenCardVariant;
+    medium: HiddenCardVariant;
+    hard: HiddenCardVariant;
+  };
   revealShortText: string;
   funFact: string;
   lookbackPrices: number[];
@@ -27,21 +35,44 @@ const SCENARIOS: PrototypeScenario[] = [
     companyName: 'Netflix',
     ticker: 'NFLX',
     acceptedNames: ['netflix', 'nflx'],
-    title: 'The Streaming Pivot',
+    title: 'Trust Reset',
     era: 'Post-financial-crisis tech expansion',
     decisionDateLabel: 'Jan 2012',
     outcomeLabel: 'Jan 2012 \u2192 Jan 2017',
     holdingPeriodLabel: '5 years',
     actualReturnPercent: 11.356,
-    companyDescription:
-      'A U.S. entertainment company with a recurring-revenue model and a controversial strategic transition.',
-    macroContext:
-      'Broadband adoption is rising while consumer tech platforms are becoming more important.',
-    clues: [
-      'The company is moving from a legacy model into a digital-first future.',
-      'Recent management decisions damaged investor trust.',
-      'The upside case depends on scale and recurring customer growth.',
-    ],
+    hidden: {
+      easy: {
+        companyDescription:
+          'A subscription entertainment company trying to move more of its customer experience online.',
+        macroContext:
+          'Broadband use, connected devices, and paid digital media habits are all expanding.',
+        clues: [
+          'The business earns recurring revenue from a large consumer audience.',
+          'A recent pricing and strategy reset hurt trust, but the company still has room to scale if customers stay.',
+          'Investors are debating whether faster online delivery can offset churn and rising content costs.',
+        ],
+      },
+      medium: {
+        companyDescription:
+          'A consumer entertainment service with a recurring-revenue model.',
+        macroContext:
+          'Digital media consumption is rising, but investors are unsure which paid models will endure.',
+        clues: [
+          'The company is rebuilding credibility after a customer backlash over how it changed its offering.',
+          'The long case is subscriber scale; the short case is churn, content spending, and weakened trust.',
+        ],
+      },
+      hard: {
+        companyDescription:
+          'A consumer-facing media company.',
+        macroContext:
+          'Household internet habits are changing after the financial crisis.',
+        clues: [
+          'Management is pushing into a newer distribution model after a self-inflicted trust hit, creating a scale upside case but a real retention and spending risk.',
+        ],
+      },
+    },
     revealShortText:
       'That was Netflix. The market was skeptical, but streaming adoption exploded.',
     funFact:
@@ -54,21 +85,44 @@ const SCENARIOS: PrototypeScenario[] = [
     companyName: 'Apple',
     ticker: 'AAPL',
     acceptedNames: ['apple', 'apple inc', 'aapl'],
-    title: 'The Pocket Computer Bet',
+    title: 'Category Test',
     era: 'Smartphone platform era',
     decisionDateLabel: 'Jan 2007',
     outcomeLabel: 'Jan 2007 \u2192 Jul 2008',
     holdingPeriodLabel: '18 months',
     actualReturnPercent: 0.45,
-    companyDescription:
-      'A consumer electronics company betting its future on a new category of mobile device.',
-    macroContext:
-      'The mobile industry is shifting from feature phones to internet-connected touchscreen devices.',
-    clues: [
-      'The company is about to launch a device that redefines an entire product category.',
-      'Competitors are skeptical, citing hardware margins and lack of a physical keyboard.',
-      'Success hinges on developer adoption and a new ecosystem of third-party applications.',
-    ],
+    hidden: {
+      easy: {
+        companyDescription:
+          'A consumer electronics company entering a fast-growing mobile-device category.',
+        macroContext:
+          'Mobile computing is moving beyond voice and text toward richer internet services.',
+        clues: [
+          'The company already has a loyal consumer base and strong design reputation.',
+          'A new premium handheld product could open a larger platform, but carriers and entrenched device makers have the advantage.',
+          'Investors are weighing high margins and brand pull against execution risk in an unfamiliar market.',
+        ],
+      },
+      medium: {
+        companyDescription:
+          'A consumer hardware company expanding beyond its established device lineup.',
+        macroContext:
+          'The mobile market is being reshaped by data plans, better networks, and changing consumer expectations.',
+        clues: [
+          'The next move could turn the company into a broader platform, but it requires partners and users to adopt a new approach.',
+          'The stock has momentum, leaving less room for a launch that disappoints on scale or profitability.',
+        ],
+      },
+      hard: {
+        companyDescription:
+          'A consumer technology company.',
+        macroContext:
+          'Mobile usage is becoming more central to everyday computing.',
+        clues: [
+          'A strong consumer brand is making a category-expansion bet with major platform upside, while incumbents control distribution and the valuation already assumes strong execution.',
+        ],
+      },
+    },
     revealShortText:
       'That was Apple. The iPhone launch quickly reframed the company as a mobile platform contender.',
     funFact:
@@ -81,21 +135,44 @@ const SCENARIOS: PrototypeScenario[] = [
     companyName: 'BlackBerry',
     ticker: 'BBRY',
     acceptedNames: ['blackberry', 'rim', 'research in motion', 'bbry'],
-    title: 'Losing the Screen War',
+    title: 'Incumbent Pressure',
     era: 'Smartphone platform era',
     decisionDateLabel: 'Jun 2008',
     outcomeLabel: 'Jun 2008 \u2192 Jun 2010',
     holdingPeriodLabel: '2 years',
     actualReturnPercent: -0.52,
-    companyDescription:
-      'A mobile communications company that once dominated the smartphone market with its physical keyboard devices.',
-    macroContext:
-      'Touchscreen smartphones are gaining share rapidly, threatening keyboard-centric designs.',
-    clues: [
-      'The company owns a massive enterprise user base but is slow to adopt a new interface paradigm.',
-      'A rival platform\u2019s app ecosystem is growing exponentially in both consumer and business markets.',
-      'The company believes its security and messaging strengths will be enough of a moat.',
-    ],
+    hidden: {
+      easy: {
+        companyDescription:
+          'A mobile communications company with deep business-customer relationships.',
+        macroContext:
+          'Mobile devices are becoming broader computing platforms as consumers demand richer software experiences.',
+        clues: [
+          'The company has a sticky professional user base and strong carrier relationships.',
+          'Consumer-oriented rivals are resetting expectations faster than the incumbent can refresh its approach.',
+          'The stock depends on whether enterprise loyalty and service revenue can offset pressure from newer platforms.',
+        ],
+      },
+      medium: {
+        companyDescription:
+          'A communications-device company serving professional and consumer users.',
+        macroContext:
+          'Mobile computing is shifting from specialized devices toward broader software ecosystems.',
+        clues: [
+          'The incumbent is defending an established way of working as rivals make the category easier to adopt.',
+          'A loyal customer base supports the long case, but the short case is that ecosystem momentum moves elsewhere.',
+        ],
+      },
+      hard: {
+        companyDescription:
+          'A mobile technology company.',
+        macroContext:
+          'Consumer expectations for mobile computing are changing quickly.',
+        clues: [
+          'An enterprise-favored incumbent is relying on loyalty and service strengths while consumer-focused rivals reset the category and threaten future growth.',
+        ],
+      },
+    },
     revealShortText:
       'That was BlackBerry. The touchscreen revolution swept past its keyboard empire.',
     funFact:
@@ -108,21 +185,44 @@ const SCENARIOS: PrototypeScenario[] = [
     companyName: 'Amazon',
     ticker: 'AMZN',
     acceptedNames: ['amazon', 'amazon.com', 'amzn'],
-    title: 'Growth at Any Cost',
+    title: 'Peak Expectations',
     era: 'Dot-com bubble and aftermath',
     decisionDateLabel: 'Dec 1999',
     outcomeLabel: 'Dec 1999 \u2192 Sep 2001',
     holdingPeriodLabel: '~2 years',
     actualReturnPercent: -0.87,
-    companyDescription:
-      'An online retailer that sold everything from books to electronics, growing fast but burning cash.',
-    macroContext:
-      'The dot-com bubble is peaking. Valuations for internet companies have soared, but investors are questioning whether any of them can become profitable.',
-    clues: [
-      'Leadership preaches relentless customer obsession and pours every dollar back into growth.',
-      'Revenue is doubling, but losses are also mounting, and the stock has already risen dramatically.',
-      'Market sentiment is shifting from growth-at-all-costs to a focus on near-term profitability.',
-    ],
+    hidden: {
+      easy: {
+        companyDescription:
+          'An internet retailer expanding quickly across consumer categories.',
+        macroContext:
+          'Internet valuations are peaking as investors start demanding proof of durable profits.',
+        clues: [
+          'Revenue is growing rapidly as more shoppers move online.',
+          'The company is spending heavily on fulfillment, marketing, and expansion while losses mount.',
+          'The stock has already run far ahead of current earnings, making a sentiment reversal dangerous.',
+        ],
+      },
+      medium: {
+        companyDescription:
+          'An online commerce company growing faster than its profits.',
+        macroContext:
+          'The market is starting to separate internet businesses with real economics from pure speculation.',
+        clues: [
+          'The long case is that scale turns heavy spending into a lasting advantage.',
+          'The short case is that cash burn and an inflated valuation become brutal when capital gets tighter.',
+        ],
+      },
+      hard: {
+        companyDescription:
+          'An internet company.',
+        macroContext:
+          'Speculative growth stocks are under increasing scrutiny near the end of a market boom.',
+        clues: [
+          'A fast-growing online business is choosing scale over near-term profit, which could build a durable position or collapse if investors stop funding losses.',
+        ],
+      },
+    },
     revealShortText:
       'That was Amazon. The dot-com crash wiped out most of its market value, but it survived to become one of the most valuable companies in the world.',
     funFact:
@@ -135,21 +235,44 @@ const SCENARIOS: PrototypeScenario[] = [
     companyName: 'Microsoft',
     ticker: 'MSFT',
     acceptedNames: ['microsoft', 'msft'],
-    title: 'The Sleeping Giant',
+    title: 'Old Platform New Bet',
     era: 'Cloud software expansion',
     decisionDateLabel: 'Jan 2014',
     outcomeLabel: 'Jan 2014 \u2192 Jan 2016',
     holdingPeriodLabel: '2 years',
     actualReturnPercent: 0.38,
-    companyDescription:
-      'A legacy software giant attempting to reinvent itself under new leadership after missing the mobile wave.',
-    macroContext:
-      'Cloud computing is reshaping enterprise IT, with businesses shifting from on-premise servers to subscription-based cloud services.',
-    clues: [
-      'New leadership is pivoting toward cross-platform cloud services rather than defending its legacy desktop-software franchise.',
-      'The stock has been flat for over a decade, and many investors consider the company a value trap.',
-      'Its enterprise relationships and existing customer base could become a distribution advantage for a new subscription business.',
-    ],
+    hidden: {
+      easy: {
+        companyDescription:
+          'A mature enterprise software company shifting more of its business toward cloud subscriptions.',
+        macroContext:
+          'Businesses are moving more computing work from owned infrastructure to rented cloud services.',
+        clues: [
+          'The company has a large installed base and long-standing relationships with corporate customers.',
+          'A cloud and subscription push could revive growth after years of investor frustration.',
+          'The risk is that faster-growing rivals define the new market before the incumbent can reposition.',
+        ],
+      },
+      medium: {
+        companyDescription:
+          'A large enterprise technology company with legacy software profits.',
+        macroContext:
+          'Cloud infrastructure and subscription pricing are changing how companies buy technology.',
+        clues: [
+          'The long case is distribution: existing business customers could make the transition easier.',
+          'The short case is that mature cash cows may fade faster than newer cloud revenue can scale.',
+        ],
+      },
+      hard: {
+        companyDescription:
+          'An enterprise technology company.',
+        macroContext:
+          'Corporate computing budgets are shifting toward hosted services.',
+        clues: [
+          'A mature incumbent is trying to turn a huge existing customer base into a subscription-growth engine, while faster rivals and legacy dependence threaten the transition.',
+        ],
+      },
+    },
     revealShortText:
       'That was Microsoft. The cloud pivot under Satya Nadella started changing how investors valued the old software giant.',
     funFact:
@@ -162,21 +285,44 @@ const SCENARIOS: PrototypeScenario[] = [
     companyName: 'GameStop',
     ticker: 'GME',
     acceptedNames: ['gamestop', 'gme'],
-    title: 'Game Over for Retail?',
+    title: 'Storefront Squeeze',
     era: 'Rate-hike / retail disruption era',
     decisionDateLabel: 'Jan 2016',
     outcomeLabel: 'Jan 2016 \u2192 Jan 2018',
     holdingPeriodLabel: '2 years',
     actualReturnPercent: -0.33,
-    companyDescription:
-      'A brick-and-mortar video game retailer facing a generational shift in how consumers buy games.',
-    macroContext:
-      'Digital downloads are replacing physical game discs. Console manufacturers are pushing direct-to-consumer digital storefronts.',
-    clues: [
-      'The company still generates significant cash flow from its physical store network.',
-      'Game publishers are increasingly incentivizing digital purchases over physical copies.',
-      'The company has no clear strategy to pivot its 5,000+ store footprint into a digital future.',
-    ],
+    hidden: {
+      easy: {
+        companyDescription:
+          'A specialty retailer tied to physical media, trade-ins, and mall traffic.',
+        macroContext:
+          'Consumers are buying more entertainment and software through digital channels instead of stores.',
+        clues: [
+          'The store base still throws off cash from loyal customers and resale activity.',
+          'Publishers and platform owners are steering more purchases toward direct digital delivery.',
+          'Investors are weighing a cheap valuation and cash flow against declining store relevance.',
+        ],
+      },
+      medium: {
+        companyDescription:
+          'A specialty retailer exposed to the shift from physical purchases to digital delivery.',
+        macroContext:
+          'Retailers with store-heavy models are under pressure as online and direct channels gain share.',
+        clues: [
+          'The long case is cash flow from an existing customer base; the short case is that the core transaction keeps moving away from stores.',
+          'A low valuation offers support only if management can find a credible path beyond the old model.',
+        ],
+      },
+      hard: {
+        companyDescription:
+          'A consumer retail company.',
+        macroContext:
+          'Store-based retailers are being tested by digital distribution and changing shopper habits.',
+        clues: [
+          'A cash-generative store network is facing a direct-channel shift that could either be managed from a cheap valuation or steadily erode the core business.',
+        ],
+      },
+    },
     revealShortText:
       'That was GameStop. Digital disruption kept pressuring the store network years before the meme-stock frenzy of 2021.',
     funFact:
@@ -189,21 +335,44 @@ const SCENARIOS: PrototypeScenario[] = [
     companyName: 'Coca-Cola',
     ticker: 'KO',
     acceptedNames: ['coca-cola', 'coca cola', 'coke', 'ko'],
-    title: 'Steady Pour',
+    title: 'Defensive Compounder',
     era: 'Post-financial-crisis recovery',
     decisionDateLabel: 'Jan 2010',
     outcomeLabel: 'Jan 2010 \u2192 Jan 2013',
     holdingPeriodLabel: '3 years',
     actualReturnPercent: 0.28,
-    companyDescription:
-      'A global beverage giant with one of the most recognized product portfolios in the world, known for defensive, steady growth.',
-    macroContext:
-      'Markets are recovering from the financial crisis. Investors favor stable, dividend-paying consumer names over riskier bets.',
-    clues: [
-      'The company sells everyday consumer products with strong pricing power and enormous global distribution.',
-      'Its appeal is stability and dividends, not explosive growth.',
-      'Emerging-market demand is a key part of the long-term story.',
-    ],
+    hidden: {
+      easy: {
+        companyDescription:
+          'A global nonalcoholic beverage company with broad distribution and repeat purchases.',
+        macroContext:
+          'Markets are recovering from the financial crisis, and investors are still paying attention to stable cash flows.',
+        clues: [
+          'The company sells everyday products with strong brand recognition and pricing power.',
+          'Emerging-market volume growth could add to a steady mature-market base.',
+          'The short case is that defensive stocks may lag if investors rotate into faster growth.',
+        ],
+      },
+      medium: {
+        companyDescription:
+          'A global consumer staples company built around repeat purchases.',
+        macroContext:
+          'After the crisis, investors are balancing safety, dividends, and renewed appetite for risk.',
+        clues: [
+          'The long case is durable demand, pricing power, and international volume growth.',
+          'The short case is limited excitement if the recovery rewards more cyclical companies.',
+        ],
+      },
+      hard: {
+        companyDescription:
+          'A consumer staples company.',
+        macroContext:
+          'The market is moving from crisis recovery toward a more normal risk appetite.',
+        clues: [
+          'A defensive cash generator offers brand strength and global demand, but its steady profile could underperform if investors chase higher-growth recovery stories.',
+        ],
+      },
+    },
     revealShortText:
       'That was Coca-Cola. Steady demand and reliable dividends delivered a solid, low-drama gain.',
     funFact:
@@ -216,21 +385,44 @@ const SCENARIOS: PrototypeScenario[] = [
     companyName: 'Starbucks',
     ticker: 'SBUX',
     acceptedNames: ['starbucks', 'sbux'],
-    title: 'Global Caffeine',
+    title: 'Habit Becomes Scale',
     era: 'Post-financial-crisis recovery',
     decisionDateLabel: 'Jan 2012',
     outcomeLabel: 'Jan 2012 \u2192 Jan 2014',
     holdingPeriodLabel: '2 years',
     actualReturnPercent: 0.52,
-    companyDescription:
-      'A premium coffee-and-cafe chain expanding aggressively worldwide with a loyal customer base.',
-    macroContext:
-      'Consumer spending is rebounding. Premium everyday-luxury brands are gaining traction, especially among younger urban customers.',
-    clues: [
-      'The company turns an everyday habit into a premium experience.',
-      'Store count is growing fast, with big ambitions in Asia.',
-      'A mobile app and loyalty program are becoming central to its strategy.',
-    ],
+    hidden: {
+      easy: {
+        companyDescription:
+          'A premium cafe chain turning a daily habit into a global consumer brand.',
+        macroContext:
+          'Consumer spending is recovering, and urban middle-class demand is rising in several international markets.',
+        clues: [
+          'The company has loyal repeat customers and room to open more stores.',
+          'International expansion and a growing rewards program could make sales more predictable.',
+          'The risk is that rapid expansion and premium pricing disappoint if consumer spending softens.',
+        ],
+      },
+      medium: {
+        companyDescription:
+          'A premium consumer-service chain with repeat daily visits.',
+        macroContext:
+          'Post-crisis consumers are selectively returning to affordable indulgences.',
+        clues: [
+          'The long case is store growth plus loyalty-driven repeat spending.',
+          'The short case is that expansion costs and premium positioning leave little room for weaker traffic.',
+        ],
+      },
+      hard: {
+        companyDescription:
+          'A consumer brand with a store-based model.',
+        macroContext:
+          'Consumer spending is improving but still sensitive to confidence and employment trends.',
+        clues: [
+          'A repeat-purchase brand is expanding its footprint and loyalty economics, while premium pricing and fast growth create execution risk.',
+        ],
+      },
+    },
     revealShortText:
       'That was Starbucks. Rapid store growth and a booming loyalty program powered a strong two-year run.',
     funFact:
@@ -243,21 +435,44 @@ const SCENARIOS: PrototypeScenario[] = [
     companyName: 'Nvidia',
     ticker: 'NVDA',
     acceptedNames: ['nvidia', 'nvda'],
-    title: 'The Graphics Gamble',
+    title: 'Specialized Hardware Test',
     era: 'Cloud and AI acceleration',
     decisionDateLabel: 'Jan 2015',
     outcomeLabel: 'Jan 2015 \u2192 Jan 2017',
     holdingPeriodLabel: '2 years',
-    actualReturnPercent: 2.30,
-    companyDescription:
-      'A chip designer known for high-performance processors used in gaming, now eyeing new computing markets.',
-    macroContext:
-      'Demand for parallel-processing hardware is rising as data centers, gaming, and early machine-learning workloads grow.',
-    clues: [
-      'Its core chips were built for gaming but turn out to be ideal for other heavy workloads.',
-      'A new wave of computing demand could expand its market well beyond its origins.',
-      'The stock has been volatile as investors debate whether the growth is real.',
-    ],
+    actualReturnPercent: 2.3,
+    hidden: {
+      easy: {
+        companyDescription:
+          'A specialized chip designer whose high-performance hardware serves enthusiasts and commercial computing buyers.',
+        macroContext:
+          'Cloud platforms and data-heavy workloads are increasing demand for specialized processing power.',
+        clues: [
+          'The company has a strong niche in performance-focused computing hardware.',
+          'New commercial workloads could expand demand beyond its original enthusiast market.',
+          'The risk is that a cyclical chip market and volatile expectations make the growth story easy to overprice.',
+        ],
+      },
+      medium: {
+        companyDescription:
+          'A semiconductor company focused on specialized high-performance processors.',
+        macroContext:
+          'Data centers are experimenting with more purpose-built hardware for heavy computing tasks.',
+        clues: [
+          'The long case is that a niche hardware category becomes useful for larger commercial workloads.',
+          'The short case is that chip cycles and competition turn early demand into a temporary spike.',
+        ],
+      },
+      hard: {
+        companyDescription:
+          'A semiconductor company.',
+        macroContext:
+          'Computing demand is broadening as cloud infrastructure grows.',
+        clues: [
+          'A specialized hardware supplier may see its niche expand into larger computing markets, but cyclical demand and fast-moving rivals make the valuation risky.',
+        ],
+      },
+    },
     revealShortText:
       'That was Nvidia. Its gaming chips became the engine of the AI boom, and the stock more than tripled.',
     funFact:
@@ -270,21 +485,44 @@ const SCENARIOS: PrototypeScenario[] = [
     companyName: 'General Electric',
     ticker: 'GE',
     acceptedNames: ['general electric', 'ge'],
-    title: 'The Conglomerate Cracks',
+    title: 'Blue-Chip Stress Test',
     era: 'Late-cycle industrial reckoning',
     decisionDateLabel: 'Jan 2016',
     outcomeLabel: 'Jan 2016 \u2192 Jan 2018',
     holdingPeriodLabel: '2 years',
     actualReturnPercent: -0.56,
-    companyDescription:
-      'A sprawling industrial conglomerate spanning power, aviation, and finance, long seen as a blue-chip staple.',
-    macroContext:
-      'Investors are questioning complex conglomerates. Hidden liabilities and weak cash flow are under new scrutiny.',
-    clues: [
-      'It is a decades-old blue chip spanning many unrelated businesses.',
-      'Its dividend looks generous, but cash flow may not support it.',
-      'New leadership is under pressure to simplify and cut.',
-    ],
+    hidden: {
+      easy: {
+        companyDescription:
+          'A diversified industrial conglomerate with exposure to equipment, services, and financial obligations.',
+        macroContext:
+          'Late-cycle industrial companies are facing pressure from weak demand, complex balance sheets, and investor calls for focus.',
+        clues: [
+          'The company still carries a blue-chip reputation and a generous shareholder payout.',
+          'Cash flow is under pressure, making that payout and the corporate structure harder to defend.',
+          'The long case is simplification and asset sales; the short case is that hidden liabilities overwhelm the plan.',
+        ],
+      },
+      medium: {
+        companyDescription:
+          'A diversified industrial company with many business lines.',
+        macroContext:
+          'Investors are questioning complex companies that are hard to value late in the cycle.',
+        clues: [
+          'A respected payout and old blue-chip status support the stock, but cash generation is not keeping up.',
+          'The company may unlock value by simplifying, or reveal deeper problems as scrutiny rises.',
+        ],
+      },
+      hard: {
+        companyDescription:
+          'An industrial company.',
+        macroContext:
+          'Late-cycle markets are less forgiving toward complex balance sheets.',
+        clues: [
+          'A once-trusted incumbent is leaning on reputation and shareholder payouts while weak cash flow and complexity raise the risk of a painful reset.',
+        ],
+      },
+    },
     revealShortText:
       'That was General Electric. Trouble in power and finance forced a historic dividend cut and a painful decline.',
     funFact:
@@ -297,21 +535,44 @@ const SCENARIOS: PrototypeScenario[] = [
     companyName: 'Boeing',
     ticker: 'BA',
     acceptedNames: ['boeing', 'ba'],
-    title: 'Clear Skies, For Now',
+    title: 'Backlog or Bottleneck',
     era: 'Post-financial-crisis recovery',
     decisionDateLabel: 'Jan 2013',
     outcomeLabel: 'Jan 2013 \u2192 Jan 2015',
     holdingPeriodLabel: '2 years',
     actualReturnPercent: 0.42,
-    companyDescription:
-      'One of two dominant makers of large commercial aircraft, with a massive multi-year order backlog.',
-    macroContext:
-      'Global air travel is expanding and airlines are ordering fuel-efficient jets, though supply chains are strained.',
-    clues: [
-      'It operates in a near-duopoly for large commercial jets.',
-      'A record order backlog promises years of revenue if it can deliver.',
-      'Early production hiccups on a new model rattled investors but were resolved.',
-    ],
+    hidden: {
+      easy: {
+        companyDescription:
+          'A large aerospace manufacturer with commercial and defense customers.',
+        macroContext:
+          'Global travel demand is improving, and airlines are ordering more fuel-efficient equipment.',
+        clues: [
+          'A large order backlog could support years of revenue.',
+          'Production issues on a newer program have worried investors, but delivery progress could restore confidence.',
+          'The risk is that supply-chain strain or customer delays turn the backlog into a bottleneck.',
+        ],
+      },
+      medium: {
+        companyDescription:
+          'An aerospace and defense manufacturer with long-cycle production programs.',
+        macroContext:
+          'Air travel and capital spending are recovering, but industrial supply chains remain sensitive.',
+        clues: [
+          'The long case is a deep backlog tied to fuel-efficiency demand.',
+          'The short case is that production problems and delivery delays eat into expected cash flow.',
+        ],
+      },
+      hard: {
+        companyDescription:
+          'An industrial manufacturer.',
+        macroContext:
+          'The recovery is reviving capital spending, but long supply chains remain fragile.',
+        clues: [
+          'A long-cycle manufacturer has strong demand visibility from backlog, while execution problems could convert that visibility into delays and margin pressure.',
+        ],
+      },
+    },
     revealShortText:
       'That was Boeing. A record jet backlog and smooth deliveries lifted the stock over 40% in two years.',
     funFact:
@@ -324,21 +585,44 @@ const SCENARIOS: PrototypeScenario[] = [
     companyName: 'Visa',
     ticker: 'V',
     acceptedNames: ['visa', 'v'],
-    title: 'Swipe Right',
+    title: 'Rails of Commerce',
     era: 'Post-financial-crisis recovery',
     decisionDateLabel: 'Jan 2011',
     outcomeLabel: 'Jan 2011 \u2192 Jan 2013',
     holdingPeriodLabel: '2 years',
     actualReturnPercent: 0.58,
-    companyDescription:
-      'A payments network that earns a small fee on a huge and growing volume of electronic transactions.',
-    macroContext:
-      'Cash is giving way to cards and digital payments worldwide, a durable multi-year shift.',
-    clues: [
-      "It doesn't lend money; it takes a tiny cut of a massive flow of transactions.",
-      'The long-term tailwind is the global shift from cash to digital payments.',
-      'Its network scale makes it very hard for newcomers to displace.',
-    ],
+    hidden: {
+      easy: {
+        companyDescription:
+          'A fee-based financial infrastructure company that benefits as more commerce becomes electronic.',
+        macroContext:
+          'Consumers and merchants are moving more transactions away from cash and checks.',
+        clues: [
+          'The company earns from transaction volume rather than lending money itself.',
+          'Global adoption of electronic payments creates a durable growth tailwind.',
+          'The risk is regulation, merchant pressure, or rivals compressing fees on a high-margin network.',
+        ],
+      },
+      medium: {
+        companyDescription:
+          'A financial infrastructure company tied to payment volume.',
+        macroContext:
+          'Electronic commerce is becoming more common across households and businesses.',
+        clues: [
+          'The long case is toll-like economics as transaction volume grows without taking direct credit risk.',
+          'The short case is that regulation and large customers push back on fees.',
+        ],
+      },
+      hard: {
+        companyDescription:
+          'A financial infrastructure company.',
+        macroContext:
+          'Commerce is becoming more digital during the post-crisis recovery.',
+        clues: [
+          'A fee-based network can compound as transaction volumes migrate electronically, but regulation and customer pushback could pressure its economics.',
+        ],
+      },
+    },
     revealShortText:
       'That was Visa. The steady shift from cash to cards drove reliable, compounding growth.',
     funFact:

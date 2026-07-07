@@ -2,7 +2,7 @@
 
 **Role:** Implementor
 **Phase:** 2 (content-design thread; placeholder deck, D006/D020)
-**Status:** draft
+**Status:** complete
 **Model tier:** claude-subagent (per `agents/routing.md` — content judgment above DeepSeek grade)
 **Risk:** medium — user-visible content bound by leakage rules → Auditor pass required (D019)
 **Depends on:** H008 (rulebook finalized via C001; committed)

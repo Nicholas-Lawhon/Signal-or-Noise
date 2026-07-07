@@ -12,13 +12,13 @@ first thing the next agent reads.
   Classic Run playable - deep-navy `son` palette, two-line confidence buttons,
   call-locked state, wrong All-In bust (D014), Call the Company guess (D015), $1
   bankruptcy floor (D016), proportional payout (D017). 12 placeholder scenarios
-  (no-repeat shuffle). Color ramp via static maps. Netflix +1135.6%. Reveal
-  win/loss banner. No auth, no DB, no server.
-- **Next task:** User approves H009 (draft — per-difficulty hidden cards for the
-  placeholder deck, claude-subagent tier); orchestrator then spawns the subagent.
-  After R007: orchestrator review + Auditor pass (leakage scan + Gate 2
-  guessability spot checks). Parallel threads still open: Gate A Growth
-  positioning, composite-score design memo, Phase 2 hardening.
+  (no-repeat shuffle) now have Easy/Medium/Hard hidden-card variants with 3/2/1
+  clues and difficulty-aware rendering. Color ramp via static maps. Netflix
+  +1135.6%. Reveal win/loss banner. No auth, no DB, no server.
+- **Next task:** Orchestrator review of R007/H009, then Auditor pass required
+  (content-leakage scan + Gate 2 guessability spot checks). Parallel threads
+  still open: Gate A Growth positioning, composite-score design memo, Phase 2
+  hardening.
 - **Blocked/Questions:** none.
 
 ## How to Run (updated as the app grows)
@@ -57,6 +57,32 @@ All from repo root. Requires Node.js LTS and pnpm 9.x.
 ---
 
 ## Session Log
+
+### 2026-07-07 - Implementor - H009 Difficulty Variants
+
+**What changed:**
+- Restructured `apps/web/lib/sampleScenarios.ts` from flat hidden fields to
+  `hidden.easy/medium/hard` variants for all 12 placeholder scenarios.
+- Rewrote all scenario titles and hidden-card copy to use difficulty-scaled
+  clue counts: Easy 3, Medium 2, Hard 1.
+- Updated Classic Run rendering to select `scenario.hidden[difficulty]` and
+  updated setup-page difficulty explainers to the exact H009 copy.
+- Added required red-team appendix at `agents/reports/R007_H009_redteam.md`.
+
+**How to run:** unchanged.
+
+**Tests:** 24 passing / 0 failing - `pnpm install`; `pnpm typecheck`;
+`pnpm test`; `pnpm dev` responded 200 at `http://localhost:3000/play/classic`.
+T3 preview at 375px confirmed setup explainer copy, Easy/Medium/Hard round cards
+rendering 3/2/1 clues, and three Pass -> Lock In -> Reveal samples at each
+difficulty.
+
+**Known issues:** none.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** Orchestrator review of R007/H009, then Auditor pass
+for leakage scan and Gate 2 guessability spot checks.
 
 ### 2026-07-07 — Orchestrator — C001 accepted; rulebook fixes landed; H009 drafted
 

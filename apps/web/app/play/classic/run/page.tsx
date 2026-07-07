@@ -129,6 +129,8 @@ export default function ClassicRunClient() {
 
   // ---- Round View ----
   if (view === 'round' && scenario) {
+    const hidden = scenario.hidden[difficulty];
+
     return (
       <main className="flex min-h-screen flex-col items-center px-4 py-6">
         <div className="w-full max-w-md">
@@ -160,11 +162,11 @@ export default function ClassicRunClient() {
             <h2 className="mb-1 text-lg font-semibold text-son-text">{scenario.title}</h2>
 
             <p className="mb-2 text-sm leading-relaxed text-son-textSecondary">
-              {scenario.companyDescription}
+              {hidden.companyDescription}
             </p>
 
             <p className="mb-4 text-sm leading-relaxed text-son-textMuted">
-              {scenario.macroContext}
+              {hidden.macroContext}
             </p>
 
             {/* Lookback sparkline */}
@@ -175,7 +177,7 @@ export default function ClassicRunClient() {
 
             {/* Clues */}
             <ol className="mb-0 list-inside list-decimal space-y-1 text-sm text-son-textSecondary">
-              {scenario.clues.map((clue, i) => (
+              {hidden.clues.map((clue, i) => (
                 <li key={i}>{clue}</li>
               ))}
             </ol>
