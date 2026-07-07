@@ -14,11 +14,11 @@ first thing the next agent reads.
   bankruptcy floor (D016), proportional payout (D017). 12 placeholder scenarios
   (no-repeat shuffle). Color ramp via static maps. Netflix +1135.6%. Reveal
   win/loss banner. No auth, no DB, no server.
-- **Next task:** User approves H008 (draft) and runs it on GPT 5.5 — adversarial
-  review of the new Scenario Content Rulebook (D022). After the memo: revise
-  rulebook if needed, then author H009 (regenerate 12 placeholder cards with
-  real per-difficulty variants, cheap tier). Parallel threads still open:
-  Gate A Growth positioning, composite-score design memo, Phase 2 hardening.
+- **Next task:** User approves H009 (draft — per-difficulty hidden cards for the
+  placeholder deck, claude-subagent tier); orchestrator then spawns the subagent.
+  After R007: orchestrator review + Auditor pass (leakage scan + Gate 2
+  guessability spot checks). Parallel threads still open: Gate A Growth
+  positioning, composite-score design memo, Phase 2 hardening.
 - **Blocked/Questions:** none.
 
 ## How to Run (updated as the app grows)
@@ -57,6 +57,35 @@ All from repo root. Requires Node.js LTS and pnpm 9.x.
 ---
 
 ## Session Log
+
+### 2026-07-07 — Orchestrator — C001 accepted; rulebook fixes landed; H009 drafted
+
+**What changed:**
+- Reviewed C001 (verdict: adopt with fixes — found the rulebook exploitable
+  via cross-field triangulation despite sentence-level compliance). Accepted
+  all 10 fixes; recorded as D022 second amendment with two adaptations
+  (dropped the any-guess->50%-fails-Hard clause: a confident WRONG guess is
+  camouflage, not a leak; temperature-0 pinning applies to the Phase 3
+  automated validator, manual runs just fix model + prompt).
+- Doc 09 updated: distinctive-hook + hindsight-thesis bans, ladder escalation
+  rules, M broadened to Market-position/setup, spec table gains
+  plausible-alternative minimums (Easy ≥2 / Medium 2–4 / Hard ≥4), sharpened
+  informativeness floor, two-gate guessability protocol (human whole-card
+  review + thresholded model test), calibrated pass/fail examples, reasoned
+  guess lists. Curator role + prompt template synced. H008 marked complete.
+- Authored H009 (draft): per-difficulty hidden cards for all 12 placeholder
+  scenarios + `hidden.easy/medium/hard` type restructure + difficulty-aware
+  rendering + title rewrites + red-team record file. Routed claude-subagent
+  tier, risk medium (Auditor pass required).
+
+**Tests:** n/a — docs only this session.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** user approves H009; orchestrator spawns the
+subagent.
+
+### 2026-07-07 - Consultant - H008 rulebook review: memo filed at `agents/consultations/C001_rulebook_review.md`; recommendation: adopt D022 rulebook with targeted fixes before H009.
 
 ### 2026-07-06 — Orchestrator — D022 amendment: merged GPT 5.5 memo additions into the rulebook
 

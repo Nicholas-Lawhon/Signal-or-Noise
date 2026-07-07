@@ -295,6 +295,27 @@ auto-checked was rejected too: the LLM guessability check performs
 triangulation by construction; term-list warnings become a supplementary
 Phase 3 validator layer only.
 
+**Second amendment 2026-07-07 (orchestrator, per consultation C001):** adopted
+all 10 fixes from the H008 adversarial review (`agents/consultations/
+C001_rulebook_review.md`), which found the rulebook sound but exploitable via
+cross-field triangulation. Now in doc 09: (1) whole-card triangulation gate
+(Gate 1, human) ahead of the model test; (2) distinctive-hook ban (interface,
+category origin, pricing incident, etc. famous for one company in the window);
+(3) plausible-alternative minimums per difficulty (Easy ≥2 / Medium 2–4 /
+Hard ≥4); (4) famous-hindsight-thesis ban; (5) informativeness floor requires
+a concrete Long driver AND Short risk anchored to the fact bank; (6) Gate 2
+protocol pinned (same model + prompt, top-5 with confidence, numeric
+thresholds as tunable calibration values); (7) M broadened to Market-position/
+setup (valuation, balance sheet, margins, sentiment), Hard's S clue may fold
+in one setup element; (8) ladder escalation rules (2+ identity dimensions =
++1 level; <3 plausible companies with era/date = L4); (9) guess lists require
+the pointing fact per guess; (10) calibrated pass/fail examples added.
+Adaptations: dropped C001's "Hard fails if ANY guess exceeds 50% confidence"
+(a confident WRONG guess is camouflage, not a leak) and its temperature-0
+requirement applies to the Phase 3 automated validator, not manual runs.
+D015 calibration note (Call the Company becomes rare on Hard by design) is
+tracked for playtest review, not a scoring change.
+
 ## Open Design Question — composite Final Score / Information Tiers (NOT a decision)
 
 **Date:** 2026-07-03 · **Status:** Exploration pending

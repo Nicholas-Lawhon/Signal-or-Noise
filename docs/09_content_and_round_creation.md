@@ -165,6 +165,15 @@ companyDescription, macroContext, clues) must never contain:
 - Widely memed numbers or facts ("$99 price point", "founded in a garage")
 - Headquarters city or region combined with industry ("a Seattle software
   giant")
+- Distinctive hooks that are famous for ONE company in this era, even in
+  abstract wording: interface or form factor, category origin ("expanded from
+  one narrow category"), pricing incidents, distribution channel, store
+  footprint, product architecture, customer segment. If the hook is how
+  people remember this company in this window, abstract it further or move
+  it to reveal-only.
+- Famous hindsight thesis phrasing — how the market NOW remembers the winning
+  story ("gaming chips finding heavier computing workloads"). Reveal-only,
+  unless at least three public companies share the same hindsight story.
 
 The test for all of these: **could the sentence describe at least three real
 companies?** If not, rewrite it.
@@ -196,6 +205,13 @@ L4  Situation-unique  "A DVD-by-mail service whose price-change announcement
                        everywhere (fails the three-companies test)
 ```
 
+**Escalation rules:** a sentence climbs one level when it combines two or
+more identity dimensions (business model, customer segment, distribution
+channel, strategic transition, era-specific event, market position). And any
+sentence that — combined with the era and date the player also sees — leaves
+fewer than three plausible public companies is L4, regardless of how abstract
+its wording looks.
+
 ### Clue Taxonomy
 
 Every clue is one of three types:
@@ -203,17 +219,20 @@ Every clue is one of three types:
 - **B — Business-model clue:** what the company does or sells, how it earns.
 - **S — Situation clue:** the strategic tension of THIS window — the pivot,
   threat, scandal, or bet whose resolution decides the outcome.
-- **M — Market-position/era clue:** scale, competitive standing, or how the
-  era treats companies like this.
+- **M — Market-position/setup clue:** scale, competitive standing, how the
+  era treats companies like this, or the market/financial setup — valuation,
+  balance-sheet stress, margin pressure, prior price run-up, dividend
+  support, sentiment — stated without identifying the company.
 
 ### Per-Difficulty Specification
 
 | | Easy | Medium | Hard |
 |---|---|---|---|
-| Clues | 3 — one B, one S, one M | 2 — one B or M, one S | 1 — S only |
+| Clues | 3 — one B, one S, one M | 2 — one B or M, one S | 1 — S-led; may fold in one non-identifying setup element |
 | companyDescription cap | L3 | L2 | L1 |
 | Clue specificity cap | L3 | L3 in the S clue only, L2 otherwise | L2 |
 | macroContext | Era-specific allowed | Era-specific allowed | Broad era only |
+| Plausible alternatives (whole card) | ≥ 2 | 2–4, none dominant | ≥ 4, correct company not dominant |
 
 Every variant at every difficulty must include an S clue: the situation is the
 game. The S clue states the tension abstractly enough to pass the
@@ -221,30 +240,83 @@ three-companies test but concretely enough to reason about.
 
 ### Decision-Informativeness Floor (anti-randomness)
 
-A variant fails — regardless of difficulty — if a thoughtful player could not
-articulate, after reading it, why Long might be right AND why Short might be
-right. Hard's single clue carries this alone: it must present a genuine
-unresolved tension, not a vague description. "A company facing challenges"
-fails; "an incumbent betting its cash cow on an unproven distribution model
-while a cheaper rival scales" passes.
+Every variant must contain at least one concrete Long driver AND one concrete
+Short risk, both drawn from the fact bank's decision-useful list. Generic
+drivers — "demand may recover", "margins may fall", "competition is rising",
+"investors are uncertain" — do NOT count unless anchored to a specific
+non-identifying fact of this scenario. Hard's single clue carries this alone:
+it must present a genuine unresolved tension, not a vague description. "A
+company facing challenges" fails; "an incumbent betting its cash cow on an
+unproven distribution model while a cheaper rival scales" passes.
 
-### The Guessability Test (falsifiable gate)
+### Gate 1 — Whole-Card Triangulation Review (human)
 
-For each variant, paste the full pre-decision content (title, era, dates label,
-companyDescription, macroContext, clues) into a fresh LLM session and ask:
-"Name the most likely company. Give your top 3 guesses with confidence."
+Before any model test, the reviewer evaluates the FULL pre-decision payload
+together — title, era, date label, companyDescription, macroContext, clues,
+and lookback chart shape — and lists the plausible public-company candidates.
+"Plausible" means a real public company in the same broad era whose hidden
+facts could fit without contradiction. Minimums (also the targets for the
+authoring red-team step):
+
+- **Easy:** at least 2 plausible candidates
+- **Medium:** 2–4 plausible candidates, none dominant
+- **Hard:** at least 4 plausible candidates, correct company not dominant
+
+A variant fails this gate even if every individual sentence passes the
+three-companies test — triangulation leaks live between the sentences.
+
+### Gate 2 — The Guessability Test (model, falsifiable)
+
+Paste the same full pre-decision payload into a FRESH session of the
+designated test model and ask: "Name the hidden company. Give your top 5
+guesses with a confidence percentage for each." Use the same model and the
+same prompt for every card, and record the model in review notes. The Phase 3
+validator (D019) automates this with a pinned model at temperature 0; until
+then it is a manual step in the Human Review Checklist.
+
+Initial thresholds — calibration values, tunable via playtest without
+reopening D022:
 
 - **Easy:** the correct company should appear in the top 3 (it MAY be #1).
-  If the model can't place it top-3, the variant is too vague — fail.
-- **Medium:** the correct company may appear in the top 3, but must not be a
-  single confident #1 — the card should leave 2–4 plausible alternatives. If
-  the model names it first with high confidence — fail.
-- **Hard:** the correct company must NOT appear in the top 3 — fail if it does.
+  Missing from the top 5 entirely — too vague, fail.
+- **Medium:** fail if the correct company is #1 with ≥ 40% confidence, or
+  leads the #2 guess by 15+ points.
+- **Hard:** fail if the correct company appears in the top 5 with ≥ 15%
+  confidence.
 
-Use a mid-tier model consistently (a stronger guesser = a stricter test; note
-which model was used in the card's review notes). The Phase 3 validator (D019)
-automates this with one model call per variant; until then it is a manual step
-in the Human Review Checklist.
+### Calibrated Pass/Fail Examples
+
+Drawn from red-teaming the rulebook (C001) against the leak patterns actually
+found in the placeholder deck.
+
+**FAIL — Hard, distinctive-hook triangulation:** "An incumbent is defending a
+keyboard-centered workflow while rivals make cheaper, touch-first devices
+easier to adopt" (+ Smartphone era, 2008). Every sentence passes the
+three-companies test; the combination is unmistakably one company, because
+the keyboard hook is how people remember it in this window — banned hook.
+**PASS rewrite:** "An enterprise-favored incumbent is defending its
+established way of working as consumer-oriented rivals reset expectations
+for the category."
+
+**FAIL — Medium, tiny peer set:** "A payments network earning small fees on
+large transaction volume… does not take credit risk." Sentence-level legal,
+but the real public-company candidate set is ~2 — below the 2–4 minimum, and
+Call the Company becomes a coin flip.
+**PASS rewrite:** "A fee-based financial infrastructure company that profits
+as commerce volumes grow, without lending money itself" — networks,
+processors, and exchanges all fit.
+
+**FAIL — Easy, hindsight thesis:** "Its core chips were built for gaming but
+are increasingly useful for heavier computing tasks" (2015). No banned term
+appears, but this is the market's canonical memory of one company —
+hindsight-thesis ban.
+**PASS rewrite:** "A specialized hardware designer's niche products are
+finding unexpected demand from large-scale computing buyers."
+
+**FAIL — Hard, compliant-but-random:** "Management faces a changing demand
+environment while investors debate whether margins can hold." Generic Long
+and Short cases exist, but neither is anchored to a scenario fact — fails
+the Decision-Informativeness Floor.
 
 ## Authoring Workflow
 
@@ -266,11 +338,14 @@ hidden-card variants — never three separate scenario records):
    specificity (2 clues), then Easy (3 clues, up to L3). Never write Easy
    first and "vague it down" — that leaves triangulation residue in the
    harder variants.
-5. **Red-team each variant:** list the likely player guesses per difficulty
-   in the review notes. If Medium doesn't leave 2–4 plausible alternatives,
-   or Hard has one obvious guess, revise. If Hard gives no rational basis
+5. **Red-team each variant (Gate 1):** list the likely player guesses per
+   difficulty in the review notes, and for EACH guess record the hidden fact
+   that points there. If every reason points uniquely to the correct company,
+   revise — even if the list is long enough. Enforce the plausible-alternative
+   minimums (Easy ≥2 / Medium 2–4 / Hard ≥4). If Hard gives no rational basis
    for Long vs Short (Decision-Informativeness Floor), revise.
-6. Run the Guessability Test per variant; record model used and results.
+6. Run the Guessability Test (Gate 2) per variant; record model used and
+   results.
 7. Validate schema and leakage rules.
 8. Review content quality; playtest difficulty.
 9. Mark reviewed (human only).
@@ -300,8 +375,8 @@ STEP 1 — Build a private fact bank (goes in review notes, never shown to playe
 STEP 2 — Generate the hidden-card variants, HARD FIRST, then Medium, then Easy:
 
 Hard (1 clue):
-- The single clue is a Situation clue: this window's strategic tension, stated abstractly (sector-level language) but concretely enough that a player can argue both the Long case and the Short case.
-- No famous-story framing. Company identity may stay uncertain even for good players — but never random or purely vague.
+- The single clue is a Situation clue: this window's strategic tension, stated abstractly (sector-level language) but concretely enough that a player can argue both the Long case and the Short case. It may fold in ONE non-identifying financial/market setup element (valuation, balance sheet, margins, sentiment).
+- No famous-story framing, no hindsight thesis phrasing, no hooks famous for one company. Company identity may stay uncertain even for good players — but never random or purely vague.
 
 Medium (2 clues):
 - One Situation clue, plus one Business-model or Market-position clue.
@@ -319,7 +394,7 @@ Rules for ALL hidden content (title, companyDescription, macroContext, clues):
 - No company name, ticker, founder/CEO names, product names, slogans, mission statements, one-answer superlatives, or company-unique events in recognizable phrasing.
 - macroContext describes the era, never the company.
 
-STEP 3 — Red-team: for each variant, list the likely player guesses in review notes. Revise if Medium collapses to one obvious guess or Hard's clue gives no decision signal.
+STEP 3 — Red-team: for each variant, list the likely player guesses in review notes WITH the hidden fact that points to each guess. Targets: Easy at least 2 plausible candidates, Medium 2–4 with none dominant, Hard at least 4 with the correct company not dominant. Revise if the card misses its target, if every reason points uniquely to the correct company, or if Hard's clue gives no decision signal.
 
 Also include:
 - reveal.shortText, reveal.funFact, reveal.whyItMoved (exactly 3 bullets) — reveal content MAY name the company

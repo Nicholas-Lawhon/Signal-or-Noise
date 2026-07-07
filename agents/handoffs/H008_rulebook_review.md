@@ -2,7 +2,7 @@
 
 **Role:** Consultant
 **Phase:** 2 (content-design thread, feeds Phase 3)
-**Status:** draft
+**Status:** complete — memo C001 delivered and accepted; all 10 fixes adopted (see D022 second amendment)
 **Model tier:** gpt-5.5 (per `agents/routing.md`)
 **Risk:** high — the rulebook governs all future content and amended `soul.md` (D022)
 **Depends on:** none (reviews committed docs)

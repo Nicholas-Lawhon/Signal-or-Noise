@@ -28,7 +28,9 @@ prototype placeholder data is the Implementor's job (decision D006).
 - Following the doc 09 Authoring Workflow: build the private fact bank first
   (reveal-only / decision-useful / prohibited facts), generate HARD first then
   Medium then Easy, and red-team each variant by recording likely player
-  guesses per difficulty in the review notes
+  guesses per difficulty in the review notes — each guess with the hidden
+  fact that points there, meeting the plausible-alternative minimums
+  (Easy ≥2 / Medium 2–4 / Hard ≥4)
 - Reveal text, fun fact, whyItMoved bullets — short, punchy, game-like
 - Running the validation script on every card before calling it done
 - Setting review metadata honestly (`generatedByAi: true`, `humanReviewed: false` —
