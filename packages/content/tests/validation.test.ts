@@ -110,6 +110,80 @@ describe('validateScenario', () => {
     }
   });
 
+  it('fails Medium with 2 setup hints', () => {
+    const scenario = cloneScenario(loadActiveNetflix());
+    scenario.hiddenCard.medium.setupHints = [
+      'First medium setup hint.',
+      'Second medium setup hint overflow.',
+    ];
+    const result = validateScenario(scenario);
+    expect(result.success).toBe(false);
+    if (!result.success) {
+      expect(
+        result.errors.some(
+          (e) =>
+            e.path === 'hiddenCard.medium.setupHints' &&
+            e.message.includes('0 or 1'),
+        ),
+      ).toBe(true);
+    }
+  });
+
+  it('fails when era contains the company name', () => {
+    const scenario = cloneScenario(loadActiveNetflix());
+    scenario.scenario.era = 'The Netflix streaming expansion era';
+    const result = validateScenario(scenario);
+    expect(result.success).toBe(false);
+    if (!result.success) {
+      expect(
+        result.errors.some(
+          (e) =>
+            e.path === 'scenario.era' &&
+            e.message.toLowerCase().includes('company name'),
+        ),
+      ).toBe(true);
+    }
+  });
+
+  it('fails when decisionDateLabel contains the ticker', () => {
+    const scenario = cloneScenario(loadActiveNetflix());
+    scenario.scenario.decisionDateLabel = 'NFLX decision window 2012';
+    const result = validateScenario(scenario);
+    expect(result.success).toBe(false);
+    if (!result.success) {
+      expect(
+        result.errors.some(
+          (e) =>
+            e.path === 'scenario.decisionDateLabel' &&
+            e.message.toLowerCase().includes('ticker'),
+        ),
+      ).toBe(true);
+    }
+  });
+
+  it('fails active with empty identityBannedTerms; draft is exempt', () => {
+    const active = cloneScenario(loadActiveNetflix());
+    active.status = 'active';
+    active.company.identityBannedTerms = [];
+    const activeResult = validateScenario(active);
+    expect(activeResult.success).toBe(false);
+    if (!activeResult.success) {
+      expect(
+        activeResult.errors.some(
+          (e) =>
+            e.path === 'company.identityBannedTerms' &&
+            e.message.toLowerCase().includes('identity-banned'),
+        ),
+      ).toBe(true);
+    }
+
+    const draft = cloneScenario(loadActiveNetflix());
+    draft.status = 'draft';
+    draft.company.identityBannedTerms = [];
+    const draftResult = validateScenario(draft);
+    expect(draftResult.success).toBe(true);
+  });
+
   it('fails actualReturnPercent that looks like a whole percent (1135.6)', () => {
     const scenario = cloneScenario(loadActiveNetflix());
     scenario.marketData.actualReturnPercent = 1135.6;

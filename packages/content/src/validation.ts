@@ -47,8 +47,7 @@ export function textContainsTerm(text: string, term: string): boolean {
 }
 
 function collectHiddenTexts(
-  title: string,
-  hiddenCard: Scenario['hiddenCard'],
+  scenario: Scenario,
 ): { path: string; text: string }[] {
   const fields = [
     'companyDescription',
@@ -58,11 +57,20 @@ function collectHiddenTexts(
     'shortCase',
   ] as const satisfies readonly (keyof HiddenCardVariant)[];
   const out: { path: string; text: string }[] = [
-    { path: 'scenario.title', text: title },
+    { path: 'scenario.title', text: scenario.scenario.title },
+    { path: 'scenario.era', text: scenario.scenario.era },
+    {
+      path: 'scenario.decisionDateLabel',
+      text: scenario.scenario.decisionDateLabel,
+    },
+    {
+      path: 'scenario.holdingPeriodLabel',
+      text: scenario.scenario.holdingPeriodLabel,
+    },
   ];
 
   for (const difficulty of ['easy', 'medium', 'hard'] as const) {
-    const variant = hiddenCard[difficulty];
+    const variant = scenario.hiddenCard[difficulty];
     for (const field of fields) {
       out.push({
         path: `hiddenCard.${difficulty}.${field}`,
@@ -97,7 +105,7 @@ function checkLeakage(
     })),
   ];
 
-  const texts = collectHiddenTexts(scenario.scenario.title, scenario.hiddenCard);
+  const texts = collectHiddenTexts(scenario);
 
   for (const { path, text } of texts) {
     for (const { label, term } of terms) {
@@ -108,6 +116,22 @@ function checkLeakage(
         });
       }
     }
+  }
+}
+
+function checkIdentityBannedTerms(
+  scenario: Scenario,
+  errors: ValidationIssue[],
+): void {
+  if (
+    (scenario.status === 'reviewed' || scenario.status === 'active') &&
+    scenario.company.identityBannedTerms.length === 0
+  ) {
+    errors.push({
+      path: 'company.identityBannedTerms',
+      message:
+        'reviewed/active scenarios must list at least one identity-banned term',
+    });
   }
 }
 
@@ -203,7 +227,7 @@ function checkDifficultySupport(
 
 function collectSentimentWarnings(scenario: Scenario): ValidationWarning[] {
   const warnings: ValidationWarning[] = [];
-  const texts = collectHiddenTexts(scenario.scenario.title, scenario.hiddenCard);
+  const texts = collectHiddenTexts(scenario);
 
   for (const { path, text } of texts) {
     for (const term of DIRECTIONAL_SENTIMENT_TERMS) {
@@ -264,6 +288,7 @@ export function validateScenario(input: unknown): ValidationResult {
   checkDifficultySupport(scenario, errors);
   checkSetupHintCounts(scenario, errors);
   checkLeakage(scenario, errors);
+  checkIdentityBannedTerms(scenario, errors);
   checkReturnPercent(scenario, errors);
   checkDateWindows(scenario, errors);
 

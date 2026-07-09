@@ -12,12 +12,14 @@ first thing the next agent reads.
   Part B generation at scale); Database is now Phase 5, Auth 6, Leaderboards 7,
   Daily Challenge 8.
 - **App state:** Monorepo scaffolded. Game engine: 37 tests. Content package:
-  Zod schema, validation CLI, 10 content tests, 6 active sample JSON scenarios
-  (Balanced Tension / D026). Package root is browser-safe (no Node fs re-exports).
-  Classic Run loads from `@signal-or-noise/content`. `pnpm build` passes. No
-  auth, no DB.
-- **Next task:** H018 (A005 MAJOR fix-ups) dispatched to Grok 4.5; orchestrator
-  reviews R013 on completion, then drafts the first Phase 4 Part A handoff(s).
+  Zod schema, validation CLI, 14 content tests, 6 active sample JSON scenarios
+  (Balanced Tension / D026). A005 MAJORs 1–3 closed by H018 (Amazon retitle,
+  pre-decision metadata leakage scan, empty banned-terms guard). Package root
+  is browser-safe (no Node fs re-exports). Classic Run loads from
+  `@signal-or-noise/content`. `pnpm build` passes. No auth, no DB.
+- **Next task:** Orchestrator reviews R013/H018, then drafts Phase 4 Part A
+  handoffs (A005 MINORs 1/2/4, automated Gate 2 check, doc 09 readiness,
+  active-card re-review).
 - **Blocked/Questions:** none.
 
 ## How to Run (updated as the app grows)
@@ -25,7 +27,7 @@ first thing the next agent reads.
 ```bash
 pnpm install          # install dependencies
 pnpm dev              # start dev server at http://localhost:3000
-pnpm test             # run all package tests (game-engine 37 + content 10)
+pnpm test             # run all package tests (game-engine 37 + content 14)
 pnpm typecheck        # run TypeScript type checking
 pnpm --filter @signal-or-noise/content validate   # validate scenario JSON seeds
 ```
@@ -57,6 +59,49 @@ All from repo root. Requires Node.js LTS and pnpm 9.x.
 ---
 
 ## Session Log
+
+### 2026-07-09 — Orchestrator — R013 accepted; H018 committed
+
+**What changed:**
+- Reviewed R013 + the H018 diff line-by-line; scope exact (Amazon retitle,
+  metadata leakage scan, banned-terms guard, four tests). Accepted and
+  committed per D012. A005 MAJORs 1–3 and MINOR-3 are now closed.
+
+**Tests:** `pnpm typecheck` pass; `pnpm test` 51 passing / 0 failing;
+content validate 6/6, 0 warnings; `pnpm build` pass.
+
+**Known issues:** A005 MINORs 1/2/4 remain Phase 4 Part A work.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** draft Phase 4 Part A handoffs — recommended order:
+GPT 5.5 consultant memo on the automated Gate 2 guessability mechanism first,
+then validator MINORs + doc 09 generation-readiness + active-card re-review.
+
+### 2026-07-09 — Implementor — H018 A005 validator & content fix-ups
+
+**What changed:**
+- Amazon seed title: `"Peak Expectations"` → `"The Scale Bet"` (MAJOR-1).
+- `collectHiddenTexts` now takes full `Scenario` and scans pre-decision
+  metadata `era`, `decisionDateLabel`, `holdingPeriodLabel` for leakage and
+  sentiment warnings (MAJOR-2).
+- Business-rule: `reviewed`/`active` with empty `identityBannedTerms` fail
+  validation; draft/inactive/archived exempt (MAJOR-3).
+- Four new content tests: era leakage, decisionDateLabel ticker leakage,
+  empty banned-terms active vs draft, Medium with 2 setupHints (MINOR-3).
+
+**How to run:** unchanged
+
+**Tests:** 51 passing / 0 failing (`pnpm test`: game-engine 37 + content 14);
+`pnpm typecheck` pass; content validate 6/6; `pnpm build` pass.
+
+**Known issues:**
+- A005 MINORs 1/2/4 still deferred to Phase 4 Part A (D027).
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** orchestrator review R013; draft Phase 4 Part A
+handoffs.
 
 ### 2026-07-09 — Orchestrator — Phase 3 closed; D027 phase reorder; H018 approved + dispatched
 
