@@ -316,6 +316,50 @@ requirement applies to the Phase 3 automated validator, not manual runs.
 D015 calibration note (Call the Company becomes rare on Hard by design) is
 tracked for playtest review, not a scoring change.
 
+## D023 — Model lineup v2: Grok 4.5, characteristic-based routing, direct CLI dispatch
+
+**Date:** 2026-07-08 · **Status:** User approved
+
+Supersedes D021's execution-tier table (D021's risk gates, micro-roles, and the
+D012 review machinery all carry forward unchanged). Full policy in
+`agents/routing.md` (single source of truth). Settled points:
+
+1. **Grok 4.5 replaces the Claude Sonnet/Opus subagent tier** for medium-strength
+   execution work (user rates it ≈ Opus 4.7/4.8 capability at much lower cost).
+2. **Claude subagents become a utility tier** — spawned in-session by the
+   orchestrator for its own exploration, diff verification, and quick checks.
+   They no longer execute handoffs.
+3. **GPT 5.5 expands** beyond high-stakes review to own hard implementation,
+   design/UI/UX work, and content/scenario work (Content Curator role).
+4. **DeepSeek v4 Pro unchanged**: boilerplate and fully-prescribed implementation.
+5. **Routing is characteristic-based**: the orchestrator profiles each task
+   (judgment, ambiguity, style-sensitivity, scope, risk) and matches it against
+   a ranked model-characteristics table (Intelligence / Cost-efficiency / Style
+   ratings supplied by the user; Speed / Autonomy proposed by the orchestrator).
+6. **Direct CLI dispatch** replaces manual paste as the default invocation:
+   the orchestrator launches executors headlessly (`grok -p`, `codex exec`,
+   `opencode run -m deepseek/deepseek-v4-pro`) and waits for the R### report.
+   Manual paste remains the fallback if a CLI is down.
+7. **Risk-based approval gate**: low-risk handoffs dispatch immediately after
+   task agreement; medium/high-risk handoffs need explicit user approval of the
+   drafted handoff before launch.
+8. **Guardrails**: workspace-write, no git — headless agents auto-approve edits
+   inside the repo; CLI flags (where available) plus handoff text forbid
+   `git commit`/`git push` (D012) and out-of-repo writes.
+9. **Cross-model audits**: the Auditor is always a different model than the
+   Implementor of the handoff under audit.
+10. **Handoff prescriptiveness scales to executor autonomy**: DeepSeek gets
+    fully prescriptive instructions; Grok gets outcome-prescriptive with bounded
+    local judgment; GPT 5.5 gets goal-oriented handoffs that delegate bounded
+    design decisions.
+
+**Rationale:** Grok 4.5 delivers the old medium tier's capability at a fraction
+of the cost, and all three executor CLIs are installed and authenticated on the
+dev machine, making manual prompt-pasting pure overhead. Characteristic matching
+replaces the rigid 3-tier ladder so routing survives future lineup changes
+(update the table, not the process). Roles stay at five (D001); only which model
+wears each hat changed.
+
 ## Open Design Question — composite Final Score / Information Tiers (NOT a decision)
 
 **Date:** 2026-07-03 · **Status:** Exploration pending

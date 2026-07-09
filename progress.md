@@ -58,6 +58,36 @@ All from repo root. Requires Node.js LTS and pnpm 9.x.
 
 ## Session Log
 
+### 2026-07-08 — Orchestrator — D023: Grok 4.5, characteristic routing, direct CLI dispatch
+
+**What changed:**
+- Recorded D023 (user approved): Grok 4.5 replaces the Claude Sonnet/Opus
+  subagent execution tier (medium work); Claude subagents become orchestrator
+  utility helpers only; GPT 5.5 expands to hard implementation, design/UI/UX,
+  and content/scenario (Curator) work; DeepSeek v4 Pro unchanged. Routing is
+  now characteristic-based (ranked model table: Intelligence/Cost/Style from
+  the user, Speed/Autonomy proposed), with handoff prescriptiveness calibrated
+  to the executor's autonomy.
+- Direct CLI dispatch replaces manual paste: orchestrator launches executors
+  headlessly (`grok -p`, `codex exec` via stdin pipe, `opencode run --auto -m
+  deepseek/deepseek-v4-pro`). Risk-based approval gate (low = dispatch on task
+  agreement; medium/high = user approves handoff first). Cross-model audit rule.
+- Rewrote `agents/routing.md`; synced `agents/roles/orchestrator.md`,
+  `agents/README.md`, `agents/handoffs/TEMPLATE.md` (Model tier → Model field).
+  Fixed a pre-existing D012 contradiction in README's Implementor row
+  ("commits" listed under Does).
+- Smoke-tested all three CLIs headlessly against this repo (read-only prompt):
+  Grok 4.5 and GPT 5.5 pass; found codex needs stdin piping and opencode needs
+  `--auto` when headless (documented in routing.md).
+
+**Tests:** n/a — docs-only change; CLI smoke tests passed as above.
+
+**Blocked/Questions:** Grok 4.5 Style rating is TBD — user rates it after
+Grok's first 2–3 handoffs.
+
+**Next recommended task:** small pilot task routed and dispatched under D023
+end-to-end; then the pending R007/H009 review + Auditor pass.
+
 ### 2026-07-07 - Implementor - H009 Difficulty Variants
 
 **What changed:**

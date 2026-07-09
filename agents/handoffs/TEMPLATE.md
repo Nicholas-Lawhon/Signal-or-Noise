@@ -3,7 +3,7 @@
 **Role:** Implementor | Auditor | Consultant | Content Curator | Growth
 **Phase:** <roadmap phase>
 **Status:** draft | approved | in_progress | complete | audited
-**Model tier:** deepseek | claude-subagent | gpt-5.5 (per `agents/routing.md`)
+**Model:** deepseek-v4-pro | grok-4.5 | gpt-5.5 (per `agents/routing.md`; instruction granularity is calibrated to this executor's autonomy rating)
 **Risk:** low | medium | high (per `agents/routing.md`)
 **Depends on:** <handoff IDs or "none">
 **Estimated scope:** <one line: small / medium / large + what "large" means here>
