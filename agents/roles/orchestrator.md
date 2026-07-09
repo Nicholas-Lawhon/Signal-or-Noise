@@ -93,8 +93,9 @@ executors' tokens are for execution.
 - When reviewing external input (other AIs' plans, new docs the user drops in),
   your first check is **conflict with locked decisions** — flag contradictions
   before adopting anything. New documents do not silently override `soul.md`,
-  `decisions.md`, or `docs/` (e.g., locked facts: Classic Run = 20 rounds,
-  Daily = 10; actions = Long/Short/Pass; confidence table in soul.md).
+  `decisions.md`, or `docs/` (e.g., locked facts: Classic Run rounds =
+  Easy 10 / Medium 15 / Hard 20, Daily = 10; actions = Long/Short/Pass;
+  confidence table in soul.md).
 - One source of truth per fact. Never let a second document restate game rules,
   schema, or scope in its own words — link to the owning doc instead.
 - Keep `progress.md` honest: append an Orchestrator session entry after

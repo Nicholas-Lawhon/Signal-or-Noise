@@ -1,0 +1,96 @@
+{
+  "id": "scenario_nvidia_2015_2017",
+  "status": "active",
+  "company": {
+    "name": "Nvidia",
+    "ticker": "NVDA",
+    "exchange": "NASDAQ",
+    "sector": "Information Technology",
+    "industry": "Semiconductors",
+    "country": "United States",
+    "acceptedNames": ["nvidia", "nvda"],
+    "identityBannedTerms": ["CUDA", "GeForce", "Jensen Huang", "GPU"]
+  },
+  "scenario": {
+    "title": "Specialized Hardware Test",
+    "decisionDate": "2015-01-02",
+    "endDate": "2017-01-03",
+    "decisionDateLabel": "Jan 2015",
+    "outcomeLabel": "Jan 2015 → Jan 2017",
+    "holdingPeriodLabel": "2 years",
+    "era": "Cloud and AI acceleration",
+    "eraId": "cloud_and_ai_acceleration",
+    "contentPackIds": ["mvp_core", "sample_seed"],
+    "difficultySupported": ["easy", "medium", "hard"]
+  },
+  "marketData": {
+    "startingPrice": 5,
+    "endingPrice": 16.5,
+    "actualReturnPercent": 2.3,
+    "usesSplitAdjustedPrices": true,
+    "usesTotalReturn": false,
+    "preDecisionChartStartDate": "2012-01-03",
+    "preDecisionChartEndDate": "2015-01-02",
+    "outcomeChartStartDate": "2015-01-02",
+    "outcomeChartEndDate": "2017-01-03",
+    "lookbackPrices": [3, 3.5, 4, 4.2, 4, 4.5, 4.8, 5],
+    "outcomePrices": [5, 6, 7.5, 9, 11, 13, 15, 16.5]
+  },
+  "hiddenCard": {
+    "easy": {
+      "companyDescription": "A specialized chip designer whose high-performance hardware serves enthusiasts and commercial computing buyers.",
+      "macroContext": "Cloud platforms and data-heavy workloads are increasing demand for specialized processing power.",
+      "situation": "Can a niche hardware category expand into larger commercial workloads without being overpriced as a cycle?",
+      "longCase": "New commercial workloads could expand demand beyond the original enthusiast market.",
+      "shortCase": "A cyclical chip market and volatile expectations make early growth easy to overprice.",
+      "setupHints": [
+        "The company already holds a strong niche in performance-focused computing hardware."
+      ]
+    },
+    "medium": {
+      "companyDescription": "A semiconductor company focused on specialized high-performance processors.",
+      "macroContext": "Data centers are experimenting with more purpose-built hardware for heavy computing tasks.",
+      "situation": "Is specialized demand durable commercial adoption or a temporary spike?",
+      "longCase": "A niche hardware category may become useful for larger commercial workloads.",
+      "shortCase": "Chip cycles and competition can turn early demand into a temporary spike.",
+      "setupHints": []
+    },
+    "hard": {
+      "companyDescription": "A semiconductor company.",
+      "macroContext": "Computing demand is broadening as cloud infrastructure grows.",
+      "situation": "Will a specialized niche expand into larger markets, or will cycles and rivals cap the story?",
+      "longCase": "Specialized hardware suppliers may see their niche expand into larger computing markets.",
+      "shortCase": "Cyclical demand and fast-moving rivals make the valuation risky.",
+      "setupHints": []
+    }
+  },
+  "reveal": {
+    "shortText": "That was Nvidia. Demand for its specialized chips broadened well beyond the original enthusiast market, and the stock more than tripled.",
+    "funFact": "Hardware once aimed mainly at enthusiasts became central to training modern machine-learning models.",
+    "whyItMoved": [
+      "Commercial and data-center demand for specialized processors rose.",
+      "Investors re-rated the company's addressable market.",
+      "Performance leadership supported premium pricing for a period."
+    ]
+  },
+  "sources": [
+    {
+      "label": "Prototype sample seed",
+      "url": "https://example.com/sources/nvidia-2015-2017",
+      "notes": "Placeholder sample content for Phase 3 pipeline; not production research."
+    }
+  ],
+  "review": {
+    "generatedByAi": true,
+    "humanReviewed": false,
+    "reviewNotes": "Prototype/sample seed for Phase 3 schema pipeline. Approximate prices and returns; not Gate 1/Gate 2 production content.",
+    "factBank": {
+      "revealOnly": ["Nvidia brand", "GPU / CUDA narrative"],
+      "decisionUseful": ["specialized processors", "data-center demand optionality", "chip cycle risk"],
+      "prohibited": ["CUDA", "GeForce", "Jensen Huang"]
+    },
+    "easyLikelyGuesses": ["Nvidia", "AMD", "Intel"],
+    "mediumLikelyGuesses": ["Nvidia", "AMD", "Broadcom"],
+    "hardLikelyGuesses": ["semiconductor peers"]
+  }
+}

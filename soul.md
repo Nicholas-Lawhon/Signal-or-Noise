@@ -102,7 +102,8 @@ replaces bankroll as the primary score.
 ### Modes
 
 ```text
-Classic Run:      20 rounds, player-chosen difficulty.
+Classic Run:      Player-chosen difficulty.
+                  Rounds: Easy 10 / Medium 15 / Hard 20
                   Starting bankroll: Easy $12,500 / Medium $10,000 / Hard $7,500
 Daily Challenge:  10 rounds, same scenarios for everyone, mixed difficulty,
                   default $10,000, one official attempt per logged-in user per day.
@@ -111,10 +112,12 @@ Daily Challenge:  10 rounds, same scenarios for everyone, mixed difficulty,
 
 ### Difficulty
 
-Difficulty changes only the hidden-card presentation: how MUCH information is
-shown (Easy 3 clues / Medium 2 / Hard 1 — D022) and how IDENTIFYING that
-information is (specificity rules in `docs/09_content_and_round_creation.md`).
-It never changes the company, dates, actual return, reveal, or scoring math.
+Difficulty changes only the hidden-card presentation: how much setup context is
+shown and how identifying that information is (specificity rules in
+`docs/09_content_and_round_creation.md`). Under D026, every variant includes a
+balanced decision core (`situation`, `longCase`, `shortCase`), while setup hints
+scale by difficulty: Easy 1 / Medium 0–1 / Hard 0. Difficulty never changes the
+company, dates, actual return, reveal, or scoring math.
 
 ## Content Integrity Rules
 
@@ -124,9 +127,10 @@ It never changes the company, dates, actual return, reveal, or scoring math.
 - Before decision submission, the client must never receive: company name, ticker,
   end price, actual return, reveal text, or outcome chart (relaxed for local
   prototype only).
-- Every scenario has Easy/Medium/Hard variants with difficulty-scaled clue
-  counts: Easy 3, Medium 2, Hard 1 (D022). Specificity limits, title rules, and
-  the guessability test live in the Scenario Content Rulebook (docs/09).
+- Every scenario has Easy/Medium/Hard variants with a balanced decision core and
+  difficulty-scaled setup hints: Easy 1, Medium 0–1, Hard 0 (D026).
+  Specificity limits, title rules, sentiment-balance rules, and the guessability
+  test live in the Scenario Content Rulebook (docs/09).
 - Scenario titles are pre-decision content: they must meet the HARD-difficulty
   identifiability bar, since every difficulty sees them.
 - Source URLs are stored for review, never shown to players.

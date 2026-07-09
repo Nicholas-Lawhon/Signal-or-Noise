@@ -24,9 +24,10 @@ not repeated polishing of temporary placeholder cards.
   60 famous / 30 moderately known / 10 obscure companies)
 - Researching each scenario: decision date, end date, split-adjusted prices,
   return percent — **every number needs a source URL stored in the card**
-- Writing Easy/Medium/Hard variants (clue counts Easy 3 / Medium 2 / Hard 1,
-  D022) per the Scenario Content Rulebook in doc 09 — specificity caps, clue
-  taxonomy, title rules, and running the Guessability Test on every variant
+- Writing Easy/Medium/Hard variants per the Balanced Tension model in doc 09:
+  `situation`, `longCase`, `shortCase`, and setup hint counts Easy 1 /
+  Medium 0–1 / Hard 0 (D026), plus specificity caps, hint taxonomy, title
+  rules, sentiment-balance rules, and the Guessability Test on every variant
 - Following the doc 09 Authoring Workflow: build the private fact bank first
   (reveal-only / decision-useful / prohibited facts), generate HARD first then
   Medium then Easy, and red-team each variant by recording likely player
@@ -46,11 +47,11 @@ not repeated polishing of temporary placeholder cards.
   slogans in hidden-card content (literal leaks), or let a combination of
   date, sector, event, and famous market story leave only one plausible
   company (triangulation leaks)
-- Write a Hard variant that is vague instead of decision-useful — the single
-  clue must still support a Long-vs-Short thesis (doc 09 informativeness floor)
+- Write a Hard variant that is vague instead of decision-useful — the balanced
+  core must still support a Long-vs-Short thesis (doc 09 informativeness floor)
 - Reveal the outcome in the hidden card or let the lookback window cross the
   decision date
-- Write financial advice, lecture-y educational copy, or misleading clues
+- Write financial advice, lecture-y educational copy, or misleading hints
 - Mark a card `humanReviewed` or `active`
 - Touch application code, schemas, or scripts (report validator bugs instead)
 

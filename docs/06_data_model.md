@@ -82,7 +82,7 @@ Example structure:
   "marketData": {
     "startingPrice": 10.32,
     "endingPrice": 127.49,
-    "priceReturnPercent": 1135.56,
+    "actualReturnPercent": 11.3556,
     "usesSplitAdjustedPrices": true,
     "usesTotalReturn": false,
     "preDecisionChartStartDate": "2009-01-03",
@@ -94,29 +94,28 @@ Example structure:
     "easy": {
       "companyDescription": "A subscription entertainment company trying to move from physical media to streaming.",
       "macroContext": "Consumers are increasingly adopting broadband internet and connected devices.",
-      "clues": [
-        "The company is shifting away from an older delivery model.",
-        "Investors recently punished the stock after a controversial business decision.",
-        "Its future depends heavily on subscriber growth."
+      "situation": "Can a newer delivery model rebuild trust quickly enough to justify rising content and product spending?",
+      "longCase": "If customers accept the newer model, recurring revenue can scale with broadband and connected-device adoption.",
+      "shortCase": "A recent trust shock can keep churn elevated while content commitments rise faster than the subscriber base.",
+      "setupHints": [
+        "The old delivery model still contributes cash, but the newer model is where the growth case lives."
       ]
     },
     "medium": {
       "companyDescription": "A U.S. entertainment company with a recurring-revenue model and a controversial strategic transition.",
       "macroContext": "Broadband adoption is rising while consumer tech platforms are becoming more important.",
-      "clues": [
-        "The company is moving from a legacy model into a digital-first future.",
-        "Recent management decisions damaged investor trust.",
-        "The upside case depends on scale and recurring customer growth."
-      ]
+      "situation": "Will a strategic transition rebuild the customer base before higher spending pressures the model?",
+      "longCase": "A recurring-revenue base could scale if the new delivery model becomes a habit for households.",
+      "shortCase": "Customer trust and spending discipline are both under pressure during the transition.",
+      "setupHints": []
     },
     "hard": {
       "companyDescription": "A consumer-facing media business attempting a major distribution shift.",
       "macroContext": "Digital consumption habits are changing, but investors are unsure which models will win.",
-      "clues": [
-        "The old business still matters, but the new model is the real bet.",
-        "The market is skeptical after a self-inflicted setback.",
-        "The company needs growth to justify heavy future spending."
-      ]
+      "situation": "Will a new distribution model scale fast enough to offset trust and spending pressure?",
+      "longCase": "If the model becomes habitual, recurring demand can compound from a much larger household base.",
+      "shortCase": "If churn stays elevated, fixed commitments can outrun the customer base before the transition pays off.",
+      "setupHints": []
     }
   },
   "reveal": {
@@ -176,7 +175,7 @@ model Scenario {
   holdingPeriodLabel          String?
   startingPrice              Decimal?
   endingPrice                Decimal?
-  priceReturnPercent          Decimal
+  actualReturnPercent         Decimal
   usesSplitAdjustedPrices     Boolean  @default(true)
   usesTotalReturn             Boolean  @default(false)
   preDecisionChartStartDate   DateTime
@@ -200,7 +199,10 @@ model ScenarioVariant {
   difficulty          String
   companyDescription  String
   macroContext        String
-  clues               Json
+  situation           String
+  longCase            String
+  shortCase           String
+  setupHints          Json
   revealShortText     String
   funFact             String?
   whyItMoved          Json?

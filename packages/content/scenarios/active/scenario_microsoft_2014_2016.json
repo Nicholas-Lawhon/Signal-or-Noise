@@ -1,0 +1,96 @@
+{
+  "id": "scenario_microsoft_2014_2016",
+  "status": "active",
+  "company": {
+    "name": "Microsoft",
+    "ticker": "MSFT",
+    "exchange": "NASDAQ",
+    "sector": "Information Technology",
+    "industry": "Systems Software",
+    "country": "United States",
+    "acceptedNames": ["microsoft", "msft"],
+    "identityBannedTerms": ["Satya Nadella", "Windows", "Azure", "Office 365", "Xbox"]
+  },
+  "scenario": {
+    "title": "Footprint Bet",
+    "decisionDate": "2014-01-02",
+    "endDate": "2016-01-04",
+    "decisionDateLabel": "Jan 2014",
+    "outcomeLabel": "Jan 2014 → Jan 2016",
+    "holdingPeriodLabel": "2 years",
+    "era": "Cloud software expansion",
+    "eraId": "cloud_software_expansion",
+    "contentPackIds": ["mvp_core", "sample_seed"],
+    "difficultySupported": ["easy", "medium", "hard"]
+  },
+  "marketData": {
+    "startingPrice": 37,
+    "endingPrice": 51,
+    "actualReturnPercent": 0.38,
+    "usesSplitAdjustedPrices": true,
+    "usesTotalReturn": false,
+    "preDecisionChartStartDate": "2011-01-03",
+    "preDecisionChartEndDate": "2014-01-02",
+    "outcomeChartStartDate": "2014-01-02",
+    "outcomeChartEndDate": "2016-01-04",
+    "lookbackPrices": [26, 25, 27, 28, 30, 32, 34, 37],
+    "outcomePrices": [37, 40, 44, 47, 43, 46, 49, 51]
+  },
+  "hiddenCard": {
+    "easy": {
+      "companyDescription": "A mature enterprise software company shifting more of its business toward cloud subscriptions.",
+      "macroContext": "Businesses are moving more computing work from owned infrastructure to rented cloud services.",
+      "situation": "Can a large installed base revive growth through subscriptions before faster rivals define the market?",
+      "longCase": "Long-standing corporate relationships could accelerate adoption of cloud and subscription offerings.",
+      "shortCase": "Mature product lines may shrink before replacements contribute enough growth to satisfy investors.",
+      "setupHints": [
+        "Years of investor frustration raise the bar for whether this pivot looks credible."
+      ]
+    },
+    "medium": {
+      "companyDescription": "A large technology vendor serving business customers across many product lines.",
+      "macroContext": "Corporate IT budgets are rebalancing toward services billed over time rather than big up-front licenses.",
+      "situation": "Will commercial relationships convert into subscription growth, or will legacy lines drag too long?",
+      "longCase": "An installed commercial relationship could accelerate adoption of newer offerings.",
+      "shortCase": "Investors worry mature lines may shrink before replacements contribute enough growth.",
+      "setupHints": []
+    },
+    "hard": {
+      "companyDescription": "An enterprise technology company.",
+      "macroContext": "Corporate computing budgets are shifting toward hosted services.",
+      "situation": "Can a huge existing customer base become a subscription-growth engine in time?",
+      "longCase": "A broad installed base can lower the cost of distributing newer subscription products.",
+      "shortCase": "Faster rivals and legacy dependence threaten the transition timeline.",
+      "setupHints": []
+    }
+  },
+  "reveal": {
+    "shortText": "That was Microsoft. The cloud pivot under Satya Nadella started changing how investors valued the old software giant.",
+    "funFact": "By early 2016, the market had started rewarding the company for cloud growth and recurring software revenue.",
+    "whyItMoved": [
+      "Cloud and subscription revenue became more visible.",
+      "Investors began re-rating recurring software streams.",
+      "Enterprise relationships helped distribution of newer offerings."
+    ]
+  },
+  "sources": [
+    {
+      "label": "Prototype sample seed",
+      "url": "https://example.com/sources/microsoft-2014-2016",
+      "notes": "Placeholder sample content for Phase 3 pipeline; not production research."
+    }
+  ],
+  "review": {
+    "generatedByAi": true,
+    "humanReviewed": false,
+    "reviewNotes": "Prototype/sample seed for Phase 3 schema pipeline. Approximate prices and returns; not Gate 1/Gate 2 production content.",
+    "factBank": {
+      "revealOnly": ["Microsoft brand", "Satya Nadella", "Azure"],
+      "decisionUseful": ["cloud subscription shift", "installed enterprise base", "legacy line risk"],
+      "prohibited": ["Windows", "Azure", "Office 365", "Satya Nadella"]
+    },
+    "easyLikelyGuesses": ["Microsoft", "IBM", "Oracle"],
+    "mediumLikelyGuesses": ["Microsoft", "Oracle", "SAP"],
+    "hardLikelyGuesses": ["enterprise software peers"]
+  }
+}

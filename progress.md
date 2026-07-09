@@ -7,26 +7,28 @@ first thing the next agent reads.
 ## Current Status
 
 - **Phase:** 0 + 1 COMPLETE (A002 PASS). Phase 2 COMPLETE under D024 via H012.
-  Phase 3 (Scenario Schema & Content Pipeline) is next. Full Gate 1/Gate 2
-  content enforcement returns for Phase 3 production content.
-- **App state:** Monorepo scaffolded. Game engine: 37 passing tests. Phase 2 API
-  complete (`calculateStake`, `scoreRound`, `applyRoundResult`, `createRunState`,
-  `advanceRun`, `isBankrupt`, `summarizeRun`, `calculateLeaderboardTiebreakers`)
-  plus streak tracking. 20-round Classic Run playable. 12 placeholder scenarios.
-  No auth, no DB.
-- **Next task:** Phase 3 content pipeline handoff, Gate A Growth, or composite
-  score memo as planned.
-- **Blocked/Questions:** none. Known prototype content issue: some placeholder
-  Medium/Hard variants remain too guessable; accepted under D024 because Phase 3
-  replaces placeholder content and restores full doc 09 gates.
+  Phase 3 implemented (H015 + H016), audited (H017/A005 PASS WITH FINDINGS),
+  audit accepted by orchestrator, and work COMMITTED. Phase 3 close awaits
+  user approval (phase gate). Full Gate 1/Gate 2 production content polish is
+  still future Curator work.
+- **App state:** Monorepo scaffolded. Game engine: 37 tests. Content package:
+  Zod schema, validation CLI, 10 content tests, 6 active sample JSON scenarios
+  (Balanced Tension / D026). Package root is browser-safe (no Node fs re-exports).
+  Classic Run loads from `@signal-or-noise/content`. `pnpm build` passes. No
+  auth, no DB.
+- **Next task:** User approves Phase 3 close + dispatch of
+  `agents/handoffs/H018_a005_validator_content_fixups.md` (A005 MAJOR fix-ups:
+  Amazon retitle, metadata leakage scan, empty banned-terms guard).
+- **Blocked/Questions:** Phase 3 close and H018 dispatch await user approval.
 
 ## How to Run (updated as the app grows)
 
 ```bash
 pnpm install          # install dependencies
 pnpm dev              # start dev server at http://localhost:3000
-pnpm test             # run game-engine tests (37 tests)
+pnpm test             # run all package tests (game-engine 37 + content 10)
 pnpm typecheck        # run TypeScript type checking
+pnpm --filter @signal-or-noise/content validate   # validate scenario JSON seeds
 ```
 
 All from repo root. Requires Node.js LTS and pnpm 9.x.
@@ -56,6 +58,281 @@ All from repo root. Requires Node.js LTS and pnpm 9.x.
 ---
 
 ## Session Log
+
+### 2026-07-09 — Orchestrator — A005 accepted; Phase 3 work committed; H018 drafted
+
+**What changed:**
+- Reviewed `agents/audits/A005_H015-H016.md` (PASS WITH FINDINGS) and accepted
+  it. Independently reran `pnpm typecheck`, `pnpm test` (47/47), and content
+  validate (6/6); all pass.
+- Independently confirmed all three MAJOR findings in code: Amazon title
+  "Peak Expectations" is doc 09's named title-bias FAIL example; `era` /
+  `decisionDateLabel` / `holdingPeriodLabel` render pre-decision
+  (`run/page.tsx:155-159`) but are outside `collectHiddenTexts`; and
+  `identityBannedTerms` may be empty by schema (`schema.ts:48`).
+- Drafted `agents/handoffs/H018_a005_validator_content_fixups.md` (Grok 4.5,
+  medium risk, no audit per D024) covering the three MAJORs + MINOR-3 test.
+  MINORs 1/2/4 deferred to a Phase 8 validator-hardening pass per the audit.
+- Committed the approved and audited Phase 3 increment (H014 + D025/D026 docs
+  + H013/C002 + H015 + H016 + audit/report/orchestration files) per D012.
+
+**Tests:** `pnpm typecheck` pass; `pnpm test` 47 passing / 0 failing;
+`pnpm --filter @signal-or-noise/content validate` 6/6 pass.
+
+**Known issues:**
+- A005 MAJORs 1–3 open until H018 lands; MINORs 1–4 deferred to Phase 8.
+- Automated Gate 2 guessability model check (D019/D022) remains future work.
+
+**Blocked/Questions:** Phase 3 close (phase gate) and H018 dispatch await user
+approval.
+
+**Next recommended task:** user approves Phase 3 close + H018 dispatch; after
+R013, orchestrator reviews and commits.
+
+### 2026-07-09 — Auditor — H017/A005 content-pipeline audit: PASS WITH FINDINGS (see `agents/audits/A005_H015-H016.md`)
+
+### 2026-07-09 — Orchestrator — R012 accepted; H017 audit drafted
+
+**What changed:**
+- Reviewed R012/H016 and the build-fix diff. Accepted R012 and approved R011
+  together with the H016 fix-up.
+- Independently reran `pnpm build`, `pnpm typecheck`, `pnpm test`, and
+  `pnpm --filter @signal-or-noise/content validate`; all pass.
+- Confirmed the `packages/content/src/index.ts` root-export grep for
+  `loadScenarios`/`getScenariosRoot` returns no matches.
+- Drafted required cross-model audit handoff
+  `agents/handoffs/H017_audit_h015_h016_content_pipeline.md`.
+
+**Tests:** `pnpm build` pass; `pnpm typecheck` pass; `pnpm test` 47 passing /
+0 failing; `pnpm --filter @signal-or-noise/content validate` 6/6 pass.
+
+**Known issues:**
+- H015/H016 still require formal audit before Phase 3 closes.
+- Sample seeds remain prototype-grade and active pool is 6 cards.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** run H017 with GPT 5.5 Auditor; review A005, then close
+or fix up Phase 3 based on the audit verdict.
+
+### 2026-07-09 — Implementor — H016 H015 build fix
+
+**What changed:**
+- Removed Node-only `loadScenarios` re-exports from
+  `packages/content/src/index.ts` so the package root is browser/bundle-safe.
+- Left `loadScenarios.ts` as Node-only; CLI (`validate.ts`) still imports it
+  directly. Added package-root warning comment on the loader.
+- After the export fix, build still failed on Next.js
+  `useSearchParams` Suspense requirement for `/play/classic/run`; wrapped the
+  client in `<Suspense>` with the existing Loading fallback (build-only; no
+  gameplay/copy changes).
+- Report: `agents/reports/R012_H016.md`. Handoff status → complete.
+- Left all work uncommitted (D012).
+
+**How to run:** unchanged; `pnpm build` now succeeds.
+
+**Tests:** 47 passing / 0 failing — `pnpm typecheck`; `pnpm test`
+(content 10 + game-engine 37). Content validate: 6/6 PASS. `pnpm build` PASS.
+
+**Known issues:**
+- Sample seeds still prototype-grade; active pool still 6 cards.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** orchestrator re-review of H015/H016 (R011 rejected +
+R012 awaiting review), then required cross-model content-pipeline audit.
+
+### 2026-07-09 — Orchestrator — R011 review rejected; H016 drafted
+
+**What changed:**
+- Reviewed R011/H015. `pnpm typecheck`, `pnpm test`,
+  `pnpm --filter @signal-or-noise/content validate`, and required `rg` checks pass.
+- Ran `pnpm build` as additional verification; it fails because the web app imports
+  `@signal-or-noise/content`, and that root export re-exports
+  `loadScenarios.ts`, pulling Node-only `node:fs`, `node:path`, and `node:url`
+  into the Next client bundle.
+- Marked `agents/reports/R011_H015.md` rejected pending fix-up.
+- Drafted approved fix-up handoff `agents/handoffs/H016_h015_build_fix.md`.
+
+**Tests:** `pnpm typecheck` pass; `pnpm test` 47 passing / 0 failing;
+`pnpm --filter @signal-or-noise/content validate` 6/6 pass; `pnpm build` FAIL.
+
+**Known issues:**
+- H015 is not ready for the required cross-model audit until H016 fixes the build.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** user manually opens Grok 4.5 with H016; after R012,
+orchestrator reruns build/typecheck/test/validate and then routes the H015 audit.
+
+### 2026-07-09 — Implementor — H015 Phase 3 scenario schema & content pipeline
+
+**What changed:**
+- Built `@signal-or-noise/content`: Zod schema, validation API/CLI, unit tests,
+  seed folders `scenarios/{draft,reviewed,active}`.
+- Added 6 active sample scenario JSON files (Balanced Tension / D026).
+- Validator enforces setup-hint counts, identity leakage, return-decimal guard,
+  date windows, sources, and `whyItMoved` length; sentiment terms warn only.
+- Web app depends on content package; `sampleScenarios.ts` maps
+  `ACTIVE_SCENARIOS` (no hardcoded array). Classic Run UI shows Signal or Noise?,
+  Why it might work, What could break, setup hints, and demoted lookback label.
+- Report: `agents/reports/R011_H015.md`. Handoff status → complete.
+- Left all work uncommitted (D012).
+
+**How to run:**
+- `pnpm install`
+- `pnpm typecheck`
+- `pnpm test`
+- `pnpm --filter @signal-or-noise/content validate`
+- `pnpm dev` → Classic Run at `/play/classic`
+
+**Tests:** 47 passing / 0 failing — `pnpm typecheck`; `pnpm test`
+(content 10 + game-engine 37). Content validate: 6/6 PASS.
+
+**Known issues:**
+- Sample seeds are prototype-grade (`generatedByAi: true`, `humanReviewed: false`);
+  not Gate 1/Gate 2 production content.
+- Active pool is 6 cards (was 12 hardcoded placeholders), so Classic runs will
+  cycle the pool more often until content expands.
+- Browser/dev-server QA not run (typecheck/tests/validate sufficient per handoff).
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** orchestrator review of R011 + uncommitted diff; then
+required cross-model audit of the content-pipeline validator.
+
+### 2026-07-09 — Orchestrator — D026 + H015 Phase 3 handoff
+
+**What changed:**
+- Recorded D026: Phase 3 scenarios use the Balanced Tension model with internal
+  `longCase` / `shortCase`, player-facing `Signal or Noise?` framing, and labels
+  `Why it might work` / `What could break`.
+- Updated `soul.md`, `docs/09_content_and_round_creation.md`,
+  `docs/06_data_model.md`, and related role/story docs to use the D026
+  structured model and setup hint counts.
+- Drafted approved Grok handoff
+  `agents/handoffs/H015_phase3_scenario_schema_content_pipeline.md`.
+
+**Tests:** not run — docs/handoff only.
+
+**Known issues:**
+- Current prototype app data still uses `clues`; H015 is scoped to replace that
+  with JSON-backed Balanced Tension scenarios.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** user manually opens Grok 4.5 with H015; after R011,
+orchestrator reviews and then routes the required cross-model audit.
+
+### 2026-07-09 — Orchestrator — C002/H014 review
+
+**What changed:**
+- Reviewed `agents/reports/R010_H014.md` and the H014 runtime diff. Accepted H014
+  under D024; marked R010 approved.
+- Reviewed `agents/consultations/C002_scenario_information_design.md`; marked
+  H013 complete. The memo satisfies the consultation acceptance criteria and
+  recommends a Balanced Tension Card with a demoted lookback chart.
+- Confirmed user edits to `roadmap.md` and `agents/routing.md` are scoped:
+  Phase 3 wording now says correct hint counts, and Grok 4.5 speed is updated
+  from 6 to 8.
+
+**Tests:** 37 passing / 0 failing — `pnpm typecheck`; `pnpm test`.
+
+**Known issues:**
+- C002 implies a product/content-model decision that would clarify or amend D022;
+  docs/schema should not change until the user approves the recommendation.
+- Browser/dev-server QA was not run for H014; verification was code review,
+  typecheck, unit tests, and copy grep.
+
+**Blocked/Questions:** user decision needed: adopt C002's Balanced Tension Card
+recommendation as the Phase 3 scenario model?
+
+**Next recommended task:** if approved, record D026, update docs 06/09, then
+draft the Phase 3 schema/content-pipeline handoff around the approved model.
+
+### 2026-07-08 — Consultant — H013 / C002 scenario information design
+
+**What changed:** Wrote `agents/consultations/C002_scenario_information_design.md` (Balanced Tension Card + demoted lookback; directional-sentiment gates; Phase 3 schema notes). No code.
+
+**Tests:** n/a — consultation only.
+
+**Blocked/Questions:** none — recommendation awaits orchestrator/user decision.
+
+**Next recommended task:** review C002; record decision; update docs 06/09; then Phase 3 schema handoff.
+
+### 2026-07-08 — Implementor — H014 variable Classic Run lengths
+
+**What changed:**
+- `CLASSIC_RUN_ROUNDS` is now difficulty-keyed (easy 10 / medium 15 / hard 20).
+- `createRunState` defaults `totalRounds` from `CLASSIC_RUN_ROUNDS[difficulty]`;
+  explicit `totalRounds` override preserved.
+- Updated run tests for new defaults; landing / mode-select / Classic setup copy
+  no longer claim every run is 20 rounds.
+- Report: `agents/reports/R010_H014.md`. Handoff status → complete.
+- Left all work uncommitted (D012).
+
+**How to run:** unchanged.
+
+**Tests:** 37 passing / 0 failing — `pnpm typecheck`; `pnpm test`.
+
+**Known issues:** none for H014.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** orchestrator review of R010 + uncommitted diff; then
+dispatch H013 (C002) before Phase 3 schema work.
+
+### 2026-07-09 — Orchestrator — H013 drafted + D025 round counts
+
+**What changed:**
+- Drafted `agents/handoffs/H013_scenario_information_design.md` for a GPT 5.5
+  Consultant memo on pre-decision scenario information design, directional
+  sentiment leakage, and the role of the lookback chart before Phase 3 schema
+  work begins.
+- Drafted `agents/handoffs/H014_variable_classic_run_lengths.md` as a small
+  follow-up Implementor handoff to make runtime behavior match D025.
+- Recorded D025: Classic Run length now scales by difficulty (Easy 10 / Medium
+  15 / Hard 20); Daily Challenge remains 10. Synced core product/design docs and
+  orchestrator role guidance.
+- Cleaned stale report metadata by marking R001/R002 approved and R007 approved
+  under D024.
+
+**Tests:** not run — docs/orchestration only.
+
+**Known issues:**
+- App/game-engine runtime still uses `CLASSIC_RUN_ROUNDS = 20` and old UI copy;
+  this needs a small implementor handoff after the consultation or as a parallel
+  low-risk fix.
+- `roadmap.md` has a pre-existing wording diff around Phase 3 hint counts that
+  was not changed in this session.
+
+**Blocked/Questions:** H013 is drafted but not dispatched; user approval needed
+to launch the high-risk GPT 5.5 consultation. H014 is drafted and can run after
+task agreement as routine medium-risk tuning.
+
+**Next recommended task:** approve and dispatch H013, then review C002 and turn
+accepted recommendations into doc/schema requirements for Phase 3.
+
+### 2026-07-09 — Orchestrator — Phase 3 readiness check
+
+**What changed:**
+- Re-read root project docs, orchestrator role docs, routing policy, progress, and
+  outstanding report metadata.
+- Confirmed Phase 2 is accepted under D024, roadmap/progress both mark Phase 3 as
+  next, and the working tree is clean.
+- Noted stale historical `awaiting_review` statuses on R001/R002/R007; later
+  roadmap/progress entries already close those through A002 and D024 acceptance.
+
+**Tests:** 37 passing / 0 failing — `pnpm typecheck`; `pnpm test`.
+
+**Known issues:**
+- Prototype placeholder content still has accepted guessability weaknesses; Phase
+  3 content pipeline is expected to replace it and restore full doc 09 gates.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** Draft and dispatch the Phase 3 Scenario Schema &
+Content Pipeline handoff.
 
 ### 2026-07-09 — Orchestrator — H012 review accepted under D024
 

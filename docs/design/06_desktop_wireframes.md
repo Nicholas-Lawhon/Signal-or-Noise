@@ -8,7 +8,7 @@ Desktop should preserve the mobile-first game loop while using available width f
 ┌──────────────────────────────────────────────────────────────────────┐
 │ Signal or Noise?     Play     Daily     Leaderboards     Profile     │
 ├──────────────────────────────────────────────────────────────────────┤
-│ Classic Run · Round 7 of 20                                           │
+│ Classic Run · Round 7 of 15                                           │
 │ Bankroll $10,850 · Signal Score +4                                    │
 ├──────────────────────────────────────────────┬───────────────────────┤
 │ Scenario Card                                │ Decision Panel        │
@@ -71,4 +71,3 @@ Desktop should preserve the mobile-first game loop while using available width f
 │ 3    │ ChartMage    │ $24,060  │ +4     │ 50%      │ Daily          │
 └──────────────────────────────────────────────────────────────────────┘
 ```
-

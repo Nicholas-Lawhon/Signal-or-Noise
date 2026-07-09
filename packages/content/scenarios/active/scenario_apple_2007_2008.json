@@ -1,0 +1,96 @@
+{
+  "id": "scenario_apple_2007_2008",
+  "status": "active",
+  "company": {
+    "name": "Apple",
+    "ticker": "AAPL",
+    "exchange": "NASDAQ",
+    "sector": "Information Technology",
+    "industry": "Consumer Electronics",
+    "country": "United States",
+    "acceptedNames": ["apple", "apple inc", "aapl"],
+    "identityBannedTerms": ["iPhone", "iPod", "Steve Jobs", "App Store", "Macintosh"]
+  },
+  "scenario": {
+    "title": "Category Test",
+    "decisionDate": "2007-01-09",
+    "endDate": "2008-07-09",
+    "decisionDateLabel": "Jan 2007",
+    "outcomeLabel": "Jan 2007 → Jul 2008",
+    "holdingPeriodLabel": "18 months",
+    "era": "Smartphone platform era",
+    "eraId": "smartphone_platform_era",
+    "contentPackIds": ["mvp_core", "sample_seed"],
+    "difficultySupported": ["easy", "medium", "hard"]
+  },
+  "marketData": {
+    "startingPrice": 3.4,
+    "endingPrice": 4.9,
+    "actualReturnPercent": 0.45,
+    "usesSplitAdjustedPrices": true,
+    "usesTotalReturn": false,
+    "preDecisionChartStartDate": "2004-01-09",
+    "preDecisionChartEndDate": "2007-01-09",
+    "outcomeChartStartDate": "2007-01-09",
+    "outcomeChartEndDate": "2008-07-09",
+    "lookbackPrices": [1.2, 1.7, 2.4, 2.9, 3.1, 2.6, 3.0, 3.4],
+    "outcomePrices": [3.4, 3.8, 4.4, 5.6, 6.1, 5.2, 4.6, 4.9]
+  },
+  "hiddenCard": {
+    "easy": {
+      "companyDescription": "A consumer electronics company entering a fast-growing mobile-device category.",
+      "macroContext": "Mobile computing is moving beyond voice and text toward richer internet services.",
+      "situation": "Can a premium handheld product open a larger platform before carriers and incumbents shut the window?",
+      "longCase": "A loyal consumer base and strong design reputation could pull users into a new category and denser ecosystem.",
+      "shortCase": "Carriers and entrenched device makers still control distribution, and a launch miss would be costly after a strong run-up.",
+      "setupHints": [
+        "The stock already prices meaningful execution, so a weak debut leaves little cushion."
+      ]
+    },
+    "medium": {
+      "companyDescription": "A consumer hardware company expanding beyond its established device lineup.",
+      "macroContext": "The mobile market is being reshaped by data plans, better networks, and changing consumer expectations.",
+      "situation": "Will a category expansion become a platform, or stall with partners and users?",
+      "longCase": "Partners and users could adopt a new approach that turns hardware sales into a broader platform.",
+      "shortCase": "Momentum already in the stock leaves less room if scale or profitability disappoints.",
+      "setupHints": []
+    },
+    "hard": {
+      "companyDescription": "A consumer technology company.",
+      "macroContext": "Mobile usage is becoming more central to everyday computing.",
+      "situation": "Is a brand-led category expansion priced for success or for disappointment?",
+      "longCase": "Brand strength and product design could open a larger computing surface if adoption follows.",
+      "shortCase": "Incumbents control distribution, and the valuation already assumes strong execution.",
+      "setupHints": []
+    }
+  },
+  "reveal": {
+    "shortText": "That was Apple. The iPhone launch quickly reframed the company as a mobile platform contender.",
+    "funFact": "Apple sold over 6 million first-generation iPhones, but the App Store launched a year later is what truly unlocked the platform.",
+    "whyItMoved": [
+      "The new handheld product gained rapid consumer attention.",
+      "Carrier partnerships expanded distribution.",
+      "Investors began pricing a broader platform opportunity."
+    ]
+  },
+  "sources": [
+    {
+      "label": "Prototype sample seed",
+      "url": "https://example.com/sources/apple-2007-2008",
+      "notes": "Placeholder sample content for Phase 3 pipeline; not production research."
+    }
+  ],
+  "review": {
+    "generatedByAi": true,
+    "humanReviewed": false,
+    "reviewNotes": "Prototype/sample seed for Phase 3 schema pipeline. Approximate prices and returns; not Gate 1/Gate 2 production content.",
+    "factBank": {
+      "revealOnly": ["Apple brand", "iPhone", "App Store"],
+      "decisionUseful": ["category expansion", "carrier distribution risk", "premium brand pull"],
+      "prohibited": ["iPhone", "Steve Jobs", "iPod"]
+    },
+    "easyLikelyGuesses": ["Apple", "Nokia", "Motorola"],
+    "mediumLikelyGuesses": ["Apple", "Samsung", "Sony"],
+    "hardLikelyGuesses": ["consumer electronics peers"]
+  }
+}

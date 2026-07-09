@@ -28,7 +28,7 @@ export function createRunState(params: {
     startingBankroll: params.startingBankroll ?? STARTING_BANKROLL[params.difficulty],
     currentBankroll: params.startingBankroll ?? STARTING_BANKROLL[params.difficulty],
     signalScore: 0,
-    totalRounds: params.totalRounds ?? CLASSIC_RUN_ROUNDS,
+    totalRounds: params.totalRounds ?? CLASSIC_RUN_ROUNDS[params.difficulty],
     currentRoundIndex: 0,
     status: 'in_progress',
     rounds: [],

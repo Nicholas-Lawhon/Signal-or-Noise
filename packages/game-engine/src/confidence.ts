@@ -17,7 +17,11 @@ export const STARTING_BANKROLL: Record<Difficulty, number> = {
   hard: 7500,
 };
 
-export const CLASSIC_RUN_ROUNDS = 20;
+export const CLASSIC_RUN_ROUNDS: Record<Difficulty, number> = {
+  easy: 10,
+  medium: 15,
+  hard: 20,
+};
 
 export const GUESS_CORRECT_BONUS = 2;
 export const GUESS_WRONG_PENALTY = -1;

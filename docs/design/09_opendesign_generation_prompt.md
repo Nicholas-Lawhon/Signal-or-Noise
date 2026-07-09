@@ -32,7 +32,7 @@ Required prototype screens:
 13. Settings.
 
 Required gameplay details:
-- Classic Run = 20 rounds.
+- Classic Run = Easy 10 / Medium 15 / Hard 20 rounds.
 - Daily Challenge = 10 rounds.
 - Primary score = Bankroll.
 - Secondary score = Signal Score.
@@ -61,4 +61,3 @@ Design requirements:
 Output:
 Create a high-fidelity interactive web prototype with reusable components and design tokens. Include both mobile and desktop responsive states. Prioritize the gameplay round, reveal screen, and leaderboards.
 ```
-

@@ -110,10 +110,10 @@ Do not design Portfolio Draft as a full MVP flow unless requested, but include i
 
 Classic Run:
 
-- 20 rounds.
+- Easy 10 / Medium 15 / Hard 20 rounds.
 - Configurable starting bankroll.
 - Difficulty selected by player.
-- Run ends after 20 rounds or when bankroll hits $0.
+- Run ends after the configured round count or when bankroll hits $0.
 
 Daily Challenge:
 
@@ -191,4 +191,3 @@ Preferred artifacts:
 - Design tokens.
 - Screen-by-screen flow.
 - Strong gameplay UI.
-

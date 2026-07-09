@@ -12,8 +12,8 @@ export default function LandingPage() {
 
         <p className="mt-6 text-sm leading-relaxed text-son-textSecondary">
           Read a disguised market scenario, make the call, and see if you could have
-          spotted the winner before the reveal. 20 rounds. Real historical companies.
-          One question: is it a signal worth betting on, or just noise?
+          spotted the winner before the reveal. Real historical companies. One
+          question: is it a signal worth betting on, or just noise?
         </p>
 
         <a

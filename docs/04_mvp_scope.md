@@ -197,7 +197,7 @@ Features:
 - Auth provider integration
 - Guest play
 - Login required for leaderboard submission
-- Best 20-round run leaderboard
+- Best Classic Run leaderboard
 - All-time Signal Score leaderboard
 - Profile stats
 - Score submission rules
@@ -360,7 +360,7 @@ Signal Score is meaningful, tracked, and leaderboard-supported, but not the main
 
 ## Classic Run Rules
 
-- 20 rounds.
+- Difficulty-configured length: Easy 10 rounds, Medium 15 rounds, Hard 20 rounds.
 - Player chooses difficulty.
 - Starting bankroll depends on difficulty.
 - Player may abandon/restart.
@@ -372,7 +372,7 @@ Signal Score is meaningful, tracked, and leaderboard-supported, but not the main
 
 The MVP is ready for broader testing when:
 
-- A user can play a full 20-round Classic Run on mobile web.
+- A user can play a full Classic Run on mobile web at the selected difficulty length.
 - A user can complete a 10-round Daily Challenge.
 - Bankroll math is correct.
 - Signal Score math is correct.

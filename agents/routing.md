@@ -19,7 +19,7 @@ the inverse of how prescriptive its handoffs must be.
 |---|---|---|---|---|---|---|
 | Claude Fable | 10 | 2 | 7 | 5 | 10 | `claude -p` |
 | GPT 5.5 | 9 | 5 | 9 | 8 | 9 | `codex exec` |
-| Grok 4.5 | 8 | 8 | TBD¹ | 6 | 7 | `grok -p` |
+| Grok 4.5 | 8 | 8 | TBD¹ | 8 | 7 | `grok -p` |
 | Claude Sonnet/Opus (utility) | 6–8 | n/a² | 7 | 8 | 7 | in-session subagents³ |
 | DeepSeek v4 Pro | 4 | 10 | 5 | 8 | 2 | `opencode run` |
 

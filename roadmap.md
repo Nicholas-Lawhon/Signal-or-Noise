@@ -48,8 +48,7 @@ Zod scenario validator, seed folder structure (`draft/reviewed/active`), type de
 validation script, 5–10 valid sample scenario JSONs. Web app loads scenarios from JSON.
 The validator must include an **automated content-leakage/difficulty check** (D019):
 reject any card whose hidden-card fields contain the company name, ticker,
-founder/CEO reference, or an unmistakable product name/slogan, or that lacks exactly
-3 clues per difficulty.
+founder/CEO reference, or an unmistakable product name/slogan, or that lacks the correct amount of hints.
 
 **Accept:** invalid cards fail validation; valid cards pass; leakage check rejects a
 card that names its company; app loads JSON scenarios.

@@ -1,0 +1,96 @@
+{
+  "id": "scenario_visa_2011_2013",
+  "status": "active",
+  "company": {
+    "name": "Visa",
+    "ticker": "V",
+    "exchange": "NYSE",
+    "sector": "Financials",
+    "industry": "Transaction & Payment Processing Services",
+    "country": "United States",
+    "acceptedNames": ["visa", "visa inc"],
+    "identityBannedTerms": ["Interlink", "VisaNet", "credit card network"]
+  },
+  "scenario": {
+    "title": "Rails of Commerce",
+    "decisionDate": "2011-01-03",
+    "endDate": "2013-01-02",
+    "decisionDateLabel": "Jan 2011",
+    "outcomeLabel": "Jan 2011 → Jan 2013",
+    "holdingPeriodLabel": "2 years",
+    "era": "Post-financial-crisis recovery",
+    "eraId": "post_financial_crisis_recovery",
+    "contentPackIds": ["mvp_core", "sample_seed"],
+    "difficultySupported": ["easy", "medium", "hard"]
+  },
+  "marketData": {
+    "startingPrice": 22,
+    "endingPrice": 35,
+    "actualReturnPercent": 0.58,
+    "usesSplitAdjustedPrices": true,
+    "usesTotalReturn": false,
+    "preDecisionChartStartDate": "2008-01-02",
+    "preDecisionChartEndDate": "2011-01-03",
+    "outcomeChartStartDate": "2011-01-03",
+    "outcomeChartEndDate": "2013-01-02",
+    "lookbackPrices": [16, 17, 15, 18, 19, 20, 21, 22],
+    "outcomePrices": [22, 24, 26, 28, 30, 32, 34, 35]
+  },
+  "hiddenCard": {
+    "easy": {
+      "companyDescription": "A fee-based financial infrastructure company that benefits as more commerce becomes electronic.",
+      "macroContext": "Consumers and merchants are moving more transactions away from cash and checks.",
+      "situation": "Can transaction volume compound faster than regulation and merchant pressure compress fees?",
+      "longCase": "Global adoption of electronic payments creates a durable growth tailwind without the firm lending the money itself.",
+      "shortCase": "Regulation, merchant pressure, or rivals can compress fees on a high-margin network.",
+      "setupHints": [
+        "Revenue is tied to transaction volume rather than credit risk on the balances themselves."
+      ]
+    },
+    "medium": {
+      "companyDescription": "A financial infrastructure firm that benefits when commercial activity rises.",
+      "macroContext": "After the crisis, investors are hunting for businesses that scale with recovery without carrying heavy credit risk.",
+      "situation": "Will rising activity through the platforms outrun fee pressure from large customers and politics?",
+      "longCase": "Revenue grows when more activity flows through the platforms it operates.",
+      "shortCase": "Political pressure or large customers can force lower take-rates on high-margin volume.",
+      "setupHints": []
+    },
+    "hard": {
+      "companyDescription": "A financial infrastructure company.",
+      "macroContext": "Commerce is becoming more digital during the post-crisis recovery.",
+      "situation": "Does electronic volume migration outweigh fee pressure on network economics?",
+      "longCase": "A fee-based network can compound as transaction volumes migrate electronically.",
+      "shortCase": "Regulation and customer pushback could pressure its economics.",
+      "setupHints": []
+    }
+  },
+  "reveal": {
+    "shortText": "That was Visa. The steady shift from cash to cards drove reliable, compounding growth.",
+    "funFact": "Its network can process tens of thousands of transactions per second — without ever touching the money itself.",
+    "whyItMoved": [
+      "Electronic payment volumes continued to rise.",
+      "The business model scaled with commerce without heavy credit risk.",
+      "Investors rewarded high-margin network economics during recovery."
+    ]
+  },
+  "sources": [
+    {
+      "label": "Prototype sample seed",
+      "url": "https://example.com/sources/visa-2011-2013",
+      "notes": "Placeholder sample content for Phase 3 pipeline; not production research."
+    }
+  ],
+  "review": {
+    "generatedByAi": true,
+    "humanReviewed": false,
+    "reviewNotes": "Prototype/sample seed for Phase 3 schema pipeline. Approximate prices and returns; not Gate 1/Gate 2 production content. Ticker V uses short-ticker word-boundary matching in the leakage validator.",
+    "factBank": {
+      "revealOnly": ["Visa brand", "V ticker"],
+      "decisionUseful": ["fee-based network", "cash-to-electronic shift", "merchant fee pressure"],
+      "prohibited": ["VisaNet", "credit card brand slogans"]
+    },
+    "easyLikelyGuesses": ["Visa", "Mastercard", "American Express"],
+    "mediumLikelyGuesses": ["Visa", "Mastercard", "PayPal"],
+    "hardLikelyGuesses": ["payments infrastructure peers"]
+  }
+}

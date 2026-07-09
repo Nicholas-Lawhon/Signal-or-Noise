@@ -14,7 +14,7 @@ export default function PlayPage() {
           >
             <h2 className="text-lg font-semibold text-son-text">Classic Run</h2>
             <p className="mt-1 text-sm text-son-textSecondary">
-              20 rounds &middot; Choose difficulty &middot; Build your bankroll
+              10–20 rounds &middot; Choose difficulty &middot; Build your bankroll
             </p>
           </a>
 

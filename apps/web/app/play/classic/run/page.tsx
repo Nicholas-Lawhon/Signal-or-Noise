@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import {
   createRunState,
@@ -42,7 +42,7 @@ const DECISION_SELECTED: Record<RoundAction, string> = {
   pass: 'border-son-textSecondary bg-son-textSecondary/10 text-son-textSecondary',
 };
 
-export default function ClassicRunClient() {
+function ClassicRunClient() {
   const searchParams = useSearchParams();
   const difficultyParam = searchParams.get('difficulty');
   const difficulty: Difficulty =
@@ -169,18 +169,44 @@ export default function ClassicRunClient() {
               {hidden.macroContext}
             </p>
 
-            {/* Lookback sparkline */}
+            {/* Lookback sparkline — demoted to context (D026) */}
             <div className="mb-4">
-              <p className="mb-1 text-xs text-son-textMuted">Lookback chart</p>
+              <p className="mb-1 text-xs text-son-textMuted">
+                Price path into this decision
+              </p>
               <Sparkline prices={scenario.lookbackPrices} height={96} variant="lookback" />
             </div>
 
-            {/* Clues */}
-            <ol className="mb-0 list-inside list-decimal space-y-1 text-sm text-son-textSecondary">
-              {hidden.clues.map((clue, i) => (
-                <li key={i}>{clue}</li>
-              ))}
-            </ol>
+            {/* Balanced Tension (D026) */}
+            <div className="mb-0 space-y-3">
+              <h3 className="text-sm font-semibold text-son-text">Signal or Noise?</h3>
+              <p className="text-sm leading-relaxed text-son-textSecondary">
+                {hidden.situation}
+              </p>
+              <div>
+                <p className="mb-1 text-xs font-medium uppercase tracking-wide text-son-textMuted">
+                  Why it might work
+                </p>
+                <p className="text-sm leading-relaxed text-son-textSecondary">
+                  {hidden.longCase}
+                </p>
+              </div>
+              <div>
+                <p className="mb-1 text-xs font-medium uppercase tracking-wide text-son-textMuted">
+                  What could break
+                </p>
+                <p className="text-sm leading-relaxed text-son-textSecondary">
+                  {hidden.shortCase}
+                </p>
+              </div>
+              {hidden.setupHints.length > 0 ? (
+                <ul className="list-inside list-disc space-y-1 text-sm text-son-textSecondary">
+                  {hidden.setupHints.map((hint, i) => (
+                    <li key={i}>{hint}</li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
           </div>
 
           {/* Call the Company */}
@@ -584,4 +610,18 @@ export default function ClassicRunClient() {
   }
 
   return null;
+}
+
+export default function ClassicRunPage() {
+  return (
+    <Suspense
+      fallback={
+        <main className="flex min-h-screen items-center justify-center bg-son-bg">
+          <p className="text-son-textMuted">Loading...</p>
+        </main>
+      }
+    >
+      <ClassicRunClient />
+    </Suspense>
+  );
 }

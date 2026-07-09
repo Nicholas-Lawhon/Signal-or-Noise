@@ -13,7 +13,7 @@ These are low-fidelity structural wireframes for OpenDesign or a design agent to
 │                              │
 │ ┌──────────────────────────┐ │
 │ │ Classic Run              │ │
-│ │ 20 rounds                │ │
+│ │ 10–20 rounds             │ │
 │ │ Build your bankroll      │ │
 │ │ [Start Run]              │ │
 │ └──────────────────────────┘ │
@@ -39,7 +39,7 @@ These are low-fidelity structural wireframes for OpenDesign or a design agent to
 ```text
 ┌──────────────────────────────┐
 │ Classic Run                  │
-│ 20 rounds. Beat the reveal.  │
+│ 10–20 rounds. Beat the reveal. │
 ├──────────────────────────────┤
 │ Choose Difficulty            │
 │ ┌──────┐ ┌──────┐ ┌──────┐   │
@@ -58,7 +58,7 @@ These are low-fidelity structural wireframes for OpenDesign or a design agent to
 
 ```text
 ┌──────────────────────────────┐
-│ Classic Run     Round 7/20   │
+│ Classic Run     Round 7/15   │
 │ Bankroll $10,850  Signal +4  │
 ├──────────────────────────────┤
 │ Scenario: Hidden Company     │
@@ -174,4 +174,3 @@ These are low-fidelity structural wireframes for OpenDesign or a design agent to
 │ Signal Score +7              │
 └──────────────────────────────┘
 ```
-

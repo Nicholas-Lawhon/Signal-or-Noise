@@ -292,7 +292,8 @@ Implement:
 Scenario rules:
 
 - Every scenario has Easy, Medium, Hard variants.
-- Every difficulty has exactly 3 clues.
+- Every difficulty has a Balanced Tension variant: `situation`, `longCase`,
+  `shortCase`, and setup hints scaled by difficulty.
 - Hidden card content must not include company name or ticker.
 - Pre-decision chart must not include outcome period.
 - Sources are stored but not shown to players.
@@ -437,11 +438,11 @@ Polish:
 ### Classic Run
 
 ```text
-20 rounds
+Easy 10 / Medium 15 / Hard 20 rounds
 Difficulty selected by player
 Starting bankroll configurable by difficulty
 Default: Easy $12,500, Medium $10,000, Hard $7,500
-Ends after 20 rounds or bankruptcy
+Ends after the configured round count or bankruptcy
 ```
 
 ### Daily Challenge

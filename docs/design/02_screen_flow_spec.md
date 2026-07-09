@@ -56,7 +56,7 @@ Mode cards:
 
 Classic Run card should show:
 
-- 20 rounds.
+- Easy 10 / Medium 15 / Hard 20 rounds.
 - Choose difficulty.
 - Build your bankroll.
 
@@ -225,7 +225,7 @@ Design notes:
 
 Purpose:
 
-End the 20-round Classic Run.
+End the Classic Run at the configured round count.
 
 Content:
 
@@ -362,4 +362,3 @@ Future setting:
 - Reveal tone.
 
 Do not design multiple reveal tones as MVP content.
-

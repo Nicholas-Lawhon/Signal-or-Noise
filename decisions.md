@@ -406,6 +406,80 @@ appropriate before production content ships, but it is too expensive for a basic
 prototype game. Shipping velocity is now the priority until the app reaches
 production-readiness gates.
 
+## D025 — Classic Run length scales by difficulty
+
+**Date:** 2026-07-09 · **Status:** User approved
+
+Classic Run is no longer a flat 20-round session by default. Default run length
+now scales with difficulty:
+
+```text
+Easy:   10 rounds
+Medium: 15 rounds
+Hard:   20 rounds
+```
+
+Daily Challenge remains 10 rounds. Starting bankrolls are unchanged: Easy
+$12,500 / Medium $10,000 / Hard $7,500.
+
+**Rationale:** Playtesting showed the old 20-round default is too long for a
+normal session. Scaling length by difficulty makes Easy a faster on-ramp, Medium
+a standard session, and Hard the endurance mode without changing scoring math,
+content rules, or Daily Challenge fairness. These values are playtest-tunable,
+but the product rule is that Classic Run length is difficulty-configured rather
+than globally fixed.
+
+## D026 — Balanced Tension scenario cards
+
+**Date:** 2026-07-09 · **Status:** User approved
+
+Phase 3 scenario cards use a **Balanced Tension** pre-decision model. Each
+difficulty variant includes:
+
+```text
+companyDescription
+macroContext
+situation
+longCase
+shortCase
+setupHints
+```
+
+The player-facing card frames the tension under the product name:
+
+```text
+Signal or Noise?
+Why it might work
+What could break
+```
+
+Internal schema fields remain `longCase` and `shortCase` because they are
+unambiguous for validation and scoring-adjacent review. The UI must not label
+one side "Signal" and the other "Noise"; that would imply the bear case should
+be disregarded. The player is deciding whether the whole setup is signal or
+noise, not whether the upside is inherently signal and downside is inherently
+noise.
+
+The old D022 clue-count rule is clarified for the structured model: difficulty
+now scales **setup hint count and specificity**, while every variant still has
+the balanced decision core (`situation`, `longCase`, `shortCase`).
+
+```text
+Easy:   1 setup hint, more direct specificity
+Medium: 0–1 setup hints, balanced specificity
+Hard:   0 setup hints, abstract but still decision-useful
+```
+
+The pre-decision lookback chart stays, but is demoted to atmosphere/context:
+small, non-predictive, and reviewed as part of the full pre-decision payload.
+It must not become a momentum/reversal oracle or a company-identity silhouette.
+
+**Rationale:** Playtests showed players could infer Long/Short from directional
+sentiment even when company identity remained hidden. Free-form clue lists made
+it too easy for one side to be concrete and the other decorative. Balanced
+Tension makes the unresolved debate first-class, fair, and validator-friendly
+while preserving the game's core decision fantasy.
+
 ## Open Design Question — composite Final Score / Information Tiers (NOT a decision)
 
 **Date:** 2026-07-03 · **Status:** Exploration pending

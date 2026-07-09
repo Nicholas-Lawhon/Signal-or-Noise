@@ -11,7 +11,7 @@ describe('createRunState', () => {
   it('creates a medium run with correct defaults', () => {
     const run = createRunState({ difficulty: 'medium' });
     expect(run.currentBankroll).toBe(10000);
-    expect(run.totalRounds).toBe(20);
+    expect(run.totalRounds).toBe(15);
     expect(run.currentRoundIndex).toBe(0);
     expect(run.status).toBe('in_progress');
     expect(run.rounds).toHaveLength(0);
@@ -22,11 +22,13 @@ describe('createRunState', () => {
   it('creates an easy run with 12500 bankroll', () => {
     const run = createRunState({ difficulty: 'easy' });
     expect(run.currentBankroll).toBe(12500);
+    expect(run.totalRounds).toBe(10);
   });
 
   it('creates a hard run with 7500 bankroll', () => {
     const run = createRunState({ difficulty: 'hard' });
     expect(run.currentBankroll).toBe(7500);
+    expect(run.totalRounds).toBe(20);
   });
 
   it('throws when startingBankroll is negative', () => {

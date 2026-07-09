@@ -47,7 +47,7 @@ The MVP content library should include:
 10 daily challenge pools
 10 famous market eras
 Easy / Medium / Hard variants for every scenario
-Difficulty-scaled clues: Easy 3 / Medium 2 / Hard 1 (D022)
+Balanced Tension variants with setup hints: Easy 1 / Medium 0–1 / Hard 0 (D026)
 Pre-decision lookback chart data
 Outcome chart data
 Reveal text
@@ -113,7 +113,10 @@ Each of Easy, Medium, and Hard includes:
 
 - Hidden company description
 - Macro context
-- Clues, count scaled by difficulty (D022): **Easy 3, Medium 2, Hard 1**
+- Situation
+- Long case
+- Short case
+- Setup hints, count scaled by difficulty (D026): **Easy 1, Medium 0–1, Hard 0**
 
 ### Reveal
 
@@ -131,14 +134,15 @@ Each of Easy, Medium, and Hard includes:
   — required curator output now; Phase 3 schema fields later) and Guessability
   Test results
 
-## Scenario Content Rulebook (D022)
+## Scenario Content Rulebook (D022, D026)
 
 This is the binding rulebook for ALL hidden-card content — placeholder and
 curated alike (D018). Difficulty scales two things and only two things: how
-many clues the player gets (Easy 3 / Medium 2 / Hard 1) and how identifying
-every hidden field may be. Difficulty is about **information given**, never
-about company obscurity — fame mix is a separate axis (60/30/10, see Scenario
-Mix Recommendation).
+much setup context the player gets (Easy 1 setup hint / Medium 0–1 / Hard 0)
+and how identifying every hidden field may be. Every variant still contains the
+balanced decision core: `situation`, `longCase`, and `shortCase` (D026).
+Difficulty is about **information given**, never about company obscurity — fame
+mix is a separate axis (60/30/10, see Scenario Mix Recommendation).
 
 ### Universal Bans (every field, every difficulty)
 
@@ -151,7 +155,8 @@ single-sentence leaks; whole-card triangulation is caught by the red-team
 guess list (authoring step 7) and the Guessability Test.
 
 Extends the soul.md content-integrity list. Hidden-card content (title,
-companyDescription, macroContext, clues) must never contain:
+companyDescription, macroContext, situation, longCase, shortCase, setupHints)
+must never contain:
 
 - Company name, ticker, or brand names (soul.md)
 - Founder, CEO, or other executive references (soul.md)
@@ -189,7 +194,17 @@ companies?** If not, rewrite it.
 - **macroContext** — the world around the company: rates, adoption curves,
   crises, sentiment. Must be true of the whole era, never identity-bearing —
   a macroContext that only fits one company is a leaked clue.
-- **clues** — decision-relevant information (see Clue Taxonomy).
+- **situation** — the unresolved debate of this window, stated neutrally.
+- **longCase** — one concrete reason the stock could go up during the outcome
+  period. Player-facing UI labels this "Why it might work".
+- **shortCase** — one concrete reason the stock could go down during the outcome
+  period. Player-facing UI labels this "What could break".
+- **setupHints** — optional Business-model or Market-position/setup hints that
+  add context by difficulty. These are not allowed to replace the balanced core.
+
+The player-facing section frame is **"Signal or Noise?"**. Do not label the two
+sides "Signal" and "Noise"; that biases the player toward treating one side as
+truth and the other as disposable.
 
 ### Specificity Ladder
 
@@ -212,48 +227,73 @@ sentence that — combined with the era and date the player also sees — leaves
 fewer than three plausible public companies is L4, regardless of how abstract
 its wording looks.
 
-### Clue Taxonomy
+### Hint Taxonomy
 
-Every clue is one of three types:
+Every setup hint is one of two types:
 
 - **B — Business-model clue:** what the company does or sells, how it earns.
-- **S — Situation clue:** the strategic tension of THIS window — the pivot,
-  threat, scandal, or bet whose resolution decides the outcome.
 - **M — Market-position/setup clue:** scale, competitive standing, how the
   era treats companies like this, or the market/financial setup — valuation,
   balance-sheet stress, margin pressure, prior price run-up, dividend
   support, sentiment — stated without identifying the company.
 
+The former S clue now lives in the required `situation` field.
+
 ### Per-Difficulty Specification
 
 | | Easy | Medium | Hard |
 |---|---|---|---|
-| Clues | 3 — one B, one S, one M | 2 — one B or M, one S | 1 — S-led; may fold in one non-identifying setup element |
+| Setup hints | 1 — B or M | 0–1 — B or M, use 0 when identity risk is high | 0 |
+| Balanced core | situation + longCase + shortCase | situation + longCase + shortCase | situation + longCase + shortCase |
 | companyDescription cap | L3 | L2 | L1 |
-| Clue specificity cap | L3 | L3 in the S clue only, L2 otherwise | L2 |
+| Core/setup specificity cap | L3 | L3 in the situation only, L2 otherwise | L2 |
 | macroContext | Era-specific allowed | Era-specific allowed | Broad era only |
 | Plausible alternatives (whole card) | ≥ 2 | 2–4, none dominant | ≥ 4, correct company not dominant |
 
-Every variant at every difficulty must include an S clue: the situation is the
-game. The S clue states the tension abstractly enough to pass the
-three-companies test but concretely enough to reason about.
+Every variant at every difficulty must include `situation`, `longCase`, and
+`shortCase`: the unresolved debate is the game. These fields must state the
+tension abstractly enough to pass the three-companies test but concretely enough
+to reason about.
 
 ### Decision-Informativeness Floor (anti-randomness)
 
-Every variant must contain at least one concrete Long driver AND one concrete
-Short risk, both drawn from the fact bank's decision-useful list. Generic
-drivers — "demand may recover", "margins may fall", "competition is rising",
-"investors are uncertain" — do NOT count unless anchored to a specific
-non-identifying fact of this scenario. Hard's single clue carries this alone:
-it must present a genuine unresolved tension, not a vague description. "A
-company facing challenges" fails; "an incumbent betting its cash cow on an
-unproven distribution model while a cheaper rival scales" passes.
+Every variant must contain one concrete Long driver (`longCase`) AND one
+concrete Short risk (`shortCase`), both drawn from the fact bank's
+decision-useful list and given equal visual/content weight. Generic drivers —
+"demand may recover", "margins may fall", "competition is rising", "investors
+are uncertain" — do NOT count unless anchored to a specific non-identifying fact
+of this scenario. Hard has no setup hints, so the balanced core must carry the
+round by itself: it must present a genuine unresolved tension, not a vague
+description. "A company facing challenges" fails; "an incumbent betting its cash
+cow on an unproven distribution model while a cheaper rival scales" passes.
+
+### Directional Sentiment Rules (anti-answer leakage)
+
+Hidden content must not make the correct Long/Short action obvious through tone,
+even if company identity remains hidden. Common failure modes:
+
+- **Asymmetric case strength:** one side has concrete facts while the other is
+  generic filler.
+- **Loaded evaluative language:** words like "doomed", "unstoppable",
+  "disaster", "exploded", "obvious", or "no-brainer" smuggle hindsight.
+- **Hindsight thesis framing:** the now-famous winner/loser story is presented
+  as if it were already settled at the decision date.
+- **Chart-as-oracle:** lookback shape plus prose points strongly to momentum or
+  reversal as the answer.
+- **Title bias:** titles such as "Defensive Compounder" or "Peak Expectations"
+  pre-answer the call.
+- **Macro cheerleading:** macro context only describes the winning backdrop.
+
+Review test: cover `longCase`; `shortCase` must still be concrete. Cover
+`shortCase`; `longCase` must still be concrete. If title, macro, chart, and both
+cases all lean the same direction, revise.
 
 ### Gate 1 — Whole-Card Triangulation Review (human)
 
 Before any model test, the reviewer evaluates the FULL pre-decision payload
-together — title, era, date label, companyDescription, macroContext, clues,
-and lookback chart shape — and lists the plausible public-company candidates.
+together — title, era, date label, companyDescription, macroContext, situation,
+longCase, shortCase, setupHints, and lookback chart shape — and lists the
+plausible public-company candidates.
 "Plausible" means a real public company in the same broad era whose hidden
 facts could fit without contradiction. Minimums (also the targets for the
 authoring red-team step):
@@ -334,16 +374,19 @@ hidden-card variants — never three separate scenario records):
    - Prohibited identity-leak facts (anything failing the Universal Bans or
      three-companies test — enumerate these BEFORE writing, so they can't
      sneak in)
-4. **Generate Hard first** (1 clue, L1–L2), then Medium by adding controlled
-   specificity (2 clues), then Easy (3 clues, up to L3). Never write Easy
-   first and "vague it down" — that leaves triangulation residue in the
-   harder variants.
+4. **Generate Hard first**: write the neutral `situation`, matched `longCase`
+   and `shortCase`, and no setup hints at L1–L2 specificity. Then create Medium
+   by adding controlled specificity and 0–1 setup hints. Then create Easy by
+   adding one setup hint and allowing up to L3 specificity. Never write Easy
+   first and "vague it down" — that leaves triangulation and sentiment residue
+   in the harder variants.
 5. **Red-team each variant (Gate 1):** list the likely player guesses per
    difficulty in the review notes, and for EACH guess record the hidden fact
    that points there. If every reason points uniquely to the correct company,
    revise — even if the list is long enough. Enforce the plausible-alternative
    minimums (Easy ≥2 / Medium 2–4 / Hard ≥4). If Hard gives no rational basis
-   for Long vs Short (Decision-Informativeness Floor), revise.
+   for Long vs Short, or if one side is obviously stronger from tone alone,
+   revise.
 6. Run the Guessability Test (Gate 2) per variant; record model used and
    results.
 7. Validate schema and leakage rules.
@@ -374,27 +417,31 @@ STEP 1 — Build a private fact bank (goes in review notes, never shown to playe
 
 STEP 2 — Generate the hidden-card variants, HARD FIRST, then Medium, then Easy:
 
-Hard (1 clue):
-- The single clue is a Situation clue: this window's strategic tension, stated abstractly (sector-level language) but concretely enough that a player can argue both the Long case and the Short case. It may fold in ONE non-identifying financial/market setup element (valuation, balance sheet, margins, sentiment).
+Hard:
+- Include companyDescription, macroContext, situation, longCase, shortCase, and setupHints: [].
+- The situation is this window's strategic tension, stated abstractly (sector-level language) but concretely enough that a player can argue both the Long case and the Short case.
+- longCase and shortCase must be concrete, matched in strength, and equally plausible from the information shown.
 - No famous-story framing, no hindsight thesis phrasing, no hooks famous for one company. Company identity may stay uncertain even for good players — but never random or purely vague.
 
-Medium (2 clues):
-- One Situation clue, plus one Business-model or Market-position clue.
-- No single clue identifies the company. The full card may make it guessable but must leave 2–4 plausible alternatives.
+Medium:
+- Include companyDescription, macroContext, situation, longCase, shortCase, and setupHints with 0 or 1 Business-model or Market-position/setup hint. Use 0 when identity risk is high.
+- No single field identifies the company. The full card may make it guessable but must leave 2–4 plausible alternatives.
 - Category-level language, not famous hindsight framing.
 
-Easy (3 clues):
-- One Business-model, one Situation, one Market-position/era clue.
+Easy:
+- Include companyDescription, macroContext, situation, longCase, shortCase, and exactly 1 Business-model or Market-position/setup hint.
 - More direct industry and business-model language is allowed; the company guess ("Call the Company") should be realistically attainable.
 - Still no literal leaks.
 
-Rules for ALL hidden content (title, companyDescription, macroContext, clues):
+Rules for ALL hidden content (title, companyDescription, macroContext, situation, longCase, shortCase, setupHints):
 - Every sentence must plausibly describe at least three real companies.
 - The scenario title is shown pre-decision at every difficulty: it must not identify the company even combined with the dates shown.
 - No company name, ticker, founder/CEO names, product names, slogans, mission statements, one-answer superlatives, or company-unique events in recognizable phrasing.
 - macroContext describes the era, never the company.
+- The player-facing section frame is "Signal or Noise?"; the UI labels longCase as "Why it might work" and shortCase as "What could break". Do not label either side "Signal" or "Noise".
+- Avoid directional sentiment leaks: loaded adjectives, one-sided concrete detail, title bias, and chart/prose combinations that make Long or Short obvious.
 
-STEP 3 — Red-team: for each variant, list the likely player guesses in review notes WITH the hidden fact that points to each guess. Targets: Easy at least 2 plausible candidates, Medium 2–4 with none dominant, Hard at least 4 with the correct company not dominant. Revise if the card misses its target, if every reason points uniquely to the correct company, or if Hard's clue gives no decision signal.
+STEP 3 — Red-team: for each variant, list the likely player guesses in review notes WITH the hidden fact that points to each guess. Targets: Easy at least 2 plausible candidates, Medium 2–4 with none dominant, Hard at least 4 with the correct company not dominant. Revise if the card misses its target, if every reason points uniquely to the correct company, or if Hard's balanced core gives no decision signal.
 
 Also include:
 - reveal.shortText, reveal.funFact, reveal.whyItMoved (exactly 3 bullets) — reveal content MAY name the company
@@ -412,7 +459,9 @@ A scenario card should fail validation if:
 
 - Missing required fields
 - Missing any difficulty variant
-- Wrong clue count for the difficulty (Easy 3 / Medium 2 / Hard 1, D022)
+- Wrong setup hint count for the difficulty (Easy 1 / Medium 0–1 / Hard 0, D026)
+- Missing `situation`, `longCase`, or `shortCase`
+- `longCase` or `shortCase` is generic filler rather than an anchored fact
 - Hidden card mentions company name
 - Hidden card mentions ticker
 - Title fails the Hard identifiability bar
@@ -423,6 +472,10 @@ A scenario card should fail validation if:
 The Phase 3 validator additionally WARNS (without auto-rejecting) on
 configured high-risk triangulation terms; the guessability check and human
 review remain the authority on combined-specificity leaks.
+- The Phase 3 validator additionally WARNS on configured directional-sentiment
+  terms and case asymmetry: loaded adjectives, obvious winner/loser phrasing,
+  titles that imply a call, and one case being much shorter or more generic than
+  the other. Human review is the authority on whether the tension is balanced.
 - Hidden card reveals the outcome
 - Pre-decision chart overlaps outcome period incorrectly
 - Decision date is after end date
@@ -440,10 +493,12 @@ A human reviewer should check:
   record the results — manual until the Phase 3 validator automates it.)
 - Does the title pass the Hard bar?
 - Is Easy too obvious?
-- Is Hard too vague, or its single clue uninformative? (Decision-Informativeness
-  Floor)
-- Are the clues fair?
+- Is Hard too vague, or is its balanced core uninformative?
+- Are `longCase` and `shortCase` both concrete and matched in strength?
+- Does the "Signal or Noise?" frame feel like a balanced debate, not advice?
 - Is the macro context useful?
+- Does title + macro + chart + prose accidentally point to Long or Short as the
+  obvious action?
 - Does the lookback period make sense?
 - Is the outcome period interesting?
 - Is the return correct?
@@ -484,9 +539,15 @@ Each scenario needs:
 
 ### Pre-Decision Lookback Chart
 
-Shown before decision.
+Shown before decision as atmosphere/context, not as a prediction surface.
 
 Must end on or before the decision date.
+
+The chart should be small and labeled as the price path into the decision. It
+must not use trading-dashboard affordances, indicators, volume, or copy that
+implies it is the signal. Whole-card review must consider chart shape; a meme
+silhouette or a chart/prose combination that makes Long or Short obvious fails
+the directional-sentiment review.
 
 ### Outcome Chart
 
@@ -575,7 +636,7 @@ Bad scenario cards:
 - Are too obvious.
 - Depend on obscure accounting details.
 - Feel random.
-- Include misleading clues.
+- Include misleading hints.
 - Use overly educational lecture copy.
 - Accidentally reveal the company name.
 - Accidentally reveal the outcome.

@@ -100,7 +100,7 @@ Acceptance criteria:
 - Player can select Classic Run.
 - Player chooses difficulty: Easy, Medium, or Hard.
 - Run starts with configured bankroll.
-- Run defaults to 20 rounds.
+- Run length follows difficulty: Easy 10 rounds, Medium 15 rounds, Hard 20 rounds.
 
 ### Story 2.2 — View Scenario Card
 
@@ -112,7 +112,8 @@ Acceptance criteria:
 - Company name and ticker are hidden.
 - Difficulty-specific hidden company description is shown.
 - Macro context is shown.
-- Three clues are shown.
+- Balanced scenario information is shown: situation, why it might work, what
+  could break, and any difficulty-appropriate setup hints.
 - Pre-decision lookback chart is shown.
 - Outcome chart is not shown before decision.
 
@@ -177,7 +178,7 @@ As a player, I want to see a summary at the end of my run.
 
 Acceptance criteria:
 
-- Summary appears after 20 rounds or bankruptcy.
+- Summary appears after the configured round count or bankruptcy.
 - Shows final bankroll.
 - Shows Signal Score.
 - Shows correct calls, wrong calls, and passes.
@@ -276,7 +277,7 @@ Acceptance criteria:
 
 ### Story 5.1 — Best Run Leaderboard
 
-As a player, I want to see the best 20-round runs.
+As a player, I want to see the best Classic Runs.
 
 Acceptance criteria:
 

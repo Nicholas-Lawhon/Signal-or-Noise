@@ -134,7 +134,7 @@ Modes:
 Classic Run card:
 
 ```text
-20 rounds
+Easy 10 / Medium 15 / Hard 20 rounds
 Choose difficulty
 Build your bankroll
 ```
@@ -161,7 +161,7 @@ Example:
 
 ```text
 Medium Run
-20 rounds
+15 rounds
 Starting bankroll: $10,000
 ```
 
@@ -174,7 +174,7 @@ Mobile layout:
 ```text
 Top Bar:
 Signal or Noise?
-Round 4/20
+Round 4/15
 Bankroll: $10,850
 Signal Score: +3
 
@@ -394,7 +394,7 @@ Reduced motion setting should be respected if implemented.
 
 ```text
 ------------------------------------------------
-| Signal or Noise?       Round 3/20    $10,850 |
+| Signal or Noise?       Round 3/15    $10,850 |
 | Signal Score: +3                              |
 ------------------------------------------------
 

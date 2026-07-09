@@ -1,13 +1,13 @@
-import { STARTING_BANKROLL } from '@signal-or-noise/game-engine';
+import { CLASSIC_RUN_ROUNDS, STARTING_BANKROLL } from '@signal-or-noise/game-engine';
 
 const DIFFICULTIES: {
   key: 'easy' | 'medium' | 'hard';
   label: string;
   explainer: string;
 }[] = [
-  { key: 'easy', label: 'Easy', explainer: '3 direct clues.' },
-  { key: 'medium', label: 'Medium', explainer: '2 balanced clues.' },
-  { key: 'hard', label: 'Hard', explainer: '1 abstract clue.' },
+  { key: 'easy', label: 'Easy', explainer: 'Balanced tension + 1 setup hint.' },
+  { key: 'medium', label: 'Medium', explainer: 'Balanced tension + optional setup hint.' },
+  { key: 'hard', label: 'Hard', explainer: 'Balanced tension only — no setup hints.' },
 ];
 
 export default function ClassicSetupPage() {
@@ -15,7 +15,9 @@ export default function ClassicSetupPage() {
     <main className="flex min-h-screen flex-col items-center px-4 py-12">
       <div className="w-full max-w-md">
         <h1 className="mb-1 text-2xl font-bold text-son-text">Classic Run</h1>
-        <p className="mb-8 text-sm text-son-textSecondary">20 rounds. Choose your difficulty.</p>
+        <p className="mb-8 text-sm text-son-textSecondary">
+          Choose your difficulty and run length.
+        </p>
 
         <div className="space-y-3">
           {DIFFICULTIES.map((d) => (
@@ -26,7 +28,7 @@ export default function ClassicSetupPage() {
             >
               <h2 className="text-lg font-semibold text-son-text">{d.label}</h2>
               <p className="mt-1 text-sm text-son-textSecondary">
-                20 rounds &middot; Starting bankroll: $
+                {CLASSIC_RUN_ROUNDS[d.key]} rounds &middot; Starting bankroll: $
                 {STARTING_BANKROLL[d.key].toLocaleString()}
               </p>
               <p className="mt-0.5 text-xs text-son-textMuted">{d.explainer}</p>

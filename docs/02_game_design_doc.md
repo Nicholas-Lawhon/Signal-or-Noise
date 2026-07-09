@@ -7,7 +7,8 @@ Signal or Noise? is built around disguised historical market scenarios.
 Each round follows this flow:
 
 1. Player receives a scenario card.
-2. Player reviews the hidden company profile, macro context, clues, and pre-decision lookback chart.
+2. Player reviews the hidden company profile, macro context, balanced tension,
+   setup hints, and pre-decision lookback chart.
 3. Player chooses Long, Short, or Pass.
 4. Player chooses a Confidence level.
 5. The app calculates the simulated result using the actual historical return.
@@ -67,7 +68,7 @@ A Classic Run is the main single-player mode.
 Default rules:
 
 ```text
-Rounds: 20
+Rounds: Easy 10 / Medium 15 / Hard 20
 Starting bankroll: configurable by mode/difficulty
 Default starting bankroll: $10,000
 End condition: finish all rounds or hit $0
@@ -239,7 +240,7 @@ Signal Score should have its own leaderboard and profile stat, but it should not
 
 ## Rounds Won
 
-Because Classic Runs and Daily Challenges have fixed lengths, “Rounds Won” should not be a primary leaderboard. It should still be tracked in summaries and profiles.
+Because Classic Runs and Daily Challenges have configured lengths, “Rounds Won” should not be a primary leaderboard. It should still be tracked in summaries and profiles.
 
 Track:
 
@@ -259,8 +260,10 @@ Player chooses:
 
 - Difficulty
 - Optional era/pack if available
-- Starts a 20-round run
+- Starts a difficulty-configured run
 - Attempts to finish with the highest bankroll possible
+
+Default run length follows difficulty: Easy 10 / Medium 15 / Hard 20.
 
 ### Mode 5: Daily Challenge
 
@@ -300,7 +303,7 @@ The underlying scenario truth does not change by difficulty.
 
 Difficulty changes:
 
-- How identifying the clues are
+- How identifying the setup hints and hidden-card wording are
 - How specific the industry description is
 - How much company detail is shown
 - How specific the macro context is

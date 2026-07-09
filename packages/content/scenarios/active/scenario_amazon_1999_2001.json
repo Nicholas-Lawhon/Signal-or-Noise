@@ -1,0 +1,96 @@
+{
+  "id": "scenario_amazon_1999_2001",
+  "status": "active",
+  "company": {
+    "name": "Amazon",
+    "ticker": "AMZN",
+    "exchange": "NASDAQ",
+    "sector": "Consumer Discretionary",
+    "industry": "Internet Retail",
+    "country": "United States",
+    "acceptedNames": ["amazon", "amazon.com", "amzn"],
+    "identityBannedTerms": ["Jeff Bezos", "everything store", "one-click", "AWS"]
+  },
+  "scenario": {
+    "title": "Peak Expectations",
+    "decisionDate": "1999-12-10",
+    "endDate": "2001-09-10",
+    "decisionDateLabel": "Dec 1999",
+    "outcomeLabel": "Dec 1999 → Sep 2001",
+    "holdingPeriodLabel": "~2 years",
+    "era": "Dot-com bubble and aftermath",
+    "eraId": "dotcom_bubble_aftermath",
+    "contentPackIds": ["mvp_core", "sample_seed"],
+    "difficultySupported": ["easy", "medium", "hard"]
+  },
+  "marketData": {
+    "startingPrice": 76,
+    "endingPrice": 10,
+    "actualReturnPercent": -0.87,
+    "usesSplitAdjustedPrices": true,
+    "usesTotalReturn": false,
+    "preDecisionChartStartDate": "1997-12-10",
+    "preDecisionChartEndDate": "1999-12-10",
+    "outcomeChartStartDate": "1999-12-10",
+    "outcomeChartEndDate": "2001-09-10",
+    "lookbackPrices": [2, 4, 7, 15, 28, 45, 62, 76],
+    "outcomePrices": [76, 64, 41, 30, 18, 12, 8, 10]
+  },
+  "hiddenCard": {
+    "easy": {
+      "companyDescription": "An internet retailer expanding quickly across consumer categories.",
+      "macroContext": "Internet valuations are peaking as investors start demanding proof of durable profits.",
+      "situation": "Will scale turn heavy spending into a lasting advantage, or will cash burn collide with tighter capital?",
+      "longCase": "Revenue is growing rapidly as more shoppers move online, and category expansion could lock in a durable position.",
+      "shortCase": "Losses are mounting while the stock has already run far ahead of current earnings, making a sentiment reversal costly.",
+      "setupHints": [
+        "Fulfillment, marketing, and expansion spending are rising faster than near-term profit."
+      ]
+    },
+    "medium": {
+      "companyDescription": "An online commerce company growing faster than its profits.",
+      "macroContext": "The market is starting to separate internet businesses with real economics from pure speculation.",
+      "situation": "Is this a scale story that compounds, or a cash-burn story that fails when funding tightens?",
+      "longCase": "Scale from online demand could eventually turn heavy spending into a lasting advantage.",
+      "shortCase": "Cash burn and an inflated valuation become brutal when capital gets tighter.",
+      "setupHints": []
+    },
+    "hard": {
+      "companyDescription": "An internet company.",
+      "macroContext": "Speculative growth stocks are under increasing scrutiny near the end of a market boom.",
+      "situation": "Does prioritizing scale over near-term profit build a durable position or invite collapse?",
+      "longCase": "A fast-growing online business could entrench itself if demand keeps compounding.",
+      "shortCase": "If investors stop funding losses, the growth model can break quickly.",
+      "setupHints": []
+    }
+  },
+  "reveal": {
+    "shortText": "That was Amazon. The dot-com crash wiped out most of its market value, but it survived to become one of the most valuable companies in the world.",
+    "funFact": "Amazon stock fell from about $107 to $7 a share during the bust — a roughly 93% decline.",
+    "whyItMoved": [
+      "Internet valuations collapsed as capital tightened.",
+      "Investors demanded a path to profit instead of pure growth.",
+      "The stock had already priced aggressive expansion success."
+    ]
+  },
+  "sources": [
+    {
+      "label": "Prototype sample seed",
+      "url": "https://example.com/sources/amazon-1999-2001",
+      "notes": "Placeholder sample content for Phase 3 pipeline; not production research."
+    }
+  ],
+  "review": {
+    "generatedByAi": true,
+    "humanReviewed": false,
+    "reviewNotes": "Prototype/sample seed for Phase 3 schema pipeline. Approximate prices and returns; not Gate 1/Gate 2 production content.",
+    "factBank": {
+      "revealOnly": ["Amazon brand", "AMZN ticker", "dot-com crash path"],
+      "decisionUseful": ["online commerce scale", "cash burn", "valuation peak"],
+      "prohibited": ["Jeff Bezos", "everything store", "one-click"]
+    },
+    "easyLikelyGuesses": ["Amazon", "eBay", "Yahoo"],
+    "mediumLikelyGuesses": ["Amazon", "eBay", "Webvan"],
+    "hardLikelyGuesses": ["late-90s internet retailers"]
+  }
+}
