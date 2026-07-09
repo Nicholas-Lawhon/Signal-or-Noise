@@ -96,8 +96,13 @@ orchestrator dispatches handoffs itself instead of the user pasting prompts.
 Smoke-tested 2026-07-08 — the stdin/auto details below are required, not optional:
 
 ```powershell
-# Grok 4.5 (medium work)
-grok -p "<dispatch prompt>" --permission-mode acceptEdits --deny "Bash(git commit*)" --deny "Bash(git push*)"
+# Grok 4.5 (medium work) — bypassPermissions is required for any handoff that
+# runs shell commands (tests, git show, sub-CLI calls): acceptEdits auto-approves
+# file edits only, and a blocked shell approval ends the session SILENTLY with
+# exit 0 and no error. The --deny rules still apply in bypass mode. If a run
+# ends early, `grok --resume <session-id> -p "<continue instruction>"` picks it
+# up with context intact (`grok sessions list` for the id).
+grok -p "<dispatch prompt>" --permission-mode bypassPermissions --deny "Bash(git commit*)" --deny "Bash(git push*)"
 
 # GPT 5.5 (hard work) — codex exec reads the prompt from stdin when not attached
 # to a TTY: pipe it in and pass `-` as the prompt argument, or it hangs.
@@ -123,6 +128,12 @@ the repo; git commit/push is forbidden by CLI deny rules where the CLI supports
 them and by the dispatch prompt + `AGENTS.md` everywhere (D012 unchanged: the
 uncommitted diff plus the R### report is the review artifact). **Manual paste
 remains the fallback** if a CLI is down — same handoff file, same rules.
+
+**Post-dispatch health check:** exit code 0 does NOT mean the handoff finished —
+a headless run that hits an unapprovable permission prompt can end silently.
+Before reviewing, confirm the expected R###/A### file exists and `git status`
+shows the agent's changes; if not, inspect the executor's session transcript,
+fix the flags, and resume rather than restart.
 
 **Dispatch approval gate (risk-based):**
 
