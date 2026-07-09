@@ -480,6 +480,41 @@ it too easy for one side to be concrete and the other decorative. Balanced
 Tension makes the unresolved debate first-class, fair, and validator-friendly
 while preserving the game's core decision fantasy.
 
+## D027 — Content Expansion moves up to Phase 4, split into two parts
+
+**Date:** 2026-07-09 · **Status:** User approved
+
+The roadmap phase order changes. Content Expansion (previously Phase 8) becomes
+**Phase 4**, and every phase between shifts down one:
+
+```text
+Phase 4: Content Foundation & Expansion (was Phase 8), in two parts:
+         Part A — content-rules & validator hardening (AI-assisted-generation
+                  readiness, A005 MINOR follow-ups, automated Gate 2
+                  guessability check, re-review of existing cards)
+         Part B — content generation at scale (the original Phase 8 scope)
+Phase 5: Database        (was Phase 4)
+Phase 6: Auth & Guest Play (was Phase 5)
+Phase 7: Leaderboards    (was Phase 6)
+Phase 8: Daily Challenge (was Phase 7)
+Phase 9: MVP Polish      (unchanged)
+```
+
+**Rationale (user):** the scenario cards ARE the game — if they leak identity or
+direction, or simply aren't fun, there is no reason to build the surrounding
+systems. Hardening the generation rules and guards first means new cards can be
+added quickly and confidently later, without worrying about leaks or unfun
+cards. Content quality risk is retired before infrastructure investment.
+
+**Renumbering note:** phase-number references written before this decision
+(e.g. "Prisma + PostgreSQL (Phase 4+)" in D002, consultant-memo timing in
+earlier entries, "Phase 8" deferrals in A005/H018) refer to the OLD numbering.
+`roadmap.md` is the single source of truth for phase order; `AGENTS.md`
+operating references are updated to the new numbers. Historical decision
+entries are not rewritten. The consultant-memo requirements move with their
+phases: DB provider/guest strategy memo before Phase 5, auth provider memo
+before Phase 6.
+
 ## Open Design Question — composite Final Score / Information Tiers (NOT a decision)
 
 **Date:** 2026-07-03 · **Status:** Exploration pending

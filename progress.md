@@ -6,20 +6,19 @@ first thing the next agent reads.
 
 ## Current Status
 
-- **Phase:** 0 + 1 COMPLETE (A002 PASS). Phase 2 COMPLETE under D024 via H012.
-  Phase 3 implemented (H015 + H016), audited (H017/A005 PASS WITH FINDINGS),
-  audit accepted by orchestrator, and work COMMITTED. Phase 3 close awaits
-  user approval (phase gate). Full Gate 1/Gate 2 production content polish is
-  still future Curator work.
+- **Phase:** 0–3 COMPLETE (Phase 3 closed by user 2026-07-09; A005 PASS WITH
+  FINDINGS). D027 renumbered the roadmap: current phase is **Phase 4 — Content
+  Foundation & Expansion, Part A** (content-rules/validator hardening before
+  Part B generation at scale); Database is now Phase 5, Auth 6, Leaderboards 7,
+  Daily Challenge 8.
 - **App state:** Monorepo scaffolded. Game engine: 37 tests. Content package:
   Zod schema, validation CLI, 10 content tests, 6 active sample JSON scenarios
   (Balanced Tension / D026). Package root is browser-safe (no Node fs re-exports).
   Classic Run loads from `@signal-or-noise/content`. `pnpm build` passes. No
   auth, no DB.
-- **Next task:** User approves Phase 3 close + dispatch of
-  `agents/handoffs/H018_a005_validator_content_fixups.md` (A005 MAJOR fix-ups:
-  Amazon retitle, metadata leakage scan, empty banned-terms guard).
-- **Blocked/Questions:** Phase 3 close and H018 dispatch await user approval.
+- **Next task:** H018 (A005 MAJOR fix-ups) dispatched to Grok 4.5; orchestrator
+  reviews R013 on completion, then drafts the first Phase 4 Part A handoff(s).
+- **Blocked/Questions:** none.
 
 ## How to Run (updated as the app grows)
 
@@ -58,6 +57,37 @@ All from repo root. Requires Node.js LTS and pnpm 9.x.
 ---
 
 ## Session Log
+
+### 2026-07-09 — Orchestrator — Phase 3 closed; D027 phase reorder; H018 approved + dispatched
+
+**What changed:**
+- User approved Phase 3 close: roadmap Phase 3 → ✅ (H015/H016, A005 PASS WITH
+  FINDINGS).
+- Recorded D027 (user approved): Content Expansion moves up from Phase 8 to
+  Phase 4, split into Part A (content-rules & validator hardening,
+  AI-generation readiness, re-review of active cards) and Part B (generation
+  at scale). Database → 5, Auth → 6, Leaderboards → 7, Daily Challenge → 8.
+  Rationale: the cards are the game; retire content-quality risk before
+  building more systems.
+- Rewrote `roadmap.md` phases 4–8 accordingly; updated AGENTS.md phase
+  references (Prisma/database now Phase 5+); Business Gate B now keyed to the
+  renumbered Daily Challenge phase.
+- H018 status → approved (deferral notes retargeted from "Phase 8" to
+  "Phase 4 Part A"); dispatched to Grok 4.5 headlessly per routing.md.
+
+**Tests:** not run this entry — docs/orchestration only (H018 verification
+happens at R013 review).
+
+**Known issues:**
+- Pre-D027 phase-number references in historical decisions/docs refer to the
+  old numbering (see D027 renumbering note); docs/10 ordering superseded by
+  roadmap.md.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** review R013 + diff when Grok finishes; then draft
+Phase 4 Part A handoffs (validator MINORs, automated Gate 2 check, doc 09
+generation-readiness review, active-card re-review).
 
 ### 2026-07-09 — Orchestrator — A005 accepted; Phase 3 work committed; H018 drafted
 

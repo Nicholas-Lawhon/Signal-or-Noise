@@ -1,10 +1,13 @@
 # roadmap.md — Signal or Noise?
 
-> **Current phase: Phase 3 (next).** Phases 0 + 1 are COMPLETE and audited
-> (A002 PASS). Phase 2 is COMPLETE under D024. Only the orchestrator updates
-> this file.
+> **Current phase: Phase 4 — Content Foundation & Expansion (Part A).**
+> Phases 0 + 1 COMPLETE and audited (A002 PASS). Phase 2 COMPLETE under D024.
+> Phase 3 COMPLETE and audited (A005 PASS WITH FINDINGS). Phase order
+> renumbered by D027 (Content Expansion moved up from Phase 8). Only the
+> orchestrator updates this file.
 
-Phases follow `docs/10_agentic_coding_handoff.md`. Each phase ships as one or more
+Phase contents follow `docs/10_agentic_coding_handoff.md`; phase ORDER here
+supersedes docs/10 after the D027 renumbering. Each phase ships as one or more
 numbered handoff prompts (`agents/handoffs/H###_*.md`). During active development,
 a phase is complete when its acceptance criteria pass and the orchestrator accepts
 it under D024; formal audits are reserved for selected gates/high-risk work.
@@ -42,7 +45,7 @@ so Phase 2 is a hardening/completion pass, not a migration.
 **Handoff:** H012. **Done 2026-07-09.** 37 game-engine tests. Adds
 `advanceRun`, streak tracking, leaderboard tiebreakers, and guard tests.
 
-## Phase 3 — Scenario Schema & Content Pipeline ⬜
+## Phase 3 — Scenario Schema & Content Pipeline ✅
 
 Zod scenario validator, seed folder structure (`draft/reviewed/active`), type defs,
 validation script, 5–10 valid sample scenario JSONs. Web app loads scenarios from JSON.
@@ -53,8 +56,39 @@ founder/CEO reference, or an unmistakable product name/slogan, or that lacks the
 **Accept:** invalid cards fail validation; valid cards pass; leakage check rejects a
 card that names its company; app loads JSON scenarios.
 **Content Curator role activates here.**
+**Handoffs:** H015 → H016 (build fix). **Audit:** H017/A005 PASS WITH FINDINGS.
+**Done 2026-07-09.** Zod schema + validation API/CLI, 10 content tests, 6 active
+JSON seeds, JSON-backed Classic Run. A005 MAJOR fix-ups ride post-close handoff
+H018; A005 MINORs are Phase 4 Part A work.
 
-## Phase 4 — Database ⬜
+## Phase 4 — Content Foundation & Expansion ⬜ (was Phase 8; moved up by D027)
+
+The cards ARE the game: retire content-quality risk before building more
+systems. Two parts, gated in order.
+
+**Part A — Content rules & validator hardening:**
+- Close A005 MINORs: calendar-date validity, price/return internal-consistency
+  checks, likely-guess quality floor on reviewed/active content.
+- Automated Gate 2 guessability check in the validation pipeline (pinned model,
+  temperature 0) per D019/D022 — the last unautomated D019 layer.
+- Review doc 09 rulebook + generation prompt template for AI-assisted
+  generation readiness (fact-bank workflow, Hard-first ordering, red-team
+  likely-guess lists).
+- Re-review the 6 active seeds against the hardened gates; fix or replace.
+
+**Accept (Part A):** each new invalid class fails validation; the guessability
+check runs automatically with doc 09 thresholds; every active card passes the
+full gates or is replaced; user signs off that the guards are trusted.
+
+**Part B — Content generation at scale (the original Phase 8 scope):**
+100 scenario cards, 10 daily challenge pools, 10 famous market eras.
+AI-assisted generation → validate → human review → mark active. JSON seeds
+until the database lands in Phase 5. (Content Curator + Auditor heavy.)
+
+**Accept (Part B):** 100 active cards pass validation and gates; pools and eras
+defined.
+
+## Phase 5 — Database ⬜ (was Phase 4)
 
 Prisma schema (see `docs/06_data_model.md`), Postgres connection, scenario import,
 Run/RoundDecision persistence, user/profile tables, DailyChallenge model, leaderboard
@@ -62,29 +96,23 @@ storage. Server-side score calculation — never trust the client.
 
 **Consultant memo required before this phase** (DB provider, guest strategy).
 
-## Phase 5 — Auth & Guest Play ⬜
+## Phase 6 — Auth & Guest Play ⬜ (was Phase 5)
 
 Optional login. Guests play everything unofficially; login gates leaderboard
 submission and saved stats.
 
 **Consultant memo required before this phase** (auth provider selection).
 
-## Phase 6 — Leaderboards ⬜
+## Phase 7 — Leaderboards ⬜ (was Phase 6)
 
 Daily Challenge Bankroll, Best Classic Run Bankroll, All-Time Signal Score.
 Tiebreakers per doc 10: bankroll → Signal Score → correct calls → fewer passes →
 completion time.
 
-## Phase 7 — Daily Challenge ⬜
+## Phase 8 — Daily Challenge ⬜ (was Phase 7)
 
 10 rounds, same pool for everyone, one official attempt per logged-in user per day,
 guest unofficial play, daily leaderboard, mixed difficulty.
-
-## Phase 8 — Content Expansion ⬜
-
-100 scenario cards, 10 daily challenge pools, 10 famous market eras. AI-assisted
-generation → validate → human review → mark active → import. (Content Curator +
-Auditor heavy phase.)
 
 ## Phase 9 — MVP Polish ⬜
 
@@ -100,7 +128,7 @@ Growth role activates per gate — see `agents/roles/growth.md`.
 
 - **Gate A (Phase 1 done):** positioning one-pager, name/handle availability check,
   private-tester recruitment plan.
-- **Gate B (Phase 7 done):** launch plan, share-card copy, social content calendar,
+- **Gate B (Phase 8 Daily Challenge done — was Phase 7 pre-D027):** launch plan, share-card copy, social content calendar,
   creator/community outreach list.
 - **Gate C (post-MVP retention proven):** monetization experiments per
   `docs/03_business_plan.md` (content packs first).

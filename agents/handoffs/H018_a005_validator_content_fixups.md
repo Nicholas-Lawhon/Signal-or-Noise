@@ -2,7 +2,7 @@
 
 **Role:** Implementor
 **Phase:** 3 — Scenario Schema & Content Pipeline (post-audit fix-up)
-**Status:** draft
+**Status:** approved
 **Model:** grok-4.5
 **Risk:** medium
 **Audit:** not required (D024) — orchestrator review + content tests
@@ -14,8 +14,8 @@
 A005 (`agents/audits/A005_H015-H016.md`) audited the Phase 3 content pipeline
 and returned PASS WITH FINDINGS. This handoff closes the three MAJOR findings
 plus one trivial test gap (MINOR-3) before content work scales. MINOR-1,
-MINOR-2, and MINOR-4 are deliberately deferred to a Phase 8 validator-hardening
-pass — do not touch them.
+MINOR-2, and MINOR-4 are deliberately deferred to the Phase 4 Part A
+validator-hardening pass (D027) — do not touch them.
 
 ## Objective
 
@@ -83,7 +83,7 @@ pass — do not touch them.
 ## Do NOT
 
 - Touch MINOR-1 (calendar-date refine), MINOR-2 (price/return consistency), or
-  MINOR-4 (likely-guess quality) — Phase 8 work.
+  MINOR-4 (likely-guess quality) — Phase 4 Part A work (D027).
 - Change the Zod schema, the return-decimal guard, date-window rules, or the
   sentiment term list.
 - Edit any seed file except the single Amazon title string.

@@ -37,7 +37,7 @@ formal audits for phase gates, major feature additions, and high-risk domains.
 - Next.js (App Router) + TypeScript (strict) + Tailwind CSS — `apps/web`
 - Pure game logic in `packages/game-engine` (no UI, no database imports)
 - Content pipeline in `packages/content` (Zod validation)
-- Prisma + PostgreSQL (Phase 4+, not before)
+- Prisma + PostgreSQL (Phase 5+, not before — D027 renumbering)
 - Vitest for unit tests
 - Zod for scenario validation
 
@@ -48,7 +48,7 @@ apps/web/            Next.js web app (routes, screens, server actions)
 apps/mobile/         Expo app — LATER, do not create yet
 packages/game-engine/ Pure TypeScript game logic + tests
 packages/content/    Scenario JSON seeds, schemas, validation scripts
-packages/database/   Prisma schema, migrations, import scripts (Phase 4+)
+packages/database/   Prisma schema, migrations, import scripts (Phase 5+)
 packages/shared-types/ Shared interfaces (create only when first needed)
 docs/                Product documentation (read-only for implementors)
 agents/              Roles, handoffs, audits, consultations
@@ -87,8 +87,8 @@ discrepancy.
 
 ## Anti-Cheat Posture
 
-Local prototype (Phases 0–2): reveal data may live client-side.
-Database-backed phases (4+): server calculates official scores; the pre-decision
+Local prototype (pre-database phases): reveal data may live client-side.
+Database-backed phases (5+, D027): server calculates official scores; the pre-decision
 payload must not contain company name, ticker, end price, return, reveal text, or
 outcome chart data. Never trust client-calculated scores for leaderboards.
 
