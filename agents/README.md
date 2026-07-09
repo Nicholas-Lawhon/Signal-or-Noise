@@ -1,24 +1,25 @@
-# agents/ — Role-Based Agentic Workflow
+# agents/ - Role-Based Agentic Workflow
 
 How work gets done in this repository. The **orchestrator** (a high-reasoning AI
-session working with the user) makes decisions and writes prescriptive handoff
-prompts; **role agents** (any coding assistant) execute them exactly.
+session working with the user) makes decisions and writes scoped handoff prompts;
+**role agents** (any coding assistant) execute them exactly.
 
 ## The Loop
 
 ```text
 1. Orchestrator routes the task (type, risk, model per routing.md's
-   characteristics table) and drafts a handoff prompt → agents/handoffs/H###_*.md
+   characteristics table) and drafts a handoff prompt -> agents/handoffs/H###_*.md
 2. Approval gate follows D024 during development: low- and routine medium-risk
    handoffs dispatch as soon as the user agrees to the task; high-risk work,
    major features, phase gates, irreversible/outward-facing actions, and product
    rule changes need explicit user approval (status: approved) first.
-3. Orchestrator DISPATCHES the executor itself via its headless CLI
-   (grok -p / codex exec / opencode run — commands in routing.md).
-   Manual paste by the user is the fallback if a CLI is down.
+3. Default dispatch is manual per D028: the orchestrator gives the user the
+   standard dispatch prompt and the user launches the executor. Orchestrator-run
+   headless CLI dispatch (grok -p / codex exec / opencode run) is opt-in per
+   handoff or per session.
 4. Executing agent (Implementor/Curator/Growth) does the work, updates
-   progress.md, and writes a completion report → agents/reports/R###_H###.md
-   ── WITHOUT committing anything to git
+   progress.md, and writes a completion report -> agents/reports/R###_H###.md
+   WITHOUT committing anything to git.
 5. Orchestrator reviews the report + uncommitted diff, reruns cheap verification,
    and approves or rejects. Per D024, formal Auditor passes are reserved during
    active development for phase gates, major feature additions, high-risk domains,
@@ -33,21 +34,22 @@ D012).** Role agents never run `git commit` or `git push`; the uncommitted
 working tree IS the review artifact. During development, the orchestrator may
 approve prototype-grade work with documented known issues when D024 says speed is
 more valuable than another audit loop. Consultant memos and Auditor audit files
-serve as those roles' reports — they don't write a separate R### file.
+serve as those roles' reports; they don't write a separate R### file.
 
-Consultant is invoked *before* steps with real design ambiguity (currently gated:
-Phase 4 database, Phase 5 auth) and produces a memo the orchestrator turns into
-decisions. Auditor is invoked selectively: phase completion, durable feature
-addition, high-risk work, production-readiness checks, or explicit request.
+Consultant is invoked *before* steps with real design ambiguity and produces a
+memo the orchestrator turns into decisions. Auditor is invoked selectively: phase
+completion, durable feature addition, high-risk work, production-readiness checks,
+or explicit request.
 
 ## Roles
 
 Roles are hats, not models: `routing.md` decides which model wears each hat per
-task. Typical mapping (D023): Implementor = DeepSeek v4 Pro (boilerplate) or
+task. Typical mapping (D023/D029): Implementor = DeepSeek v4 Pro (boilerplate) or
 Grok 4.5 (medium work) or GPT 5.5 (hard work); Consultant and Content Curator =
-GPT 5.5; Auditor = whichever capable model did NOT implement the work under
-audit. Claude subagents assist the orchestrator in-session but do not execute
-handoffs.
+Grok 4.5 or GPT 5.5 depending on ambiguity and risk; Auditor = whichever capable
+model did NOT implement the work under audit. Claude subagents assist the
+orchestrator in-session but do not execute handoffs. Claude Fable is the
+orchestrator seat by default, not a handoff executor.
 
 | Role | File | Does | Never does |
 |------|------|------|-----------|
@@ -63,12 +65,13 @@ handoffs.
 ```text
 agents/
   README.md            this file
-  routing.md           model routing & risk policy (D021, D023) — orchestrator consults per task
+  routing.md           model routing & risk policy - orchestrator consults per task
   roles/               role definitions (read yours before working)
   handoffs/            numbered handoff prompts (H001, H002, ...) + TEMPLATE.md
   reports/             completion reports (R001_H001.md, ...) + TEMPLATE.md
   audits/              auditor reports (A001_H001.md, ...)
   consultations/       consultant memos (C001_database.md, ...)
+  history/             archived progress/session history for closed phases
 ```
 
 ## Handoff Rules
@@ -76,17 +79,26 @@ agents/
 - One handoff = one coherent unit of work with binary-checkable acceptance criteria.
 - Handoffs are numbered sequentially and never reused or rewritten after execution
   starts (fix-ups get a new number, e.g. `H002_h001_fixes.md`).
-- Every handoff header carries a status: `draft → approved → in_progress → complete → audited`.
+- Every handoff header carries a status: `draft -> approved -> in_progress -> complete -> audited`.
   The executing agent updates `in_progress`/`complete`; orchestrator sets the rest.
-- Handoff prescriptiveness is **calibrated to the executor** (routing.md):
+- Handoff prescriptiveness is **calibrated to the executor** (`routing.md`):
   DeepSeek gets fully prescriptive steps (exact paths, signatures, precomputed
   values); Grok gets exact outcomes/constraints with bounded local judgment;
   GPT 5.5 gets goal-oriented handoffs with explicitly delegated design bounds.
-  Explicit "do not build" lists for everyone. When in doubt, over-specify.
-- Every handoff header declares a **Model** and **Risk level** per
-  `routing.md`. When a task needs a specialist hat (e.g. "migration reviewer"),
-  the orchestrator writes a **micro-role** framing inside the handoff on top of a
-  base role — no new permanent role files (D001, D021).
+  Explicit "do not build" lists for everyone. When in doubt, over-specify the
+  task boundary, not the amount of background context.
+- Every handoff header declares a **Model** and **Risk level** per `routing.md`.
+  When a task needs a specialist hat (e.g. "migration reviewer"), the orchestrator
+  writes a **micro-role** framing inside the handoff on top of a base role; no new
+  permanent role files (D001, D021).
+- Every handoff must include a **Context Manifest**: exact decisions, doc
+  sections, reports/audits, and source files the agent must read. Broad "read all
+  docs" instructions are reserved for formal phase audits and must say why.
+- Handoffs should state an expected output size for memos/audits/reports. Longer
+  artifacts are allowed only when the task explicitly needs that depth.
+- Per D030, `progress.md` stays live and compact. Phase-close/milestone
+  orchestration archives old detailed session logs into `agents/history/`; role
+  agents read archives only when their handoff names them.
 
 ## Escalation
 

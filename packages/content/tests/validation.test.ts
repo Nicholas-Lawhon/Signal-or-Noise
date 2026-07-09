@@ -213,6 +213,105 @@ describe('validateScenario', () => {
     }
   });
 
+  it('fails impossible calendar dates', () => {
+    const scenario = cloneScenario(loadActiveNetflix());
+    scenario.scenario.decisionDate = '2020-02-30';
+    const result = validateScenario(scenario);
+    expect(result.success).toBe(false);
+    if (!result.success) {
+      expect(
+        result.errors.some(
+          (e) =>
+            e.path.includes('decisionDate') &&
+            e.message.toLowerCase().includes('calendar'),
+        ),
+      ).toBe(true);
+    }
+  });
+
+  it('fails when actualReturnPercent mismatches start/end prices', () => {
+    const scenario = cloneScenario(loadActiveNetflix());
+    // Expected return ~11.356; force a large mismatch within decimal guard
+    scenario.marketData.actualReturnPercent = 5.0;
+    const result = validateScenario(scenario);
+    expect(result.success).toBe(false);
+    if (!result.success) {
+      expect(
+        result.errors.some(
+          (e) =>
+            e.path === 'marketData.actualReturnPercent' &&
+            e.message.toLowerCase().includes('differs'),
+        ),
+      ).toBe(true);
+    }
+  });
+
+  it('fails when lookback last and outcome first prices are discontinuous', () => {
+    const scenario = cloneScenario(loadActiveNetflix());
+    scenario.marketData.lookbackPrices = [5.5, 6.8, 9.2, 14.5, 25.1, 42.7, 30.9, 50];
+    scenario.marketData.outcomePrices = [10.3, 13.2, 25.4, 48.8, 62.5, 98.1, 110.4, 127.5];
+    const result = validateScenario(scenario);
+    expect(result.success).toBe(false);
+    if (!result.success) {
+      expect(
+        result.errors.some(
+          (e) =>
+            e.path === 'marketData.lookbackPrices' &&
+            e.message.toLowerCase().includes('outcome'),
+        ),
+      ).toBe(true);
+    }
+  });
+
+  it('fails active Hard likely guesses with a generic placeholder', () => {
+    const scenario = cloneScenario(loadActiveNetflix());
+    scenario.status = 'active';
+    scenario.review.hardLikelyGuesses = [
+      'Netflix',
+      'Hulu',
+      'Spotify',
+      'semiconductor peers',
+    ];
+    const result = validateScenario(scenario);
+    expect(result.success).toBe(false);
+    if (!result.success) {
+      expect(
+        result.errors.some(
+          (e) =>
+            e.path.startsWith('review.hardLikelyGuesses') &&
+            e.message.toLowerCase().includes('named company'),
+        ),
+      ).toBe(true);
+    }
+  });
+
+  it('fails active when likely-guess count is below the difficulty floor', () => {
+    const scenario = cloneScenario(loadActiveNetflix());
+    scenario.status = 'active';
+    scenario.review.hardLikelyGuesses = ['Netflix', 'Hulu'];
+    const result = validateScenario(scenario);
+    expect(result.success).toBe(false);
+    if (!result.success) {
+      expect(
+        result.errors.some(
+          (e) =>
+            e.path === 'review.hardLikelyGuesses' &&
+            e.message.toLowerCase().includes('at least 4'),
+        ),
+      ).toBe(true);
+    }
+  });
+
+  it('draft with placeholder likely guesses remains non-blocking', () => {
+    const scenario = cloneScenario(loadActiveNetflix());
+    scenario.status = 'draft';
+    scenario.review.hardLikelyGuesses = ['semiconductor peers'];
+    scenario.review.easyLikelyGuesses = [];
+    scenario.review.mediumLikelyGuesses = [];
+    const result = validateScenario(scenario);
+    expect(result.success).toBe(true);
+  });
+
   it('produces warnings for directional-sentiment terms without failing', () => {
     const scenario = cloneScenario(loadActiveNetflix());
     scenario.hiddenCard.easy.longCase =

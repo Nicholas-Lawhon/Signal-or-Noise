@@ -91,6 +91,6 @@
     },
     "easyLikelyGuesses": ["Microsoft", "IBM", "Oracle"],
     "mediumLikelyGuesses": ["Microsoft", "Oracle", "SAP"],
-    "hardLikelyGuesses": ["enterprise software peers"]
+    "hardLikelyGuesses": ["Microsoft", "IBM", "Oracle", "SAP", "Salesforce"]
   }
 }

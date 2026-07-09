@@ -91,6 +91,6 @@
     },
     "easyLikelyGuesses": ["Nvidia", "AMD", "Intel"],
     "mediumLikelyGuesses": ["Nvidia", "AMD", "Broadcom"],
-    "hardLikelyGuesses": ["semiconductor peers"]
+    "hardLikelyGuesses": ["Nvidia", "AMD", "Intel", "Broadcom", "Qualcomm"]
   }
 }

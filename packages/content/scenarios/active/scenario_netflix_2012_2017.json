@@ -91,6 +91,6 @@
     },
     "easyLikelyGuesses": ["Netflix", "Hulu", "Spotify"],
     "mediumLikelyGuesses": ["Netflix", "Disney", "Comcast"],
-    "hardLikelyGuesses": ["media subscription peers"]
+    "hardLikelyGuesses": ["Netflix", "Hulu", "Spotify", "Amazon", "Disney"]
   }
 }

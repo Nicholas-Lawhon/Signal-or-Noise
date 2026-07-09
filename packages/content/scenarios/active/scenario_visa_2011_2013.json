@@ -26,7 +26,7 @@
   "marketData": {
     "startingPrice": 22,
     "endingPrice": 35,
-    "actualReturnPercent": 0.58,
+    "actualReturnPercent": 0.591,
     "usesSplitAdjustedPrices": true,
     "usesTotalReturn": false,
     "preDecisionChartStartDate": "2008-01-02",
@@ -91,6 +91,6 @@
     },
     "easyLikelyGuesses": ["Visa", "Mastercard", "American Express"],
     "mediumLikelyGuesses": ["Visa", "Mastercard", "PayPal"],
-    "hardLikelyGuesses": ["payments infrastructure peers"]
+    "hardLikelyGuesses": ["Visa", "Mastercard", "American Express", "PayPal", "Discover"]
   }
 }

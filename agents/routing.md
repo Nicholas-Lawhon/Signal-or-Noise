@@ -1,61 +1,50 @@
-# routing.md — Model Routing & Risk Policy (D021, D023)
+# routing.md - Model Routing & Risk Policy (D021, D023, D028, D029)
 
-The orchestrator consults this file when authoring every handoff. Single source
-of truth for which model executes a task, how it is invoked, and how much review
-the result needs.
+The orchestrator consults this file when authoring every handoff. This is the
+single source of truth for which model executes a task, how it is invoked, and
+how much review the result needs.
 
-**The token-economy rule:** route to the cheapest model whose characteristics
-cover the task. Never spend strong-model tokens on mechanical work. Never let
-cheap models make decisions.
+**Token-economy rule:** route to the cheapest model whose characteristics cover
+the task. Never spend strong-model tokens on mechanical work. Never let cheap
+models make decisions. Claude Fable is the orchestrator seat, not a routine
+handoff executor; using it as an executor requires explicit user override after
+a cost/context estimate.
 
 ## Model Roster & Characteristics
 
-Ratings are 1–10 (10 = best). Intelligence / Cost-efficiency / Style are the
+Ratings are 1-10 (10 = best). Intelligence / Cost-efficiency / Style are the
 user's ratings; Speed / Autonomy are orchestrator estimates the user corrects
-over time. **Autonomy** = how much judgment the model can safely be delegated —
+over time. **Autonomy** = how much judgment the model can safely be delegated -
 the inverse of how prescriptive its handoffs must be.
 
 | Model | Intelligence | Cost-eff. | Style | Speed | Autonomy | Invoked via |
-|---|---|---|---|---|---|---|
-| Claude Fable | 10 | 2 | 7 | 5 | 10 | `claude -p` |
+|---|---:|---:|---:|---:|---:|---|
+| Claude Fable | 10 | 2 | 7 | 5 | 10 | Orchestrator seat; executor only by explicit override |
 | GPT 5.5 | 9 | 5 | 9 | 8 | 9 | `codex exec` |
-| Grok 4.5 | 8 | 8 | TBD¹ | 8 | 7 | `grok -p` |
-| Claude Sonnet/Opus (utility) | 6–8 | n/a² | 7 | 8 | 7 | in-session subagents³ |
+| Grok 4.5 | 8 | 8 | TBD | 8 | 7 | `grok -p` |
+| Claude Sonnet/Opus utility | 6-8 | n/a | 7 | 8 | 7 | in-session subagents only |
 | DeepSeek v4 Pro | 4 | 10 | 5 | 8 | 2 | `opencode run` |
-
-¹ Style TBD — the user rates it after Grok's first 2–3 handoffs; update this table.
-² Included in the orchestrator session; not a separately billed executor.
-³ Via the orchestrator host's subagent facility (Claude Code: the Agent tool).
-  A non-Claude orchestrator uses `claude -p` (see dispatch commands) instead.
 
 ### The orchestrator seat is model-agnostic
 
-The orchestrator is a ROLE (`agents/roles/orchestrator.md`), not a model. All
-binding state lives in the repo — `soul.md`, `decisions.md`, `roadmap.md`,
-`progress.md`, the handoff/report/audit files — and every entry path
-(`CLAUDE.md`, `AGENTS.md`) routes a fresh session through the same Required
-Reading Order. To seat a different model as orchestrator: start its session in
-the repo root, have it read `AGENTS.md` → `agents/roles/orchestrator.md`, and
-update this table's orchestrator row. Any model-private memory (e.g. Claude's
-auto-memory) is a convenience cache, never the source of truth.
+The orchestrator is a ROLE (`agents/roles/orchestrator.md`), not a model. Binding
+state lives in the repo: `soul.md`, `decisions.md`, `roadmap.md`, `progress.md`,
+handoffs, reports, audits, and consultations. Model-private memory is a
+convenience cache, never the source of truth.
 
 ## Routing Procedure
 
 When authoring a handoff, the orchestrator profiles the task on five axes and
 routes to the cheapest model whose profile covers it:
 
-- **Judgment** — does the task embed product/design/architecture decisions?
-  High judgment → GPT 5.5, or the orchestrator resolves the decisions first and
-  routes the residue cheaper.
-- **Ambiguity** — can the outcome be fully specified up front? Fully → DeepSeek;
-  mostly → Grok; genuinely open-ended → GPT 5.5.
-- **Style-sensitivity** — user-facing UI, UX, copy, or scenario content where
-  taste matters → GPT 5.5 (Style 9).
-- **Scope** — multi-file/multi-package work needs a model that holds context:
-  Grok or GPT 5.5, not DeepSeek.
-- **Risk** — per the risk table below; risk gates dispatch approval and informs
-  review depth. D024 overrides the old automatic medium-risk audit loop during
-  active development.
+- **Judgment:** Does the task embed product/design/architecture decisions? Resolve
+  decisions before dispatch when possible; route remaining execution cheaper.
+- **Ambiguity:** Fully specified -> DeepSeek; mostly specified -> Grok; genuinely
+  open-ended -> GPT 5.5.
+- **Style-sensitivity:** User-facing UI, UX, copy, or production scenario content
+  usually needs GPT 5.5, unless the handoff supplies tight examples and checks.
+- **Scope:** Multi-file/multi-package work needs Grok or GPT 5.5.
+- **Risk:** Use the risk table below; risk informs dispatch approval and review.
 
 ### Domain defaults
 
@@ -63,129 +52,123 @@ routes to the cheapest model whose profile covers it:
 |---|---|
 | Boilerplate, scaffolding, mechanical refactors, tests with precomputed values, copy swaps, file discovery/summaries | DeepSeek v4 Pro |
 | Feature implementation with a clear spec, test repair, medium refactors, most Auditor passes | Grok 4.5 |
-| Architecture, data model, security/auth, ambiguous bugs, design/UI/UX, production scenario content + guessability gates (Curator work), Consultant memos, high-stakes review | GPT 5.5 |
+| Bounded Consultant memos where the options, source files, and decision points are already named | Grok 4.5 first |
+| Architecture, data model, security/auth, ambiguous bugs, design/UI/UX, production scenario content and guessability gates, high-stakes review | GPT 5.5 |
 | Routing, decisions, handoff authoring, report review, commits, tiny doc edits it owns | Orchestrator |
-| Orchestrator's own exploration, diff verification, quick checks (not handoff execution) | Claude subagents (utility) |
+| Orchestrator exploration, diff verification, quick checks, transcript summarization | Claude subagents as utility helpers |
 
 ### Handoff calibration by executor
 
-Instruction granularity scales inversely with the executor's Autonomy rating:
+- **DeepSeek v4 Pro:** fully prescriptive. Exact file paths, signatures, expected
+  values, and commands. Zero design decisions.
+- **Grok 4.5:** exact outcomes and constraints, with bounded local judgment for
+  implementation details.
+- **GPT 5.5:** goal-oriented, with explicit decision boundaries. Do not spend
+  tokens restating long background that a context manifest can point to.
+- **Claude Fable:** not a normal executor. Use only when the user explicitly
+  chooses it for a handoff after seeing why GPT 5.5/Grok is insufficient.
 
-- **DeepSeek v4 Pro** — fully prescriptive: exact file paths, exact signatures,
-  precomputed expected values, code blocks for anything that could drift. Zero
-  design decisions left to the model.
-- **Grok 4.5** — prescriptive on outcomes and constraints: exact acceptance
-  criteria and do-not lists, but local implementation judgment (file-internal
-  structure, minor naming, test organization) is delegated within stated bounds.
-- **GPT 5.5** — goal-oriented: objective, constraints, acceptance criteria, and
-  explicitly delegated bounded design decisions. Spend its intelligence — tell
-  it what problem to solve and where the fences are, not each step.
+## Context and Output Budgets (D029)
+
+Every new handoff must include:
+
+- **Context Manifest:** exact D-numbers, doc headings/sections, reports/audits,
+  and source files the executor must read.
+- **Context budget:** small / medium / large, plus why. Large context is reserved
+  for phase audits, production-readiness reviews, and genuinely cross-cutting
+  architecture decisions.
+- **Output budget:** expected artifact length for memos, audits, and reports.
+  Default consultation target is 1,200-2,000 words. Use a longer memo only when
+  the handoff names the reason.
+
+Default context loading is scoped: read `progress.md` Current Status, How to Run,
+Blocked/Questions, and the latest 3 entries. Read older history only when the
+handoff names the relevant date, report, audit, or decision trail. Use `rg` and
+headings before opening long docs. Do not instruct an executor to read all of
+`docs/`, all of `decisions.md`, or all historical progress unless that breadth is
+itself part of the task.
+
+Archived progress files under `agents/history/` are opt-in context. Reference a
+specific archive section in the Context Manifest when historical detail matters;
+otherwise rely on the phase summaries in `progress.md` and `roadmap.md`.
+
+High-reasoning modes are opt-in. Before assigning Fable or any "high reasoning
+effort" run, the orchestrator records in the handoff why Grok/GPT 5.5 is
+insufficient, the expected context size, and the expected artifact size. If that
+cannot be explained in 2-3 sentences, the routing is probably wrong.
 
 ## Handoff Dispatch (D023, amended by D028)
 
-**Default: manual handoff.** The orchestrator authors the handoff, then gives
-the user the standard dispatch prompt below. The user launches the executor
-themselves (CLI or app session) and returns when the R###/A###/C### artifact
-exists.
+**Default: manual handoff.** The orchestrator authors the handoff, then gives the
+user the standard dispatch prompt below. The user launches the executor and
+returns when the expected R###/A###/C### artifact exists.
 
 **Direct dispatch is opt-in (D028).** The orchestrator may launch a handoff
-executor itself — via the headless CLI commands below or a direct tool call —
+executor itself - via the headless CLI commands below or a direct tool call -
 only with the user's explicit permission, granted per dispatch or per session.
-Utility subagents for the orchestrator's OWN work (exploration, verification,
-research) never require permission; the gate applies only to executing handoff
-prompt tasks (Implementor, Auditor, Consultant, Curator, Growth).
+Utility subagents for the orchestrator's own exploration/verification never
+require permission.
 
-**Standard dispatch prompt** (same framing for every executor, both modes):
+**Standard dispatch prompt:**
 
 > You are an agent working in this repository. Read `AGENTS.md` and follow its
 > Required Reading Order, then read and execute `agents/handoffs/H###_<name>.md`
 > exactly. Do NOT run `git commit` or `git push`. When done, write your
 > completion report per the handoff's Reporting section.
 
-**Commands for orchestrator-driven dispatch (opt-in, D028)** (run from repo
-root, in the background; wait for the R### report). Smoke-tested 2026-07-08 —
-the stdin/auto details below are required, not optional:
+**Commands for orchestrator-driven dispatch (opt-in, D028):**
 
 ```powershell
-# Grok 4.5 (medium work) — bypassPermissions is required for any handoff that
-# runs shell commands (tests, git show, sub-CLI calls): acceptEdits auto-approves
-# file edits only, and a blocked shell approval ends the session SILENTLY with
-# exit 0 and no error. The --deny rules still apply in bypass mode. If a run
-# ends early, `grok --resume <session-id> -p "<continue instruction>"` picks it
-# up with context intact (`grok sessions list` for the id).
+# Grok 4.5
 grok -p "<dispatch prompt>" --permission-mode bypassPermissions --deny "Bash(git commit*)" --deny "Bash(git push*)"
 
-# GPT 5.5 (hard work) — codex exec reads the prompt from stdin when not attached
-# to a TTY: pipe it in and pass `-` as the prompt argument, or it hangs.
+# GPT 5.5 - codex exec reads stdin when not attached to a TTY
 "<dispatch prompt>" | codex exec --sandbox workspace-write -a never -
 
-# DeepSeek v4 Pro (cheap work) — --auto is required headlessly, AND stdin must
-# be closed or the run hangs before sending anything (from PowerShell wrap in
-# cmd /c with `< NUL`; from bash append `< /dev/null`).
+# DeepSeek v4 Pro - stdin must be closed under PowerShell
 cmd /c "opencode run --auto -m deepseek/deepseek-v4-pro ""<dispatch prompt>"" < NUL"
 
-# Claude (Fable/Opus/Sonnet via --model) — only when Claude is NOT the
-# orchestrator, or a Claude executor is explicitly wanted. Tolerates a non-TTY
-# stdin (3s wait, then proceeds); `< NUL` skips the wait.
+# Claude executor, only by explicit override
 claude -p "<dispatch prompt>" --permission-mode acceptEdits --disallowedTools "Bash(git commit*)" "Bash(git push*)"
 ```
 
-Verified smoke-test results (2026-07-08): all four ran headlessly against this
-repo and answered correctly (grok/codex/opencode read `progress.md`; claude
-echo test). Grok needs no stdin workaround.
+Guardrails: workspace-write, no git commit/push. Headless agents auto-approve
+edits inside the repo; CLI flags plus the dispatch prompt and `AGENTS.md` forbid
+commits/pushes. Manual handoff uses the same handoff file and same rules.
 
-Guardrails: workspace-write, no git. Headless agents auto-approve edits inside
-the repo; git commit/push is forbidden by CLI deny rules where the CLI supports
-them and by the dispatch prompt + `AGENTS.md` everywhere (D012 unchanged: the
-uncommitted diff plus the R### report is the review artifact). Manual handoff
-(D028 default) uses the same handoff file, same prompt, same rules.
+**Post-dispatch health check:** exit code 0 does not mean the handoff finished.
+Before reviewing, confirm the expected R###/A###/C### file exists and `git status`
+shows the expected changes. If not, inspect the executor session transcript, fix
+the flags, and resume rather than restart.
 
-**Post-dispatch health check:** exit code 0 does NOT mean the handoff finished —
-a headless run that hits an unapprovable permission prompt can end silently.
-Before reviewing, confirm the expected R###/A### file exists and `git status`
-shows the agent's changes; if not, inspect the executor's session transcript,
-fix the flags, and resume rather than restart.
-
-**Dispatch approval gate (D024 development policy):**
-
-Current rule: low- and routine medium-risk development handoffs may be dispatched
-after the user agrees to the task; no second handoff-approval stop is required.
-Explicit pre-dispatch user approval remains required for high-risk work, major
-feature additions, phase gates, irreversible/outward-facing actions, and product
-rule changes. Any older medium/high approval text in historical entries or
-legacy bullets is superseded by this D024 rule.
-
+**Dispatch approval gate (D024):** Low- and routine medium-risk development
+handoffs may dispatch after task agreement. Explicit pre-dispatch user approval
+remains required for high-risk work, major feature additions, phase gates,
+irreversible/outward-facing actions, product-rule changes, and any Fable/high
+reasoning executor override.
 
 ## Risk Levels
 
 Every handoff header declares a risk level. Risk decides the dispatch approval
 gate and helps the orchestrator choose review depth; it does not automatically
-force an Auditor pass during active development (D024). The handoff should add
-`**Audit:** required | optional | none` when review depth is not obvious.
+force an Auditor pass during active development (D024).
 
 | Risk | Definition | Required before orchestrator commits |
-|------|-----------|--------------------------------------|
-| **Low** | Mechanical, tightly scoped, easily reversible; no game-logic or durable user-visible behavior change | Orchestrator reviews report + diff and runs cheap verification. Auditor normally none. |
-| **Medium** | Spans multiple files/packages or changes prototype user-visible behavior | Orchestrator review + tests/typecheck. Auditor optional; use for major feature additions, phase gates, or explicit request. |
-| **High** | Scoring math, architecture, security/auth, data model, leaderboard integrity, production content pipeline, or anything touching `soul.md` rules | GPT 5.5 execution or review, formal Auditor/cross-model review, and explicit user sign-off. |
+|------|------------|--------------------------------------|
+| Low | Mechanical, tightly scoped, easily reversible; no game-logic or durable user-visible behavior change | Orchestrator reviews report + diff and runs cheap verification. Auditor normally none. |
+| Medium | Spans multiple files/packages or changes prototype user-visible behavior | Orchestrator review + tests/typecheck. Auditor optional. |
+| High | Scoring math, architecture, security/auth, data model, leaderboard integrity, production content pipeline, or anything touching `soul.md` rules | GPT 5.5 execution or review, formal Auditor/cross-model review when useful, and explicit user sign-off. |
 
 **Development-speed rule (D024):** formal audits are selective until production
 readiness. Use them for major phase completions, substantial feature additions,
-high-risk domains, or explicit user/orchestrator request. Placeholder scenario
-content only needs literal leak checks and D022 clue-count structure unless a
-handoff marks it production-quality.
+high-risk domains, or explicit request.
 
 **Cross-model audit rule (D023):** when a formal audit is used, the Auditor is
-always a different model than the Implementor of the handoff under audit — e.g.
-Grok implements → GPT 5.5 audits; GPT 5.5 implements → Grok audits. Independent
-eyes catch self-consistent mistakes.
+always a different model than the Implementor of the handoff under audit.
 
 ## Micro-Roles
 
-When a task needs a specialist framing (e.g., "database migration reviewer",
-"UX copy editor"), the orchestrator writes that framing INTO the handoff's
-`Task Framing (micro-role)` section, layered on a base role (Implementor,
-Auditor, or Consultant). The framing states what to focus on and what to ignore
-for this task only. Permanent role files stay few (D001); a new permanent role
-still requires recurring future work no existing role plausibly owns, plus user
-approval.
+When a task needs specialist framing, write that framing into the handoff's
+`Task Framing (micro-role)` section on top of a base role. Permanent role files
+stay few (D001); a new permanent role requires recurring future work no existing
+role owns, plus user approval.

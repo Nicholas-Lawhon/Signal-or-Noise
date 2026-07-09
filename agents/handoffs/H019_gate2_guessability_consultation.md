@@ -2,7 +2,7 @@
 
 **Role:** Consultant
 **Phase:** 4 Part A — Content rules & validator hardening
-**Status:** approved
+**Status:** complete
 **Model:** claude-fable-5 (high reasoning effort)
 **Risk:** high (production content-pipeline design)
 **Audit:** n/a — consultation memo; orchestrator + user review the recommendation

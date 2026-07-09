@@ -30,6 +30,36 @@ const SETUP_HINT_RULES: Record<
 /** Conservative guard: reject whole-percent-looking values outside decimal range. */
 const MAX_ABS_RETURN_DECIMAL = 20;
 
+/** Absolute tolerance for actualReturnPercent vs prices. */
+const RETURN_CONSISTENCY_TOLERANCE = 0.01;
+
+/** Absolute tolerance for lookback-last vs outcome-first continuity. */
+const CHART_CONTINUITY_TOLERANCE = 0.05;
+
+/**
+ * Generic peer-bucket words — likely guesses must be named companies, not
+ * group placeholders like "semiconductor peers".
+ */
+const GENERIC_LIKELY_GUESS_WORDS = [
+  'peers',
+  'retailers',
+  'companies',
+  'sector',
+  'industry',
+  'competitors',
+  'infrastructure',
+  'players',
+] as const;
+
+const LIKELY_GUESS_COUNT_RULES: Record<
+  Difficulty,
+  { min: number; max: number | null; reviewKey: keyof Scenario['review'] }
+> = {
+  easy: { min: 2, max: null, reviewKey: 'easyLikelyGuesses' },
+  medium: { min: 2, max: 4, reviewKey: 'mediumLikelyGuesses' },
+  hard: { min: 4, max: null, reviewKey: 'hardLikelyGuesses' },
+};
+
 function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
@@ -164,6 +194,106 @@ function checkReturnPercent(
   }
 }
 
+/**
+ * Internal price/return consistency: decimal return vs start/end prices, and
+ * lookback→outcome chart continuity at the decision boundary.
+ */
+function checkPriceReturnConsistency(
+  scenario: Scenario,
+  errors: ValidationIssue[],
+): void {
+  const {
+    startingPrice,
+    endingPrice,
+    actualReturnPercent,
+    lookbackPrices,
+    outcomePrices,
+  } = scenario.marketData;
+
+  if (startingPrice > 0) {
+    const expectedReturn = (endingPrice - startingPrice) / startingPrice;
+    const delta = Math.abs(actualReturnPercent - expectedReturn);
+    if (delta > RETURN_CONSISTENCY_TOLERANCE) {
+      errors.push({
+        path: 'marketData.actualReturnPercent',
+        message: `actualReturnPercent (${actualReturnPercent}) differs from (endingPrice - startingPrice) / startingPrice (${expectedReturn.toFixed(6)}) by ${delta.toFixed(6)} (max allowed ${RETURN_CONSISTENCY_TOLERANCE})`,
+      });
+    }
+  }
+
+  const lookbackLast = lookbackPrices[lookbackPrices.length - 1];
+  const outcomeFirst = outcomePrices[0];
+  if (
+    lookbackLast !== undefined &&
+    outcomeFirst !== undefined &&
+    Math.abs(lookbackLast - outcomeFirst) > CHART_CONTINUITY_TOLERANCE
+  ) {
+    errors.push({
+      path: 'marketData.lookbackPrices',
+      message: `last lookbackPrices value (${lookbackLast}) and first outcomePrices value (${outcomeFirst}) differ by more than ${CHART_CONTINUITY_TOLERANCE}`,
+    });
+  }
+}
+
+/**
+ * Conservative named-company check for red-team likely-guess lists.
+ * Rejects empty strings and peer-bucket placeholders (generic group words).
+ * Ordinary company-name strings (including multi-word names like
+ * "American Express") pass. Intentionally strict on group words so
+ * placeholders cannot slip through with decorative capitalization.
+ */
+function isNamedCompanyGuess(guess: string): boolean {
+  const trimmed = guess.trim();
+  if (trimmed.length < 2) return false;
+  if (!/[a-zA-Z]/.test(trimmed)) return false;
+
+  const hasGenericGroupWord = GENERIC_LIKELY_GUESS_WORDS.some((word) =>
+    new RegExp(`\\b${escapeRegExp(word)}\\b`, 'i').test(trimmed),
+  );
+  return !hasGenericGroupWord;
+}
+
+/**
+ * Likely-guess quality floor for reviewed/active only (Gate 1 red-team lists).
+ * Draft/inactive/archived are exempt so WIP content can use placeholders.
+ */
+function checkLikelyGuessQuality(
+  scenario: Scenario,
+  errors: ValidationIssue[],
+): void {
+  if (scenario.status !== 'reviewed' && scenario.status !== 'active') {
+    return;
+  }
+
+  for (const difficulty of ['easy', 'medium', 'hard'] as const) {
+    const rule = LIKELY_GUESS_COUNT_RULES[difficulty];
+    const guesses = scenario.review[rule.reviewKey] as string[];
+    const path = `review.${rule.reviewKey}`;
+
+    if (guesses.length < rule.min) {
+      errors.push({
+        path,
+        message: `${difficulty} must list at least ${rule.min} likely guess(es); got ${guesses.length}`,
+      });
+    }
+    if (rule.max !== null && guesses.length > rule.max) {
+      errors.push({
+        path,
+        message: `${difficulty} must list at most ${rule.max} likely guess(es); got ${guesses.length}`,
+      });
+    }
+
+    guesses.forEach((guess, index) => {
+      if (!isNamedCompanyGuess(guess)) {
+        errors.push({
+          path: `${path}.${index}`,
+          message: `likely guess must be a named company, not a generic peer bucket (got "${guess}")`,
+        });
+      }
+    });
+  }
+}
+
 function checkDateWindows(
   scenario: Scenario,
   errors: ValidationIssue[],
@@ -290,7 +420,9 @@ export function validateScenario(input: unknown): ValidationResult {
   checkLeakage(scenario, errors);
   checkIdentityBannedTerms(scenario, errors);
   checkReturnPercent(scenario, errors);
+  checkPriceReturnConsistency(scenario, errors);
   checkDateWindows(scenario, errors);
+  checkLikelyGuessQuality(scenario, errors);
 
   // Empty prices / missing sources / whyItMoved length are enforced by Zod min/tuple.
 

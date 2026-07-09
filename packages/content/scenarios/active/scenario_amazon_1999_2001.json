@@ -91,6 +91,6 @@
     },
     "easyLikelyGuesses": ["Amazon", "eBay", "Yahoo"],
     "mediumLikelyGuesses": ["Amazon", "eBay", "Webvan"],
-    "hardLikelyGuesses": ["late-90s internet retailers"]
+    "hardLikelyGuesses": ["Amazon", "eBay", "Yahoo", "Webvan", "Priceline"]
   }
 }

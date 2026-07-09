@@ -12,9 +12,28 @@ export const difficultySchema = z.enum(['easy', 'medium', 'hard']);
 
 const nonEmptyString = z.string().min(1);
 
+/** True when value is a real calendar day in zero-padded YYYY-MM-DD form. */
+function isValidCalendarDate(value: string): boolean {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
+  if (!match) return false;
+  const year = Number(match[1]);
+  const month = Number(match[2]);
+  const day = Number(match[3]);
+  // UTC construction avoids local-timezone day shifts for pure date strings.
+  const date = new Date(Date.UTC(year, month - 1, day));
+  return (
+    date.getUTCFullYear() === year &&
+    date.getUTCMonth() === month - 1 &&
+    date.getUTCDate() === day
+  );
+}
+
 const isoDateSchema = z
   .string()
-  .regex(/^\d{4}-\d{2}-\d{2}$/, 'Expected ISO date YYYY-MM-DD');
+  .regex(/^\d{4}-\d{2}-\d{2}$/, 'Expected ISO date YYYY-MM-DD')
+  .refine(isValidCalendarDate, {
+    message: 'Invalid calendar date (not a real YYYY-MM-DD day)',
+  });
 
 const hiddenCardVariantSchema = z.object({
   companyDescription: nonEmptyString,

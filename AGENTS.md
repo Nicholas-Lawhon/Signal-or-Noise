@@ -9,15 +9,29 @@ operates in this repository.
 Before doing ANY work, read in this order:
 
 1. `soul.md` — product identity and locked rules (non-negotiable)
-2. `roadmap.md` — phases and current phase marker
-3. `progress.md` — current state, last session log
+2. `roadmap.md` — current phase marker and only the phase section relevant to the handoff
+3. `progress.md` — **Current Status**, **How to Run**, **Blocked/Questions**, and the latest 3 session entries; read older entries only when the handoff explicitly requires history
 4. Your role file in `agents/roles/` (the handoff prompt tells you which one)
 5. Your assigned handoff prompt in `agents/handoffs/`
 
-Consult `docs/` (01–10) when your handoff references them. `decisions.md` records
-settled decisions — never re-litigate or contradict them. During active
-development, D024 controls review depth: ship tested increments quickly; reserve
-formal audits for phase gates, major feature additions, and high-risk domains.
+Consult only the `docs/` sections, decisions, reports, audits, and source files
+named in the handoff's context manifest. `decisions.md` records settled decisions —
+never re-litigate or contradict them, but do not read the whole file by default
+when the handoff lists specific D-numbers. During active development, D024 controls
+review depth: ship tested increments quickly; reserve formal audits for phase
+gates, major feature additions, and high-risk domains.
+
+## Token-Economy Defaults
+
+- Context is loaded on demand. Do not read full historical logs, full docs, or
+  unrelated reports "just in case"; use headings/search first, then open the
+  relevant section.
+- A handoff should name exact files and sections it needs. If it says "read all of
+  docs/" or broadly duplicates this Required Reading Order, treat that as a
+  handoff defect and stop for orchestrator clarification.
+- Completion reports, consultation memos, and audit reports should be concise by
+  default. Include enough evidence for review, not exhaustive transcripts or full
+  reasoning traces.
 
 ## The Golden Rule
 
@@ -122,6 +136,11 @@ At the end of every session:
    reads this report to approve or reject your work. No report = no review =
    the work doesn't count. (Consultants and Auditors: your memo/audit file is
    your report.)
+
+Orchestrator phase-close / major-milestone sessions also apply D030: compact old
+`progress.md` session detail into `agents/history/progress_phase_*.md`, keep
+`progress.md` as the live dashboard, and update archive pointers. Ordinary role
+agents do not compact history unless a handoff explicitly assigns it.
 
 Never edit `soul.md`, `decisions.md`, or `roadmap.md` phase definitions — those
 belong to the orchestrator.

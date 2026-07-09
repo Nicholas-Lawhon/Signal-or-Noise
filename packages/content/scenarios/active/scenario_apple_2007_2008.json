@@ -91,6 +91,6 @@
     },
     "easyLikelyGuesses": ["Apple", "Nokia", "Motorola"],
     "mediumLikelyGuesses": ["Apple", "Samsung", "Sony"],
-    "hardLikelyGuesses": ["consumer electronics peers"]
+    "hardLikelyGuesses": ["Apple", "Nokia", "Motorola", "Samsung", "Sony"]
   }
 }
