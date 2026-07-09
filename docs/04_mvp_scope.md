@@ -223,13 +223,13 @@ Features:
 
 Goal:
 
-Reach 100 curated scenario cards.
+Reach 40 curated scenario cards (D034; was 100).
 
 Features:
 
 - AI-assisted scenario generation workflow
 - Human review workflow
-- 100 scenario cards
+- 40 scenario cards
 - 10 daily challenge pools
 - 10 famous market eras
 - Scenario quality checklist
@@ -384,6 +384,6 @@ The MVP is ready for broader testing when:
 - Guest users can play without signup.
 - Guest users are prompted to log in before leaderboard submission.
 - Scenario cards load from validated seed/database content.
-- At least 100 scenario cards exist and pass validation.
+- At least 40 scenario cards exist and pass validation (D034).
 - Basic profile stats work.
 - The UI feels game-like and mobile-first.

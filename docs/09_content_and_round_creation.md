@@ -609,12 +609,13 @@ These names can be refined later.
 
 ## Scenario Mix Recommendation
 
-For the first 100 scenarios:
+For the first 40 scenarios (D034; ratio unchanged from the original 100-card
+plan):
 
 ```text
-60 famous or highly recognizable companies
-30 moderately known companies
-10 obscure/hard-mode companies
+24 famous or highly recognizable companies
+12 moderately known companies
+4 obscure/hard-mode companies
 ```
 
 This keeps the MVP accessible while still giving harder content.

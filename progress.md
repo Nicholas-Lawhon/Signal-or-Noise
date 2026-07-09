@@ -23,12 +23,13 @@ first thing the next agent reads.
   identity thresholds (lead 18 / hard conf 20). `validate` 5/6 pass (1 fail);
   `gate2 check` 2 errors / 10 warnings / 0 missing. Active seeds are **not**
   fully Gate-2-clean (Netflix identity). No auth, no DB.
-- **Next task:** Two tracks to close Part A: (1) doc 09 generation-readiness
-  review handoff (independent of Netflix; fold in plausible-count threshold
-  calibration using H030 evidence); (2) Netflix decision — targeted
-  Medium+Hard rewrite (recommended first: margins are small, lead 18 vs 15 /
-  conf 20 vs 15) or seed replacement if a fourth pass fails. Part A close
-  also needs user Gate 1 playability sign-off on the now-abstract Hard cards.
+- **Next task:** User dispatches H031 (doc 09 generation-readiness review →
+  memo C004) and H032 (Netflix Medium+Hard rewrite) to GPT 5.6 Terra High —
+  approved to run concurrently; write scopes are disjoint and H031 does not
+  touch progress.md. Orchestrator reviews both, then drafts the two-payload
+  blind Netflix rejudge (H033). D034 recorded: Part B target is now 40 cards
+  (24/12/4 mix), was 100. User Gate 1 playtest confirmed: abstract Hard cards
+  leak nothing; D031 refinement stays open pending C004.
 - **Workflow state:** D029 added token-efficient context routing; D030 added
   state compaction. New handoffs require a Context Manifest, Context Budget, and
   Output Budget. D033 added GPT 5.6 Terra to the roster and made all roles
@@ -88,6 +89,38 @@ Read it only when a handoff explicitly needs historical detail.
 ---
 
 ## Session Log
+
+### 2026-07-09 - Orchestrator - D034 (40 cards); H031+H032 drafted for parallel Terra dispatch
+
+**What changed:**
+- Recorded D034 (user approved after Gate 1 playtesting): Part B MVP card
+  target reduced 100 → 40 (mix 24 famous / 12 moderate / 4 obscure); pools
+  and eras unchanged. Synced roadmap.md, docs/04, docs/09 scenario mix,
+  docs/10.
+- User playtest findings logged: abstract Hard cards leak no company info;
+  D031 threshold refinement remains open, input expected from C004.
+- Drafted and approved `agents/handoffs/H031_doc09_generation_readiness_review.md`
+  (Consultant memo C004: doc 09 readiness, plausible-count calibration, D031
+  option space, 40-card batch workflow) and
+  `agents/handoffs/H032_netflix_identity_rewrite.md` (targeted fourth-pass
+  Netflix Medium/Hard rewrite, silhouette-decoupling focus, escalate rather
+  than go vague). Both routed to GPT 5.6 Terra High per user approval.
+- Designed for concurrent dispatch: disjoint write scopes; H031 barred from
+  progress.md and the Netflix seed; H032 owns the Netflix seed and
+  progress.md.
+- Wrote `agents/reports/R042_h031_h032_drafts.md`.
+
+**How to run:** unchanged.
+
+**Tests:** not run - decisions/handoffs/docs drafting only.
+
+**Known issues:**
+- Netflix identity fail persists until H032 + blind rejudge (H033) land.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** Dispatch H031 and H032 concurrently; orchestrator
+reviews C004 and R044_H032, then drafts H033 blind Netflix rejudge.
 
 ### 2026-07-09 - Orchestrator - R040 accepted; H030 approved
 

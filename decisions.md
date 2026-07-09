@@ -48,6 +48,7 @@ the D-number or the current task directly touches that area.
 | D031 | Gate 2 judge uses Grok 4.5 | Content pipeline |
 | D032 | Gate 2 runs through agent workflow, not API tokens | Content pipeline |
 | D033 | GPT 5.6 Terra joins roster; all roles model-agnostic | Agent workflow |
+| D034 | MVP card target reduced from 100 to 40 | Content pipeline |
 
 ---
 
@@ -722,6 +723,29 @@ Amends the D023/D029 model lineup. Full routing policy stays in
 Fable for hard work and enables genuine cross-model review at the top tier.
 Making every seat model-agnostic keeps the workflow durable across future
 lineup changes: the roster table changes, the process does not.
+
+## D034 - MVP card target reduced from 100 to 40
+
+**Date:** 2026-07-09 · **Status:** User approved
+
+Phase 4 Part B generates **40 scenario cards** for the MVP, not 100. The
+scenario mix ratio from doc 09 carries over proportionally (24 famous / 12
+moderately known / 4 obscure). Daily challenge pools (10) and famous market
+eras (10) are unchanged. Historical references to 100 cards in executed
+handoffs, consultations, and prior decision rationales are not rewritten.
+
+Context recorded with the decision: the user playtested the six active seeds
+after H029/H030 and confirmed the Hard cards' abstract style leaks no company
+information, but wants a smaller first content wave to keep playtesting and
+refining against — including a possible D031 threshold rethink — before
+committing to a large batch.
+
+**Rationale:** 40 cards is enough for meaningful playtesting variety and a
+real Classic Run pool while content style and Gate 2 thresholds are still
+being calibrated. Generating 100 cards against rules that may change would
+waste the largest non-code work item in the project; scaling from 40 to more
+later is straightforward because the generation pipeline and gates are the
+deliverable, not the count.
 ## Open Design Question â€” composite Final Score / Information Tiers (NOT a decision)
 
 **Date:** 2026-07-03 Â· **Status:** Exploration pending

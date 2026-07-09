@@ -81,11 +81,11 @@ check runs automatically with doc 09 thresholds; every active card passes the
 full gates or is replaced; user signs off that the guards are trusted.
 
 **Part B — Content generation at scale (the original Phase 8 scope):**
-100 scenario cards, 10 daily challenge pools, 10 famous market eras.
-AI-assisted generation → validate → human review → mark active. JSON seeds
-until the database lands in Phase 5. (Content Curator + Auditor heavy.)
+40 scenario cards (D034; was 100), 10 daily challenge pools, 10 famous market
+eras. AI-assisted generation → validate → human review → mark active. JSON
+seeds until the database lands in Phase 5. (Content Curator + Auditor heavy.)
 
-**Accept (Part B):** 100 active cards pass validation and gates; pools and eras
+**Accept (Part B):** 40 active cards pass validation and gates; pools and eras
 defined.
 
 ## Phase 5 — Database ⬜ (was Phase 4)

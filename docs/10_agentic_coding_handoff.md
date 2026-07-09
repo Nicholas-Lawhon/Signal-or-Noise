@@ -401,7 +401,7 @@ Acceptance criteria:
 
 Generate and validate:
 
-- 100 scenario cards
+- 40 scenario cards (D034; was 100)
 - 10 daily challenge pools
 - 10 famous market eras
 
