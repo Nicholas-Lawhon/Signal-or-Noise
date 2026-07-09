@@ -48,19 +48,19 @@
       ]
     },
     "medium": {
-      "companyDescription": "A U.S. entertainment company with a recurring-revenue model and a controversial strategic transition.",
-      "macroContext": "Broadband adoption is rising while consumer tech platforms are becoming more important.",
-      "situation": "Will a strategic transition rebuild the customer base before higher spending pressures the model?",
-      "longCase": "A recurring-revenue base could scale if the new delivery model becomes a habit for households.",
-      "shortCase": "Customer trust and spending discipline are both under pressure during the transition.",
+      "companyDescription": "A consumer media company with a recurring billing model.",
+      "macroContext": "Households are spending more leisure time on connected screens.",
+      "situation": "Can engagement recover fast enough to support rising content and product costs?",
+      "longCase": "If habits stick, recurring revenue can compound as more households go digital.",
+      "shortCase": "Elevated churn and fixed content commitments can pressure the model before scale arrives.",
       "setupHints": []
     },
     "hard": {
-      "companyDescription": "A consumer-facing media business attempting a major distribution shift.",
-      "macroContext": "Digital consumption habits are changing, but investors are unsure which models will win.",
-      "situation": "Will a new distribution model scale fast enough to offset trust and spending pressure?",
-      "longCase": "If the model becomes habitual, recurring demand can compound from a much larger household base.",
-      "shortCase": "If churn stays elevated, fixed commitments can outrun the customer base before the transition pays off.",
+      "companyDescription": "A consumer-facing media business.",
+      "macroContext": "Digital consumption is rising, but winners among media models are still unclear.",
+      "situation": "Will customer loyalty return before spending outruns the base?",
+      "longCase": "Habit formation at scale can turn a recurring model into a compounding franchise.",
+      "shortCase": "If customers stay skeptical, rising fixed costs can overwhelm growth.",
       "setupHints": []
     }
   },
@@ -83,15 +83,15 @@
   "review": {
     "generatedByAi": true,
     "humanReviewed": false,
-    "reviewNotes": "Prototype/sample seed for Phase 3 schema pipeline. Approximate prices and returns; not Gate 1/Gate 2 production content.",
+    "reviewNotes": "Medium/Hard rewritten after H023 Gate 2 identity failures (controversial transition + distribution shift + post-drawdown triangulation). Intended peer set: Netflix / Sirius XM / Pandora / Dish / Comcast / Time Warner-class media names. Easy unchanged; Medium/Hard Gate 2 pending re-judge.",
     "factBank": {
-      "revealOnly": ["Netflix brand", "NFLX ticker", "streaming pivot narrative"],
-      "decisionUseful": ["subscription model", "trust reset after pricing change", "content spend pressure"],
-      "prohibited": ["Qwikster", "Reed Hastings", "House of Cards"]
+      "revealOnly": ["Netflix brand", "NFLX ticker", "streaming pivot narrative", "pricing/trust incident"],
+      "decisionUseful": ["recurring billing model", "content cost pressure", "churn vs habit formation", "digital leisure shift"],
+      "prohibited": ["Qwikster", "Reed Hastings", "House of Cards", "DVD-by-mail", "major distribution-shift wording", "post-collapse recovery silhouette"]
     },
     "easyLikelyGuesses": ["Netflix", "Hulu", "Spotify"],
-    "mediumLikelyGuesses": ["Netflix", "Disney", "Comcast"],
-    "hardLikelyGuesses": ["Netflix", "Hulu", "Spotify", "Amazon", "Disney"],
+    "mediumLikelyGuesses": ["Netflix", "Sirius XM", "Pandora", "Dish Network"],
+    "hardLikelyGuesses": ["Netflix", "Sirius XM", "Pandora", "Comcast", "Time Warner", "Dish Network"],
     "gate2": {
       "easy": {
         "payloadHash": "sha256:9eb8b97e0feb5cff447f149f307b3366421bf14640492534fc9d8ef8a32ba005",
@@ -129,82 +129,6 @@
           "call": "long",
           "confidence": 58,
           "cue": "If customers accept the newer model, recurring revenue can scale with broadband adoption after the stock reset"
-        }
-      },
-      "medium": {
-        "payloadHash": "sha256:169cdf2209690c6460d2b94bd445f581bb6e8340ab58321bc5c58f0ef6518b9c",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T18:30:00.000Z",
-        "guesses": [
-          {
-            "company": "Netflix",
-            "confidence": 74,
-            "pointingFact": "Jan 2012 U.S. entertainment recurring-revenue company in a controversial strategic transition after a deep stock drawdown"
-          },
-          {
-            "company": "Spotify",
-            "confidence": 30,
-            "pointingFact": "Subscription entertainment model under spending and trust pressure during platform expansion"
-          },
-          {
-            "company": "Sirius XM",
-            "confidence": 24,
-            "pointingFact": "Recurring-revenue U.S. entertainment business during digital media habit shift"
-          },
-          {
-            "company": "Amazon",
-            "confidence": 18,
-            "pointingFact": "Consumer tech/media player investing heavily as broadband and devices expand"
-          },
-          {
-            "company": "Disney",
-            "confidence": 14,
-            "pointingFact": "Entertainment company facing distribution model change and content spending pressure"
-          }
-        ],
-        "direction": {
-          "call": "long",
-          "confidence": 52,
-          "cue": "Recurring base can scale if the new delivery model becomes a household habit"
-        }
-      },
-      "hard": {
-        "payloadHash": "sha256:d365b8ab7ed0b685337d0ab3afae1ed04747b7b18f273d17ba0f6cc6ce48ae32",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T18:30:00.000Z",
-        "guesses": [
-          {
-            "company": "Netflix",
-            "confidence": 50,
-            "pointingFact": "Jan 2012 consumer media business attempting a major distribution shift after a large price collapse"
-          },
-          {
-            "company": "Spotify",
-            "confidence": 34,
-            "pointingFact": "Media subscription model where fixed commitments can outrun the customer base"
-          },
-          {
-            "company": "Sirius XM",
-            "confidence": 28,
-            "pointingFact": "Consumer-facing media with recurring demand and distribution-model uncertainty"
-          },
-          {
-            "company": "Comcast",
-            "confidence": 22,
-            "pointingFact": "Media distribution firm as digital consumption habits change post-crisis"
-          },
-          {
-            "company": "Time Warner",
-            "confidence": 16,
-            "pointingFact": "Media business facing trust and spending pressure during digital transition"
-          }
-        ],
-        "direction": {
-          "call": "toss_up",
-          "confidence": 48,
-          "cue": "Habit formation could compound demand, but elevated churn plus fixed commitments cut both ways"
         }
       }
     }

@@ -48,19 +48,19 @@
       ]
     },
     "medium": {
-      "companyDescription": "A consumer hardware company expanding beyond its established device lineup.",
-      "macroContext": "The mobile market is being reshaped by data plans, better networks, and changing consumer expectations.",
-      "situation": "Will a category expansion become a platform, or stall with partners and users?",
-      "longCase": "Partners and users could adopt a new approach that turns hardware sales into a broader platform.",
-      "shortCase": "Momentum already in the stock leaves less room if scale or profitability disappoints.",
+      "companyDescription": "A branded consumer products company known for design-led hardware.",
+      "macroContext": "Better networks and data plans are changing what people expect from handheld devices.",
+      "situation": "Can product excellence convert into durable adoption when partners still control distribution?",
+      "longCase": "A loyal following could accept a premium approach and expand the addressable market.",
+      "shortCase": "Channel partners and entrenched rivals can slow scale, and the stock already prices a clean launch.",
       "setupHints": []
     },
     "hard": {
       "companyDescription": "A consumer technology company.",
-      "macroContext": "Mobile usage is becoming more central to everyday computing.",
-      "situation": "Is a brand-led category expansion priced for success or for disappointment?",
-      "longCase": "Brand strength and product design could open a larger computing surface if adoption follows.",
-      "shortCase": "Incumbents control distribution, and the valuation already assumes strong execution.",
+      "macroContext": "Everyday computing is shifting toward portable, always-connected devices.",
+      "situation": "Is a premium product bet priced for success or for a miss?",
+      "longCase": "Brand strength could pull users into a new habit if the product sticks.",
+      "shortCase": "Incumbents and channel partners still set the terms of scale, and expectations are high.",
       "setupHints": []
     }
   },
@@ -83,15 +83,15 @@
   "review": {
     "generatedByAi": true,
     "humanReviewed": false,
-    "reviewNotes": "Prototype/sample seed for Phase 3 schema pipeline. Approximate prices and returns; not Gate 1/Gate 2 production content.",
+    "reviewNotes": "Medium/Hard rewritten after H023 Gate 2 identity failures (expanding-beyond-established-devices + brand-led mobile category triangulation). Intended peer set: Apple / Nokia / RIM / Motorola / Sony / Palm-class handheld names. Easy unchanged; Medium/Hard Gate 2 pending re-judge.",
     "factBank": {
-      "revealOnly": ["Apple brand", "iPhone", "App Store"],
-      "decisionUseful": ["category expansion", "carrier distribution risk", "premium brand pull"],
-      "prohibited": ["iPhone", "Steve Jobs", "iPod"]
+      "revealOnly": ["Apple brand", "iPhone", "App Store", "non-phone device base expanding into handhelds"],
+      "decisionUseful": ["premium brand pull", "partner-controlled distribution", "high launch expectations in the stock", "portable computing shift"],
+      "prohibited": ["iPhone", "Steve Jobs", "iPod", "expanding beyond established devices wording", "platform from hardware-sales hook", "keyboard-vs-touch form-factor hooks"]
     },
     "easyLikelyGuesses": ["Apple", "Nokia", "Motorola"],
-    "mediumLikelyGuesses": ["Apple", "Samsung", "Sony"],
-    "hardLikelyGuesses": ["Apple", "Nokia", "Motorola", "Samsung", "Sony"],
+    "mediumLikelyGuesses": ["Apple", "Nokia", "Research In Motion", "Sony"],
+    "hardLikelyGuesses": ["Apple", "Nokia", "Motorola", "Research In Motion", "Sony", "Palm"],
     "gate2": {
       "easy": {
         "payloadHash": "sha256:910045aad758bd700224562dbbb5edfc2126483c31ee0e6bfbd45d8da2aeb65b",
@@ -129,82 +129,6 @@
           "call": "toss_up",
           "confidence": 52,
           "cue": "Brand/platform upside is clear, but stock already prices execution and carriers control distribution"
-        }
-      },
-      "medium": {
-        "payloadHash": "sha256:31b87d97396a7e5d103937d68bff9c4d27b27cf99aef59bab4460c2f5c0ce572",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T18:30:00.000Z",
-        "guesses": [
-          {
-            "company": "Apple",
-            "confidence": 72,
-            "pointingFact": "Jan 2007 consumer hardware company expanding beyond established devices into mobile platforms"
-          },
-          {
-            "company": "Research In Motion",
-            "confidence": 44,
-            "pointingFact": "Mobile hardware name as data plans and networks reshape the market"
-          },
-          {
-            "company": "Nokia",
-            "confidence": 34,
-            "pointingFact": "Large device maker whose category expansion could stall with partners and users"
-          },
-          {
-            "company": "Sony",
-            "confidence": 22,
-            "pointingFact": "Consumer electronics brand with design reputation expanding device lineup"
-          },
-          {
-            "company": "Motorola",
-            "confidence": 18,
-            "pointingFact": "Hardware brand with momentum risk if scale or profitability disappoints"
-          }
-        ],
-        "direction": {
-          "call": "toss_up",
-          "confidence": 48,
-          "cue": "Platform adoption upside balanced against stock momentum already in the price"
-        }
-      },
-      "hard": {
-        "payloadHash": "sha256:1e921f402eb0b7827fc12c7d7c87ddfce91f2a55bf7a2a9e38f05e5630b8422b",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T18:30:00.000Z",
-        "guesses": [
-          {
-            "company": "Apple",
-            "confidence": 55,
-            "pointingFact": "Jan 2007 consumer tech brand-led category expansion in the smartphone platform era"
-          },
-          {
-            "company": "Research In Motion",
-            "confidence": 42,
-            "pointingFact": "Mobile-era consumer tech company with brand strength and distribution dependence"
-          },
-          {
-            "company": "Nokia",
-            "confidence": 36,
-            "pointingFact": "Incumbent device ecosystem player as mobile becomes central to computing"
-          },
-          {
-            "company": "Microsoft",
-            "confidence": 28,
-            "pointingFact": "Consumer technology company attempting a brand-led expansion into mobile"
-          },
-          {
-            "company": "Sony",
-            "confidence": 22,
-            "pointingFact": "Design-led consumer technology firm whose valuation assumes strong execution"
-          }
-        ],
-        "direction": {
-          "call": "toss_up",
-          "confidence": 45,
-          "cue": "Brand and design could open a larger surface, but incumbents control distribution and valuation assumes success"
         }
       }
     }

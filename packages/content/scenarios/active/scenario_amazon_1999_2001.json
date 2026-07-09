@@ -48,19 +48,19 @@
       ]
     },
     "medium": {
-      "companyDescription": "An online commerce company growing faster than its profits.",
-      "macroContext": "The market is starting to separate internet businesses with real economics from pure speculation.",
-      "situation": "Is this a scale story that compounds, or a cash-burn story that fails when funding tightens?",
-      "longCase": "Scale from online demand could eventually turn heavy spending into a lasting advantage.",
-      "shortCase": "Cash burn and an inflated valuation become brutal when capital gets tighter.",
+      "companyDescription": "A high-growth consumer business reinvesting heavily to expand its reach.",
+      "macroContext": "After a long stretch of speculative valuations, investors are starting to demand clearer economics.",
+      "situation": "Will heavy reinvestment create a lasting edge, or will tighter capital expose a fragile model?",
+      "longCase": "If demand keeps compounding, today's spending could lock in a hard-to-replicate position.",
+      "shortCase": "If funding becomes scarce before economics improve, an elevated valuation can reverse sharply.",
       "setupHints": []
     },
     "hard": {
-      "companyDescription": "An internet company.",
-      "macroContext": "Speculative growth stocks are under increasing scrutiny near the end of a market boom.",
-      "situation": "Does prioritizing scale over near-term profit build a durable position or invite collapse?",
-      "longCase": "A fast-growing online business could entrench itself if demand keeps compounding.",
-      "shortCase": "If investors stop funding losses, the growth model can break quickly.",
+      "companyDescription": "A growth-oriented public company.",
+      "macroContext": "Speculative valuations are facing sharper questions as the market cycle turns.",
+      "situation": "Does continued reinvestment still make sense when capital is less forgiving?",
+      "longCase": "Scale and habit formation could still justify multi-year investment ahead of profits.",
+      "shortCase": "A model that depends on easy capital can break when sentiment turns.",
       "setupHints": []
     }
   },
@@ -83,15 +83,15 @@
   "review": {
     "generatedByAi": true,
     "humanReviewed": false,
-    "reviewNotes": "Prototype/sample seed for Phase 3 schema pipeline. Approximate prices and returns; not Gate 1/Gate 2 production content.",
+    "reviewNotes": "Medium/Hard rewritten after H023 Gate 2 identity failures (online-commerce + cash-burn + scale-first triangulation). Intended peer set: Amazon / eBay / Yahoo / Webvan / Priceline / Cisco-class bubble growth names. Easy unchanged; Medium/Hard Gate 2 pending re-judge.",
     "factBank": {
-      "revealOnly": ["Amazon brand", "AMZN ticker", "dot-com crash path"],
-      "decisionUseful": ["online commerce scale", "cash burn", "valuation peak"],
-      "prohibited": ["Jeff Bezos", "everything store", "one-click"]
+      "revealOnly": ["Amazon brand", "AMZN ticker", "dot-com crash path", "online retail expansion"],
+      "decisionUseful": ["heavy reinvestment for reach", "elevated valuation after boom", "capital tightening risk", "demand-compounding optionality"],
+      "prohibited": ["Jeff Bezos", "everything store", "one-click", "online commerce pure-play wording", "fulfillment-network silhouette", "category-expansion-from-books hook"]
     },
     "easyLikelyGuesses": ["Amazon", "eBay", "Yahoo"],
-    "mediumLikelyGuesses": ["Amazon", "eBay", "Webvan"],
-    "hardLikelyGuesses": ["Amazon", "eBay", "Yahoo", "Webvan", "Priceline"],
+    "mediumLikelyGuesses": ["Amazon", "Yahoo", "eBay", "Priceline"],
+    "hardLikelyGuesses": ["Amazon", "Yahoo", "eBay", "Cisco", "AOL", "Priceline"],
     "gate2": {
       "easy": {
         "payloadHash": "sha256:99a398219acd7a86a3ee8bdb43567c61b4969c12c0bcf0639888e50c59d8d1be",
@@ -129,82 +129,6 @@
           "call": "short",
           "confidence": 72,
           "cue": "Lookback prices already up ~38x while losses mount and capital is tightening"
-        }
-      },
-      "medium": {
-        "payloadHash": "sha256:ac057ffcef28aa82390c7c6a0bf6fff03a35ccfa4874740fa134ddf41bb45a15",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T18:30:00.000Z",
-        "guesses": [
-          {
-            "company": "Amazon",
-            "confidence": 68,
-            "pointingFact": "Dec 1999 online commerce firm growing faster than profits amid cash-burn scrutiny"
-          },
-          {
-            "company": "eBay",
-            "confidence": 42,
-            "pointingFact": "Online commerce growth story separating real economics from speculation near bubble peak"
-          },
-          {
-            "company": "Yahoo",
-            "confidence": 32,
-            "pointingFact": "Internet growth name at the end of a boom when funding starts to matter"
-          },
-          {
-            "company": "Webvan",
-            "confidence": 22,
-            "pointingFact": "Cash-burn online commerce story vulnerable when capital tightens"
-          },
-          {
-            "company": "Priceline",
-            "confidence": 16,
-            "pointingFact": "Online commerce scale bet with inflated valuation risk in 1999"
-          }
-        ],
-        "direction": {
-          "call": "short",
-          "confidence": 65,
-          "cue": "Cash burn plus inflated valuation becomes brutal when capital tightens"
-        }
-      },
-      "hard": {
-        "payloadHash": "sha256:172a5bfc493f838a2a76ce0ad8e4353edb1b4f99140470762d12618b157f2917",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T18:30:00.000Z",
-        "guesses": [
-          {
-            "company": "Amazon",
-            "confidence": 48,
-            "pointingFact": "Dec 1999 internet company prioritizing scale over near-term profit after a huge price run"
-          },
-          {
-            "company": "Yahoo",
-            "confidence": 42,
-            "pointingFact": "Speculative growth internet name under scrutiny near end of market boom"
-          },
-          {
-            "company": "eBay",
-            "confidence": 36,
-            "pointingFact": "Fast-growing online business whose model depends on continued demand compounding"
-          },
-          {
-            "company": "AOL",
-            "confidence": 30,
-            "pointingFact": "Large internet franchise exposed if investors stop funding growth narratives"
-          },
-          {
-            "company": "Cisco",
-            "confidence": 24,
-            "pointingFact": "Bubble-era growth stock with scale-first culture and crash risk when funding stops"
-          }
-        ],
-        "direction": {
-          "call": "short",
-          "confidence": 58,
-          "cue": "If investors stop funding losses, the growth model can break quickly after a boom run"
         }
       }
     }

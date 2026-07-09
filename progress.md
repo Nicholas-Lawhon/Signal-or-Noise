@@ -14,22 +14,23 @@ first thing the next agent reads.
 - **App state:** Monorepo scaffolded. Game engine: 37 tests. Content package:
   Zod schema, validation CLI, 6 active sample JSON scenarios (Balanced Tension /
   D026). A005 MAJORs 1–3 closed by H018; A005 MINORs 1/2/4 closed by H020.
-  **H021+H022 accepted:** offline Gate 2 harness. **H023+H024 accepted:** all
-  18 variants have stored `review.gate2` from blind grok-4.5 judgments
-  (medium+hard all fail identity thresholds). H024 restores `pnpm build` /
-  `pnpm test` via explicit `skipGate2` on active fixture load and structural
-  unit tests; `validate` / `gate2 check` still fail loudly on Gate 2 identity.
-  Missing Gate 2 is not fail-closed yet. No auth, no DB.
-- **Next task:** Draft content rewrite handoff for failing medium/hard active
-  seeds, then rerun Gate 2 judgment after copy changes.
+  **H021–H024 accepted** (Gate 2 harness + H023 judgments + H024 load fix).
+  **H025 accepted:** Medium/Hard hidden-card rewrites on all 6 active seeds;
+  Easy + Easy Gate 2 preserved; Medium/Hard Gate 2 cleared;
+  `agents/gate2/H025_payloads.json` exported (18). Content `validate` 6/6 with
+  only pre-existing Easy direction WARNs; `gate2 check` 0 errors / 12 missing
+  Medium+Hard (expected until re-judge). Missing Gate 2 not fail-closed. No auth,
+  no DB.
+- **Next task:** Draft/dispatch the follow-up blind Grok Gate 2 judge handoff
+  against `agents/gate2/H025_payloads.json`.
 - **Workflow state:** D029 added token-efficient context routing; D030 added
   state compaction. New handoffs require a Context Manifest, Context Budget, and
   Output Budget; Fable/high-reasoning executor runs require explicit user
   override with a cost/context rationale. Detailed Phase 0-3 history is archived
   in `agents/history/progress_phase_0_3.md`. Dispatch mode remains
   manual-by-default (D028).
-- **Blocked/Questions:** Active medium/hard seed copy is too identifiable under
-  D031. Content rewrite handoff needed after H023/H024 commit.
+- **Blocked/Questions:** none for H025. Medium/Hard identity under D031 still
+  needs formal blind re-judge (not part of H025).
 
 ## How to Run (updated as the app grows)
 
@@ -78,6 +79,79 @@ Read it only when a handoff explicitly needs historical detail.
 ---
 
 ## Session Log
+
+### 2026-07-09 - Orchestrator - R026 accepted; H025 approved
+
+**What changed:**
+- Reviewed `agents/reports/R026_H025.md`, the active-seed diff, and
+  `agents/gate2/H025_payloads.json`.
+- Confirmed Easy hidden cards, Easy Gate 2 entries, metadata, market data,
+  reveal, sources, status, and company identity are unchanged.
+- Marked R026 approved and wrote `agents/reports/R027_R026_review.md`.
+
+**How to run:** unchanged.
+
+**Tests:** content validate 6/6 with 2 pre-existing Easy direction WARNs; gate2
+check 0 errors / 2 warnings / 12 missing; exported 18 payloads; content 50/50;
+root 87/87; typecheck pass; build pass.
+
+**Known issues:**
+- Medium/Hard Gate 2 still needs blind Grok 4.5 re-judgment.
+- Missing Gate 2 still not fail-closed.
+- Easy direction WARNs on Amazon/Visa remain.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** Draft and dispatch the blind Gate 2 judge handoff
+against `agents/gate2/H025_payloads.json`.
+
+### 2026-07-09 - Content Curator - H025 medium/hard content rewrite
+
+**What changed:**
+- Rewrote Medium and Hard hidden-card fields for all 6 active sample seeds,
+  removing H023 triangulation leaks while keeping Long/Short decision tension.
+- Updated `review.factBank`, `mediumLikelyGuesses` (4 each), `hardLikelyGuesses`
+  (≥4 each), and `reviewNotes`; removed stale `review.gate2.medium|hard`; kept
+  Easy text and Easy Gate 2.
+- Exported `agents/gate2/H025_payloads.json` (18 payloads). Report:
+  `agents/reports/R026_H025.md`. Handoff status → complete.
+
+**How to run:** unchanged. Prefer `H025_payloads.json` for the next Gate 2 judge.
+
+**Tests:** content validate 6/6 (2 Easy direction WARNs); gate2 check 0 errors /
+2 warns / 12 missing; content 50/50; root 87/87; typecheck pass; build pass.
+
+**Known issues:**
+- Medium/Hard Gate 2 not re-judged yet (payloads ready for follow-up handoff).
+- Missing Gate 2 still not fail-closed.
+- Easy direction WARNs on Amazon/Visa remain.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** Orchestrator review R026; commit on approval; dispatch
+blind Grok Gate 2 judge for Medium/Hard write-back.
+
+### 2026-07-09 - Orchestrator - H025 medium/hard rewrite drafted
+
+**What changed:**
+- Drafted `agents/handoffs/H025_medium_hard_content_rewrite.md` for rewriting
+  the failing Medium/Hard active seed variants after H023 Gate 2 identity
+  failures.
+- Routed the handoff to GPT 5.5 as high-risk Content Curator work; formal blind
+  Gate 2 judgment remains a follow-up Grok handoff per D032.
+- Wrote `agents/reports/R026_h025_draft.md`.
+
+**How to run:** unchanged.
+
+**Tests:** not run - handoff/report/progress drafting only.
+
+**Known issues:**
+- Active Medium/Hard seed copy remains too identifiable until H025 executes.
+- Missing Gate 2 is still not fail-closed.
+
+**Blocked/Questions:** H025 awaits user approval before manual dispatch.
+
+**Next recommended task:** Approve and manually dispatch H025 to GPT 5.5.
 
 ### 2026-07-09 - Orchestrator - R024 accepted; H023/H024 approved
 

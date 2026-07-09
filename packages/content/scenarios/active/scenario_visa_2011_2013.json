@@ -48,19 +48,19 @@
       ]
     },
     "medium": {
-      "companyDescription": "A financial infrastructure firm that benefits when commercial activity rises.",
-      "macroContext": "After the crisis, investors are hunting for businesses that scale with recovery without carrying heavy credit risk.",
-      "situation": "Will rising activity through the platforms outrun fee pressure from large customers and politics?",
-      "longCase": "Revenue grows when more activity flows through the platforms it operates.",
-      "shortCase": "Political pressure or large customers can force lower take-rates on high-margin volume.",
+      "companyDescription": "A financial services firm that earns fees as commerce activity rises.",
+      "macroContext": "Investors are looking for recovery beneficiaries that do not depend on aggressive lending growth.",
+      "situation": "Can volume growth outrun fee pressure from powerful counterparties?",
+      "longCase": "Higher commercial throughput can lift earnings even while unit fees remain under debate.",
+      "shortCase": "Political scrutiny and large-customer bargaining can compress margins on the existing base.",
       "setupHints": []
     },
     "hard": {
       "companyDescription": "A financial infrastructure company.",
-      "macroContext": "Commerce is becoming more digital during the post-crisis recovery.",
-      "situation": "Does electronic volume migration outweigh fee pressure on network economics?",
-      "longCase": "A fee-based network can compound as transaction volumes migrate electronically.",
-      "shortCase": "Regulation and customer pushback could pressure its economics.",
+      "macroContext": "Commerce is gradually becoming less cash-based during the recovery.",
+      "situation": "Does volume migration outweigh structural pressure on pricing power?",
+      "longCase": "A business linked to transaction activity can compound as electronic commerce grows.",
+      "shortCase": "Regulation and customer pushback can still pressure economics even when volumes rise.",
       "setupHints": []
     }
   },
@@ -83,15 +83,15 @@
   "review": {
     "generatedByAi": true,
     "humanReviewed": false,
-    "reviewNotes": "Prototype/sample seed for Phase 3 schema pipeline. Approximate prices and returns; not Gate 1/Gate 2 production content. Ticker V uses short-ticker word-boundary matching in the leakage validator.",
+    "reviewNotes": "Medium/Hard rewritten after H023 Gate 2 identity failures (fee network + no credit risk + electronic volume triangulation). Intended peer set: Visa / Mastercard / Amex / PayPal / Discover / Fiserv-class fee intermediaries. Easy unchanged; Medium/Hard Gate 2 pending re-judge. Ticker V uses short-ticker word-boundary matching in the leakage validator.",
     "factBank": {
-      "revealOnly": ["Visa brand", "V ticker"],
-      "decisionUseful": ["fee-based network", "cash-to-electronic shift", "merchant fee pressure"],
-      "prohibited": ["VisaNet", "credit card brand slogans"]
+      "revealOnly": ["Visa brand", "V ticker", "pure network-without-lending framing"],
+      "decisionUseful": ["fees scale with commerce activity", "recovery without aggressive lending", "counterparty fee pressure", "cash-to-electronic migration backdrop"],
+      "prohibited": ["VisaNet", "credit card brand slogans", "credit card network", "no-credit-risk network wording", "take-rate-on-payment-rails silhouette"]
     },
     "easyLikelyGuesses": ["Visa", "Mastercard", "American Express"],
-    "mediumLikelyGuesses": ["Visa", "Mastercard", "PayPal"],
-    "hardLikelyGuesses": ["Visa", "Mastercard", "American Express", "PayPal", "Discover"],
+    "mediumLikelyGuesses": ["Visa", "Mastercard", "American Express", "PayPal"],
+    "hardLikelyGuesses": ["Visa", "Mastercard", "American Express", "PayPal", "Discover", "Fiserv"],
     "gate2": {
       "easy": {
         "payloadHash": "sha256:070cbed4f99751b7b9d8c5f65ccbcc63e54aa5b5bd499a84bfc174b924fda9a8",
@@ -129,82 +129,6 @@
           "call": "long",
           "confidence": 68,
           "cue": "Global electronic payment adoption is a durable volume tailwind if fees hold up"
-        }
-      },
-      "medium": {
-        "payloadHash": "sha256:8200c9be153fd64269b9992cb11daac73b5dee2ad2513741ecd09c31e13dd901",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T18:30:00.000Z",
-        "guesses": [
-          {
-            "company": "Visa",
-            "confidence": 62,
-            "pointingFact": "Jan 2011 financial infrastructure firm scaling with commercial activity without heavy credit risk"
-          },
-          {
-            "company": "Mastercard",
-            "confidence": 60,
-            "pointingFact": "Payment rails business where rising platform activity can outrun fee pressure"
-          },
-          {
-            "company": "American Express",
-            "confidence": 36,
-            "pointingFact": "Payments infrastructure with high-margin volume exposed to political and large-customer pressure"
-          },
-          {
-            "company": "PayPal",
-            "confidence": 30,
-            "pointingFact": "Post-crisis digital commerce infrastructure scaling with recovery activity"
-          },
-          {
-            "company": "Fiserv",
-            "confidence": 16,
-            "pointingFact": "Financial infrastructure vendor that benefits when commercial activity rises"
-          }
-        ],
-        "direction": {
-          "call": "long",
-          "confidence": 60,
-          "cue": "Revenue grows when more activity flows through the platforms if take-rates hold"
-        }
-      },
-      "hard": {
-        "payloadHash": "sha256:cc9c51e15b38f59dfcf2d1dcf5da745d6d88a3d68a5e847766b2bf068419f217",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T18:30:00.000Z",
-        "guesses": [
-          {
-            "company": "Visa",
-            "confidence": 44,
-            "pointingFact": "Jan 2011 financial infrastructure fee network as commerce digitizes post-crisis"
-          },
-          {
-            "company": "Mastercard",
-            "confidence": 44,
-            "pointingFact": "Fee-based network compounding as transaction volumes migrate electronically"
-          },
-          {
-            "company": "American Express",
-            "confidence": 34,
-            "pointingFact": "Payments economics sensitive to regulation and customer pushback on fees"
-          },
-          {
-            "company": "PayPal",
-            "confidence": 28,
-            "pointingFact": "Digital commerce rails story during post-crisis electronic volume migration"
-          },
-          {
-            "company": "Western Union",
-            "confidence": 16,
-            "pointingFact": "Transaction-network financial infrastructure with fee-pressure risk"
-          }
-        ],
-        "direction": {
-          "call": "long",
-          "confidence": 55,
-          "cue": "Electronic volume migration can outweigh fee pressure on network economics"
         }
       }
     }
