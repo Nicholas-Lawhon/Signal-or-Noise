@@ -23,9 +23,10 @@ first thing the next agent reads.
   `agents/reports/R032_R031_review.md`.
   Do not treat active seeds as Gate-2-clean until the follow-up blind rejudge.
   No auth, no DB.
-- **Next task:** Draft a blind Gate 2 rejudge handoff over
-  `agents/gate2/H027_payloads.json` for **easy + medium + hard** on all six
-  seeds (not Hard only — shared labels invalidated all difficulties).
+- **Next task:** H028 is approved and ready for manual dispatch:
+  `agents/handoffs/H028_blind_gate2_rejudge_h027_all.md`. It blind-judges all
+  18 entries in `agents/gate2/H027_payloads.json` (Easy + Medium + Hard) and
+  writes fresh stored Gate 2 results.
 - **Workflow state:** D029 added token-efficient context routing; D030 added
   state compaction. New handoffs require a Context Manifest, Context Budget, and
   Output Budget; Fable/high-reasoning executor runs require explicit user
@@ -82,6 +83,26 @@ Read it only when a handoff explicitly needs historical detail.
 ---
 
 ## Session Log
+
+### 2026-07-09 - Orchestrator - H028 blind Gate 2 rejudge approved
+
+**What changed:**
+- Drafted and approved `agents/handoffs/H028_blind_gate2_rejudge_h027_all.md`.
+- Scoped H028 to blind-judge all 18 payloads in `agents/gate2/H027_payloads.json`
+  because H027 shared-label edits invalidated Easy, Medium, and Hard results.
+- Wrote `agents/reports/R033_h028_draft.md`.
+
+**How to run:** unchanged.
+
+**Tests:** not run - handoff/report/progress drafting only.
+
+**Known issues:**
+- Active seeds still have 18 missing Gate 2 results until H028 executes.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** Manually dispatch H028, then review
+`agents/reports/R034_H028.md`.
 
 ### 2026-07-09 - Orchestrator - R031 accepted; H027 approved
 
