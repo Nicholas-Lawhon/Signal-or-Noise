@@ -18,8 +18,10 @@ first thing the next agent reads.
   likely-guess quality floor + named Hard lists). Package root is browser-safe
   (no Node fs re-exports). Classic Run loads from `@signal-or-noise/content`.
   No auth, no DB.
-- **Next task:** Draft the automated Gate 2 model harness handoff (Grok 4.5
-  executor and judge per D031) using cleaned likely-guess metadata from H020.
+- **Next task:** User manually dispatches approved H021
+  (`agents/handoffs/H021_gate2_grok_validator.md`) to Grok 4.5. H021 builds the
+  offline Gate 2 harness and exports blind payloads; a follow-up blind Grok
+  judge handoff will write `review.gate2` results.
 - **Workflow state:** D029 added token-efficient context routing; D030 added
   state compaction. New handoffs require a Context Manifest, Context Budget, and
   Output Budget; Fable/high-reasoning executor runs require explicit user
@@ -73,6 +75,31 @@ Read it only when a handoff explicitly needs historical detail.
 ---
 
 ## Session Log
+
+### 2026-07-09 - Orchestrator - H021 Gate 2 offline harness handoff approved
+
+**What changed:**
+- Recorded D032: Gate 2 model judgment uses the existing Grok role-agent
+  workflow/SuperGrok usage, not embedded xAI API tokens.
+- Revised and approved `agents/handoffs/H021_gate2_grok_validator.md` as the
+  offline harness/export slice: payload rendering, hashing, optional stored
+  result schema, offline evaluator, `gate2 export/check`, and tests.
+- Split blind judgment into a follow-up handoff so the judge agent can consume
+  only exported pre-decision payloads and avoid seeing company/reveal data.
+- Report written at `agents/reports/R018_h021_draft.md`.
+
+**How to run:** unchanged.
+
+**Tests:** not run - handoff/decision/report only. R017/H020 verification already
+passed.
+
+**Known issues:** Active seeds will not be Gate 2 enforced until the follow-up
+blind judge handoff writes real `review.gate2` results and a later enforcement
+handoff turns missing-result failures on.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** user manually dispatches H021 to Grok 4.5 per D028.
 
 ### 2026-07-09 - Orchestrator - R017 accepted; H020 committed
 

@@ -46,6 +46,7 @@ the D-number or the current task directly touches that area.
 | D029 | Token-efficient context routing | Agent workflow |
 | D030 | State compaction policy | Agent workflow |
 | D031 | Gate 2 judge uses Grok 4.5 | Content pipeline |
+| D032 | Gate 2 runs through agent workflow, not API tokens | Content pipeline |
 
 ---
 
@@ -656,6 +657,36 @@ calibration before Part B scale-up, but the chosen model is cost-effective enoug
 to run over 100+ cards without making content expansion expensive. This does not
 weaken the `soul.md` ban on dynamic AI-generated production gameplay because the
 model judges already-authored cards offline; it does not create served content.
+
+## D032 - Gate 2 runs through agent workflow, not API tokens
+
+**Date:** 2026-07-09 · **Status:** User approved
+
+Gate 2 model judgment should use the existing role-agent workflow and the user's
+SuperGrok/Grok usage limits, not a new embedded xAI API integration in
+`packages/content`.
+
+Implementation implication:
+
+1. `packages/content` owns deterministic/offline pieces only: render the exact
+   pre-decision payload, hash it, define/store `review.gate2`, evaluate stored
+   raw results against thresholds, and make `validate` fail closed for
+   reviewed/active cards with missing/stale/failing Gate 2 data.
+2. A Gate 2 execution is a normal handoff to Grok 4.5. Default dispatch remains
+   manual per D028; the orchestrator may invoke a headless Grok agent only when
+   the user explicitly approves that dispatch.
+3. The Grok role agent reads the rendered payloads, acts as the pinned judge, and
+   writes structured raw results into the scenario JSON. The repo then validates
+   those stored results offline.
+4. No `XAI_API_KEY`, `.env` secret, xAI SDK, or network-dependent default
+   validation path is required for MVP Gate 2.
+
+**Rationale:** This preserves the current agent workflow and avoids separate API
+token spend while still giving the repository a falsifiable, cached, offline
+enforcement layer. The tradeoff is that Gate 2 is "agent-assisted automation"
+rather than a fully self-contained CLI API call; that is acceptable for the
+current solo MVP pipeline and can be revisited if batch volume or CI needs later
+justify API integration.
 ## Open Design Question â€” composite Final Score / Information Tiers (NOT a decision)
 
 **Date:** 2026-07-03 Â· **Status:** Exploration pending
