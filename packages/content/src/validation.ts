@@ -1,4 +1,5 @@
 import { scenarioSchema } from './schema';
+import { evaluateScenarioGate2 } from './gate2/evaluate';
 import type {
   Difficulty,
   HiddenCardVariant,
@@ -389,6 +390,42 @@ function collectSentimentWarnings(scenario: Scenario): ValidationWarning[] {
   return warnings;
 }
 
+/**
+ * Offline Gate 2 checks for any *stored* `review.gate2` entries.
+ *
+ * H021 rules:
+ * - Missing Gate 2 results never fail validation (enforcement lands later).
+ * - When a stored result exists: recompute payload hash, model/prompt pin, and
+ *   identity thresholds offline.
+ * - `reviewed`/`active`: stale/wrong-pin/identity-threshold failures → errors;
+ *   WARN-tier findings → warnings.
+ * - `draft`: all Gate 2 findings surface as warnings (authors can test early).
+ * - `inactive`/`archived`: exempt.
+ */
+export function checkGate2StoredResults(
+  scenario: Scenario,
+  errors: ValidationIssue[],
+  warnings: ValidationWarning[],
+): void {
+  if (scenario.status === 'inactive' || scenario.status === 'archived') {
+    return;
+  }
+  if (!scenario.review.gate2) {
+    return;
+  }
+
+  const findings = evaluateScenarioGate2(scenario);
+  const draftMode = scenario.status === 'draft';
+
+  for (const finding of findings) {
+    if (finding.severity === 'error' && !draftMode) {
+      errors.push({ path: finding.path, message: finding.message });
+    } else {
+      warnings.push({ path: finding.path, message: finding.message });
+    }
+  }
+}
+
 function zodIssuesToValidationIssues(
   issues: { path: (string | number)[]; message: string }[],
 ): ValidationIssue[] {
@@ -398,11 +435,23 @@ function zodIssuesToValidationIssues(
   }));
 }
 
+export type ValidateScenarioOptions = {
+  /**
+   * When true, skip offline Gate 2 stored-result checks.
+   * Used by `gate2 check` so it can load scenarios and report Gate 2 findings
+   * itself instead of failing during load (H022).
+   */
+  skipGate2?: boolean;
+};
+
 /**
  * Validate a scenario object: Zod shape + content rules.
  * Warnings never fail validation.
  */
-export function validateScenario(input: unknown): ValidationResult {
+export function validateScenario(
+  input: unknown,
+  options?: ValidateScenarioOptions,
+): ValidationResult {
   const parsed = scenarioSchema.safeParse(input);
   if (!parsed.success) {
     return {
@@ -427,6 +476,9 @@ export function validateScenario(input: unknown): ValidationResult {
   // Empty prices / missing sources / whyItMoved length are enforced by Zod min/tuple.
 
   const warnings = collectSentimentWarnings(scenario);
+  if (!options?.skipGate2) {
+    checkGate2StoredResults(scenario, errors, warnings);
+  }
 
   if (errors.length > 0) {
     return { success: false, errors, warnings };

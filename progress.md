@@ -12,16 +12,16 @@ first thing the next agent reads.
   Part B generation at scale); Database is now Phase 5, Auth 6, Leaderboards 7,
   Daily Challenge 8.
 - **App state:** Monorepo scaffolded. Game engine: 37 tests. Content package:
-  Zod schema, validation CLI, **20 content tests**, 6 active sample JSON
+  Zod schema, validation CLI, **50 content tests**, 6 active sample JSON
   scenarios (Balanced Tension / D026). A005 MAJORs 1–3 closed by H018; A005
-  MINORs 1/2/4 closed by H020 (calendar-date validity, price/return consistency,
-  likely-guess quality floor + named Hard lists). Package root is browser-safe
-  (no Node fs re-exports). Classic Run loads from `@signal-or-noise/content`.
-  No auth, no DB.
-- **Next task:** User manually dispatches approved H021
-  (`agents/handoffs/H021_gate2_grok_validator.md`) to Grok 4.5. H021 builds the
-  offline Gate 2 harness and exports blind payloads; a follow-up blind Grok
-  judge handoff will write `review.gate2` results.
+  MINORs 1/2/4 closed by H020. **H021+H022 accepted:** offline Gate 2 harness
+  with pure browser-safe payload hash, optional `review.gate2`, export/check
+  CLI, and `agents/gate2/H022_payloads.json` (18 blind payloads). Missing
+  results are not fail-closed yet. `pnpm build` green. Classic Run loads from
+  `@signal-or-noise/content`. No auth, no DB.
+- **Next task:** User approves and manually dispatches draft
+  `agents/handoffs/H023_blind_gate2_judge.md` to consume
+  `agents/gate2/H022_payloads.json` and write `review.gate2` results.
 - **Workflow state:** D029 added token-efficient context routing; D030 added
   state compaction. New handoffs require a Context Manifest, Context Budget, and
   Output Budget; Fable/high-reasoning executor runs require explicit user
@@ -35,9 +35,11 @@ first thing the next agent reads.
 ```bash
 pnpm install          # install dependencies
 pnpm dev              # start dev server at http://localhost:3000
-pnpm test             # run all package tests (game-engine 37 + content 20)
+pnpm test             # run all package tests (game-engine 37 + content 50)
 pnpm typecheck        # run TypeScript type checking
 pnpm --filter @signal-or-noise/content validate   # validate scenario JSON seeds
+pnpm --filter @signal-or-noise/content gate2 -- export --out agents/gate2/H022_payloads.json
+pnpm --filter @signal-or-noise/content gate2 -- check
 ```
 
 All from repo root. Requires Node.js LTS and pnpm 9.x.
@@ -75,6 +77,120 @@ Read it only when a handoff explicitly needs historical detail.
 ---
 
 ## Session Log
+
+### 2026-07-09 - Orchestrator - R021 accepted; H021/H022 committed; H023 drafted
+
+**What changed:**
+- Reviewed R021/H022 and the combined uncommitted H021+H022 diff.
+- Accepted the offline Gate 2 harness: browser-safe pure SHA-256 replaced
+  `node:crypto`, validation supports optional stored `review.gate2`, and
+  `gate2 export/check` are offline.
+- Confirmed `gate2 check` uses the skip-Gate-2 load path so stored-result errors
+  can be reported structurally after blind results land.
+- Re-exported `agents/gate2/H022_payloads.json` with 18 payloads and checked it
+  for forbidden answer/reveal keys and known names/tickers; only allowed field
+  names such as `companyDescription` matched.
+- Marked `agents/reports/R021_H022.md` approved.
+- Drafted `agents/handoffs/H023_blind_gate2_judge.md` for the blind Grok judge
+  write-back step.
+
+**How to run:** unchanged.
+
+**Tests:** `pnpm build` pass; content tests 50 passing; root `pnpm test` 87
+passing; `pnpm typecheck` pass; content validate 6/6; `gate2 export` 18 entries;
+`gate2 check` 0 errors / 18 missing info; API/Node import grep only hits
+Node-only `gate2/run.ts` fs/path/url imports.
+
+**Known issues:**
+- `review.gate2` is still missing on active scenario JSON until H023.
+- Missing Gate 2 results remain non-blocking until a later enforcement handoff.
+- Export `scenarioId`s still embed company slugs; the payload fields themselves
+  are blind.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** user approves and manually dispatches H023.
+
+### 2026-07-09 - Implementor - H022 H021 browser safety + gate2 check fix
+
+**What changed:**
+- Replaced Node crypto in `gate2/payload.ts` with pure `gate2/sha256.ts`
+  (browser-safe; known-vector tests for `"abc"` / empty string).
+- `validateScenario(..., { skipGate2 })` + `gate2 check` loads with skip so
+  stored-result failures report as structured ERROR findings, not load aborts.
+- Re-exported `agents/gate2/H022_payloads.json` (18 entries).
+- Report: `agents/reports/R021_H022.md`.
+
+**How to run:** unchanged (`gate2` commands as before).
+
+**Tests:** content 50 passing; full `pnpm test` 87; `pnpm typecheck` pass;
+`pnpm build` pass; validate 6/6; gate2 check 0 errors / 18 missing info.
+
+**Known issues:** missing Gate 2 still non-blocking until judge writes; export
+scenarioIds still embed company slugs.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** orchestrator review R021 + H021/H022 uncommitted
+diff and commit; then draft H023 blind Grok judge handoff.
+
+### 2026-07-09 - Orchestrator - R019 rejected; H022 fix-up drafted
+
+**What changed:**
+- Reviewed R019/H021 report and diff against the handoff.
+- Reran cheap verification: `gate2 check`, content validate, content tests,
+  root tests, and typecheck pass.
+- Found a blocking browser-safety regression: `pnpm build` fails because
+  `apps/web` imports `@signal-or-noise/content`, which imports `validation.ts`,
+  which imports Gate 2 hashing through `node:crypto`.
+- Recorded rejection in `agents/reports/R020_R019_review.md` and marked
+  `agents/reports/R019_H021.md` rejected.
+- Drafted `agents/handoffs/H022_h021_browser_safety_fix.md` to
+  replace `node:crypto` with a browser-safe hash path and make `gate2 check`
+  report stored-result errors structurally.
+
+**How to run:** unchanged.
+
+**Tests:** `pnpm --filter @signal-or-noise/content gate2 -- check` pass (0
+errors / 18 missing info); `pnpm --filter @signal-or-noise/content validate`
+pass; content tests 46 passing; root `pnpm test` 83 passing; `pnpm typecheck`
+pass; `pnpm build` failing on `node:crypto`.
+
+**Known issues:**
+- H021 remains uncommitted and rejected until H022 lands.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** approve and manually dispatch H022, then orchestrator
+reviews R021/H022 before moving to the blind Gate 2 judge handoff.
+
+### 2026-07-09 - Implementor - H021 Gate 2 offline harness + payload export
+
+**What changed:**
+- Added `packages/content/src/gate2/` offline modules: config (pinned
+  `grok-4.5` / `guess.v1+direction.v1` + D031 thresholds), payload
+  render+sha256 hash, pure evaluator, Node-only CLI helpers.
+- Extended schema/types with optional `review.gate2` raw stored results.
+- Validation integrates stored-result checks only; missing Gate 2 does not fail
+  (H021). Active seeds unchanged (no gate2 population).
+- Scripts: `pnpm --filter @signal-or-noise/content gate2 -- export|check`.
+- Exported blind payloads: `agents/gate2/H022_payloads.json` (18 entries).
+- Tests: gate2-payload, gate2-evaluate, validation Gate 2 cases (content 46).
+- Report: `agents/reports/R019_H021.md`.
+
+**How to run:** see Current Status / How to Run for new `gate2` commands.
+
+**Tests:** content 46 passing; full `pnpm test` 83 passing; `pnpm typecheck`
+pass; validate 6/6; gate2 check 0 errors / 18 missing info.
+
+**Known issues:**
+- Scenario ids in export embed company slugs; payload fields are clean.
+- Fail-closed missing-result enforcement deferred until after blind judge writes.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** orchestrator review R019 + diff and commit; draft
+H022 blind Grok judge handoff.
 
 ### 2026-07-09 - Orchestrator - H021 Gate 2 offline harness handoff approved
 

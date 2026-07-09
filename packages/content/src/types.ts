@@ -79,6 +79,41 @@ export type FactBank = {
   prohibited: string[];
 };
 
+/** One model company guess from a Gate 2 judge run (raw, no verdict). */
+export type Gate2Guess = {
+  company: string;
+  /** 0–100 confidence percentage. */
+  confidence: number;
+  pointingFact: string;
+};
+
+export type Gate2DirectionCall = 'long' | 'short' | 'toss_up';
+
+export type Gate2DirectionResult = {
+  call: Gate2DirectionCall;
+  confidence: number;
+  cue: string;
+};
+
+/**
+ * Stored raw Gate 2 result for one difficulty variant.
+ * Verdicts are recomputed offline — never stored.
+ */
+export type Gate2VariantResult = {
+  payloadHash: string;
+  model: string;
+  promptVersion: string;
+  testedAt: string;
+  guesses: Gate2Guess[];
+  direction: Gate2DirectionResult;
+};
+
+export type Gate2Review = {
+  easy?: Gate2VariantResult;
+  medium?: Gate2VariantResult;
+  hard?: Gate2VariantResult;
+};
+
 export type Review = {
   generatedByAi: boolean;
   humanReviewed: boolean;
@@ -87,6 +122,8 @@ export type Review = {
   easyLikelyGuesses: string[];
   mediumLikelyGuesses: string[];
   hardLikelyGuesses: string[];
+  /** Optional stored Gate 2 raw results (H021). Not required by schema yet. */
+  gate2?: Gate2Review;
 };
 
 export type Scenario = {

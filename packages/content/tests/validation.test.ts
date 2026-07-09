@@ -1,12 +1,15 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { GATE2_MODEL, GATE2_PROMPT_VERSION } from '../src/gate2/config';
+import { evaluateScenarioGate2 } from '../src/gate2/evaluate';
+import { hashScenarioVariant } from '../src/gate2/payload';
 import {
   validateScenario,
   validateScenarioOrThrow,
   DIRECTIONAL_SENTIMENT_TERMS,
 } from '../src/validation';
-import type { Scenario } from '../src/types';
+import type { Gate2Guess, Gate2VariantResult, Scenario } from '../src/types';
 
 function loadActiveNetflix(): Scenario {
   const path = resolve(
@@ -341,3 +344,165 @@ describe('validateScenario', () => {
     expect(() => validateScenarioOrThrow(bad)).toThrow(/validation failed/i);
   });
 });
+
+function gate2Guess(
+  company: string,
+  confidence: number,
+  pointingFact = 'card fact',
+): Gate2Guess {
+  return { company, confidence, pointingFact };
+}
+
+function makePassingEasyGate2(scenario: Scenario): Gate2VariantResult {
+  return {
+    payloadHash: hashScenarioVariant(scenario, 'easy'),
+    model: GATE2_MODEL,
+    promptVersion: GATE2_PROMPT_VERSION,
+    testedAt: '2026-07-09T00:00:00.000Z',
+    guesses: [
+      gate2Guess('Netflix', 28),
+      gate2Guess('Hulu', 22),
+      gate2Guess('Spotify', 18),
+      gate2Guess('Disney', 12),
+      gate2Guess('Amazon', 10),
+    ],
+    direction: { call: 'toss_up', confidence: 40, cue: 'balanced' },
+  };
+}
+
+describe('validateScenario Gate 2 stored results (H021)', () => {
+  it('active missing Gate 2 still passes in H021', () => {
+    const scenario = cloneScenario(loadActiveNetflix());
+    scenario.status = 'active';
+    delete scenario.review.gate2;
+    const result = validateScenario(scenario);
+    expect(result.success).toBe(true);
+  });
+
+  it('draft missing Gate 2 still passes', () => {
+    const scenario = cloneScenario(loadActiveNetflix());
+    scenario.status = 'draft';
+    delete scenario.review.gate2;
+    const result = validateScenario(scenario);
+    expect(result.success).toBe(true);
+  });
+
+  it('fails active validation when stored payload hash is stale', () => {
+    const scenario = cloneScenario(loadActiveNetflix());
+    scenario.status = 'active';
+    scenario.review.gate2 = {
+      easy: {
+        ...makePassingEasyGate2(scenario),
+        payloadHash: 'sha256:not-the-real-hash',
+      },
+    };
+    const result = validateScenario(scenario);
+    expect(result.success).toBe(false);
+    if (!result.success) {
+      expect(
+        result.errors.some(
+          (e) =>
+            e.path === 'review.gate2.easy.payloadHash' &&
+            e.message.toLowerCase().includes('stale'),
+        ),
+      ).toBe(true);
+    }
+  });
+
+  it('fails active validation when stored model or prompt version is wrong', () => {
+    const scenario = cloneScenario(loadActiveNetflix());
+    scenario.status = 'active';
+    scenario.review.gate2 = {
+      easy: {
+        ...makePassingEasyGate2(scenario),
+        model: 'not-the-pinned-model',
+        promptVersion: 'old.prompt',
+      },
+    };
+    const result = validateScenario(scenario);
+    expect(result.success).toBe(false);
+    if (!result.success) {
+      expect(
+        result.errors.some((e) => e.path === 'review.gate2.easy.model'),
+      ).toBe(true);
+      expect(
+        result.errors.some(
+          (e) => e.path === 'review.gate2.easy.promptVersion',
+        ),
+      ).toBe(true);
+    }
+  });
+
+  it('fails active validation when stored Gate 2 identity thresholds fail', () => {
+    const scenario = cloneScenario(loadActiveNetflix());
+    scenario.status = 'active';
+    // Easy fail: correct company absent
+    scenario.review.gate2 = {
+      easy: {
+        payloadHash: hashScenarioVariant(scenario, 'easy'),
+        model: GATE2_MODEL,
+        promptVersion: GATE2_PROMPT_VERSION,
+        testedAt: '2026-07-09T00:00:00.000Z',
+        guesses: [
+          gate2Guess('Hulu', 30),
+          gate2Guess('Spotify', 20),
+          gate2Guess('Disney', 15),
+          gate2Guess('Amazon', 12),
+          gate2Guess('Roku', 5),
+        ],
+        direction: { call: 'toss_up', confidence: 40, cue: 'balanced' },
+      },
+    };
+    const result = validateScenario(scenario);
+    expect(result.success).toBe(false);
+    if (!result.success) {
+      expect(
+        result.errors.some(
+          (e) =>
+            e.path.startsWith('review.gate2.easy') &&
+            e.message.toLowerCase().includes('absent'),
+        ),
+      ).toBe(true);
+    }
+  });
+
+  it('accepts a valid stored Gate 2 result shape on active', () => {
+    const scenario = cloneScenario(loadActiveNetflix());
+    scenario.status = 'active';
+    scenario.review.gate2 = {
+      easy: makePassingEasyGate2(scenario),
+    };
+    const result = validateScenario(scenario);
+    expect(result.success).toBe(true);
+  });
+
+  it('skipGate2 loads bad stored results so check can report structured errors (H022)', () => {
+    const scenario = cloneScenario(loadActiveNetflix());
+    scenario.status = 'active';
+    scenario.review.gate2 = {
+      easy: {
+        ...makePassingEasyGate2(scenario),
+        payloadHash: 'sha256:stalehash0000000000000000000000000000000000000000000000000000',
+        model: 'wrong-model',
+        promptVersion: 'wrong.prompt',
+      },
+    };
+
+    // Full validate fails (business rule still enforced)
+    const full = validateScenario(scenario);
+    expect(full.success).toBe(false);
+
+    // gate2 check load path: skip Gate 2 so non-Gate-2 rules still apply
+    const forCheck = validateScenario(scenario, { skipGate2: true });
+    expect(forCheck.success).toBe(true);
+    if (!forCheck.success) return;
+
+    // Structured findings mirror what check prints as ERROR lines
+    const findings = evaluateScenarioGate2(forCheck.scenario);
+    const errors = findings.filter((f) => f.severity === 'error');
+    expect(errors.some((f) => f.path.endsWith('.payloadHash'))).toBe(true);
+    expect(errors.some((f) => f.path.endsWith('.model'))).toBe(true);
+    expect(errors.some((f) => f.path.endsWith('.promptVersion'))).toBe(true);
+  });
+});
+

@@ -50,6 +50,36 @@ const factBankSchema = z.object({
   prohibited: z.array(z.string()),
 });
 
+const gate2GuessSchema = z.object({
+  company: nonEmptyString,
+  confidence: z.number().min(0).max(100),
+  pointingFact: nonEmptyString,
+});
+
+const gate2DirectionSchema = z.object({
+  call: z.enum(['long', 'short', 'toss_up']),
+  confidence: z.number().min(0).max(100),
+  cue: nonEmptyString,
+});
+
+/** Stored raw Gate 2 result for one difficulty (optional; verdicts recomputed offline). */
+const gate2VariantResultSchema = z.object({
+  payloadHash: nonEmptyString,
+  model: nonEmptyString,
+  promptVersion: nonEmptyString,
+  testedAt: nonEmptyString,
+  guesses: z.array(gate2GuessSchema).length(5),
+  direction: gate2DirectionSchema,
+});
+
+const gate2ReviewSchema = z
+  .object({
+    easy: gate2VariantResultSchema.optional(),
+    medium: gate2VariantResultSchema.optional(),
+    hard: gate2VariantResultSchema.optional(),
+  })
+  .optional();
+
 /**
  * Base shape schema (structure only). Business rules live in validation.ts.
  */
@@ -118,6 +148,8 @@ export const scenarioSchema = z.object({
     easyLikelyGuesses: z.array(z.string()),
     mediumLikelyGuesses: z.array(z.string()),
     hardLikelyGuesses: z.array(z.string()),
+    /** Optional; missing does not fail validation in H021. */
+    gate2: gate2ReviewSchema,
   }),
 });
 
