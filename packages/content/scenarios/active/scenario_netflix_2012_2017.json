@@ -130,6 +130,82 @@
           "confidence": 50,
           "cue": "If customers accept the newer model, recurring revenue can scale with broadband"
         }
+      },
+      "medium": {
+        "payloadHash": "sha256:66aebaa3c9b724687bde68435a5960e46ce2f66fea2eb1149e757f802d45f577",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T22:30:00.000Z",
+        "guesses": [
+          {
+            "company": "Netflix",
+            "confidence": 34,
+            "pointingFact": "2012 consumer franchise after a severe lookback drawdown, with retention and discretionary digital competition in focus"
+          },
+          {
+            "company": "Groupon",
+            "confidence": 16,
+            "pointingFact": "Consumer digital company with repeat-use questions after a boom-and-bust equity path into 2012"
+          },
+          {
+            "company": "Zynga",
+            "confidence": 12,
+            "pointingFact": "Consumer digital firm dependent on engagement recovery after a sharp equity reset"
+          },
+          {
+            "company": "Pandora",
+            "confidence": 10,
+            "pointingFact": "Digital consumer service competing for discretionary attention with recurring-use economics"
+          },
+          {
+            "company": "LinkedIn",
+            "confidence": 8,
+            "pointingFact": "Consumer digital platform with subscription-like revenue and growth-versus-cost tension"
+          }
+        ],
+        "direction": {
+          "call": "long",
+          "confidence": 44,
+          "cue": "Five-year horizon after an engagement shock favors recovery of repeat usage value"
+        }
+      },
+      "hard": {
+        "payloadHash": "sha256:fd66f94c98ca404569e143ca13f21577da42d5ed1d72d88c5fdf4ba64926f0f5",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T22:30:00.000Z",
+        "guesses": [
+          {
+            "company": "Netflix",
+            "confidence": 20,
+            "pointingFact": "2012 consumer services name whose lookback shows a boom-then-collapse pattern into an engagement debate"
+          },
+          {
+            "company": "Groupon",
+            "confidence": 13,
+            "pointingFact": "Consumer digital service facing retention and cost pressure after a steep equity reset"
+          },
+          {
+            "company": "Zynga",
+            "confidence": 11,
+            "pointingFact": "Consumer services firm whose 2012 narrative centered on engagement durability"
+          },
+          {
+            "company": "Pandora",
+            "confidence": 8,
+            "pointingFact": "Recurring consumer service competing for discretionary spending in a digital shift"
+          },
+          {
+            "company": "Yelp",
+            "confidence": 6,
+            "pointingFact": "Consumer digital company with usage-driven economics around the early 2010s"
+          }
+        ],
+        "direction": {
+          "call": "long",
+          "confidence": 40,
+          "cue": "Retention improvement over several periods could raise customer value if costs stabilize"
+        }
       }
     }
   }

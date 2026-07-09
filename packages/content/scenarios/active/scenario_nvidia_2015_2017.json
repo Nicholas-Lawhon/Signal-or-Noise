@@ -130,6 +130,82 @@
           "confidence": 52,
           "cue": "New commercial workloads could expand demand beyond the original niche"
         }
+      },
+      "medium": {
+        "payloadHash": "sha256:4db7310de6e9ab39f5ac8c370ef1e9d37764ca37ae29b0f53835f7ff1b3ca0af",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T22:30:00.000Z",
+        "guesses": [
+          {
+            "company": "NVIDIA",
+            "confidence": 27,
+            "pointingFact": "2015 computing-component supplier with multiple customer types in an infrastructure demand cycle"
+          },
+          {
+            "company": "Intel",
+            "confidence": 18,
+            "pointingFact": "Broad technology component maker exposed to uneven equipment budgets"
+          },
+          {
+            "company": "AMD",
+            "confidence": 15,
+            "pointingFact": "Semiconductor supplier whose results hinge on a changing customer mix"
+          },
+          {
+            "company": "Broadcom",
+            "confidence": 12,
+            "pointingFact": "Component supplier competing for diversified order flow across computing end markets"
+          },
+          {
+            "company": "Micron",
+            "confidence": 10,
+            "pointingFact": "Computing infrastructure component vendor sensitive to procurement cycles"
+          }
+        ],
+        "direction": {
+          "call": "long",
+          "confidence": 40,
+          "cue": "Additional customer groups could make the demand improvement more durable than a single-cycle spike"
+        }
+      },
+      "hard": {
+        "payloadHash": "sha256:3bac612021dff8a1a63e9a07471d32185bf5359f0baecf06a6783d6a047f23d4",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T22:30:00.000Z",
+        "guesses": [
+          {
+            "company": "NVIDIA",
+            "confidence": 11,
+            "pointingFact": "2015 computing infrastructure cycle for a multi-customer technology supplier"
+          },
+          {
+            "company": "Intel",
+            "confidence": 10,
+            "pointingFact": "Technology supplier competing for reallocated equipment budgets"
+          },
+          {
+            "company": "AMD",
+            "confidence": 9,
+            "pointingFact": "Component supplier whose earnings track an uneven order cycle"
+          },
+          {
+            "company": "Broadcom",
+            "confidence": 7,
+            "pointingFact": "Technology supplier serving a changing mix of business buyers"
+          },
+          {
+            "company": "Qualcomm",
+            "confidence": 6,
+            "pointingFact": "Technology component firm exposed to competitive pricing in equipment markets"
+          }
+        ],
+        "direction": {
+          "call": "toss_up",
+          "confidence": 33,
+          "cue": "Broader orders could help, but cautious budgets and pricing pressure cut both ways"
+        }
       }
     }
   }

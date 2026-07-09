@@ -130,6 +130,82 @@
           "confidence": 62,
           "cue": "Losses mounting while stock already ran far ahead of earnings"
         }
+      },
+      "medium": {
+        "payloadHash": "sha256:78b33d1f771d9b305680ad82dcef6c3224d4c2935b2df91b37c268c86125e94a",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T22:30:00.000Z",
+        "guesses": [
+          {
+            "company": "Amazon",
+            "confidence": 26,
+            "pointingFact": "Late-1990s unprofitable consumer growth name with an extreme multiperiod price run-up"
+          },
+          {
+            "company": "Yahoo",
+            "confidence": 18,
+            "pointingFact": "Consumer-facing boom-era business facing a demand for nearer-term profits"
+          },
+          {
+            "company": "eBay",
+            "confidence": 15,
+            "pointingFact": "Consumer marketplace growth story during the late-1990s equity boom"
+          },
+          {
+            "company": "Priceline",
+            "confidence": 12,
+            "pointingFact": "High-growth consumer name investing ahead of earnings in 1999"
+          },
+          {
+            "company": "America Online",
+            "confidence": 10,
+            "pointingFact": "Widely known consumer franchise whose valuation rested on expansion narratives"
+          }
+        ],
+        "direction": {
+          "call": "short",
+          "confidence": 42,
+          "cue": "Spending still runs ahead of results while investors reassess patience for unprofitable growth"
+        }
+      },
+      "hard": {
+        "payloadHash": "sha256:50605e4b9b9ac6bb9221096de051078bed09b982fc088c10f5921ddb76be48dd",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T22:30:00.000Z",
+        "guesses": [
+          {
+            "company": "Amazon",
+            "confidence": 12,
+            "pointingFact": "1999 growth-before-earnings public company with a parabolic lookback silhouette"
+          },
+          {
+            "company": "Yahoo",
+            "confidence": 10,
+            "pointingFact": "Late-1990s growth franchise under cash-generation scrutiny"
+          },
+          {
+            "company": "Cisco",
+            "confidence": 9,
+            "pointingFact": "Boom-era growth name whose chart and valuation invited a patience debate"
+          },
+          {
+            "company": "eBay",
+            "confidence": 8,
+            "pointingFact": "Public growth company still proving the durability of expansion spending"
+          },
+          {
+            "company": "Qualcomm",
+            "confidence": 6,
+            "pointingFact": "Late-1990s high-growth public company with volatile capital-market treatment"
+          }
+        ],
+        "direction": {
+          "call": "toss_up",
+          "confidence": 35,
+          "cue": "Patience for spending could pay off or the market could rotate to clearer earnings"
+        }
       }
     }
   }

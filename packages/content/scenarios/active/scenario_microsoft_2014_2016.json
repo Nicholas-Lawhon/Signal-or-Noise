@@ -130,6 +130,82 @@
           "confidence": 55,
           "cue": "Long-standing corporate relationships can accelerate cloud subscription adoption"
         }
+      },
+      "medium": {
+        "payloadHash": "sha256:58f15d3937347b461dda8e2c293cc4bb8f285169e651390286e4d4e9ccd54b5d",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T22:30:00.000Z",
+        "guesses": [
+          {
+            "company": "Microsoft",
+            "confidence": 28,
+            "pointingFact": "2014 enterprise incumbent with a broad commercial base shifting spend away from older offerings"
+          },
+          {
+            "company": "Oracle",
+            "confidence": 20,
+            "pointingFact": "Enterprise software supplier facing budget scrutiny and a changing product mix"
+          },
+          {
+            "company": "IBM",
+            "confidence": 16,
+            "pointingFact": "Large commercial technology vendor under pressure as customers reassess established suppliers"
+          },
+          {
+            "company": "SAP",
+            "confidence": 12,
+            "pointingFact": "Enterprise technology franchise seeking growth from existing customers amid a transition"
+          },
+          {
+            "company": "Cisco",
+            "confidence": 10,
+            "pointingFact": "Commercial technology supplier exposed to uneven budget allocation across product lines"
+          }
+        ],
+        "direction": {
+          "call": "long",
+          "confidence": 40,
+          "cue": "Existing commercial relationships could fund incremental sales more efficiently than new logos"
+        }
+      },
+      "hard": {
+        "payloadHash": "sha256:5a01bb608b056dcc94b13ebdd996abc71d34d22b658647aa55079974142644bf",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T22:30:00.000Z",
+        "guesses": [
+          {
+            "company": "Microsoft",
+            "confidence": 12,
+            "pointingFact": "2014 commercial technology transition with mix shift across an installed base"
+          },
+          {
+            "company": "Oracle",
+            "confidence": 11,
+            "pointingFact": "Enterprise technology vendor competing as customers reprice established suppliers"
+          },
+          {
+            "company": "IBM",
+            "confidence": 10,
+            "pointingFact": "Broad commercial tech franchise under spending scrutiny in the mid-2010s"
+          },
+          {
+            "company": "SAP",
+            "confidence": 8,
+            "pointingFact": "Commercial software company seeking growth from renewals and mix change"
+          },
+          {
+            "company": "Adobe",
+            "confidence": 7,
+            "pointingFact": "Technology company transitioning commercial customers toward a newer sales mix"
+          }
+        ],
+        "direction": {
+          "call": "toss_up",
+          "confidence": 34,
+          "cue": "Mix shift could support growth or renewals could slow before the new mix proves itself"
+        }
       }
     }
   }

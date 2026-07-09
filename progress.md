@@ -14,23 +14,21 @@ first thing the next agent reads.
 - **App state:** Monorepo scaffolded. Game engine: 37 tests. Content package:
   Zod schema, validation CLI, 6 active sample JSON scenarios (Balanced Tension /
   D026). A005 MAJORs 1–3 closed by H018; A005 MINORs 1/2/4 closed by H020.
-  **H021–H028 accepted:** H027 Hard rewrites + shared labels landed; H028 wrote
-  fresh blind Gate 2 results for all 18 Easy/Medium/Hard payloads
-  (`model: grok-4.5`, `promptVersion: guess.v1+direction.v1`,
-  `testedAt: 2026-07-09T18:00:00.000Z`). Easy identity passes 6/6. Medium
-  identity fails 6/6; Hard identity fails 6/6. `validate` 0/6 with Medium/Hard
-  Gate 2 errors; `gate2 check` 14 errors / 12 warnings / 0 missing. Review
-  report `agents/reports/R035_R034_review.md`. Active seeds are **not** Gate-2-clean.
-  H029 rewrote Medium/Hard content on all six seeds, retained byte-identical
-  Easy/shared labels and Easy Gate 2 evidence, removed stale Medium/Hard Gate
-  2 results, and exported `agents/gate2/H029_payloads.json` (18 payloads).
-  Structural validation is clean; the 12 Medium/Hard variants require a fresh
-  blind Grok rejudge. No auth, no DB.
-- **Next task:** User manually dispatches
-  `agents/handoffs/H030_blind_gate2_rejudge_medium_hard.md` to Grok 4.5
-  (blind rejudge of the 12 Medium/Hard payloads in
-  `agents/gate2/H029_payloads.json`; Easy evidence remains valid).
-  Orchestrator then reviews `agents/reports/R040_H030.md`.
+  **H021–H029 accepted path:** H029 rewrote Medium/Hard; H030 blind-rejudged the
+  12 Medium/Hard payloads (`model: grok-4.5`,
+  `promptVersion: guess.v1+direction.v1`,
+  `testedAt: 2026-07-09T22:30:00.000Z`). Easy Gate 2 evidence preserved
+  (`testedAt: 2026-07-09T18:00:00.000Z`). Identity: 5/6 scenarios fully store
+  Medium+Hard results without identity errors; **Netflix Medium+Hard fail**
+  identity thresholds (lead 18 / hard conf 20). `validate` 5/6 pass (1 fail);
+  `gate2 check` 2 errors / 10 warnings / 0 missing. Active seeds are **not**
+  fully Gate-2-clean (Netflix identity). No auth, no DB.
+- **Next task:** Two tracks to close Part A: (1) doc 09 generation-readiness
+  review handoff (independent of Netflix; fold in plausible-count threshold
+  calibration using H030 evidence); (2) Netflix decision — targeted
+  Medium+Hard rewrite (recommended first: margins are small, lead 18 vs 15 /
+  conf 20 vs 15) or seed replacement if a fourth pass fails. Part A close
+  also needs user Gate 1 playability sign-off on the now-abstract Hard cards.
 - **Workflow state:** D029 added token-efficient context routing; D030 added
   state compaction. New handoffs require a Context Manifest, Context Budget, and
   Output Budget. D033 added GPT 5.6 Terra to the roster and made all roles
@@ -39,10 +37,9 @@ first thing the next agent reads.
   (Fable / Terra High) need a recorded cost/context rationale. Detailed
   Phase 0-3 history is archived in `agents/history/progress_phase_0_3.md`.
   Dispatch mode remains manual-by-default (D028).
-- **Blocked/Questions:** none. Watch item from R038: Hard cards are now very
-  abstract to beat D031 thresholds — if they pass Gate 2 but play as too
-  vague at Gate 1, the fix is a threshold/design decision, not another
-  rewrite.
+- **Blocked/Questions:** none for H030. Watch: Hard plausible-count warnings
+  (often only 2–3 guesses ≥ floor 10) and Netflix lookback silhouette still
+  leaking identity under honest judgment.
 
 ## How to Run (updated as the app grows)
 
@@ -91,6 +88,60 @@ Read it only when a handoff explicitly needs historical detail.
 ---
 
 ## Session Log
+
+### 2026-07-09 - Orchestrator - R040 accepted; H030 approved
+
+**What changed:**
+- Reviewed `agents/reports/R040_H030.md` and the write-back diff. Invariant
+  check confirmed stripping the new `review.gate2.medium|hard` entries leaves
+  all six seeds byte-identical to HEAD; hashes match the H029 export; model/
+  prompt pins and shared testedAt correct.
+- Marked R040 approved and wrote `agents/reports/R041_R040_review.md`.
+- Committed honest results including the Netflix failures as baseline
+  evidence.
+
+**How to run:** unchanged.
+
+**Tests:** validate 5/6 (Netflix FAIL, 10 warnings); gate2 check 2 errors /
+10 warnings / 0 missing; content 50/50; root 87/87; typecheck pass.
+
+**Known issues:**
+- Netflix Medium (lead 18) and Hard (conf 20) identity fails — small margins.
+- Plausible-count WARNs on most Medium/Hard; calibration question for the
+  doc 09 review.
+- Hard-card abstractness still awaiting user Gate 1 playability check.
+
+**Blocked/Questions:** user decision on Netflix path (targeted rewrite vs
+seed replacement) and doc 09 review routing.
+
+**Next recommended task:** Draft doc 09 generation-readiness review handoff;
+draft Netflix Medium+Hard fix-up handoff per user decision.
+
+### 2026-07-09 - Content Curator - H030 blind Medium/Hard Gate 2 rejudge
+
+**What changed:**
+- Blind-judged all 12 Medium/Hard payloads from `agents/gate2/H029_payloads.json`
+  using only pre-decision payload fields (Easy skipped; not rejudged).
+- Wrote `review.gate2.medium` and `review.gate2.hard` on all six active seeds
+  (`model: grok-4.5`, `promptVersion: guess.v1+direction.v1`,
+  `testedAt: 2026-07-09T22:30:00.000Z`); payload hashes match H029 export;
+  Easy Gate 2 entries left unchanged.
+- Honest Netflix failures retained (no content rewrite in this handoff).
+
+**How to run:** unchanged.
+
+**Tests:** content 50/50; root 87/87; typecheck pass. `validate` 5/6 (Netflix
+FAIL); `gate2 check` 2 errors / 10 warnings / 0 missing.
+
+**Known issues:**
+- Netflix Medium: correct #1 lead 18 (threshold 15).
+- Netflix Hard: correct #1 conf 20 (threshold 15).
+- Plausible-count warnings on most Medium (5 ≥ floor) and Hard (2–3 < 4).
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** Orchestrator review R040; Netflix Medium/Hard
+rewrite or threshold decision.
 
 ### 2026-07-09 - Orchestrator - H030 blind Medium/Hard rejudge drafted
 

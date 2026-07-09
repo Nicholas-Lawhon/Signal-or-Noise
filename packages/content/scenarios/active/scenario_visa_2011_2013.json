@@ -130,6 +130,82 @@
           "confidence": 58,
           "cue": "Global electronic payments adoption creates volume growth without lending the balances"
         }
+      },
+      "medium": {
+        "payloadHash": "sha256:75c3de5c275680a1b3fbdb1300fbb0bb049db7e99f435edf4ba046477c80023e",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T22:30:00.000Z",
+        "guesses": [
+          {
+            "company": "Visa",
+            "confidence": 30,
+            "pointingFact": "Post-crisis financial services firm with activity-linked revenue, light balance-sheet risk, and pricing or regulatory pressure"
+          },
+          {
+            "company": "Mastercard",
+            "confidence": 28,
+            "pointingFact": "Nearly identical throughput business model tied to recovery in customer activity"
+          },
+          {
+            "company": "American Express",
+            "confidence": 14,
+            "pointingFact": "Payment-related financial services name sensitive to consumer activity in a recovery"
+          },
+          {
+            "company": "Discover",
+            "confidence": 10,
+            "pointingFact": "Payments and consumer-activity franchise facing competitive pricing pressure"
+          },
+          {
+            "company": "Fiserv",
+            "confidence": 8,
+            "pointingFact": "Financial infrastructure firm whose revenue tracks customer transaction activity"
+          }
+        ],
+        "direction": {
+          "call": "long",
+          "confidence": 46,
+          "cue": "A broader recovery can lift activity-driven revenue even if pricing power is constrained"
+        }
+      },
+      "hard": {
+        "payloadHash": "sha256:ac3f88ac31af59c8766f64a13c69fa0fafe8b52ba119273f0aab590c2160b5c7",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T22:30:00.000Z",
+        "guesses": [
+          {
+            "company": "Visa",
+            "confidence": 14,
+            "pointingFact": "2011 recovery-era financial services company whose earnings track customer activity more than balance-sheet risk"
+          },
+          {
+            "company": "Mastercard",
+            "confidence": 13,
+            "pointingFact": "Parallel payments franchise with the same activity-and-pricing tension"
+          },
+          {
+            "company": "American Express",
+            "confidence": 10,
+            "pointingFact": "Financial services firm leveraged to improving customer activity after the crisis"
+          },
+          {
+            "company": "Discover",
+            "confidence": 8,
+            "pointingFact": "Consumer-activity financial company facing pricing and policy pressure"
+          },
+          {
+            "company": "PayPal",
+            "confidence": 6,
+            "pointingFact": "Financial services name tied to transaction throughput in the early recovery years"
+          }
+        ],
+        "direction": {
+          "call": "long",
+          "confidence": 38,
+          "cue": "Higher activity can lift revenue if costs do not rise in proportion"
+        }
       }
     }
   }

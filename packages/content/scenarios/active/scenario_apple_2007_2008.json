@@ -130,6 +130,82 @@
           "confidence": 52,
           "cue": "Stock already prices meaningful execution so a weak debut has little cushion"
         }
+      },
+      "medium": {
+        "payloadHash": "sha256:6c28c9de1dca35c67c940a0521f95bb2de135caea43aa5b483704b0e7d882761",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T22:30:00.000Z",
+        "guesses": [
+          {
+            "company": "Apple",
+            "confidence": 30,
+            "pointingFact": "2007 consumer product cycle with channel and supplier leverage risks during a device transition era"
+          },
+          {
+            "company": "Nokia",
+            "confidence": 18,
+            "pointingFact": "Handset maker dependent on outside distribution during a mobile-device transition"
+          },
+          {
+            "company": "Research In Motion",
+            "confidence": 14,
+            "pointingFact": "Consumer communications device maker facing a category reset in 2007"
+          },
+          {
+            "company": "Sony",
+            "confidence": 12,
+            "pointingFact": "Consumer electronics franchise running costly product refreshes through retail channels"
+          },
+          {
+            "company": "Motorola",
+            "confidence": 10,
+            "pointingFact": "Device maker navigating product-line change and partner friction around 2007"
+          }
+        ],
+        "direction": {
+          "call": "long",
+          "confidence": 38,
+          "cue": "A successful product refresh could lift demand enough to justify the execution spend"
+        }
+      },
+      "hard": {
+        "payloadHash": "sha256:11c6adaf239a3a04df3ae396be18ddae833c7e776e037aa663d5993161165705",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T22:30:00.000Z",
+        "guesses": [
+          {
+            "company": "Apple",
+            "confidence": 13,
+            "pointingFact": "2007 consumer-device transition era associated with a high-stakes product refresh"
+          },
+          {
+            "company": "Nokia",
+            "confidence": 11,
+            "pointingFact": "Major consumer products firm exposed to device-cycle execution risk in 2007"
+          },
+          {
+            "company": "Sony",
+            "confidence": 10,
+            "pointingFact": "Consumer electronics company with recurring product-line refresh risk"
+          },
+          {
+            "company": "Research In Motion",
+            "confidence": 8,
+            "pointingFact": "Consumer device maker competing through a category transition window"
+          },
+          {
+            "company": "Nintendo",
+            "confidence": 7,
+            "pointingFact": "Consumer products firm whose results hinge on acceptance of an updated lineup"
+          }
+        ],
+        "direction": {
+          "call": "toss_up",
+          "confidence": 32,
+          "cue": "Refresh demand could improve results or inventory and margins could suffer first"
+        }
       }
     }
   }
