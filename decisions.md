@@ -779,6 +779,123 @@ self-check margins are wide, and Part B's per-batch blind judging cadence
 provides a cheap catch-point. Spending a dedicated dispatch on two payloads
 buys little over folding them into batch 1.
 
+## D036 - Phase 4 Part B generation pipeline (C004 adopted)
+
+**Date:** 2026-07-09 · **Status:** User approved
+
+C004's five decision points are adopted for Phase 4 Part B (D034's 40-card
+wave). Doc 09 and the Gate 2 WARN config must be amended before batch
+authoring (H033). Settled points:
+
+1. **Fact-bank extension (structured):** Doc 09 requires a peer-set /
+   conjunction-breaking fact bank before drafting. Mandatory authoring
+   fields: (a) named peer set per difficulty, (b) pointing fact or pointing
+   conjunction for each peer candidate, (c) prohibited *conjunctions*
+   including chart-plus-prose paths. The three existing lists
+   (revealOnly / decisionUseful / prohibited) remain; this extends them.
+2. **Mandatory payload-only self-judge before export:** Authors run a
+   Gate 2-shaped top-5 + direction self-judge on the pre-decision payload
+   only (no company/reveal fields), compare it to red-team likely-guess
+   lists, and revise on zero-overlap, correct-company dominance, or
+   unsupported candidates. Self-judge is editorial and **non-authoritative**
+   — activation still requires blind Grok Gate 2 (D032) plus human review.
+3. **Plausible-count WARN recalibration (automated only):** Retain D031
+   blocking identity thresholds unchanged. Change automated Gate 2
+   plausible-count WARNs to under-2-only for both Medium and Hard (drop
+   Medium's above-4 WARN and Hard's below-4 WARN). Keep doc 09 Gate 1
+   authoring aspirations at Medium 2–4 / Hard ≥ 4; when self-judge cannot
+   substantiate the larger set, the author records a reason. Reassess after
+   batches 1–2 and user playtests.
+4. **Hard style under D031:** Keep the Hard correct-company confidence
+   floor at 15 for the 40-card pilot. Add an explicit
+   **decision-informativeness** rule: Hard must retain two non-identifying
+   causal facts from the decision-useful bank such that Long and Short are
+   each articulable in one sentence and neither case could apply unchanged
+   to nearly any public company. This closes the open D031 refinement
+   question from D034 without loosening the identity floor.
+5. **Batch cadence:** Four authoring batches of 10 cards (~6 famous /
+   3 moderate / 1 obscure each). Per batch: fact banks → Hard-first →
+   Medium/Easy → deterministic validate → payload-only self-judge →
+   export → separate blind Grok Gate 2 handoff (D032). Failures are fixed
+   and only changed payloads are rejudged. User playtests after batches 1
+   and 2 before admitting batches 3–4. Final activation requires human
+   content review + Gate 2 currency check; no card goes active on its
+   author's self-judge alone.
+
+Batch 1's blind judging handoff also folds in the two Netflix Medium/Hard
+payloads from H032 per D035.
+
+**Rationale:** H029's peer-set / conjunction method took Medium+Hard from
+0/12 to 10/12 identity passes; scaling without encoding that method would
+reproduce H028 failures. Self-judging is cheap insurance, not a substitute
+for the blind boundary. WARN noise currently obscures real signals. The
+Hard style rule targets unfun-abstract cards without weakening leakage
+protection. Batching + mid-wave playtests are the calibration value of
+D034's reduced 40-card target.
+
+## D037 - Chart-silhouette identity review rule
+
+**Date:** 2026-07-09 · **Status:** User approved
+
+When a historically truthful pre-decision lookback chart is itself
+identity-bearing (alone or as the dominant cue that collapses the peer set),
+apply this editorial ladder — do **not** silently distort history:
+
+1. **Chart-silhouette review (required):** Treat a distinctive lookback
+   silhouette as an identity fact. Record it in the fact bank's prohibited
+   conjunctions (chart-plus-prose). Prose must not confirm the silhouette's
+   favorite candidate; peer sets must include other public companies whose
+   charts in the same era could plausibly match.
+2. **Prose decoupling first:** Prefer reframing the business tension so
+   runner-up candidates fit at least as well as the actual company
+   (H032 technique). Market data and the truthful window stay frozen while
+   this is viable.
+3. **Escalate to the user (orchestrator + human):** If identity still fails
+   Gate 2 after honest prose decoupling, or if the only remaining "fix" is
+   vagueness that breaks the decision-informativeness floor (D036 §4), stop.
+   Do not window-shift, invent prices, or force a pass. Escalation options
+   the user may choose: accept residual risk with documented reason, replace
+   the scenario, or (last resort) retire the candidate. Window-shifting is
+   discouraged because it distorts history; retirement is preferred over
+   fake history when the silhouette is unfixable.
+
+Applies to Part B authoring and to any remaining prototype-seed residual
+(e.g. Netflix Medium/Hard folded into batch 1 judging per D035).
+
+**Rationale:** Netflix H030/H032 showed the silhouette channel is real and
+not fully fixable by prose alone. Preserving historical truth is a product
+integrity constraint; the user is the right decision-maker when truth and
+guessability conflict.
+
+## D038 - Production source-quality standard (Part B)
+
+**Date:** 2026-07-09 · **Status:** User approved
+
+Part B cards (D034's 40-card wave and later production content) must meet a
+higher source bar than the Phase 3 prototype seeds (D006):
+
+1. **Every market data point** used on the card — decision/end dates,
+   split-adjusted start/end prices, and `actualReturnPercent` — must have a
+   **named source** in `sources` (label + URL; optional notes for which
+   fields it supports).
+2. **Every material reveal claim** — `reveal.shortText` causal claim,
+   `funFact`, and each `whyItMoved` bullet — must be checkable against a
+   named source in `sources` (the same source may cover multiple claims).
+3. **Acceptable source classes:** historical price providers or exchanges;
+   company filings / official IR; reputable business or market journalism;
+   primary market-context sources. Blog posts, anonymous secondary
+   summaries, and unsourced model recollection are not sufficient alone.
+4. **Human review is the gate:** source adequacy is checked at human
+   content review before activation. Schema validation still requires
+   non-empty `sources`; it does not verify claim-to-source coverage.
+5. **Prototype seeds:** the six existing active cards remain accepted
+   prototype-grade under D006 unless a later handoff promotes or replaces
+   them; new Part B drafts are held to this standard from first export.
+
+**Rationale:** Production cards are the product. Named, reviewable sources
+make fact errors catchable and keep the game on the entertainment side of
+"historical trivia" without becoming a finance-data product.
+
 ## Open Design Question â€” composite Final Score / Information Tiers (NOT a decision)
 
 **Date:** 2026-07-03 Â· **Status:** Exploration pending

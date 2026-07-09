@@ -6,30 +6,29 @@ first thing the next agent reads.
 
 ## Current Status
 
-- **Phase:** 0–3 COMPLETE; **Phase 4 Part A CLOSED** (D035, 2026-07-09 — user
-  signed off that the gate guards are trusted; Netflix blind rejudge waived).
-  Current phase is **Phase 4 Part B — content generation at scale**: 40 cards
-  (24 famous / 12 moderate / 4 obscure per D034), 10 daily challenge pools,
-  10 famous market eras. Database is Phase 5, Auth 6, Leaderboards 7, Daily
-  Challenge 8 (D027).
+- **Phase:** 0–3 COMPLETE; **Phase 4 Part A CLOSED** (D035). Current phase is
+  **Phase 4 Part B — content generation at scale**: 40 cards (24 famous / 12
+  moderate / 4 obscure per D034), 10 daily challenge pools, 10 famous market
+  eras. Pipeline policy locked in **D036–D038** (C004 adopted). Database is
+  Phase 5, Auth 6, Leaderboards 7, Daily Challenge 8 (D027).
 - **App state:** Monorepo scaffolded. Game engine: 37 tests. Content package:
   Zod schema, validation CLI, offline Gate 2 harness (export/check, pinned
   grok-4.5 judge per D031/D032), 6 active seeds (Balanced Tension / D026).
-  All 6 pass `validate` (9 plausible-count WARNs); `gate2 check` 0 errors /
-  9 WARNs / 2 informational missing (Netflix Medium/Hard — rejudge waived per
-  D035; payloads in `agents/gate2/H032_payloads.json` can be folded into the
-  first Part B batch judging as a backstop). No auth, no DB.
-- **Next task:** User decides the five C004 decision points + two open
-  questions (chart-silhouette policy, Part B source-quality standard); then
-  orchestrator drafts H033 (doc 09 amendment per C004) and the Part B batch-1
-  handoffs (fact banks/peer sets → author 10 → self-judge → blind Gate 2).
+  All 6 pass `validate` (9 plausible-count WARNs — pending H033 under-2-only
+  recalibration); `gate2 check` 0 errors / 9 WARNs / 2 informational missing
+  (Netflix Medium/Hard — fold into H035 per D035). No auth, no DB.
+- **Next task:** Dispatch **H033** (doc 09 Part B amendment + plausible-count
+  WARN recalibration, GPT 5.5). After orchestrator accepts H033: dispatch
+  **H034** (batch-1 author 10 cards), then **H035** (blind Gate 2 + Netflix
+  fold-in). User playtest after batch 1 before batches 3–4.
+- **Handoffs ready:** `H033` status **approved**; `H034`/`H035` status
+  **draft** (dispatch after H033 lands). Do not run H034 against pre-H033
+  doc 09.
 - **Workflow state:** D028 manual-by-default dispatch; D029 context/output
-  budgets on every handoff; D030 state compaction; D033 model-agnostic roles
-  (Fable/Terra high-reasoning assignments need recorded rationale). Phase 0–3
-  history in `agents/history/progress_phase_0_3.md`; Phase 4A history in
-  `agents/history/progress_phase_4a.md`.
-- **Blocked/Questions:** C004 decision points await user decisions before
-  Part B handoffs are drafted.
+  budgets on every handoff; D030 state compaction; D033 model-agnostic roles.
+  Phase 0–3 history in `agents/history/progress_phase_0_3.md`; Phase 4A
+  history in `agents/history/progress_phase_4a.md`.
+- **Blocked/Questions:** None. Await H033 execution.
 
 ## How to Run (updated as the app grows)
 
@@ -80,6 +79,36 @@ Read it only when a handoff explicitly needs historical detail.
 ---
 
 ## Session Log
+
+### 2026-07-09 - Orchestrator - D036–D038; H033/H034/H035 drafted
+
+**What changed:**
+- User adopted all C004 recommendations and both open-question leans
+  (chart-silhouette review + escalate; named sources for market data and
+  reveal claims).
+- Recorded **D036** (Part B pipeline: structured fact bank, mandatory
+  self-judge, under-2-only plausible WARNs, Hard informativeness @ conf 15,
+  four batches of 10 with playtests after 1–2), **D037** (chart-silhouette
+  ladder), **D038** (production source-quality standard).
+- Drafted handoffs:
+  - `H033` — doc 09 amendment + WARN recalibration (Implementor, GPT 5.5,
+    **approved** for dispatch)
+  - `H034` — batch-1 author 10 drafts (Content Curator, GPT 5.5, draft until
+    H033 accepted)
+  - `H035` — batch-1 blind Gate 2 + Netflix Medium/Hard fold-in (Grok 4.5,
+    draft until H034 complete)
+
+**How to run:** unchanged.
+
+**Tests:** not rerun this session (docs/decisions/handoffs only).
+
+**Known issues:**
+- Pre-H033: 9 plausible-count WARNs still fire on identity-passing cards.
+- Netflix Medium/Hard still missing stored Gate 2 (D035; H035 backstop).
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** Manual dispatch of H033 (standard prompt below).
 
 ### 2026-07-09 - Orchestrator - R044/C004 accepted; D035; Phase 4A CLOSED
 
