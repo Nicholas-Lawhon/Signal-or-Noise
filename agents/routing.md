@@ -17,14 +17,27 @@ the inverse of how prescriptive its handoffs must be.
 
 | Model | Intelligence | Cost-eff. | Style | Speed | Autonomy | Invoked via |
 |---|---|---|---|---|---|---|
-| Claude Fable (orchestrator) | 10 | 2 | 7 | 5 | — | the user's session |
+| Claude Fable (orchestrator) | 10 | 2 | 7 | 5 | — | the user's session, or `claude -p` |
 | GPT 5.5 | 9 | 4 | 9 | 4 | 9 | `codex exec` |
-| Grok 4.5 | 7 | 8 | TBD¹ | 7 | 6 | `grok -p` |
-| Claude Sonnet/Opus (utility) | 6–8 | n/a² | 7 | 8 | 7 | Agent tool, in-session |
+| Grok 4.5 | 8 | 8 | TBD¹ | 7 | 7 | `grok -p` |
+| Claude Sonnet/Opus (utility) | 6–8 | n/a² | 7 | 8 | 7 | in-session subagents³ |
 | DeepSeek v4 Pro | 4 | 10 | 5 | 8 | 2 | `opencode run` |
 
 ¹ Style TBD — the user rates it after Grok's first 2–3 handoffs; update this table.
 ² Included in the orchestrator session; not a separately billed executor.
+³ Via the orchestrator host's subagent facility (Claude Code: the Agent tool).
+  A non-Claude orchestrator uses `claude -p` (see dispatch commands) instead.
+
+### The orchestrator seat is model-agnostic
+
+The orchestrator is a ROLE (`agents/roles/orchestrator.md`), not a model. All
+binding state lives in the repo — `soul.md`, `decisions.md`, `roadmap.md`,
+`progress.md`, the handoff/report/audit files — and every entry path
+(`CLAUDE.md`, `AGENTS.md`) routes a fresh session through the same Required
+Reading Order. To seat a different model as orchestrator: start its session in
+the repo root, have it read `AGENTS.md` → `agents/roles/orchestrator.md`, and
+update this table's orchestrator row. Any model-private memory (e.g. Claude's
+auto-memory) is a convenience cache, never the source of truth.
 
 ## Routing Procedure
 
@@ -94,10 +107,16 @@ grok -p "<dispatch prompt>" --permission-mode acceptEdits --deny "Bash(git commi
 # be closed or the run hangs before sending anything (from PowerShell wrap in
 # cmd /c with `< NUL`; from bash append `< /dev/null`).
 cmd /c "opencode run --auto -m deepseek/deepseek-v4-pro ""<dispatch prompt>"" < NUL"
+
+# Claude (Fable/Opus/Sonnet via --model) — only when Claude is NOT the
+# orchestrator, or a Claude executor is explicitly wanted. Tolerates a non-TTY
+# stdin (3s wait, then proceeds); `< NUL` skips the wait.
+claude -p "<dispatch prompt>" --permission-mode acceptEdits --disallowedTools "Bash(git commit*)" "Bash(git push*)"
 ```
 
-Verified smoke-test results (2026-07-08): all three read `progress.md` in this
-repo headlessly and answered correctly. Grok needs no stdin workaround.
+Verified smoke-test results (2026-07-08): all four ran headlessly against this
+repo and answered correctly (grok/codex/opencode read `progress.md`; claude
+echo test). Grok needs no stdin workaround.
 
 Guardrails: workspace-write, no git. Headless agents auto-approve edits inside
 the repo; git commit/push is forbidden by CLI deny rules where the CLI supports
