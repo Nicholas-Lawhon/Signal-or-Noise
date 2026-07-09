@@ -22,9 +22,12 @@ first thing the next agent reads.
   Gate 2 errors; `gate2 check` 14 errors / 12 warnings / 0 missing. Review
   report `agents/reports/R035_R034_review.md`. Active seeds are **not** Gate-2-clean.
   No auth, no DB.
-- **Next task:** Draft a Medium+Hard identity rewrite handoff for all six seeds,
-  preferably avoiding shared labels so the passing Easy Gate 2 results can stay
-  valid. Re-export payloads and rejudge changed variants after rewrites.
+- **Next task:** User manually dispatches
+  `agents/handoffs/H029_medium_hard_identity_rewrite.md` to GPT 5.6 Terra
+  (High) — first Terra dispatch under D033. Orchestrator then reviews
+  `agents/reports/R037_H029.md` and drafts the blind Gate 2 rejudge handoff
+  over `agents/gate2/H029_payloads.json` (Medium/Hard only if shared labels
+  held).
 - **Workflow state:** D029 added token-efficient context routing; D030 added
   state compaction. New handoffs require a Context Manifest, Context Budget, and
   Output Budget. D033 added GPT 5.6 Terra to the roster and made all roles
@@ -83,6 +86,35 @@ Read it only when a handoff explicitly needs historical detail.
 ---
 
 ## Session Log
+
+### 2026-07-09 - Orchestrator - H029 Medium+Hard identity rewrite approved
+
+**What changed:**
+- Drafted and approved `agents/handoffs/H029_medium_hard_identity_rewrite.md`:
+  rewrite Medium+Hard hidden-card variants on all six active seeds after H028
+  identity failures, keeping Easy text and shared labels byte-identical so Easy
+  Gate 2 evidence stays valid.
+- Routed to GPT 5.6 Terra (High) with recorded rationale — third rewrite
+  attempt; prior GPT 5.5/shared-label passes failed blind judgment. First Terra
+  dispatch under D033 (user approved).
+- Shared-label changes now escalate to the orchestrator instead of a silent
+  H027-style exception. Stale Medium/Hard gate2 entries removed by executor;
+  fresh export to `agents/gate2/H029_payloads.json`; blind Grok rejudge remains
+  a follow-up handoff (D032).
+- Wrote `agents/reports/R036_h029_draft.md`.
+
+**How to run:** unchanged.
+
+**Tests:** not run - handoff/report/progress drafting only.
+
+**Known issues:**
+- Active seeds remain not Gate-2-clean until H029 + blind rejudge land.
+- Terra codex invocation flags are unverified until first dispatch.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** Manually dispatch H029, then review
+`agents/reports/R037_H029.md`.
 
 ### 2026-07-09 - Orchestrator - D033: GPT 5.6 Terra added; roles model-agnostic
 
