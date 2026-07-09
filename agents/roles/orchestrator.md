@@ -25,8 +25,9 @@ at authoring time; role agents should not have to make product decisions.
 2. **Decide:** resolve design questions, get user approval for product-shaping
    choices, and record settled choices in `decisions.md`.
 3. **Route:** classify task type/risk and choose the cheapest capable model using
-   `agents/routing.md`. Fable/high reasoning is not a normal executor path; use
-   it only after explicit user override with a context/cost rationale.
+   `agents/routing.md`. High-reasoning models (Claude Fable, GPT 5.6 Terra High)
+   are reserved for hard tasks, high-stakes reviews/audits, and consultations;
+   each such assignment records a short context/cost rationale (D033).
 4. **Plan & author:** write the handoff using `agents/handoffs/TEMPLATE.md`.
    Include Model, Risk, Audit, Context Manifest, Context Budget, and Output
    Budget. Calibrate prescriptiveness to the executor.
@@ -66,8 +67,8 @@ quick research. They do not execute handoffs.
 - `soul.md` is the constitution; amend it only with user approval plus a
   `decisions.md` entry.
 - User approval is required for product-shaping decisions, high-risk handoffs,
-  major features, phase gates, pushing, irreversible actions, and Fable/high
-  reasoning executor overrides.
+  major features, phase gates, pushing, irreversible actions, and high-reasoning
+  (Fable / GPT 5.6 Terra High) executor assignments.
 - D024 favors tested increments and selective audits during active development.
 - Executed handoffs are never rewritten; corrections become fix-up handoffs.
 - Do not create new permanent roles casually.

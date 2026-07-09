@@ -27,10 +27,12 @@ first thing the next agent reads.
   valid. Re-export payloads and rejudge changed variants after rewrites.
 - **Workflow state:** D029 added token-efficient context routing; D030 added
   state compaction. New handoffs require a Context Manifest, Context Budget, and
-  Output Budget; Fable/high-reasoning executor runs require explicit user
-  override with a cost/context rationale. Detailed Phase 0-3 history is archived
-  in `agents/history/progress_phase_0_3.md`. Dispatch mode remains
-  manual-by-default (D028).
+  Output Budget. D033 added GPT 5.6 Terra to the roster and made all roles
+  model-agnostic: Fable is no longer the default orchestrator seat, the user
+  picks/initiates the session orchestrator, and high-reasoning assignments
+  (Fable / Terra High) need a recorded cost/context rationale. Detailed
+  Phase 0-3 history is archived in `agents/history/progress_phase_0_3.md`.
+  Dispatch mode remains manual-by-default (D028).
 - **Blocked/Questions:** none from H028. Identity failures are expected handoff
   outcomes — orchestrator decides rewrite scope.
 
@@ -81,6 +83,34 @@ Read it only when a handoff explicitly needs historical detail.
 ---
 
 ## Session Log
+
+### 2026-07-09 - Orchestrator - D033: GPT 5.6 Terra added; roles model-agnostic
+
+**What changed:**
+- Recorded D033 (user approved): GPT 5.6 Terra joins the roster (Int 10 /
+  Cost-eff 5 / Style 8 / Speed 8 / Autonomy 10); GPT 5.5 Cost-eff 5→6; Grok 4.5
+  Style TBD→6; Fable un-pinned from the orchestrator seat; all roles are
+  model-agnostic; the user always initiates/picks the session orchestrator;
+  cross-model review enabled at the Fable/Terra tier.
+- Rewrote `agents/routing.md`: roster table, "All roles are model-agnostic"
+  section, domain defaults, handoff calibration, high-reasoning rationale rule,
+  risk table, and a `codex exec` dispatch command for GPT 5.6 Terra (High).
+- Synced `agents/README.md`, `agents/roles/orchestrator.md`,
+  `agents/roles/consultant.md`, and this file's workflow-state bullet.
+
+**How to run:** unchanged.
+
+**Tests:** not run - docs/workflow only.
+
+**Known issues:**
+- The GPT 5.6 Terra `codex exec` model slug/reasoning flag
+  (`-m gpt-5.6-terra -c model_reasoning_effort=high`) is a best-guess
+  convention; verify against the installed codex CLI before first dispatch.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** Draft the Medium+Hard identity rewrite handoff for
+all six seeds (unchanged from before this workflow update).
 
 ### 2026-07-09 - Orchestrator - R034 accepted; H028 approved
 

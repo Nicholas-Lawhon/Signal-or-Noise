@@ -6,9 +6,10 @@ how much review the result needs.
 
 **Token-economy rule:** route to the cheapest model whose characteristics cover
 the task. Never spend strong-model tokens on mechanical work. Never let cheap
-models make decisions. Claude Fable is the orchestrator seat, not a routine
-handoff executor; using it as an executor requires explicit user override after
-a cost/context estimate.
+models make decisions. High-reasoning models (Claude Fable, GPT 5.6 Terra) are
+reserved for the hardest tasks, high-stakes reviews/audits, and consultations —
+every high-reasoning assignment records a short cost/context rationale in the
+handoff.
 
 ## Model Roster & Characteristics
 
@@ -19,18 +20,28 @@ the inverse of how prescriptive its handoffs must be.
 
 | Model | Intelligence | Cost-eff. | Style | Speed | Autonomy | Invoked via |
 |---|---:|---:|---:|---:|---:|---|
-| Claude Fable | 10 | 2 | 7 | 5 | 10 | Orchestrator seat; executor only by explicit override |
-| GPT 5.5 | 9 | 5 | 9 | 8 | 9 | `codex exec` |
-| Grok 4.5 | 8 | 8 | TBD | 8 | 7 | `grok -p` |
+| Claude Fable | 10 | 2 | 7 | 5 | 10 | `claude -p` (headless) or interactive session |
+| GPT 5.6 Terra | 10 | 5 | 8 | 8 | 10 | `codex exec` with model/reasoning overrides (see dispatch commands) |
+| GPT 5.5 | 9 | 6 | 9 | 8 | 9 | `codex exec` |
+| Grok 4.5 | 8 | 8 | 6 | 8 | 7 | `grok -p` |
 | Claude Sonnet/Opus utility | 6-8 | n/a | 7 | 8 | 7 | in-session subagents only |
 | DeepSeek v4 Pro | 4 | 10 | 5 | 8 | 2 | `opencode run` |
 
-### The orchestrator seat is model-agnostic
+### All roles are model-agnostic
 
-The orchestrator is a ROLE (`agents/roles/orchestrator.md`), not a model. Binding
-state lives in the repo: `soul.md`, `decisions.md`, `roadmap.md`, `progress.md`,
-handoffs, reports, audits, and consultations. Model-private memory is a
-convenience cache, never the source of truth.
+Every role — Orchestrator included — is a ROLE file (`agents/roles/*.md`), not a
+model. Any model from the roster can be slotted into any role based on the task:
+Fable can execute a hard handoff or run an audit, GPT 5.6 Terra can orchestrate
+a session, Grok can judge Gate 2. No model is locked to one seat, and no seat is
+locked to one model.
+
+The **initial orchestrator for a work session is always initiated and picked by
+the user**, since the user kicks off the session; routing decisions within the
+session then follow this file. Binding state lives in the repo: `soul.md`,
+`decisions.md`, `roadmap.md`, `progress.md`, handoffs, reports, audits, and
+consultations. Model-private memory is a convenience cache, never the source of
+truth — any capable model can pick up the orchestrator seat from repo state
+alone.
 
 ## Routing Procedure
 
@@ -40,7 +51,8 @@ routes to the cheapest model whose profile covers it:
 - **Judgment:** Does the task embed product/design/architecture decisions? Resolve
   decisions before dispatch when possible; route remaining execution cheaper.
 - **Ambiguity:** Fully specified -> DeepSeek; mostly specified -> Grok; genuinely
-  open-ended -> GPT 5.5.
+  open-ended -> GPT 5.5; hardest/highest-stakes open-ended work -> GPT 5.6 Terra
+  or Claude Fable.
 - **Style-sensitivity:** User-facing UI, UX, copy, or production scenario content
   usually needs GPT 5.5, unless the handoff supplies tight examples and checks.
 - **Scope:** Multi-file/multi-package work needs Grok or GPT 5.5.
@@ -54,7 +66,8 @@ routes to the cheapest model whose profile covers it:
 | Feature implementation with a clear spec, test repair, medium refactors, most Auditor passes | Grok 4.5 |
 | Bounded Consultant memos where the options, source files, and decision points are already named | Grok 4.5 first |
 | Architecture, data model, security/auth, ambiguous bugs, design/UI/UX, production scenario content and guessability gates, high-stakes review | GPT 5.5 |
-| Routing, decisions, handoff authoring, report review, commits, tiny doc edits it owns | Orchestrator |
+| Hardest tasks, high-stakes reviews/audits, consultations where GPT 5.5 is insufficient; cross-model review of strong-model work | GPT 5.6 Terra (High) or Claude Fable — pick whichever did NOT produce the work under review |
+| Routing, decisions, handoff authoring, report review, commits, tiny doc edits it owns | Orchestrator (whichever model holds the seat) |
 | Orchestrator exploration, diff verification, quick checks, transcript summarization | Claude subagents as utility helpers |
 
 ### Handoff calibration by executor
@@ -65,8 +78,11 @@ routes to the cheapest model whose profile covers it:
   implementation details.
 - **GPT 5.5:** goal-oriented, with explicit decision boundaries. Do not spend
   tokens restating long background that a context manifest can point to.
-- **Claude Fable:** not a normal executor. Use only when the user explicitly
-  chooses it for a handoff after seeing why GPT 5.5/Grok is insufficient.
+- **GPT 5.6 Terra / Claude Fable:** goal-oriented with maximum delegated
+  judgment (Autonomy 10). Reserve for hard tasks, high-stakes reviews/audits,
+  and consultations; the handoff records why GPT 5.5/Grok is insufficient.
+  Having two models at this tier enables cross-model review: one can audit or
+  review work the other produced or orchestrated.
 
 ## Context and Output Budgets (D029)
 
@@ -92,10 +108,10 @@ Archived progress files under `agents/history/` are opt-in context. Reference a
 specific archive section in the Context Manifest when historical detail matters;
 otherwise rely on the phase summaries in `progress.md` and `roadmap.md`.
 
-High-reasoning modes are opt-in. Before assigning Fable or any "high reasoning
-effort" run, the orchestrator records in the handoff why Grok/GPT 5.5 is
-insufficient, the expected context size, and the expected artifact size. If that
-cannot be explained in 2-3 sentences, the routing is probably wrong.
+High-reasoning modes are deliberate, not default. Before assigning Claude Fable
+or GPT 5.6 Terra (High), the orchestrator records in the handoff why Grok/GPT
+5.5 is insufficient, the expected context size, and the expected artifact size.
+If that cannot be explained in 2-3 sentences, the routing is probably wrong.
 
 ## Handoff Dispatch (D023, amended by D028)
 
@@ -125,10 +141,13 @@ grok -p "<dispatch prompt>" --permission-mode bypassPermissions --deny "Bash(git
 # GPT 5.5 - codex exec reads stdin when not attached to a TTY
 "<dispatch prompt>" | codex exec --sandbox workspace-write -a never -
 
+# GPT 5.6 Terra (High) - same codex exec path with model + reasoning overrides
+"<dispatch prompt>" | codex exec -m gpt-5.6-terra -c model_reasoning_effort=high --sandbox workspace-write -a never -
+
 # DeepSeek v4 Pro - stdin must be closed under PowerShell
 cmd /c "opencode run --auto -m deepseek/deepseek-v4-pro ""<dispatch prompt>"" < NUL"
 
-# Claude executor, only by explicit override
+# Claude Fable - hard tasks and reviews/audits
 claude -p "<dispatch prompt>" --permission-mode acceptEdits --disallowedTools "Bash(git commit*)" "Bash(git push*)"
 ```
 
@@ -144,8 +163,8 @@ the flags, and resume rather than restart.
 **Dispatch approval gate (D024):** Low- and routine medium-risk development
 handoffs may dispatch after task agreement. Explicit pre-dispatch user approval
 remains required for high-risk work, major feature additions, phase gates,
-irreversible/outward-facing actions, product-rule changes, and any Fable/high
-reasoning executor override.
+irreversible/outward-facing actions, product-rule changes, and any
+high-reasoning (Claude Fable / GPT 5.6 Terra High) executor assignment.
 
 ## Risk Levels
 
@@ -157,7 +176,7 @@ force an Auditor pass during active development (D024).
 |------|------------|--------------------------------------|
 | Low | Mechanical, tightly scoped, easily reversible; no game-logic or durable user-visible behavior change | Orchestrator reviews report + diff and runs cheap verification. Auditor normally none. |
 | Medium | Spans multiple files/packages or changes prototype user-visible behavior | Orchestrator review + tests/typecheck. Auditor optional. |
-| High | Scoring math, architecture, security/auth, data model, leaderboard integrity, production content pipeline, or anything touching `soul.md` rules | GPT 5.5 execution or review, formal Auditor/cross-model review when useful, and explicit user sign-off. |
+| High | Scoring math, architecture, security/auth, data model, leaderboard integrity, production content pipeline, or anything touching `soul.md` rules | Strong-model (GPT 5.5 / GPT 5.6 Terra / Claude Fable) execution or review, formal Auditor/cross-model review when useful, and explicit user sign-off. |
 
 **Development-speed rule (D024):** formal audits are selective until production
 readiness. Use them for major phase completions, substantial feature additions,

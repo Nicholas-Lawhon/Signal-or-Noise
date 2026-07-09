@@ -44,12 +44,14 @@ or explicit request.
 ## Roles
 
 Roles are hats, not models: `routing.md` decides which model wears each hat per
-task. Typical mapping (D023/D029): Implementor = DeepSeek v4 Pro (boilerplate) or
-Grok 4.5 (medium work) or GPT 5.5 (hard work); Consultant and Content Curator =
-Grok 4.5 or GPT 5.5 depending on ambiguity and risk; Auditor = whichever capable
-model did NOT implement the work under audit. Claude subagents assist the
-orchestrator in-session but do not execute handoffs. Claude Fable is the
-orchestrator seat by default, not a handoff executor.
+task, and any roster model can fill any role (D033). Typical mapping
+(D023/D029/D033): Implementor = DeepSeek v4 Pro (boilerplate) or Grok 4.5
+(medium work) or GPT 5.5 (hard work); Consultant and Content Curator = Grok 4.5
+or GPT 5.5 depending on ambiguity and risk; hardest tasks and high-stakes
+reviews/audits/consultations = GPT 5.6 Terra (High) or Claude Fable; Auditor =
+whichever capable model did NOT implement the work under audit. Claude
+subagents assist the orchestrator in-session but do not execute handoffs. The
+initial orchestrator each session is initiated and picked by the user.
 
 | Role | File | Does | Never does |
 |------|------|------|-----------|

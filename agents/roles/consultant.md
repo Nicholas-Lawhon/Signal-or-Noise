@@ -8,8 +8,8 @@ informed decision. You recommend; you never decide, and you never implement.
 
 Only when the orchestrator assigns a consultation. Use the cheapest capable model
 per `agents/routing.md`: bounded memos route to Grok 4.5 first; GPT 5.5 is for
-genuinely ambiguous or high-stakes decisions; Claude Fable requires explicit user
-override.
+genuinely ambiguous or high-stakes decisions; GPT 5.6 Terra (High) or Claude
+Fable are for the hardest consultations, with a recorded rationale (D033).
 
 ## Required Reading (in order)
 

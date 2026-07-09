@@ -47,6 +47,7 @@ the D-number or the current task directly touches that area.
 | D030 | State compaction policy | Agent workflow |
 | D031 | Gate 2 judge uses Grok 4.5 | Content pipeline |
 | D032 | Gate 2 runs through agent workflow, not API tokens | Content pipeline |
+| D033 | GPT 5.6 Terra joins roster; all roles model-agnostic | Agent workflow |
 
 ---
 
@@ -687,6 +688,40 @@ enforcement layer. The tradeoff is that Gate 2 is "agent-assisted automation"
 rather than a fully self-contained CLI API call; that is acceptable for the
 current solo MVP pipeline and can be revisited if batch volume or CI needs later
 justify API integration.
+
+## D033 - GPT 5.6 Terra joins the roster; all roles are model-agnostic
+
+**Date:** 2026-07-09 · **Status:** User approved
+
+Amends the D023/D029 model lineup. Full routing policy stays in
+`agents/routing.md` (single source of truth). Settled points:
+
+1. **GPT 5.6 Terra added** to the roster: Intelligence 10, Cost-eff 5, Style 8,
+   Speed 8, Autonomy 10. Invoked via `codex exec` with model/reasoning
+   overrides; the High reasoning variant is the standard configuration for its
+   tier.
+2. **Rating corrections:** GPT 5.5 Cost-efficiency 5 → 6; Grok 4.5 Style
+   TBD → 6.
+3. **Claude Fable is no longer the default orchestrator seat.** Fable is a
+   high-reasoning roster model like Terra: usable for hard tasks, high-stakes
+   reviews/audits, and consultations. It is not locked to any single role.
+4. **All roles are model-agnostic** — any roster model can be slotted into any
+   role (including Orchestrator) based on the task. The initial orchestrator
+   for a work session is always initiated and picked by the user, who kicks off
+   the session.
+5. **Cross-model review at the top tier:** with two Autonomy-10 models
+   (Fable, Terra), high-stakes work produced or orchestrated by one can be
+   reviewed/audited by the other, extending the D023 cross-model audit rule to
+   the strongest tier.
+6. High-reasoning assignments still record a 2-3 sentence rationale (why
+   Grok/GPT 5.5 is insufficient, expected context/output size) per D029's
+   token-economy intent; the D029 "Fable is the orchestrator seat by default"
+   wording is superseded by this decision.
+
+**Rationale:** A second frontier model removes the single-point dependency on
+Fable for hard work and enables genuine cross-model review at the top tier.
+Making every seat model-agnostic keeps the workflow durable across future
+lineup changes: the roster table changes, the process does not.
 ## Open Design Question â€” composite Final Score / Information Tiers (NOT a decision)
 
 **Date:** 2026-07-03 Â· **Status:** Exploration pending
