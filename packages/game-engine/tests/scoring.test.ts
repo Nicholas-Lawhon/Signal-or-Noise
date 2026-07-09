@@ -219,4 +219,30 @@ describe('scoreRound', () => {
     expect(result.signalScoreDelta).toBe(4);
     expect(result.wasCorrect).toBe(true);
   });
+
+  // Case 16: exact 0 return is incorrect for Long and Short
+  it('treats actualReturnPercent 0 as incorrect for long and short', () => {
+    const longResult = scoreRound({
+      action: 'long',
+      confidence: 'medium',
+      currentBankroll: 10000,
+      actualReturnPercent: 0,
+    });
+    expect(longResult.wasCorrect).toBe(false);
+    expect(longResult.signalScoreDelta).toBe(-2);
+    expect(longResult.pnlAmount).toBe(0);
+    expect(longResult.newBankroll).toBe(10000);
+
+    const shortResult = scoreRound({
+      action: 'short',
+      confidence: 'low',
+      currentBankroll: 10000,
+      actualReturnPercent: 0,
+    });
+    expect(shortResult.wasCorrect).toBe(false);
+    expect(shortResult.signalScoreDelta).toBe(-1);
+    // short * 0 can yield -0 in IEEE floats; value is still zero dollars
+    expect(shortResult.pnlAmount).toBeCloseTo(0, 10);
+    expect(shortResult.newBankroll).toBe(10000);
+  });
 });

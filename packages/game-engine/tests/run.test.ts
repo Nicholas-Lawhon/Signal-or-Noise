@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { createRunState, applyRoundResult, isBankrupt, summarizeRun } from '../src/run';
+import {
+  createRunState,
+  applyRoundResult,
+  advanceRun,
+  isBankrupt,
+  summarizeRun,
+} from '../src/run';
 
 describe('createRunState', () => {
   it('creates a medium run with correct defaults', () => {
@@ -9,6 +15,8 @@ describe('createRunState', () => {
     expect(run.currentRoundIndex).toBe(0);
     expect(run.status).toBe('in_progress');
     expect(run.rounds).toHaveLength(0);
+    expect(run.currentStreak).toBe(0);
+    expect(run.bestStreak).toBe(0);
   });
 
   it('creates an easy run with 12500 bankroll', () => {
@@ -19,6 +27,18 @@ describe('createRunState', () => {
   it('creates a hard run with 7500 bankroll', () => {
     const run = createRunState({ difficulty: 'hard' });
     expect(run.currentBankroll).toBe(7500);
+  });
+
+  it('throws when startingBankroll is negative', () => {
+    expect(() => createRunState({ difficulty: 'medium', startingBankroll: -1 })).toThrow(
+      'startingBankroll must not be negative.',
+    );
+  });
+
+  it('throws when totalRounds is less than 1', () => {
+    expect(() => createRunState({ difficulty: 'medium', totalRounds: 0 })).toThrow(
+      'totalRounds must be at least 1.',
+    );
   });
 });
 
@@ -94,6 +114,162 @@ describe('applyRoundResult', () => {
   });
 });
 
+describe('streak tracking', () => {
+  it('increases streak on correct calls and tracks best streak', () => {
+    let run = createRunState({ difficulty: 'medium' });
+    run = applyRoundResult(run, {
+      scenarioId: 's1',
+      action: 'long',
+      confidence: 'low',
+      actualReturnPercent: 0.1,
+    });
+    expect(run.currentStreak).toBe(1);
+    expect(run.bestStreak).toBe(1);
+
+    run = applyRoundResult(run, {
+      scenarioId: 's2',
+      action: 'short',
+      confidence: 'low',
+      actualReturnPercent: -0.1,
+    });
+    expect(run.currentStreak).toBe(2);
+    expect(run.bestStreak).toBe(2);
+  });
+
+  it('resets current streak on wrong call without lowering best streak', () => {
+    let run = createRunState({ difficulty: 'medium' });
+    run = applyRoundResult(run, {
+      scenarioId: 's1',
+      action: 'long',
+      confidence: 'low',
+      actualReturnPercent: 0.1,
+    });
+    run = applyRoundResult(run, {
+      scenarioId: 's2',
+      action: 'long',
+      confidence: 'low',
+      actualReturnPercent: 0.1,
+    });
+    expect(run.currentStreak).toBe(2);
+    expect(run.bestStreak).toBe(2);
+
+    run = applyRoundResult(run, {
+      scenarioId: 's3',
+      action: 'long',
+      confidence: 'low',
+      actualReturnPercent: -0.1,
+    });
+    expect(run.currentStreak).toBe(0);
+    expect(run.bestStreak).toBe(2);
+  });
+
+  it('preserves streak on Pass without increasing it', () => {
+    let run = createRunState({ difficulty: 'medium' });
+    run = applyRoundResult(run, {
+      scenarioId: 's1',
+      action: 'long',
+      confidence: 'low',
+      actualReturnPercent: 0.1,
+    });
+    expect(run.currentStreak).toBe(1);
+
+    run = applyRoundResult(run, {
+      scenarioId: 's2',
+      action: 'pass',
+      actualReturnPercent: 0.5,
+    });
+    expect(run.currentStreak).toBe(1);
+    expect(run.bestStreak).toBe(1);
+  });
+
+  it('does not change streak based on company guess correctness', () => {
+    let run = createRunState({ difficulty: 'medium' });
+    run = applyRoundResult(run, {
+      scenarioId: 's1',
+      action: 'long',
+      confidence: 'low',
+      actualReturnPercent: 0.1,
+      companyGuess: 'Right Co',
+      companyGuessCorrect: true,
+    });
+    expect(run.currentStreak).toBe(1);
+
+    run = applyRoundResult(run, {
+      scenarioId: 's2',
+      action: 'pass',
+      actualReturnPercent: 0.1,
+      companyGuess: 'Wrong Co',
+      companyGuessCorrect: false,
+    });
+    expect(run.currentStreak).toBe(1);
+    expect(run.bestStreak).toBe(1);
+
+    run = applyRoundResult(run, {
+      scenarioId: 's3',
+      action: 'long',
+      confidence: 'low',
+      actualReturnPercent: -0.1,
+      companyGuess: 'Right Co',
+      companyGuessCorrect: true,
+    });
+    expect(run.currentStreak).toBe(0);
+    expect(run.bestStreak).toBe(1);
+  });
+});
+
+describe('advanceRun', () => {
+  it('returns the new round and summary null while the run is ongoing', () => {
+    const run = createRunState({ difficulty: 'medium', totalRounds: 3 });
+    const result = advanceRun(run, {
+      scenarioId: 's1',
+      action: 'long',
+      confidence: 'low',
+      actualReturnPercent: 0.1,
+    });
+
+    expect(result.didEndRun).toBe(false);
+    expect(result.summary).toBeNull();
+    expect(result.run.status).toBe('in_progress');
+    expect(result.round.scenarioId).toBe('s1');
+    expect(result.run.rounds).toHaveLength(1);
+    expect(result.run.rounds[0]).toEqual(result.round);
+  });
+
+  it('returns a populated summary when the run completes', () => {
+    const run = createRunState({ difficulty: 'medium', totalRounds: 1 });
+    const result = advanceRun(run, {
+      scenarioId: 's1',
+      action: 'long',
+      confidence: 'low',
+      actualReturnPercent: 0.1,
+    });
+
+    expect(result.didEndRun).toBe(true);
+    expect(result.run.status).toBe('completed');
+    expect(result.summary).not.toBeNull();
+    expect(result.summary!.correctCalls).toBe(1);
+    expect(result.summary!.wentBankrupt).toBe(false);
+    expect(result.summary!.currentStreak).toBe(1);
+    expect(result.summary!.bestStreak).toBe(1);
+  });
+
+  it('returns a populated summary when the run goes bankrupt', () => {
+    const run = createRunState({ difficulty: 'medium' });
+    const result = advanceRun(run, {
+      scenarioId: 'bust',
+      action: 'short',
+      confidence: 'all_in',
+      actualReturnPercent: 1.5,
+    });
+
+    expect(result.didEndRun).toBe(true);
+    expect(result.run.status).toBe('bankrupt');
+    expect(result.summary).not.toBeNull();
+    expect(result.summary!.wentBankrupt).toBe(true);
+    expect(result.summary!.finalBankroll).toBe(0);
+  });
+});
+
 describe('summarizeRun', () => {
   it('computes correct summary stats', () => {
     let run = createRunState({ difficulty: 'medium' });
@@ -128,6 +304,8 @@ describe('summarizeRun', () => {
     expect(summary.bestTrade!.scenarioId).toBe('s1');
     expect(summary.worstTrade).toBeTruthy();
     expect(summary.worstTrade!.scenarioId).toBe('s2');
+    expect(summary.currentStreak).toBe(0);
+    expect(summary.bestStreak).toBe(1);
   });
 
   it('counts only correct company calls', () => {

@@ -6,16 +6,16 @@ first thing the next agent reads.
 
 ## Current Status
 
-- **Phase:** 0 + 1 COMPLETE (A002 PASS). H011 content fix-up accepted for
-  prototype under D024 despite A004 strict content-gate FAIL; full Gate 1/Gate 2
-  enforcement is deferred to Phase 3 production content. Phase 2 (Game Engine
-  Hardening) is next.
-- **App state:** Monorepo scaffolded. Game engine: 24 passing tests. 20-round
-  Classic Run playable. 12 placeholder scenarios with Easy/Medium/Hard (3/2/1)
-  clues; H011 rewrote A003-flagged variants + BB/BA lookbacks. No auth, no DB.
-- **Next task:** Draft and dispatch Phase 2 game-engine hardening with D024 audit
-  policy (tests + orchestrator review; formal audit only at phase close/high risk).
-  Parallel: Gate A Growth, composite-score memo.
+- **Phase:** 0 + 1 COMPLETE (A002 PASS). Phase 2 COMPLETE under D024 via H012.
+  Phase 3 (Scenario Schema & Content Pipeline) is next. Full Gate 1/Gate 2
+  content enforcement returns for Phase 3 production content.
+- **App state:** Monorepo scaffolded. Game engine: 37 passing tests. Phase 2 API
+  complete (`calculateStake`, `scoreRound`, `applyRoundResult`, `createRunState`,
+  `advanceRun`, `isBankrupt`, `summarizeRun`, `calculateLeaderboardTiebreakers`)
+  plus streak tracking. 20-round Classic Run playable. 12 placeholder scenarios.
+  No auth, no DB.
+- **Next task:** Phase 3 content pipeline handoff, Gate A Growth, or composite
+  score memo as planned.
 - **Blocked/Questions:** none. Known prototype content issue: some placeholder
   Medium/Hard variants remain too guessable; accepted under D024 because Phase 3
   replaces placeholder content and restores full doc 09 gates.
@@ -25,7 +25,7 @@ first thing the next agent reads.
 ```bash
 pnpm install          # install dependencies
 pnpm dev              # start dev server at http://localhost:3000
-pnpm test             # run game-engine tests (24 tests)
+pnpm test             # run game-engine tests (37 tests)
 pnpm typecheck        # run TypeScript type checking
 ```
 
@@ -56,6 +56,64 @@ All from repo root. Requires Node.js LTS and pnpm 9.x.
 ---
 
 ## Session Log
+
+### 2026-07-09 — Orchestrator — H012 review accepted under D024
+
+**What changed:**
+- Reviewed R009 and the H012 engine diff. Independently reran `pnpm typecheck`
+  and `pnpm test`; both pass, with 37/37 tests green.
+- Accepted H012 under D024; no formal audit needed for this pure engine hardening
+  pass because tests cover the changed API and locked scoring math was preserved.
+- Marked roadmap Phase 2 complete and advanced current phase to Phase 3.
+
+**Tests:** 37 passing / 0 failing — `pnpm typecheck`; `pnpm test`.
+
+**Known issues:** none for Phase 2 engine hardening.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** choose Phase 3 content pipeline, Gate A Growth, or
+composite score memo.
+
+### 2026-07-09 — Implementor — H012 Phase 2 game engine hardening
+
+**What changed:**
+- Hardened `packages/game-engine`: streak fields on `RunState`/`RunSummary`;
+  `advanceRun`; `calculateLeaderboardTiebreakers` (+ optional `leaderboard.ts`);
+  input guards on `createRunState` and leaderboard inputs; exported new types
+  via package index. Scoring math unchanged.
+- Expanded tests: zero return incorrect, streaks, advanceRun end/ongoing,
+  leaderboard sortKey, guards. Suite 24 → 37 tests.
+- Report: `agents/reports/R009_H012.md`. Handoff status → complete.
+- Left all work uncommitted (D012).
+
+**How to run:** unchanged (`pnpm test` now 37 tests).
+
+**Tests:** 37 passing / 0 failing — `pnpm typecheck`; `pnpm test`.
+
+**Known issues:**
+- Web UI does not yet display streaks (out of H012 scope; state fields present).
+- Placeholder content Gate 1/Gate 2 gaps deferred to Phase 3 (unchanged).
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** Orchestrator review R009 + diff under D024; commit if
+accepted; then Phase 3 or Gate A growth.
+
+### 2026-07-09 — Orchestrator — H012 drafted for Phase 2 engine hardening
+
+**What changed:**
+- Drafted `agents/handoffs/H012_phase2_game_engine_hardening.md` for Grok 4.5:
+  complete missing Phase 2 engine API (`advanceRun`, leaderboard tiebreakers),
+  add streak tracking, preserve locked scoring math, and expand engine tests.
+
+**Tests:** not run — handoff draft only.
+
+**Known issues:** none.
+
+**Blocked/Questions:** awaiting user approval before dispatch.
+
+**Next recommended task:** approve H012, then orchestrator dispatches Grok 4.5.
 
 ### 2026-07-09 — Orchestrator — D024 development-speed review policy
 

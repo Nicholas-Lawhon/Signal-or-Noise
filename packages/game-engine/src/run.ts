@@ -2,12 +2,12 @@ import { BANKRUPTCY_FLOOR, STARTING_BANKROLL, CLASSIC_RUN_ROUNDS } from './confi
 import { scoreRound } from './scoring';
 import type {
   Difficulty,
-  RoundAction,
-  Confidence,
   RunState,
   RunStatus,
   CompletedRound,
   RunSummary,
+  ApplyRoundResultInput,
+  AdvanceRunOutput,
 } from './types';
 
 export function createRunState(params: {
@@ -15,6 +15,13 @@ export function createRunState(params: {
   startingBankroll?: number;
   totalRounds?: number;
 }): RunState {
+  if (params.startingBankroll !== undefined && params.startingBankroll < 0) {
+    throw new Error('startingBankroll must not be negative.');
+  }
+  if (params.totalRounds !== undefined && params.totalRounds < 1) {
+    throw new Error('totalRounds must be at least 1.');
+  }
+
   return {
     mode: 'classic_run',
     difficulty: params.difficulty,
@@ -25,20 +32,12 @@ export function createRunState(params: {
     currentRoundIndex: 0,
     status: 'in_progress',
     rounds: [],
+    currentStreak: 0,
+    bestStreak: 0,
   };
 }
 
-export function applyRoundResult(
-  run: RunState,
-  input: {
-    scenarioId: string;
-    action: RoundAction;
-    confidence?: Confidence;
-    actualReturnPercent: number;
-    companyGuess?: string | null;
-    companyGuessCorrect?: boolean | null;
-  },
-): RunState {
+export function applyRoundResult(run: RunState, input: ApplyRoundResultInput): RunState {
   if (run.status !== 'in_progress') {
     throw new Error('Cannot apply round to a run that is not in_progress.');
   }
@@ -71,6 +70,16 @@ export function applyRoundResult(
   const newSignalScore = run.signalScore + output.signalScoreDelta;
   const newRoundIndex = run.currentRoundIndex + 1;
 
+  let currentStreak = run.currentStreak;
+  let bestStreak = run.bestStreak;
+  if (output.wasCorrect === true) {
+    currentStreak += 1;
+    bestStreak = Math.max(bestStreak, currentStreak);
+  } else if (output.wasCorrect === false) {
+    currentStreak = 0;
+  }
+  // wasCorrect === null (Pass): leave streaks unchanged
+
   let status: RunStatus = run.status;
   if (newBankroll < BANKRUPTCY_FLOOR) {
     status = 'bankrupt';
@@ -85,6 +94,20 @@ export function applyRoundResult(
     currentRoundIndex: newRoundIndex,
     status,
     rounds,
+    currentStreak,
+    bestStreak,
+  };
+}
+
+export function advanceRun(run: RunState, input: ApplyRoundResultInput): AdvanceRunOutput {
+  const nextRun = applyRoundResult(run, input);
+  const round = nextRun.rounds[nextRun.rounds.length - 1];
+  const didEndRun = nextRun.status !== 'in_progress';
+  return {
+    run: nextRun,
+    round,
+    summary: didEndRun ? summarizeRun(nextRun) : null,
+    didEndRun,
   };
 }
 
@@ -133,5 +156,7 @@ export function summarizeRun(run: RunState): RunSummary {
     bestTrade,
     worstTrade,
     wentBankrupt: run.status === 'bankrupt',
+    currentStreak: run.currentStreak,
+    bestStreak: run.bestStreak,
   };
 }

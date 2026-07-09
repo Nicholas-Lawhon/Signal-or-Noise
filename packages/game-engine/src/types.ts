@@ -44,6 +44,8 @@ export type RunState = {
   currentRoundIndex: number;
   status: RunStatus;
   rounds: CompletedRound[];
+  currentStreak: number;
+  bestStreak: number;
 };
 
 export type RunSummary = {
@@ -56,4 +58,39 @@ export type RunSummary = {
   bestTrade: CompletedRound | null;
   worstTrade: CompletedRound | null;
   wentBankrupt: boolean;
+  currentStreak: number;
+  bestStreak: number;
+};
+
+export type ApplyRoundResultInput = {
+  scenarioId: string;
+  action: RoundAction;
+  confidence?: Confidence;
+  actualReturnPercent: number;
+  companyGuess?: string | null;
+  companyGuessCorrect?: boolean | null;
+};
+
+export type AdvanceRunOutput = {
+  run: RunState;
+  round: CompletedRound;
+  summary: RunSummary | null;
+  didEndRun: boolean;
+};
+
+export type LeaderboardTiebreakerInput = {
+  finalBankroll: number;
+  signalScore: number;
+  correctCalls: number;
+  passes: number;
+  completionTimeMs: number;
+};
+
+export type LeaderboardTiebreakers = {
+  finalBankroll: number;
+  signalScore: number;
+  correctCalls: number;
+  fewerPasses: number;
+  fasterCompletion: number;
+  sortKey: readonly [number, number, number, number, number];
 };

@@ -1,11 +1,13 @@
 # roadmap.md — Signal or Noise?
 
-> **Current phase: Phase 2 (next).** Phases 0 + 1 are COMPLETE and audited
-> (A002 PASS). Only the orchestrator updates this file.
+> **Current phase: Phase 3 (next).** Phases 0 + 1 are COMPLETE and audited
+> (A002 PASS). Phase 2 is COMPLETE under D024. Only the orchestrator updates
+> this file.
 
 Phases follow `docs/10_agentic_coding_handoff.md`. Each phase ships as one or more
-numbered handoff prompts (`agents/handoffs/H###_*.md`). A phase is complete only when
-its acceptance criteria pass and an audit (`agents/audits/`) signs off.
+numbered handoff prompts (`agents/handoffs/H###_*.md`). During active development,
+a phase is complete when its acceptance criteria pass and the orchestrator accepts
+it under D024; formal audits are reserved for selected gates/high-risk work.
 
 ## Phase 0 — Project Setup ✅
 
@@ -28,7 +30,7 @@ H006 (variety + reveal banner). **Audits:** A001 (FAIL) → fixed → A002 (PASS
 **Done 2026-07-03.** 12 placeholder cards, 24 engine tests. Adds beyond original
 scope: Call the Company (D015), wrong-All-In bust (D014), win/loss banner.
 
-## Phase 2 — Game Engine Hardening ⬜
+## Phase 2 — Game Engine Hardening ✅
 
 Pure logic complete in `packages/game-engine`: `calculateStake`, `scoreRound`,
 `applyRoundResult`, `createRunState`, `advanceRun`, `isBankrupt`, `summarizeRun`,
@@ -36,6 +38,9 @@ Pure logic complete in `packages/game-engine`: `calculateStake`, `scoreRound`,
 
 Note: H001 already builds the engine inside `packages/game-engine` (decision D005),
 so Phase 2 is a hardening/completion pass, not a migration.
+
+**Handoff:** H012. **Done 2026-07-09.** 37 game-engine tests. Adds
+`advanceRun`, streak tracking, leaderboard tiebreakers, and guard tests.
 
 ## Phase 3 — Scenario Schema & Content Pipeline ⬜
 
