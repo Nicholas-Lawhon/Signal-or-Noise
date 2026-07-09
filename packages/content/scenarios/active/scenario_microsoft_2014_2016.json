@@ -48,19 +48,19 @@
       ]
     },
     "medium": {
-      "companyDescription": "A diversified technology vendor selling mainly to businesses.",
-      "macroContext": "Corporate buyers are changing how they purchase and consume software and infrastructure.",
-      "situation": "Can the firm refresh growth before mature offerings slow too far?",
-      "longCase": "Deep customer relationships could help introduce newer offerings at lower acquisition cost.",
-      "shortCase": "Legacy dependence and faster-moving rivals can keep growth muted longer than investors tolerate.",
+      "companyDescription": "A technology company with a broad commercial customer base.",
+      "macroContext": "Business customers are reviewing established suppliers as budgets shift between operating needs.",
+      "situation": "Can new spending from existing customers offset slower demand for older offerings?",
+      "longCase": "A broad customer base could support additional sales without proportionate selling costs.",
+      "shortCase": "Budget pressure and competitive alternatives could limit the payoff from a changing mix.",
       "setupHints": []
     },
     "hard": {
-      "companyDescription": "A large technology vendor.",
-      "macroContext": "Corporate buyers are reallocating spend across established and newer delivery models.",
-      "situation": "Can an established seller turn customer access into renewed growth before patience runs out?",
-      "longCase": "Existing commercial relationships can lower the cost of introducing newer offerings.",
-      "shortCase": "Mature lines can shrink before replacements contribute enough to satisfy investors.",
+      "companyDescription": "A technology company serving commercial customers.",
+      "macroContext": "Companies are scrutinizing technology budgets and comparing the cost of established suppliers.",
+      "situation": "Can a changing sales mix support growth while customers reassess spending?",
+      "longCase": "Repeat customers could make incremental sales more efficient than winning entirely new accounts.",
+      "shortCase": "Slower renewals and competitive pricing could weigh on revenue before the new mix proves itself.",
       "setupHints": []
     }
   },
@@ -83,15 +83,15 @@
   "review": {
     "generatedByAi": true,
     "humanReviewed": false,
-    "reviewNotes": "H027 Hard rewrite after H026 Gate 2 identity fail (correct #1 conf 18). Shared-label exception: title Footprint Bet→Refresh Window; decisionDateLabel Jan 2014→2014; era Cloud software expansion→Enterprise technology transition. Hard prose avoids installed-base/subscription-only triangulation. Peer set Microsoft/Oracle/IBM/SAP/Cisco/HP. Easy/Medium prose preserved; all Gate 2 entries removed as stale. Follow-up blind judge must rejudge easy+medium+hard.",
+    "reviewNotes": "H029 rewrote Medium and Hard after H028 linked a diversified enterprise vendor, 2014 refresh, customer relationships, and changing purchase models to Microsoft. Medium peer set: Microsoft/Oracle/IBM/SAP. Hard peer set: IBM/Oracle/SAP/Cisco/Hewlett-Packard/Microsoft; the prose concerns generic commercial budget and renewal pressure. Easy and shared labels remain unchanged; Medium/Hard Gate 2 results were removed as stale.",
     "factBank": {
       "revealOnly": ["Microsoft brand", "Satya Nadella", "Azure", "cloud subscription pivot narrative"],
-      "decisionUseful": ["business-customer access", "mature-line drag", "newer-product distribution leverage", "changing corporate buying models"],
-      "prohibited": ["Windows", "Azure", "Office 365", "Satya Nadella", "subscription-from-installed-base wording", "hosted-services-only framing", "footprint-bet cloud-era label", "month-precise Jan 2014 decision label"]
+      "decisionUseful": ["commercial customer base","incremental-sales efficiency","budget scrutiny and renewal risk","competitive pricing during a sales-mix change"],
+      "prohibited": ["Windows","Azure","Office 365","Satya Nadella","subscription-from-installed-base wording","hosted-services-only framing","footprint-bet cloud-era label","month-precise Jan 2014 decision label","diversified enterprise-vendor plus 2014 refresh conjunction","newer-offerings through deep relationships hook","corporate software-and-infrastructure buying-model framing"]
     },
     "easyLikelyGuesses": ["Microsoft", "IBM", "Oracle"],
-    "mediumLikelyGuesses": ["Microsoft", "Oracle", "IBM", "SAP"],
-    "hardLikelyGuesses": ["Microsoft", "Oracle", "IBM", "SAP", "Cisco", "HP"],
+    "mediumLikelyGuesses": ["Microsoft","Oracle","IBM","SAP"],
+    "hardLikelyGuesses": ["IBM","Oracle","SAP","Cisco","Hewlett-Packard","Microsoft"],
     "gate2": {
       "easy": {
         "payloadHash": "sha256:1763dfab1e5f4761476e64fb5c962c2ff1cada118f4ef1d7d46835780b9111de",
@@ -129,82 +129,6 @@
           "call": "long",
           "confidence": 55,
           "cue": "Long-standing corporate relationships can accelerate cloud subscription adoption"
-        }
-      },
-      "medium": {
-        "payloadHash": "sha256:3cc7da11ceb068393304178baf8e87db41715683dc495ea3d41e5cb73407260c",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T18:00:00.000Z",
-        "guesses": [
-          {
-            "company": "Microsoft",
-            "confidence": 52,
-            "pointingFact": "Diversified technology vendor to businesses facing 2014 refresh"
-          },
-          {
-            "company": "IBM",
-            "confidence": 46,
-            "pointingFact": "Mature enterprise vendor under growth-refresh pressure"
-          },
-          {
-            "company": "Oracle",
-            "confidence": 42,
-            "pointingFact": "Business software and infrastructure seller"
-          },
-          {
-            "company": "Cisco",
-            "confidence": 30,
-            "pointingFact": "Large tech vendor as corporate spend models change"
-          },
-          {
-            "company": "Hewlett-Packard",
-            "confidence": 26,
-            "pointingFact": "Mature IT vendor portfolio refresh risk"
-          }
-        ],
-        "direction": {
-          "call": "toss_up",
-          "confidence": 50,
-          "cue": "Legacy dependence vs relationship-led refresh both argued"
-        }
-      },
-      "hard": {
-        "payloadHash": "sha256:20d77a72b1ae3646eb880526ad909bb5e994f4841489b55f58a68ff8a5958d7d",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T18:00:00.000Z",
-        "guesses": [
-          {
-            "company": "IBM",
-            "confidence": 34,
-            "pointingFact": "Large established seller seeking renewed growth in 2014"
-          },
-          {
-            "company": "Microsoft",
-            "confidence": 32,
-            "pointingFact": "Enterprise technology transition refresh window"
-          },
-          {
-            "company": "Oracle",
-            "confidence": 28,
-            "pointingFact": "Commercial relationships used to introduce newer offerings"
-          },
-          {
-            "company": "Cisco",
-            "confidence": 24,
-            "pointingFact": "Corporate spend reallocation across delivery models"
-          },
-          {
-            "company": "SAP",
-            "confidence": 20,
-            "pointingFact": "Established enterprise seller with mature-line shrink risk"
-          }
-        ],
-        "direction": {
-          "call": "toss_up",
-          "confidence": 42,
-          "cue": "Customer access advantage vs mature-line shrink both live"
         }
       }
     }

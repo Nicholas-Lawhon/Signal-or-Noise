@@ -21,13 +21,16 @@ first thing the next agent reads.
   identity fails 6/6; Hard identity fails 6/6. `validate` 0/6 with Medium/Hard
   Gate 2 errors; `gate2 check` 14 errors / 12 warnings / 0 missing. Review
   report `agents/reports/R035_R034_review.md`. Active seeds are **not** Gate-2-clean.
-  No auth, no DB.
+  H029 rewrote Medium/Hard content on all six seeds, retained byte-identical
+  Easy/shared labels and Easy Gate 2 evidence, removed stale Medium/Hard Gate
+  2 results, and exported `agents/gate2/H029_payloads.json` (18 payloads).
+  Structural validation is clean; the 12 Medium/Hard variants require a fresh
+  blind Grok rejudge. No auth, no DB.
 - **Next task:** User manually dispatches
-  `agents/handoffs/H029_medium_hard_identity_rewrite.md` to GPT 5.6 Terra
-  (High) — first Terra dispatch under D033. Orchestrator then reviews
-  `agents/reports/R037_H029.md` and drafts the blind Gate 2 rejudge handoff
-  over `agents/gate2/H029_payloads.json` (Medium/Hard only if shared labels
-  held).
+  `agents/handoffs/H030_blind_gate2_rejudge_medium_hard.md` to Grok 4.5
+  (blind rejudge of the 12 Medium/Hard payloads in
+  `agents/gate2/H029_payloads.json`; Easy evidence remains valid).
+  Orchestrator then reviews `agents/reports/R040_H030.md`.
 - **Workflow state:** D029 added token-efficient context routing; D030 added
   state compaction. New handoffs require a Context Manifest, Context Budget, and
   Output Budget. D033 added GPT 5.6 Terra to the roster and made all roles
@@ -36,8 +39,10 @@ first thing the next agent reads.
   (Fable / Terra High) need a recorded cost/context rationale. Detailed
   Phase 0-3 history is archived in `agents/history/progress_phase_0_3.md`.
   Dispatch mode remains manual-by-default (D028).
-- **Blocked/Questions:** none from H028. Identity failures are expected handoff
-  outcomes — orchestrator decides rewrite scope.
+- **Blocked/Questions:** none. Watch item from R038: Hard cards are now very
+  abstract to beat D031 thresholds — if they pass Gate 2 but play as too
+  vague at Gate 1, the fix is a threshold/design decision, not another
+  rewrite.
 
 ## How to Run (updated as the app grows)
 
@@ -86,6 +91,58 @@ Read it only when a handoff explicitly needs historical detail.
 ---
 
 ## Session Log
+
+### 2026-07-09 - Orchestrator - R037 accepted; H029 approved
+
+**What changed:**
+- Reviewed `agents/reports/R037_H029.md` and the H029 diff. Structural
+  invariant check confirmed all six seeds kept title/era/date/holding-period
+  labels, Easy cards, company/market/reveal/sources, and `review.gate2.easy`
+  byte-identical; Medium/Hard rewritten; stale Medium/Hard Gate 2 removed.
+- Re-exported payloads and confirmed `agents/gate2/H029_payloads.json` (18
+  entries) matches current content byte-for-byte.
+- Marked R037 approved and wrote `agents/reports/R038_R037_review.md`.
+  Noted (non-blocking) that Hard cards are now very abstract — flagged as a
+  Gate 1 watch item, arbiter is the blind rejudge + user review.
+- First GPT 5.6 Terra dispatch (D033) completed successfully end-to-end.
+
+**How to run:** unchanged.
+
+**Tests:** content validate 6/6, 0 warnings; gate2 check 0 errors / 0
+warnings / 12 expected missing; content 50/50; root 87/87; typecheck pass;
+build pass.
+
+**Known issues:**
+- Medium/Hard identity quality unproven until the blind Grok rejudge (H030).
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** Manually dispatch H030 blind Medium/Hard rejudge,
+then review `agents/reports/R040_H030.md`.
+
+### 2026-07-09 - Content Curator - H029 Medium+Hard identity rewrite
+
+**What changed:**
+- Rewrote Medium and Hard hidden-card fields across all six active scenarios
+  around broader peer-set-first decision tensions; Medium uses zero hints and
+  Hard uses none.
+- Kept Easy content, title, era, decisionDateLabel, holdingPeriodLabel, and
+  `review.gate2.easy` unchanged; removed all stale Medium/Hard Gate 2 results.
+- Updated fact-bank/red-team metadata and exported 18 fresh payloads to
+  `agents/gate2/H029_payloads.json` for the independent blind rejudge.
+
+**How to run:** unchanged.
+
+**Tests:** content validate 6/6; `gate2 check` 0 errors / 0 warnings / 12
+missing Medium/Hard results; content 50/50; root 87/87; typecheck and build pass.
+
+**Known issues:** Final identity quality remains pending the required blind Grok
+rejudge; self-checks are editorial red-team judgments, not Gate 2 results.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** Orchestrator review, then dispatch blind Gate 2
+rejudge for Medium/Hard payloads only.
 
 ### 2026-07-09 - Orchestrator - H029 Medium+Hard identity rewrite approved
 

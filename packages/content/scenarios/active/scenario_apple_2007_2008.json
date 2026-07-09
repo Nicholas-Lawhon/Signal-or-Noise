@@ -48,19 +48,19 @@
       ]
     },
     "medium": {
-      "companyDescription": "A branded consumer products company known for design-led hardware.",
-      "macroContext": "Better networks and data plans are changing what people expect from handheld devices.",
-      "situation": "Can product excellence convert into durable adoption when partners still control distribution?",
-      "longCase": "A loyal following could accept a premium approach and expand the addressable market.",
-      "shortCase": "Channel partners and entrenched rivals can slow scale, and the stock already prices a clean launch.",
+      "companyDescription": "A consumer products company selling through outside channels.",
+      "macroContext": "Retail partners and component suppliers are renegotiating leverage as consumer demand shifts.",
+      "situation": "Can a new product cycle improve sales enough to offset the cost and execution risk of changing the lineup?",
+      "longCase": "A well-received refresh could lift unit demand and improve the value of the existing customer base.",
+      "shortCase": "Inventory, supplier, and channel friction could turn a costly refresh into a margin problem.",
       "setupHints": []
     },
     "hard": {
       "companyDescription": "A consumer products company.",
-      "macroContext": "Device categories and partner distribution terms are being re-cut.",
-      "situation": "Is the market pricing a successful category entry that is still unproven at scale?",
-      "longCase": "Brand pull could accelerate adoption if the new product sticks with users.",
-      "shortCase": "Channel partners and incumbents still control scale, and expectations leave little room for a miss.",
+      "macroContext": "Retail demand and supplier costs are moving unevenly across consumer categories.",
+      "situation": "Can a product refresh improve results before execution costs weigh on profitability?",
+      "longCase": "Stronger demand for an updated lineup could improve revenue and the use of existing distribution.",
+      "shortCase": "A delayed or expensive rollout could leave inventory and margins under pressure.",
       "setupHints": []
     }
   },
@@ -83,15 +83,15 @@
   "review": {
     "generatedByAi": true,
     "humanReviewed": false,
-    "reviewNotes": "H027 Hard rewrite after H026 Gate 2 identity fail (correct #1 conf 24). Shared-label exception: decisionDateLabel Jan 2007→2007; era Smartphone platform era→Consumer device transition (title Category Test kept). Hard prose removes portable/always-connected and premium-product-only cues. Peer set Apple/Nokia/RIM/Motorola/Sony/Palm. Easy/Medium prose preserved; all Gate 2 entries removed as stale. Follow-up blind judge must rejudge easy+medium+hard.",
+    "reviewNotes": "H029 rewrote Medium and Hard after H028 linked design-led hardware, 2007 handheld adoption, premium brand pull, and partner distribution to Apple. Medium peer set: Apple/Sony/Motorola/Nokia. Hard peer set: Sony/Motorola/Nokia/Palm/Apple/RIM; the decision core concerns a general product-refresh execution tradeoff. Easy and shared labels remain unchanged; Medium/Hard Gate 2 results were removed as stale.",
     "factBank": {
       "revealOnly": ["Apple brand", "iPhone", "App Store", "non-phone device base expanding into handhelds"],
-      "decisionUseful": ["brand pull for category entry", "partner-controlled distribution", "high launch expectations in the stock", "device-category transition backdrop"],
-      "prohibited": ["iPhone", "Steve Jobs", "iPod", "expanding beyond established devices wording", "platform from hardware-sales hook", "keyboard-vs-touch form-factor hooks", "portable always-connected silhouette", "month-precise Jan 2007 decision label", "Smartphone platform era label"]
+      "decisionUseful": ["product-refresh demand","existing distribution leverage","supplier and inventory execution risk","rollout cost versus margin tradeoff"],
+      "prohibited": ["iPhone","Steve Jobs","iPod","expanding beyond established devices wording","platform from hardware-sales hook","keyboard-vs-touch form-factor hooks","portable always-connected silhouette","month-precise Jan 2007 decision label","Smartphone platform era label","design-led hardware plus 2007 handheld-category conjunction","network-and-data-plan adoption hook","premium brand-pull and partner-controlled distribution conjunction"]
     },
     "easyLikelyGuesses": ["Apple", "Nokia", "Motorola"],
-    "mediumLikelyGuesses": ["Apple", "Nokia", "Research In Motion", "Sony"],
-    "hardLikelyGuesses": ["Apple", "Nokia", "Motorola", "Research In Motion", "Sony", "Palm"],
+    "mediumLikelyGuesses": ["Apple","Sony","Motorola","Nokia"],
+    "hardLikelyGuesses": ["Sony","Motorola","Nokia","Palm","Apple","Research In Motion"],
     "gate2": {
       "easy": {
         "payloadHash": "sha256:d053da936eaab8aed4d80d603b35095a882a75ce10b57306e377275ad4c7e22b",
@@ -129,82 +129,6 @@
           "call": "short",
           "confidence": 52,
           "cue": "Stock already prices meaningful execution so a weak debut has little cushion"
-        }
-      },
-      "medium": {
-        "payloadHash": "sha256:f11bc42399eb87c47708afc8ac93969c47aace2a43a886f2f023338270090de9",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T18:00:00.000Z",
-        "guesses": [
-          {
-            "company": "Apple",
-            "confidence": 68,
-            "pointingFact": "Design-led hardware brand entering new handheld category in 2007"
-          },
-          {
-            "company": "Nokia",
-            "confidence": 44,
-            "pointingFact": "Handheld category incumbent with distribution power"
-          },
-          {
-            "company": "Sony",
-            "confidence": 34,
-            "pointingFact": "Branded consumer products and design reputation"
-          },
-          {
-            "company": "Research In Motion",
-            "confidence": 32,
-            "pointingFact": "Premium handheld device peer"
-          },
-          {
-            "company": "Motorola",
-            "confidence": 28,
-            "pointingFact": "Device maker dependent on channel partners"
-          }
-        ],
-        "direction": {
-          "call": "short",
-          "confidence": 48,
-          "cue": "Channel partners and incumbents can slow scale; clean launch already priced"
-        }
-      },
-      "hard": {
-        "payloadHash": "sha256:cccb90f626ad866cc3aca0656d3a2710c81194ae1796e35f7d33a8783a511ec9",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T18:00:00.000Z",
-        "guesses": [
-          {
-            "company": "Apple",
-            "confidence": 32,
-            "pointingFact": "2007 consumer device transition and unproven category entry pricing"
-          },
-          {
-            "company": "Nokia",
-            "confidence": 30,
-            "pointingFact": "Device category and partner distribution terms being re-cut"
-          },
-          {
-            "company": "Sony",
-            "confidence": 26,
-            "pointingFact": "Consumer products brand-pull adoption thesis"
-          },
-          {
-            "company": "Motorola",
-            "confidence": 22,
-            "pointingFact": "Channel-controlled device scale risk"
-          },
-          {
-            "company": "Research In Motion",
-            "confidence": 20,
-            "pointingFact": "Handheld category peer under distribution constraints"
-          }
-        ],
-        "direction": {
-          "call": "toss_up",
-          "confidence": 45,
-          "cue": "Brand pull vs partner-controlled scale both live in the payload"
         }
       }
     }

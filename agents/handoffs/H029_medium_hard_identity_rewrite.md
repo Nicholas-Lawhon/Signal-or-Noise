@@ -2,7 +2,7 @@
 
 **Role:** Content Curator
 **Phase:** 4 Part A - Content rules & validator hardening
-**Status:** approved
+**Status:** complete
 **Model:** gpt-5.6-terra (High reasoning) — first Terra dispatch under D033
 **Risk:** high (active scenario content quality and Gate 2 guessability)
 **Audit:** orchestrator review + follow-up blind Grok 4.5 Gate 2 judge before

@@ -48,19 +48,19 @@
       ]
     },
     "medium": {
-      "companyDescription": "A consumer media company with a recurring billing model.",
-      "macroContext": "Households are spending more leisure time on connected screens.",
-      "situation": "Can engagement recover fast enough to support rising content and product costs?",
-      "longCase": "If habits stick, recurring revenue can compound as more households go digital.",
-      "shortCase": "Elevated churn and fixed content commitments can pressure the model before scale arrives.",
+      "companyDescription": "A consumer company with repeat customer revenue.",
+      "macroContext": "Households are shifting discretionary spending among a growing set of digital and traditional options.",
+      "situation": "Can repeat usage recover enough to support spending needed to retain customers?",
+      "longCase": "Improving retention could make each customer more valuable without a matching rise in acquisition costs.",
+      "shortCase": "Ongoing commitments and customer switching could keep costs high while revenue growth slows.",
       "setupHints": []
     },
     "hard": {
       "companyDescription": "A consumer services company.",
-      "macroContext": "Digital channels are taking a larger share of household attention and spending.",
-      "situation": "Can the firm restore customer engagement before rising fixed costs define the equity story?",
-      "longCase": "Habit formation at scale can turn a sticky service into a multi-year compounder.",
-      "shortCase": "Elevated churn and heavy forward commitments can pressure results before growth returns.",
+      "macroContext": "Consumers are comparing more choices for discretionary spending and recurring services.",
+      "situation": "Can customer retention improve before the cost of serving and acquiring users becomes more burdensome?",
+      "longCase": "Better retention could raise the value of the existing customer base over several periods.",
+      "shortCase": "Higher operating commitments and switching by customers could delay an improvement in results.",
       "setupHints": []
     }
   },
@@ -83,15 +83,15 @@
   "review": {
     "generatedByAi": true,
     "humanReviewed": false,
-    "reviewNotes": "H027 Hard rewrite after H026 Gate 2 identity fail (correct #1 conf 20). Shared-label exception: title Trust Reset→Engagement Check; decisionDateLabel Jan 2012→2012; era Post-financial-crisis tech expansion→Consumer digital shift. Hard prose drops media-only and loyalty-before-spend silhouette. Peer set Netflix/Sirius XM/Pandora/Comcast/Time Warner/Dish. Easy/Medium prose preserved; all Gate 2 entries removed as stale. Follow-up blind judge must rejudge easy+medium+hard.",
+    "reviewNotes": "H029 rewrote Medium and Hard after H028 tied recurring consumer media, connected-screen attention, engagement recovery, churn, and fixed content costs to Netflix. Medium peer set: Netflix/Sirius XM/Pandora/Dish. Hard peer set: Sirius XM/Pandora/Dish/Comcast/Time Warner/Netflix; the prose is limited to general retention economics in discretionary services. Easy and shared labels remain unchanged; Medium/Hard Gate 2 results were removed as stale.",
     "factBank": {
       "revealOnly": ["Netflix brand", "NFLX ticker", "streaming pivot narrative", "pricing/trust incident"],
-      "decisionUseful": ["engagement vs fixed commitments", "churn pressure", "habit formation optionality", "digital household attention shift"],
-      "prohibited": ["Qwikster", "Reed Hastings", "House of Cards", "DVD-by-mail", "major distribution-shift wording", "post-collapse recovery silhouette", "trust-reset media-only framing", "month-precise Jan 2012 decision label"]
+      "decisionUseful": ["repeat-customer retention","customer acquisition efficiency","operating commitments","switching risk in discretionary services"],
+      "prohibited": ["Qwikster","Reed Hastings","House of Cards","DVD-by-mail","major distribution-shift wording","post-collapse recovery silhouette","trust-reset media-only framing","month-precise Jan 2012 decision label","consumer media recurring-billing plus 2012 engagement-recovery conjunction","connected-screens household-attention hook","habit-formation and fixed-content-commitments conjunction"]
     },
     "easyLikelyGuesses": ["Netflix", "Hulu", "Spotify"],
-    "mediumLikelyGuesses": ["Netflix", "Sirius XM", "Pandora", "Dish Network"],
-    "hardLikelyGuesses": ["Netflix", "Sirius XM", "Pandora", "Comcast", "Time Warner", "Dish Network"],
+    "mediumLikelyGuesses": ["Netflix","Sirius XM","Pandora","Dish Network"],
+    "hardLikelyGuesses": ["Sirius XM","Pandora","Dish Network","Comcast","Time Warner","Netflix"],
     "gate2": {
       "easy": {
         "payloadHash": "sha256:c85dd187433ebf363240f4532976827086d3b70a5f0873f2233a595a0861e916",
@@ -129,82 +129,6 @@
           "call": "long",
           "confidence": 50,
           "cue": "If customers accept the newer model, recurring revenue can scale with broadband"
-        }
-      },
-      "medium": {
-        "payloadHash": "sha256:fac470098bf06f57916e00f9d631ab7e046e2ed6d1f8c02e593071a8ed1909a0",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T18:00:00.000Z",
-        "guesses": [
-          {
-            "company": "Netflix",
-            "confidence": 58,
-            "pointingFact": "Consumer media recurring billing and engagement recovery in 2012"
-          },
-          {
-            "company": "Sirius XM",
-            "confidence": 40,
-            "pointingFact": "Recurring subscription media peer"
-          },
-          {
-            "company": "Pandora",
-            "confidence": 34,
-            "pointingFact": "Digital media engagement with rising content-like costs"
-          },
-          {
-            "company": "Comcast",
-            "confidence": 28,
-            "pointingFact": "Household leisure shifting to connected screens"
-          },
-          {
-            "company": "Time Warner",
-            "confidence": 24,
-            "pointingFact": "Content costs versus engagement story"
-          }
-        ],
-        "direction": {
-          "call": "toss_up",
-          "confidence": 48,
-          "cue": "Engagement recovery vs fixed content commitments both live"
-        }
-      },
-      "hard": {
-        "payloadHash": "sha256:a155c02b015bee5b626b5807b70eac76cd94f8eff632d1805d62d4979a540ccf",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T18:00:00.000Z",
-        "guesses": [
-          {
-            "company": "Netflix",
-            "confidence": 30,
-            "pointingFact": "2012 consumer services engagement reset after sharp lookback drawdown"
-          },
-          {
-            "company": "Sirius XM",
-            "confidence": 26,
-            "pointingFact": "Sticky subscription habit-formation story"
-          },
-          {
-            "company": "Pandora",
-            "confidence": 24,
-            "pointingFact": "Digital channels taking household attention share"
-          },
-          {
-            "company": "Amazon",
-            "confidence": 18,
-            "pointingFact": "Consumer digital services scale and spend growth"
-          },
-          {
-            "company": "eBay",
-            "confidence": 14,
-            "pointingFact": "Consumer services company with multi-year compounder debate"
-          }
-        ],
-        "direction": {
-          "call": "toss_up",
-          "confidence": 40,
-          "cue": "Habit formation at scale vs elevated churn and fixed costs"
         }
       }
     }

@@ -48,19 +48,19 @@
       ]
     },
     "medium": {
-      "companyDescription": "A high-growth consumer business reinvesting heavily to expand its reach.",
-      "macroContext": "After a long stretch of speculative valuations, investors are starting to demand clearer economics.",
-      "situation": "Will heavy reinvestment create a lasting edge, or will tighter capital expose a fragile model?",
-      "longCase": "If demand keeps compounding, today's spending could lock in a hard-to-replicate position.",
-      "shortCase": "If funding becomes scarce before economics improve, an elevated valuation can reverse sharply.",
+      "companyDescription": "A consumer-facing company investing ahead of its current earnings.",
+      "macroContext": "Investors are reassessing how much time unprofitable growth businesses should receive.",
+      "situation": "Can current spending build enough future revenue to justify a valuation built on expansion?",
+      "longCase": "A broader customer base could make earlier investment more productive as revenue grows.",
+      "shortCase": "A slower path to positive cash flow could force investors to value the business on nearer-term results.",
       "setupHints": []
     },
     "hard": {
-      "companyDescription": "A public growth company.",
-      "macroContext": "After years of risk appetite, capital markets are becoming more selective.",
-      "situation": "Should investors keep funding multi-year expansion when patience is shorter?",
-      "longCase": "If demand keeps compounding, early spending can still create a durable competitive position.",
-      "shortCase": "If funding dries up before economics improve, an elevated valuation can unwind quickly.",
+      "companyDescription": "A public company pursuing growth before steady earnings.",
+      "macroContext": "Investors are placing more weight on cash generation when comparing growth businesses.",
+      "situation": "Does the business merit patience while its spending runs ahead of reported results?",
+      "longCase": "Additional customers could improve the return on earlier investment over time.",
+      "shortCase": "If expenses remain high, the market may favor companies with clearer current earnings.",
       "setupHints": []
     }
   },
@@ -83,15 +83,15 @@
   "review": {
     "generatedByAi": true,
     "humanReviewed": false,
-    "reviewNotes": "H027 Hard rewrite after H026 Gate 2 identity fail (correct #1 conf 16). Shared-label exception: title The Scale Bet→Capital Weather; decisionDateLabel Dec 1999→1999; era Dot-com bubble and aftermath→Late-1990s equity boom. Hard prose stripped of scale/habit/reinvestment-only silhouette; peer set Amazon/Yahoo/eBay/Cisco/AOL/Priceline. Easy/Medium prose preserved; all Gate 2 entries removed as stale. Follow-up blind judge must rejudge easy+medium+hard.",
+    "reviewNotes": "H029 rewrote Medium and Hard after H028 identified the late-1990s consumer-growth, heavy-reinvestment, capital-selectivity, and valuation conjunction as an Amazon triangulation path. Medium peer set: Amazon/eBay/Priceline/AOL. Hard peer set: Yahoo/eBay/Priceline/AOL/Amazon/Cisco; the prose centers the generic current-earnings tradeoff, not the answer. Easy and shared labels remain unchanged; Medium/Hard Gate 2 results were removed as stale.",
     "factBank": {
       "revealOnly": ["Amazon brand", "AMZN ticker", "dot-com crash path", "online retail expansion"],
-      "decisionUseful": ["multi-year expansion funding debate", "elevated valuation after boom", "capital selectivity risk", "demand-compounding optionality"],
-      "prohibited": ["Jeff Bezos", "everything store", "one-click", "online commerce pure-play wording", "fulfillment-network silhouette", "category-expansion-from-books hook", "scale-bet habit-formation wording", "month-precise Dec 1999 decision label"]
+      "decisionUseful": ["spending ahead of current earnings","customer-base growth improving investment returns","cash-generation expectations","near-term earnings tradeoff"],
+      "prohibited": ["Jeff Bezos","everything store","one-click","online commerce pure-play wording","fulfillment-network silhouette","category-expansion-from-books hook","scale-bet habit-formation wording","month-precise Dec 1999 decision label","late-1990s consumer-growth plus heavy-reinvestment conjunction","capital-selectivity and elevated-valuation conjunction","demand-compounding durable-position wording"]
     },
     "easyLikelyGuesses": ["Amazon", "eBay", "Yahoo"],
-    "mediumLikelyGuesses": ["Amazon", "Yahoo", "eBay", "Priceline"],
-    "hardLikelyGuesses": ["Amazon", "Yahoo", "eBay", "Cisco", "AOL", "Priceline"],
+    "mediumLikelyGuesses": ["Amazon","eBay","Priceline","AOL"],
+    "hardLikelyGuesses": ["Yahoo","eBay","Priceline","AOL","Amazon","Cisco"],
     "gate2": {
       "easy": {
         "payloadHash": "sha256:55b7de0506d99717efc416388e49ceb689b38b373dcd4ffe72cc43095687c0b9",
@@ -129,82 +129,6 @@
           "call": "short",
           "confidence": 62,
           "cue": "Losses mounting while stock already ran far ahead of earnings"
-        }
-      },
-      "medium": {
-        "payloadHash": "sha256:b34a1712baff50630b2e48e93cbe6395c227e644ee83632997a8e18a4d9172ee",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T18:00:00.000Z",
-        "guesses": [
-          {
-            "company": "Amazon",
-            "confidence": 48,
-            "pointingFact": "Heavy reinvestment consumer growth at late-1990s capital weather"
-          },
-          {
-            "company": "Yahoo",
-            "confidence": 40,
-            "pointingFact": "Speculative valuations then demand for clearer economics"
-          },
-          {
-            "company": "eBay",
-            "confidence": 36,
-            "pointingFact": "Consumer platform expanding reach with reinvestment"
-          },
-          {
-            "company": "AOL",
-            "confidence": 28,
-            "pointingFact": "Public internet scale story near boom peak"
-          },
-          {
-            "company": "Priceline",
-            "confidence": 22,
-            "pointingFact": "Elevated valuation growth consumer model"
-          }
-        ],
-        "direction": {
-          "call": "short",
-          "confidence": 55,
-          "cue": "Elevated valuation can reverse sharply if funding becomes scarce"
-        }
-      },
-      "hard": {
-        "payloadHash": "sha256:2b243321f61179657a16ae2859ca4b6d94f83e7ee0894bed2d838062c236862d",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T18:00:00.000Z",
-        "guesses": [
-          {
-            "company": "Cisco",
-            "confidence": 28,
-            "pointingFact": "Late-1990s boom elevated valuation and capital selectivity"
-          },
-          {
-            "company": "Yahoo",
-            "confidence": 26,
-            "pointingFact": "Multi-year expansion funded while risk appetite peaked"
-          },
-          {
-            "company": "Amazon",
-            "confidence": 24,
-            "pointingFact": "Public growth company with demand-compounding optionality"
-          },
-          {
-            "company": "AOL",
-            "confidence": 20,
-            "pointingFact": "Boom-era public growth facing shorter investor patience"
-          },
-          {
-            "company": "eBay",
-            "confidence": 16,
-            "pointingFact": "Elevated valuation growth name of the late-1990s"
-          }
-        ],
-        "direction": {
-          "call": "short",
-          "confidence": 48,
-          "cue": "Funding dry-up risk after years of risk appetite; parabolic lookback"
         }
       }
     }

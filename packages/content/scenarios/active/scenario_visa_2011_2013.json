@@ -48,19 +48,19 @@
       ]
     },
     "medium": {
-      "companyDescription": "A financial services firm that earns fees as commerce activity rises.",
-      "macroContext": "Investors are looking for recovery beneficiaries that do not depend on aggressive lending growth.",
-      "situation": "Can volume growth outrun fee pressure from powerful counterparties?",
-      "longCase": "Higher commercial throughput can lift earnings even while unit fees remain under debate.",
-      "shortCase": "Political scrutiny and large-customer bargaining can compress margins on the existing base.",
+      "companyDescription": "A financial services company whose revenue moves with customer activity.",
+      "macroContext": "Investors are comparing businesses that can benefit from a recovery without taking the same balance-sheet risks.",
+      "situation": "Can higher customer activity offset pressure on the prices the company can charge?",
+      "longCase": "A broader recovery could increase transaction-related revenue across the customer base.",
+      "shortCase": "Regulatory attention and customer negotiations could limit margin improvement even if activity rises.",
       "setupHints": []
     },
     "hard": {
       "companyDescription": "A financial services company.",
-      "macroContext": "Investors are hunting recovery beneficiaries that do not depend on aggressive lending growth.",
-      "situation": "Can activity growth outrun structural pressure on pricing power?",
-      "longCase": "Higher commercial throughput can lift earnings even while unit fees remain under debate.",
-      "shortCase": "Political scrutiny and large-customer bargaining can compress margins on the existing base.",
+      "macroContext": "A recovery is changing customer activity while investors weigh regulation and pricing across financial firms.",
+      "situation": "Can improving activity support earnings if the company has less flexibility on pricing?",
+      "longCase": "More customer activity could lift revenue without requiring a proportional rise in costs.",
+      "shortCase": "Policy changes and customer bargaining could limit the benefit of a stronger recovery.",
       "setupHints": []
     }
   },
@@ -83,15 +83,15 @@
   "review": {
     "generatedByAi": true,
     "humanReviewed": false,
-    "reviewNotes": "H027 Hard rewrite after H026 Gate 2 identity fail (correct #1 conf 18). Shared-label exception: title Rails of Commerce→Throughput Test; decisionDateLabel Jan 2011→2011; era kept (already broad). Hard prose drops cash-to-electronic infrastructure silhouette. Peer set Visa/Mastercard/Amex/PayPal/Discover/Fiserv. Easy/Medium prose preserved; all Gate 2 entries removed as stale. Follow-up blind judge must rejudge easy+medium+hard. Ticker V uses short-ticker word-boundary matching in the leakage validator.",
+    "reviewNotes": "H029 rewrote Medium and Hard after H028 tied recovery-linked commerce fees, non-lending exposure, throughput, and counterparty pricing pressure to Visa. Medium peer set: Visa/Mastercard/American Express/PayPal. Hard peer set: Mastercard/American Express/Discover/PayPal/Fiserv/Visa; the prose addresses broad recovery activity, operating leverage, and regulation. Easy and shared labels remain unchanged; Medium/Hard Gate 2 results were removed as stale. Ticker V uses short-ticker word-boundary matching in the leakage validator.",
     "factBank": {
       "revealOnly": ["Visa brand", "V ticker", "pure network-without-lending framing"],
-      "decisionUseful": ["fees scale with commerce activity", "recovery without aggressive lending", "counterparty fee pressure", "pricing-power vs volume debate"],
-      "prohibited": ["VisaNet", "credit card brand slogans", "credit card network", "no-credit-risk network wording", "take-rate-on-payment-rails silhouette", "cash-to-electronic infrastructure Hard wording", "Rails of Commerce title", "month-precise Jan 2011 decision label"]
+      "decisionUseful": ["recovery-linked customer activity","operating leverage from higher activity","regulatory pricing pressure","customer bargaining risk"],
+      "prohibited": ["VisaNet","credit card brand slogans","credit card network","no-credit-risk network wording","take-rate-on-payment-rails silhouette","cash-to-electronic infrastructure Hard wording","Rails of Commerce title","month-precise Jan 2011 decision label","commerce-fee earner plus 2011 recovery-beneficiary conjunction","throughput and unit-fee pricing-power hook","no-lending comparison plus counterparty-bargaining conjunction"]
     },
     "easyLikelyGuesses": ["Visa", "Mastercard", "American Express"],
-    "mediumLikelyGuesses": ["Visa", "Mastercard", "American Express", "PayPal"],
-    "hardLikelyGuesses": ["Visa", "Mastercard", "American Express", "PayPal", "Discover", "Fiserv"],
+    "mediumLikelyGuesses": ["Visa","Mastercard","American Express","PayPal"],
+    "hardLikelyGuesses": ["Mastercard","American Express","Discover","PayPal","Fiserv","Visa"],
     "gate2": {
       "easy": {
         "payloadHash": "sha256:7782b23871b9db1f5cf3e6f72269d433aa06cb530ac1fa13e6fbe01f9f3d4b70",
@@ -129,82 +129,6 @@
           "call": "long",
           "confidence": 58,
           "cue": "Global electronic payments adoption creates volume growth without lending the balances"
-        }
-      },
-      "medium": {
-        "payloadHash": "sha256:95290dea260c3593cb837cbc0aada522be425e39f65bfa967d80a74c527d1f08",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T18:00:00.000Z",
-        "guesses": [
-          {
-            "company": "Visa",
-            "confidence": 54,
-            "pointingFact": "Fee earner on commerce activity as recovery beneficiary in 2011"
-          },
-          {
-            "company": "Mastercard",
-            "confidence": 50,
-            "pointingFact": "Parallel fee network on rising commercial throughput"
-          },
-          {
-            "company": "American Express",
-            "confidence": 36,
-            "pointingFact": "Payments activity growth versus fee pressure"
-          },
-          {
-            "company": "PayPal",
-            "confidence": 30,
-            "pointingFact": "Commerce throughput digital payments name"
-          },
-          {
-            "company": "Fiserv",
-            "confidence": 24,
-            "pointingFact": "Financial infrastructure throughput beneficiary"
-          }
-        ],
-        "direction": {
-          "call": "long",
-          "confidence": 50,
-          "cue": "Higher commercial throughput can lift earnings even while unit fees are debated"
-        }
-      },
-      "hard": {
-        "payloadHash": "sha256:7a33be1e03bb24e70d5beffb3763e88c37685fd7a5427b08c49297644d220082",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T18:00:00.000Z",
-        "guesses": [
-          {
-            "company": "Visa",
-            "confidence": 28,
-            "pointingFact": "2011 recovery beneficiary not dependent on aggressive lending growth"
-          },
-          {
-            "company": "Mastercard",
-            "confidence": 26,
-            "pointingFact": "Activity growth versus structural pricing-power pressure"
-          },
-          {
-            "company": "American Express",
-            "confidence": 24,
-            "pointingFact": "Political scrutiny and large-customer fee bargaining"
-          },
-          {
-            "company": "PayPal",
-            "confidence": 20,
-            "pointingFact": "Commerce throughput financial services name"
-          },
-          {
-            "company": "Discover",
-            "confidence": 16,
-            "pointingFact": "Payments network recovery peer"
-          }
-        ],
-        "direction": {
-          "call": "toss_up",
-          "confidence": 45,
-          "cue": "Activity growth vs structural pressure on pricing power both live"
         }
       }
     }

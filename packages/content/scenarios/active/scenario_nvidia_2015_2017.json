@@ -48,19 +48,19 @@
       ]
     },
     "medium": {
-      "companyDescription": "A semiconductor designer selling chips into multiple end markets.",
-      "macroContext": "Large computing operators are testing a wider mix of component suppliers.",
-      "situation": "Is broader demand a durable multi-year shift or a short product cycle?",
-      "longCase": "New buyer categories could expand the addressable market beyond the original niche.",
-      "shortCase": "Industry cycles and aggressive rivals can erase early gains quickly.",
+      "companyDescription": "A technology component supplier with several types of customers.",
+      "macroContext": "Large business buyers are adjusting procurement as equipment budgets shift across categories.",
+      "situation": "Is stronger demand from a changing customer mix durable enough to support current expectations?",
+      "longCase": "More spending from additional customer groups could support revenue beyond the historical base.",
+      "shortCase": "Pricing pressure and uneven equipment budgets could reverse an early improvement in demand.",
       "setupHints": []
     },
     "hard": {
-      "companyDescription": "A technology hardware supplier.",
-      "macroContext": "Large operators are reallocating budget across component categories.",
-      "situation": "Is rising demand a durable multi-year shift or a short product cycle?",
-      "longCase": "New buyer categories could expand the addressable market beyond the original niche.",
-      "shortCase": "Industry cycles and aggressive rivals can erase early gains quickly.",
+      "companyDescription": "A technology supplier.",
+      "macroContext": "Business buyers are reallocating equipment budgets while suppliers compete for a changing mix of orders.",
+      "situation": "Can a broader order base support earnings if purchasing patterns remain uneven?",
+      "longCase": "Orders from more customer groups could reduce reliance on any one source of demand.",
+      "shortCase": "Competitive pricing and delayed purchases could weaken results if budgets become more cautious.",
       "setupHints": []
     }
   },
@@ -83,15 +83,15 @@
   "review": {
     "generatedByAi": true,
     "humanReviewed": false,
-    "reviewNotes": "H027 Hard rewrite after H026 Gate 2 identity fail (correct #1 conf 16). Shared-label exception: title Specialized Hardware Test→Demand Cycle Test; decisionDateLabel Jan 2015→2015; era Cloud and AI acceleration→Computing infrastructure cycle. Hard prose drops semiconductor/niche-supplier wording. Peer set Nvidia/AMD/Intel/Broadcom/Qualcomm/Micron. Easy/Medium prose preserved; all Gate 2 entries removed as stale. Follow-up blind judge must rejudge easy+medium+hard.",
+    "reviewNotes": "H029 rewrote Medium and Hard after H028 connected a 2015 semiconductor designer, large-computing buyers, multi-end-market demand, and a durable-shift debate to Nvidia. Medium peer set: Nvidia/AMD/Intel/Broadcom. Hard peer set: Intel/AMD/Broadcom/Qualcomm/Micron/Nvidia; the decision core addresses generic order diversification and equipment-budget risk. Easy and shared labels remain unchanged; Medium/Hard Gate 2 results were removed as stale.",
     "factBank": {
       "revealOnly": ["Nvidia brand", "GPU / CUDA narrative", "enthusiast-to-commercial expansion story"],
-      "decisionUseful": ["multi-end-market demand optionality", "new buyer categories", "hardware cycle risk", "operator budget reallocation"],
-      "prohibited": ["CUDA", "GeForce", "Jensen Huang", "GPU", "purpose-built data-center wording", "high-performance specialty silhouette", "AI acceleration era label", "semiconductor-niche-supplier Hard wording", "month-precise Jan 2015 decision label"]
+      "decisionUseful": ["customer-mix diversification","equipment-budget demand","competitive pricing pressure","uneven order timing"],
+      "prohibited": ["CUDA","GeForce","Jensen Huang","GPU","purpose-built data-center wording","high-performance specialty silhouette","AI acceleration era label","semiconductor-niche-supplier Hard wording","month-precise Jan 2015 decision label","semiconductor designer plus multi-end-market 2015 demand conjunction","large-computing-operator component-supplier hook","original-niche to new-buyer-categories expansion wording"]
     },
     "easyLikelyGuesses": ["Nvidia", "AMD", "Intel"],
-    "mediumLikelyGuesses": ["Nvidia", "AMD", "Intel", "Broadcom"],
-    "hardLikelyGuesses": ["Nvidia", "AMD", "Intel", "Broadcom", "Qualcomm", "Micron"],
+    "mediumLikelyGuesses": ["Nvidia","AMD","Intel","Broadcom"],
+    "hardLikelyGuesses": ["Intel","AMD","Broadcom","Qualcomm","Micron","Nvidia"],
     "gate2": {
       "easy": {
         "payloadHash": "sha256:4956778a35897149e93940d25d83a16739b0d8d87a1afa99203a83a95f93f338",
@@ -129,82 +129,6 @@
           "call": "long",
           "confidence": 52,
           "cue": "New commercial workloads could expand demand beyond the original niche"
-        }
-      },
-      "medium": {
-        "payloadHash": "sha256:8197be31a29078c583d53439a1f1cfd41271d833db738914a51ba3b2c92f8075",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T18:00:00.000Z",
-        "guesses": [
-          {
-            "company": "NVIDIA",
-            "confidence": 48,
-            "pointingFact": "Semiconductor designer with multi-end-market demand cycle debate in 2015"
-          },
-          {
-            "company": "AMD",
-            "confidence": 44,
-            "pointingFact": "Chip designer broader-demand versus cycle peer"
-          },
-          {
-            "company": "Intel",
-            "confidence": 40,
-            "pointingFact": "Computing infrastructure cycle component supplier"
-          },
-          {
-            "company": "Qualcomm",
-            "confidence": 32,
-            "pointingFact": "Semiconductor end-market mix shift"
-          },
-          {
-            "company": "Broadcom",
-            "confidence": 28,
-            "pointingFact": "Component supplier exposed to industry cycles"
-          }
-        ],
-        "direction": {
-          "call": "toss_up",
-          "confidence": 50,
-          "cue": "Durable multi-year shift vs short product cycle both argued"
-        }
-      },
-      "hard": {
-        "payloadHash": "sha256:617b7d0f0df533a4a8f737a7eee49e6dd0a7dbe5bd94395c74c25ff7493fdbec",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T18:00:00.000Z",
-        "guesses": [
-          {
-            "company": "Intel",
-            "confidence": 32,
-            "pointingFact": "2015 computing infrastructure hardware supplier budget reallocation"
-          },
-          {
-            "company": "AMD",
-            "confidence": 28,
-            "pointingFact": "Hardware demand cycle peer with rival risk"
-          },
-          {
-            "company": "NVIDIA",
-            "confidence": 26,
-            "pointingFact": "Rising demand durable-shift versus short cycle debate"
-          },
-          {
-            "company": "Qualcomm",
-            "confidence": 22,
-            "pointingFact": "Component category spend reallocation"
-          },
-          {
-            "company": "Broadcom",
-            "confidence": 18,
-            "pointingFact": "Technology hardware supplier cycle exposure"
-          }
-        ],
-        "direction": {
-          "call": "toss_up",
-          "confidence": 42,
-          "cue": "Multi-year demand shift vs short product cycle remains open"
         }
       }
     }
