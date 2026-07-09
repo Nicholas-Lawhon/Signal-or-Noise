@@ -12,10 +12,10 @@
     "identityBannedTerms": ["Interlink", "VisaNet", "credit card network"]
   },
   "scenario": {
-    "title": "Rails of Commerce",
+    "title": "Throughput Test",
     "decisionDate": "2011-01-03",
     "endDate": "2013-01-02",
-    "decisionDateLabel": "Jan 2011",
+    "decisionDateLabel": "2011",
     "outcomeLabel": "Jan 2011 → Jan 2013",
     "holdingPeriodLabel": "2 years",
     "era": "Post-financial-crisis recovery",
@@ -56,11 +56,11 @@
       "setupHints": []
     },
     "hard": {
-      "companyDescription": "A financial infrastructure company.",
-      "macroContext": "Commerce is gradually becoming less cash-based during the recovery.",
-      "situation": "Does volume migration outweigh structural pressure on pricing power?",
-      "longCase": "A business linked to transaction activity can compound as electronic commerce grows.",
-      "shortCase": "Regulation and customer pushback can still pressure economics even when volumes rise.",
+      "companyDescription": "A financial services company.",
+      "macroContext": "Investors are hunting recovery beneficiaries that do not depend on aggressive lending growth.",
+      "situation": "Can activity growth outrun structural pressure on pricing power?",
+      "longCase": "Higher commercial throughput can lift earnings even while unit fees remain under debate.",
+      "shortCase": "Political scrutiny and large-customer bargaining can compress margins on the existing base.",
       "setupHints": []
     }
   },
@@ -83,130 +83,14 @@
   "review": {
     "generatedByAi": true,
     "humanReviewed": false,
-    "reviewNotes": "Medium/Hard rewritten after H023 Gate 2 identity failures (fee network + no credit risk + electronic volume triangulation). Intended peer set: Visa / Mastercard / Amex / PayPal / Discover / Fiserv-class fee intermediaries. Easy unchanged; Medium/Hard Gate 2 pending re-judge. Ticker V uses short-ticker word-boundary matching in the leakage validator.",
+    "reviewNotes": "H027 Hard rewrite after H026 Gate 2 identity fail (correct #1 conf 18). Shared-label exception: title Rails of Commerce→Throughput Test; decisionDateLabel Jan 2011→2011; era kept (already broad). Hard prose drops cash-to-electronic infrastructure silhouette. Peer set Visa/Mastercard/Amex/PayPal/Discover/Fiserv. Easy/Medium prose preserved; all Gate 2 entries removed as stale. Follow-up blind judge must rejudge easy+medium+hard. Ticker V uses short-ticker word-boundary matching in the leakage validator.",
     "factBank": {
       "revealOnly": ["Visa brand", "V ticker", "pure network-without-lending framing"],
-      "decisionUseful": ["fees scale with commerce activity", "recovery without aggressive lending", "counterparty fee pressure", "cash-to-electronic migration backdrop"],
-      "prohibited": ["VisaNet", "credit card brand slogans", "credit card network", "no-credit-risk network wording", "take-rate-on-payment-rails silhouette"]
+      "decisionUseful": ["fees scale with commerce activity", "recovery without aggressive lending", "counterparty fee pressure", "pricing-power vs volume debate"],
+      "prohibited": ["VisaNet", "credit card brand slogans", "credit card network", "no-credit-risk network wording", "take-rate-on-payment-rails silhouette", "cash-to-electronic infrastructure Hard wording", "Rails of Commerce title", "month-precise Jan 2011 decision label"]
     },
     "easyLikelyGuesses": ["Visa", "Mastercard", "American Express"],
     "mediumLikelyGuesses": ["Visa", "Mastercard", "American Express", "PayPal"],
-    "hardLikelyGuesses": ["Visa", "Mastercard", "American Express", "PayPal", "Discover", "Fiserv"],
-    "gate2": {
-      "easy": {
-        "payloadHash": "sha256:070cbed4f99751b7b9d8c5f65ccbcc63e54aa5b5bd499a84bfc174b924fda9a8",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T18:30:00.000Z",
-        "guesses": [
-          {
-            "company": "Visa",
-            "confidence": 78,
-            "pointingFact": "Jan 2011 fee-based payments network earning on electronic transaction volume without lending balances"
-          },
-          {
-            "company": "Mastercard",
-            "confidence": 74,
-            "pointingFact": "Nearly identical fee-based payments infrastructure benefiting from cash-to-electronic migration"
-          },
-          {
-            "company": "American Express",
-            "confidence": 38,
-            "pointingFact": "Payments brand with network economics sensitive to fee pressure and volume"
-          },
-          {
-            "company": "PayPal",
-            "confidence": 28,
-            "pointingFact": "Electronic commerce payment infrastructure scaling with digital transactions"
-          },
-          {
-            "company": "Discover",
-            "confidence": 18,
-            "pointingFact": "Payments network exposed to regulation and merchant fee compression"
-          }
-        ],
-        "direction": {
-          "call": "long",
-          "confidence": 68,
-          "cue": "Global electronic payment adoption is a durable volume tailwind if fees hold up"
-        }
-      },
-      "medium": {
-        "payloadHash": "sha256:3cb83e277e771c53a8f119bd3623e15843ddd43dcf877b863b19819686099b7e",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T20:15:00.000Z",
-        "guesses": [
-          {
-            "company": "Visa",
-            "confidence": 29,
-            "pointingFact": "Jan 2011 fee-earning financial firm benefiting from commerce volume without aggressive lending growth"
-          },
-          {
-            "company": "Mastercard",
-            "confidence": 28,
-            "pointingFact": "Near peer payments intermediary where volume growth must outrun fee pressure from counterparties"
-          },
-          {
-            "company": "American Express",
-            "confidence": 18,
-            "pointingFact": "Commerce-linked financial brand facing political scrutiny and large-customer bargaining on fees"
-          },
-          {
-            "company": "PayPal",
-            "confidence": 15,
-            "pointingFact": "Fee-based commerce infrastructure scaling as activity recovers post-crisis"
-          },
-          {
-            "company": "Discover",
-            "confidence": 12,
-            "pointingFact": "Payments-related franchise sensitive to margin compression on the existing base"
-          }
-        ],
-        "direction": {
-          "call": "long",
-          "confidence": 52,
-          "cue": "Higher commercial throughput can lift earnings even while unit fees remain under debate"
-        }
-      },
-      "hard": {
-        "payloadHash": "sha256:b97c59e5a3ba73742956ff80dc9c9880d26810a76df104c63ace6b58eb025fa3",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T20:15:00.000Z",
-        "guesses": [
-          {
-            "company": "Visa",
-            "confidence": 18,
-            "pointingFact": "Jan 2011 financial infrastructure linked to transaction activity as commerce becomes less cash-based"
-          },
-          {
-            "company": "Mastercard",
-            "confidence": 17,
-            "pointingFact": "Volume migration story where regulation and customer pushback still pressure pricing power"
-          },
-          {
-            "company": "American Express",
-            "confidence": 13,
-            "pointingFact": "Commerce-linked financial franchise balancing volume growth against structural fee pressure"
-          },
-          {
-            "company": "PayPal",
-            "confidence": 11,
-            "pointingFact": "Electronic commerce infrastructure compounding as cash use declines in recovery"
-          },
-          {
-            "company": "Fiserv",
-            "confidence": 10,
-            "pointingFact": "Financial infrastructure name tied to transaction activity and pricing-power debates"
-          }
-        ],
-        "direction": {
-          "call": "long",
-          "confidence": 45,
-          "cue": "Transaction-linked volume migration can still compound despite fee pressure"
-        }
-      }
-    }
+    "hardLikelyGuesses": ["Visa", "Mastercard", "American Express", "PayPal", "Discover", "Fiserv"]
   }
 }

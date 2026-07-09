@@ -1,0 +1,505 @@
+{
+  "exportedAt": "2026-07-09T16:21:33.275Z",
+  "model": "grok-4.5",
+  "promptVersion": "guess.v1+direction.v1",
+  "entries": [
+    {
+      "scenarioId": "scenario_amazon_1999_2001",
+      "difficulty": "easy",
+      "payloadHash": "sha256:55b7de0506d99717efc416388e49ceb689b38b373dcd4ffe72cc43095687c0b9",
+      "payload": {
+        "title": "Capital Weather",
+        "era": "Late-1990s equity boom",
+        "decisionDateLabel": "1999",
+        "holdingPeriodLabel": "~2 years",
+        "companyDescription": "An internet retailer expanding quickly across consumer categories.",
+        "macroContext": "Internet valuations are peaking as investors start demanding proof of durable profits.",
+        "situation": "Will scale turn heavy spending into a lasting advantage, or will cash burn collide with tighter capital?",
+        "longCase": "Revenue is growing rapidly as more shoppers move online, and category expansion could lock in a durable position.",
+        "shortCase": "Losses are mounting while the stock has already run far ahead of current earnings, making a sentiment reversal costly.",
+        "setupHints": [
+          "Fulfillment, marketing, and expansion spending are rising faster than near-term profit."
+        ],
+        "lookbackPrices": [
+          100,
+          200,
+          350,
+          750,
+          1400,
+          2250,
+          3100,
+          3800
+        ]
+      }
+    },
+    {
+      "scenarioId": "scenario_amazon_1999_2001",
+      "difficulty": "medium",
+      "payloadHash": "sha256:b34a1712baff50630b2e48e93cbe6395c227e644ee83632997a8e18a4d9172ee",
+      "payload": {
+        "title": "Capital Weather",
+        "era": "Late-1990s equity boom",
+        "decisionDateLabel": "1999",
+        "holdingPeriodLabel": "~2 years",
+        "companyDescription": "A high-growth consumer business reinvesting heavily to expand its reach.",
+        "macroContext": "After a long stretch of speculative valuations, investors are starting to demand clearer economics.",
+        "situation": "Will heavy reinvestment create a lasting edge, or will tighter capital expose a fragile model?",
+        "longCase": "If demand keeps compounding, today's spending could lock in a hard-to-replicate position.",
+        "shortCase": "If funding becomes scarce before economics improve, an elevated valuation can reverse sharply.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          200,
+          350,
+          750,
+          1400,
+          2250,
+          3100,
+          3800
+        ]
+      }
+    },
+    {
+      "scenarioId": "scenario_amazon_1999_2001",
+      "difficulty": "hard",
+      "payloadHash": "sha256:2b243321f61179657a16ae2859ca4b6d94f83e7ee0894bed2d838062c236862d",
+      "payload": {
+        "title": "Capital Weather",
+        "era": "Late-1990s equity boom",
+        "decisionDateLabel": "1999",
+        "holdingPeriodLabel": "~2 years",
+        "companyDescription": "A public growth company.",
+        "macroContext": "After years of risk appetite, capital markets are becoming more selective.",
+        "situation": "Should investors keep funding multi-year expansion when patience is shorter?",
+        "longCase": "If demand keeps compounding, early spending can still create a durable competitive position.",
+        "shortCase": "If funding dries up before economics improve, an elevated valuation can unwind quickly.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          200,
+          350,
+          750,
+          1400,
+          2250,
+          3100,
+          3800
+        ]
+      }
+    },
+    {
+      "scenarioId": "scenario_apple_2007_2008",
+      "difficulty": "easy",
+      "payloadHash": "sha256:d053da936eaab8aed4d80d603b35095a882a75ce10b57306e377275ad4c7e22b",
+      "payload": {
+        "title": "Category Test",
+        "era": "Consumer device transition",
+        "decisionDateLabel": "2007",
+        "holdingPeriodLabel": "18 months",
+        "companyDescription": "A consumer electronics company entering a fast-growing mobile-device category.",
+        "macroContext": "Mobile computing is moving beyond voice and text toward richer internet services.",
+        "situation": "Can a premium handheld product open a larger platform before carriers and incumbents shut the window?",
+        "longCase": "A loyal consumer base and strong design reputation could pull users into a new category and denser ecosystem.",
+        "shortCase": "Carriers and entrenched device makers still control distribution, and a launch miss would be costly after a strong run-up.",
+        "setupHints": [
+          "The stock already prices meaningful execution, so a weak debut leaves little cushion."
+        ],
+        "lookbackPrices": [
+          100,
+          141.7,
+          200,
+          241.7,
+          258.3,
+          216.7,
+          250,
+          283.3
+        ]
+      }
+    },
+    {
+      "scenarioId": "scenario_apple_2007_2008",
+      "difficulty": "medium",
+      "payloadHash": "sha256:f11bc42399eb87c47708afc8ac93969c47aace2a43a886f2f023338270090de9",
+      "payload": {
+        "title": "Category Test",
+        "era": "Consumer device transition",
+        "decisionDateLabel": "2007",
+        "holdingPeriodLabel": "18 months",
+        "companyDescription": "A branded consumer products company known for design-led hardware.",
+        "macroContext": "Better networks and data plans are changing what people expect from handheld devices.",
+        "situation": "Can product excellence convert into durable adoption when partners still control distribution?",
+        "longCase": "A loyal following could accept a premium approach and expand the addressable market.",
+        "shortCase": "Channel partners and entrenched rivals can slow scale, and the stock already prices a clean launch.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          141.7,
+          200,
+          241.7,
+          258.3,
+          216.7,
+          250,
+          283.3
+        ]
+      }
+    },
+    {
+      "scenarioId": "scenario_apple_2007_2008",
+      "difficulty": "hard",
+      "payloadHash": "sha256:cccb90f626ad866cc3aca0656d3a2710c81194ae1796e35f7d33a8783a511ec9",
+      "payload": {
+        "title": "Category Test",
+        "era": "Consumer device transition",
+        "decisionDateLabel": "2007",
+        "holdingPeriodLabel": "18 months",
+        "companyDescription": "A consumer products company.",
+        "macroContext": "Device categories and partner distribution terms are being re-cut.",
+        "situation": "Is the market pricing a successful category entry that is still unproven at scale?",
+        "longCase": "Brand pull could accelerate adoption if the new product sticks with users.",
+        "shortCase": "Channel partners and incumbents still control scale, and expectations leave little room for a miss.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          141.7,
+          200,
+          241.7,
+          258.3,
+          216.7,
+          250,
+          283.3
+        ]
+      }
+    },
+    {
+      "scenarioId": "scenario_microsoft_2014_2016",
+      "difficulty": "easy",
+      "payloadHash": "sha256:1763dfab1e5f4761476e64fb5c962c2ff1cada118f4ef1d7d46835780b9111de",
+      "payload": {
+        "title": "Refresh Window",
+        "era": "Enterprise technology transition",
+        "decisionDateLabel": "2014",
+        "holdingPeriodLabel": "2 years",
+        "companyDescription": "A mature enterprise software company shifting more of its business toward cloud subscriptions.",
+        "macroContext": "Businesses are moving more computing work from owned infrastructure to rented cloud services.",
+        "situation": "Can a large installed base revive growth through subscriptions before faster rivals define the market?",
+        "longCase": "Long-standing corporate relationships could accelerate adoption of cloud and subscription offerings.",
+        "shortCase": "Mature product lines may shrink before replacements contribute enough growth to satisfy investors.",
+        "setupHints": [
+          "Years of investor frustration raise the bar for whether this pivot looks credible."
+        ],
+        "lookbackPrices": [
+          100,
+          96.2,
+          103.8,
+          107.7,
+          115.4,
+          123.1,
+          130.8,
+          142.3
+        ]
+      }
+    },
+    {
+      "scenarioId": "scenario_microsoft_2014_2016",
+      "difficulty": "medium",
+      "payloadHash": "sha256:3cc7da11ceb068393304178baf8e87db41715683dc495ea3d41e5cb73407260c",
+      "payload": {
+        "title": "Refresh Window",
+        "era": "Enterprise technology transition",
+        "decisionDateLabel": "2014",
+        "holdingPeriodLabel": "2 years",
+        "companyDescription": "A diversified technology vendor selling mainly to businesses.",
+        "macroContext": "Corporate buyers are changing how they purchase and consume software and infrastructure.",
+        "situation": "Can the firm refresh growth before mature offerings slow too far?",
+        "longCase": "Deep customer relationships could help introduce newer offerings at lower acquisition cost.",
+        "shortCase": "Legacy dependence and faster-moving rivals can keep growth muted longer than investors tolerate.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          96.2,
+          103.8,
+          107.7,
+          115.4,
+          123.1,
+          130.8,
+          142.3
+        ]
+      }
+    },
+    {
+      "scenarioId": "scenario_microsoft_2014_2016",
+      "difficulty": "hard",
+      "payloadHash": "sha256:20d77a72b1ae3646eb880526ad909bb5e994f4841489b55f58a68ff8a5958d7d",
+      "payload": {
+        "title": "Refresh Window",
+        "era": "Enterprise technology transition",
+        "decisionDateLabel": "2014",
+        "holdingPeriodLabel": "2 years",
+        "companyDescription": "A large technology vendor.",
+        "macroContext": "Corporate buyers are reallocating spend across established and newer delivery models.",
+        "situation": "Can an established seller turn customer access into renewed growth before patience runs out?",
+        "longCase": "Existing commercial relationships can lower the cost of introducing newer offerings.",
+        "shortCase": "Mature lines can shrink before replacements contribute enough to satisfy investors.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          96.2,
+          103.8,
+          107.7,
+          115.4,
+          123.1,
+          130.8,
+          142.3
+        ]
+      }
+    },
+    {
+      "scenarioId": "scenario_netflix_2012_2017",
+      "difficulty": "easy",
+      "payloadHash": "sha256:c85dd187433ebf363240f4532976827086d3b70a5f0873f2233a595a0861e916",
+      "payload": {
+        "title": "Engagement Check",
+        "era": "Consumer digital shift",
+        "decisionDateLabel": "2012",
+        "holdingPeriodLabel": "5 years",
+        "companyDescription": "A subscription entertainment company trying to move more of its customer experience online.",
+        "macroContext": "Broadband use, connected devices, and paid digital media habits are all expanding.",
+        "situation": "Can a newer delivery model rebuild trust quickly enough to justify rising content and product spending?",
+        "longCase": "If customers accept the newer model, recurring revenue can scale with broadband and connected-device adoption.",
+        "shortCase": "A recent trust shock can keep churn elevated while content commitments rise faster than the subscriber base.",
+        "setupHints": [
+          "The old delivery model still contributes cash, but the newer model is where the growth case lives."
+        ],
+        "lookbackPrices": [
+          100,
+          123.6,
+          167.3,
+          263.6,
+          456.4,
+          776.4,
+          561.8,
+          187.3
+        ]
+      }
+    },
+    {
+      "scenarioId": "scenario_netflix_2012_2017",
+      "difficulty": "medium",
+      "payloadHash": "sha256:fac470098bf06f57916e00f9d631ab7e046e2ed6d1f8c02e593071a8ed1909a0",
+      "payload": {
+        "title": "Engagement Check",
+        "era": "Consumer digital shift",
+        "decisionDateLabel": "2012",
+        "holdingPeriodLabel": "5 years",
+        "companyDescription": "A consumer media company with a recurring billing model.",
+        "macroContext": "Households are spending more leisure time on connected screens.",
+        "situation": "Can engagement recover fast enough to support rising content and product costs?",
+        "longCase": "If habits stick, recurring revenue can compound as more households go digital.",
+        "shortCase": "Elevated churn and fixed content commitments can pressure the model before scale arrives.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          123.6,
+          167.3,
+          263.6,
+          456.4,
+          776.4,
+          561.8,
+          187.3
+        ]
+      }
+    },
+    {
+      "scenarioId": "scenario_netflix_2012_2017",
+      "difficulty": "hard",
+      "payloadHash": "sha256:a155c02b015bee5b626b5807b70eac76cd94f8eff632d1805d62d4979a540ccf",
+      "payload": {
+        "title": "Engagement Check",
+        "era": "Consumer digital shift",
+        "decisionDateLabel": "2012",
+        "holdingPeriodLabel": "5 years",
+        "companyDescription": "A consumer services company.",
+        "macroContext": "Digital channels are taking a larger share of household attention and spending.",
+        "situation": "Can the firm restore customer engagement before rising fixed costs define the equity story?",
+        "longCase": "Habit formation at scale can turn a sticky service into a multi-year compounder.",
+        "shortCase": "Elevated churn and heavy forward commitments can pressure results before growth returns.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          123.6,
+          167.3,
+          263.6,
+          456.4,
+          776.4,
+          561.8,
+          187.3
+        ]
+      }
+    },
+    {
+      "scenarioId": "scenario_nvidia_2015_2017",
+      "difficulty": "easy",
+      "payloadHash": "sha256:4956778a35897149e93940d25d83a16739b0d8d87a1afa99203a83a95f93f338",
+      "payload": {
+        "title": "Demand Cycle Test",
+        "era": "Computing infrastructure cycle",
+        "decisionDateLabel": "2015",
+        "holdingPeriodLabel": "2 years",
+        "companyDescription": "A specialized chip designer whose high-performance hardware serves enthusiasts and commercial computing buyers.",
+        "macroContext": "Cloud platforms and data-heavy workloads are increasing demand for specialized processing power.",
+        "situation": "Can a niche hardware category expand into larger commercial workloads without being overpriced as a cycle?",
+        "longCase": "New commercial workloads could expand demand beyond the original enthusiast market.",
+        "shortCase": "A cyclical chip market and volatile expectations make early growth easy to overprice.",
+        "setupHints": [
+          "The company already holds a strong niche in performance-focused computing hardware."
+        ],
+        "lookbackPrices": [
+          100,
+          116.7,
+          133.3,
+          140,
+          133.3,
+          150,
+          160,
+          166.7
+        ]
+      }
+    },
+    {
+      "scenarioId": "scenario_nvidia_2015_2017",
+      "difficulty": "medium",
+      "payloadHash": "sha256:8197be31a29078c583d53439a1f1cfd41271d833db738914a51ba3b2c92f8075",
+      "payload": {
+        "title": "Demand Cycle Test",
+        "era": "Computing infrastructure cycle",
+        "decisionDateLabel": "2015",
+        "holdingPeriodLabel": "2 years",
+        "companyDescription": "A semiconductor designer selling chips into multiple end markets.",
+        "macroContext": "Large computing operators are testing a wider mix of component suppliers.",
+        "situation": "Is broader demand a durable multi-year shift or a short product cycle?",
+        "longCase": "New buyer categories could expand the addressable market beyond the original niche.",
+        "shortCase": "Industry cycles and aggressive rivals can erase early gains quickly.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          116.7,
+          133.3,
+          140,
+          133.3,
+          150,
+          160,
+          166.7
+        ]
+      }
+    },
+    {
+      "scenarioId": "scenario_nvidia_2015_2017",
+      "difficulty": "hard",
+      "payloadHash": "sha256:617b7d0f0df533a4a8f737a7eee49e6dd0a7dbe5bd94395c74c25ff7493fdbec",
+      "payload": {
+        "title": "Demand Cycle Test",
+        "era": "Computing infrastructure cycle",
+        "decisionDateLabel": "2015",
+        "holdingPeriodLabel": "2 years",
+        "companyDescription": "A technology hardware supplier.",
+        "macroContext": "Large operators are reallocating budget across component categories.",
+        "situation": "Is rising demand a durable multi-year shift or a short product cycle?",
+        "longCase": "New buyer categories could expand the addressable market beyond the original niche.",
+        "shortCase": "Industry cycles and aggressive rivals can erase early gains quickly.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          116.7,
+          133.3,
+          140,
+          133.3,
+          150,
+          160,
+          166.7
+        ]
+      }
+    },
+    {
+      "scenarioId": "scenario_visa_2011_2013",
+      "difficulty": "easy",
+      "payloadHash": "sha256:7782b23871b9db1f5cf3e6f72269d433aa06cb530ac1fa13e6fbe01f9f3d4b70",
+      "payload": {
+        "title": "Throughput Test",
+        "era": "Post-financial-crisis recovery",
+        "decisionDateLabel": "2011",
+        "holdingPeriodLabel": "2 years",
+        "companyDescription": "A fee-based financial infrastructure company that benefits as more commerce becomes electronic.",
+        "macroContext": "Consumers and merchants are moving more transactions away from cash and checks.",
+        "situation": "Can transaction volume compound faster than regulation and merchant pressure compress fees?",
+        "longCase": "Global adoption of electronic payments creates a durable growth tailwind without the firm lending the money itself.",
+        "shortCase": "Regulation, merchant pressure, or rivals can compress fees on a high-margin network.",
+        "setupHints": [
+          "Revenue is tied to transaction volume rather than credit risk on the balances themselves."
+        ],
+        "lookbackPrices": [
+          100,
+          106.3,
+          93.8,
+          112.5,
+          118.8,
+          125,
+          131.3,
+          137.5
+        ]
+      }
+    },
+    {
+      "scenarioId": "scenario_visa_2011_2013",
+      "difficulty": "medium",
+      "payloadHash": "sha256:95290dea260c3593cb837cbc0aada522be425e39f65bfa967d80a74c527d1f08",
+      "payload": {
+        "title": "Throughput Test",
+        "era": "Post-financial-crisis recovery",
+        "decisionDateLabel": "2011",
+        "holdingPeriodLabel": "2 years",
+        "companyDescription": "A financial services firm that earns fees as commerce activity rises.",
+        "macroContext": "Investors are looking for recovery beneficiaries that do not depend on aggressive lending growth.",
+        "situation": "Can volume growth outrun fee pressure from powerful counterparties?",
+        "longCase": "Higher commercial throughput can lift earnings even while unit fees remain under debate.",
+        "shortCase": "Political scrutiny and large-customer bargaining can compress margins on the existing base.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          106.3,
+          93.8,
+          112.5,
+          118.8,
+          125,
+          131.3,
+          137.5
+        ]
+      }
+    },
+    {
+      "scenarioId": "scenario_visa_2011_2013",
+      "difficulty": "hard",
+      "payloadHash": "sha256:7a33be1e03bb24e70d5beffb3763e88c37685fd7a5427b08c49297644d220082",
+      "payload": {
+        "title": "Throughput Test",
+        "era": "Post-financial-crisis recovery",
+        "decisionDateLabel": "2011",
+        "holdingPeriodLabel": "2 years",
+        "companyDescription": "A financial services company.",
+        "macroContext": "Investors are hunting recovery beneficiaries that do not depend on aggressive lending growth.",
+        "situation": "Can activity growth outrun structural pressure on pricing power?",
+        "longCase": "Higher commercial throughput can lift earnings even while unit fees remain under debate.",
+        "shortCase": "Political scrutiny and large-customer bargaining can compress margins on the existing base.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          106.3,
+          93.8,
+          112.5,
+          118.8,
+          125,
+          131.3,
+          137.5
+        ]
+      }
+    }
+  ]
+}

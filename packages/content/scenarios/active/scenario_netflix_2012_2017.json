@@ -12,13 +12,13 @@
     "identityBannedTerms": ["Qwikster", "Reed Hastings", "DVD-by-mail", "House of Cards"]
   },
   "scenario": {
-    "title": "Trust Reset",
+    "title": "Engagement Check",
     "decisionDate": "2012-01-03",
     "endDate": "2017-01-03",
-    "decisionDateLabel": "Jan 2012",
+    "decisionDateLabel": "2012",
     "outcomeLabel": "Jan 2012 → Jan 2017",
     "holdingPeriodLabel": "5 years",
-    "era": "Post-financial-crisis tech expansion",
+    "era": "Consumer digital shift",
     "eraId": "post_financial_crisis_tech_expansion",
     "contentPackIds": ["mvp_core", "sample_seed"],
     "difficultySupported": ["easy", "medium", "hard"]
@@ -56,11 +56,11 @@
       "setupHints": []
     },
     "hard": {
-      "companyDescription": "A consumer-facing media business.",
-      "macroContext": "Digital consumption is rising, but winners among media models are still unclear.",
-      "situation": "Will customer loyalty return before spending outruns the base?",
-      "longCase": "Habit formation at scale can turn a recurring model into a compounding franchise.",
-      "shortCase": "If customers stay skeptical, rising fixed costs can overwhelm growth.",
+      "companyDescription": "A consumer services company.",
+      "macroContext": "Digital channels are taking a larger share of household attention and spending.",
+      "situation": "Can the firm restore customer engagement before rising fixed costs define the equity story?",
+      "longCase": "Habit formation at scale can turn a sticky service into a multi-year compounder.",
+      "shortCase": "Elevated churn and heavy forward commitments can pressure results before growth returns.",
       "setupHints": []
     }
   },
@@ -83,130 +83,14 @@
   "review": {
     "generatedByAi": true,
     "humanReviewed": false,
-    "reviewNotes": "Medium/Hard rewritten after H023 Gate 2 identity failures (controversial transition + distribution shift + post-drawdown triangulation). Intended peer set: Netflix / Sirius XM / Pandora / Dish / Comcast / Time Warner-class media names. Easy unchanged; Medium/Hard Gate 2 pending re-judge.",
+    "reviewNotes": "H027 Hard rewrite after H026 Gate 2 identity fail (correct #1 conf 20). Shared-label exception: title Trust Reset→Engagement Check; decisionDateLabel Jan 2012→2012; era Post-financial-crisis tech expansion→Consumer digital shift. Hard prose drops media-only and loyalty-before-spend silhouette. Peer set Netflix/Sirius XM/Pandora/Comcast/Time Warner/Dish. Easy/Medium prose preserved; all Gate 2 entries removed as stale. Follow-up blind judge must rejudge easy+medium+hard.",
     "factBank": {
       "revealOnly": ["Netflix brand", "NFLX ticker", "streaming pivot narrative", "pricing/trust incident"],
-      "decisionUseful": ["recurring billing model", "content cost pressure", "churn vs habit formation", "digital leisure shift"],
-      "prohibited": ["Qwikster", "Reed Hastings", "House of Cards", "DVD-by-mail", "major distribution-shift wording", "post-collapse recovery silhouette"]
+      "decisionUseful": ["engagement vs fixed commitments", "churn pressure", "habit formation optionality", "digital household attention shift"],
+      "prohibited": ["Qwikster", "Reed Hastings", "House of Cards", "DVD-by-mail", "major distribution-shift wording", "post-collapse recovery silhouette", "trust-reset media-only framing", "month-precise Jan 2012 decision label"]
     },
     "easyLikelyGuesses": ["Netflix", "Hulu", "Spotify"],
     "mediumLikelyGuesses": ["Netflix", "Sirius XM", "Pandora", "Dish Network"],
-    "hardLikelyGuesses": ["Netflix", "Sirius XM", "Pandora", "Comcast", "Time Warner", "Dish Network"],
-    "gate2": {
-      "easy": {
-        "payloadHash": "sha256:9eb8b97e0feb5cff447f149f307b3366421bf14640492534fc9d8ef8a32ba005",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T18:30:00.000Z",
-        "guesses": [
-          {
-            "company": "Netflix",
-            "confidence": 91,
-            "pointingFact": "Jan 2012 subscription entertainment firm moving customers online after a trust shock while old delivery still contributes cash"
-          },
-          {
-            "company": "Spotify",
-            "confidence": 28,
-            "pointingFact": "Subscription media model scaling with broadband and connected devices"
-          },
-          {
-            "company": "Sirius XM",
-            "confidence": 22,
-            "pointingFact": "Recurring-revenue entertainment business navigating a delivery-model shift"
-          },
-          {
-            "company": "Dish Network",
-            "confidence": 18,
-            "pointingFact": "Entertainment distributor with old delivery cash flows and newer digital growth questions"
-          },
-          {
-            "company": "Hulu",
-            "confidence": 12,
-            "pointingFact": "Online entertainment subscription effort competing for household habit formation"
-          }
-        ],
-        "direction": {
-          "call": "long",
-          "confidence": 58,
-          "cue": "If customers accept the newer model, recurring revenue can scale with broadband adoption after the stock reset"
-        }
-      },
-      "medium": {
-        "payloadHash": "sha256:e2e1ef37066f25a6e072b208617de41f36e0c21f3e5702a2f50ddc82a3084cec",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T20:15:00.000Z",
-        "guesses": [
-          {
-            "company": "Netflix",
-            "confidence": 33,
-            "pointingFact": "Jan 2012 recurring media company after a deep lookback drawdown needing engagement to fund content costs"
-          },
-          {
-            "company": "Sirius XM",
-            "confidence": 24,
-            "pointingFact": "Subscription media franchise with fixed content spend and churn sensitivity"
-          },
-          {
-            "company": "Pandora",
-            "confidence": 18,
-            "pointingFact": "Digital audio media model competing for household leisure time on connected screens"
-          },
-          {
-            "company": "Dish Network",
-            "confidence": 15,
-            "pointingFact": "Consumer media distributor balancing loyalty, content costs, and digital habit shifts"
-          },
-          {
-            "company": "Comcast",
-            "confidence": 12,
-            "pointingFact": "Large media/distribution business exposed to rising content costs and engagement risk"
-          }
-        ],
-        "direction": {
-          "call": "long",
-          "confidence": 48,
-          "cue": "If habits stick after the trust shock, recurring revenue can compound with digital leisure growth"
-        }
-      },
-      "hard": {
-        "payloadHash": "sha256:55bd5d3d348ebdada7db00e4529ed8bc1537cb47388addf96e30c7a34512258c",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T20:15:00.000Z",
-        "guesses": [
-          {
-            "company": "Netflix",
-            "confidence": 20,
-            "pointingFact": "Jan 2012 consumer media business where loyalty must return before spending outruns the base"
-          },
-          {
-            "company": "Sirius XM",
-            "confidence": 15,
-            "pointingFact": "Recurring media model depending on habit formation versus fixed cost pressure"
-          },
-          {
-            "company": "Pandora",
-            "confidence": 13,
-            "pointingFact": "Digital consumer media story with unclear winners among media models in 2012"
-          },
-          {
-            "company": "Comcast",
-            "confidence": 11,
-            "pointingFact": "Media franchise balancing engagement recovery against rising content spend"
-          },
-          {
-            "company": "Time Warner",
-            "confidence": 10,
-            "pointingFact": "Consumer-facing media name where fixed costs can overwhelm growth if customers stay skeptical"
-          }
-        ],
-        "direction": {
-          "call": "toss_up",
-          "confidence": 40,
-          "cue": "Loyalty recovery versus cost overrun is evenly balanced without stronger cues"
-        }
-      }
-    }
+    "hardLikelyGuesses": ["Netflix", "Sirius XM", "Pandora", "Comcast", "Time Warner", "Dish Network"]
   }
 }

@@ -12,13 +12,13 @@
     "identityBannedTerms": ["Satya Nadella", "Windows", "Azure", "Office 365", "Xbox"]
   },
   "scenario": {
-    "title": "Footprint Bet",
+    "title": "Refresh Window",
     "decisionDate": "2014-01-02",
     "endDate": "2016-01-04",
-    "decisionDateLabel": "Jan 2014",
+    "decisionDateLabel": "2014",
     "outcomeLabel": "Jan 2014 → Jan 2016",
     "holdingPeriodLabel": "2 years",
-    "era": "Cloud software expansion",
+    "era": "Enterprise technology transition",
     "eraId": "cloud_software_expansion",
     "contentPackIds": ["mvp_core", "sample_seed"],
     "difficultySupported": ["easy", "medium", "hard"]
@@ -56,11 +56,11 @@
       "setupHints": []
     },
     "hard": {
-      "companyDescription": "An enterprise technology company.",
-      "macroContext": "Business technology spending is being reallocated across old and new delivery models.",
-      "situation": "Will an established vendor convert its footprint into renewed growth in time?",
-      "longCase": "An existing commercial footprint can lower the cost of distributing newer products.",
-      "shortCase": "If replacements ramp slowly, mature-line pressure can dominate the equity story.",
+      "companyDescription": "A large technology vendor.",
+      "macroContext": "Corporate buyers are reallocating spend across established and newer delivery models.",
+      "situation": "Can an established seller turn customer access into renewed growth before patience runs out?",
+      "longCase": "Existing commercial relationships can lower the cost of introducing newer offerings.",
+      "shortCase": "Mature lines can shrink before replacements contribute enough to satisfy investors.",
       "setupHints": []
     }
   },
@@ -83,130 +83,14 @@
   "review": {
     "generatedByAi": true,
     "humanReviewed": false,
-    "reviewNotes": "Medium/Hard rewritten after H023 Gate 2 identity failures (multi-line vendor + commercial relationships → subscription triangulation). Intended peer set: Microsoft / Oracle / IBM / SAP / Cisco-class enterprise vendors. Easy unchanged; Medium/Hard Gate 2 pending re-judge.",
+    "reviewNotes": "H027 Hard rewrite after H026 Gate 2 identity fail (correct #1 conf 18). Shared-label exception: title Footprint Bet→Refresh Window; decisionDateLabel Jan 2014→2014; era Cloud software expansion→Enterprise technology transition. Hard prose avoids installed-base/subscription-only triangulation. Peer set Microsoft/Oracle/IBM/SAP/Cisco/HP. Easy/Medium prose preserved; all Gate 2 entries removed as stale. Follow-up blind judge must rejudge easy+medium+hard.",
     "factBank": {
       "revealOnly": ["Microsoft brand", "Satya Nadella", "Azure", "cloud subscription pivot narrative"],
-      "decisionUseful": ["business-customer footprint", "mature-line drag", "newer-product distribution leverage", "changing corporate buying models"],
-      "prohibited": ["Windows", "Azure", "Office 365", "Satya Nadella", "subscription-from-installed-base wording", "hosted-services-only framing"]
+      "decisionUseful": ["business-customer access", "mature-line drag", "newer-product distribution leverage", "changing corporate buying models"],
+      "prohibited": ["Windows", "Azure", "Office 365", "Satya Nadella", "subscription-from-installed-base wording", "hosted-services-only framing", "footprint-bet cloud-era label", "month-precise Jan 2014 decision label"]
     },
     "easyLikelyGuesses": ["Microsoft", "IBM", "Oracle"],
     "mediumLikelyGuesses": ["Microsoft", "Oracle", "IBM", "SAP"],
-    "hardLikelyGuesses": ["Microsoft", "Oracle", "IBM", "SAP", "Cisco", "HP"],
-    "gate2": {
-      "easy": {
-        "payloadHash": "sha256:055472a1d7aa356b3719fe8ed8ac7c27e7d89bd2f9a2d5aac7366880b73328e6",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T18:30:00.000Z",
-        "guesses": [
-          {
-            "company": "Microsoft",
-            "confidence": 88,
-            "pointingFact": "Jan 2014 mature enterprise software giant shifting to cloud subscriptions after years of investor frustration"
-          },
-          {
-            "company": "Oracle",
-            "confidence": 48,
-            "pointingFact": "Large enterprise software vendor converting licenses to cloud/subscription"
-          },
-          {
-            "company": "IBM",
-            "confidence": 40,
-            "pointingFact": "Mature enterprise tech firm trying to revive growth as IT moves to rented cloud services"
-          },
-          {
-            "company": "SAP",
-            "confidence": 30,
-            "pointingFact": "Enterprise software installed-base story pivoting toward subscription offerings"
-          },
-          {
-            "company": "Adobe",
-            "confidence": 22,
-            "pointingFact": "Software company known for subscription transition from mature product lines"
-          }
-        ],
-        "direction": {
-          "call": "long",
-          "confidence": 62,
-          "cue": "Broad corporate installed base can accelerate cloud subscription adoption if the pivot is credible"
-        }
-      },
-      "medium": {
-        "payloadHash": "sha256:c4a12134dadf6f5df51054c742eb6f74fe2b733b82deb812b93f1103524c89c5",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T20:15:00.000Z",
-        "guesses": [
-          {
-            "company": "Microsoft",
-            "confidence": 28,
-            "pointingFact": "Jan 2014 diversified business-tech vendor needing to refresh growth as software buying models change"
-          },
-          {
-            "company": "Oracle",
-            "confidence": 26,
-            "pointingFact": "Enterprise software vendor with deep customer relationships and mature-line pressure"
-          },
-          {
-            "company": "IBM",
-            "confidence": 22,
-            "pointingFact": "Large IT vendor converting footprint while legacy dependence can mute growth"
-          },
-          {
-            "company": "SAP",
-            "confidence": 18,
-            "pointingFact": "Business software franchise introducing newer offerings against faster-moving rivals"
-          },
-          {
-            "company": "Cisco",
-            "confidence": 14,
-            "pointingFact": "Established enterprise tech vendor reallocating spend across old and new delivery models"
-          }
-        ],
-        "direction": {
-          "call": "long",
-          "confidence": 42,
-          "cue": "Deep commercial relationships can lower acquisition cost for newer offerings"
-        }
-      },
-      "hard": {
-        "payloadHash": "sha256:a8ea0148d13130dc01b509e75e7b91a00cc081865a3393cc94f2e8370ea9ca1b",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T20:15:00.000Z",
-        "guesses": [
-          {
-            "company": "Microsoft",
-            "confidence": 18,
-            "pointingFact": "Jan 2014 enterprise tech vendor converting footprint as buyers reallocate tech spend"
-          },
-          {
-            "company": "IBM",
-            "confidence": 16,
-            "pointingFact": "Established vendor whose mature lines may dominate if replacements ramp slowly"
-          },
-          {
-            "company": "Oracle",
-            "confidence": 15,
-            "pointingFact": "Enterprise footprint story competing on old versus new delivery models"
-          },
-          {
-            "company": "SAP",
-            "confidence": 13,
-            "pointingFact": "Business software installed base trying to renew growth in time"
-          },
-          {
-            "company": "HP",
-            "confidence": 11,
-            "pointingFact": "Large enterprise technology name under pressure from slower legacy contribution"
-          }
-        ],
-        "direction": {
-          "call": "toss_up",
-          "confidence": 38,
-          "cue": "Footprint advantage versus mature-line pressure leaves direction unclear"
-        }
-      }
-    }
+    "hardLikelyGuesses": ["Microsoft", "Oracle", "IBM", "SAP", "Cisco", "HP"]
   }
 }

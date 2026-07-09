@@ -15,10 +15,10 @@
     "title": "Category Test",
     "decisionDate": "2007-01-09",
     "endDate": "2008-07-09",
-    "decisionDateLabel": "Jan 2007",
+    "decisionDateLabel": "2007",
     "outcomeLabel": "Jan 2007 → Jul 2008",
     "holdingPeriodLabel": "18 months",
-    "era": "Smartphone platform era",
+    "era": "Consumer device transition",
     "eraId": "smartphone_platform_era",
     "contentPackIds": ["mvp_core", "sample_seed"],
     "difficultySupported": ["easy", "medium", "hard"]
@@ -56,11 +56,11 @@
       "setupHints": []
     },
     "hard": {
-      "companyDescription": "A consumer technology company.",
-      "macroContext": "Everyday computing is shifting toward portable, always-connected devices.",
-      "situation": "Is a premium product bet priced for success or for a miss?",
-      "longCase": "Brand strength could pull users into a new habit if the product sticks.",
-      "shortCase": "Incumbents and channel partners still set the terms of scale, and expectations are high.",
+      "companyDescription": "A consumer products company.",
+      "macroContext": "Device categories and partner distribution terms are being re-cut.",
+      "situation": "Is the market pricing a successful category entry that is still unproven at scale?",
+      "longCase": "Brand pull could accelerate adoption if the new product sticks with users.",
+      "shortCase": "Channel partners and incumbents still control scale, and expectations leave little room for a miss.",
       "setupHints": []
     }
   },
@@ -83,130 +83,14 @@
   "review": {
     "generatedByAi": true,
     "humanReviewed": false,
-    "reviewNotes": "Medium/Hard rewritten after H023 Gate 2 identity failures (expanding-beyond-established-devices + brand-led mobile category triangulation). Intended peer set: Apple / Nokia / RIM / Motorola / Sony / Palm-class handheld names. Easy unchanged; Medium/Hard Gate 2 pending re-judge.",
+    "reviewNotes": "H027 Hard rewrite after H026 Gate 2 identity fail (correct #1 conf 24). Shared-label exception: decisionDateLabel Jan 2007→2007; era Smartphone platform era→Consumer device transition (title Category Test kept). Hard prose removes portable/always-connected and premium-product-only cues. Peer set Apple/Nokia/RIM/Motorola/Sony/Palm. Easy/Medium prose preserved; all Gate 2 entries removed as stale. Follow-up blind judge must rejudge easy+medium+hard.",
     "factBank": {
       "revealOnly": ["Apple brand", "iPhone", "App Store", "non-phone device base expanding into handhelds"],
-      "decisionUseful": ["premium brand pull", "partner-controlled distribution", "high launch expectations in the stock", "portable computing shift"],
-      "prohibited": ["iPhone", "Steve Jobs", "iPod", "expanding beyond established devices wording", "platform from hardware-sales hook", "keyboard-vs-touch form-factor hooks"]
+      "decisionUseful": ["brand pull for category entry", "partner-controlled distribution", "high launch expectations in the stock", "device-category transition backdrop"],
+      "prohibited": ["iPhone", "Steve Jobs", "iPod", "expanding beyond established devices wording", "platform from hardware-sales hook", "keyboard-vs-touch form-factor hooks", "portable always-connected silhouette", "month-precise Jan 2007 decision label", "Smartphone platform era label"]
     },
     "easyLikelyGuesses": ["Apple", "Nokia", "Motorola"],
     "mediumLikelyGuesses": ["Apple", "Nokia", "Research In Motion", "Sony"],
-    "hardLikelyGuesses": ["Apple", "Nokia", "Motorola", "Research In Motion", "Sony", "Palm"],
-    "gate2": {
-      "easy": {
-        "payloadHash": "sha256:910045aad758bd700224562dbbb5edfc2126483c31ee0e6bfbd45d8da2aeb65b",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T18:30:00.000Z",
-        "guesses": [
-          {
-            "company": "Apple",
-            "confidence": 90,
-            "pointingFact": "Jan 2007 consumer electronics firm entering mobile with premium design and carrier distribution risk"
-          },
-          {
-            "company": "Research In Motion",
-            "confidence": 40,
-            "pointingFact": "Handheld/mobile device maker in the early smartphone platform era"
-          },
-          {
-            "company": "Nokia",
-            "confidence": 32,
-            "pointingFact": "Entrenched mobile device maker facing a category redefinition"
-          },
-          {
-            "company": "Motorola",
-            "confidence": 24,
-            "pointingFact": "Consumer mobile hardware brand competing in a fast-growing device category"
-          },
-          {
-            "company": "Palm",
-            "confidence": 18,
-            "pointingFact": "Premium handheld brand trying to open a larger mobile computing surface"
-          }
-        ],
-        "direction": {
-          "call": "toss_up",
-          "confidence": 52,
-          "cue": "Brand/platform upside is clear, but stock already prices execution and carriers control distribution"
-        }
-      },
-      "medium": {
-        "payloadHash": "sha256:393e59a7b23bbf0da37910e39d9ef2efd1c9c8ad487326fbc6511269abe4ccb5",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T20:15:00.000Z",
-        "guesses": [
-          {
-            "company": "Apple",
-            "confidence": 36,
-            "pointingFact": "Jan 2007 design-led hardware brand testing a premium handheld bet as data plans expand"
-          },
-          {
-            "company": "Nokia",
-            "confidence": 28,
-            "pointingFact": "Established handheld maker facing a category redefinition under carrier distribution control"
-          },
-          {
-            "company": "Research In Motion",
-            "confidence": 24,
-            "pointingFact": "Branded handheld device maker with a loyal base during the early smartphone platform era"
-          },
-          {
-            "company": "Sony",
-            "confidence": 16,
-            "pointingFact": "Design-led consumer electronics firm competing in portable connected devices"
-          },
-          {
-            "company": "Motorola",
-            "confidence": 14,
-            "pointingFact": "Handset incumbent whose scale depends on channel partners and product execution"
-          }
-        ],
-        "direction": {
-          "call": "short",
-          "confidence": 48,
-          "cue": "Stock already prices a clean launch while partners still control distribution"
-        }
-      },
-      "hard": {
-        "payloadHash": "sha256:db95ceab8f9fad3a9615077438d732aaad6f2f360692a30f691cdd5bcd0e2065",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T20:15:00.000Z",
-        "guesses": [
-          {
-            "company": "Apple",
-            "confidence": 24,
-            "pointingFact": "Jan 2007 consumer tech premium product bet as portable always-connected devices take off"
-          },
-          {
-            "company": "Nokia",
-            "confidence": 20,
-            "pointingFact": "Incumbent portable-device maker with high expectations and partner-controlled scale"
-          },
-          {
-            "company": "Research In Motion",
-            "confidence": 16,
-            "pointingFact": "Brand-strength handheld franchise priced for product success in early smartphone shift"
-          },
-          {
-            "company": "Motorola",
-            "confidence": 13,
-            "pointingFact": "Channel-dependent device maker risking a miss when expectations are high"
-          },
-          {
-            "company": "Palm",
-            "confidence": 11,
-            "pointingFact": "Premium portable product story in a category still defined by incumbents"
-          }
-        ],
-        "direction": {
-          "call": "toss_up",
-          "confidence": 40,
-          "cue": "Brand pull versus incumbent and channel risk looks balanced at elevated expectations"
-        }
-      }
-    }
+    "hardLikelyGuesses": ["Apple", "Nokia", "Motorola", "Research In Motion", "Sony", "Palm"]
   }
 }

@@ -14,27 +14,26 @@ first thing the next agent reads.
 - **App state:** Monorepo scaffolded. Game engine: 37 tests. Content package:
   Zod schema, validation CLI, 6 active sample JSON scenarios (Balanced Tension /
   D026). A005 MAJORs 1–3 closed by H018; A005 MINORs 1/2/4 closed by H020.
-  **H021–H024 accepted** (Gate 2 harness + H023 judgments + H024 load fix).
-  **H025 accepted:** Medium/Hard hidden-card rewrites; H025 payloads exported.
-  **H026 accepted:** blind Gate 2 Medium/Hard results written
-  for all 6 seeds (`testedAt` 2026-07-09T20:15:00.000Z). Easy Gate 2 unchanged.
-  Medium identity thresholds pass; all 6 Hard variants **fail** Gate 2 (correct
-  company #1 with conf ≥15). `validate` 0/6; `gate2 check` 6 errors / 8 warns /
-  0 missing. Review report `agents/reports/R029_R028_review.md`. No auth, no DB.
-- **Next task:** H027 is approved and ready for manual dispatch:
-  `agents/handoffs/H027_hard_gate2_identity_rewrite.md`. It rewrites Hard
-  variants, allows bounded shared-label fixes if unavoidable, and exports
-  `agents/gate2/H027_payloads.json` for the next blind judge pass. Do not treat
-  active seeds as Gate-2-clean yet.
+  **H021–H027 accepted:** Hard
+  variants rewritten for all 6 seeds; shared-label exception used on all 6
+  (title/era/date labels where needed). Easy/Medium hidden-card prose preserved.
+  All stored `review.gate2` entries removed as stale (18 missing).
+  `agents/gate2/H027_payloads.json` exports 18 payloads. `validate` 6/6;
+  `gate2 check` 0 errors / 18 missing. Review report
+  `agents/reports/R032_R031_review.md`.
+  Do not treat active seeds as Gate-2-clean until the follow-up blind rejudge.
+  No auth, no DB.
+- **Next task:** Draft a blind Gate 2 rejudge handoff over
+  `agents/gate2/H027_payloads.json` for **easy + medium + hard** on all six
+  seeds (not Hard only — shared labels invalidated all difficulties).
 - **Workflow state:** D029 added token-efficient context routing; D030 added
   state compaction. New handoffs require a Context Manifest, Context Budget, and
   Output Budget; Fable/high-reasoning executor runs require explicit user
   override with a cost/context rationale. Detailed Phase 0-3 history is archived
   in `agents/history/progress_phase_0_3.md`. Dispatch mode remains
   manual-by-default (D028).
-- **Blocked/Questions:** H026 Hard Gate 2 fails on all 6 active seeds under D031
-  thresholds. Orchestrator must choose: further Hard abstraction (recommended),
-  freeze-break title/date labels, or other content fix — not threshold gaming.
+- **Blocked/Questions:** none from H027. Active seeds await blind Gate 2 rejudge
+  before Phase 4 Part A content can be treated as Gate-2-clean.
 
 ## How to Run (updated as the app grows)
 
@@ -83,6 +82,57 @@ Read it only when a handoff explicitly needs historical detail.
 ---
 
 ## Session Log
+
+### 2026-07-09 - Orchestrator - R031 accepted; H027 approved
+
+**What changed:**
+- Reviewed `agents/reports/R031_H027.md`, the active scenario JSON diff, and
+  `agents/gate2/H027_payloads.json`.
+- Confirmed H027 stayed within the shared-label exception: Easy/Medium prose and
+  protected scenario facts are unchanged; stale Gate 2 entries were removed.
+- Marked `agents/reports/R031_H027.md` approved and wrote
+  `agents/reports/R032_R031_review.md`.
+
+**How to run:** unchanged.
+
+**Tests:** content validate 6/6 with 0 warnings; gate2 check 0 errors / 0
+warnings / 18 missing; H027 export 18 payloads; content 50/50; root 87/87;
+typecheck pass; build pass.
+
+**Known issues:**
+- No stored Gate 2 judgments remain after shared-label changes; active seeds are
+  not Gate-2-clean until the next blind judge writes fresh results.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** Draft the blind Gate 2 rejudge handoff over
+`agents/gate2/H027_payloads.json` for all 18 payloads.
+
+### 2026-07-09 - Content Curator - H027 Hard Gate 2 identity rewrite
+
+**What changed:**
+- Rewrote Hard hidden-card fields on all 6 active seeds after H026 identity fails.
+- Used shared-label exception on all 6: year-only `decisionDateLabel`; softened
+  eras (except Visa era kept); retitled Amazon/Microsoft/Netflix/NVIDIA/Visa.
+- Updated `review.hardLikelyGuesses`, factBank prohibited hooks, and reviewNotes.
+- Removed all stored `review.gate2` entries (easy/medium/hard) as stale.
+- Exported `agents/gate2/H027_payloads.json` (18 entries).
+- Report: `agents/reports/R031_H027.md`. Handoff status → complete.
+
+**How to run:** unchanged (use H027_payloads.json for next export/judge path).
+
+**Tests:** validate 6/6; gate2 check 0 errors / 18 missing; content 50/50;
+root 87/87; typecheck pass; build pass.
+
+**Known issues:**
+- No Gate 2 judgments stored; seeds are not Gate-2-clean yet.
+- Follow-up blind judge must rejudge easy+medium+hard for all 6 scenarios.
+- Lookback chart silhouettes unchanged (market data frozen by handoff).
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** Orchestrator review R031; draft blind rejudge handoff
+for all 18 H027 payloads.
 
 ### 2026-07-09 - Orchestrator - H027 Hard identity rewrite approved
 
