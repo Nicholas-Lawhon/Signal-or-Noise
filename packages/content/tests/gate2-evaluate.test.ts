@@ -207,6 +207,47 @@ describe('evaluateGate2Variant identity thresholds', () => {
 });
 
 describe('evaluateGate2Variant warnings', () => {
+  it('uses under-2-only automated plausible-count warnings for Medium and Hard', () => {
+    const scenario = loadActiveNetflix();
+    const countWarnings = (difficulty: 'medium' | 'hard', guesses: Gate2Guess[]) =>
+      evaluateGate2Variant({
+        difficulty,
+        stored: makeStored(scenario, difficulty, guesses),
+        scenario,
+      }).filter((finding) => finding.message.includes('plausible guess'));
+
+    expect(
+      countWarnings('medium', [
+        guess('Hulu', 20), guess('Spotify', 18), guess('Disney', 15),
+        guess('Amazon', 12), guess('Roku', 10),
+      ]),
+    ).toHaveLength(0);
+    expect(
+      countWarnings('hard', [
+        guess('Hulu', 20), guess('Spotify', 15), guess('Disney', 12),
+        guess('Amazon', 8), guess('Roku', 5),
+      ]),
+    ).toHaveLength(0);
+    expect(
+      countWarnings('hard', [
+        guess('Hulu', 20), guess('Spotify', 15), guess('Disney', 8),
+        guess('Amazon', 5), guess('Roku', 4),
+      ]),
+    ).toHaveLength(0);
+    expect(
+      countWarnings('medium', [
+        guess('Hulu', 20), guess('Spotify', 8), guess('Disney', 5),
+        guess('Amazon', 4), guess('Roku', 3),
+      ]),
+    ).toHaveLength(1);
+    expect(
+      countWarnings('hard', [
+        guess('Hulu', 20), guess('Spotify', 8), guess('Disney', 5),
+        guess('Amazon', 4), guess('Roku', 3),
+      ]),
+    ).toHaveLength(1);
+  });
+
   it('warns when model top-5 has zero overlap with curator likely guesses', () => {
     const scenario = loadActiveNetflix();
     // Netflix hardLikelyGuesses are named companies; use unrelated names

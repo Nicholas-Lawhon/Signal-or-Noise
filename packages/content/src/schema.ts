@@ -48,6 +48,14 @@ const factBankSchema = z.object({
   revealOnly: z.array(z.string()),
   decisionUseful: z.array(z.string()),
   prohibited: z.array(z.string()),
+  peerSets: z
+    .object({
+      easy: z.array(z.string()).optional(),
+      medium: z.array(z.string()).optional(),
+      hard: z.array(z.string()).optional(),
+    })
+    .optional(),
+  prohibitedConjunctions: z.array(z.string()).optional(),
 });
 
 const gate2GuessSchema = z.object({

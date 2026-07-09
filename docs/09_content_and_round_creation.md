@@ -2,9 +2,12 @@
 
 ## Content Goal
 
-The MVP should include 100 curated scenario cards, 10 daily challenge pools, and 10 famous market eras.
+The MVP should include 40 curated scenario cards: 24 famous, 12 moderately
+known, and 4 obscure companies (D034). It also includes 10 daily challenge
+pools and 10 famous market eras.
 
-The content should be generated with AI assistance, validated with a strict schema, reviewed by a human, and stored as seed data.
+The content is AI-assisted, deterministically validated, blind-judged through
+the offline Gate 2 workflow, human-reviewed, and stored as seed data.
 
 The app should not dynamically generate live gameplay content in production for MVP.
 
@@ -43,7 +46,7 @@ Each historical window is a different scenario.
 The MVP content library should include:
 
 ```text
-100 curated scenario cards
+40 curated scenario cards: 24 famous / 12 moderately known / 4 obscure
 10 daily challenge pools
 10 famous market eras
 Easy / Medium / Hard variants for every scenario
@@ -267,6 +270,10 @@ round by itself: it must present a genuine unresolved tension, not a vague
 description. "A company facing challenges" fails; "an incumbent betting its cash
 cow on an unproven distribution model while a cheaper rival scales" passes.
 
+For **Hard**, retain two non-identifying causal facts from the decision-useful
+bank. State the Long and Short cases in one sentence each; neither may apply
+unchanged to nearly any public company (D036).
+
 ### Directional Sentiment Rules (anti-answer leakage)
 
 Hidden content must not make the correct Long/Short action obvious through tone,
@@ -305,14 +312,19 @@ authoring red-team step):
 A variant fails this gate even if every individual sentence passes the
 three-companies test — triangulation leaks live between the sentences.
 
+The 2–4 Medium and ≥4 Hard counts are human authoring aspirations. Automated
+Gate 2 plausible-count WARNs fire only below two candidates for every
+difficulty; they do not replace this whole-card review.
+
 ### Gate 2 — The Guessability Test (model, falsifiable)
 
-Paste the same full pre-decision payload into a FRESH session of the
-designated test model and ask: "Name the hidden company. Give your top 5
-guesses with a confidence percentage for each." Use the same model and the
-same prompt for every card, and record the model in review notes. The Phase 3
-validator (D019) automates this with a pinned model at temperature 0; until
-then it is a manual step in the Human Review Checklist.
+Gate 2 uses the pinned **Grok 4.5** judge and the pinned prompt version under
+D031. A separate agent workflow receives only the canonical pre-decision
+payload, returns five guesses with confidence and pointing facts plus a
+direction call, and stores raw results under `review.gate2`. The content
+package checks hashes, pins, and thresholds offline (D032). Direction findings
+are WARN-only. This blind judgment is separate from the author self-judge and
+is required with current results plus human review before activation.
 
 Initial thresholds — calibration values, tunable via playtest without
 reopening D022:
@@ -323,6 +335,10 @@ reopening D022:
   leads the #2 guess by 15+ points.
 - **Hard:** fail if the correct company appears in the top 5 with ≥ 15%
   confidence.
+
+Automated plausible-count WARNs fire only when fewer than two model guesses
+meet the confidence floor with pointing facts, for Medium and Hard as well as
+Easy. They are calibration signals, not identity thresholds.
 
 ### Calibrated Pass/Fail Examples
 
@@ -358,7 +374,7 @@ environment while investors debate whether margins can hold." Generic Long
 and Short cases exist, but neither is anchored to a scenario fact — fails
 the Decision-Informativeness Floor.
 
-## Authoring Workflow
+## Legacy Authoring Workflow (superseded by Part B procedure below)
 
 Required workflow (one scenario = one company + one window, with three
 hidden-card variants — never three separate scenario records):
@@ -394,7 +410,44 @@ hidden-card variants — never three separate scenario records):
 9. Mark reviewed (human only).
 10. Import into database.
 
-## AI Prompt Template
+## Part B Authoring Workflow (D036-D038)
+
+Use this required workflow for all Part B cards:
+
+1. Choose a candidate and record its fame bucket: famous, moderate, or obscure.
+2. Gather named sources for every market-data point and material reveal claim.
+3. Build the structured private fact bank: `revealOnly`, `decisionUseful`, and
+   `prohibited`; named peer sets by difficulty (Hard has at least four named
+   public companies before prose); a pointing fact or conjunction for every
+   peer; and prohibited conjunctions, including chart-plus-prose paths.
+4. Review the chart silhouette as an identity fact. Do not write prose that
+   confirms its favorite candidate. If only a window shift, vagueness, or card
+   retirement would resolve the conflict, escalate to the user; never silently
+   shift the window.
+5. Draft Hard first from the broad peer set and matched factual tension. Keep
+   two non-identifying causal facts so Long and Short are each one sentence and
+   neither applies unchanged to nearly any public company.
+6. Add one controlled discriminator at a time for Medium, then Easy; recheck
+   the whole payload after each addition. Record the Medium discriminator and
+   why its peer set remains plural, and why Easy is attainable without a
+   literal or unique hook. Never write Easy first and vague it down.
+7. Red-team likely guesses with pointing reasons. Gate 1 aspirations remain
+   Easy at least 2, Medium 2-4, and Hard at least 4 plausible candidates.
+8. Run a mandatory payload-only self-judge: exactly five company guesses with
+   confidence and pointing fact, plus direction call/confidence/cue. It sees no
+   company or reveal fields. Compare it with the red-team list and revise for
+   zero overlap, correct-company dominance, or unsupported candidates. Record
+   a summary in `review.reviewNotes` or the completion report; it is not an
+   authoritative `review.gate2` result.
+9. Run deterministic schema and leakage validation, then export canonical
+   payloads for a separate blind Grok Gate 2 handoff. Only changed payloads are
+   rejudged. Human review and current Gate 2 results are required before
+   `humanReviewed` / `active`.
+10. Author four batches of about 10 cards (about 6 famous / 3 moderate / 1
+    obscure). Blind-judge each batch and hold user playtests after batches 1
+    and 2 before batches 3 and 4.
+
+## Legacy AI Prompt Template (superseded by Part B template below)
 
 Use a prompt like this for scenario generation:
 
@@ -453,6 +506,44 @@ Use short, punchy, game-like copy. No financial advice — this is entertainment
 Return schema-valid JSON only.
 ```
 
+## Part B AI Prompt Template
+
+```text
+Create one schema-valid Signal or Noise? historical scenario in the 40-card
+MVP wave: 24 famous, 12 moderately known, and 4 obscure companies. This is
+AI-assisted seed content, never dynamic gameplay generation.
+
+First produce a private structured fact bank: revealOnly, decisionUseful,
+prohibited, named peer sets for Easy/Medium/Hard, a pointing fact or pointing
+conjunction for each peer, and prohibited conjunctions including chart-plus-
+prose paths. Cite a named source for every market-data point and material
+reveal claim. Use filings, issuer materials, reputable market-data providers,
+or reputable reporting; record label and URL.
+
+Draft Hard first. Before prose, name at least four real public-company peers.
+Use L1 company description, no setup hints, two non-identifying causal facts,
+and a one-sentence Long case plus one-sentence Short case that cannot apply
+unchanged to nearly any public company. Review the chart silhouette as an
+identity fact and do not confirm its favorite in prose.
+
+For Medium, add exactly one controlled discriminator at a time and state why
+the peer set stays plural. For Easy, state why the more direct clue is
+attainable without a literal leak or unique hook. Recheck the full payload
+after every addition. Do not vague Easy prose down into Hard.
+
+For every difficulty, red-team likely guesses with pointing reasons. Then run
+a mandatory payload-only self-judge with exactly five entries of
+company/confidence/pointingFact and a direction call/confidence/cue. It may see
+no company, ticker, reveal, outcome, or outcome-chart fields. Revise for zero
+overlap with the red-team list, correct-company dominance, or unsupported
+candidates. Record its non-authoritative summary in review notes.
+
+Validate deterministically, then export the canonical payload for a separate
+blind Grok 4.5 Gate 2 agent workflow. Store its raw results under review.gate2;
+offline checks enforce the pinned model, prompt, payload hash, and identity
+thresholds. Human review and current blind results are required for activation.
+```
+
 ## Scenario Validation Checklist
 
 A scenario card should fail validation if:
@@ -465,14 +556,14 @@ A scenario card should fail validation if:
 - Hidden card mentions company name
 - Hidden card mentions ticker
 - Title fails the Hard identifiability bar
-- Guessability test fails for any variant (automated in the Phase 3
-  validator, D019)
+- Gate 2 results are missing, stale, or fail an identity threshold when the
+  card requires current blind judgment
 - Review notes missing the fact bank or the likely-player-guesses lists
 
-The Phase 3 validator additionally WARNS (without auto-rejecting) on
+The deterministic validator additionally WARNS (without auto-rejecting) on
 configured high-risk triangulation terms; the guessability check and human
 review remain the authority on combined-specificity leaks.
-- The Phase 3 validator additionally WARNS on configured directional-sentiment
+- The deterministic validator additionally WARNS on configured directional-sentiment
   terms and case asymmetry: loaded adjectives, obvious winner/loser phrasing,
   titles that imply a call, and one case being much shorter or more generic than
   the other. Human review is the authority on whether the tension is balanced.
@@ -486,11 +577,17 @@ review remain the authority on combined-specificity leaks.
 
 ## Human Review Checklist
 
+For Part B, confirm current blind Gate 2 results; structured peer sets,
+pointing facts, prohibited conjunctions, and chart-silhouette review; named
+source coverage for every market-data point and material reveal claim; and the
+batch activation / playtest requirements below. The legacy manual wording in
+the checklist is superseded by this requirement.
+
 A human reviewer should check:
 
 - Is the scenario fun?
-- Is the company hidden enough? (Run the Guessability Test per variant and
-  record the results — manual until the Phase 3 validator automates it.)
+- Is the company hidden enough? Check the stored blind Gate 2 result alongside
+  Gate 1 red-team and payload-only self-judge evidence.
 - Does the title pass the Hard bar?
 - Is Easy too obvious?
 - Is Hard too vague, or is its balanced core uninformative?
@@ -509,7 +606,11 @@ A human reviewer should check:
 
 ## Source Requirements
 
-Each scenario should include source URLs for review.
+Part B and later production cards require a named source (label and URL) for
+every market-data point: decision/end dates, split-adjusted start/end prices,
+and actual return. They also require named-source coverage for each material
+reveal claim in `shortText`, `funFact`, and `whyItMoved`. Human review is the
+coverage gate. Prototype seeds remain D006-grade unless promoted.
 
 Sources may include:
 
@@ -519,6 +620,10 @@ Sources may include:
 - Reputable business articles
 - Company history pages
 - Market context sources
+
+Prefer primary sources (company filings, investor materials, exchange or
+reputable market-data providers) and reputable business reporting for
+historical context. Notes may identify which fields a source supports.
 
 Source URLs are stored for review and not shown to players in MVP.
 
@@ -548,6 +653,12 @@ must not use trading-dashboard affordances, indicators, volume, or copy that
 implies it is the signal. Whole-card review must consider chart shape; a meme
 silhouette or a chart/prose combination that makes Long or Short obvious fails
 the directional-sentiment review.
+
+Apply the D037 silhouette ladder: review a distinctive shape as an identity
+fact, record its chart-plus-prose conjunction in the fact bank, and decouple
+prose from the silhouette favorite while keeping plausible peers. Escalate to
+the user if the only fix is a window shift, vagueness, or retiring the card;
+never silently distort the historical window.
 
 ### Outcome Chart
 
@@ -609,8 +720,7 @@ These names can be refined later.
 
 ## Scenario Mix Recommendation
 
-For the first 40 scenarios (D034; ratio unchanged from the original 100-card
-plan):
+The 40-scenario MVP mix (D034) is:
 
 ```text
 24 famous or highly recognizable companies
@@ -641,6 +751,40 @@ Bad scenario cards:
 - Use overly educational lecture copy.
 - Accidentally reveal the company name.
 - Accidentally reveal the outcome.
+
+## Banned-Pattern Appendix (Part B)
+
+Use these as pattern checks, not an answer key for existing cards.
+
+### Famous thesis / hindsight framing
+
+- Do not write a remembered winner-or-loser thesis as already settled.
+- Do not pair a canonical disruption story with an outcome-shaped adjective.
+- Prefer instead: state the contemporaneous tradeoff and keep both causal cases live.
+
+### Distinctive product or transition hooks
+
+- Do not name or closely paraphrase a one-company product, slogan, interface, or transition.
+- Do not combine a unique launch category with its famous adoption story.
+- Prefer instead: use a broader category and a peer-supported business tension.
+
+### Business-model silhouette
+
+- Do not describe a model with too few real public peers.
+- Do not make a non-obvious operating detail the only concrete card fact.
+- Prefer instead: name a plural peer set first, then retain matched causal facts.
+
+### Date/era plus sector conjunctions
+
+- Do not combine a narrow date, sector, and canonical company story into one clue path.
+- Do not let title, macro context, and setup hint triangulate a single answer.
+- Prefer instead: generalize one dimension and recheck the full payload.
+
+### Chart-plus-prose confirmation
+
+- Do not confirm a distinctive lookback silhouette with its familiar narrative.
+- Do not use prose to turn a chart favorite into the only plausible peer.
+- Prefer instead: record the prohibited conjunction and decouple prose from it.
 
 ## Future Content Features
 

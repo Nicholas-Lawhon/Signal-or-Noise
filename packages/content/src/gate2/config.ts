@@ -27,7 +27,7 @@ export type Gate2ThresholdConfig = {
   plausibleFloor: number;
   plausibleMinCounts: {
     easy: number;
-    medium: { min: number; max: number };
+    medium: number;
     hard: number;
   };
   /** Medium dominance proxy for plausible set (WARN). */
@@ -51,8 +51,8 @@ export const GATE2_THRESHOLDS: Gate2ThresholdConfig = {
   plausibleFloor: 10,
   plausibleMinCounts: {
     easy: 2,
-    medium: { min: 2, max: 4 },
-    hard: 4,
+    medium: 2,
+    hard: 2,
   },
   mediumDominanceConfidence: 40,
   directionWarnConfidence: 65,

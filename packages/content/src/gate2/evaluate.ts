@@ -165,12 +165,11 @@ function evaluatePlausibleWarnings(
   }
 
   if (difficulty === 'medium') {
-    const { min, max } = thresholds.plausibleMinCounts.medium;
-    if (count < min || count > max) {
+    if (count < thresholds.plausibleMinCounts.medium) {
       findings.push({
         severity: 'warning',
         path: `${pathPrefix}.guesses`,
-        message: `Medium Gate 2: ${count} plausible guess(es); want ${min}–${max}`,
+        message: `Medium Gate 2: only ${count} plausible guess(es); want >= ${thresholds.plausibleMinCounts.medium}`,
       });
     }
     const dominant = stored.guesses.find(

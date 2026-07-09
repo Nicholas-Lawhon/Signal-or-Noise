@@ -77,6 +77,14 @@ export type FactBank = {
   revealOnly: string[];
   decisionUseful: string[];
   prohibited: string[];
+  /** Optional Part B authoring metadata; existing prototype seeds may omit it. */
+  peerSets?: {
+    easy?: string[];
+    medium?: string[];
+    hard?: string[];
+  };
+  /** Identity-bearing combinations, including chart-plus-prose paths. */
+  prohibitedConjunctions?: string[];
 };
 
 /** One model company guess from a Gate 2 judge run (raw, no verdict). */

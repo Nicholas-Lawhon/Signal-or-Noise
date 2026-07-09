@@ -2,7 +2,7 @@
 
 **Role:** Content Curator
 **Phase:** 4 Part B - Content generation at scale
-**Status:** draft
+**Status:** approved
 **Model:** gpt-5.5
 **Risk:** high (production scenario content)
 **Audit:** orchestrator review + mandatory follow-up blind Gate 2 (H035);

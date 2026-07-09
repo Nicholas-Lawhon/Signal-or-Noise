@@ -9,33 +9,32 @@ first thing the next agent reads.
 - **Phase:** 0–3 COMPLETE; **Phase 4 Part A CLOSED** (D035). Current phase is
   **Phase 4 Part B — content generation at scale**: 40 cards (24 famous / 12
   moderate / 4 obscure per D034), 10 daily challenge pools, 10 famous market
-  eras. Pipeline policy locked in **D036–D038** (C004 adopted). Database is
-  Phase 5, Auth 6, Leaderboards 7, Daily Challenge 8 (D027).
+  eras. Pipeline policy locked in **D036–D038**. Doc 09 + WARN calibration
+  shipped via **H033/R046 (accepted)**. Database is Phase 5, Auth 6,
+  Leaderboards 7, Daily Challenge 8 (D027).
 - **App state:** Monorepo scaffolded. Game engine: 37 tests. Content package:
-  Zod schema, validation CLI, offline Gate 2 harness (export/check, pinned
-  grok-4.5 judge per D031/D032), 6 active seeds (Balanced Tension / D026).
-  All 6 pass `validate` (9 plausible-count WARNs — pending H033 under-2-only
-  recalibration); `gate2 check` 0 errors / 9 WARNs / 2 informational missing
-  (Netflix Medium/Hard — fold into H035 per D035). No auth, no DB.
-- **Next task:** Dispatch **H033** (doc 09 Part B amendment + plausible-count
-  WARN recalibration, GPT 5.5). After orchestrator accepts H033: dispatch
-  **H034** (batch-1 author 10 cards), then **H035** (blind Gate 2 + Netflix
-  fold-in). User playtest after batch 1 before batches 3–4.
-- **Handoffs ready:** `H033` status **approved**; `H034`/`H035` status
-  **draft** (dispatch after H033 lands). Do not run H034 against pre-H033
-  doc 09.
+  Zod schema (optional FactBank peerSets/prohibitedConjunctions), validation
+  CLI, offline Gate 2 harness (under-2-only plausible-count WARNs per D036),
+  6 active seeds. Validate 6/6 **0 WARNs**; `gate2 check` 0 errors / 0 WARNs /
+  2 informational missing (Netflix Medium/Hard — H035 fold-in). Content tests
+  51. No auth, no DB.
+- **Next task:** Dispatch **H034** (batch-1 author 10 draft cards, GPT 5.5).
+  Then **H035** (blind Gate 2 + Netflix fold-in). User playtest after batch 1
+  before batches 3–4.
+- **Handoffs ready:** `H033` complete/accepted; `H034` **approved** for
+  dispatch; `H035` draft until H034 lands.
 - **Workflow state:** D028 manual-by-default dispatch; D029 context/output
-  budgets on every handoff; D030 state compaction; D033 model-agnostic roles.
-  Phase 0–3 history in `agents/history/progress_phase_0_3.md`; Phase 4A
-  history in `agents/history/progress_phase_4a.md`.
-- **Blocked/Questions:** None. Await H033 execution.
+  budgets; D030 state compaction; D033 model-agnostic roles. Phase 0–3 history
+  in `agents/history/progress_phase_0_3.md`; Phase 4A in
+  `agents/history/progress_phase_4a.md`.
+- **Blocked/Questions:** None.
 
 ## How to Run (updated as the app grows)
 
 ```bash
 pnpm install          # install dependencies
 pnpm dev              # start dev server at http://localhost:3000
-pnpm test             # run all package tests (game-engine 37 + content 50)
+pnpm test             # run all package tests (game-engine 37 + content 51)
 pnpm typecheck        # run TypeScript type checking
 pnpm --filter @signal-or-noise/content validate   # validate scenario JSON seeds
 pnpm --filter @signal-or-noise/content gate2 -- export --out agents/gate2/<HANDOFF>_payloads.json
@@ -79,6 +78,47 @@ Read it only when a handoff explicitly needs historical detail.
 ---
 
 ## Session Log
+
+### 2026-07-09 - Orchestrator - R046/H033 accepted; H034 approved
+
+**What changed:**
+- Reviewed R046 + H033 diff; reran verify — content 51/51, root 88/88,
+  typecheck pass, validate 6/6 (0 WARNs), gate2 check 0/0/2 missing.
+- Accepted H033; wrote `agents/reports/R047_R046_review.md`; marked R046
+  approved.
+- Promoted **H034** to **approved** for batch-1 authoring dispatch.
+
+**How to run:** unchanged (content tests now 51; validate typically 0 WARNs).
+
+**Tests:** as above (orchestrator rerun).
+
+**Known issues:** Netflix Medium/Hard Gate 2 still missing (D035 → H035).
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** Manual dispatch of H034.
+
+### 2026-07-09 - Implementor - H033
+
+**What changed:**
+- Amended doc 09 with the D034 40-card mix; D036 structured fact-bank,
+  Hard-first, self-judge, and batch workflow; D037 chart-silhouette ladder;
+  D038 source bar; and a pattern-based banned-pattern appendix.
+- Recalibrated automated Medium/Hard plausible-count WARNs to under-2-only,
+  with focused coverage. Added optional `FactBank.peerSets` and
+  `prohibitedConjunctions`; no active seed migration was needed.
+
+**How to run:** unchanged.
+
+**Tests:** content 51/51; root 88/88; typecheck pass; validate 6/6 with 0
+warnings; Gate 2 check 0 errors / 0 warnings / 2 accepted informational missing.
+
+**Known issues:** Netflix Medium/Hard Gate 2 results remain the accepted D035
+residual for H035 batch fold-in.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** Orchestrator review of R046_H033, then H034.
 
 ### 2026-07-09 - Orchestrator - D036–D038; H033/H034/H035 drafted
 
