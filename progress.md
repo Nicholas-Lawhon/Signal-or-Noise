@@ -21,9 +21,11 @@ first thing the next agent reads.
   Medium identity thresholds pass; all 6 Hard variants **fail** Gate 2 (correct
   company #1 with conf ≥15). `validate` 0/6; `gate2 check` 6 errors / 8 warns /
   0 missing. Review report `agents/reports/R029_R028_review.md`. No auth, no DB.
-- **Next task:** Draft a follow-up Hard rewrite handoff that may inspect/freeze-break
-  title, era, date, and holding-period labels as identity leaks, then export and
-  blind-rejudge Hard only. Do not treat active seeds as Gate-2-clean yet.
+- **Next task:** H027 is approved and ready for manual dispatch:
+  `agents/handoffs/H027_hard_gate2_identity_rewrite.md`. It rewrites Hard
+  variants, allows bounded shared-label fixes if unavoidable, and exports
+  `agents/gate2/H027_payloads.json` for the next blind judge pass. Do not treat
+  active seeds as Gate-2-clean yet.
 - **Workflow state:** D029 added token-efficient context routing; D030 added
   state compaction. New handoffs require a Context Manifest, Context Budget, and
   Output Budget; Fable/high-reasoning executor runs require explicit user
@@ -81,6 +83,30 @@ Read it only when a handoff explicitly needs historical detail.
 ---
 
 ## Session Log
+
+### 2026-07-09 - Orchestrator - H027 Hard identity rewrite approved
+
+**What changed:**
+- Drafted and approved `agents/handoffs/H027_hard_gate2_identity_rewrite.md`.
+- Scoped H027 to rewrite failing Hard variants after H026, remove stale Hard
+  Gate 2 entries, and export `agents/gate2/H027_payloads.json`.
+- Added a bounded shared-label exception: if title/era/date/holding-period labels
+  must change to break Hard identity, the executor must remove all affected stale
+  Gate 2 entries and report the expanded rejudge scope.
+- Wrote `agents/reports/R030_h027_draft.md`.
+
+**How to run:** unchanged.
+
+**Tests:** not run - handoff/report/progress drafting only.
+
+**Known issues:**
+- Active seeds still fail Hard Gate 2 until H027 and the follow-up blind judge
+  pass land.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** Manually dispatch H027, then review
+`agents/reports/R031_H027.md` and draft the blind rejudge handoff.
 
 ### 2026-07-09 - Orchestrator - R028 accepted; H026 approved
 
