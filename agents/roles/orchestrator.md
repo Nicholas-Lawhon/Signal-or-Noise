@@ -46,10 +46,13 @@ authoring time.
    after the user agrees to the task. High-risk work, major features, phase gates,
    irreversible/outward-facing actions, and product-rule changes stay `draft`
    until the user approves → `approved`.
-5. **Dispatch** — launch the executor yourself via its headless CLI (commands in
-   `agents/routing.md`), pointing it at `AGENTS.md` and the handoff file, with
-   the workspace-write/no-git guardrails. Run it in the background and wait for
-   the R### report. Manual paste by the user is the fallback if a CLI is down.
+5. **Dispatch** — default is a MANUAL handoff (D028): give the user the
+   standard dispatch prompt from `agents/routing.md`, pointing at `AGENTS.md`
+   and the handoff file; the user launches the executor and returns when the
+   R### report exists. Launch the executor yourself (headless CLI, commands in
+   `agents/routing.md`, workspace-write/no-git guardrails) only when the user
+   has explicitly permitted direct dispatch for that handoff or session.
+   Utility subagents for your own exploration/verification are always allowed.
 6. **Review** — when the role agent finishes, it writes
    `agents/reports/R###_H###.md` and leaves everything UNCOMMITTED (D012). You
    read the report + `git diff`, independently re-run whatever is cheap to verify

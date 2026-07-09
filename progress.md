@@ -17,10 +17,11 @@ first thing the next agent reads.
   pre-decision metadata leakage scan, empty banned-terms guard). Package root
   is browser-safe (no Node fs re-exports). Classic Run loads from
   `@signal-or-noise/content`. `pnpm build` passes. No auth, no DB.
-- **Next task:** Orchestrator reviews R013/H018, then drafts Phase 4 Part A
-  handoffs (A005 MINORs 1/2/4, automated Gate 2 check, doc 09 readiness,
-  active-card re-review).
-- **Blocked/Questions:** none.
+- **Next task:** User manually dispatches H019 (Gate 2 guessability design
+  consultation, Fable 5 High → C003). After the memo: orchestrator review,
+  then H020 (Grok: A005 MINORs) and the remaining Part A handoffs.
+- **Blocked/Questions:** none. Dispatch mode is now manual-by-default (D028);
+  the user hands off prompts to executors for the rest of this session.
 
 ## How to Run (updated as the app grows)
 
@@ -59,6 +60,32 @@ All from repo root. Requires Node.js LTS and pnpm 9.x.
 ---
 
 ## Session Log
+
+### 2026-07-09 — Orchestrator — D028 manual-default dispatch; H019 consultation drafted
+
+**What changed:**
+- Recorded D028 (user approved): manual handoff is the default dispatch mode;
+  orchestrator-driven dispatch (headless CLI or tool call) requires explicit
+  user permission per dispatch or session. Utility subagents for the
+  orchestrator's own work stay permission-free. Synced `agents/routing.md`
+  (dispatch section) and `agents/roles/orchestrator.md` (loop step 5).
+- Drafted + approved `agents/handoffs/H019_gate2_guessability_consultation.md`:
+  Consultant memo (C003) designing the automated Gate 2 guessability check —
+  executor per user choice is **Fable 5 at high reasoning effort** (not GPT
+  5.5). User dispatches it manually per D028.
+- Sequencing agreed with user: consultation first; H020 (Grok, A005 MINORs
+  1/2/4) drafts after C003 lands so the memo can inform MINOR-4's quality
+  floor.
+
+**Tests:** not run — docs/orchestration only.
+
+**Known issues:** none new.
+
+**Blocked/Questions:** awaiting C003 memo from the manually-dispatched H019.
+
+**Next recommended task:** user runs H019 with Fable 5 High; orchestrator
+reviews C003, records any decisions, then drafts H020 + remaining Part A
+handoffs.
 
 ### 2026-07-09 — Orchestrator — R013 accepted; H018 committed
 

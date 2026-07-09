@@ -81,20 +81,30 @@ Instruction granularity scales inversely with the executor's Autonomy rating:
   explicitly delegated bounded design decisions. Spend its intelligence — tell
   it what problem to solve and where the fences are, not each step.
 
-## Direct CLI Dispatch (D023)
+## Handoff Dispatch (D023, amended by D028)
 
-All three executor CLIs are installed and authenticated on the dev machine. The
-orchestrator dispatches handoffs itself instead of the user pasting prompts.
+**Default: manual handoff.** The orchestrator authors the handoff, then gives
+the user the standard dispatch prompt below. The user launches the executor
+themselves (CLI or app session) and returns when the R###/A###/C### artifact
+exists.
 
-**Standard dispatch prompt** (same framing for every executor):
+**Direct dispatch is opt-in (D028).** The orchestrator may launch a handoff
+executor itself — via the headless CLI commands below or a direct tool call —
+only with the user's explicit permission, granted per dispatch or per session.
+Utility subagents for the orchestrator's OWN work (exploration, verification,
+research) never require permission; the gate applies only to executing handoff
+prompt tasks (Implementor, Auditor, Consultant, Curator, Growth).
+
+**Standard dispatch prompt** (same framing for every executor, both modes):
 
 > You are an agent working in this repository. Read `AGENTS.md` and follow its
 > Required Reading Order, then read and execute `agents/handoffs/H###_<name>.md`
 > exactly. Do NOT run `git commit` or `git push`. When done, write your
 > completion report per the handoff's Reporting section.
 
-**Commands** (run from repo root, in the background; wait for the R### report).
-Smoke-tested 2026-07-08 — the stdin/auto details below are required, not optional:
+**Commands for orchestrator-driven dispatch (opt-in, D028)** (run from repo
+root, in the background; wait for the R### report). Smoke-tested 2026-07-08 —
+the stdin/auto details below are required, not optional:
 
 ```powershell
 # Grok 4.5 (medium work) — bypassPermissions is required for any handoff that
@@ -127,8 +137,8 @@ echo test). Grok needs no stdin workaround.
 Guardrails: workspace-write, no git. Headless agents auto-approve edits inside
 the repo; git commit/push is forbidden by CLI deny rules where the CLI supports
 them and by the dispatch prompt + `AGENTS.md` everywhere (D012 unchanged: the
-uncommitted diff plus the R### report is the review artifact). **Manual paste
-remains the fallback** if a CLI is down — same handoff file, same rules.
+uncommitted diff plus the R### report is the review artifact). Manual handoff
+(D028 default) uses the same handoff file, same prompt, same rules.
 
 **Post-dispatch health check:** exit code 0 does NOT mean the handoff finished —
 a headless run that hits an unapprovable permission prompt can end silently.

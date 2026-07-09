@@ -515,6 +515,30 @@ entries are not rewritten. The consultant-memo requirements move with their
 phases: DB provider/guest strategy memo before Phase 5, auth provider memo
 before Phase 6.
 
+## D028 — Manual handoff is the default dispatch mode
+
+**Date:** 2026-07-09 · **Status:** User approved
+
+Amends the dispatch portion of D023 (routing, model characteristics, and
+calibration are unchanged):
+
+- **Default: manual handoff.** The orchestrator authors the handoff, then gives
+  the user the standard dispatch prompt (see `agents/routing.md`); the user
+  launches the executor themselves and returns to the orchestrator when the
+  R###/A###/C### artifact exists.
+- **Direct dispatch is opt-in.** The orchestrator may launch a handoff executor
+  itself (headless CLI or tool call) only with the user's explicit permission —
+  granted per dispatch or per session. The D023 CLI commands remain documented
+  in `agents/routing.md` as the opt-in path.
+- **Utility subagents are unaffected.** The orchestrator may freely call agents
+  to help with its OWN work (exploration, diff verification, research). The
+  permission requirement applies only to agents executing handoff prompt tasks
+  (Implementor, Auditor, Consultant, Curator, Growth).
+
+**Rationale (user):** the user wants visibility and control over when executor
+sessions launch and which model runs them, while keeping the automated path
+available on request. Cost/routing decisions stay human-approved by default.
+
 ## Open Design Question — composite Final Score / Information Tiers (NOT a decision)
 
 **Date:** 2026-07-03 · **Status:** Exploration pending
