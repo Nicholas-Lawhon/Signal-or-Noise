@@ -92,6 +92,29 @@ Read it only when a handoff explicitly needs historical detail.
 
 ## Session Log
 
+### 2026-07-09 - Orchestrator - H030 blind Medium/Hard rejudge drafted
+
+**What changed:**
+- Drafted and approved `agents/handoffs/H030_blind_gate2_rejudge_medium_hard.md`
+  to blind-judge the 12 rewritten Medium/Hard payloads in
+  `agents/gate2/H029_payloads.json` (Grok 4.5, pinned judge per D031).
+- Easy is excluded: R038 verified shared fields unchanged, Easy evidence valid.
+- Added a blind-integrity guard: executor must not read R037's self-check
+  table (names the actual companies) before judging; honest failure is an
+  acceptable outcome.
+- Wrote `agents/reports/R039_h030_draft.md`.
+
+**How to run:** unchanged.
+
+**Tests:** not run - handoff/report/progress drafting only.
+
+**Known issues:** none new.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** Manually dispatch H030, then review
+`agents/reports/R040_H030.md`.
+
 ### 2026-07-09 - Orchestrator - R037 accepted; H029 approved
 
 **What changed:**
