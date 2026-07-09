@@ -49,6 +49,7 @@ the D-number or the current task directly touches that area.
 | D032 | Gate 2 runs through agent workflow, not API tokens | Content pipeline |
 | D033 | GPT 5.6 Terra joins roster; all roles model-agnostic | Agent workflow |
 | D034 | MVP card target reduced from 100 to 40 | Content pipeline |
+| D035 | Phase 4 Part A closed; Netflix blind rejudge waived | Content pipeline |
 
 ---
 
@@ -746,6 +747,38 @@ being calibrated. Generating 100 cards against rules that may change would
 waste the largest non-code work item in the project; scaling from 40 to more
 later is straightforward because the generation pipeline and gates are the
 deliverable, not the count.
+## D035 - Phase 4 Part A closed; Netflix blind rejudge waived
+
+**Date:** 2026-07-09 · **Status:** User approved
+
+Phase 4 Part A (content rules & validator hardening) is **closed**. The user
+signed off that the gate guards are trusted, satisfying the Part A acceptance
+criteria: new invalid classes fail validation (H018/H020), the automated
+Gate 2 guessability check runs offline with pinned judge and D031 thresholds
+(H021/H022), doc 09 generation readiness was reviewed (H031/C004), and all six
+active seeds were re-reviewed and rewritten against the hardened gates
+(H025–H032).
+
+The planned two-payload blind Netflix Gate 2 rejudge (H033) is **waived**.
+The H032 rewrite is accepted on the executor's payload-only self-check
+(Netflix #5 at 13/12 confidence on Medium/Hard, below every D031 failure
+condition) plus the orchestrator's diff review. Netflix's
+`review.gate2.medium|hard` entries therefore remain absent — an accepted
+residual reported as 2 informational "missing" variants by `gate2 check`
+(missing results are not fail-closed per H021).
+
+**Mitigation:** Netflix's two payloads (in `agents/gate2/H032_payloads.json`)
+may be folded into the first Part B batch's blind judging handoff at near-zero
+marginal cost; if that judgment fails, it is treated as a normal batch fix-up,
+not a Part A reopen.
+
+**Rationale:** The blind-judge machinery itself is proven (H023/H026/H028/
+H030 all produced honest failures, demonstrating the pipeline does not
+rubber-stamp). The remaining uncertainty is confined to one card pair whose
+self-check margins are wide, and Part B's per-batch blind judging cadence
+provides a cheap catch-point. Spending a dedicated dispatch on two payloads
+buys little over folding them into batch 1.
+
 ## Open Design Question â€” composite Final Score / Information Tiers (NOT a decision)
 
 **Date:** 2026-07-03 Â· **Status:** Exploration pending

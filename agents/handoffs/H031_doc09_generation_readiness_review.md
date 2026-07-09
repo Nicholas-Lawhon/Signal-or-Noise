@@ -2,7 +2,7 @@
 
 **Role:** Consultant
 **Phase:** 4 Part A - Content rules & validator hardening
-**Status:** approved
+**Status:** complete
 **Model:** gpt-5.6-terra (High reasoning)
 **Risk:** high (informs the Part B generation pipeline and D031 threshold policy)
 **Audit:** orchestrator + user review of the memo; decisions recorded before

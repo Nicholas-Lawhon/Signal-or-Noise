@@ -1,6 +1,6 @@
 # roadmap.md — Signal or Noise?
 
-> **Current phase: Phase 4 — Content Foundation & Expansion (Part A).**
+> **Current phase: Phase 4 — Content Foundation & Expansion (Part B).**
 > Phases 0 + 1 COMPLETE and audited (A002 PASS). Phase 2 COMPLETE under D024.
 > Phase 3 COMPLETE and audited (A005 PASS WITH FINDINGS). Phase order
 > renumbered by D027 (Content Expansion moved up from Phase 8). Only the
@@ -66,7 +66,7 @@ H018; A005 MINORs are Phase 4 Part A work.
 The cards ARE the game: retire content-quality risk before building more
 systems. Two parts, gated in order.
 
-**Part A — Content rules & validator hardening:**
+**Part A — Content rules & validator hardening: ✅ CLOSED (D035, 2026-07-09)**
 - Close A005 MINORs: calendar-date validity, price/return internal-consistency
   checks, likely-guess quality floor on reviewed/active content.
 - Automated Gate 2 guessability check in the validation pipeline (pinned model,
@@ -76,9 +76,11 @@ systems. Two parts, gated in order.
   likely-guess lists).
 - Re-review the 6 active seeds against the hardened gates; fix or replace.
 
-**Accept (Part A):** each new invalid class fails validation; the guessability
-check runs automatically with doc 09 thresholds; every active card passes the
-full gates or is replaced; user signs off that the guards are trusted.
+**Accept (Part A):** MET — each new invalid class fails validation
+(H018/H020); the guessability check runs automatically with pinned judge and
+D031 thresholds (H021/H022); every active card was re-reviewed and rewritten
+against the hardened gates (H025–H032; Netflix blind rejudge waived per D035);
+user signed off that the guards are trusted (D035).
 
 **Part B — Content generation at scale (the original Phase 8 scope):**
 40 scenario cards (D034; was 100), 10 daily challenge pools, 10 famous market

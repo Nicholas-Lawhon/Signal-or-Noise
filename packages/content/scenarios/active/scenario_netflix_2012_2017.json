@@ -48,19 +48,19 @@
       ]
     },
     "medium": {
-      "companyDescription": "A consumer company with repeat customer revenue.",
-      "macroContext": "Households are shifting discretionary spending among a growing set of digital and traditional options.",
-      "situation": "Can repeat usage recover enough to support spending needed to retain customers?",
-      "longCase": "Improving retention could make each customer more valuable without a matching rise in acquisition costs.",
-      "shortCase": "Ongoing commitments and customer switching could keep costs high while revenue growth slows.",
+      "companyDescription": "A consumer-facing digital business trying to turn repeat use into durable revenue.",
+      "macroContext": "Online consumer services are testing which monetization models can hold up as choice expands.",
+      "situation": "Can more frequent use improve unit economics before the costs of attracting users and supporting growth rise further?",
+      "longCase": "If repeat activity supports better monetization, the existing user base could produce more revenue without proportional marketing spend.",
+      "shortCase": "If engagement proves promotional rather than durable, acquisition and operating costs could outrun revenue growth.",
       "setupHints": []
     },
     "hard": {
-      "companyDescription": "A consumer services company.",
-      "macroContext": "Consumers are comparing more choices for discretionary spending and recurring services.",
-      "situation": "Can customer retention improve before the cost of serving and acquiring users becomes more burdensome?",
-      "longCase": "Better retention could raise the value of the existing customer base over several periods.",
-      "shortCase": "Higher operating commitments and switching by customers could delay an improvement in results.",
+      "companyDescription": "A consumer-facing digital business.",
+      "macroContext": "Online services are competing for repeat use and spending.",
+      "situation": "Can stronger repeat activity lift monetization before growth-related costs become harder to absorb?",
+      "longCase": "More frequent use could raise the value of the existing user base and spread platform costs across more activity.",
+      "shortCase": "If activity stalls, user-acquisition spending and operating commitments could keep the model from scaling efficiently.",
       "setupHints": []
     }
   },
@@ -83,15 +83,15 @@
   "review": {
     "generatedByAi": true,
     "humanReviewed": false,
-    "reviewNotes": "H029 rewrote Medium and Hard after H028 tied recurring consumer media, connected-screen attention, engagement recovery, churn, and fixed content costs to Netflix. Medium peer set: Netflix/Sirius XM/Pandora/Dish. Hard peer set: Sirius XM/Pandora/Dish/Comcast/Time Warner/Netflix; the prose is limited to general retention economics in discretionary services. Easy and shared labels remain unchanged; Medium/Hard Gate 2 results were removed as stale.",
+    "reviewNotes": "H032 rewrote Medium and Hard after H030: the fixed boom-collapse-recovery silhouette plus an engagement/retention and subscription-media frame made Netflix dominant. The new variants use broader consumer-platform repeat-use, monetization, and acquisition-cost tension so 2011-2012 digital casualties also fit. Medium peer set: Groupon/Zynga/Pandora/Yelp. Hard peer set: Groupon/Zynga/Pandora/Yelp/Angie's List. Easy and shared labels remain unchanged; Medium/Hard Gate 2 results were removed as stale for blind rejudge.",
     "factBank": {
       "revealOnly": ["Netflix brand", "NFLX ticker", "streaming pivot narrative", "pricing/trust incident"],
-      "decisionUseful": ["repeat-customer retention","customer acquisition efficiency","operating commitments","switching risk in discretionary services"],
-      "prohibited": ["Qwikster","Reed Hastings","House of Cards","DVD-by-mail","major distribution-shift wording","post-collapse recovery silhouette","trust-reset media-only framing","month-precise Jan 2012 decision label","consumer media recurring-billing plus 2012 engagement-recovery conjunction","connected-screens household-attention hook","habit-formation and fixed-content-commitments conjunction"]
+      "decisionUseful": ["repeat-use monetization","user-acquisition efficiency","operating commitments","durability of consumer engagement"],
+      "prohibited": ["Qwikster","Reed Hastings","House of Cards","DVD-by-mail","major distribution-shift wording","post-collapse recovery silhouette","trust-reset media-only framing","month-precise Jan 2012 decision label","consumer media recurring-billing plus 2012 engagement-recovery conjunction","connected-screens household-attention hook","habit-formation and fixed-content-commitments conjunction","subscription-media framing coupled with the 2012 engagement-recovery silhouette","retention language that confirms the silhouette-implied Netflix candidate","content-cost commitments paired with recurring consumer media"]
     },
     "easyLikelyGuesses": ["Netflix", "Hulu", "Spotify"],
-    "mediumLikelyGuesses": ["Netflix","Sirius XM","Pandora","Dish Network"],
-    "hardLikelyGuesses": ["Sirius XM","Pandora","Dish Network","Comcast","Time Warner","Netflix"],
+    "mediumLikelyGuesses": ["Groupon","Zynga","Pandora","Yelp"],
+    "hardLikelyGuesses": ["Groupon","Zynga","Pandora","Yelp","Angie's List"],
     "gate2": {
       "easy": {
         "payloadHash": "sha256:c85dd187433ebf363240f4532976827086d3b70a5f0873f2233a595a0861e916",
@@ -129,82 +129,6 @@
           "call": "long",
           "confidence": 50,
           "cue": "If customers accept the newer model, recurring revenue can scale with broadband"
-        }
-      },
-      "medium": {
-        "payloadHash": "sha256:66aebaa3c9b724687bde68435a5960e46ce2f66fea2eb1149e757f802d45f577",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T22:30:00.000Z",
-        "guesses": [
-          {
-            "company": "Netflix",
-            "confidence": 34,
-            "pointingFact": "2012 consumer franchise after a severe lookback drawdown, with retention and discretionary digital competition in focus"
-          },
-          {
-            "company": "Groupon",
-            "confidence": 16,
-            "pointingFact": "Consumer digital company with repeat-use questions after a boom-and-bust equity path into 2012"
-          },
-          {
-            "company": "Zynga",
-            "confidence": 12,
-            "pointingFact": "Consumer digital firm dependent on engagement recovery after a sharp equity reset"
-          },
-          {
-            "company": "Pandora",
-            "confidence": 10,
-            "pointingFact": "Digital consumer service competing for discretionary attention with recurring-use economics"
-          },
-          {
-            "company": "LinkedIn",
-            "confidence": 8,
-            "pointingFact": "Consumer digital platform with subscription-like revenue and growth-versus-cost tension"
-          }
-        ],
-        "direction": {
-          "call": "long",
-          "confidence": 44,
-          "cue": "Five-year horizon after an engagement shock favors recovery of repeat usage value"
-        }
-      },
-      "hard": {
-        "payloadHash": "sha256:fd66f94c98ca404569e143ca13f21577da42d5ed1d72d88c5fdf4ba64926f0f5",
-        "model": "grok-4.5",
-        "promptVersion": "guess.v1+direction.v1",
-        "testedAt": "2026-07-09T22:30:00.000Z",
-        "guesses": [
-          {
-            "company": "Netflix",
-            "confidence": 20,
-            "pointingFact": "2012 consumer services name whose lookback shows a boom-then-collapse pattern into an engagement debate"
-          },
-          {
-            "company": "Groupon",
-            "confidence": 13,
-            "pointingFact": "Consumer digital service facing retention and cost pressure after a steep equity reset"
-          },
-          {
-            "company": "Zynga",
-            "confidence": 11,
-            "pointingFact": "Consumer services firm whose 2012 narrative centered on engagement durability"
-          },
-          {
-            "company": "Pandora",
-            "confidence": 8,
-            "pointingFact": "Recurring consumer service competing for discretionary spending in a digital shift"
-          },
-          {
-            "company": "Yelp",
-            "confidence": 6,
-            "pointingFact": "Consumer digital company with usage-driven economics around the early 2010s"
-          }
-        ],
-        "direction": {
-          "call": "long",
-          "confidence": 40,
-          "cue": "Retention improvement over several periods could raise customer value if costs stabilize"
         }
       }
     }
