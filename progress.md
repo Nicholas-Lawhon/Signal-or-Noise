@@ -12,23 +12,24 @@ first thing the next agent reads.
   Part B generation at scale); Database is now Phase 5, Auth 6, Leaderboards 7,
   Daily Challenge 8.
 - **App state:** Monorepo scaffolded. Game engine: 37 tests. Content package:
-  Zod schema, validation CLI, **50 content tests**, 6 active sample JSON
-  scenarios (Balanced Tension / D026). A005 MAJORs 1–3 closed by H018; A005
-  MINORs 1/2/4 closed by H020. **H021+H022 accepted:** offline Gate 2 harness
-  with pure browser-safe payload hash, optional `review.gate2`, export/check
-  CLI, and `agents/gate2/H022_payloads.json` (18 blind payloads). Missing
-  results are not fail-closed yet. `pnpm build` green. Classic Run loads from
-  `@signal-or-noise/content`. No auth, no DB.
-- **Next task:** User approves and manually dispatches draft
-  `agents/handoffs/H023_blind_gate2_judge.md` to consume
-  `agents/gate2/H022_payloads.json` and write `review.gate2` results.
+  Zod schema, validation CLI, 6 active sample JSON scenarios (Balanced Tension /
+  D026). A005 MAJORs 1–3 closed by H018; A005 MINORs 1/2/4 closed by H020.
+  **H021+H022 accepted:** offline Gate 2 harness. **H023+H024 accepted:** all
+  18 variants have stored `review.gate2` from blind grok-4.5 judgments
+  (medium+hard all fail identity thresholds). H024 restores `pnpm build` /
+  `pnpm test` via explicit `skipGate2` on active fixture load and structural
+  unit tests; `validate` / `gate2 check` still fail loudly on Gate 2 identity.
+  Missing Gate 2 is not fail-closed yet. No auth, no DB.
+- **Next task:** Draft content rewrite handoff for failing medium/hard active
+  seeds, then rerun Gate 2 judgment after copy changes.
 - **Workflow state:** D029 added token-efficient context routing; D030 added
   state compaction. New handoffs require a Context Manifest, Context Budget, and
   Output Budget; Fable/high-reasoning executor runs require explicit user
   override with a cost/context rationale. Detailed Phase 0-3 history is archived
   in `agents/history/progress_phase_0_3.md`. Dispatch mode remains
   manual-by-default (D028).
-- **Blocked/Questions:** none.
+- **Blocked/Questions:** Active medium/hard seed copy is too identifiable under
+  D031. Content rewrite handoff needed after H023/H024 commit.
 
 ## How to Run (updated as the app grows)
 
@@ -77,6 +78,127 @@ Read it only when a handoff explicitly needs historical detail.
 ---
 
 ## Session Log
+
+### 2026-07-09 - Orchestrator - R024 accepted; H023/H024 approved
+
+**What changed:**
+- Reviewed `agents/reports/R024_H024.md` and the H024 load-boundary diff.
+- Confirmed active fixture loading uses explicit `{ skipGate2: true }` while
+  full `validate` and `gate2 check` still enforce stored Gate 2 results.
+- Marked R024 approved and wrote `agents/reports/R025_R024_review.md`.
+- Approved the combined H023/H024 batch for commit.
+
+**How to run:** unchanged.
+
+**Tests:** `pnpm build` pass; content tests 50/50; root `pnpm test` 87/87;
+`pnpm typecheck` pass. Expected content-gate failures remain: `validate` 0/6
+with 17 Gate 2 identity errors and 15 warnings; `gate2 check` 17 errors / 15
+warnings / 0 missing.
+
+**Known issues:**
+- Active medium/hard seeds remain too identifiable under D031; content rewrite
+  is the next handoff.
+- Missing Gate 2 is still not fail-closed.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** Draft the content rewrite handoff for failing
+medium/hard active seeds.
+
+### 2026-07-09 - Implementor - H024 interim Gate 2 load fix
+
+**What changed:**
+- Extended `validateScenarioOrThrow(input, options?)` to accept
+  `ValidateScenarioOptions` (including `skipGate2`).
+- Active fixture load (`activeScenarios.ts`) now validates with
+  `{ skipGate2: true }` so the web prototype can load seeds while H023 raw
+  Gate 2 failures remain stored.
+- Three structural validation tests use explicit `skipGate2`; Gate 2 failure
+  assertion tests unchanged.
+- No scenario JSON content edits. Report: `agents/reports/R024_H024.md`.
+  Handoff status → complete.
+
+**How to run:** unchanged. Build/test restored; content gates still fail on Gate 2.
+
+**Tests:** `pnpm build` pass; content 50/50; root `pnpm test` 87/87; typecheck
+pass. `validate` 0/6 with 17 Gate 2 identity errors; `gate2 check` 17 errors /
+15 warnings / 0 missing (expected H023 evidence).
+
+**Known issues:**
+- Active medium/hard seeds too identifiable under D031 (content rewrite next).
+- H023+H024 still uncommitted pending orchestrator review.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** Orchestrator review R024; commit H023+H024 on
+approval; draft content rewrite for failing medium/hard seeds.
+
+### 2026-07-09 - Orchestrator - R022 rejected; H024 interim load fix drafted
+
+**What changed:**
+- Reviewed R022/H023 and the active scenario JSON diff.
+- Confirmed H023 mechanically wrote 18 stored Gate 2 entries with matching hashes,
+  pinned model/prompt, exactly 5 guesses, and direction objects.
+- Reproduced the expected content-gate failures: content validate 0/6 with 17
+  Gate 2 identity errors; `gate2 check` 17 errors / 15 warnings / 0 missing.
+- Found an additional workflow blocker: `pnpm build` now fails during
+  `/play/classic/run` prerender because active scenario loading validates failing
+  stored Gate 2 results. `pnpm test` also fails via 3 content tests.
+- Marked `agents/reports/R022_H023.md` rejected and wrote
+  `agents/reports/R023_R022_review.md`.
+- Drafted `agents/handoffs/H024_h023_interim_gate2_load_fix.md` to keep the raw
+  H023 results but restore app/test loading via explicit `skipGate2` paths.
+
+**How to run:** current uncommitted H023 state has known failing build/test until
+H024.
+
+**Tests:** `pnpm typecheck` pass; `pnpm --filter @signal-or-noise/content
+validate` fails 0/6 with Gate 2 errors; `gate2 check` fails 17 errors / 15
+warnings / 0 missing; content tests 47/50; root `pnpm test` fails on content;
+`pnpm build` fails during prerender due Gate 2 validation errors.
+
+**Known issues:**
+- Active medium/hard seed copy is too identifiable under D031 thresholds.
+- H023 raw results are uncommitted pending H024.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** approve and manually dispatch H024.
+
+### 2026-07-09 - Content Curator - H023 blind Gate 2 judge write-back
+
+**What changed:**
+- Blind-judged all 18 exported payloads in `agents/gate2/H022_payloads.json`
+  (payload + difficulty + payloadHash only; no answer/reveal sources used for
+  guesses).
+- Wrote `review.gate2.easy|medium|hard` on all 6 active scenario JSON files with
+  `model: "grok-4.5"`, `promptVersion: "guess.v1+direction.v1"`,
+  `testedAt: "2026-07-09T18:30:00.000Z"`, matching export `payloadHash` values,
+  exactly 5 guesses + direction each.
+- Saved judgment store at `agents/gate2/H023_results.json`.
+- Did **not** rewrite card content when Gate 2 thresholds failed (per handoff).
+- Report: `agents/reports/R022_H023.md`. Handoff status → complete.
+
+**How to run:** unchanged (gate2 check now has stored results, not 18 missing).
+
+**Tests:** `pnpm typecheck` pass. Content validate 0/6 (17 Gate 2 identity
+errors). `gate2 check` 17 errors / 15 warnings / 0 missing. Content tests 47
+pass / 3 fail (tests that load active Netflix expect validate success). Root
+`pnpm test` same content failures; game-engine 37 pass.
+
+**Known issues:**
+- All 6 medium + all 6 hard variants fail Gate 2 identity thresholds (too
+  identifiable under honest Grok judgments).
+- Easy identity passes; direction WARN on Amazon short and Visa long.
+- Three validation tests fail solely because stored failing Gate 2 sits on
+  active Netflix seed.
+
+**Blocked/Questions:** Orchestrator: accept raw failing results and schedule
+content rewrite / threshold policy before fail-closed enforcement? Adjust tests
+to `skipGate2` for structural checks?
+
+**Next recommended task:** Orchestrator review R022 + scenario diffs; decide
+medium/hard content fix vs policy; do not enable fail-closed missing-Gate-2 yet.
 
 ### 2026-07-09 - Orchestrator - R021 accepted; H021/H022 committed; H023 drafted
 

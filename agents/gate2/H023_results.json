@@ -1,0 +1,673 @@
+{
+  "testedAt": "2026-07-09T18:30:00.000Z",
+  "model": "grok-4.5",
+  "promptVersion": "guess.v1+direction.v1",
+  "entries": [
+    {
+      "scenarioId": "scenario_amazon_1999_2001",
+      "difficulty": "easy",
+      "payloadHash": "sha256:99a398219acd7a86a3ee8bdb43567c61b4969c12c0bcf0639888e50c59d8d1be",
+      "guesses": [
+        {
+          "company": "Amazon",
+          "confidence": 92,
+          "pointingFact": "Dec 1999 internet retailer expanding across consumer categories with fulfillment spend rising faster than profit"
+        },
+        {
+          "company": "eBay",
+          "confidence": 38,
+          "pointingFact": "Online commerce pure-play at peak internet valuations in late 1999"
+        },
+        {
+          "company": "Yahoo",
+          "confidence": 28,
+          "pointingFact": "High-profile internet company with extreme run-up into the bubble peak"
+        },
+        {
+          "company": "Priceline",
+          "confidence": 18,
+          "pointingFact": "Internet commerce name from the same era facing scale-vs-burn questions"
+        },
+        {
+          "company": "Webvan",
+          "confidence": 14,
+          "pointingFact": "Internet retailer with heavy fulfillment and expansion spending"
+        }
+      ],
+      "direction": {
+        "call": "short",
+        "confidence": 72,
+        "cue": "Lookback prices already up ~38x while losses mount and capital is tightening"
+      }
+    },
+    {
+      "scenarioId": "scenario_amazon_1999_2001",
+      "difficulty": "medium",
+      "payloadHash": "sha256:ac057ffcef28aa82390c7c6a0bf6fff03a35ccfa4874740fa134ddf41bb45a15",
+      "guesses": [
+        {
+          "company": "Amazon",
+          "confidence": 68,
+          "pointingFact": "Dec 1999 online commerce firm growing faster than profits amid cash-burn scrutiny"
+        },
+        {
+          "company": "eBay",
+          "confidence": 42,
+          "pointingFact": "Online commerce growth story separating real economics from speculation near bubble peak"
+        },
+        {
+          "company": "Yahoo",
+          "confidence": 32,
+          "pointingFact": "Internet growth name at the end of a boom when funding starts to matter"
+        },
+        {
+          "company": "Webvan",
+          "confidence": 22,
+          "pointingFact": "Cash-burn online commerce story vulnerable when capital tightens"
+        },
+        {
+          "company": "Priceline",
+          "confidence": 16,
+          "pointingFact": "Online commerce scale bet with inflated valuation risk in 1999"
+        }
+      ],
+      "direction": {
+        "call": "short",
+        "confidence": 65,
+        "cue": "Cash burn plus inflated valuation becomes brutal when capital tightens"
+      }
+    },
+    {
+      "scenarioId": "scenario_amazon_1999_2001",
+      "difficulty": "hard",
+      "payloadHash": "sha256:172a5bfc493f838a2a76ce0ad8e4353edb1b4f99140470762d12618b157f2917",
+      "guesses": [
+        {
+          "company": "Amazon",
+          "confidence": 48,
+          "pointingFact": "Dec 1999 internet company prioritizing scale over near-term profit after a huge price run"
+        },
+        {
+          "company": "Yahoo",
+          "confidence": 42,
+          "pointingFact": "Speculative growth internet name under scrutiny near end of market boom"
+        },
+        {
+          "company": "eBay",
+          "confidence": 36,
+          "pointingFact": "Fast-growing online business whose model depends on continued demand compounding"
+        },
+        {
+          "company": "AOL",
+          "confidence": 30,
+          "pointingFact": "Large internet franchise exposed if investors stop funding growth narratives"
+        },
+        {
+          "company": "Cisco",
+          "confidence": 24,
+          "pointingFact": "Bubble-era growth stock with scale-first culture and crash risk when funding stops"
+        }
+      ],
+      "direction": {
+        "call": "short",
+        "confidence": 58,
+        "cue": "If investors stop funding losses, the growth model can break quickly after a boom run"
+      }
+    },
+    {
+      "scenarioId": "scenario_apple_2007_2008",
+      "difficulty": "easy",
+      "payloadHash": "sha256:910045aad758bd700224562dbbb5edfc2126483c31ee0e6bfbd45d8da2aeb65b",
+      "guesses": [
+        {
+          "company": "Apple",
+          "confidence": 90,
+          "pointingFact": "Jan 2007 consumer electronics firm entering mobile with premium design and carrier distribution risk"
+        },
+        {
+          "company": "Research In Motion",
+          "confidence": 40,
+          "pointingFact": "Handheld/mobile device maker in the early smartphone platform era"
+        },
+        {
+          "company": "Nokia",
+          "confidence": 32,
+          "pointingFact": "Entrenched mobile device maker facing a category redefinition"
+        },
+        {
+          "company": "Motorola",
+          "confidence": 24,
+          "pointingFact": "Consumer mobile hardware brand competing in a fast-growing device category"
+        },
+        {
+          "company": "Palm",
+          "confidence": 18,
+          "pointingFact": "Premium handheld brand trying to open a larger mobile computing surface"
+        }
+      ],
+      "direction": {
+        "call": "toss_up",
+        "confidence": 52,
+        "cue": "Brand/platform upside is clear, but stock already prices execution and carriers control distribution"
+      }
+    },
+    {
+      "scenarioId": "scenario_apple_2007_2008",
+      "difficulty": "medium",
+      "payloadHash": "sha256:31b87d97396a7e5d103937d68bff9c4d27b27cf99aef59bab4460c2f5c0ce572",
+      "guesses": [
+        {
+          "company": "Apple",
+          "confidence": 72,
+          "pointingFact": "Jan 2007 consumer hardware company expanding beyond established devices into mobile platforms"
+        },
+        {
+          "company": "Research In Motion",
+          "confidence": 44,
+          "pointingFact": "Mobile hardware name as data plans and networks reshape the market"
+        },
+        {
+          "company": "Nokia",
+          "confidence": 34,
+          "pointingFact": "Large device maker whose category expansion could stall with partners and users"
+        },
+        {
+          "company": "Sony",
+          "confidence": 22,
+          "pointingFact": "Consumer electronics brand with design reputation expanding device lineup"
+        },
+        {
+          "company": "Motorola",
+          "confidence": 18,
+          "pointingFact": "Hardware brand with momentum risk if scale or profitability disappoints"
+        }
+      ],
+      "direction": {
+        "call": "toss_up",
+        "confidence": 48,
+        "cue": "Platform adoption upside balanced against stock momentum already in the price"
+      }
+    },
+    {
+      "scenarioId": "scenario_apple_2007_2008",
+      "difficulty": "hard",
+      "payloadHash": "sha256:1e921f402eb0b7827fc12c7d7c87ddfce91f2a55bf7a2a9e38f05e5630b8422b",
+      "guesses": [
+        {
+          "company": "Apple",
+          "confidence": 55,
+          "pointingFact": "Jan 2007 consumer tech brand-led category expansion in the smartphone platform era"
+        },
+        {
+          "company": "Research In Motion",
+          "confidence": 42,
+          "pointingFact": "Mobile-era consumer tech company with brand strength and distribution dependence"
+        },
+        {
+          "company": "Nokia",
+          "confidence": 36,
+          "pointingFact": "Incumbent device ecosystem player as mobile becomes central to computing"
+        },
+        {
+          "company": "Microsoft",
+          "confidence": 28,
+          "pointingFact": "Consumer technology company attempting a brand-led expansion into mobile"
+        },
+        {
+          "company": "Sony",
+          "confidence": 22,
+          "pointingFact": "Design-led consumer technology firm whose valuation assumes strong execution"
+        }
+      ],
+      "direction": {
+        "call": "toss_up",
+        "confidence": 45,
+        "cue": "Brand and design could open a larger surface, but incumbents control distribution and valuation assumes success"
+      }
+    },
+    {
+      "scenarioId": "scenario_microsoft_2014_2016",
+      "difficulty": "easy",
+      "payloadHash": "sha256:055472a1d7aa356b3719fe8ed8ac7c27e7d89bd2f9a2d5aac7366880b73328e6",
+      "guesses": [
+        {
+          "company": "Microsoft",
+          "confidence": 88,
+          "pointingFact": "Jan 2014 mature enterprise software giant shifting to cloud subscriptions after years of investor frustration"
+        },
+        {
+          "company": "Oracle",
+          "confidence": 48,
+          "pointingFact": "Large enterprise software vendor converting licenses to cloud/subscription"
+        },
+        {
+          "company": "IBM",
+          "confidence": 40,
+          "pointingFact": "Mature enterprise tech firm trying to revive growth as IT moves to rented cloud services"
+        },
+        {
+          "company": "SAP",
+          "confidence": 30,
+          "pointingFact": "Enterprise software installed-base story pivoting toward subscription offerings"
+        },
+        {
+          "company": "Adobe",
+          "confidence": 22,
+          "pointingFact": "Software company known for subscription transition from mature product lines"
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 62,
+        "cue": "Broad corporate installed base can accelerate cloud subscription adoption if the pivot is credible"
+      }
+    },
+    {
+      "scenarioId": "scenario_microsoft_2014_2016",
+      "difficulty": "medium",
+      "payloadHash": "sha256:b128b398514835d4582648c25a90696496227d1407cb862bf0a3902b0a5b7b66",
+      "guesses": [
+        {
+          "company": "Microsoft",
+          "confidence": 70,
+          "pointingFact": "Jan 2014 large multi-line tech vendor converting commercial relationships into subscription growth"
+        },
+        {
+          "company": "Oracle",
+          "confidence": 50,
+          "pointingFact": "Enterprise vendor with legacy licenses facing rebalancing of IT budgets to services over time"
+        },
+        {
+          "company": "IBM",
+          "confidence": 42,
+          "pointingFact": "Broad business-customer footprint where mature lines may shrink before replacements grow"
+        },
+        {
+          "company": "SAP",
+          "confidence": 28,
+          "pointingFact": "Enterprise software installed base trying to monetize via subscriptions"
+        },
+        {
+          "company": "Cisco",
+          "confidence": 18,
+          "pointingFact": "Large enterprise tech vendor spanning many product lines during cloud budget shift"
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 55,
+        "cue": "Installed commercial relationships can convert into subscription growth despite legacy drag"
+      }
+    },
+    {
+      "scenarioId": "scenario_microsoft_2014_2016",
+      "difficulty": "hard",
+      "payloadHash": "sha256:1608bff16cffd17ae774ddca1545b7245b463731dd79cf81b0ccd55199ff25b8",
+      "guesses": [
+        {
+          "company": "Microsoft",
+          "confidence": 52,
+          "pointingFact": "Jan 2014 enterprise tech company with huge customer base seeking subscription growth"
+        },
+        {
+          "company": "Oracle",
+          "confidence": 46,
+          "pointingFact": "Enterprise installed-base vendor racing cloud rivals on subscription timeline"
+        },
+        {
+          "company": "IBM",
+          "confidence": 40,
+          "pointingFact": "Legacy-dependent enterprise tech firm as budgets shift to hosted services"
+        },
+        {
+          "company": "SAP",
+          "confidence": 32,
+          "pointingFact": "Broad enterprise software footprint that could lower distribution cost for new offerings"
+        },
+        {
+          "company": "HP",
+          "confidence": 20,
+          "pointingFact": "Large enterprise technology vendor under pressure from faster cloud rivals"
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 50,
+        "cue": "Huge existing customer base can become a subscription engine if transition timing works"
+      }
+    },
+    {
+      "scenarioId": "scenario_netflix_2012_2017",
+      "difficulty": "easy",
+      "payloadHash": "sha256:9eb8b97e0feb5cff447f149f307b3366421bf14640492534fc9d8ef8a32ba005",
+      "guesses": [
+        {
+          "company": "Netflix",
+          "confidence": 91,
+          "pointingFact": "Jan 2012 subscription entertainment firm moving customers online after a trust shock while old delivery still contributes cash"
+        },
+        {
+          "company": "Spotify",
+          "confidence": 28,
+          "pointingFact": "Subscription media model scaling with broadband and connected devices"
+        },
+        {
+          "company": "Sirius XM",
+          "confidence": 22,
+          "pointingFact": "Recurring-revenue entertainment business navigating a delivery-model shift"
+        },
+        {
+          "company": "Dish Network",
+          "confidence": 18,
+          "pointingFact": "Entertainment distributor with old delivery cash flows and newer digital growth questions"
+        },
+        {
+          "company": "Hulu",
+          "confidence": 12,
+          "pointingFact": "Online entertainment subscription effort competing for household habit formation"
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 58,
+        "cue": "If customers accept the newer model, recurring revenue can scale with broadband adoption after the stock reset"
+      }
+    },
+    {
+      "scenarioId": "scenario_netflix_2012_2017",
+      "difficulty": "medium",
+      "payloadHash": "sha256:169cdf2209690c6460d2b94bd445f581bb6e8340ab58321bc5c58f0ef6518b9c",
+      "guesses": [
+        {
+          "company": "Netflix",
+          "confidence": 74,
+          "pointingFact": "Jan 2012 U.S. entertainment recurring-revenue company in a controversial strategic transition after a deep stock drawdown"
+        },
+        {
+          "company": "Spotify",
+          "confidence": 30,
+          "pointingFact": "Subscription entertainment model under spending and trust pressure during platform expansion"
+        },
+        {
+          "company": "Sirius XM",
+          "confidence": 24,
+          "pointingFact": "Recurring-revenue U.S. entertainment business during digital media habit shift"
+        },
+        {
+          "company": "Amazon",
+          "confidence": 18,
+          "pointingFact": "Consumer tech/media player investing heavily as broadband and devices expand"
+        },
+        {
+          "company": "Disney",
+          "confidence": 14,
+          "pointingFact": "Entertainment company facing distribution model change and content spending pressure"
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 52,
+        "cue": "Recurring base can scale if the new delivery model becomes a household habit"
+      }
+    },
+    {
+      "scenarioId": "scenario_netflix_2012_2017",
+      "difficulty": "hard",
+      "payloadHash": "sha256:d365b8ab7ed0b685337d0ab3afae1ed04747b7b18f273d17ba0f6cc6ce48ae32",
+      "guesses": [
+        {
+          "company": "Netflix",
+          "confidence": 50,
+          "pointingFact": "Jan 2012 consumer media business attempting a major distribution shift after a large price collapse"
+        },
+        {
+          "company": "Spotify",
+          "confidence": 34,
+          "pointingFact": "Media subscription model where fixed commitments can outrun the customer base"
+        },
+        {
+          "company": "Sirius XM",
+          "confidence": 28,
+          "pointingFact": "Consumer-facing media with recurring demand and distribution-model uncertainty"
+        },
+        {
+          "company": "Comcast",
+          "confidence": 22,
+          "pointingFact": "Media distribution firm as digital consumption habits change post-crisis"
+        },
+        {
+          "company": "Time Warner",
+          "confidence": 16,
+          "pointingFact": "Media business facing trust and spending pressure during digital transition"
+        }
+      ],
+      "direction": {
+        "call": "toss_up",
+        "confidence": 48,
+        "cue": "Habit formation could compound demand, but elevated churn plus fixed commitments cut both ways"
+      }
+    },
+    {
+      "scenarioId": "scenario_nvidia_2015_2017",
+      "difficulty": "easy",
+      "payloadHash": "sha256:d6f879c1e81a03251b5dcf43ce591989a74173db777fe71ca6b88c449d2966ae",
+      "guesses": [
+        {
+          "company": "NVIDIA",
+          "confidence": 86,
+          "pointingFact": "Jan 2015 specialized chip designer with strong niche in performance hardware expanding into commercial/data-heavy workloads"
+        },
+        {
+          "company": "AMD",
+          "confidence": 46,
+          "pointingFact": "High-performance processor company serving enthusiasts and commercial computing buyers"
+        },
+        {
+          "company": "Intel",
+          "confidence": 32,
+          "pointingFact": "Major chip supplier as cloud platforms increase demand for specialized processing"
+        },
+        {
+          "company": "Broadcom",
+          "confidence": 20,
+          "pointingFact": "Semiconductor name exposed to data-center and specialized hardware demand cycles"
+        },
+        {
+          "company": "Qualcomm",
+          "confidence": 14,
+          "pointingFact": "Specialized chip designer with cyclical pricing risk around growth expectations"
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 60,
+        "cue": "New commercial workloads could expand demand beyond the original enthusiast niche"
+      }
+    },
+    {
+      "scenarioId": "scenario_nvidia_2015_2017",
+      "difficulty": "medium",
+      "payloadHash": "sha256:a59538cdefe803e819e0e996ed113d57533fa9e4c92a7ae318f4158bc1df5712",
+      "guesses": [
+        {
+          "company": "NVIDIA",
+          "confidence": 68,
+          "pointingFact": "Jan 2015 semiconductor focused on specialized high-performance processors as data centers try purpose-built hardware"
+        },
+        {
+          "company": "AMD",
+          "confidence": 48,
+          "pointingFact": "High-performance chip vendor whose specialized demand may be durable or cyclical"
+        },
+        {
+          "company": "Intel",
+          "confidence": 36,
+          "pointingFact": "Semiconductor supplier to heavy computing tasks with cycle and competition risk"
+        },
+        {
+          "company": "Xilinx",
+          "confidence": 24,
+          "pointingFact": "Specialized processor niche expanding toward larger commercial workloads"
+        },
+        {
+          "company": "Broadcom",
+          "confidence": 16,
+          "pointingFact": "Chip company exposed to data-center experimentation with purpose-built hardware"
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 54,
+        "cue": "Specialized hardware may become useful for larger commercial workloads if demand is durable"
+      }
+    },
+    {
+      "scenarioId": "scenario_nvidia_2015_2017",
+      "difficulty": "hard",
+      "payloadHash": "sha256:f24c0ab8814243d8e581262f402f4cf1b0529f68328d3ba9aae4eaf109f4809a",
+      "guesses": [
+        {
+          "company": "NVIDIA",
+          "confidence": 42,
+          "pointingFact": "Jan 2015 semiconductor with specialized niche as cloud infrastructure broadens computing demand"
+        },
+        {
+          "company": "AMD",
+          "confidence": 40,
+          "pointingFact": "Semiconductor cyclical story where rivals and cycles can cap a specialized growth narrative"
+        },
+        {
+          "company": "Intel",
+          "confidence": 36,
+          "pointingFact": "Large semiconductor supplier as computing demand broadens with cloud growth"
+        },
+        {
+          "company": "Broadcom",
+          "confidence": 28,
+          "pointingFact": "Chip supplier whose valuation is sensitive to cyclical demand and fast rivals"
+        },
+        {
+          "company": "Micron",
+          "confidence": 20,
+          "pointingFact": "Semiconductor name tied to data-center growth and cycle risk"
+        }
+      ],
+      "direction": {
+        "call": "toss_up",
+        "confidence": 46,
+        "cue": "Niche expansion into larger markets is plausible, but cycles and rivals make direction uncertain"
+      }
+    },
+    {
+      "scenarioId": "scenario_visa_2011_2013",
+      "difficulty": "easy",
+      "payloadHash": "sha256:070cbed4f99751b7b9d8c5f65ccbcc63e54aa5b5bd499a84bfc174b924fda9a8",
+      "guesses": [
+        {
+          "company": "Visa",
+          "confidence": 78,
+          "pointingFact": "Jan 2011 fee-based payments network earning on electronic transaction volume without lending balances"
+        },
+        {
+          "company": "Mastercard",
+          "confidence": 74,
+          "pointingFact": "Nearly identical fee-based payments infrastructure benefiting from cash-to-electronic migration"
+        },
+        {
+          "company": "American Express",
+          "confidence": 38,
+          "pointingFact": "Payments brand with network economics sensitive to fee pressure and volume"
+        },
+        {
+          "company": "PayPal",
+          "confidence": 28,
+          "pointingFact": "Electronic commerce payment infrastructure scaling with digital transactions"
+        },
+        {
+          "company": "Discover",
+          "confidence": 18,
+          "pointingFact": "Payments network exposed to regulation and merchant fee compression"
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 68,
+        "cue": "Global electronic payment adoption is a durable volume tailwind if fees hold up"
+      }
+    },
+    {
+      "scenarioId": "scenario_visa_2011_2013",
+      "difficulty": "medium",
+      "payloadHash": "sha256:8200c9be153fd64269b9992cb11daac73b5dee2ad2513741ecd09c31e13dd901",
+      "guesses": [
+        {
+          "company": "Visa",
+          "confidence": 62,
+          "pointingFact": "Jan 2011 financial infrastructure firm scaling with commercial activity without heavy credit risk"
+        },
+        {
+          "company": "Mastercard",
+          "confidence": 60,
+          "pointingFact": "Payment rails business where rising platform activity can outrun fee pressure"
+        },
+        {
+          "company": "American Express",
+          "confidence": 36,
+          "pointingFact": "Payments infrastructure with high-margin volume exposed to political and large-customer pressure"
+        },
+        {
+          "company": "PayPal",
+          "confidence": 30,
+          "pointingFact": "Post-crisis digital commerce infrastructure scaling with recovery activity"
+        },
+        {
+          "company": "Fiserv",
+          "confidence": 16,
+          "pointingFact": "Financial infrastructure vendor that benefits when commercial activity rises"
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 60,
+        "cue": "Revenue grows when more activity flows through the platforms if take-rates hold"
+      }
+    },
+    {
+      "scenarioId": "scenario_visa_2011_2013",
+      "difficulty": "hard",
+      "payloadHash": "sha256:cc9c51e15b38f59dfcf2d1dcf5da745d6d88a3d68a5e847766b2bf068419f217",
+      "guesses": [
+        {
+          "company": "Visa",
+          "confidence": 44,
+          "pointingFact": "Jan 2011 financial infrastructure fee network as commerce digitizes post-crisis"
+        },
+        {
+          "company": "Mastercard",
+          "confidence": 44,
+          "pointingFact": "Fee-based network compounding as transaction volumes migrate electronically"
+        },
+        {
+          "company": "American Express",
+          "confidence": 34,
+          "pointingFact": "Payments economics sensitive to regulation and customer pushback on fees"
+        },
+        {
+          "company": "PayPal",
+          "confidence": 28,
+          "pointingFact": "Digital commerce rails story during post-crisis electronic volume migration"
+        },
+        {
+          "company": "Western Union",
+          "confidence": 16,
+          "pointingFact": "Transaction-network financial infrastructure with fee-pressure risk"
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 55,
+        "cue": "Electronic volume migration can outweigh fee pressure on network economics"
+      }
+    }
+  ]
+}

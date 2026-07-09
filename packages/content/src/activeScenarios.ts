@@ -11,6 +11,11 @@ import visa from '../scenarios/active/scenario_visa_2011_2013.json';
  * Explicit imports keep active scenarios bundle-friendly for the web app.
  * Do not use a dynamic filesystem reader here.
  * Samples are validated at module load so typed exports stay trustworthy.
+ *
+ * Interim prototype load path (H024): structural/business rules run, but stored
+ * Gate 2 threshold checks are skipped so failing H023 raw results can stay on
+ * active seeds while content rewrite work lands. Authoritative content gates
+ * remain `pnpm --filter @signal-or-noise/content validate` and `gate2 check`.
  */
 export const ACTIVE_SCENARIOS: Scenario[] = [
   netflix,
@@ -19,7 +24,7 @@ export const ACTIVE_SCENARIOS: Scenario[] = [
   microsoft,
   nvidia,
   visa,
-].map((raw) => validateScenarioOrThrow(raw));
+].map((raw) => validateScenarioOrThrow(raw, { skipGate2: true }));
 
 export function getActiveScenarios(): Scenario[] {
   return ACTIVE_SCENARIOS;

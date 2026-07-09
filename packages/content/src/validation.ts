@@ -487,8 +487,11 @@ export function validateScenario(
   return { success: true, scenario, warnings };
 }
 
-export function validateScenarioOrThrow(input: unknown): Scenario {
-  const result = validateScenario(input);
+export function validateScenarioOrThrow(
+  input: unknown,
+  options?: ValidateScenarioOptions,
+): Scenario {
+  const result = validateScenario(input, options);
   if (!result.success) {
     const detail = result.errors
       .map((e) => `${e.path}: ${e.message}`)

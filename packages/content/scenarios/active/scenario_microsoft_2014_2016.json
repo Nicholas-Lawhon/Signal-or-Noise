@@ -91,6 +91,122 @@
     },
     "easyLikelyGuesses": ["Microsoft", "IBM", "Oracle"],
     "mediumLikelyGuesses": ["Microsoft", "Oracle", "SAP"],
-    "hardLikelyGuesses": ["Microsoft", "IBM", "Oracle", "SAP", "Salesforce"]
+    "hardLikelyGuesses": ["Microsoft", "IBM", "Oracle", "SAP", "Salesforce"],
+    "gate2": {
+      "easy": {
+        "payloadHash": "sha256:055472a1d7aa356b3719fe8ed8ac7c27e7d89bd2f9a2d5aac7366880b73328e6",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T18:30:00.000Z",
+        "guesses": [
+          {
+            "company": "Microsoft",
+            "confidence": 88,
+            "pointingFact": "Jan 2014 mature enterprise software giant shifting to cloud subscriptions after years of investor frustration"
+          },
+          {
+            "company": "Oracle",
+            "confidence": 48,
+            "pointingFact": "Large enterprise software vendor converting licenses to cloud/subscription"
+          },
+          {
+            "company": "IBM",
+            "confidence": 40,
+            "pointingFact": "Mature enterprise tech firm trying to revive growth as IT moves to rented cloud services"
+          },
+          {
+            "company": "SAP",
+            "confidence": 30,
+            "pointingFact": "Enterprise software installed-base story pivoting toward subscription offerings"
+          },
+          {
+            "company": "Adobe",
+            "confidence": 22,
+            "pointingFact": "Software company known for subscription transition from mature product lines"
+          }
+        ],
+        "direction": {
+          "call": "long",
+          "confidence": 62,
+          "cue": "Broad corporate installed base can accelerate cloud subscription adoption if the pivot is credible"
+        }
+      },
+      "medium": {
+        "payloadHash": "sha256:b128b398514835d4582648c25a90696496227d1407cb862bf0a3902b0a5b7b66",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T18:30:00.000Z",
+        "guesses": [
+          {
+            "company": "Microsoft",
+            "confidence": 70,
+            "pointingFact": "Jan 2014 large multi-line tech vendor converting commercial relationships into subscription growth"
+          },
+          {
+            "company": "Oracle",
+            "confidence": 50,
+            "pointingFact": "Enterprise vendor with legacy licenses facing rebalancing of IT budgets to services over time"
+          },
+          {
+            "company": "IBM",
+            "confidence": 42,
+            "pointingFact": "Broad business-customer footprint where mature lines may shrink before replacements grow"
+          },
+          {
+            "company": "SAP",
+            "confidence": 28,
+            "pointingFact": "Enterprise software installed base trying to monetize via subscriptions"
+          },
+          {
+            "company": "Cisco",
+            "confidence": 18,
+            "pointingFact": "Large enterprise tech vendor spanning many product lines during cloud budget shift"
+          }
+        ],
+        "direction": {
+          "call": "long",
+          "confidence": 55,
+          "cue": "Installed commercial relationships can convert into subscription growth despite legacy drag"
+        }
+      },
+      "hard": {
+        "payloadHash": "sha256:1608bff16cffd17ae774ddca1545b7245b463731dd79cf81b0ccd55199ff25b8",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T18:30:00.000Z",
+        "guesses": [
+          {
+            "company": "Microsoft",
+            "confidence": 52,
+            "pointingFact": "Jan 2014 enterprise tech company with huge customer base seeking subscription growth"
+          },
+          {
+            "company": "Oracle",
+            "confidence": 46,
+            "pointingFact": "Enterprise installed-base vendor racing cloud rivals on subscription timeline"
+          },
+          {
+            "company": "IBM",
+            "confidence": 40,
+            "pointingFact": "Legacy-dependent enterprise tech firm as budgets shift to hosted services"
+          },
+          {
+            "company": "SAP",
+            "confidence": 32,
+            "pointingFact": "Broad enterprise software footprint that could lower distribution cost for new offerings"
+          },
+          {
+            "company": "HP",
+            "confidence": 20,
+            "pointingFact": "Large enterprise technology vendor under pressure from faster cloud rivals"
+          }
+        ],
+        "direction": {
+          "call": "long",
+          "confidence": 50,
+          "cue": "Huge existing customer base can become a subscription engine if transition timing works"
+        }
+      }
+    }
   }
 }

@@ -91,6 +91,122 @@
     },
     "easyLikelyGuesses": ["Nvidia", "AMD", "Intel"],
     "mediumLikelyGuesses": ["Nvidia", "AMD", "Broadcom"],
-    "hardLikelyGuesses": ["Nvidia", "AMD", "Intel", "Broadcom", "Qualcomm"]
+    "hardLikelyGuesses": ["Nvidia", "AMD", "Intel", "Broadcom", "Qualcomm"],
+    "gate2": {
+      "easy": {
+        "payloadHash": "sha256:d6f879c1e81a03251b5dcf43ce591989a74173db777fe71ca6b88c449d2966ae",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T18:30:00.000Z",
+        "guesses": [
+          {
+            "company": "NVIDIA",
+            "confidence": 86,
+            "pointingFact": "Jan 2015 specialized chip designer with strong niche in performance hardware expanding into commercial/data-heavy workloads"
+          },
+          {
+            "company": "AMD",
+            "confidence": 46,
+            "pointingFact": "High-performance processor company serving enthusiasts and commercial computing buyers"
+          },
+          {
+            "company": "Intel",
+            "confidence": 32,
+            "pointingFact": "Major chip supplier as cloud platforms increase demand for specialized processing"
+          },
+          {
+            "company": "Broadcom",
+            "confidence": 20,
+            "pointingFact": "Semiconductor name exposed to data-center and specialized hardware demand cycles"
+          },
+          {
+            "company": "Qualcomm",
+            "confidence": 14,
+            "pointingFact": "Specialized chip designer with cyclical pricing risk around growth expectations"
+          }
+        ],
+        "direction": {
+          "call": "long",
+          "confidence": 60,
+          "cue": "New commercial workloads could expand demand beyond the original enthusiast niche"
+        }
+      },
+      "medium": {
+        "payloadHash": "sha256:a59538cdefe803e819e0e996ed113d57533fa9e4c92a7ae318f4158bc1df5712",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T18:30:00.000Z",
+        "guesses": [
+          {
+            "company": "NVIDIA",
+            "confidence": 68,
+            "pointingFact": "Jan 2015 semiconductor focused on specialized high-performance processors as data centers try purpose-built hardware"
+          },
+          {
+            "company": "AMD",
+            "confidence": 48,
+            "pointingFact": "High-performance chip vendor whose specialized demand may be durable or cyclical"
+          },
+          {
+            "company": "Intel",
+            "confidence": 36,
+            "pointingFact": "Semiconductor supplier to heavy computing tasks with cycle and competition risk"
+          },
+          {
+            "company": "Xilinx",
+            "confidence": 24,
+            "pointingFact": "Specialized processor niche expanding toward larger commercial workloads"
+          },
+          {
+            "company": "Broadcom",
+            "confidence": 16,
+            "pointingFact": "Chip company exposed to data-center experimentation with purpose-built hardware"
+          }
+        ],
+        "direction": {
+          "call": "long",
+          "confidence": 54,
+          "cue": "Specialized hardware may become useful for larger commercial workloads if demand is durable"
+        }
+      },
+      "hard": {
+        "payloadHash": "sha256:f24c0ab8814243d8e581262f402f4cf1b0529f68328d3ba9aae4eaf109f4809a",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T18:30:00.000Z",
+        "guesses": [
+          {
+            "company": "NVIDIA",
+            "confidence": 42,
+            "pointingFact": "Jan 2015 semiconductor with specialized niche as cloud infrastructure broadens computing demand"
+          },
+          {
+            "company": "AMD",
+            "confidence": 40,
+            "pointingFact": "Semiconductor cyclical story where rivals and cycles can cap a specialized growth narrative"
+          },
+          {
+            "company": "Intel",
+            "confidence": 36,
+            "pointingFact": "Large semiconductor supplier as computing demand broadens with cloud growth"
+          },
+          {
+            "company": "Broadcom",
+            "confidence": 28,
+            "pointingFact": "Chip supplier whose valuation is sensitive to cyclical demand and fast rivals"
+          },
+          {
+            "company": "Micron",
+            "confidence": 20,
+            "pointingFact": "Semiconductor name tied to data-center growth and cycle risk"
+          }
+        ],
+        "direction": {
+          "call": "toss_up",
+          "confidence": 46,
+          "cue": "Niche expansion into larger markets is plausible, but cycles and rivals make direction uncertain"
+        }
+      }
+    }
   }
 }

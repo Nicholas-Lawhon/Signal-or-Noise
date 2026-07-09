@@ -91,6 +91,122 @@
     },
     "easyLikelyGuesses": ["Amazon", "eBay", "Yahoo"],
     "mediumLikelyGuesses": ["Amazon", "eBay", "Webvan"],
-    "hardLikelyGuesses": ["Amazon", "eBay", "Yahoo", "Webvan", "Priceline"]
+    "hardLikelyGuesses": ["Amazon", "eBay", "Yahoo", "Webvan", "Priceline"],
+    "gate2": {
+      "easy": {
+        "payloadHash": "sha256:99a398219acd7a86a3ee8bdb43567c61b4969c12c0bcf0639888e50c59d8d1be",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T18:30:00.000Z",
+        "guesses": [
+          {
+            "company": "Amazon",
+            "confidence": 92,
+            "pointingFact": "Dec 1999 internet retailer expanding across consumer categories with fulfillment spend rising faster than profit"
+          },
+          {
+            "company": "eBay",
+            "confidence": 38,
+            "pointingFact": "Online commerce pure-play at peak internet valuations in late 1999"
+          },
+          {
+            "company": "Yahoo",
+            "confidence": 28,
+            "pointingFact": "High-profile internet company with extreme run-up into the bubble peak"
+          },
+          {
+            "company": "Priceline",
+            "confidence": 18,
+            "pointingFact": "Internet commerce name from the same era facing scale-vs-burn questions"
+          },
+          {
+            "company": "Webvan",
+            "confidence": 14,
+            "pointingFact": "Internet retailer with heavy fulfillment and expansion spending"
+          }
+        ],
+        "direction": {
+          "call": "short",
+          "confidence": 72,
+          "cue": "Lookback prices already up ~38x while losses mount and capital is tightening"
+        }
+      },
+      "medium": {
+        "payloadHash": "sha256:ac057ffcef28aa82390c7c6a0bf6fff03a35ccfa4874740fa134ddf41bb45a15",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T18:30:00.000Z",
+        "guesses": [
+          {
+            "company": "Amazon",
+            "confidence": 68,
+            "pointingFact": "Dec 1999 online commerce firm growing faster than profits amid cash-burn scrutiny"
+          },
+          {
+            "company": "eBay",
+            "confidence": 42,
+            "pointingFact": "Online commerce growth story separating real economics from speculation near bubble peak"
+          },
+          {
+            "company": "Yahoo",
+            "confidence": 32,
+            "pointingFact": "Internet growth name at the end of a boom when funding starts to matter"
+          },
+          {
+            "company": "Webvan",
+            "confidence": 22,
+            "pointingFact": "Cash-burn online commerce story vulnerable when capital tightens"
+          },
+          {
+            "company": "Priceline",
+            "confidence": 16,
+            "pointingFact": "Online commerce scale bet with inflated valuation risk in 1999"
+          }
+        ],
+        "direction": {
+          "call": "short",
+          "confidence": 65,
+          "cue": "Cash burn plus inflated valuation becomes brutal when capital tightens"
+        }
+      },
+      "hard": {
+        "payloadHash": "sha256:172a5bfc493f838a2a76ce0ad8e4353edb1b4f99140470762d12618b157f2917",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T18:30:00.000Z",
+        "guesses": [
+          {
+            "company": "Amazon",
+            "confidence": 48,
+            "pointingFact": "Dec 1999 internet company prioritizing scale over near-term profit after a huge price run"
+          },
+          {
+            "company": "Yahoo",
+            "confidence": 42,
+            "pointingFact": "Speculative growth internet name under scrutiny near end of market boom"
+          },
+          {
+            "company": "eBay",
+            "confidence": 36,
+            "pointingFact": "Fast-growing online business whose model depends on continued demand compounding"
+          },
+          {
+            "company": "AOL",
+            "confidence": 30,
+            "pointingFact": "Large internet franchise exposed if investors stop funding growth narratives"
+          },
+          {
+            "company": "Cisco",
+            "confidence": 24,
+            "pointingFact": "Bubble-era growth stock with scale-first culture and crash risk when funding stops"
+          }
+        ],
+        "direction": {
+          "call": "short",
+          "confidence": 58,
+          "cue": "If investors stop funding losses, the growth model can break quickly after a boom run"
+        }
+      }
+    }
   }
 }

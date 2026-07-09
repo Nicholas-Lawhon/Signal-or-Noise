@@ -2,7 +2,7 @@
 
 **Role:** Content Curator
 **Phase:** 4 Part A - Content rules & validator hardening
-**Status:** draft
+**Status:** complete
 **Model:** grok-4.5
 **Risk:** high (production content-pipeline validation and scenario metadata)
 **Audit:** orchestrator review + cheap verification before commit
