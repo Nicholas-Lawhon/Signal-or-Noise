@@ -91,6 +91,122 @@
     },
     "easyLikelyGuesses": ["Nvidia", "AMD", "Intel"],
     "mediumLikelyGuesses": ["Nvidia", "AMD", "Intel", "Broadcom"],
-    "hardLikelyGuesses": ["Nvidia", "AMD", "Intel", "Broadcom", "Qualcomm", "Micron"]
+    "hardLikelyGuesses": ["Nvidia", "AMD", "Intel", "Broadcom", "Qualcomm", "Micron"],
+    "gate2": {
+      "easy": {
+        "payloadHash": "sha256:4956778a35897149e93940d25d83a16739b0d8d87a1afa99203a83a95f93f338",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T18:00:00.000Z",
+        "guesses": [
+          {
+            "company": "NVIDIA",
+            "confidence": 84,
+            "pointingFact": "Specialized high-performance chip designer for enthusiasts and commercial buyers in 2015"
+          },
+          {
+            "company": "AMD",
+            "confidence": 48,
+            "pointingFact": "Performance computing chip peer expanding demand"
+          },
+          {
+            "company": "Intel",
+            "confidence": 36,
+            "pointingFact": "Commercial computing hardware demand expansion"
+          },
+          {
+            "company": "Qualcomm",
+            "confidence": 26,
+            "pointingFact": "Specialized chip designer across end markets"
+          },
+          {
+            "company": "Broadcom",
+            "confidence": 22,
+            "pointingFact": "Semiconductor commercial demand cycle name"
+          }
+        ],
+        "direction": {
+          "call": "long",
+          "confidence": 52,
+          "cue": "New commercial workloads could expand demand beyond the original niche"
+        }
+      },
+      "medium": {
+        "payloadHash": "sha256:8197be31a29078c583d53439a1f1cfd41271d833db738914a51ba3b2c92f8075",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T18:00:00.000Z",
+        "guesses": [
+          {
+            "company": "NVIDIA",
+            "confidence": 48,
+            "pointingFact": "Semiconductor designer with multi-end-market demand cycle debate in 2015"
+          },
+          {
+            "company": "AMD",
+            "confidence": 44,
+            "pointingFact": "Chip designer broader-demand versus cycle peer"
+          },
+          {
+            "company": "Intel",
+            "confidence": 40,
+            "pointingFact": "Computing infrastructure cycle component supplier"
+          },
+          {
+            "company": "Qualcomm",
+            "confidence": 32,
+            "pointingFact": "Semiconductor end-market mix shift"
+          },
+          {
+            "company": "Broadcom",
+            "confidence": 28,
+            "pointingFact": "Component supplier exposed to industry cycles"
+          }
+        ],
+        "direction": {
+          "call": "toss_up",
+          "confidence": 50,
+          "cue": "Durable multi-year shift vs short product cycle both argued"
+        }
+      },
+      "hard": {
+        "payloadHash": "sha256:617b7d0f0df533a4a8f737a7eee49e6dd0a7dbe5bd94395c74c25ff7493fdbec",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T18:00:00.000Z",
+        "guesses": [
+          {
+            "company": "Intel",
+            "confidence": 32,
+            "pointingFact": "2015 computing infrastructure hardware supplier budget reallocation"
+          },
+          {
+            "company": "AMD",
+            "confidence": 28,
+            "pointingFact": "Hardware demand cycle peer with rival risk"
+          },
+          {
+            "company": "NVIDIA",
+            "confidence": 26,
+            "pointingFact": "Rising demand durable-shift versus short cycle debate"
+          },
+          {
+            "company": "Qualcomm",
+            "confidence": 22,
+            "pointingFact": "Component category spend reallocation"
+          },
+          {
+            "company": "Broadcom",
+            "confidence": 18,
+            "pointingFact": "Technology hardware supplier cycle exposure"
+          }
+        ],
+        "direction": {
+          "call": "toss_up",
+          "confidence": 42,
+          "cue": "Multi-year demand shift vs short product cycle remains open"
+        }
+      }
+    }
   }
 }

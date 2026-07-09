@@ -91,6 +91,122 @@
     },
     "easyLikelyGuesses": ["Amazon", "eBay", "Yahoo"],
     "mediumLikelyGuesses": ["Amazon", "Yahoo", "eBay", "Priceline"],
-    "hardLikelyGuesses": ["Amazon", "Yahoo", "eBay", "Cisco", "AOL", "Priceline"]
+    "hardLikelyGuesses": ["Amazon", "Yahoo", "eBay", "Cisco", "AOL", "Priceline"],
+    "gate2": {
+      "easy": {
+        "payloadHash": "sha256:55b7de0506d99717efc416388e49ceb689b38b373dcd4ffe72cc43095687c0b9",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T18:00:00.000Z",
+        "guesses": [
+          {
+            "company": "Amazon",
+            "confidence": 88,
+            "pointingFact": "Internet retailer expanding across categories with fulfillment spend in 1999"
+          },
+          {
+            "company": "eBay",
+            "confidence": 42,
+            "pointingFact": "Late-1990s internet commerce growth story"
+          },
+          {
+            "company": "Yahoo",
+            "confidence": 28,
+            "pointingFact": "Internet valuations peaking as profits demanded"
+          },
+          {
+            "company": "Priceline",
+            "confidence": 22,
+            "pointingFact": "High-growth internet consumer name of the boom"
+          },
+          {
+            "company": "Cisco",
+            "confidence": 18,
+            "pointingFact": "Parabolic late-1990s run-up silhouette"
+          }
+        ],
+        "direction": {
+          "call": "short",
+          "confidence": 62,
+          "cue": "Losses mounting while stock already ran far ahead of earnings"
+        }
+      },
+      "medium": {
+        "payloadHash": "sha256:b34a1712baff50630b2e48e93cbe6395c227e644ee83632997a8e18a4d9172ee",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T18:00:00.000Z",
+        "guesses": [
+          {
+            "company": "Amazon",
+            "confidence": 48,
+            "pointingFact": "Heavy reinvestment consumer growth at late-1990s capital weather"
+          },
+          {
+            "company": "Yahoo",
+            "confidence": 40,
+            "pointingFact": "Speculative valuations then demand for clearer economics"
+          },
+          {
+            "company": "eBay",
+            "confidence": 36,
+            "pointingFact": "Consumer platform expanding reach with reinvestment"
+          },
+          {
+            "company": "AOL",
+            "confidence": 28,
+            "pointingFact": "Public internet scale story near boom peak"
+          },
+          {
+            "company": "Priceline",
+            "confidence": 22,
+            "pointingFact": "Elevated valuation growth consumer model"
+          }
+        ],
+        "direction": {
+          "call": "short",
+          "confidence": 55,
+          "cue": "Elevated valuation can reverse sharply if funding becomes scarce"
+        }
+      },
+      "hard": {
+        "payloadHash": "sha256:2b243321f61179657a16ae2859ca4b6d94f83e7ee0894bed2d838062c236862d",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T18:00:00.000Z",
+        "guesses": [
+          {
+            "company": "Cisco",
+            "confidence": 28,
+            "pointingFact": "Late-1990s boom elevated valuation and capital selectivity"
+          },
+          {
+            "company": "Yahoo",
+            "confidence": 26,
+            "pointingFact": "Multi-year expansion funded while risk appetite peaked"
+          },
+          {
+            "company": "Amazon",
+            "confidence": 24,
+            "pointingFact": "Public growth company with demand-compounding optionality"
+          },
+          {
+            "company": "AOL",
+            "confidence": 20,
+            "pointingFact": "Boom-era public growth facing shorter investor patience"
+          },
+          {
+            "company": "eBay",
+            "confidence": 16,
+            "pointingFact": "Elevated valuation growth name of the late-1990s"
+          }
+        ],
+        "direction": {
+          "call": "short",
+          "confidence": 48,
+          "cue": "Funding dry-up risk after years of risk appetite; parabolic lookback"
+        }
+      }
+    }
   }
 }

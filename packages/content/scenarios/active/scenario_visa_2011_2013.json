@@ -91,6 +91,122 @@
     },
     "easyLikelyGuesses": ["Visa", "Mastercard", "American Express"],
     "mediumLikelyGuesses": ["Visa", "Mastercard", "American Express", "PayPal"],
-    "hardLikelyGuesses": ["Visa", "Mastercard", "American Express", "PayPal", "Discover", "Fiserv"]
+    "hardLikelyGuesses": ["Visa", "Mastercard", "American Express", "PayPal", "Discover", "Fiserv"],
+    "gate2": {
+      "easy": {
+        "payloadHash": "sha256:7782b23871b9db1f5cf3e6f72269d433aa06cb530ac1fa13e6fbe01f9f3d4b70",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T18:00:00.000Z",
+        "guesses": [
+          {
+            "company": "Visa",
+            "confidence": 82,
+            "pointingFact": "Fee-based financial infrastructure tied to electronic commerce volume not credit risk"
+          },
+          {
+            "company": "Mastercard",
+            "confidence": 72,
+            "pointingFact": "Parallel network fee model on electronic payments"
+          },
+          {
+            "company": "American Express",
+            "confidence": 38,
+            "pointingFact": "Payments network with fee and merchant pressure risks"
+          },
+          {
+            "company": "PayPal",
+            "confidence": 34,
+            "pointingFact": "Electronic commerce payment rails beneficiary"
+          },
+          {
+            "company": "Discover",
+            "confidence": 24,
+            "pointingFact": "Transaction network peer in cash-to-electronic shift"
+          }
+        ],
+        "direction": {
+          "call": "long",
+          "confidence": 58,
+          "cue": "Global electronic payments adoption creates volume growth without lending the balances"
+        }
+      },
+      "medium": {
+        "payloadHash": "sha256:95290dea260c3593cb837cbc0aada522be425e39f65bfa967d80a74c527d1f08",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T18:00:00.000Z",
+        "guesses": [
+          {
+            "company": "Visa",
+            "confidence": 54,
+            "pointingFact": "Fee earner on commerce activity as recovery beneficiary in 2011"
+          },
+          {
+            "company": "Mastercard",
+            "confidence": 50,
+            "pointingFact": "Parallel fee network on rising commercial throughput"
+          },
+          {
+            "company": "American Express",
+            "confidence": 36,
+            "pointingFact": "Payments activity growth versus fee pressure"
+          },
+          {
+            "company": "PayPal",
+            "confidence": 30,
+            "pointingFact": "Commerce throughput digital payments name"
+          },
+          {
+            "company": "Fiserv",
+            "confidence": 24,
+            "pointingFact": "Financial infrastructure throughput beneficiary"
+          }
+        ],
+        "direction": {
+          "call": "long",
+          "confidence": 50,
+          "cue": "Higher commercial throughput can lift earnings even while unit fees are debated"
+        }
+      },
+      "hard": {
+        "payloadHash": "sha256:7a33be1e03bb24e70d5beffb3763e88c37685fd7a5427b08c49297644d220082",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T18:00:00.000Z",
+        "guesses": [
+          {
+            "company": "Visa",
+            "confidence": 28,
+            "pointingFact": "2011 recovery beneficiary not dependent on aggressive lending growth"
+          },
+          {
+            "company": "Mastercard",
+            "confidence": 26,
+            "pointingFact": "Activity growth versus structural pricing-power pressure"
+          },
+          {
+            "company": "American Express",
+            "confidence": 24,
+            "pointingFact": "Political scrutiny and large-customer fee bargaining"
+          },
+          {
+            "company": "PayPal",
+            "confidence": 20,
+            "pointingFact": "Commerce throughput financial services name"
+          },
+          {
+            "company": "Discover",
+            "confidence": 16,
+            "pointingFact": "Payments network recovery peer"
+          }
+        ],
+        "direction": {
+          "call": "toss_up",
+          "confidence": 45,
+          "cue": "Activity growth vs structural pressure on pricing power both live"
+        }
+      }
+    }
   }
 }

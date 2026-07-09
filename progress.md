@@ -14,27 +14,25 @@ first thing the next agent reads.
 - **App state:** Monorepo scaffolded. Game engine: 37 tests. Content package:
   Zod schema, validation CLI, 6 active sample JSON scenarios (Balanced Tension /
   D026). A005 MAJORs 1–3 closed by H018; A005 MINORs 1/2/4 closed by H020.
-  **H021–H027 accepted:** Hard
-  variants rewritten for all 6 seeds; shared-label exception used on all 6
-  (title/era/date labels where needed). Easy/Medium hidden-card prose preserved.
-  All stored `review.gate2` entries removed as stale (18 missing).
-  `agents/gate2/H027_payloads.json` exports 18 payloads. `validate` 6/6;
-  `gate2 check` 0 errors / 18 missing. Review report
-  `agents/reports/R032_R031_review.md`.
-  Do not treat active seeds as Gate-2-clean until the follow-up blind rejudge.
+  **H021–H028 accepted:** H027 Hard rewrites + shared labels landed; H028 wrote
+  fresh blind Gate 2 results for all 18 Easy/Medium/Hard payloads
+  (`model: grok-4.5`, `promptVersion: guess.v1+direction.v1`,
+  `testedAt: 2026-07-09T18:00:00.000Z`). Easy identity passes 6/6. Medium
+  identity fails 6/6; Hard identity fails 6/6. `validate` 0/6 with Medium/Hard
+  Gate 2 errors; `gate2 check` 14 errors / 12 warnings / 0 missing. Review
+  report `agents/reports/R035_R034_review.md`. Active seeds are **not** Gate-2-clean.
   No auth, no DB.
-- **Next task:** H028 is approved and ready for manual dispatch:
-  `agents/handoffs/H028_blind_gate2_rejudge_h027_all.md`. It blind-judges all
-  18 entries in `agents/gate2/H027_payloads.json` (Easy + Medium + Hard) and
-  writes fresh stored Gate 2 results.
+- **Next task:** Draft a Medium+Hard identity rewrite handoff for all six seeds,
+  preferably avoiding shared labels so the passing Easy Gate 2 results can stay
+  valid. Re-export payloads and rejudge changed variants after rewrites.
 - **Workflow state:** D029 added token-efficient context routing; D030 added
   state compaction. New handoffs require a Context Manifest, Context Budget, and
   Output Budget; Fable/high-reasoning executor runs require explicit user
   override with a cost/context rationale. Detailed Phase 0-3 history is archived
   in `agents/history/progress_phase_0_3.md`. Dispatch mode remains
   manual-by-default (D028).
-- **Blocked/Questions:** none from H027. Active seeds await blind Gate 2 rejudge
-  before Phase 4 Part A content can be treated as Gate-2-clean.
+- **Blocked/Questions:** none from H028. Identity failures are expected handoff
+  outcomes — orchestrator decides rewrite scope.
 
 ## How to Run (updated as the app grows)
 
@@ -83,6 +81,57 @@ Read it only when a handoff explicitly needs historical detail.
 ---
 
 ## Session Log
+
+### 2026-07-09 - Orchestrator - R034 accepted; H028 approved
+
+**What changed:**
+- Reviewed `agents/reports/R034_H028.md`, the active scenario JSON diff, and the
+  H028 write-back against `agents/gate2/H027_payloads.json`.
+- Confirmed the diff is limited to stored `review.gate2` entries and H028
+  report/progress/status updates.
+- Marked `agents/reports/R034_H028.md` approved and wrote
+  `agents/reports/R035_R034_review.md`.
+
+**How to run:** unchanged.
+
+**Tests:** content validate 0/6 with expected Medium/Hard identity errors and 12
+warnings; gate2 check 14 errors / 12 warnings / 0 missing; content 50/50; root
+87/87; typecheck pass.
+
+**Known issues:**
+- Easy Gate 2 passes on all 6 active seeds.
+- Medium and Hard Gate 2 fail identity on all 6 active seeds.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** Draft Medium+Hard identity rewrite handoff for all
+six seeds, preferably preserving shared labels so Easy results remain valid.
+
+### 2026-07-09 - Content Curator - H028 blind Gate 2 rejudge (all 18)
+
+**What changed:**
+- Blind-judged all 18 H027 payloads (Easy/Medium/Hard × 6) using only payload,
+  difficulty, and payloadHash.
+- Wrote `review.gate2.easy|medium|hard` on all 6 active scenario JSON files.
+- Preserved card content, market data, sources, reveal, and review metadata
+  other than gate2.
+- Report: `agents/reports/R034_H028.md`. Handoff status → complete.
+
+**How to run:** unchanged.
+
+**Tests:** validate 0/6 (6 failed, 12 warnings — Medium/Hard identity); gate2
+check 14 errors / 12 warnings / 0 missing; content 50/50; root 87/87;
+typecheck pass.
+
+**Known issues:**
+- Easy Gate 2 passes on all 6.
+- Medium and Hard Gate 2 fail identity on all 6 (too identifiable).
+- No content rewrites in this handoff (per instructions).
+
+**Blocked/Questions:** none — orchestrator should choose next rewrite scope.
+
+**Next recommended task:** Orchestrator review R034; draft Medium+Hard identity
+rewrite handoff for all six seeds.
 
 ### 2026-07-09 - Orchestrator - H028 blind Gate 2 rejudge approved
 

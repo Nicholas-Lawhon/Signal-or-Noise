@@ -91,6 +91,122 @@
     },
     "easyLikelyGuesses": ["Apple", "Nokia", "Motorola"],
     "mediumLikelyGuesses": ["Apple", "Nokia", "Research In Motion", "Sony"],
-    "hardLikelyGuesses": ["Apple", "Nokia", "Motorola", "Research In Motion", "Sony", "Palm"]
+    "hardLikelyGuesses": ["Apple", "Nokia", "Motorola", "Research In Motion", "Sony", "Palm"],
+    "gate2": {
+      "easy": {
+        "payloadHash": "sha256:d053da936eaab8aed4d80d603b35095a882a75ce10b57306e377275ad4c7e22b",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T18:00:00.000Z",
+        "guesses": [
+          {
+            "company": "Apple",
+            "confidence": 90,
+            "pointingFact": "Consumer electronics entering premium handheld mobile category in 2007"
+          },
+          {
+            "company": "Nokia",
+            "confidence": 42,
+            "pointingFact": "Entrenched mobile device maker controlling carrier distribution"
+          },
+          {
+            "company": "Research In Motion",
+            "confidence": 38,
+            "pointingFact": "Premium handheld peer in mobile internet transition"
+          },
+          {
+            "company": "Motorola",
+            "confidence": 30,
+            "pointingFact": "Mobile device category participant with carrier channel"
+          },
+          {
+            "company": "Sony",
+            "confidence": 22,
+            "pointingFact": "Design-led consumer electronics brand"
+          }
+        ],
+        "direction": {
+          "call": "short",
+          "confidence": 52,
+          "cue": "Stock already prices meaningful execution so a weak debut has little cushion"
+        }
+      },
+      "medium": {
+        "payloadHash": "sha256:f11bc42399eb87c47708afc8ac93969c47aace2a43a886f2f023338270090de9",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T18:00:00.000Z",
+        "guesses": [
+          {
+            "company": "Apple",
+            "confidence": 68,
+            "pointingFact": "Design-led hardware brand entering new handheld category in 2007"
+          },
+          {
+            "company": "Nokia",
+            "confidence": 44,
+            "pointingFact": "Handheld category incumbent with distribution power"
+          },
+          {
+            "company": "Sony",
+            "confidence": 34,
+            "pointingFact": "Branded consumer products and design reputation"
+          },
+          {
+            "company": "Research In Motion",
+            "confidence": 32,
+            "pointingFact": "Premium handheld device peer"
+          },
+          {
+            "company": "Motorola",
+            "confidence": 28,
+            "pointingFact": "Device maker dependent on channel partners"
+          }
+        ],
+        "direction": {
+          "call": "short",
+          "confidence": 48,
+          "cue": "Channel partners and incumbents can slow scale; clean launch already priced"
+        }
+      },
+      "hard": {
+        "payloadHash": "sha256:cccb90f626ad866cc3aca0656d3a2710c81194ae1796e35f7d33a8783a511ec9",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T18:00:00.000Z",
+        "guesses": [
+          {
+            "company": "Apple",
+            "confidence": 32,
+            "pointingFact": "2007 consumer device transition and unproven category entry pricing"
+          },
+          {
+            "company": "Nokia",
+            "confidence": 30,
+            "pointingFact": "Device category and partner distribution terms being re-cut"
+          },
+          {
+            "company": "Sony",
+            "confidence": 26,
+            "pointingFact": "Consumer products brand-pull adoption thesis"
+          },
+          {
+            "company": "Motorola",
+            "confidence": 22,
+            "pointingFact": "Channel-controlled device scale risk"
+          },
+          {
+            "company": "Research In Motion",
+            "confidence": 20,
+            "pointingFact": "Handheld category peer under distribution constraints"
+          }
+        ],
+        "direction": {
+          "call": "toss_up",
+          "confidence": 45,
+          "cue": "Brand pull vs partner-controlled scale both live in the payload"
+        }
+      }
+    }
   }
 }

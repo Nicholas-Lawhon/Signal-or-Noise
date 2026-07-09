@@ -91,6 +91,122 @@
     },
     "easyLikelyGuesses": ["Microsoft", "IBM", "Oracle"],
     "mediumLikelyGuesses": ["Microsoft", "Oracle", "IBM", "SAP"],
-    "hardLikelyGuesses": ["Microsoft", "Oracle", "IBM", "SAP", "Cisco", "HP"]
+    "hardLikelyGuesses": ["Microsoft", "Oracle", "IBM", "SAP", "Cisco", "HP"],
+    "gate2": {
+      "easy": {
+        "payloadHash": "sha256:1763dfab1e5f4761476e64fb5c962c2ff1cada118f4ef1d7d46835780b9111de",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T18:00:00.000Z",
+        "guesses": [
+          {
+            "company": "Microsoft",
+            "confidence": 86,
+            "pointingFact": "Mature enterprise software shifting to cloud subscriptions in 2014"
+          },
+          {
+            "company": "Oracle",
+            "confidence": 48,
+            "pointingFact": "Enterprise software vendor with cloud transition pressure"
+          },
+          {
+            "company": "IBM",
+            "confidence": 42,
+            "pointingFact": "Large installed base trying to revive growth via newer offerings"
+          },
+          {
+            "company": "SAP",
+            "confidence": 34,
+            "pointingFact": "Enterprise software subscription model shift"
+          },
+          {
+            "company": "Adobe",
+            "confidence": 24,
+            "pointingFact": "Software business pivoting toward subscriptions"
+          }
+        ],
+        "direction": {
+          "call": "long",
+          "confidence": 55,
+          "cue": "Long-standing corporate relationships can accelerate cloud subscription adoption"
+        }
+      },
+      "medium": {
+        "payloadHash": "sha256:3cc7da11ceb068393304178baf8e87db41715683dc495ea3d41e5cb73407260c",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T18:00:00.000Z",
+        "guesses": [
+          {
+            "company": "Microsoft",
+            "confidence": 52,
+            "pointingFact": "Diversified technology vendor to businesses facing 2014 refresh"
+          },
+          {
+            "company": "IBM",
+            "confidence": 46,
+            "pointingFact": "Mature enterprise vendor under growth-refresh pressure"
+          },
+          {
+            "company": "Oracle",
+            "confidence": 42,
+            "pointingFact": "Business software and infrastructure seller"
+          },
+          {
+            "company": "Cisco",
+            "confidence": 30,
+            "pointingFact": "Large tech vendor as corporate spend models change"
+          },
+          {
+            "company": "Hewlett-Packard",
+            "confidence": 26,
+            "pointingFact": "Mature IT vendor portfolio refresh risk"
+          }
+        ],
+        "direction": {
+          "call": "toss_up",
+          "confidence": 50,
+          "cue": "Legacy dependence vs relationship-led refresh both argued"
+        }
+      },
+      "hard": {
+        "payloadHash": "sha256:20d77a72b1ae3646eb880526ad909bb5e994f4841489b55f58a68ff8a5958d7d",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T18:00:00.000Z",
+        "guesses": [
+          {
+            "company": "IBM",
+            "confidence": 34,
+            "pointingFact": "Large established seller seeking renewed growth in 2014"
+          },
+          {
+            "company": "Microsoft",
+            "confidence": 32,
+            "pointingFact": "Enterprise technology transition refresh window"
+          },
+          {
+            "company": "Oracle",
+            "confidence": 28,
+            "pointingFact": "Commercial relationships used to introduce newer offerings"
+          },
+          {
+            "company": "Cisco",
+            "confidence": 24,
+            "pointingFact": "Corporate spend reallocation across delivery models"
+          },
+          {
+            "company": "SAP",
+            "confidence": 20,
+            "pointingFact": "Established enterprise seller with mature-line shrink risk"
+          }
+        ],
+        "direction": {
+          "call": "toss_up",
+          "confidence": 42,
+          "cue": "Customer access advantage vs mature-line shrink both live"
+        }
+      }
+    }
   }
 }
