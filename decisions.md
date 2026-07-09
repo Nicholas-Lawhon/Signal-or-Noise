@@ -360,6 +360,52 @@ replaces the rigid 3-tier ladder so routing survives future lineup changes
 (update the table, not the process). Roles stay at five (D001); only which model
 wears each hat changed.
 
+## D024 — Development-speed review policy; strict gates return for production readiness
+
+**Date:** 2026-07-09 · **Status:** User approved
+
+During prototype and active MVP development, optimize for efficient token usage
+and forward code progress. The default review loop is now:
+
+1. Role agent executes the handoff, runs required tests/typecheck, updates
+   `progress.md`, and writes the R-report.
+2. Orchestrator reviews the report + diff, reruns cheap verification, and commits
+   when the result is good enough for the current development stage.
+3. Formal Auditor passes are **not automatic** for all medium-risk work. Use them
+   only for major phase completions, substantial feature additions, high-risk
+   domains, or when the orchestrator/user explicitly wants extra review.
+
+Routine low- and medium-risk development handoffs may be dispatched after the
+user agrees to the task; they do not need a second "approve this handoff" stop.
+Explicit pre-dispatch user approval remains required for high-risk work, major
+feature additions, phase-completion handoffs, irreversible/outward-facing actions,
+or anything that changes product rules.
+
+High-risk domains still require stronger review even during development:
+scoring/game-engine math, leaderboard integrity, auth, database/server trust
+boundaries, security/privacy, changes to `soul.md` rules, production content
+pipeline validation, and anything user/outward-facing enough that a mistake is
+expensive to unwind. These get an Auditor pass or equivalent cross-model review.
+
+Placeholder scenario content is allowed to be prototype-grade as long as it avoids
+literal `soul.md` leaks (company name, ticker, founder/CEO, unmistakable product
+name/slogan) and keeps the D022 3/2/1 clue structure. Full doc 09 Gate 1/Gate 2
+guessability enforcement applies when content is entering the real Phase 3
+pipeline (`reviewed`/`active`) or when the orchestrator explicitly marks a content
+handoff production-quality. Do not spend repeated model cycles polishing temporary
+placeholder cards.
+
+Production-readiness / pre-launch work restores the stricter safety harness:
+formal audits at phase gates, content validator enforcement, anti-cheat review,
+accessibility/performance QA, and cross-model review for any durable surface that
+will be shipped publicly.
+
+**Rationale:** The H009→H011 placeholder-content loop consumed multiple model
+passes and audits without materially advancing the app. That level of process is
+appropriate before production content ships, but it is too expensive for a basic
+prototype game. Shipping velocity is now the priority until the app reaches
+production-readiness gates.
+
 ## Open Design Question — composite Final Score / Information Tiers (NOT a decision)
 
 **Date:** 2026-07-03 · **Status:** Exploration pending

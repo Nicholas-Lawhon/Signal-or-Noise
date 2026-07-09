@@ -6,20 +6,19 @@ first thing the next agent reads.
 
 ## Current Status
 
-- **Phase:** 0 + 1 COMPLETE and audited (A002 PASS). All work committed. Phase 2
-  (Game Engine Hardening) is next.
+- **Phase:** 0 + 1 COMPLETE (A002 PASS). H011 content fix-up accepted for
+  prototype under D024 despite A004 strict content-gate FAIL; full Gate 1/Gate 2
+  enforcement is deferred to Phase 3 production content. Phase 2 (Game Engine
+  Hardening) is next.
 - **App state:** Monorepo scaffolded. Game engine: 24 passing tests. 20-round
-  Classic Run playable - deep-navy `son` palette, two-line confidence buttons,
-  call-locked state, wrong All-In bust (D014), Call the Company guess (D015), $1
-  bankruptcy floor (D016), proportional payout (D017). 12 placeholder scenarios
-  (no-repeat shuffle) now have Easy/Medium/Hard hidden-card variants with 3/2/1
-  clues and difficulty-aware rendering. Color ramp via static maps. Netflix
-  +1135.6%. Reveal win/loss banner. No auth, no DB, no server.
-- **Next task:** Orchestrator processes A003 FAIL — content fix-up handoff for
-  H009 deck (Gate 2 / distinctive-hook failures), then re-audit. Parallel
-  threads still open: Gate A Growth positioning, composite-score design memo,
-  Phase 2 hardening.
-- **Blocked/Questions:** none.
+  Classic Run playable. 12 placeholder scenarios with Easy/Medium/Hard (3/2/1)
+  clues; H011 rewrote A003-flagged variants + BB/BA lookbacks. No auth, no DB.
+- **Next task:** Draft and dispatch Phase 2 game-engine hardening with D024 audit
+  policy (tests + orchestrator review; formal audit only at phase close/high risk).
+  Parallel: Gate A Growth, composite-score memo.
+- **Blocked/Questions:** none. Known prototype content issue: some placeholder
+  Medium/Hard variants remain too guessable; accepted under D024 because Phase 3
+  replaces placeholder content and restores full doc 09 gates.
 
 ## How to Run (updated as the app grows)
 
@@ -57,6 +56,61 @@ All from repo root. Requires Node.js LTS and pnpm 9.x.
 ---
 
 ## Session Log
+
+### 2026-07-09 — Orchestrator — D024 development-speed review policy
+
+**What changed:**
+- Recorded D024: during prototype/MVP development, optimize for token-efficient
+  progress. Formal audits are selective (phase gates, major feature additions,
+  high-risk domains, production-readiness, or explicit request), not automatic for
+  all medium-risk work.
+- Updated agent workflow docs (`AGENTS.md`, `agents/README.md`, `routing.md`,
+  role files, templates) to make tests + orchestrator review the default
+  development loop and restore stricter gates for production readiness.
+- Accepted H011 as a prototype content improvement under D024. A004 remains a
+  useful strict-content audit record, but it no longer blocks moving to Phase 2.
+
+**Tests:** docs/process change only; verification pending in orchestrator session.
+
+**Known issues:**
+- Placeholder content still has known Gate 1/Gate 2 weakness on some Medium/Hard
+  cards. Deferred to Phase 3 production content pipeline.
+
+**Blocked/Questions:** none.
+
+**Next recommended task:** Phase 2 game-engine hardening.
+
+### 2026-07-09 — Auditor — H011 / A004 content re-audit: FAIL (see `agents/audits/A004_H011.md`)
+
+### 2026-07-09 — Implementor (curator) — H011 placeholder content fix-up
+
+**What changed:**
+- Rewrote A003-flagged variants in `apps/web/lib/sampleScenarios.ts` (visa /
+  microsoft / starbucks Medium; blackberry / boeing Hard; gamestop / boeing Easy;
+  starbucks Easy; boeing / blackberry Medium) plus titles where needed.
+- Reshaped BlackBerry and Boeing `lookbackPrices` (last price still matches
+  `outcomePrices[0]`; length 8 preserved).
+- Updated `agents/reports/R007_H009_redteam.md`; filed `agents/reports/R008_H011.md`
+  with Gate 1 lists and Gate 2 attempt-1/attempt-2 transcripts.
+- Self-Verification item 4: stopped after two rewrite attempts on variants that
+  still fail Gate 2; flagged for orchestrator (not iterated further).
+
+**How to run:** unchanged.
+
+**Tests:** 24 passing / 0 failing — `pnpm typecheck`; `pnpm test`.
+
+**Known issues:**
+- Gate 2 still FAIL after 2 attempts: visa Medium, microsoft Medium, starbucks
+  Medium, blackberry Hard, boeing Hard, boeing Medium, gamestop Hard (variance
+  vs A003 PASS). blackberry Medium PASS on attempt 2. Easy rewrites + distinctive
+  hooks PASS Gate 2.
+
+**Blocked/Questions:**
+- Orchestrator: accept partial + re-audit, or authorize H012 for SV4 flags only?
+- GameStop Hard non-determinism (A003 PASS vs H011 FAIL)?
+
+**Next recommended task:** Orchestrator review of R008 + uncommitted diff; then
+GPT 5.5 re-audit or narrow content follow-up.
 
 ### 2026-07-09 — Auditor — H010 / A003 content audit of H009: FAIL (see `agents/audits/A003_H009.md`)
 

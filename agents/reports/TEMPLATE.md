@@ -8,7 +8,8 @@
 
 ## Summary
 
-<3–6 sentences: what was built/produced, in plain language.>
+<2–5 sentences: what was built/produced, in plain language. Be concise; the
+orchestrator can inspect the diff when needed.>
 
 ## Acceptance Criteria Self-Check
 
@@ -17,7 +18,9 @@
 | 1 | ...               | ✅/❌  | exact command run / screen checked / value observed |
 
 Every criterion from the handoff appears here. A ❌ means the report status is
-still `awaiting_review` but you must explain the failure under Deviations.
+still `awaiting_review` but you must explain the failure under Deviations. During
+prototype development, explicitly label accepted prototype limitations instead
+of spending extra cycles trying to polish outside the handoff.
 
 ## Files Changed
 
@@ -26,7 +29,8 @@ this list plus `git status` is how the orchestrator reviews your work.>
 
 ## Tests
 
-<Command run, counts passing/failing, and any skipped.>
+<Command run, counts passing/failing, and any skipped. Do not run broad/manual QA
+unless the handoff asked for it or the changed surface needs it.>
 
 ## Deviations from the Handoff
 

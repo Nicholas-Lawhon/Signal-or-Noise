@@ -15,7 +15,9 @@ Before doing ANY work, read in this order:
 5. Your assigned handoff prompt in `agents/handoffs/`
 
 Consult `docs/` (01–10) when your handoff references them. `decisions.md` records
-settled decisions — never re-litigate or contradict them.
+settled decisions — never re-litigate or contradict them. During active
+development, D024 controls review depth: ship tested increments quickly; reserve
+formal audits for phase gates, major feature additions, and high-risk domains.
 
 ## The Golden Rule
 
@@ -90,15 +92,23 @@ Database-backed phases (4+): server calculates official scores; the pre-decision
 payload must not contain company name, ticker, end price, return, reveal text, or
 outcome chart data. Never trust client-calculated scores for leaderboards.
 
-## Definition of Done (every handoff)
+## Definition of Done (development default)
 
 Work is done only when:
 
 1. All acceptance criteria in the handoff prompt pass.
-2. `pnpm install`, `pnpm dev`, and `pnpm test` work from the repo root.
-3. All tests pass (existing and new).
-4. No TypeScript errors (`pnpm typecheck` if configured, else `tsc --noEmit`).
-5. `progress.md` is updated and a completion report is written (see below).
+2. The verification commands named in the handoff pass. By default this means
+   `pnpm test` and `pnpm typecheck`; `pnpm dev` is required only when the handoff
+   changes web runtime behavior or explicitly asks for a browser/dev-server check.
+3. Existing and new tests pass, unless the handoff explicitly records an accepted
+   prototype limitation.
+4. `progress.md` is updated and a completion report is written (see below).
+
+Production-readiness work uses a stricter definition of done: install/dev/test,
+typecheck, manual QA where relevant, formal audit, and any content/security checks
+required by the owning docs. Placeholder prototype scenario content does not need
+full doc 09 Gate 1/Gate 2 polishing unless the handoff says it is production
+content; it must still avoid literal `soul.md` leaks and keep D022 clue counts.
 
 ## Session End Protocol
 
@@ -107,7 +117,7 @@ At the end of every session:
 1. Append a session log entry to `progress.md` using the template at the top of
    that file (what changed, how to run, test status, known issues, blocked
    questions, next recommended task) and update its "Current Status" section.
-2. Write a completion report to `agents/reports/R###_H###.md` following
+2. Write a concise completion report to `agents/reports/R###_H###.md` following
    `agents/reports/TEMPLATE.md` (next sequential R-number). The orchestrator
    reads this report to approve or reject your work. No report = no review =
    the work doesn't count. (Consultants and Auditors: your memo/audit file is

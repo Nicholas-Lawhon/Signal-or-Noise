@@ -135,7 +135,7 @@ const SCENARIOS: PrototypeScenario[] = [
     companyName: 'BlackBerry',
     ticker: 'BBRY',
     acceptedNames: ['blackberry', 'rim', 'research in motion', 'bbry'],
-    title: 'Incumbent Pressure',
+    title: 'Franchise Defense',
     era: 'Smartphone platform era',
     decisionDateLabel: 'Jun 2008',
     outcomeLabel: 'Jun 2008 \u2192 Jun 2010',
@@ -155,21 +155,21 @@ const SCENARIOS: PrototypeScenario[] = [
       },
       medium: {
         companyDescription:
-          'A communications-device company serving professional and consumer users.',
+          'A hardware company whose products sit between specialized tools and mass-market gadgets.',
         macroContext:
-          'Mobile computing is shifting from specialized devices toward broader software ecosystems.',
+          'Buyers are rethinking which devices they need as software platforms become more important.',
         clues: [
-          'The incumbent is defending an established way of working as rivals make the category easier to adopt.',
-          'A loyal customer base supports the long case, but the short case is that ecosystem momentum moves elsewhere.',
+          'Recurring services and a loyal installed base still generate cash.',
+          'If customers switch ecosystems, growth can stall even while current users stay for a while.',
         ],
       },
       hard: {
         companyDescription:
-          'A mobile technology company.',
+          'A technology company.',
         macroContext:
-          'Consumer expectations for mobile computing are changing quickly.',
+          'Competitive intensity is rising across consumer and business product markets.',
         clues: [
-          'An enterprise-favored incumbent is relying on loyalty and service strengths while consumer-focused rivals reset the category and threaten future growth.',
+          'Management is defending an existing franchise while newer rival offerings change what customers expect next, creating a real risk that loyalty fades after the next upgrade cycle.',
         ],
       },
     },
@@ -177,7 +177,8 @@ const SCENARIOS: PrototypeScenario[] = [
       'That was BlackBerry. The touchscreen revolution swept past its keyboard empire.',
     funFact:
       'At its peak in 2009, BlackBerry held over 20% of the global smartphone market share and was known as the CrackBerry for its addictive messaging.',
-    lookbackPrices: [8, 11, 16, 24, 39, 61, 70, 68],
+    // Reshaped: muted climb (not the famous parabolic 2006–08 rocket) to reduce chart triangulation.
+    lookbackPrices: [42, 46, 51, 48, 55, 60, 64, 68],
     outcomePrices: [68, 60, 48, 41, 55, 47, 38, 33],
   },
   {
@@ -235,7 +236,7 @@ const SCENARIOS: PrototypeScenario[] = [
     companyName: 'Microsoft',
     ticker: 'MSFT',
     acceptedNames: ['microsoft', 'msft'],
-    title: 'Old Platform New Bet',
+    title: 'Footprint Bet',
     era: 'Cloud software expansion',
     decisionDateLabel: 'Jan 2014',
     outcomeLabel: 'Jan 2014 \u2192 Jan 2016',
@@ -255,12 +256,12 @@ const SCENARIOS: PrototypeScenario[] = [
       },
       medium: {
         companyDescription:
-          'A large enterprise technology company with legacy software profits.',
+          'A large technology vendor serving business customers across many product lines.',
         macroContext:
-          'Cloud infrastructure and subscription pricing are changing how companies buy technology.',
+          'Corporate IT budgets are rebalancing toward services billed over time rather than big up-front licenses.',
         clues: [
-          'The long case is distribution: existing business customers could make the transition easier.',
-          'The short case is that mature cash cows may fade faster than newer cloud revenue can scale.',
+          'An installed commercial relationship could accelerate adoption of newer offerings.',
+          'Investors worry mature lines may shrink before replacements contribute enough growth.',
         ],
       },
       hard: {
@@ -294,11 +295,11 @@ const SCENARIOS: PrototypeScenario[] = [
     hidden: {
       easy: {
         companyDescription:
-          'A specialty retailer tied to physical media, trade-ins, and mall traffic.',
+          'A specialty retailer whose stores depend on in-person traffic for entertainment purchases.',
         macroContext:
           'Consumers are buying more entertainment and software through digital channels instead of stores.',
         clues: [
-          'The store base still throws off cash from loyal customers and resale activity.',
+          'The store base still throws off cash from a loyal customer base and secondary-market activity.',
           'Publishers and platform owners are steering more purchases toward direct digital delivery.',
           'Investors are weighing a cheap valuation and cash flow against declining store relevance.',
         ],
@@ -319,7 +320,7 @@ const SCENARIOS: PrototypeScenario[] = [
         macroContext:
           'Store-based retailers are being tested by digital distribution and changing shopper habits.',
         clues: [
-          'A cash-generative store network is facing a direct-channel shift that could either be managed from a cheap valuation or steadily erode the core business.',
+          'A store network still throws off cash, but a channel shift could either be managed from a discounted valuation or steadily erode the core business.',
         ],
       },
     },
@@ -385,7 +386,7 @@ const SCENARIOS: PrototypeScenario[] = [
     companyName: 'Starbucks',
     ticker: 'SBUX',
     acceptedNames: ['starbucks', 'sbux'],
-    title: 'Habit Becomes Scale',
+    title: 'Repeat Visits',
     era: 'Post-financial-crisis recovery',
     decisionDateLabel: 'Jan 2012',
     outcomeLabel: 'Jan 2012 \u2192 Jan 2014',
@@ -394,23 +395,23 @@ const SCENARIOS: PrototypeScenario[] = [
     hidden: {
       easy: {
         companyDescription:
-          'A premium cafe chain turning a daily habit into a global consumer brand.',
+          'A multi-unit food-and-beverage retailer with frequent customer visits and a premium brand.',
         macroContext:
           'Consumer spending is recovering, and urban middle-class demand is rising in several international markets.',
         clues: [
-          'The company has loyal repeat customers and room to open more stores.',
-          'International expansion and a growing rewards program could make sales more predictable.',
+          'Loyal repeat customers and white-space for new locations support a growth case.',
+          'International expansion and a digital loyalty program could make sales more predictable.',
           'The risk is that rapid expansion and premium pricing disappoint if consumer spending softens.',
         ],
       },
       medium: {
         companyDescription:
-          'A premium consumer-service chain with repeat daily visits.',
+          'A multi-unit consumer brand with frequent discretionary purchases.',
         macroContext:
-          'Post-crisis consumers are selectively returning to affordable indulgences.',
+          'Households are cautiously restoring discretionary spending after the crisis.',
         clues: [
-          'The long case is store growth plus loyalty-driven repeat spending.',
-          'The short case is that expansion costs and premium positioning leave little room for weaker traffic.',
+          'More locations and steadier ticket patterns could drive earnings growth.',
+          'If traffic softens, expansion costs leave a thin cushion for misses.',
         ],
       },
       hard: {
@@ -535,7 +536,7 @@ const SCENARIOS: PrototypeScenario[] = [
     companyName: 'Boeing',
     ticker: 'BA',
     acceptedNames: ['boeing', 'ba'],
-    title: 'Backlog or Bottleneck',
+    title: 'Throughput Question',
     era: 'Post-financial-crisis recovery',
     decisionDateLabel: 'Jan 2013',
     outcomeLabel: 'Jan 2013 \u2192 Jan 2015',
@@ -544,32 +545,32 @@ const SCENARIOS: PrototypeScenario[] = [
     hidden: {
       easy: {
         companyDescription:
-          'A large aerospace manufacturer with commercial and defense customers.',
+          'A large capital-equipment manufacturer serving commercial and government customers.',
         macroContext:
-          'Global travel demand is improving, and airlines are ordering more fuel-efficient equipment.',
+          'Global travel and industrial demand are improving after the crisis, supporting multi-year equipment orders.',
         clues: [
-          'A large order backlog could support years of revenue.',
-          'Production issues on a newer program have worried investors, but delivery progress could restore confidence.',
-          'The risk is that supply-chain strain or customer delays turn the backlog into a bottleneck.',
+          'A multi-year order book could support revenue if production keeps pace.',
+          'Recent execution setbacks have raised investor concern, but steadier deliveries could restore confidence.',
+          'The risk is that supply-chain strain or customer delays turn planned work into a cash-flow bottleneck.',
         ],
       },
       medium: {
         companyDescription:
-          'An aerospace and defense manufacturer with long-cycle production programs.',
+          'A diversified industrial manufacturer with long production cycles.',
         macroContext:
-          'Air travel and capital spending are recovering, but industrial supply chains remain sensitive.',
+          'Capital spending is recovering, but complex operations remain hard to forecast.',
         clues: [
-          'The long case is a deep backlog tied to fuel-efficiency demand.',
-          'The short case is that production problems and delivery delays eat into expected cash flow.',
+          'The long case is multi-year demand supporting revenue if plants stay on schedule.',
+          'The short case is that operational friction delays cash conversion and squeezes margins.',
         ],
       },
       hard: {
         companyDescription:
-          'An industrial manufacturer.',
+          'A manufacturing company.',
         macroContext:
-          'The recovery is reviving capital spending, but long supply chains remain fragile.',
+          'Economic recovery is supporting capital investment, but complex operations remain hard to forecast.',
         clues: [
-          'A long-cycle manufacturer has strong demand visibility from backlog, while execution problems could convert that visibility into delays and margin pressure.',
+          'Investors see multi-year demand, yet operational friction could delay how and when that demand becomes cash and whether margins hold.',
         ],
       },
     },
@@ -577,7 +578,8 @@ const SCENARIOS: PrototypeScenario[] = [
       'That was Boeing. A record jet backlog and smooth deliveries lifted the stock over 40% in two years.',
     funFact:
       'Its order backlog has at times exceeded 5,000 aircraft \u2014 many years of production.',
-    lookbackPrices: [60, 62, 58, 65, 68, 70, 72, 75],
+    // Reshaped: choppier path (not a smooth industrial climb) to reduce chart triangulation.
+    lookbackPrices: [68, 64, 71, 66, 73, 69, 74, 75],
     outcomePrices: [75, 80, 88, 95, 100, 98, 104, 106],
   },
   {
@@ -605,12 +607,12 @@ const SCENARIOS: PrototypeScenario[] = [
       },
       medium: {
         companyDescription:
-          'A financial infrastructure company tied to payment volume.',
+          'A financial infrastructure firm that benefits when commercial activity rises.',
         macroContext:
-          'Electronic commerce is becoming more common across households and businesses.',
+          'After the crisis, investors are hunting for businesses that scale with recovery without carrying heavy credit risk.',
         clues: [
-          'The long case is toll-like economics as transaction volume grows without taking direct credit risk.',
-          'The short case is that regulation and large customers push back on fees.',
+          'Revenue grows when more activity flows through the platforms it operates.',
+          'Political pressure or large customers can force lower take-rates on high-margin volume.',
         ],
       },
       hard: {

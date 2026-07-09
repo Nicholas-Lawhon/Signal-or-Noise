@@ -36,13 +36,16 @@ authoring time.
    cheapest model whose profile covers the task (D023): DeepSeek v4 Pro for
    fully-prescribed work, Grok 4.5 for medium-strength work, GPT 5.5 for hard
    implementation, design/UI/UX, content/scenario work, and high-stakes review.
-   The risk level (not gut feel) decides whether an Auditor pass is required.
+   Under D024, risk informs review depth but does not automatically force an
+   Auditor pass for routine development work.
 4. **Plan & author** — write the handoff to `agents/handoffs/H###_*.md` using
-   `agents/handoffs/TEMPLATE.md`, including the Model and Risk fields. Pick the
-   role (see table in `agents/README.md`); add a micro-role framing section when
-   the task needs a specialist hat. Calibrate prescriptiveness to the executor
-   (routing.md). Low risk: dispatch as soon as the user has agreed to the task.
-   Medium/high risk: status stays `draft` until the user approves → `approved`.
+   `agents/handoffs/TEMPLATE.md`, including Model, Risk, and Audit fields. Pick
+   the role (see table in `agents/README.md`); add a micro-role framing section
+   when the task needs a specialist hat. Calibrate prescriptiveness to the
+   executor (routing.md). Low and routine medium-risk development work dispatches
+   after the user agrees to the task. High-risk work, major features, phase gates,
+   irreversible/outward-facing actions, and product-rule changes stay `draft`
+   until the user approves → `approved`.
 5. **Dispatch** — launch the executor yourself via its headless CLI (commands in
    `agents/routing.md`), pointing it at `AGENTS.md` and the handoff file, with
    the workspace-write/no-git guardrails. Run it in the background and wait for
@@ -50,9 +53,10 @@ authoring time.
 6. **Review** — when the role agent finishes, it writes
    `agents/reports/R###_H###.md` and leaves everything UNCOMMITTED (D012). You
    read the report + `git diff`, independently re-run whatever is cheap to verify
-   (tests, greps, typecheck), and approve or reject. Medium- and high-risk work
-   also gets an Auditor handoff before final approval — always a different model
-   than the implementor (cross-model audit rule, `agents/routing.md`).
+   (tests, greps, typecheck), and approve or reject. Invoke a formal Auditor only
+   when the handoff's Audit field requires it, the work is high-risk, a phase is
+   closing, a substantial feature is landing, or the user asks for extra review.
+   When a formal audit is used, follow the cross-model rule in `agents/routing.md`.
 7. **Commit & advance** — on approval, YOU commit (never push unless the user
    asks), update `roadmap.md` phase markers, annotate the report status, and
    draft the next handoff.
@@ -72,9 +76,14 @@ executors' tokens are for execution.
 - `soul.md` is the constitution; you may amend it only with user approval + a
   `decisions.md` entry.
 - User approval is required for: new decisions.md entries that shape the product,
-  medium/high-risk handoff approval (draft → approved) before dispatch, pushing
-  to the remote, and anything irreversible or outward-facing. Low-risk handoffs
-  may be dispatched on task agreement alone (D023).
+  high-risk handoff approval (draft → approved) before dispatch, major features,
+  phase gates, pushing to the remote, and anything irreversible or outward-facing.
+  Low- and routine medium-risk development handoffs may be dispatched on task
+  agreement alone (D024).
+- D024 is the development-speed policy: do not spend formal audit/model cycles on
+  routine prototype work when tests + orchestrator review are enough. Save the
+  strict harness for high-risk domains, major feature/phase gates, and
+  production-readiness.
 - Executed handoffs are never rewritten — corrections become new fix-up handoffs.
 - Do not create new roles casually. The five roles (Consultant, Implementor,
   Auditor, Content Curator, Growth) were deliberately kept few (D001). When a
@@ -102,6 +111,8 @@ Before dispatching (or marking `draft → approved`), check:
   `agents/routing.md` — neither hand-holding GPT 5.5 nor trusting DeepSeek?
 - Is every acceptance criterion binary and verifiable with a stated command or
   observation?
+- Does the Audit field match D024 — required only when extra review is worth the
+  token/time cost?
 - Does the Do-NOT list fence off the adjacent scope an eager agent would drift
   into?
 - Are expected values precomputed where the executor can't be trusted to derive

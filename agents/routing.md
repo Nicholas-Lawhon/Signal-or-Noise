@@ -17,9 +17,9 @@ the inverse of how prescriptive its handoffs must be.
 
 | Model | Intelligence | Cost-eff. | Style | Speed | Autonomy | Invoked via |
 |---|---|---|---|---|---|---|
-| Claude Fable (orchestrator) | 10 | 2 | 7 | 5 | — | the user's session, or `claude -p` |
-| GPT 5.5 | 9 | 4 | 9 | 4 | 9 | `codex exec` |
-| Grok 4.5 | 8 | 8 | TBD¹ | 7 | 7 | `grok -p` |
+| Claude Fable | 10 | 2 | 7 | 5 | 10 | `claude -p` |
+| GPT 5.5 | 9 | 5 | 9 | 8 | 9 | `codex exec` |
+| Grok 4.5 | 8 | 8 | TBD¹ | 6 | 7 | `grok -p` |
 | Claude Sonnet/Opus (utility) | 6–8 | n/a² | 7 | 8 | 7 | in-session subagents³ |
 | DeepSeek v4 Pro | 4 | 10 | 5 | 8 | 2 | `opencode run` |
 
@@ -53,8 +53,9 @@ routes to the cheapest model whose profile covers it:
   taste matters → GPT 5.5 (Style 9).
 - **Scope** — multi-file/multi-package work needs a model that holds context:
   Grok or GPT 5.5, not DeepSeek.
-- **Risk** — per the risk table below; risk gates review and dispatch approval,
-  and high risk usually implies GPT 5.5 execution or review.
+- **Risk** — per the risk table below; risk gates dispatch approval and informs
+  review depth. D024 overrides the old automatic medium-risk audit loop during
+  active development.
 
 ### Domain defaults
 
@@ -62,7 +63,7 @@ routes to the cheapest model whose profile covers it:
 |---|---|
 | Boilerplate, scaffolding, mechanical refactors, tests with precomputed values, copy swaps, file discovery/summaries | DeepSeek v4 Pro |
 | Feature implementation with a clear spec, test repair, medium refactors, most Auditor passes | Grok 4.5 |
-| Architecture, data model, security/auth, ambiguous bugs, design/UI/UX, scenario content + guessability gates (Curator work), Consultant memos, high-stakes review | GPT 5.5 |
+| Architecture, data model, security/auth, ambiguous bugs, design/UI/UX, production scenario content + guessability gates (Curator work), Consultant memos, high-stakes review | GPT 5.5 |
 | Routing, decisions, handoff authoring, report review, commits, tiny doc edits it owns | Orchestrator |
 | Orchestrator's own exploration, diff verification, quick checks (not handoff execution) | Claude subagents (utility) |
 
@@ -135,29 +136,39 @@ Before reviewing, confirm the expected R###/A### file exists and `git status`
 shows the agent's changes; if not, inspect the executor's session transcript,
 fix the flags, and resume rather than restart.
 
-**Dispatch approval gate (risk-based):**
+**Dispatch approval gate (D024 development policy):**
 
-- **Low risk** — the orchestrator authors the handoff and dispatches immediately
-  after the user agrees to the task; no second stop.
-- **Medium / High risk** — the user approves the drafted handoff
-  (`draft → approved`) before the orchestrator launches the executor.
+Current rule: low- and routine medium-risk development handoffs may be dispatched
+after the user agrees to the task; no second handoff-approval stop is required.
+Explicit pre-dispatch user approval remains required for high-risk work, major
+feature additions, phase gates, irreversible/outward-facing actions, and product
+rule changes. Any older medium/high approval text in historical entries or
+legacy bullets is superseded by this D024 rule.
+
 
 ## Risk Levels
 
-Every handoff header declares a risk level. Risk decides the review gate and
-the dispatch approval gate, not the model choice (though high risk usually
-implies GPT 5.5 execution or review).
+Every handoff header declares a risk level. Risk decides the dispatch approval
+gate and helps the orchestrator choose review depth; it does not automatically
+force an Auditor pass during active development (D024). The handoff should add
+`**Audit:** required | optional | none` when review depth is not obvious.
 
 | Risk | Definition | Required before orchestrator commits |
 |------|-----------|--------------------------------------|
-| **Low** | Mechanical, tightly scoped, easily reversible; no game-logic or user-visible behavior change | Orchestrator reviews report + diff. Auditor pass optional. |
-| **Medium** | Touches game logic, spans multiple files/packages, or changes user-visible behavior | Auditor pass required before approval. |
-| **High** | Scoring math, architecture, security/auth, data model, or anything touching `soul.md` rules | GPT 5.5 execution or review, Auditor pass, and explicit user sign-off. |
+| **Low** | Mechanical, tightly scoped, easily reversible; no game-logic or durable user-visible behavior change | Orchestrator reviews report + diff and runs cheap verification. Auditor normally none. |
+| **Medium** | Spans multiple files/packages or changes prototype user-visible behavior | Orchestrator review + tests/typecheck. Auditor optional; use for major feature additions, phase gates, or explicit request. |
+| **High** | Scoring math, architecture, security/auth, data model, leaderboard integrity, production content pipeline, or anything touching `soul.md` rules | GPT 5.5 execution or review, formal Auditor/cross-model review, and explicit user sign-off. |
 
-**Cross-model audit rule (D023):** the Auditor is always a different model than
-the Implementor of the handoff under audit — e.g. Grok implements → GPT 5.5
-audits (high risk) or a Claude utility subagent verifies; GPT 5.5 implements →
-Grok audits. Independent eyes catch self-consistent mistakes.
+**Development-speed rule (D024):** formal audits are selective until production
+readiness. Use them for major phase completions, substantial feature additions,
+high-risk domains, or explicit user/orchestrator request. Placeholder scenario
+content only needs literal leak checks and D022 clue-count structure unless a
+handoff marks it production-quality.
+
+**Cross-model audit rule (D023):** when a formal audit is used, the Auditor is
+always a different model than the Implementor of the handoff under audit — e.g.
+Grok implements → GPT 5.5 audits; GPT 5.5 implements → Grok audits. Independent
+eyes catch self-consistent mistakes.
 
 ## Micro-Roles
 

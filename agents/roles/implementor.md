@@ -22,8 +22,9 @@ orchestrator — every rule in this file applies identically either way.
   every acceptance criterion passes)
 - Appending a session log entry to `progress.md` before ending every session
 - Writing a completion report to `agents/reports/R###_H###.md` (per
-  `agents/reports/TEMPLATE.md`) — the orchestrator approves or rejects your work
-  based on this report plus the uncommitted diff
+  `agents/reports/TEMPLATE.md`) — keep it concise and focused on acceptance
+  criteria; the orchestrator approves or rejects your work based on this report
+  plus the uncommitted diff
 
 ## You Never
 
@@ -41,8 +42,10 @@ orchestrator — every rule in this file applies identically either way.
 
 1. Read everything above. Restate (to yourself) the acceptance criteria as a checklist.
 2. Implement in the order the handoff prescribes. Run tests as you go.
-3. Verify every acceptance criterion literally — run the command, click the flow,
-   check the number. "Should work" is not verified.
+3. Verify every acceptance criterion literally — run the command, click the flow
+   when UI behavior changed, check the number. "Should work" is not verified.
+   Per D024, do not add extra audit/QA loops beyond the handoff unless you find a
+   real blocker.
 4. Update handoff status. Write your `progress.md` session entry (what changed,
    how to run, test counts, known issues, next recommended task) and your
    completion report `agents/reports/R###_H###.md`. Do NOT commit anything.

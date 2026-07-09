@@ -30,14 +30,14 @@ Likely guesses:
 ## proto_blackberry_2008_2010
 
 Fact bank:
-- Reveal-only: BlackBerry/RIM names; keyboard-centered workflow; BBM; CrackBerry; specific market-share peak.
-- Decision-useful: enterprise loyalty; service revenue; mobile ecosystem shift; consumer rival momentum; incumbent execution risk.
-- Prohibited: keyboard; touchscreen; messaging product names; company/executive names; "screen war" hook; BBRY.
+- Reveal-only: BlackBerry/RIM names; keyboard-centered workflow; BBM; CrackBerry; specific market-share peak; parabolic 2006–08 chart shape.
+- Decision-useful: installed-base stickiness; service revenue; category reset by rivals; loyalty may not protect growth; mobile ecosystem shift.
+- Prohibited: keyboard; touchscreen; messaging product names; company/executive names; "screen war" / "enterprise-favored" identity hook; BBRY; unmistakable steep multi-year rocket chart as sole ID.
 
-Likely guesses:
+Likely guesses (title now **Franchise Defense**; lookback muted climb ending 68):
 - Easy: BlackBerry (business-customer mobile incumbent); Nokia (mobile incumbent under software pressure); Motorola (mobile device incumbent); Palm (professional/consumer device transition).
-- Medium: BlackBerry (professional communications-device incumbent); Nokia (specialized devices to ecosystems); Motorola (mobile category transition); Palm (professional/consumer mobile workflow).
-- Hard: BlackBerry (enterprise-favored incumbent); Nokia (mobile incumbent under consumer reset); Motorola (mobile incumbent challenged by software ecosystems); Palm (loyal base but platform pressure); HTC (mobile hardware exposed to category reset).
+- Medium: Garmin (specialized-tool ↔ mass-gadget hardware + services); Nokia (device ecosystem switch risk); BlackBerry (installed base + recurring services); Palm (loyal users, growth stall if ecosystems switch); Motorola. Gate 2 attempt 2: Garmin led; BB #2 — Medium threshold PASS (correct not #1).
+- Hard: Nokia; Motorola; Palm; HTC; Microsoft (platform pressure). Gate 2 still places BB in top 5 ≥15% after two rewrites — **FLAGGED** (era+date triangulation residual).
 
 ## proto_amazon_1999_2001
 
@@ -55,23 +55,23 @@ Likely guesses:
 
 Fact bank:
 - Reveal-only: Microsoft/MSFT; Windows; Office; Azure; Satya Nadella; missed mobile wave.
-- Decision-useful: mature enterprise customer base; subscription/cloud transition; distribution advantage; legacy-cash-cow dependence; faster cloud rivals; value-trap sentiment.
-- Prohibited: product names; executive names/new-leadership hook; desktop monopoly phrasing; Microsoft or MSFT.
+- Decision-useful: mature commercial footprint; hosted/recurring transition; older high-margin products vs newer lines; enterprise customers; value-trap sentiment.
+- Prohibited: product names; executive names/new-leadership hook; desktop monopoly phrasing; "legacy software profits" + "cloud" couple that makes MSFT #1; Microsoft or MSFT.
 
-Likely guesses:
+Likely guesses (title now **Footprint Bet**):
 - Easy: Microsoft (enterprise software shifting to cloud subscriptions); Oracle (enterprise software and cloud transition); IBM (enterprise technology cloud repositioning); Adobe (subscription software transition).
-- Medium: Microsoft (legacy software profits plus cloud); Oracle (mature enterprise software); IBM (enterprise technology incumbent); Adobe (subscription-pricing shift).
+- Medium: Oracle; IBM; Adobe; Microsoft; SAP — intended 2–4 none dominant. Gate 2 still puts Microsoft #1 ≥40% after two rewrites — **FLAGGED**.
 - Hard: Microsoft (huge customer base to subscription growth); Oracle (incumbent enterprise customers); IBM (hosted-services transition); SAP (enterprise subscription/cloud shift); Adobe (subscription growth from installed base).
 
 ## proto_gamestop_2016_2018
 
 Fact bank:
 - Reveal-only: GameStop/GME; video games; physical game discs; 2021 meme-stock story; exact store count.
-- Decision-useful: specialty retail cash flow; resale/trade-in economics; physical-to-digital shift; mall traffic pressure; cheap valuation; weak pivot path.
-- Prohibited: game/video-game names; disc/platform-specific language; meme-stock reference; store-count figure; GME.
+- Decision-useful: specialty retail cash flow; secondary-market/in-store activity; digital/direct delivery shift; cheap valuation; declining store relevance.
+- Prohibited: game/video-game names; disc/platform-specific language; meme-stock reference; store-count figure; GME; distinctive-hook couple **physical media + trade-ins** (Easy rewrite removes both as paired identity).
 
 Likely guesses:
-- Easy: GameStop (physical-media specialty retail and trade-ins); Best Buy (store retailer exposed to digital/direct channels); Barnes & Noble (physical media/books to digital); HMV/Game Group (physical entertainment retail pressure).
+- Easy: GameStop (specialty entertainment retail under digital shift); Best Buy (in-person entertainment retail + direct digital pressure); Barnes & Noble (store traffic vs digital content); HMV/Game Group (entertainment specialty retail pressure). ≥2 without trade-ins/physical-media hook.
 - Medium: GameStop (stores losing core transaction to digital delivery); Best Buy (store-heavy model under online/direct pressure); Barnes & Noble (physical media shift); Game Group (specialty entertainment retail pressure).
 - Hard: GameStop (cash-generative store network facing direct digital shift); Best Buy (store network versus online/direct); Barnes & Noble (physical retail erosion); RadioShack (specialty retail model pressure); HMV/Game Group (physical entertainment retail erosion).
 
@@ -91,12 +91,12 @@ Likely guesses:
 
 Fact bank:
 - Reveal-only: Starbucks/SBUX; coffee; exact loyalty-balance comparison; store-count details; Howard Schultz.
-- Decision-useful: repeat daily habit; premium consumer positioning; store growth; international expansion; rewards/loyalty economics; traffic and expansion-cost risk.
-- Prohibited: Starbucks; coffee-specific brand hooks if too narrow; executive names; exact prepaid balance fact; SBUX.
+- Decision-useful: frequent discretionary visits; multi-unit growth; international expansion; digital loyalty; premium pricing vs traffic risk.
+- Prohibited: Starbucks; coffee-specific brand hooks; "premium cafe chain" thin-set identity; executive names; exact prepaid balance fact; SBUX.
 
-Likely guesses:
-- Easy: Starbucks (premium cafe chain and loyalty); Dunkin' Brands (habit-based food/drink chain); McDonald's (global store growth and everyday visits); Chipotle (consumer chain growth and traffic risk).
-- Medium: Starbucks (premium repeat-visit chain); Dunkin' Brands (daily visits and franchise growth); Chipotle (fast-growing consumer chain); McDonald's (store-based repeat brand).
+Likely guesses (title now **Repeat Visits**):
+- Easy: Starbucks (premium multi-unit F&B + loyalty); Dunkin' Brands (frequent visits, food/drink retail); McDonald's (global unit growth and everyday traffic); Yum Brands / Chipotle (multi-unit F&B expansion). Broadened past cafe-only peer set. Gate 2 Easy PASS.
+- Medium: Domino's / Dunkin' / Chipotle / Starbucks / Panera — intended none dominant. Gate 2 still puts Starbucks #1 ≥40% after two rewrites — **FLAGGED**.
 - Hard: Starbucks (store-based repeat-purchase brand); Dunkin' Brands (repeat visits); Chipotle (consumer brand growth); McDonald's (store model and loyalty); Panera-era public peers (premium store-based food service).
 
 ## proto_nvidia_2015_2017
@@ -126,23 +126,23 @@ Likely guesses:
 ## proto_boeing_2013_2015
 
 Fact bank:
-- Reveal-only: Boeing/BA; 787 Dreamliner; battery fires; exact aircraft backlog; Airbus duopoly.
-- Decision-useful: commercial aerospace backlog; fuel-efficiency demand; long-cycle manufacturing; production issues; supply-chain and delivery risk; defense/customer diversity.
-- Prohibited: Boeing name/ticker; Airbus duopoly phrasing; named aircraft model; battery issue; exact backlog count.
+- Reveal-only: Boeing/BA; 787 Dreamliner; battery fires; exact aircraft backlog; Airbus duopoly; titles "Backlog or Bottleneck" / "Program Risk" retired — now **Throughput Question**.
+- Decision-useful: multi-year order visibility; capital-equipment production cycles; execution setbacks; supply-chain / delivery risk; commercial + government customers.
+- Prohibited: Boeing name/ticker; Airbus duopoly phrasing; named aircraft model; battery issue; exact backlog count; "aerospace" + "production issues on a newer program" distinctive-hook couple; pure backlog-title triangulation.
 
 Likely guesses:
-- Easy: Boeing (aerospace backlog and production issues); Airbus (large aerospace backlog); United Technologies (aerospace systems and delivery cycles); Lockheed Martin (aerospace/defense long-cycle programs).
-- Medium: Boeing (aerospace backlog); Airbus (aircraft backlog and delivery risk); United Technologies (aerospace production cycles); Lockheed Martin (defense/aerospace backlog).
-- Hard: Boeing (long-cycle manufacturer with backlog); Airbus (backlog and supply-chain execution); United Technologies (industrial backlog); Caterpillar (long-cycle capital equipment backlog); Lockheed Martin (program backlog and execution).
+- Easy: Boeing; United Technologies; Caterpillar; Lockheed Martin. Distinctive-hook couple removed. Gate 2 Easy PASS (#1 allowed).
+- Medium: Caterpillar; Honeywell; United Technologies; Boeing; Deere/Emerson-class industrials. Gate 2 still puts Boeing #1 ≥40% after two rewrites — **FLAGGED**.
+- Hard: Caterpillar; United Technologies; Deere; Lockheed Martin; GE. Gate 2 still puts Boeing in top 5 ≥15% after two rewrites — **FLAGGED** (industrial + multi-year demand residual).
 
 ## proto_visa_2011_2013
 
 Fact bank:
 - Reveal-only: Visa/V; card-network branding; exact processing capacity; "swipe" language; direct comparisons to Mastercard.
-- Decision-useful: fee-based network; transaction-volume growth; electronic payments migration; no direct credit risk; regulation/merchant fee pressure; high-margin scale.
-- Prohibited: Visa name/ticker; card brand names; "swipe" hook; exact transactions-per-second fact; tiny-fee-on-card-volume wording from fail example.
+- Decision-useful: fee income scaling with transaction activity; electronic rails migration; regulation / large-customer fee pressure; competition compressing fees.
+- Prohibited: Visa name/ticker; card brand names; "swipe" hook; exact transactions-per-second fact; "toll-like + no credit risk" couple that collapses the set to Visa/MA with Visa dominant.
 
 Likely guesses:
 - Easy: Visa (fee-based payment infrastructure); Mastercard (payment network); American Express (payments volume and merchant pressure); Fiserv/First Data (payment infrastructure).
-- Medium: Visa (volume-tied network without direct credit risk); Mastercard (same payment network model); American Express (payments and merchant fees); Global Payments (payment processing volume).
+- Medium: Mastercard; Amex; Fiserv/Global Payments; Visa; CME/exchange-class fee networks. Gate 2 still puts Visa #1 ≥40% (and ≥15-pt lead) after two rewrites — **FLAGGED** (title "Rails of Commerce" + fee-infrastructure residual).
 - Hard: Visa (fee-based transaction network); Mastercard (electronic payment network); American Express (payments economics and regulation); Fiserv (financial infrastructure); CME Group (fee-based transaction network with regulatory risk).

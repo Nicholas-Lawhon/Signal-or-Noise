@@ -5,6 +5,7 @@
 **Status:** draft | approved | in_progress | complete | audited
 **Model:** deepseek-v4-pro | grok-4.5 | gpt-5.5 | claude (per `agents/routing.md`; instruction granularity is calibrated to this executor's autonomy rating)
 **Risk:** low | medium | high (per `agents/routing.md`)
+**Audit:** none | optional | required (D024: required only for phase gates, major feature additions, high-risk domains, production-readiness, or explicit request)
 **Depends on:** <handoff IDs or "none">
 **Estimated scope:** <one line: small / medium / large + what "large" means here>
 
@@ -41,13 +42,16 @@ Always include: "Anything on the MVP exclusion list in soul.md.">
 ## Acceptance Criteria
 
 <Numbered, binary-checkable list. Each criterion states HOW to verify it
-(command to run, screen to open, value to observe). The Auditor executes these
-literally.>
+(command to run, screen to open, value to observe). The implementor self-checks
+these and the orchestrator reruns cheap verification. If Audit is required, the
+Auditor executes these literally.>
 
 ## Verification Steps for the Implementor
 
-<The self-check sequence to run before marking complete: install, test, typecheck,
-manual flow walkthrough.>
+<The self-check sequence to run before marking complete. During development,
+prefer the cheapest sufficient checks: usually test + typecheck, plus a focused
+manual/browser check only when the handoff changes runtime UI behavior. Reserve
+full install/dev/manual QA sweeps for phase gates and production-readiness.>
 
 ## Reporting
 

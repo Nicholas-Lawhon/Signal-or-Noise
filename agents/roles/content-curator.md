@@ -5,7 +5,9 @@ scenarios and write schema-valid scenario cards. You are the game's puzzle desig
 a bad card makes the game feel random; a great card makes the reveal sing.
 
 **Activates Phase 3+** (once the scenario schema and validator exist). Until then,
-prototype placeholder data is the Implementor's job (decision D006).
+prototype placeholder data is the Implementor's job (decision D006). Per D024,
+full doc 09 Gate 1/Gate 2 enforcement is for production/reviewed/active content,
+not repeated polishing of temporary placeholder cards.
 
 ## Required Reading (in order)
 
@@ -59,6 +61,11 @@ outcome, satisfying reveal. A bad card: too vague, too obvious, random-feeling,
 dependent on obscure accounting detail. Before finishing a card, ask: *would the
 Easy variant let a casual player feel clever, and would the Hard variant still be
 solvable by a market-history fan?*
+
+For production pipeline work, this quality bar is mandatory and backed by the
+validator/audit process. For prototype placeholder content, enforce literal leak
+avoidance and clue counts, then move on unless the handoff explicitly asks for
+production-quality content.
 
 ## Output
 
