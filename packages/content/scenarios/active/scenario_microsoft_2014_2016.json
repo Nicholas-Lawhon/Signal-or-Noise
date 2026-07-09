@@ -130,6 +130,82 @@
           "confidence": 62,
           "cue": "Broad corporate installed base can accelerate cloud subscription adoption if the pivot is credible"
         }
+      },
+      "medium": {
+        "payloadHash": "sha256:c4a12134dadf6f5df51054c742eb6f74fe2b733b82deb812b93f1103524c89c5",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T20:15:00.000Z",
+        "guesses": [
+          {
+            "company": "Microsoft",
+            "confidence": 28,
+            "pointingFact": "Jan 2014 diversified business-tech vendor needing to refresh growth as software buying models change"
+          },
+          {
+            "company": "Oracle",
+            "confidence": 26,
+            "pointingFact": "Enterprise software vendor with deep customer relationships and mature-line pressure"
+          },
+          {
+            "company": "IBM",
+            "confidence": 22,
+            "pointingFact": "Large IT vendor converting footprint while legacy dependence can mute growth"
+          },
+          {
+            "company": "SAP",
+            "confidence": 18,
+            "pointingFact": "Business software franchise introducing newer offerings against faster-moving rivals"
+          },
+          {
+            "company": "Cisco",
+            "confidence": 14,
+            "pointingFact": "Established enterprise tech vendor reallocating spend across old and new delivery models"
+          }
+        ],
+        "direction": {
+          "call": "long",
+          "confidence": 42,
+          "cue": "Deep commercial relationships can lower acquisition cost for newer offerings"
+        }
+      },
+      "hard": {
+        "payloadHash": "sha256:a8ea0148d13130dc01b509e75e7b91a00cc081865a3393cc94f2e8370ea9ca1b",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T20:15:00.000Z",
+        "guesses": [
+          {
+            "company": "Microsoft",
+            "confidence": 18,
+            "pointingFact": "Jan 2014 enterprise tech vendor converting footprint as buyers reallocate tech spend"
+          },
+          {
+            "company": "IBM",
+            "confidence": 16,
+            "pointingFact": "Established vendor whose mature lines may dominate if replacements ramp slowly"
+          },
+          {
+            "company": "Oracle",
+            "confidence": 15,
+            "pointingFact": "Enterprise footprint story competing on old versus new delivery models"
+          },
+          {
+            "company": "SAP",
+            "confidence": 13,
+            "pointingFact": "Business software installed base trying to renew growth in time"
+          },
+          {
+            "company": "HP",
+            "confidence": 11,
+            "pointingFact": "Large enterprise technology name under pressure from slower legacy contribution"
+          }
+        ],
+        "direction": {
+          "call": "toss_up",
+          "confidence": 38,
+          "cue": "Footprint advantage versus mature-line pressure leaves direction unclear"
+        }
       }
     }
   }

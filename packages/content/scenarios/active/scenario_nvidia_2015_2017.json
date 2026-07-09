@@ -130,6 +130,82 @@
           "confidence": 60,
           "cue": "New commercial workloads could expand demand beyond the original enthusiast niche"
         }
+      },
+      "medium": {
+        "payloadHash": "sha256:1174f708eeab7f3eefd8cd7877aa5e1bc5d56ac977918afa90a39f88d437f44d",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T20:15:00.000Z",
+        "guesses": [
+          {
+            "company": "NVIDIA",
+            "confidence": 26,
+            "pointingFact": "Jan 2015 semiconductor designer selling into multiple end markets as operators diversify suppliers"
+          },
+          {
+            "company": "AMD",
+            "confidence": 24,
+            "pointingFact": "Multi-market chip designer where broader demand may be cycle or multi-year shift"
+          },
+          {
+            "company": "Intel",
+            "confidence": 20,
+            "pointingFact": "Large semiconductor supplier exposed to infrastructure and commercial compute cycles"
+          },
+          {
+            "company": "Broadcom",
+            "confidence": 16,
+            "pointingFact": "Chip supplier into data-center and infrastructure buyers testing wider component mixes"
+          },
+          {
+            "company": "Qualcomm",
+            "confidence": 14,
+            "pointingFact": "Semiconductor designer with cyclical risk if early growth is overpriced"
+          }
+        ],
+        "direction": {
+          "call": "toss_up",
+          "confidence": 45,
+          "cue": "New buyer categories expand TAM, but chip cycles can erase early gains quickly"
+        }
+      },
+      "hard": {
+        "payloadHash": "sha256:951aa373022534f31d183ded1322a836a858fa2d9065e7f2fe0dad020322d6e8",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T20:15:00.000Z",
+        "guesses": [
+          {
+            "company": "NVIDIA",
+            "confidence": 16,
+            "pointingFact": "Jan 2015 semiconductor niche supplier hoping demand broadens with infrastructure build-out"
+          },
+          {
+            "company": "AMD",
+            "confidence": 15,
+            "pointingFact": "Chip name where new workloads could re-rate suppliers if they stick"
+          },
+          {
+            "company": "Intel",
+            "confidence": 13,
+            "pointingFact": "Infrastructure-linked semiconductor franchise with volatile growth expectations"
+          },
+          {
+            "company": "Qualcomm",
+            "confidence": 12,
+            "pointingFact": "Specialized semiconductor story easy to overpay for early cycle gains"
+          },
+          {
+            "company": "Micron",
+            "confidence": 11,
+            "pointingFact": "Component supplier sensitive to cycles as hardware budgets shift"
+          }
+        ],
+        "direction": {
+          "call": "toss_up",
+          "confidence": 40,
+          "cue": "Durable multi-year demand versus reasserting chip cycles looks evenly matched"
+        }
       }
     }
   }

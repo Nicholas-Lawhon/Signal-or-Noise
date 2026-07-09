@@ -130,6 +130,82 @@
           "confidence": 58,
           "cue": "If customers accept the newer model, recurring revenue can scale with broadband adoption after the stock reset"
         }
+      },
+      "medium": {
+        "payloadHash": "sha256:e2e1ef37066f25a6e072b208617de41f36e0c21f3e5702a2f50ddc82a3084cec",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T20:15:00.000Z",
+        "guesses": [
+          {
+            "company": "Netflix",
+            "confidence": 33,
+            "pointingFact": "Jan 2012 recurring media company after a deep lookback drawdown needing engagement to fund content costs"
+          },
+          {
+            "company": "Sirius XM",
+            "confidence": 24,
+            "pointingFact": "Subscription media franchise with fixed content spend and churn sensitivity"
+          },
+          {
+            "company": "Pandora",
+            "confidence": 18,
+            "pointingFact": "Digital audio media model competing for household leisure time on connected screens"
+          },
+          {
+            "company": "Dish Network",
+            "confidence": 15,
+            "pointingFact": "Consumer media distributor balancing loyalty, content costs, and digital habit shifts"
+          },
+          {
+            "company": "Comcast",
+            "confidence": 12,
+            "pointingFact": "Large media/distribution business exposed to rising content costs and engagement risk"
+          }
+        ],
+        "direction": {
+          "call": "long",
+          "confidence": 48,
+          "cue": "If habits stick after the trust shock, recurring revenue can compound with digital leisure growth"
+        }
+      },
+      "hard": {
+        "payloadHash": "sha256:55bd5d3d348ebdada7db00e4529ed8bc1537cb47388addf96e30c7a34512258c",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T20:15:00.000Z",
+        "guesses": [
+          {
+            "company": "Netflix",
+            "confidence": 20,
+            "pointingFact": "Jan 2012 consumer media business where loyalty must return before spending outruns the base"
+          },
+          {
+            "company": "Sirius XM",
+            "confidence": 15,
+            "pointingFact": "Recurring media model depending on habit formation versus fixed cost pressure"
+          },
+          {
+            "company": "Pandora",
+            "confidence": 13,
+            "pointingFact": "Digital consumer media story with unclear winners among media models in 2012"
+          },
+          {
+            "company": "Comcast",
+            "confidence": 11,
+            "pointingFact": "Media franchise balancing engagement recovery against rising content spend"
+          },
+          {
+            "company": "Time Warner",
+            "confidence": 10,
+            "pointingFact": "Consumer-facing media name where fixed costs can overwhelm growth if customers stay skeptical"
+          }
+        ],
+        "direction": {
+          "call": "toss_up",
+          "confidence": 40,
+          "cue": "Loyalty recovery versus cost overrun is evenly balanced without stronger cues"
+        }
       }
     }
   }

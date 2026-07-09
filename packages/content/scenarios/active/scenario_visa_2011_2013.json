@@ -130,6 +130,82 @@
           "confidence": 68,
           "cue": "Global electronic payment adoption is a durable volume tailwind if fees hold up"
         }
+      },
+      "medium": {
+        "payloadHash": "sha256:3cb83e277e771c53a8f119bd3623e15843ddd43dcf877b863b19819686099b7e",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T20:15:00.000Z",
+        "guesses": [
+          {
+            "company": "Visa",
+            "confidence": 29,
+            "pointingFact": "Jan 2011 fee-earning financial firm benefiting from commerce volume without aggressive lending growth"
+          },
+          {
+            "company": "Mastercard",
+            "confidence": 28,
+            "pointingFact": "Near peer payments intermediary where volume growth must outrun fee pressure from counterparties"
+          },
+          {
+            "company": "American Express",
+            "confidence": 18,
+            "pointingFact": "Commerce-linked financial brand facing political scrutiny and large-customer bargaining on fees"
+          },
+          {
+            "company": "PayPal",
+            "confidence": 15,
+            "pointingFact": "Fee-based commerce infrastructure scaling as activity recovers post-crisis"
+          },
+          {
+            "company": "Discover",
+            "confidence": 12,
+            "pointingFact": "Payments-related franchise sensitive to margin compression on the existing base"
+          }
+        ],
+        "direction": {
+          "call": "long",
+          "confidence": 52,
+          "cue": "Higher commercial throughput can lift earnings even while unit fees remain under debate"
+        }
+      },
+      "hard": {
+        "payloadHash": "sha256:b97c59e5a3ba73742956ff80dc9c9880d26810a76df104c63ace6b58eb025fa3",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T20:15:00.000Z",
+        "guesses": [
+          {
+            "company": "Visa",
+            "confidence": 18,
+            "pointingFact": "Jan 2011 financial infrastructure linked to transaction activity as commerce becomes less cash-based"
+          },
+          {
+            "company": "Mastercard",
+            "confidence": 17,
+            "pointingFact": "Volume migration story where regulation and customer pushback still pressure pricing power"
+          },
+          {
+            "company": "American Express",
+            "confidence": 13,
+            "pointingFact": "Commerce-linked financial franchise balancing volume growth against structural fee pressure"
+          },
+          {
+            "company": "PayPal",
+            "confidence": 11,
+            "pointingFact": "Electronic commerce infrastructure compounding as cash use declines in recovery"
+          },
+          {
+            "company": "Fiserv",
+            "confidence": 10,
+            "pointingFact": "Financial infrastructure name tied to transaction activity and pricing-power debates"
+          }
+        ],
+        "direction": {
+          "call": "long",
+          "confidence": 45,
+          "cue": "Transaction-linked volume migration can still compound despite fee pressure"
+        }
       }
     }
   }

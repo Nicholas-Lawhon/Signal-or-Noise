@@ -130,6 +130,82 @@
           "confidence": 72,
           "cue": "Lookback prices already up ~38x while losses mount and capital is tightening"
         }
+      },
+      "medium": {
+        "payloadHash": "sha256:3e7d001c54738f1f56837288dff98f16f3d95664a970ba613cad43c734074bad",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T20:15:00.000Z",
+        "guesses": [
+          {
+            "company": "Amazon",
+            "confidence": 32,
+            "pointingFact": "Dec 1999 high-growth consumer reinvestment story at speculative peak with capital starting to tighten"
+          },
+          {
+            "company": "Yahoo",
+            "confidence": 26,
+            "pointingFact": "Dot-com consumer growth name with elevated valuation as investors demand clearer economics"
+          },
+          {
+            "company": "eBay",
+            "confidence": 24,
+            "pointingFact": "Consumer marketplace expanding reach while reinvesting heavily through the late-1990s boom"
+          },
+          {
+            "company": "Priceline",
+            "confidence": 18,
+            "pointingFact": "Consumer internet growth business dependent on continued demand compounding and easy capital"
+          },
+          {
+            "company": "AOL",
+            "confidence": 15,
+            "pointingFact": "Consumer online franchise facing a sentiment turn after a long speculative run"
+          }
+        ],
+        "direction": {
+          "call": "short",
+          "confidence": 55,
+          "cue": "Elevated valuation plus scarcer funding before economics improve favors a sharp reverse"
+        }
+      },
+      "hard": {
+        "payloadHash": "sha256:991bdac9490c0756723c9a648f13647339399c9ff36585f7f107157ed9183309",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T20:15:00.000Z",
+        "guesses": [
+          {
+            "company": "Amazon",
+            "confidence": 16,
+            "pointingFact": "Dec 1999 growth company still reinvesting as capital becomes less forgiving after a huge run-up"
+          },
+          {
+            "company": "Cisco",
+            "confidence": 15,
+            "pointingFact": "Late-bubble growth name with multi-year reinvestment thesis as the cycle turns"
+          },
+          {
+            "company": "Yahoo",
+            "confidence": 14,
+            "pointingFact": "Speculative public growth story at the turn of 2000 with fragile capital dependence"
+          },
+          {
+            "company": "AOL",
+            "confidence": 12,
+            "pointingFact": "Habit-formation scale bet in a market questioning easy capital"
+          },
+          {
+            "company": "eBay",
+            "confidence": 11,
+            "pointingFact": "Consumer growth franchise still investing ahead of profits into a tighter cycle"
+          }
+        ],
+        "direction": {
+          "call": "short",
+          "confidence": 42,
+          "cue": "Capital-dependent models can break when speculative sentiment turns"
+        }
       }
     }
   }

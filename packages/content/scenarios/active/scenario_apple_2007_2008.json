@@ -130,6 +130,82 @@
           "confidence": 52,
           "cue": "Brand/platform upside is clear, but stock already prices execution and carriers control distribution"
         }
+      },
+      "medium": {
+        "payloadHash": "sha256:393e59a7b23bbf0da37910e39d9ef2efd1c9c8ad487326fbc6511269abe4ccb5",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T20:15:00.000Z",
+        "guesses": [
+          {
+            "company": "Apple",
+            "confidence": 36,
+            "pointingFact": "Jan 2007 design-led hardware brand testing a premium handheld bet as data plans expand"
+          },
+          {
+            "company": "Nokia",
+            "confidence": 28,
+            "pointingFact": "Established handheld maker facing a category redefinition under carrier distribution control"
+          },
+          {
+            "company": "Research In Motion",
+            "confidence": 24,
+            "pointingFact": "Branded handheld device maker with a loyal base during the early smartphone platform era"
+          },
+          {
+            "company": "Sony",
+            "confidence": 16,
+            "pointingFact": "Design-led consumer electronics firm competing in portable connected devices"
+          },
+          {
+            "company": "Motorola",
+            "confidence": 14,
+            "pointingFact": "Handset incumbent whose scale depends on channel partners and product execution"
+          }
+        ],
+        "direction": {
+          "call": "short",
+          "confidence": 48,
+          "cue": "Stock already prices a clean launch while partners still control distribution"
+        }
+      },
+      "hard": {
+        "payloadHash": "sha256:db95ceab8f9fad3a9615077438d732aaad6f2f360692a30f691cdd5bcd0e2065",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T20:15:00.000Z",
+        "guesses": [
+          {
+            "company": "Apple",
+            "confidence": 24,
+            "pointingFact": "Jan 2007 consumer tech premium product bet as portable always-connected devices take off"
+          },
+          {
+            "company": "Nokia",
+            "confidence": 20,
+            "pointingFact": "Incumbent portable-device maker with high expectations and partner-controlled scale"
+          },
+          {
+            "company": "Research In Motion",
+            "confidence": 16,
+            "pointingFact": "Brand-strength handheld franchise priced for product success in early smartphone shift"
+          },
+          {
+            "company": "Motorola",
+            "confidence": 13,
+            "pointingFact": "Channel-dependent device maker risking a miss when expectations are high"
+          },
+          {
+            "company": "Palm",
+            "confidence": 11,
+            "pointingFact": "Premium portable product story in a category still defined by incumbents"
+          }
+        ],
+        "direction": {
+          "call": "toss_up",
+          "confidence": 40,
+          "cue": "Brand pull versus incumbent and channel risk looks balanced at elevated expectations"
+        }
       }
     }
   }
