@@ -71,6 +71,11 @@ inside the phase without creating a new approval/report loop.
 
 ## Branches and Worktrees
 
+- In orchestrated work, all git operations are performed by a headless DeepSeek
+  v4 Pro OpenCode session using `agents/routing.md`; higher-reasoning
+  orchestrators and phase owners delegate status/diff/stage/commit/branch/push
+  work instead of running git themselves. This does not broaden push or
+  destructive-operation authority.
 - A dedicated phase branch is recommended because it gives the phase one clean
   diff and keeps incomplete work off the main branch.
 - A separate worktree is optional. Use one for parallel agents, a dirty primary
@@ -79,8 +84,9 @@ inside the phase without creating a new approval/report loop.
 - This policy is harness-agnostic. Claude Code runs from the selected worktree
   directory; T3 Code may create and manage a thread branch/worktree itself; Codex
   may do the same. Repository rules and the phase charter remain authoritative.
-- A Phase Owner may make checkpoint commits only on a dedicated non-main phase
-  branch. Checkpoint commits are not approval. Never push unless authorized.
+- A Phase Owner may request DeepSeek checkpoint commits only on a dedicated
+  non-main phase branch. Checkpoint commits are not approval. Never push unless
+  authorized.
 - When working in the main/shared checkout, agents do not commit. Never discard
   or overwrite changes they did not make.
 

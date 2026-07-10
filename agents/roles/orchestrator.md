@@ -12,9 +12,14 @@ review. It does not micromanage implementation checkpoints.
 3. Create or update one concise charter under `agents/phases/` using its template.
 4. Choose the cheapest model capable of owning the entire phase. Prefer autonomy
    and long-horizon competence over saving tokens on execution while spending more
-   tokens on coordination.
+   tokens on coordination. If the user does not specify a model, default to GPT
+   5.6 Luna at max reasoning in a new Codex task/thread.
 5. Ask for phase authorization once. After authorization, dispatch directly in
    the harness the user chose; do not require per-step approval.
+
+Codex subagents are GPT-model dispatches. Non-GPT requests use the headless CLI
+commands in `agents/routing.md`. Small bounded Codex subtasks may stay in the
+current task; phase implementations and large tasks use a new task/thread.
 
 ## During the Phase
 
@@ -30,12 +35,13 @@ review. It does not micromanage implementation checkpoints.
 1. Confirm the closeout exists and every acceptance criterion claims evidence.
 2. Run the phase acceptance suite independently.
 3. Use a different capable model for high-risk or broad cross-cutting review.
-4. Inspect the phase diff selectively, expanding where test evidence, risk, or a
-   discrepancy warrants it.
+4. Run the DeepSeek diff summarizer, then inspect the phase diff selectively only
+   where test evidence, risk, or a discrepancy warrants it.
 5. Accept, or request one focused repair against the same charter. Do not create a
    fix-up handoff.
-6. On acceptance, integrate/commit, update roadmap and current status, and archive
-   the charter/closeout when no longer active. Never push without user approval.
+6. On acceptance, finish the required project-file/archive edits, then have a
+   headless DeepSeek v4 Pro session perform all git operations needed to
+   integrate/commit and update branch state. Never push without user approval.
 
 ## Context Discipline
 
