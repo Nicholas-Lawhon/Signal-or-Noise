@@ -5,9 +5,11 @@ Blocked/Questions accurate. Git history and one phase closeout preserve history.
 
 ## Current Status
 
-- **Phase:** 0-6 COMPLETE. **Phase 7 - Leaderboards is approved and ready for
-  implementation under `agents/phases/P07_leaderboards.md`.** Phase 6 - Auth &
-  Guest Play was accepted on
+- **Phase:** 0-6 COMPLETE. **Phase 7 - Leaderboards implementation and its
+  independent high-risk phase-boundary review are complete; Phase 7 is awaiting
+  user acceptance** under
+  `agents/phases/P07_leaderboards.md` (closeout:
+  `agents/phase-closeouts/P07_leaderboards.md`). Phase 6 - Auth & Guest Play was accepted on
   2026-07-10** (closeout: `agents/phase-closeouts/P06_auth_guest_play.md`).
   Phase 5 - Database closed on 2026-07-10. Phase 4B closed under **D045** with
   40 active cards at the
@@ -24,12 +26,16 @@ Blocked/Questions accurate. Git history and one phase closeout preserve history.
   unlimited immutable attempts (D049); the Phase 5 single-attempt constraint
   is removed by migration `20260710200000_phase6_auth_guest_play` (deployed to
   Neon). Saved runs/stats appear at `/profile`. Phase 7 adds leaderboards; Daily
-  gameplay and challenge scheduling remain for Phase 8. Current tests: game engine
-  38, content 77, database 15 (including Neon integration), web 11. Content
+  gameplay and challenge scheduling remain for Phase 8. Phase 7 adds public
+  Daily, difficulty-separated Classic, and cumulative Signal leaderboards from
+  canonical official finished runs, plus stable generated aliases and optional
+  unique public display names. Migration `20260711010000_phase7_leaderboards`
+  is deployed to Neon. Current tests: game engine 41, content 77, database 16
+  (including Neon integration), web 14. Content
   and Gate 2 remain at 0 errors / 40 non-blocking WARNs / 0 missing variants.
-- **Next task:** Dispatch the autonomous Phase 7 Owner against the approved
-  charter. The fairness, public identity, cumulative Signal Score, and
-  competition-ranking policies are approved under **D050**.
+- **Next task:** Obtain user acceptance for Phase 7. After acceptance, use the
+  DeepSeek v4 Pro git-operator workflow to archive/commit/push as authorized,
+  then prepare Phase 8.
 - **Workflow state:** D043 is active: one charter, one autonomous Phase Owner,
   one closeout, and one phase-boundary review. Legacy H/R artifacts remain
   evidence only under `agents/history/`.

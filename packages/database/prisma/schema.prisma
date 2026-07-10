@@ -74,17 +74,20 @@ enum LeaderboardType {
 }
 
 model User {
-  id             String             @id @default(cuid())
-  externalAuthId String?            @unique
-  email          String?            @unique
-  displayName    String?
-  createdAt      DateTime           @default(now())
-  updatedAt      DateTime           @updatedAt
-  profile        Profile?
-  stats          PlayerStats?
-  runs           Run[]
-  roundDecisions RoundDecision[]
-  leaderboard    LeaderboardEntry[]
+  id                              String             @id @default(cuid())
+  externalAuthId                  String?            @unique
+  email                           String?            @unique
+  displayName                     String?
+  publicAlias                     String             @unique
+  publicDisplayName               String?
+  publicDisplayNameNormalized     String?            @unique
+  createdAt                       DateTime           @default(now())
+  updatedAt                       DateTime           @updatedAt
+  profile                         Profile?
+  stats                           PlayerStats?
+  runs                            Run[]
+  roundDecisions                  RoundDecision[]
+  leaderboard                     LeaderboardEntry[]
 }
 
 model Profile {
@@ -317,6 +320,9 @@ model Run {
   @@index([guestSessionId, status])
   @@index([dailyChallengeId])
   @@index([dailyChallengeId, userId, status])
+  @@index([mode, difficulty, isOfficial, status, userId])
+  @@index([dailyChallengeId, isOfficial, status, userId])
+  @@index([isOfficial, status, userId, completedAt])
 }
 
 model RoundDecision {

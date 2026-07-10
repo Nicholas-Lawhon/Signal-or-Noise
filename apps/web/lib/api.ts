@@ -1,6 +1,8 @@
 import type {
   CurrentRunPayload,
+  LeaderboardPagePayload,
   PlayerStatsPayload,
+  PublicIdentityPayload,
   RevealPayload,
   RunSummaryPayload,
 } from '@signal-or-noise/database';
@@ -26,6 +28,15 @@ export type SubmitDecisionResult = {
   round: CompletedRound;
   reveal: RevealPayload;
 };
+
+export type LeaderboardApiPayload = LeaderboardPagePayload & {
+  viewer: { isAuthenticated: boolean };
+};
+
+export type LeaderboardApiQuery =
+  | { board: 'daily'; date: string; page?: number }
+  | { board: 'classic'; difficulty: 'easy' | 'medium' | 'hard'; page?: number }
+  | { board: 'signal'; page?: number };
 
 export class ApiRequestError extends Error {
   readonly status: number;
@@ -92,5 +103,20 @@ export const api = {
   createDailyAttempt: () =>
     apiFetch<{ run: CurrentRunPayload; context: ApiContext }>('/api/daily/attempts', {
       method: 'POST',
+    }),
+  leaderboard: (query: LeaderboardApiQuery) => {
+    const params = new URLSearchParams();
+    params.set('board', query.board);
+    if (query.board === 'daily') params.set('date', query.date);
+    if (query.board === 'classic') params.set('difficulty', query.difficulty);
+    if (query.page) params.set('page', String(query.page));
+    return apiFetch<LeaderboardApiPayload>(`/api/leaderboards?${params.toString()}`);
+  },
+  publicIdentity: () =>
+    apiFetch<{ identity: PublicIdentityPayload }>('/api/profile/public-identity'),
+  updatePublicDisplayName: (displayName: string | null) =>
+    apiFetch<{ identity: PublicIdentityPayload }>('/api/profile/public-identity', {
+      method: 'PATCH',
+      body: JSON.stringify({ displayName }),
     }),
 };

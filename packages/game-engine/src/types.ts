@@ -95,3 +95,18 @@ export type LeaderboardTiebreakers = {
   fasterCompletion: number;
   sortKey: readonly [number, number, number, number, number];
 };
+
+export type BankrollRankMetrics = {
+  finalBankroll: number;
+  signalScore: number;
+  correctCalls: number;
+  passes: number;
+  completionTimeMs: number;
+};
+
+export type SignalRankMetrics = {
+  signalScore: number;
+  correctCalls: number;
+  passes: number;
+  attainedAtMs: number;
+};

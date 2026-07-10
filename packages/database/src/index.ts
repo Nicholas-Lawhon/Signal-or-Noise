@@ -11,11 +11,23 @@ export type {
   PreparedContentImport,
 } from './contentImport';
 export { RunService, parseRunOwner } from './runService';
-export { ensureUserForExternalAuth, getPlayerStats } from './identityService';
+export {
+  ensureUserForExternalAuth,
+  getPlayerStats,
+  getPublicIdentity,
+  updatePublicIdentity,
+} from './identityService';
 export { findDailyChallengeForDate } from './dailyChallengeService';
+export { LeaderboardService, leaderboardQuerySchema } from './leaderboardService';
+export type {
+  LeaderboardPagePayload,
+  LeaderboardQuery,
+  LeaderboardRowPayload,
+} from './leaderboardService';
 export type {
   CurrentRunPayload,
   PlayerStatsPayload,
+  PublicIdentityPayload,
   PreDecisionRoundPayload,
   RevealPayload,
   RunOwner,

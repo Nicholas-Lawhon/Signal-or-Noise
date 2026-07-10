@@ -73,17 +73,25 @@ export const getPlayerStatsSchema = z.object({
   userId: z.string().min(1).max(128),
 }).strict();
 
-export const createLeaderboardEntrySchema = z.object({
-  owner: runOwnerSchema,
-  runId: z.string().min(1).max(128),
-  leaderboardType: z.enum([
-    'daily_challenge_bankroll',
-    'best_classic_run_bankroll',
-    'all_time_signal_score',
-    'weekly_bankroll',
-    'monthly_bankroll',
-  ]),
-  periodKey: z.string().min(1).max(64).optional(),
+export const getPublicIdentitySchema = z.object({
+  userId: z.string().min(1).max(128),
+}).strict();
+
+export const updatePublicIdentitySchema = z.object({
+  userId: z.string().min(1).max(128),
+  displayName: z.string()
+    .trim()
+    .min(3)
+    .max(24)
+    .regex(
+      /^[A-Za-z0-9](?:[A-Za-z0-9 _-]*[A-Za-z0-9])?$/,
+      'Use letters, numbers, spaces, hyphens, or underscores',
+    )
+    .refine(
+      (value) => !/^player-[a-z0-9]{4}$/i.test(value.trim()),
+      'Names matching generated Player-XXXX aliases are reserved',
+    )
+    .nullable(),
 }).strict();
 
 export type ScenarioOrderEntry = {
@@ -167,6 +175,12 @@ export type PlayerStatsPayload = {
   bestRunBankroll: number | null;
   averageFinalBankroll: number | null;
   bestStreak: number;
+};
+
+export type PublicIdentityPayload = {
+  alias: string;
+  displayName: string | null;
+  publicName: string;
 };
 
 export type RevealPayload = {

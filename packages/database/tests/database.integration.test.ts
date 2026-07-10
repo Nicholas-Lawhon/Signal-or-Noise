@@ -8,7 +8,13 @@ import {
 } from '../src/contentImport';
 import { DatabaseDomainError } from '../src/errors';
 import { loadDatabaseEnvironment } from '../src/environment';
-import { ensureUserForExternalAuth, getPlayerStats } from '../src/identityService';
+import {
+  ensureUserForExternalAuth,
+  getPlayerStats,
+  getPublicIdentity,
+  updatePublicIdentity,
+} from '../src/identityService';
+import { LeaderboardService } from '../src/leaderboardService';
 import { RunService } from '../src/runService';
 import { scenarioOrderSchema } from '../src/contracts';
 
@@ -20,6 +26,7 @@ const describeDatabase = databaseAvailable ? describe : describe.skip;
 describeDatabase('PostgreSQL persistence integration', () => {
   const prisma = createDatabaseClient();
   const service = new RunService(prisma, () => 0.42);
+  const leaderboards = new LeaderboardService(prisma);
   const suiteId = randomUUID();
   const guestIds = {
     reveal: randomUUID(),
@@ -30,6 +37,12 @@ describeDatabase('PostgreSQL persistence integration', () => {
   const userId = `phase5_test_user_${suiteId}`;
   const claimUserId = `phase6_claim_user_${suiteId}`;
   const rivalUserId = `phase6_rival_user_${suiteId}`;
+  const leaderboardUserA = `phase7_leaderboard_a_${suiteId}`;
+  const leaderboardUserB = `phase7_leaderboard_b_${suiteId}`;
+  const leaderboardUserC = `phase7_leaderboard_c_${suiteId}`;
+  const leaderboardAliasA = `Player-${suiteId.slice(14, 18).toUpperCase()}`;
+  const leaderboardAliasB = `Player-${suiteId.slice(19, 23).toUpperCase()}`;
+  const leaderboardAliasC = `Player-${suiteId.slice(24, 28).toUpperCase()}`;
   const challengeId = `phase5_test_challenge_${suiteId}`;
   const challengeDate = new Date('2099-12-30T00:00:00.000Z');
   let authenticatedRunId = '';
@@ -46,6 +59,47 @@ describeDatabase('PostgreSQL persistence integration', () => {
       last = await service.submitRoundDecision({ owner, runId, roundIndex, action: 'pass' });
     }
     return last;
+  }
+
+  async function createLeaderboardRun(input: {
+    label: string;
+    userId: string;
+    mode: 'classic_run' | 'daily_challenge';
+    difficulty?: 'easy' | 'medium' | 'hard';
+    bankroll: number;
+    signalScore: number;
+    correctCalls: number;
+    passes: number;
+    completionTimeMs: number;
+    isOfficial?: boolean;
+    dailyChallengeId?: string;
+  }) {
+    const completedAt = new Date('2099-12-30T12:00:00.000Z');
+    return prisma.run.create({
+      data: {
+        id: `phase7_${input.label}_${suiteId}`,
+        userId: input.userId,
+        dailyChallengeId: input.dailyChallengeId,
+        mode: input.mode,
+        difficulty: input.difficulty,
+        status: 'completed',
+        isOfficial: input.isOfficial ?? true,
+        scenarioOrder: [],
+        startingBankroll: 10000,
+        finalBankroll: input.bankroll,
+        currentBankroll: input.bankroll,
+        signalScore: input.signalScore,
+        totalRounds: 10,
+        completedRounds: 10,
+        currentRoundIndex: 10,
+        correctCalls: input.correctCalls,
+        wrongCalls: Math.max(0, 10 - input.correctCalls - input.passes),
+        passes: input.passes,
+        startedAt: new Date(completedAt.getTime() - input.completionTimeMs),
+        completedAt,
+        completionTimeMs: input.completionTimeMs,
+      },
+    });
   }
 
   beforeAll(async () => {
@@ -68,11 +122,43 @@ describeDatabase('PostgreSQL persistence integration', () => {
       data: {
         id: userId,
         displayName: 'Phase 5 Test Player',
+        publicAlias: `Player-${suiteId.slice(0, 4).toUpperCase()}`,
         profile: { create: { displayName: 'Phase 5 Test Player' } },
       },
     });
-    await prisma.user.create({ data: { id: claimUserId, displayName: 'Phase 6 Claimant' } });
-    await prisma.user.create({ data: { id: rivalUserId, displayName: 'Phase 6 Rival' } });
+    await prisma.user.create({
+      data: {
+        id: claimUserId,
+        displayName: 'Phase 6 Claimant',
+        publicAlias: `Player-${suiteId.slice(4, 8).toUpperCase()}`,
+      },
+    });
+    await prisma.user.createMany({
+      data: [
+        {
+          id: leaderboardUserA,
+          displayName: 'PRIVATE Leaderboard A',
+          publicAlias: leaderboardAliasA,
+        },
+        {
+          id: leaderboardUserB,
+          displayName: 'PRIVATE Leaderboard B',
+          publicAlias: leaderboardAliasB,
+        },
+        {
+          id: leaderboardUserC,
+          displayName: 'PRIVATE Leaderboard C',
+          publicAlias: leaderboardAliasC,
+        },
+      ],
+    });
+    await prisma.user.create({
+      data: {
+        id: rivalUserId,
+        displayName: 'Phase 6 Rival',
+        publicAlias: `Player-${suiteId.slice(9, 13).toUpperCase()}`,
+      },
+    });
     await prisma.dailyChallenge.create({
       data: {
         id: challengeId,
@@ -85,7 +171,20 @@ describeDatabase('PostgreSQL persistence integration', () => {
 
   afterAll(async () => {
     await prisma.user.deleteMany({ where: { externalAuthId: `clerk_test_${suiteId}` } });
-    await prisma.user.deleteMany({ where: { id: { in: [userId, claimUserId, rivalUserId] } } });
+    await prisma.user.deleteMany({
+      where: {
+        id: {
+          in: [
+            userId,
+            claimUserId,
+            rivalUserId,
+            leaderboardUserA,
+            leaderboardUserB,
+            leaderboardUserC,
+          ],
+        },
+      },
+    });
     await prisma.guestSession.deleteMany({
       where: { clientSessionId: { in: Object.values(guestIds) } },
     });
@@ -195,11 +294,11 @@ describeDatabase('PostgreSQL persistence integration', () => {
     expect(stored.finalBankroll?.toNumber()).toBe(0);
     expect(stored.completedAt).not.toBeNull();
 
-    await expect(service.createLeaderboardEntryForRun({
-      owner,
-      runId: current.id,
-      leaderboardType: 'best_classic_run_bankroll',
-    })).rejects.toMatchObject({ code: 'FORBIDDEN' });
+    const publicBoard = await leaderboards.list({
+      board: 'classic',
+      difficulty: 'easy',
+    });
+    expect(publicBoard.rows.some((row) => row.bankroll === 0)).toBe(false);
   });
 
   it('persists completion, stats, official eligibility, and locked tiebreaker inputs', async () => {
@@ -225,17 +324,17 @@ describeDatabase('PostgreSQL persistence integration', () => {
     expect(stats.totalRounds).toBe(10);
     expect(stats.passes).toBe(10);
 
-    const entry = await service.createLeaderboardEntryForRun({
-      owner,
-      runId: authenticatedRunId,
-      leaderboardType: 'best_classic_run_bankroll',
-      periodKey: 'all_time',
-    });
-    expect(entry.scoreBankroll?.toNumber()).toBe(12500);
-    expect(entry.scoreSignal?.toNumber()).toBe(-2.5);
-    expect(entry.correctCalls).toBe(0);
-    expect(entry.passes).toBe(10);
-    expect(entry.completionTimeMs).not.toBeNull();
+    const board = await leaderboards.list({
+      board: 'classic',
+      difficulty: 'easy',
+    }, userId);
+    const entry = board.currentUserRow;
+    expect(entry).not.toBeNull();
+    expect(entry?.bankroll).toBe(12500);
+    expect(entry?.signalScore).toBe(-2.5);
+    expect(entry?.correctCalls).toBe(0);
+    expect(entry?.passes).toBe(10);
+    expect(entry?.completionTimeMs).not.toBeNull();
   });
 
   it('idempotently maps a verified external auth ID to one internal user', async () => {
@@ -421,6 +520,133 @@ describeDatabase('PostgreSQL persistence integration', () => {
       owner: { kind: 'user', userId: claimUserId },
       runId: bankruptRun.id,
     })).claimed).toBe(true);
+  });
+
+  it('ranks canonical runs with D050 fairness, privacy, pagination, and public names', async () => {
+    const commonBest = {
+      bankroll: 15000,
+      signalScore: 5,
+      correctCalls: 5,
+      passes: 1,
+      completionTimeMs: 1000,
+    };
+    await createLeaderboardRun({
+      label: 'a_easy_best', userId: leaderboardUserA, mode: 'classic_run',
+      difficulty: 'easy', ...commonBest,
+    });
+    await createLeaderboardRun({
+      label: 'a_easy_worse', userId: leaderboardUserA, mode: 'classic_run',
+      difficulty: 'easy', ...commonBest, signalScore: 4, correctCalls: 8, passes: 0,
+    });
+    await createLeaderboardRun({
+      label: 'b_easy_tie', userId: leaderboardUserB, mode: 'classic_run',
+      difficulty: 'easy', ...commonBest,
+    });
+    await createLeaderboardRun({
+      label: 'c_easy_third', userId: leaderboardUserC, mode: 'classic_run',
+      difficulty: 'easy', bankroll: 14000, signalScore: 2, correctCalls: 4,
+      passes: 2, completionTimeMs: 900,
+    });
+    await createLeaderboardRun({
+      label: 'a_medium', userId: leaderboardUserA, mode: 'classic_run',
+      difficulty: 'medium', bankroll: 99999, signalScore: 1, correctCalls: 1,
+      passes: 0, completionTimeMs: 500,
+    });
+    await createLeaderboardRun({
+      label: 'c_unofficial', userId: leaderboardUserC, mode: 'classic_run',
+      difficulty: 'easy', bankroll: 99999, signalScore: 99, correctCalls: 10,
+      passes: 0, completionTimeMs: 1, isOfficial: false,
+    });
+    await createLeaderboardRun({
+      label: 'a_daily_worse', userId: leaderboardUserA, mode: 'daily_challenge',
+      dailyChallengeId: challengeId, bankroll: 10000, signalScore: 1,
+      correctCalls: 1, passes: 2, completionTimeMs: 3000,
+    });
+    await createLeaderboardRun({
+      label: 'a_daily_best', userId: leaderboardUserA, mode: 'daily_challenge',
+      dailyChallengeId: challengeId, bankroll: 12000, signalScore: 2,
+      correctCalls: 3, passes: 1, completionTimeMs: 2500,
+    });
+    await createLeaderboardRun({
+      label: 'b_daily', userId: leaderboardUserB, mode: 'daily_challenge',
+      dailyChallengeId: challengeId, bankroll: 11000, signalScore: 3,
+      correctCalls: 4, passes: 0, completionTimeMs: 2000,
+    });
+
+    const [classicA, classicB, classicC] = await Promise.all([
+      leaderboards.list({
+        board: 'classic', difficulty: 'easy', page: 999, pageSize: 1,
+      }, leaderboardUserA),
+      leaderboards.list({
+        board: 'classic', difficulty: 'easy', page: 999, pageSize: 1,
+      }, leaderboardUserB),
+      leaderboards.list({
+        board: 'classic', difficulty: 'easy', page: 999, pageSize: 1,
+      }, leaderboardUserC),
+    ]);
+    expect(classicA.rows).toEqual([]);
+    expect(classicB.rows).toEqual([]);
+    expect(classicC.rows).toEqual([]);
+    expect(classicA.currentUserRow).toMatchObject({ publicName: leaderboardAliasA, bankroll: 15000 });
+    expect(classicB.currentUserRow).toMatchObject({ publicName: leaderboardAliasB, bankroll: 15000 });
+    expect(classicC.currentUserRow).toMatchObject({ publicName: leaderboardAliasC, bankroll: 14000 });
+    expect(classicA.currentUserRow?.rank).toBe(classicB.currentUserRow?.rank);
+    expect(classicC.currentUserRow?.rank).toBeGreaterThan(classicA.currentUserRow?.rank ?? 0);
+    expect(JSON.stringify([classicA, classicB, classicC])).not.toContain('PRIVATE Leaderboard');
+    expect(JSON.stringify([classicA, classicB, classicC])).not.toContain(leaderboardUserA);
+    expect(JSON.stringify([classicA, classicB, classicC])).not.toContain('externalAuthId');
+
+    const medium = await leaderboards.list({
+      board: 'classic', difficulty: 'medium', page: 1, pageSize: 25,
+    });
+    expect(medium.currentUserRow).toBeNull();
+    const mediumA = await leaderboards.list({
+      board: 'classic', difficulty: 'medium', page: 999, pageSize: 1,
+    }, leaderboardUserA);
+    expect(mediumA.currentUserRow).toMatchObject({ publicName: leaderboardAliasA, bankroll: 99999 });
+
+    const daily = await leaderboards.list({
+      board: 'daily', date: '2099-12-30', page: 1, pageSize: 25,
+    });
+    const dailyRows = daily.rows.filter((row) =>
+      row.publicName === leaderboardAliasA || row.publicName === leaderboardAliasB);
+    expect(dailyRows.map(({ bankroll }) => bankroll)).toEqual([12000, 11000]);
+    const emptyDaily = await leaderboards.list({
+      board: 'daily', date: '2099-12-29', page: 1, pageSize: 25,
+    });
+    expect(emptyDaily.rows).toEqual([]);
+
+    const signalForA = await leaderboards.list({ board: 'signal', page: 999, pageSize: 1 }, leaderboardUserA);
+    expect(signalForA.currentUserRow).toMatchObject({
+      publicName: leaderboardAliasA,
+      signalScore: 13,
+      correctCalls: 18,
+      passes: 4,
+    });
+
+    const named = await updatePublicIdentity(prisma, {
+      userId: leaderboardUserA,
+      displayName: 'Signal Star',
+    });
+    expect(named.publicName).toBe('Signal Star');
+    await expect(updatePublicIdentity(prisma, {
+      userId: leaderboardUserB,
+      displayName: 'signal star',
+    })).rejects.toMatchObject({ code: 'CONFLICT' });
+    await expect(updatePublicIdentity(prisma, {
+      userId: leaderboardUserB,
+      displayName: 'Player-1A2B',
+    })).rejects.toMatchObject({ code: 'INVALID_INPUT' });
+    const cleared = await updatePublicIdentity(prisma, {
+      userId: leaderboardUserA,
+      displayName: null,
+    });
+    expect(cleared.publicName).toBe(cleared.alias);
+    expect(await getPublicIdentity(prisma, { userId: leaderboardUserA })).toEqual(cleared);
+
+    await expect(leaderboards.list({
+      board: 'classic', difficulty: 'easy', userId: leaderboardUserA,
+    })).rejects.toMatchObject({ code: 'INVALID_INPUT' });
   });
 });
 

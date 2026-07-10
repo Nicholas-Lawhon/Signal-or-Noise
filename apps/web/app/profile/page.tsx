@@ -5,6 +5,7 @@ import { SignInButton, useUser } from '@clerk/nextjs';
 import type { PlayerStatsPayload } from '@signal-or-noise/database';
 import { api } from '@/lib/api';
 import { formatMoney, formatSignalScore } from '@/lib/format';
+import PublicIdentityCard from '@/components/PublicIdentityCard';
 
 type LoadState =
   | { kind: 'loading' }
@@ -39,6 +40,8 @@ export default function ProfilePage() {
         <p className="mb-8 text-sm text-son-textSecondary">
           Saved results from your account&apos;s runs.
         </p>
+
+        {isLoaded && isSignedIn ? <PublicIdentityCard /> : null}
 
         {!isLoaded ? (
           <p className="text-sm text-son-textMuted">Loading...</p>

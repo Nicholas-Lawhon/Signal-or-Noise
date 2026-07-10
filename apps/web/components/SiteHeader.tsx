@@ -21,6 +21,12 @@ export default function SiteHeader() {
           Signal or Noise<span className="text-son-signalCyan">?</span>
         </Link>
         <div className="flex min-h-8 items-center gap-3">
+          <Link
+            href="/leaderboards"
+            className="text-xs font-semibold text-son-textSecondary transition-colors hover:text-son-text"
+          >
+            Leaderboards
+          </Link>
           <ClerkLoaded>
             <SignedOut>
               <SignInButton mode="modal">

@@ -6,7 +6,6 @@ import type {
 } from '@prisma/client';
 import {
   advanceRun,
-  calculateLeaderboardTiebreakers,
   CLASSIC_RUN_ROUNDS,
   CONFIDENCE_CONFIG,
   createDailyChallengeRunState,
@@ -19,7 +18,6 @@ import {
   claimCompletedGuestRunSchema,
   createClassicRunSchema,
   createDailyChallengeRunSchema,
-  createLeaderboardEntrySchema,
   getCurrentRunSchema,
   getRunSummarySchema,
   runOwnerSchema,
@@ -214,7 +212,7 @@ function buildRunSummaryPayload(run: RunWithSummaryDecisions): RunSummaryPayload
 async function updatePlayerStats(tx: TransactionClient, userId: string): Promise<void> {
   const [runAggregates, totals] = await Promise.all([
     tx.run.aggregate({
-      where: { userId, status: { in: ['completed', 'bankrupt'] } },
+      where: { userId, isOfficial: true, status: { in: ['completed', 'bankrupt'] } },
       _count: { _all: true },
       _sum: {
         completedRounds: true,
@@ -716,42 +714,6 @@ export class RunService {
     }, { isolationLevel: 'Serializable' });
   }
 
-  async createLeaderboardEntryForRun(input: unknown) {
-    const parsed = parseInput(() => createLeaderboardEntrySchema.parse(input));
-    if (parsed.owner.kind !== 'user') {
-      throw new DatabaseDomainError('FORBIDDEN', 'Guest runs are unofficial');
-    }
-    const run = await this.prisma.run.findFirst({
-      where: { id: parsed.runId, userId: parsed.owner.userId },
-    });
-    if (!run) throw new DatabaseDomainError('NOT_FOUND', 'Run not found');
-    if (!run.isOfficial || !run.completedAt || run.finalBankroll === null) {
-      throw new DatabaseDomainError('INVALID_STATE', 'Only completed authenticated runs are eligible');
-    }
-    const completionMs = run.completionTimeMs ?? completionTimeMs(run.startedAt, run.completedAt);
-    const tiebreakers = calculateLeaderboardTiebreakers({
-      finalBankroll: number(run.finalBankroll),
-      signalScore: number(run.signalScore),
-      correctCalls: run.correctCalls,
-      passes: run.passes,
-      completionTimeMs: completionMs,
-    });
-    return this.prisma.leaderboardEntry.create({
-      data: {
-        userId: parsed.owner.userId,
-        runId: run.id,
-        leaderboardType: parsed.leaderboardType,
-        periodKey: parsed.periodKey,
-        scoreBankroll: tiebreakers.finalBankroll,
-        scoreSignal: tiebreakers.signalScore,
-        correctCalls: tiebreakers.correctCalls,
-        passes: run.passes,
-        completionTimeMs: completionMs,
-        completedAt: run.completedAt,
-        metadata: { sortKey: [...tiebreakers.sortKey] },
-      },
-    });
-  }
 }
 
 export function parseRunOwner(input: unknown): RunOwner {

@@ -1,7 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import {
   createClassicRunRequestSchema,
+  leaderboardRequestInput,
+  leaderboardRequestSchema,
   parseEmptyMutationRequest,
+  publicDisplayNameRequestSchema,
   submitDecisionRequestSchema,
 } from '../lib/server/requests';
 
@@ -63,5 +66,57 @@ describe('web boundary request schemas', () => {
       method: 'POST',
       body: '{not-json',
     }))).resolves.toBe(false);
+  });
+
+  it('normalizes valid leaderboard filters with safe defaults', () => {
+    const daily = leaderboardRequestSchema.parse(leaderboardRequestInput(
+      new URLSearchParams(),
+      '2026-07-10',
+    ));
+    expect(daily).toEqual({
+      board: 'daily',
+      date: '2026-07-10',
+      page: 1,
+      pageSize: 25,
+    });
+    expect(leaderboardRequestSchema.parse(leaderboardRequestInput(
+      new URLSearchParams('board=classic&difficulty=hard&page=2&pageSize=10'),
+    ))).toEqual({ board: 'classic', difficulty: 'hard', page: 2, pageSize: 10 });
+    expect(leaderboardRequestSchema.parse(leaderboardRequestInput(
+      new URLSearchParams('board=signal&page=3'),
+    ))).toEqual({ board: 'signal', page: 3, pageSize: 25 });
+  });
+
+  it('rejects malformed, inapplicable, and identity-spoofing leaderboard filters', () => {
+    for (const query of [
+      'board=daily&date=2026-02-30',
+      'board=classic&difficulty=easy&date=2026-07-10',
+      'board=signal&difficulty=hard',
+      'board=classic&difficulty=easy&page=0',
+      'board=classic&difficulty=easy&pageSize=51',
+      'board=classic&difficulty=easy&userId=spoofed',
+      'board=signal&isOfficial=true',
+      'board=signal&score=999999',
+    ]) {
+      const parsed = leaderboardRequestSchema.safeParse(
+        leaderboardRequestInput(new URLSearchParams(query), '2026-07-10'),
+      );
+      expect(parsed.success, query).toBe(false);
+    }
+  });
+
+  it('accepts public names or alias fallback and rejects spoofing or reserved aliases', () => {
+    expect(publicDisplayNameRequestSchema.safeParse({ displayName: 'Signal Star' }).success)
+      .toBe(true);
+    expect(publicDisplayNameRequestSchema.safeParse({ displayName: null }).success).toBe(true);
+    for (const body of [
+      { displayName: 'ab' },
+      { displayName: 'Player-1A2B' },
+      { displayName: 'bad!' },
+      { displayName: 'Signal Star', userId: 'spoofed' },
+      { alias: 'Player-FAKE', displayName: null },
+    ]) {
+      expect(publicDisplayNameRequestSchema.safeParse(body).success).toBe(false);
+    }
   });
 });
