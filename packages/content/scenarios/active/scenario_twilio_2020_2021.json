@@ -1,0 +1,324 @@
+{
+    "id":  "scenario_twilio_2020_2021",
+    "status":  "active",
+    "company":  {
+                    "name":  "Twilio",
+                    "ticker":  "TWLO",
+                    "exchange":  "NYSE",
+                    "sector":  "Information Technology",
+                    "industry":  "Application Software",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "twilio",
+                                          "twilio"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Twilio",
+                                                "SendGrid",
+                                                "Segment",
+                                                "communications API"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Embedded Contact",
+                     "decisionDate":  "2020-01-02",
+                     "endDate":  "2021-01-04",
+                     "decisionDateLabel":  "2020",
+                     "outcomeLabel":  "2020 to 2021",
+                     "holdingPeriodLabel":  "About one year",
+                     "era":  "Pandemic-era disruption",
+                     "eraId":  "pandemic_era",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "part_b_phase_campaign"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  103.15,
+                       "endingPrice":  334.59,
+                       "actualReturnPercent":  2.2437,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2019-01-02",
+                       "preDecisionChartEndDate":  "2020-01-02",
+                       "outcomeChartStartDate":  "2020-01-02",
+                       "outcomeChartEndDate":  "2021-01-04",
+                       "lookbackPrices":  [
+                                              86.97,
+                                              118.27,
+                                              126.56,
+                                              144.11,
+                                              140,
+                                              115.11,
+                                              93.23,
+                                              103.15
+                                          ],
+                       "outcomePrices":  [
+                                             103.15,
+                                             112.31,
+                                             103.63,
+                                             196.73,
+                                             267.45,
+                                             238.3,
+                                             266.26,
+                                             334.59
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A cloud software platform that lets developers add messaging, voice, and customer contact to applications.",
+                                    "macroContext":  "Businesses need more digital ways to reach customers as physical interactions become difficult.",
+                                    "situation":  "Can usage-driven growth turn into a broader customer-engagement platform before carriers and software suites compress margins?",
+                                    "longCase":  "Developer adoption and rising digital interactions can expand usage inside existing accounts.",
+                                    "shortCase":  "Network costs, customer concentration, and integrated rivals can limit operating leverage.",
+                                    "setupHints":  [
+                                                       "Revenue rises partly with the volume of customer communications."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A usage-based enterprise technology platform supporting digital customer interactions.",
+                                      "macroContext":  "Companies are moving more activity online while larger vendors bundle adjacent capabilities.",
+                                      "situation":  "Can usage growth deepen customer relationships before underlying delivery costs absorb the gains?",
+                                      "longCase":  "More digital activity can expand consumption within existing applications.",
+                                      "shortCase":  "Variable supplier costs and bundled competition can constrain margins.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A usage-based enterprise technology provider.",
+                                    "macroContext":  "Customer activity is moving online while powerful suppliers and platforms remain in the value chain.",
+                                    "situation":  "Can higher transaction volume create durable economics despite variable delivery costs?",
+                                    "longCase":  "Embedded usage can expand naturally as customers digitize more workflows.",
+                                    "shortCase":  "Supplier costs and platform bundling can prevent revenue growth from reaching profits.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Twilio. Revenue and active customer accounts grew strongly in 2020 as businesses expanded digital communications.",
+                   "funFact":  "The company was founded in 2008 and built its model around developer-accessible cloud services.",
+                   "whyItMoved":  [
+                                      "Digital customer interactions increased.",
+                                      "Usage expanded within existing customer applications.",
+                                      "Acquisitions broadened the platform beyond basic communications."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ TWLO",
+                        "url":  "https://finance.yahoo.com/quote/TWLO/history/",
+                        "notes":  "Split-adjusted closes for 2020-01-02 and 2021-01-04; sampled lookback/outcome series and computed price return."
+                    },
+                    {
+                        "label":  "Twilio SEC filings",
+                        "url":  "https://www.sec.gov/edgar/browse/?CIK=TWLO\u0026owner=exclude\u0026action=getcompany",
+                        "notes":  "Annual filings covering business model, operating risks, company history, and the reported operating trends summarized in the reveal."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Phase 4B production candidate. Recognition bucket: moderate. Authored fact-bank first and Hard first, then Medium/Easy. Payload-only editorial self-check retained the named peer set across difficulties, avoided correct-company dominance on Medium/Hard, kept both calls articulable, and found no unsupported candidate. No authoritative Gate 2 judgment is recorded. Phase-internal clean-Grok rewrite changed medium/hard only: removed the stored judge\u0027s company-pointing conjunctions while keeping concrete long/short tension. Stored Gate 2 evidence is preserved but stale for changed variants; clean rejudge required. Shared title unchanged, so no sibling-only rejudge expansion.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "Twilio name and TWLO ticker",
+                                                       "Twilio",
+                                                       "SendGrid",
+                                                       "Segment",
+                                                       "communications API"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "Can usage-driven growth turn into a broader customer-engagement platform before carriers and software suites compress margins?",
+                                                           "Developer adoption and rising digital interactions can expand usage inside existing accounts.",
+                                                           "Network costs, customer concentration, and integrated rivals can limit operating leverage.",
+                                                           "Can usage growth deepen customer relationships before underlying delivery costs absorb the gains?",
+                                                           "More digital activity can expand consumption within existing applications.",
+                                                           "Variable supplier costs and bundled competition can constrain margins.",
+                                                           "Can higher transaction volume create durable economics despite variable delivery costs?",
+                                                           "Embedded usage can expand naturally as customers digitize more workflows.",
+                                                           "Supplier costs and platform bundling can prevent revenue growth from reaching profits."
+                                                       ],
+                                    "prohibited":  [
+                                                       "Twilio",
+                                                       "SendGrid",
+                                                       "Segment",
+                                                       "communications API",
+                                                       "communications APIs plus carrier costs",
+                                                       "messaging voice plus developer adoption",
+                                                       "digital contact plus network transport"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Twilio",
+                                                                  "RingCentral",
+                                                                  "Five9",
+                                                                  "Bandwidth"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Datadog",
+                                                                    "Snowflake",
+                                                                    "Cloudflare",
+                                                                    "Twilio",
+                                                                    "Okta"
+                                                                ],
+                                                     "hard":  [
+                                                                  "Datadog",
+                                                                  "Snowflake",
+                                                                  "Cloudflare",
+                                                                  "Okta",
+                                                                  "Twilio",
+                                                                  "Elastic"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "2020 chart silhouette plus company-specific product language",
+                                                                   "Businesses need more digital ways to reach customers as physical interactions become difficult. plus named product or brand",
+                                                                   "Can usage-driven growth turn into a broader customer-engagement platform before carriers and software suites compress margins? plus TWLO ticker or company name",
+                                                                   "communications APIs plus carrier costs",
+                                                                   "messaging voice plus developer adoption",
+                                                                   "digital contact plus network transport"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Twilio",
+                                             "RingCentral",
+                                             "Five9",
+                                             "Bandwidth"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Datadog",
+                                               "Snowflake",
+                                               "Cloudflare",
+                                               "Twilio"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "Datadog",
+                                             "Snowflake",
+                                             "Cloudflare",
+                                             "Okta"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:afcc7b633ae98f8798389e1c15fcb84003d01b3c45a20e6bb8746f9c067b620d",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Twilio",
+                                                                  "confidence":  92,
+                                                                  "pointingFact":  "Developer cloud platform for messaging, voice, and contact whose revenue scales with communication volume."
+                                                              },
+                                                              {
+                                                                  "company":  "Bandwidth",
+                                                                  "confidence":  28,
+                                                                  "pointingFact":  "Cloud communications APIs and usage-based traffic, smaller pure-play profile."
+                                                              },
+                                                              {
+                                                                  "company":  "RingCentral",
+                                                                  "confidence":  22,
+                                                                  "pointingFact":  "Cloud voice and messaging for businesses, more suite-oriented than developer embed APIs."
+                                                              },
+                                                              {
+                                                                  "company":  "Five9",
+                                                                  "confidence":  18,
+                                                                  "pointingFact":  "Cloud contact-center software benefiting from digital customer reach, less developer messaging core."
+                                                              },
+                                                              {
+                                                                  "company":  "Vonage",
+                                                                  "confidence":  15,
+                                                                  "pointingFact":  "Communications APIs and contact features, overlapping but less the flagship usage-platform narrative."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  64,
+                                                                "cue":  "Pandemic shift to digital customer contact supports usage-driven expansion inside accounts despite later lookback volatility."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:e0638332a132522dd498039a29856d5622f66bfacb7fdd6b4f7fd51279dd73fd",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "Twilio",
+                                                                    "confidence":  71,
+                                                                    "pointingFact":  "Usage-based platform for digital customer communications facing pandemic volume growth plus carrier costs and hyperscaler bundling."
+                                                                },
+                                                                {
+                                                                    "company":  "Bandwidth",
+                                                                    "confidence":  34,
+                                                                    "pointingFact":  "Communications API/provider model where usage can rise while network delivery costs pressure margins."
+                                                                },
+                                                                {
+                                                                    "company":  "Vonage",
+                                                                    "confidence":  27,
+                                                                    "pointingFact":  "Enterprise digital interaction stack with consumption-linked revenue and larger vendors packing adjacent tools."
+                                                                },
+                                                                {
+                                                                    "company":  "Zendesk",
+                                                                    "confidence":  21,
+                                                                    "pointingFact":  "Customer-interaction software benefiting from online shift but contested by broader platform suites."
+                                                                },
+                                                                {
+                                                                    "company":  "Twilio SendGrid / peer CPaaS",
+                                                                    "confidence":  16,
+                                                                    "pointingFact":  "Usage-driven customer messaging growth story with variable supplier costs and competitive bundling."
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "short",
+                                                                  "confidence":  52,
+                                                                  "cue":  "Lookback shows a large pandemic run-up then fade, and the short case stresses variable delivery costs plus bundled competition compressing gains."
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:78d86e60f6fd933ecd9e8ab87c3982be4553b47c570b9e6e6aa6b1599604c777",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Twilio",
+                                                                  "confidence":  57,
+                                                                  "pointingFact":  "Usage-based enterprise communications platform with embedded customer contact flows and carrier/platform cost pressure."
+                                                              },
+                                                              {
+                                                                  "company":  "Snowflake",
+                                                                  "confidence":  29,
+                                                                  "pointingFact":  "Usage-based enterprise tech where digitization lifts volume but cloud suppliers and platforms shape net economics."
+                                                              },
+                                                              {
+                                                                  "company":  "Cloudflare",
+                                                                  "confidence":  23,
+                                                                  "pointingFact":  "Usage-linked internet infrastructure vendor benefiting from online activity while competing with large platforms."
+                                                              },
+                                                              {
+                                                                  "company":  "Datadog",
+                                                                  "confidence":  21,
+                                                                  "pointingFact":  "Usage-based enterprise software that expands with digital workloads yet faces platform-ecosystem competition."
+                                                              },
+                                                              {
+                                                                  "company":  "MongoDB",
+                                                                  "confidence":  17,
+                                                                  "pointingFact":  "Usage-oriented data platform whose growth tracks customer digitization and cloud delivery costs."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  53,
+                                                                "cue":  "Pandemic-driven online workflow shift supports embedded usage growth even if supplier and platform costs remain a drag."
+                                                            }
+                                          }
+                             }
+               }
+}

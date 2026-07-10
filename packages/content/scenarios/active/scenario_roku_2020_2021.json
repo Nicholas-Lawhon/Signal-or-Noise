@@ -1,0 +1,305 @@
+{
+  "id": "scenario_roku_2020_2021",
+  "status": "active",
+  "company": {
+    "name": "Roku",
+    "ticker": "ROKU",
+    "exchange": "NASDAQ",
+    "sector": "Communication Services",
+    "industry": "Entertainment",
+    "country": "United States",
+    "acceptedNames": [
+      "roku",
+      "roku inc"
+    ],
+    "identityBannedTerms": [
+      "Roku Channel",
+      "Roku TV",
+      "Roku"
+    ]
+  },
+  "scenario": {
+    "title": "Access Point",
+    "decisionDate": "2020-01-02",
+    "endDate": "2021-01-04",
+    "decisionDateLabel": "Early 2020",
+    "outcomeLabel": "Early 2020 to early 2021",
+    "holdingPeriodLabel": "About one year",
+    "era": "Streaming wars",
+    "eraId": "streaming_wars",
+    "contentPackIds": [
+      "mvp_core",
+      "part_b_batch_1"
+    ],
+    "difficultySupported": [
+      "easy",
+      "medium",
+      "hard"
+    ]
+  },
+  "marketData": {
+    "startingPrice": 137.1,
+    "endingPrice": 317.9,
+    "actualReturnPercent": 1.319,
+    "usesSplitAdjustedPrices": true,
+    "usesTotalReturn": false,
+    "preDecisionChartStartDate": "2018-01-02",
+    "preDecisionChartEndDate": "2020-01-02",
+    "outcomeChartStartDate": "2020-01-02",
+    "outcomeChartEndDate": "2021-01-04",
+    "lookbackPrices": [
+      45,
+      55,
+      40,
+      65,
+      100,
+      120,
+      137.1
+    ],
+    "outcomePrices": [
+      137.1,
+      110,
+      140,
+      180,
+      250,
+      330,
+      317.9
+    ]
+  },
+  "hiddenCard": {
+    "easy": {
+      "companyDescription": "A home-entertainment platform that sells low-margin hardware while trying to grow advertising and distribution revenue.",
+      "macroContext": "Households are spending more time at home as media companies compete for direct access to viewers.",
+      "situation": "Can a platform turn a growing installed base into higher-margin advertising revenue before larger technology firms control the living room?",
+      "longCase": "More viewing and a larger installed base could attract advertisers and content partners to the platform.",
+      "shortCase": "Hardware economics, platform competition, and negotiations with content suppliers could limit the value of that audience.",
+      "setupHints": [
+        "The companyÃ¢â‚¬â„¢s software is built into some television sets and external devices."
+      ]
+    },
+    "medium": {
+      "companyDescription": "A consumer technology platform combining an access product with recurring services.",
+      "macroContext": "At-home use is rising while large ecosystems compete to own customer access and commercial relationships.",
+      "situation": "Can a growing installed base support recurring economics before larger platforms control distribution?",
+      "longCase": "More use can improve the value of partner relationships and services relative to the initial product sale.",
+      "shortCase": "Thin product margins and powerful gatekeepers can limit how much recurring value the platform retains.",
+      "setupHints": []
+    },
+    "hard": {
+      "companyDescription": "A consumer platform with an installed base.",
+      "macroContext": "A shift in household routines is increasing use of connected services while ecosystem owners tighten control.",
+      "situation": "Can installed relationships become recurring commercial value before access is commoditized?",
+      "longCase": "Higher use can deepen partner demand and spread platform costs across more activity.",
+      "shortCase": "A low-margin entry product and dominant gatekeepers can constrain monetization.",
+      "setupHints": []
+    }
+  },
+  "reveal": {
+    "shortText": "That was Roku. At-home viewing increased engagement and helped the companyÃ¢â‚¬â„¢s platform revenue grow faster than device sales.",
+    "funFact": "The company separates its hardware-oriented player business from its higher-margin platform business.",
+    "whyItMoved": [
+      "At-home viewing increased platform engagement.",
+      "Advertising and distribution revenue became more important.",
+      "Investors valued the potential operating leverage of the platform segment."
+    ]
+  },
+  "sources": [
+    {
+      "label": "Yahoo Finance historical data Ã¢â‚¬â€ ROKU",
+      "url": "https://finance.yahoo.com/quote/ROKU/history/",
+      "notes": "Split-adjusted closes for 2020-01-02 and 2021-01-04; chart series and return."
+    },
+    {
+      "label": "Roku 2020 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1428439/000156459021005838/roku-10k_20201231.htm",
+      "notes": "Player/platform segments, engagement, advertising, content partners, competition, and hardware economics."
+    }
+  ],
+  "review": {
+    "generatedByAi": true,
+    "humanReviewed": true,
+    "reviewNotes": "Moderate; adversarial rewrite from clean stored Grok evidence. Changed Medium and Hard plus the identifying Living Room Landgrab title, so Easy/Medium/Hard require rejudge. Removed streaming, media, entertainment interface, advertising, content partners, television, and device-category conjunctions. Installed-base access versus recurring monetization now fits Vizio, Fitbit, Peloton, Amazon, Sonos, and Roku. Stored review.gate2 is preserved and stale by hash.",
+    "factBank": {
+      "revealOnly": [
+        "Roku name/ticker",
+        "named channel and television brand",
+        "specific device interface"
+      ],
+      "decisionUseful": [
+        "installed customer base",
+        "recurring partner economics",
+        "low-margin access product",
+        "ecosystem gatekeepers",
+        "usage growth"
+      ],
+      "prohibited": [
+        "streaming and television terminology",
+        "named channels",
+        "remote-control language",
+        "living-room framing"
+      ],
+      "peerSets": {
+        "easy": [
+          "Roku",
+          "Amazon",
+          "Vizio",
+          "Sony"
+        ],
+        "medium": [
+          "Vizio",
+          "Peloton",
+          "Amazon",
+          "Roku"
+        ],
+        "hard": [
+          "Fitbit",
+          "Sonos",
+          "Peloton",
+          "Amazon",
+          "Roku"
+        ]
+      },
+      "prohibitedConjunctions": [
+        "2020 at-home chart plus streaming device",
+        "living-room title plus remote control",
+        "advertising plus content distribution partners",
+        "television installed base plus hardware margins",
+        "named channel plus platform revenue"
+      ]
+    },
+    "easyLikelyGuesses": [
+      "Roku",
+      "Amazon",
+      "Apple",
+      "Comcast"
+    ],
+    "mediumLikelyGuesses": [
+      "Vizio",
+      "Peloton",
+      "Amazon",
+      "Roku"
+    ],
+    "hardLikelyGuesses": [
+      "Fitbit",
+      "Sonos",
+      "Peloton",
+      "Amazon"
+    ],
+    "gate2": {
+      "easy": {
+        "payloadHash": "sha256:f42ba04a5491c069f589c6d343c21189f994dfeccd54ce149f1cb75771d4d4a3",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-10T05:00:00.000Z",
+        "guesses": [
+          {
+            "company": "Roku",
+            "confidence": 86,
+            "pointingFact": "Low-margin streaming hardware plus ads/distribution, with OS embedded in TVs and external players during the streaming wars."
+          },
+          {
+            "company": "Vizio",
+            "confidence": 38,
+            "pointingFact": "Sells thin-margin TVs while monetizing the living-room installed base through platform advertising and data."
+          },
+          {
+            "company": "Amazon",
+            "confidence": 28,
+            "pointingFact": "Fire TV hardware and living-room OS compete for household viewing and ad/distribution economics."
+          },
+          {
+            "company": "Alphabet",
+            "confidence": 22,
+            "pointingFact": "Android TV/Chromecast software in TVs and devices targets the same home-entertainment access-point battle."
+          },
+          {
+            "company": "Apple",
+            "confidence": 15,
+            "pointingFact": "tvOS devices and living-room software are another tech platform path into the home, though less ad-hardware driven."
+          }
+        ],
+        "direction": {
+          "call": "long",
+          "confidence": 62,
+          "cue": "Early-2020 stay-at-home viewing boom and a growing installed base favor converting audience into higher-margin ads despite prior price run-up."
+        }
+      },
+      "medium": {
+        "payloadHash": "sha256:1cdf4d7ef54df44d200202a813eedfb8990215ee381d8be10570410d11abaa43",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T18:00:00.000Z",
+        "guesses": [
+          {
+            "company": "Roku",
+            "confidence": 76,
+            "pointingFact": "Access hardware plus recurring ads/services platform sitting between streamers and living-room distribution."
+          },
+          {
+            "company": "Vizio",
+            "confidence": 34,
+            "pointingFact": "Consumer access devices monetized through platform advertising while larger ecosystems control content relationships."
+          },
+          {
+            "company": "Apple",
+            "confidence": 28,
+            "pointingFact": "Hardware access products bundled with growing recurring services amid streaming and ecosystem competition."
+          },
+          {
+            "company": "Amazon",
+            "confidence": 24,
+            "pointingFact": "Devices plus recurring media/commerce services competing to own customer access relationships."
+          },
+          {
+            "company": "Sonos",
+            "confidence": 16,
+            "pointingFact": "Consumer access hardware with services upside constrained by platform gatekeepers and thin device margins."
+          }
+        ],
+        "direction": {
+          "call": "long",
+          "confidence": 52,
+          "cue": "At-home use and installed-base leverage favor recurring platform economics despite prior price run-up."
+        }
+      },
+      "hard": {
+        "payloadHash": "sha256:3600b290d79dde91cd9c2d53624984f165bc6cfc5486115777a9a8bda99c6c83",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-10T04:15:00.000Z",
+        "guesses": [
+          {
+            "company": "Roku",
+            "confidence": 74,
+            "pointingFact": "Streaming-era consumer access platform with a large installed device base, low-margin hardware, and monetization constrained by dominant ecosystem gatekeepers"
+          },
+          {
+            "company": "Vizio",
+            "confidence": 36,
+            "pointingFact": "Smart-TV installed base used as a streaming access layer where hardware margins are thin and platform ads/partners drive economics"
+          },
+          {
+            "company": "Sonos",
+            "confidence": 24,
+            "pointingFact": "Consumer installed base in connected households facing platform-control pressure while trying to turn usage into recurring value"
+          },
+          {
+            "company": "Spotify",
+            "confidence": 22,
+            "pointingFact": "Consumer platform with scale usage during streaming wars seeking deeper commercial conversion of engagement"
+          },
+          {
+            "company": "Peloton",
+            "confidence": 18,
+            "pointingFact": "Home connected-device platform benefiting from routine shifts while needing recurring monetization beyond the entry product"
+          }
+        ],
+        "direction": {
+          "call": "long",
+          "confidence": 62,
+          "cue": "Early-2020 household connected-service surge should raise usage and partner demand before commoditization fully bites over about a year"
+        }
+      }
+    }
+  }
+}

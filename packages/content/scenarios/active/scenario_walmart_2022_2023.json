@@ -1,0 +1,307 @@
+{
+    "id":  "scenario_walmart_2022_2023",
+    "status":  "active",
+    "company":  {
+                    "name":  "Walmart",
+                    "ticker":  "WMT",
+                    "exchange":  "NYSE",
+                    "sector":  "Consumer Defensive",
+                    "industry":  "Discount Stores",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "walmart",
+                                          "wal-mart"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Sam\u0027s Club",
+                                                "Great Value",
+                                                "Everyday Low Price"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Basket Mix",
+                     "decisionDate":  "2022-05-18",
+                     "endDate":  "2023-05-18",
+                     "decisionDateLabel":  "Spring 2022",
+                     "outcomeLabel":  "Spring 2022 to spring 2023",
+                     "holdingPeriodLabel":  "One year",
+                     "era":  "Inflation and inventory shock",
+                     "eraId":  "rate_hike_inflation_era",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "phase_4b_wave"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  38.872,
+                       "endingPrice":  48.868,
+                       "actualReturnPercent":  0.2572,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2020-05-18",
+                       "preDecisionChartEndDate":  "2022-05-18",
+                       "outcomeChartStartDate":  "2022-05-18",
+                       "outcomeChartEndDate":  "2023-05-18",
+                       "lookbackPrices":  [
+                                              39.295,
+                                              42.115,
+                                              44.868,
+                                              44.379,
+                                              45.521,
+                                              45.714,
+                                              38.872
+                                          ],
+                       "outcomePrices":  [
+                                             38.872,
+                                             41.136,
+                                             42.473,
+                                             47.017,
+                                             45.082,
+                                             45.286,
+                                             48.868
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A global mass retailer with a large grocery business, general merchandise, stores, e-commerce, and a warehouse-club segment.",
+                                    "macroContext":  "Food inflation is lifting sales while squeezing household budgets and shifting demand away from discretionary goods.",
+                                    "situation":  "Can a scale retailer use grocery traffic and low prices to gain share despite an inventory and margin shock?",
+                                    "longCase":  "Frequent food trips, purchasing scale, and value positioning could attract budget-conscious households.",
+                                    "shortCase":  "A lower-margin sales mix, excess general merchandise, and wage and freight costs could suppress profit.",
+                                    "setupHints":  [
+                                                       "Groceries generate a majority of domestic sales and drive frequent store visits."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A scaled retailer spanning frequent-purchase and discretionary categories.",
+                                      "macroContext":  "Inflation is changing basket mix while retailers clear inventory ordered under different demand assumptions.",
+                                      "situation":  "Can scale and repeat traffic overcome pressure from a less profitable sales mix?",
+                                      "longCase":  "Purchasing leverage and frequent visits can support share gains as household budgets tighten.",
+                                      "shortCase":  "Lower-margin category growth and discretionary markdowns can raise revenue while weakening profit.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A large consumer retailer with broad category exposure.",
+                                    "macroContext":  "Households are changing purchase priorities while supply chains normalize unevenly.",
+                                    "situation":  "Can traffic gains offset a shift toward lower-margin categories?",
+                                    "longCase":  "Scale and purchasing leverage can win customers as budgets tighten.",
+                                    "shortCase":  "Inventory cleanup and mix pressure can prevent stronger sales from becoming stronger profit.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Walmart. Grocery traffic, value positioning, and share gains outweighed the initial inventory and margin shock.",
+                   "funFact":  "Walmart completed a three-for-one stock split in 2024; the historical prices in this card are split adjusted.",
+                   "whyItMoved":  [
+                                      "Food inflation and grocery demand supported frequent customer traffic.",
+                                      "Consumers trading down favored the companyÃ¢â‚¬â„¢s value positioning and purchasing scale.",
+                                      "Inventory actions and expense control helped margins recover from the initial shock."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ WMT",
+                        "url":  "https://finance.yahoo.com/quote/WMT/history/",
+                        "notes":  "Split-adjusted closes, chart samples, later stock-split adjustment, and calculated return."
+                    },
+                    {
+                        "label":  "Walmart fiscal 2023 Form 10-K Ã¢â‚¬â€ SEC EDGAR",
+                        "url":  "https://www.sec.gov/edgar/browse/?CIK=104169\u0026owner=exclude",
+                        "notes":  "Grocery mix, inventory, inflation, traffic, expense and margin claims."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Famous bucket. Stored Grok evidence identified value retail plus food/general-merchandise mix and trade-down language on Medium; essentials traffic and value positioning kept Hard recognizable. M/H now use broad category exposure, repeat traffic, purchasing scale, household budget pressure, inventory cleanup, and margin mix without food, grocery, value, or trade-down labels. Easy is unchanged. Stored M/H results remain stale evidence pending blind rejudge.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "company/ticker",
+                                                       "warehouse-club name",
+                                                       "2024 three-for-one split"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "repeat customer traffic",
+                                                           "purchasing scale",
+                                                           "category mix",
+                                                           "inventory cleanup",
+                                                           "household budget pressure"
+                                                       ],
+                                    "prohibited":  [
+                                                       "warehouse-club brand",
+                                                       "signature price slogan",
+                                                       "exact earnings-day guidance cut"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Walmart",
+                                                                  "Target",
+                                                                  "Kroger",
+                                                                  "Costco",
+                                                                  "Carrefour"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Kroger",
+                                                                    "Walmart",
+                                                                    "Target",
+                                                                    "Costco"
+                                                                ],
+                                                     "hard":  [
+                                                                  "Kroger",
+                                                                  "Costco",
+                                                                  "Dollar General",
+                                                                  "Walmart",
+                                                                  "Target"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "May 2022 cliff plus grocery or food-majority statistic",
+                                                                   "value positioning plus signature slogan",
+                                                                   "split-adjusted chart plus exact guidance event"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Walmart",
+                                             "Target",
+                                             "Kroger",
+                                             "Costco"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Target",
+                                               "Kroger",
+                                               "Costco",
+                                               "Dollar General"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "Target",
+                                             "Kroger",
+                                             "Costco",
+                                             "Dollar General"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:dc17129531bd2cd3ced2730ce940a0de313fb7c7e0ac4a0c4c2e84521767d57c",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Walmart",
+                                                                  "confidence":  93,
+                                                                  "pointingFact":  "Global mass retailer where groceries are a majority of domestic sales, plus general merchandise, e-commerce, and a warehouse club."
+                                                              },
+                                                              {
+                                                                  "company":  "Target",
+                                                                  "confidence":  32,
+                                                                  "pointingFact":  "Large general merchandise and grocery omnichannel retailer, but no warehouse-club segment."
+                                                              },
+                                                              {
+                                                                  "company":  "Costco",
+                                                                  "confidence":  30,
+                                                                  "pointingFact":  "Warehouse-club scale and value traffic, not a full mass grocery-plus-general-merchandise banner set."
+                                                              },
+                                                              {
+                                                                  "company":  "Amazon",
+                                                                  "confidence":  14,
+                                                                  "pointingFact":  "Broad retail and grocery ambitions with club-like membership, less store-led grocery traffic identity."
+                                                              },
+                                                              {
+                                                                  "company":  "Kroger",
+                                                                  "confidence":  12,
+                                                                  "pointingFact":  "Grocery-heavy national retailer gaining from food inflation, lacks warehouse-club and broad GM franchise."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  63,
+                                                                "cue":  "Food inflation and value positioning can pull share via grocery trips even if inventory mix pressures near-term profit."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:65ae50a09836e3559ac1e3bf2e1cf2ea7041617214f9226e86064a1dd17d4ed1",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "Target",
+                                                                    "confidence":  73,
+                                                                    "pointingFact":  "Scaled multi-category retailer hit by 2022 inflation-driven mix shift toward consumables and discretionary inventory markdowns."
+                                                                },
+                                                                {
+                                                                    "company":  "Walmart",
+                                                                    "confidence":  44,
+                                                                    "pointingFact":  "Large frequent-purchase plus discretionary mix where inflation alters baskets and inventory ordered under old demand."
+                                                                },
+                                                                {
+                                                                    "company":  "Amazon",
+                                                                    "confidence":  29,
+                                                                    "pointingFact":  "Scaled retailer spanning necessities and discretionary goods facing inventory digestion and mix pressure in 2022."
+                                                                },
+                                                                {
+                                                                    "company":  "Best Buy",
+                                                                    "confidence":  22,
+                                                                    "pointingFact":  "Big-box retailer exposed when discretionary categories weaken and inventory needs markdowns."
+                                                                },
+                                                                {
+                                                                    "company":  "Costco",
+                                                                    "confidence":  16,
+                                                                    "pointingFact":  "Scaled traffic-driven retailer spanning consumables and discretionary where basket mix can shift with inflation."
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "short",
+                                                                  "confidence":  64,
+                                                                  "cue":  "Spring 2022 inventory shock plus less profitable basket mix can lift sales optics while compressing profit into the next year."
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:9a69d2b48f503eafe4fc0c949faeb554e857cda4fba47d4e6bdf876387512138",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Target",
+                                                                  "confidence":  52,
+                                                                  "pointingFact":  "Spring 2022 broad retailer hit by inventory cleanup and mix shift into lower-margin categories"
+                                                              },
+                                                              {
+                                                                  "company":  "Walmart",
+                                                                  "confidence":  36,
+                                                                  "pointingFact":  "Large multi-category retailer where traffic gains may not offset mix and inflation-driven basket changes"
+                                                              },
+                                                              {
+                                                                  "company":  "Amazon",
+                                                                  "confidence":  24,
+                                                                  "pointingFact":  "Broad consumer retail exposure with inventory digestion and margin mix pressure in 2022"
+                                                              },
+                                                              {
+                                                                  "company":  "Best Buy",
+                                                                  "confidence":  18,
+                                                                  "pointingFact":  "Big-box retailer vulnerable when households re-prioritize away from higher-margin discretionary goods"
+                                                              },
+                                                              {
+                                                                  "company":  "Kohl\u0027s",
+                                                                  "confidence":  14,
+                                                                  "pointingFact":  "Broad apparel/home retailer facing traffic-vs-mix and inventory normalization risks"
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  58,
+                                                                "cue":  "Inventory cleanup plus lower-margin basket mix can break the link from sales to profit after a soft lookback drop"
+                                                            }
+                                          }
+                             }
+               }
+}

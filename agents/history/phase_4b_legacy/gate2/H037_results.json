@@ -1,0 +1,283 @@
+{
+  "handoff": "H037",
+  "description": "Blind Claude Fable Gate 2 rejudge of the 19 H036-changed Medium/Hard draft payloads",
+  "model": "claude-fable",
+  "promptVersion": "guess.v1+direction.v1",
+  "testedAt": "2026-07-10T02:09:44.343Z",
+  "count": 19,
+  "summary": {
+    "pass": 1,
+    "identity_fail": 18,
+    "warnRows": 0
+  },
+  "rows": [
+    {
+      "scenarioId": "scenario_boeing_2019_2020",
+      "difficulty": "medium",
+      "payloadHash": "sha256:afcf415cdb63c0588a290cb378800aa3482103c4055d2488c48cbf8822886bd2",
+      "topGuess": {
+        "company": "Boeing",
+        "confidence": 55
+      },
+      "correctRank": 1,
+      "outcome": "identity_fail",
+      "findings": [
+        "identity: correct company is #1 with confidence 55 (threshold 40)",
+        "identity: correct company leads #2 by 43 points (threshold 15)"
+      ]
+    },
+    {
+      "scenarioId": "scenario_boeing_2019_2020",
+      "difficulty": "hard",
+      "payloadHash": "sha256:f4870aabf9519f29fa639fcf3df24b7313c721d2e7cc1e4f41b1ccd697159dbf",
+      "topGuess": {
+        "company": "Boeing",
+        "confidence": 45
+      },
+      "correctRank": 1,
+      "outcome": "identity_fail",
+      "findings": [
+        "identity: correct company appears in top 5 at rank 1 with confidence 45 (threshold 15)"
+      ]
+    },
+    {
+      "scenarioId": "scenario_disney_2019_2020",
+      "difficulty": "medium",
+      "payloadHash": "sha256:02bfcd1908b87d327b4dc524e8a84247e9b7ed2d7dc3610e7cd3528c84f4fd3e",
+      "topGuess": {
+        "company": "Disney",
+        "confidence": 45
+      },
+      "correctRank": 1,
+      "outcome": "identity_fail",
+      "findings": [
+        "identity: correct company is #1 with confidence 45 (threshold 40)",
+        "identity: correct company leads #2 by 30 points (threshold 15)"
+      ]
+    },
+    {
+      "scenarioId": "scenario_disney_2019_2020",
+      "difficulty": "hard",
+      "payloadHash": "sha256:3bf0ea05f3321a3fa878c1bc90b0df7156c7fa7de4dea5b9694d054afdd0f678",
+      "topGuess": {
+        "company": "Disney",
+        "confidence": 30
+      },
+      "correctRank": 1,
+      "outcome": "identity_fail",
+      "findings": [
+        "identity: correct company appears in top 5 at rank 1 with confidence 30 (threshold 15)"
+      ]
+    },
+    {
+      "scenarioId": "scenario_docusign_2020_2021",
+      "difficulty": "medium",
+      "payloadHash": "sha256:54d934da98d21793c58f66a39c8c5e0d6a550a3e85112f9e2f1c85d67330bf5b",
+      "topGuess": {
+        "company": "DocuSign",
+        "confidence": 35
+      },
+      "correctRank": 1,
+      "outcome": "identity_fail",
+      "findings": [
+        "identity: correct company leads #2 by 20 points (threshold 15)"
+      ]
+    },
+    {
+      "scenarioId": "scenario_docusign_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:f777f16b93951086a90f462820457795455747a8fbe806760452d86365e3fb15",
+      "topGuess": {
+        "company": "DocuSign",
+        "confidence": 25
+      },
+      "correctRank": 1,
+      "outcome": "identity_fail",
+      "findings": [
+        "identity: correct company appears in top 5 at rank 1 with confidence 25 (threshold 15)"
+      ]
+    },
+    {
+      "scenarioId": "scenario_fastly_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:4a2f09ec37556aed8945355e2b21684dd9da1ecc5cc7b990c712886475949fb4",
+      "topGuess": {
+        "company": "Fastly",
+        "confidence": 28
+      },
+      "correctRank": 1,
+      "outcome": "identity_fail",
+      "findings": [
+        "identity: correct company appears in top 5 at rank 1 with confidence 28 (threshold 15)"
+      ]
+    },
+    {
+      "scenarioId": "scenario_ford_2021_2022",
+      "difficulty": "medium",
+      "payloadHash": "sha256:32a7c65b0f4649138a169bab451b5f055eb6f555d50a23da240da376ef2f93ef",
+      "topGuess": {
+        "company": "Ford",
+        "confidence": 30
+      },
+      "correctRank": 1,
+      "outcome": "pass",
+      "findings": []
+    },
+    {
+      "scenarioId": "scenario_ford_2021_2022",
+      "difficulty": "hard",
+      "payloadHash": "sha256:b42184a71e729517d79ac39baefd2abc8fc706684584b37a3460cdd06f169c93",
+      "topGuess": {
+        "company": "Ford",
+        "confidence": 18
+      },
+      "correctRank": 1,
+      "outcome": "identity_fail",
+      "findings": [
+        "identity: correct company appears in top 5 at rank 1 with confidence 18 (threshold 15)"
+      ]
+    },
+    {
+      "scenarioId": "scenario_meta_2022_2023",
+      "difficulty": "medium",
+      "payloadHash": "sha256:ab3dbc008397ce781a73ae154606cbc866ed31fb91f93175e0100a7b3f0916c7",
+      "topGuess": {
+        "company": "Meta",
+        "confidence": 40
+      },
+      "correctRank": 1,
+      "outcome": "identity_fail",
+      "findings": [
+        "identity: correct company is #1 with confidence 40 (threshold 40)",
+        "identity: correct company leads #2 by 22 points (threshold 15)"
+      ]
+    },
+    {
+      "scenarioId": "scenario_meta_2022_2023",
+      "difficulty": "hard",
+      "payloadHash": "sha256:e25b29715af972393a3fee1a9c5d53866b41c286bc58ad238bbcfc5d66b51c04",
+      "topGuess": {
+        "company": "Meta",
+        "confidence": 35
+      },
+      "correctRank": 1,
+      "outcome": "identity_fail",
+      "findings": [
+        "identity: correct company appears in top 5 at rank 1 with confidence 35 (threshold 15)"
+      ]
+    },
+    {
+      "scenarioId": "scenario_pinterest_2020_2021",
+      "difficulty": "medium",
+      "payloadHash": "sha256:68bff29c190d1a9507b2f28323b70c96d514e864095dccd9f9808778f22a3c79",
+      "topGuess": {
+        "company": "Pinterest",
+        "confidence": 38
+      },
+      "correctRank": 1,
+      "outcome": "identity_fail",
+      "findings": [
+        "identity: correct company leads #2 by 23 points (threshold 15)"
+      ]
+    },
+    {
+      "scenarioId": "scenario_pinterest_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:8643f58704bb2e019a00debb327f2e1d736330296f3eda4550f98bf852a5ed89",
+      "topGuess": {
+        "company": "Pinterest",
+        "confidence": 25
+      },
+      "correctRank": 1,
+      "outcome": "identity_fail",
+      "findings": [
+        "identity: correct company appears in top 5 at rank 1 with confidence 25 (threshold 15)"
+      ]
+    },
+    {
+      "scenarioId": "scenario_roku_2020_2021",
+      "difficulty": "medium",
+      "payloadHash": "sha256:22bd2a43210c2c92aa5d18d1639c8a8529d277d1e7f233ebf7eff54f37311529",
+      "topGuess": {
+        "company": "Roku",
+        "confidence": 55
+      },
+      "correctRank": 1,
+      "outcome": "identity_fail",
+      "findings": [
+        "identity: correct company is #1 with confidence 55 (threshold 40)",
+        "identity: correct company leads #2 by 43 points (threshold 15)"
+      ]
+    },
+    {
+      "scenarioId": "scenario_roku_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:00f9c3181654aea0a67a5f0caf8312cdf32af5203788f9e7553a802971f147f9",
+      "topGuess": {
+        "company": "Roku",
+        "confidence": 55
+      },
+      "correctRank": 1,
+      "outcome": "identity_fail",
+      "findings": [
+        "identity: correct company appears in top 5 at rank 1 with confidence 55 (threshold 15)"
+      ]
+    },
+    {
+      "scenarioId": "scenario_starbucks_2020_2021",
+      "difficulty": "medium",
+      "payloadHash": "sha256:7434d7bfec1f3ac0b1ec5d7eb96c7a2bf757d646e0a016d908e4ec708100b972",
+      "topGuess": {
+        "company": "Starbucks",
+        "confidence": 35
+      },
+      "correctRank": 1,
+      "outcome": "identity_fail",
+      "findings": [
+        "identity: correct company leads #2 by 15 points (threshold 15)"
+      ]
+    },
+    {
+      "scenarioId": "scenario_starbucks_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:e464ebc6b9cd23e9f2e746c8ab21a8ac770874eb9f36c2d72b6f3135a03f7088",
+      "topGuess": {
+        "company": "Starbucks",
+        "confidence": 25
+      },
+      "correctRank": 1,
+      "outcome": "identity_fail",
+      "findings": [
+        "identity: correct company appears in top 5 at rank 1 with confidence 25 (threshold 15)"
+      ]
+    },
+    {
+      "scenarioId": "scenario_tesla_2020_2021",
+      "difficulty": "medium",
+      "payloadHash": "sha256:5ded85fd257c6b12ca2930077d12249309ddce752be952551a3c74fd555bc592",
+      "topGuess": {
+        "company": "Tesla",
+        "confidence": 35
+      },
+      "correctRank": 1,
+      "outcome": "identity_fail",
+      "findings": [
+        "identity: correct company leads #2 by 23 points (threshold 15)"
+      ]
+    },
+    {
+      "scenarioId": "scenario_tesla_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:fec54b6589892e9c194105f4b61e283c9f0da15e78e32ae0a281cbabde944810",
+      "topGuess": {
+        "company": "Tesla",
+        "confidence": 30
+      },
+      "correctRank": 1,
+      "outcome": "identity_fail",
+      "findings": [
+        "identity: correct company appears in top 5 at rank 1 with confidence 30 (threshold 15)"
+      ]
+    }
+  ]
+}

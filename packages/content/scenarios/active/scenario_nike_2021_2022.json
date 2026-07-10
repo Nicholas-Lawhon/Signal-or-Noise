@@ -1,0 +1,307 @@
+{
+    "id":  "scenario_nike_2021_2022",
+    "status":  "active",
+    "company":  {
+                    "name":  "Nike",
+                    "ticker":  "NKE",
+                    "exchange":  "NYSE",
+                    "sector":  "Consumer Cyclical",
+                    "industry":  "Footwear \u0026 Accessories",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "nike",
+                                          "nike inc"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Just Do It",
+                                                "Swoosh",
+                                                "Air Jordan"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Full Shelves",
+                     "decisionDate":  "2021-11-01",
+                     "endDate":  "2022-11-01",
+                     "decisionDateLabel":  "Late 2021",
+                     "outcomeLabel":  "Late 2021 to late 2022",
+                     "holdingPeriodLabel":  "One year",
+                     "era":  "Reopening and inventory reset",
+                     "eraId":  "rate_hike_inflation_era",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "phase_4b_wave"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  154.749,
+                       "endingPrice":  88.067,
+                       "actualReturnPercent":  -0.4309,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2019-11-01",
+                       "preDecisionChartEndDate":  "2021-11-01",
+                       "outcomeChartStartDate":  "2021-11-01",
+                       "outcomeChartEndDate":  "2022-11-01",
+                       "lookbackPrices":  [
+                                              81.508,
+                                              86.184,
+                                              90.673,
+                                              110.862,
+                                              122.397,
+                                              148.373,
+                                              154.749
+                                          ],
+                       "outcomePrices":  [
+                                             154.749,
+                                             155.344,
+                                             124.866,
+                                             114.772,
+                                             97.694,
+                                             99.727,
+                                             88.067
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A global athletic footwear and apparel brand selling through wholesale partners and its own stores and digital channels.",
+                                    "macroContext":  "Consumer demand is shifting from stay-at-home goods while freight delays and inflation complicate inventory planning.",
+                                    "situation":  "Can a leading sports brand deepen direct customer relationships without losing wholesale reach?",
+                                    "longCase":  "Brand strength and higher-margin direct sales could protect pricing and support long-term growth.",
+                                    "shortCase":  "Excess inventory, freight costs, and uneven regional demand could force promotions and squeeze margins.",
+                                    "setupHints":  [
+                                                       "The company relies on a mix of signature footwear franchises, apparel, and athlete-led marketing."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A branded consumer-goods company selling through partners and owned channels.",
+                                      "macroContext":  "Supply bottlenecks are easing just as inflation changes household spending and sellers rebuild stock.",
+                                      "situation":  "Can stronger customer relationships improve economics before inventory and channel conflict create a reset?",
+                                      "longCase":  "Pricing power and direct customer data can support demand across regions and channels.",
+                                      "shortCase":  "Too much stock and weaker discretionary spending can trigger markdowns while logistics costs stay high.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A branded consumer-products company with multiple distribution channels.",
+                                    "macroContext":  "Supply is normalizing while consumers rotate spending and financing conditions tighten.",
+                                    "situation":  "Can pricing and customer loyalty protect returns before inventory outruns demand?",
+                                    "longCase":  "Brand strength and closer customer relationships can preserve demand and gross profit.",
+                                    "shortCase":  "Promotions and channel friction can erode margins if stock arrives after demand has moved on.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Nike. Elevated inventory, freight pressure, currency headwinds, and uneven regional demand drove a sharp valuation reset.",
+                   "funFact":  "NikeÃ¢â‚¬â„¢s direct-to-consumer strategy combined company-owned stores with a growing digital business while wholesale remained material.",
+                   "whyItMoved":  [
+                                      "Inventory rose faster than sales and required heavier promotional activity.",
+                                      "Freight, input costs, and foreign-exchange movements pressured gross margin.",
+                                      "Consumer demand and recovery trends varied significantly by region."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ NKE",
+                        "url":  "https://finance.yahoo.com/quote/NKE/history/",
+                        "notes":  "Split-adjusted closes for 2021-11-01 and 2022-11-01, chart samples, and calculated price return."
+                    },
+                    {
+                        "label":  "Nike fiscal 2023 Form 10-K Ã¢â‚¬â€ SEC EDGAR",
+                        "url":  "https://www.sec.gov/edgar/browse/?CIK=NKE\u0026owner=exclude",
+                        "notes":  "Direct and wholesale channels, inventory, promotions, freight, currency, and regional demand claims."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Famous bucket. Stored Grok evidence tied Medium to a global brand\u0027s wholesale-to-direct shift and Hard to the same channel-and-inventory setup. M/H now use broad branded consumer products, partner and owned distribution, pricing, loyalty, stock timing, promotions, and logistics pressure across apparel and non-apparel peers. Easy is unchanged. Stored M/H results remain stale adversarial evidence pending blind rejudge.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "company and ticker",
+                                                       "signature logo and slogan",
+                                                       "named footwear franchises"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "partner and owned distribution",
+                                                           "brand pricing power",
+                                                           "inventory growth",
+                                                           "freight pressure",
+                                                           "discretionary demand"
+                                                       ],
+                                    "prohibited":  [
+                                                       "named athletes",
+                                                       "signature shoe family",
+                                                       "recognizable slogan"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Nike",
+                                                                  "Adidas",
+                                                                  "Under Armour",
+                                                                  "Puma",
+                                                                  "Lululemon"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Adidas",
+                                                                    "Nike",
+                                                                    "Puma",
+                                                                    "Under Armour"
+                                                                ],
+                                                     "hard":  [
+                                                                  "VF Corporation",
+                                                                  "Adidas",
+                                                                  "Lululemon",
+                                                                  "Nike",
+                                                                  "Puma"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "late-2021 chart plus athletic or footwear category",
+                                                                   "athlete marketing plus signature product line",
+                                                                   "direct-channel shift plus one-company logo language"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Nike",
+                                             "Adidas",
+                                             "Under Armour",
+                                             "Puma"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Adidas",
+                                               "VF Corporation",
+                                               "Lululemon",
+                                               "EstÃƒÂ©e Lauder"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "VF Corporation",
+                                             "Adidas",
+                                             "Lululemon",
+                                             "EstÃƒÂ©e Lauder"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:3987189ec8d50ee3de0991ec3a11e8f2e761b20587a861fbcc3fd8bd356d3dc5",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Nike",
+                                                                  "confidence":  91,
+                                                                  "pointingFact":  "Global athletic footwear and apparel brand with wholesale, owned retail, digital channels, and signature athlete franchises."
+                                                              },
+                                                              {
+                                                                  "company":  "Adidas",
+                                                                  "confidence":  52,
+                                                                  "pointingFact":  "Major global sports brand selling footwear and apparel through wholesale partners and direct channels."
+                                                              },
+                                                              {
+                                                                  "company":  "Under Armour",
+                                                                  "confidence":  28,
+                                                                  "pointingFact":  "Athletic brand balancing wholesale reach with direct-to-consumer expansion during inventory resets."
+                                                              },
+                                                              {
+                                                                  "company":  "Puma",
+                                                                  "confidence":  20,
+                                                                  "pointingFact":  "Global athletic footwear and apparel seller relying on athlete marketing and multi-channel distribution."
+                                                              },
+                                                              {
+                                                                  "company":  "Lululemon",
+                                                                  "confidence":  12,
+                                                                  "pointingFact":  "Premium athletic apparel brand deepening direct relationships while managing wholesale and inventory cycles."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  72,
+                                                                "cue":  "Late-2021 inventory glut, freight inflation, and promotion risk after a multi-year run-up point to margin pressure."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:6db8090578c7bf455008c7a097b0c4b3a2ad0c3c1a11c07bdcafefba285226da",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "Nike",
+                                                                    "confidence":  62,
+                                                                    "pointingFact":  "Branded goods via wholesale partners and owned DTC, channel conflict, and late-2021 inventory rebuild into a reopening reset are a classic Nike setup."
+                                                                },
+                                                                {
+                                                                    "company":  "lululemon athletica",
+                                                                    "confidence":  38,
+                                                                    "pointingFact":  "Premium branded apparel with pricing power and direct customer relationships facing inventory and discretionary-spend risk after reopening."
+                                                                },
+                                                                {
+                                                                    "company":  "Adidas",
+                                                                    "confidence":  28,
+                                                                    "pointingFact":  "Global branded consumer goods sold through partners and own channels, exposed to stock rebuild, markdowns, and logistics costs."
+                                                                },
+                                                                {
+                                                                    "company":  "VF Corporation",
+                                                                    "confidence":  22,
+                                                                    "pointingFact":  "Multi-brand apparel company dependent on wholesale partners plus owned channels during the inventory/reopening reset."
+                                                                },
+                                                                {
+                                                                    "company":  "Under Armour",
+                                                                    "confidence":  18,
+                                                                    "pointingFact":  "Branded athletic goods with channel mix and inventory sensitivity when shelves refilled and discretionary demand cooled."
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "short",
+                                                                  "confidence":  66,
+                                                                  "cue":  "Lookback prices near highs into late-2021 inventory rebuild; short case of excess stock, markdowns, and sticky logistics costs is the dominant reopening-reset risk."
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:422d5dbb3ac2bbc44435e9481818e57b898699f81298b4631b9f639ef967be03",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Nike",
+                                                                  "confidence":  38,
+                                                                  "pointingFact":  "Branded multi-channel consumer goods facing late-2021 reopening inventory glut and margin pressure from promotions."
+                                                              },
+                                                              {
+                                                                  "company":  "Lululemon Athletica",
+                                                                  "confidence":  28,
+                                                                  "pointingFact":  "Premium brand with DTC plus wholesale channels exposed to inventory reset after pandemic demand surge."
+                                                              },
+                                                              {
+                                                                  "company":  "Under Armour",
+                                                                  "confidence":  22,
+                                                                  "pointingFact":  "Apparel brand whose returns hinged on pricing power versus channel friction as shelves refilled."
+                                                              },
+                                                              {
+                                                                  "company":  "Adidas",
+                                                                  "confidence":  18,
+                                                                  "pointingFact":  "Global branded sportswear with multi-channel distribution and inventory/demand timing risk in reopening."
+                                                              },
+                                                              {
+                                                                  "company":  "VF Corporation",
+                                                                  "confidence":  14,
+                                                                  "pointingFact":  "Portfolio of consumer brands across channels vulnerable if stock arrives after discretionary demand rotates."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  62,
+                                                                "cue":  "Late-2021 full-shelf inventory reset plus tightening financing favors margin erosion over brand protection."
+                                                            }
+                                          }
+                             }
+               }
+}

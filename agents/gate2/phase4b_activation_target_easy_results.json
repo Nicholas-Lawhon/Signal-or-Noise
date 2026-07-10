@@ -1,0 +1,42 @@
+{
+  "model": "grok-4.5",
+  "promptVersion": "guess.v1+direction.v1",
+  "testedAt": "2026-07-09T12:00:00.000Z",
+  "entries": [
+    {
+      "judgeId": "blind_0001",
+      "guesses": [
+        {
+          "company": "Target",
+          "confidence": 88,
+          "pointingFact": "National general-merchandise retailer with groceries plus discretionary categories and a store-fulfilled digital/pickup model that was the textbook late-2021 inventory and margin-shock story."
+        },
+        {
+          "company": "Walmart",
+          "confidence": 62,
+          "pointingFact": "Also a national store-led omnichannel seller of groceries, apparel, home goods, and discretionary items, with heavy store-network fulfillment of digital orders."
+        },
+        {
+          "company": "Costco",
+          "confidence": 28,
+          "pointingFact": "National warehouse retailer spanning groceries and general merchandise through membership clubs and growing digital channels during the inflation era."
+        },
+        {
+          "company": "Kohl's",
+          "confidence": 18,
+          "pointingFact": "National store-based retailer of apparel, home, and discretionary goods that faced post-pandemic traffic and inventory pressure, though with weaker grocery fit."
+        },
+        {
+          "company": "Macy's",
+          "confidence": 12,
+          "pointingFact": "National multi-category merchandise retailer with stores and digital channels exposed to discretionary demand reversal and markdown risk after the pandemic boom."
+        }
+      ],
+      "direction": {
+        "call": "short",
+        "confidence": 72,
+        "cue": "Late-2021 setup after a sharp multi-year price run-up into an inventory, freight, labor, and goods-to-services demand shift that points to markdowns and margin compression over a one-year hold."
+      }
+    }
+  ]
+}

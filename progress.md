@@ -1,184 +1,53 @@
-# progress.md — Signal or Noise?
+# progress.md - Signal or Noise?
 
-Every agent appends a session log entry here at the end of every working session.
-Newest entries at the top of the log. Keep "Current Status" accurate — it is the
-first thing the next agent reads.
+This is the live operational dashboard. Keep Current Status, How to Run, and
+Blocked/Questions accurate. Git history and one phase closeout preserve history.
 
 ## Current Status
 
-- **Phase:** 0–3 COMPLETE; **Phase 4 Part A CLOSED** (D035). Current phase is
-  **Phase 4 Part B — content generation at scale**: 40 cards (24 famous / 12
-  moderate / 4 obscure per D034), 10 daily challenge pools, 10 famous market
-  eras. Pipeline policy locked in **D036–D038**. Doc 09 + WARN calibration
-  shipped via **H033/R046 (accepted)**. Database is Phase 5, Auth 6,
-  Leaderboards 7, Daily Challenge 8 (D027).
-- **App state:** Monorepo scaffolded. Game engine: 37 tests. Content package:
-  Zod schema (optional FactBank peerSets/prohibitedConjunctions), validation
-  CLI, offline Gate 2 harness (under-2-only plausible-count WARNs per D036),
-  6 active seeds. Validate 6/6 **0 WARNs**; `gate2 check` 0 errors / 0 WARNs /
-  2 informational missing (Netflix Medium/Hard — H035 fold-in). Content tests
-  51. No auth, no DB.
-- **Next task:** Dispatch **H034** (batch-1 author 10 draft cards, GPT 5.5).
-  Then **H035** (blind Gate 2 + Netflix fold-in). User playtest after batch 1
-  before batches 3–4.
-- **Handoffs ready:** `H033` complete/accepted; `H034` **approved** for
-  dispatch; `H035` draft until H034 lands.
-- **Workflow state:** D028 manual-by-default dispatch; D029 context/output
-  budgets; D030 state compaction; D033 model-agnostic roles. Phase 0–3 history
-  in `agents/history/progress_phase_0_3.md`; Phase 4A in
-  `agents/history/progress_phase_4a.md`.
+- **Phase:** 0-5 COMPLETE. Phase 5 - Database closeout was accepted on
+  2026-07-10. Phase 4B closed under **D045** with 40 active cards
+  at the D034 24 famous / 12 moderate / 4 obscure mix, 10 daily pools, and 10
+  market eras. The next phase is **Phase 6 - Auth & Guest Play**.
+- **App state:** Neon/PostgreSQL is migrated and contains the validated JSON
+  production catalog: 40 scenarios, 120 difficulty variants, 10 daily pools,
+  and 10 eras. `packages/database` now owns the Prisma client, idempotent import,
+  guest/user persistence foundations, authoritative run/round operations,
+  reveal isolation, Daily Challenge storage, leaderboard inputs, and stats.
+  Classic Run still uses `ACTIVE_SCENARIOS` in the Phase 4 UI; server wiring and
+  authentication belong to later phases. Current tests: game engine 38, content
+  77, database 12 (including Neon integration). Content and Gate 2 remain at
+  0 errors / 40 non-blocking WARNs / 0 missing variants.
+- **Next task:** Prepare and approve the Phase 6 - Auth & Guest Play charter.
+- **Phase 4 evidence:** All 120 active difficulty variants have current opaque-ID
+  Grok evidence; 122 judge executions were performed including two activation-time
+  Easy rejudges for stale Roku and Target hashes. Final checks passed: 114 tests,
+  workspace typecheck, production web build, content validation, and Gate 2
+  coverage.
+- **Workflow state:** D043 is active: one charter, one autonomous Phase Owner,
+  one closeout, and one phase-boundary review. Legacy H/R artifacts remain
+  evidence only under `agents/history/`.
 - **Blocked/Questions:** None.
 
-## How to Run (updated as the app grows)
+## How to Run
 
 ```bash
-pnpm install          # install dependencies
-pnpm dev              # start dev server at http://localhost:3000
-pnpm test             # run all package tests (game-engine 37 + content 51)
-pnpm typecheck        # run TypeScript type checking
-pnpm --filter @signal-or-noise/content validate   # validate scenario JSON seeds
-pnpm --filter @signal-or-noise/content gate2 -- export --out agents/gate2/<HANDOFF>_payloads.json
+pnpm install
+pnpm dev
+pnpm test
+pnpm typecheck
+pnpm --filter @signal-or-noise/content validate
 pnpm --filter @signal-or-noise/content gate2 -- check
+pnpm --filter @signal-or-noise/database db:migrate
+pnpm --filter @signal-or-noise/database import:scenarios
+pnpm --filter @signal-or-noise/database test
 ```
 
-All from repo root. Requires Node.js LTS and pnpm 9.x.
+All commands run from the repo root. Requires Node.js LTS and pnpm 9.x.
+Database commands also require repository-root `DATABASE_URL` and `DIRECT_URL`.
 
 ## Archived History
 
-Detailed session history for closed phases is archived under `agents/history/`.
-Read it only when a handoff explicitly needs historical detail.
-
-- `agents/history/progress_phase_0_3.md` - Phase 0-3 summaries and archived
-  detailed session log.
-- `agents/history/progress_phase_4a.md` - Phase 4 Part A session log: Gate 2
-  harness, blind judge rounds, Medium/Hard rewrite arc, doc 09 readiness.
-
----
-
-## Session Log Template
-
-```markdown
-### YYYY-MM-DD — [Role] — [Handoff ID or task]
-
-**What changed:**
-- ...
-
-**How to run:** (only if it changed)
-
-**Tests:** X passing / Y failing — command used
-
-**Known issues:**
-- ...
-
-**Blocked/Questions:** (anything needing orchestrator/user input)
-
-**Next recommended task:**
-```
-
----
-
-## Session Log
-
-### 2026-07-09 - Orchestrator - R046/H033 accepted; H034 approved
-
-**What changed:**
-- Reviewed R046 + H033 diff; reran verify — content 51/51, root 88/88,
-  typecheck pass, validate 6/6 (0 WARNs), gate2 check 0/0/2 missing.
-- Accepted H033; wrote `agents/reports/R047_R046_review.md`; marked R046
-  approved.
-- Promoted **H034** to **approved** for batch-1 authoring dispatch.
-
-**How to run:** unchanged (content tests now 51; validate typically 0 WARNs).
-
-**Tests:** as above (orchestrator rerun).
-
-**Known issues:** Netflix Medium/Hard Gate 2 still missing (D035 → H035).
-
-**Blocked/Questions:** none.
-
-**Next recommended task:** Manual dispatch of H034.
-
-### 2026-07-09 - Implementor - H033
-
-**What changed:**
-- Amended doc 09 with the D034 40-card mix; D036 structured fact-bank,
-  Hard-first, self-judge, and batch workflow; D037 chart-silhouette ladder;
-  D038 source bar; and a pattern-based banned-pattern appendix.
-- Recalibrated automated Medium/Hard plausible-count WARNs to under-2-only,
-  with focused coverage. Added optional `FactBank.peerSets` and
-  `prohibitedConjunctions`; no active seed migration was needed.
-
-**How to run:** unchanged.
-
-**Tests:** content 51/51; root 88/88; typecheck pass; validate 6/6 with 0
-warnings; Gate 2 check 0 errors / 0 warnings / 2 accepted informational missing.
-
-**Known issues:** Netflix Medium/Hard Gate 2 results remain the accepted D035
-residual for H035 batch fold-in.
-
-**Blocked/Questions:** none.
-
-**Next recommended task:** Orchestrator review of R046_H033, then H034.
-
-### 2026-07-09 - Orchestrator - D036–D038; H033/H034/H035 drafted
-
-**What changed:**
-- User adopted all C004 recommendations and both open-question leans
-  (chart-silhouette review + escalate; named sources for market data and
-  reveal claims).
-- Recorded **D036** (Part B pipeline: structured fact bank, mandatory
-  self-judge, under-2-only plausible WARNs, Hard informativeness @ conf 15,
-  four batches of 10 with playtests after 1–2), **D037** (chart-silhouette
-  ladder), **D038** (production source-quality standard).
-- Drafted handoffs:
-  - `H033` — doc 09 amendment + WARN recalibration (Implementor, GPT 5.5,
-    **approved** for dispatch)
-  - `H034` — batch-1 author 10 drafts (Content Curator, GPT 5.5, draft until
-    H033 accepted)
-  - `H035` — batch-1 blind Gate 2 + Netflix Medium/Hard fold-in (Grok 4.5,
-    draft until H034 complete)
-
-**How to run:** unchanged.
-
-**Tests:** not rerun this session (docs/decisions/handoffs only).
-
-**Known issues:**
-- Pre-H033: 9 plausible-count WARNs still fire on identity-passing cards.
-- Netflix Medium/Hard still missing stored Gate 2 (D035; H035 backstop).
-
-**Blocked/Questions:** none.
-
-**Next recommended task:** Manual dispatch of H033 (standard prompt below).
-
-### 2026-07-09 - Orchestrator - R044/C004 accepted; D035; Phase 4A CLOSED
-
-**What changed:**
-- Reviewed `agents/reports/R044_H032.md` and the Netflix diff: changes confined
-  to Medium/Hard hidden-card prose, review metadata, and stale Gate 2 removal;
-  Easy card, Easy Gate 2 evidence, and frozen fields untouched. Accepted.
-- Accepted `agents/consultations/C004_doc09_generation_readiness.md`; its five
-  decision points and two open questions are queued for user decision as the
-  Part B planning input.
-- Recorded D035 (user approved): Phase 4 Part A closed; Netflix two-payload
-  blind rejudge (planned H033) waived on self-check margins + diff review;
-  the 2 missing Gate 2 variants are an accepted residual, foldable into the
-  first Part B batch judging.
-- Marked R044 approved; wrote `agents/reports/R045_R044_C004_review.md`.
-- Roadmap: Part A marked closed with acceptance evidence; current phase →
-  Part B. Archived the Phase 4A session log to
-  `agents/history/progress_phase_4a.md` per D030.
-
-**How to run:** unchanged.
-
-**Tests:** validate 6/6 (9 WARNs); gate2 check 0 errors / 9 WARNs / 2
-informational missing; content 50/50; root 87/87; typecheck pass.
-
-**Known issues:**
-- Netflix Medium/Hard carry self-check evidence only (accepted per D035).
-- Plausible-count WARNs on stored results pending C004 decision point 3.
-
-**Blocked/Questions:** user decisions on C004 points 1–5 + open questions
-(chart-silhouette policy, Part B source-quality standard).
-
-**Next recommended task:** Record user's C004 decisions (D036+), then draft
-H033 doc 09 amendment handoff and the Part B batch-1 pipeline handoffs.
+Detailed history is under `agents/history/`; read it only for a concrete
+provenance question. The Phase 4B closeout is
+`agents/phase-closeouts/P04B_content_expansion.md`.

@@ -1,6 +1,11 @@
 export type {
   ScenarioStatus,
   Difficulty,
+  RecognitionBucket,
+  ProductionScenarioInventoryEntry,
+  DailyChallengePoolEntry,
+  DailyChallengePool,
+  MarketEra,
   Company,
   ScenarioMeta,
   MarketData,
@@ -16,7 +21,19 @@ export type {
   ValidationResult,
 } from './types';
 
-export { scenarioSchema, scenarioStatusSchema, difficultySchema } from './schema';
+export {
+  scenarioSchema,
+  scenarioStatusSchema,
+  difficultySchema,
+  recognitionBucketSchema,
+  productionScenarioInventoryEntrySchema,
+  productionScenarioInventorySchema,
+  dailyChallengePoolEntrySchema,
+  dailyChallengePoolSchema,
+  dailyChallengePoolsSchema,
+  marketEraSchema,
+  marketErasSchema,
+} from './schema';
 
 export {
   validateScenario,
@@ -24,5 +41,11 @@ export {
   DIRECTIONAL_SENTIMENT_TERMS,
   textContainsTerm,
 } from './validation';
+
+export { validateContentCatalog } from './catalogValidation';
+export type {
+  ContentCatalog,
+  ContentCatalogValidationResult,
+} from './catalogValidation';
 
 export { ACTIVE_SCENARIOS, getActiveScenarios } from './activeScenarios';

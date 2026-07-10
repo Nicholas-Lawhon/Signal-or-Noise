@@ -1,0 +1,307 @@
+{
+    "id":  "scenario_intel_2021_2022",
+    "status":  "active",
+    "company":  {
+                    "name":  "Intel",
+                    "ticker":  "INTC",
+                    "exchange":  "NASDAQ",
+                    "sector":  "Technology",
+                    "industry":  "Semiconductors",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "intel",
+                                          "intel corporation"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "x86",
+                                                "Pentium",
+                                                "Intel Inside"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Capacity Cycle",
+                     "decisionDate":  "2021-07-01",
+                     "endDate":  "2022-07-01",
+                     "decisionDateLabel":  "Mid 2021",
+                     "outcomeLabel":  "Mid 2021 to mid 2022",
+                     "holdingPeriodLabel":  "One year",
+                     "era":  "Chip shortage and capacity race",
+                     "eraId":  "pandemic_winners_losers",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "phase_4b_wave"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  51.256,
+                       "endingPrice":  34.229,
+                       "actualReturnPercent":  -0.3322,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2019-07-01",
+                       "preDecisionChartEndDate":  "2021-07-01",
+                       "outcomeChartStartDate":  "2021-07-01",
+                       "outcomeChartEndDate":  "2022-07-01",
+                       "lookbackPrices":  [
+                                              41.87,
+                                              49.425,
+                                              51.573,
+                                              53.335,
+                                              39.714,
+                                              55.699,
+                                              51.256
+                                          ],
+                       "outcomePrices":  [
+                                             51.256,
+                                             49.793,
+                                             45.132,
+                                             47.987,
+                                             45.671,
+                                             42.017,
+                                             34.229
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A large semiconductor designer and manufacturer serving personal computers, data centers, and industrial customers.",
+                                    "macroContext":  "Chip shortages are encouraging governments and manufacturers to add domestic capacity while product cycles remain unforgiving.",
+                                    "situation":  "Can an integrated chipmaker regain process momentum while funding a multiyear factory expansion?",
+                                    "longCase":  "Installed customer relationships and new capacity could restore supply control and support share recovery.",
+                                    "shortCase":  "Heavy capital spending and delayed product execution could compress margins before new factories contribute.",
+                                    "setupHints":  [
+                                                       "Unlike many chip designers, the company operates a large internal manufacturing network."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A capital-intensive technology manufacturer with a broad customer base.",
+                                      "macroContext":  "Short supply is colliding with an expensive global investment cycle and rapid product transitions.",
+                                      "situation":  "Can scale and customer reach support a product recovery before new capacity burdens returns?",
+                                      "longCase":  "Broad demand and control of production can support recovery if planned products arrive on schedule.",
+                                      "shortCase":  "Execution delays and large construction commitments can weaken cash flow while focused rivals gain share.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A mature technology manufacturer facing a costly investment cycle.",
+                                    "macroContext":  "Short supply has encouraged new capacity just as product transitions accelerate.",
+                                    "situation":  "Can new investment restore competitiveness before the expansion program burdens returns?",
+                                    "longCase":  "Deep customer ties and manufacturing scale can translate scarce supply into durable relevance.",
+                                    "shortCase":  "Long construction cycles and missed product transitions can lock in weak economics while rivals advance.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Intel. Manufacturing delays, rising investment needs, and weakening computer demand outweighed the promise of a large capacity rebuild.",
+                   "funFact":  "Intel announced a strategy to expand manufacturing services for outside chip designers while continuing to make its own products.",
+                   "whyItMoved":  [
+                                      "Competitive and product-execution pressure weighed on market share expectations.",
+                                      "A major factory and foundry investment program increased near-term capital intensity.",
+                                      "The personal-computer market weakened sharply as the pandemic demand surge faded."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ INTC",
+                        "url":  "https://finance.yahoo.com/quote/INTC/history/",
+                        "notes":  "Split-adjusted closes for 2021-07-01 and 2022-07-01, chart samples, and calculated price return."
+                    },
+                    {
+                        "label":  "Intel 2022 Form 10-K Ã¢â‚¬â€ SEC EDGAR",
+                        "url":  "https://www.sec.gov/edgar/browse/?CIK=INTC\u0026owner=exclude",
+                        "notes":  "Manufacturing strategy, capital investment, competition, product execution, and PC-market reveal claims."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Famous bucket. Stored Grok evidence identified the integrated computing-chip company repairing a process roadmap as the Medium hook and process-rebuild language as the Hard hook. M/H now use a mature capital-intensive technology manufacturer, broad demand, product execution, construction commitments, and a shared capacity cycle. Easy is unchanged. Stored M/H results remain stale adversarial evidence pending blind rejudge.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "company and ticker",
+                                                       "named processor architecture",
+                                                       "specific factory sites"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "manufacturing scale",
+                                                           "product execution",
+                                                           "multiyear capital spending",
+                                                           "short-supply demand",
+                                                           "focused competitors"
+                                                       ],
+                                    "prohibited":  [
+                                                       "processor brand names",
+                                                       "exact fabrication-node labels",
+                                                       "chief-executive strategy slogan"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Intel",
+                                                                  "Samsung Electronics",
+                                                                  "TSMC",
+                                                                  "Micron",
+                                                                  "GlobalFoundries"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Samsung Electronics",
+                                                                    "Intel",
+                                                                    "TSMC",
+                                                                    "Micron"
+                                                                ],
+                                                     "hard":  [
+                                                                  "Micron",
+                                                                  "TSMC",
+                                                                  "Samsung Electronics",
+                                                                  "Intel",
+                                                                  "GlobalFoundries"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "integrated chipmaker plus roadmap-repair language",
+                                                                   "2021 factory plan plus outside-customer slogan",
+                                                                   "lookback chart plus process-node or architecture transition"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Intel",
+                                             "Samsung Electronics",
+                                             "TSMC",
+                                             "Micron"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Samsung Electronics",
+                                               "Texas Instruments",
+                                               "Micron",
+                                               "GlobalFoundries"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "Micron",
+                                             "Samsung Electronics",
+                                             "Texas Instruments",
+                                             "GlobalFoundries"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:8234fa607a2a55f114f4f12c4c57052c2cbac23319563065e9062b315e1395fd",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Intel",
+                                                                  "confidence":  90,
+                                                                  "pointingFact":  "Integrated designer-manufacturer for PC and data center chips funding multiyear internal factory expansion to regain process leadership."
+                                                              },
+                                                              {
+                                                                  "company":  "Samsung Electronics",
+                                                                  "confidence":  42,
+                                                                  "pointingFact":  "Large IDM with logic and memory manufacturing and heavy capacity investment."
+                                                              },
+                                                              {
+                                                                  "company":  "Texas Instruments",
+                                                                  "confidence":  36,
+                                                                  "pointingFact":  "Analog/industrial chipmaker that designs and manufactures in its own fabs, though less a process-race recovery story."
+                                                              },
+                                                              {
+                                                                  "company":  "GlobalFoundries",
+                                                                  "confidence":  30,
+                                                                  "pointingFact":  "Manufacturing-heavy semiconductor company expanding capacity, but not a full PC/data-center product designer brand."
+                                                              },
+                                                              {
+                                                                  "company":  "Micron Technology",
+                                                                  "confidence":  24,
+                                                                  "pointingFact":  "Manufacturer with large fabs and capacity cycles, focused on memory rather than broad PC/data-center logic."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  64,
+                                                                "cue":  "Mid-2021 capacity race implies heavy capex and execution risk before new factories restore competitive process momentum."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:31a14daf6f927b93041b6664e817b5da5378daa0637d6d03b89bf23c79aef3ae",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "Intel",
+                                                                    "confidence":  58,
+                                                                    "pointingFact":  "Capital-intensive chipmaker with broad customers, product transitions, large fab buildout, and share loss to focused rivals"
+                                                                },
+                                                                {
+                                                                    "company":  "GlobalFoundries",
+                                                                    "confidence":  28,
+                                                                    "pointingFact":  "Capital-intensive semiconductor manufacturer racing capacity amid shortage and heavy investment cycle"
+                                                                },
+                                                                {
+                                                                    "company":  "Micron Technology",
+                                                                    "confidence":  22,
+                                                                    "pointingFact":  "Capital-intensive chip manufacturer exposed to capacity cycle, product transitions, and return pressure from new supply"
+                                                                },
+                                                                {
+                                                                    "company":  "Samsung Electronics",
+                                                                    "confidence":  18,
+                                                                    "pointingFact":  "Broad-customer capital-intensive tech manufacturer investing heavily in capacity during shortage cycle"
+                                                                },
+                                                                {
+                                                                    "company":  "Texas Instruments",
+                                                                    "confidence":  12,
+                                                                    "pointingFact":  "Capital-intensive semiconductor manufacturer with broad customer base and capacity-expansion commitments"
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "short",
+                                                                  "confidence":  57,
+                                                                  "cue":  "Mid-2021 shortage peak meets large construction commitments, execution-delay risk, and focused rivals taking share"
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:98069070bf0d183c36d6945de421a5a7e9d9d2edf4a8508ab26cb0b4f4ee1430",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Intel",
+                                                                  "confidence":  52,
+                                                                  "pointingFact":  "Mature chipmaker in mid-2021 capacity race, costly fab buildout, and missed product transitions"
+                                                              },
+                                                              {
+                                                                  "company":  "Micron Technology",
+                                                                  "confidence":  28,
+                                                                  "pointingFact":  "Memory manufacturer adding capacity during shortage while cycle risk rises"
+                                                              },
+                                                              {
+                                                                  "company":  "GlobalFoundries",
+                                                                  "confidence":  22,
+                                                                  "pointingFact":  "Foundry capacity expansion amid shortage with long construction lead times"
+                                                              },
+                                                              {
+                                                                  "company":  "Texas Instruments",
+                                                                  "confidence":  18,
+                                                                  "pointingFact":  "Mature analog manufacturer committing heavy internal fab investment"
+                                                              },
+                                                              {
+                                                                  "company":  "Samsung Electronics",
+                                                                  "confidence":  15,
+                                                                  "pointingFact":  "Large semiconductor manufacturer racing on advanced capacity and transitions"
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  58,
+                                                                "cue":  "Shortage-driven capacity race into product transitions often burdens returns as supply catches up"
+                                                            }
+                                          }
+                             }
+               }
+}

@@ -13,7 +13,7 @@ import type { Gate2Guess, Gate2VariantResult, Scenario } from '../src/types';
 function loadActiveNetflix(): Scenario {
   const path = resolve(
     __dirname,
-    '../scenarios/active/scenario_netflix_2012_2017.json',
+    '../scenarios/archived/scenario_netflix_2012_2017.json',
   );
   return JSON.parse(readFileSync(path, 'utf8')) as Scenario;
 }
@@ -118,11 +118,11 @@ describe('evaluateGate2Variant identity thresholds', () => {
     ).toBe(true);
   });
 
-  it('Medium: fail when correct is #1 with confidence >= 40', () => {
+  it('Medium: fails only when correct is near-certain and dominant', () => {
     const scenario = loadActiveNetflix();
     const stored = makeStored(scenario, 'medium', [
-      guess('Netflix', 45),
-      guess('Hulu', 35),
+      guess('Netflix', 90),
+      guess('Hulu', 45),
       guess('Spotify', 10),
       guess('Disney', 5),
       guess('Amazon', 5),
@@ -136,17 +136,17 @@ describe('evaluateGate2Variant identity thresholds', () => {
       findings.some(
         (f) =>
           f.severity === 'error' &&
-          f.message.includes('#1') &&
-          f.message.includes('45'),
+          f.message.includes('dominant') &&
+          f.message.includes('90'),
       ),
     ).toBe(true);
   });
 
-  it('Medium: fail when correct leads #2 by >= 15 points', () => {
+  it('Medium: passes when confidence or lead is below the dominance gate', () => {
     const scenario = loadActiveNetflix();
     const stored = makeStored(scenario, 'medium', [
-      guess('Netflix', 35),
-      guess('Hulu', 15),
+      guess('Netflix', 84),
+      guess('Hulu', 20),
       guess('Spotify', 10),
       guess('Disney', 5),
       guess('Amazon', 5),
@@ -156,21 +156,17 @@ describe('evaluateGate2Variant identity thresholds', () => {
       stored,
       scenario,
     });
-    expect(
-      findings.some(
-        (f) => f.severity === 'error' && f.message.includes('leads #2'),
-      ),
-    ).toBe(true);
+    expect(findings.some((f) => f.severity === 'error')).toBe(false);
   });
 
-  it('Hard: fail when correct appears in top 5 with confidence >= 15', () => {
+  it('Hard: fails only when correct is #1, near-certain, and dominant', () => {
     const scenario = loadActiveNetflix();
     const stored = makeStored(scenario, 'hard', [
-      guess('Hulu', 25),
-      guess('Spotify', 20),
+      guess('Netflix', 80),
+      guess('Hulu', 40),
       guess('Disney', 15),
       guess('Amazon', 12),
-      guess('Netflix', 15),
+      guess('Spotify', 10),
     ]);
     const findings = evaluateGate2Variant({
       difficulty: 'hard',
@@ -184,14 +180,14 @@ describe('evaluateGate2Variant identity thresholds', () => {
     ).toBe(true);
   });
 
-  it('Hard: pass when correct is absent from top 5', () => {
+  it('Hard: passes when correct is plausible but not dominant', () => {
     const scenario = loadActiveNetflix();
     const stored = makeStored(scenario, 'hard', [
-      guess('Hulu', 20),
+      guess('Netflix', 70),
+      guess('Hulu', 45),
       guess('Spotify', 15),
       guess('Disney', 12),
       guess('Amazon', 10),
-      guess('Roku', 8),
     ]);
     const findings = evaluateGate2Variant({
       difficulty: 'hard',
@@ -328,5 +324,25 @@ describe('evaluateGate2Variant warnings', () => {
         (f) => f.severity === 'error' && f.path.endsWith('.promptVersion'),
       ),
     ).toBe(true);
+  });
+
+  it('accepts Claude Fable as an approved Gate 2 judge', () => {
+    const scenario = loadActiveNetflix();
+    const stored = makeStored(scenario, 'easy', [
+      guess('Netflix', 30),
+      guess('Hulu', 20),
+      guess('Spotify', 15),
+      guess('Disney', 10),
+      guess('Amazon', 5),
+    ]);
+    stored.model = 'claude-fable';
+
+    const findings = evaluateGate2Variant({
+      difficulty: 'easy',
+      stored,
+      scenario,
+    });
+
+    expect(findings.some((f) => f.path.endsWith('.model'))).toBe(false);
   });
 });

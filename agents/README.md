@@ -1,110 +1,66 @@
-# agents/ - Role-Based Agentic Workflow
+# agents/ — Phase-Oriented Workflow
 
-How work gets done in this repository. The **orchestrator** (a high-reasoning AI
-session working with the user) makes decisions and writes scoped handoff prompts;
-**role agents** (any coding assistant) execute them exactly.
-
-## The Loop
+The roadmap phase is the default unit of agent work. The user approves one short
+charter, one autonomous owner executes it end to end, and a different capable
+agent reviews once at phase completion.
 
 ```text
-1. Orchestrator routes the task (type, risk, model per routing.md's
-   characteristics table) and drafts a handoff prompt -> agents/handoffs/H###_*.md
-2. Approval gate follows D024 during development: low- and routine medium-risk
-   handoffs dispatch as soon as the user agrees to the task; high-risk work,
-   major features, phase gates, irreversible/outward-facing actions, and product
-   rule changes need explicit user approval (status: approved) first.
-3. Default dispatch is manual per D028: the orchestrator gives the user the
-   standard dispatch prompt and the user launches the executor. Orchestrator-run
-   headless CLI dispatch (grok -p / codex exec / opencode run) is opt-in per
-   handoff or per session.
-4. Executing agent (Implementor/Curator/Growth) does the work, updates
-   progress.md, and writes a completion report -> agents/reports/R###_H###.md
-   WITHOUT committing anything to git.
-5. Orchestrator reviews the report + uncommitted diff, reruns cheap verification,
-   and approves or rejects. Per D024, formal Auditor passes are reserved during
-   active development for phase gates, major feature additions, high-risk domains,
-   or explicit user/orchestrator request.
-6. On approval, the ORCHESTRATOR commits the work, updates roadmap.md +
-   decisions.md, and drafts the next handoff.
-   On rejection, a fix-up handoff goes back to step 2.
+User + Orchestrator
+        |
+        v
+  phase charter -------- one authorization
+        |
+        v
+  Phase Owner ----------- discover / build / test / repair
+        |
+        +--------------- independent validators when intrinsically required
+        |
+        v
+  phase closeout -------- one concise evidence summary
+        |
+        v
+  phase review ---------- accept or one focused repair
 ```
 
-**Nothing reaches git history without an orchestrator-approved report (decision
-D012).** Role agents never run `git commit` or `git push`; the uncommitted
-working tree IS the review artifact. During development, the orchestrator may
-approve prototype-grade work with documented known issues when D024 says speed is
-more valuable than another audit loop. Consultant memos and Auditor audit files
-serve as those roles' reports; they don't write a separate R### file.
+Internal batches are allowed, but they do not create new prompts, reports,
+approval gates, or reviews.
 
-Consultant is invoked *before* steps with real design ambiguity and produces a
-memo the orchestrator turns into decisions. Auditor is invoked selectively: phase
-completion, durable feature addition, high-risk work, production-readiness checks,
-or explicit request.
-
-## Roles
-
-Roles are hats, not models: `routing.md` decides which model wears each hat per
-task, and any roster model can fill any role (D033). Typical mapping
-(D023/D029/D033): Implementor = DeepSeek v4 Pro (boilerplate) or Grok 4.5
-(medium work) or GPT 5.5 (hard work); Consultant and Content Curator = Grok 4.5
-or GPT 5.5 depending on ambiguity and risk; hardest tasks and high-stakes
-reviews/audits/consultations = GPT 5.6 Terra (High) or Claude Fable; Auditor =
-whichever capable model did NOT implement the work under audit. Claude
-subagents assist the orchestrator in-session but do not execute handoffs. The
-initial orchestrator each session is initiated and picked by the user.
-
-| Role | File | Does | Never does |
-|------|------|------|-----------|
-| Orchestrator | `roles/orchestrator.md` | Takes tasks from the user, makes decisions (with user approval), authors handoffs, reviews reports, commits | Implements handoffs itself |
-| Consultant | `roles/consultant.md` | Design memos, option analysis, architecture recommendations | Writes production code, makes final decisions |
-| Implementor | `roles/implementor.md` | Executes handoff prompts: code, tests, reports | Commits to git, expands scope, makes product/architecture decisions |
-| Auditor | `roles/auditor.md` | Verifies selected high-risk/milestone work against acceptance criteria, files audit reports | Fixes code, audits routine dev changes by default, softens findings to be agreeable |
-| Content Curator | `roles/content-curator.md` | Researches and writes scenario-card JSON (Phase 3+) | Invents market data without sources, touches app code |
-| Growth | `roles/growth.md` | Marketing, social, sales deliverables (milestone-gated) | Changes product copy in-app without a handoff, overpromises features |
-
-## Directory Map
+## Active Files
 
 ```text
-agents/
-  README.md            this file
-  routing.md           model routing & risk policy - orchestrator consults per task
-  roles/               role definitions (read yours before working)
-  handoffs/            numbered handoff prompts (H001, H002, ...) + TEMPLATE.md
-  reports/             completion reports (R001_H001.md, ...) + TEMPLATE.md
-  audits/              auditor reports (A001_H001.md, ...)
-  consultations/       consultant memos (C001_database.md, ...)
-  history/             archived progress/session history for closed phases
+orchestrator_boot.md   minimal interactive startup
+routing.md             model selection and phase-risk policy
+roles/                 specialist boundaries
+phases/                active phase charters
+phase-closeouts/       one final closeout per completed phase
+history/               archived/legacy evidence
 ```
 
-## Handoff Rules
+Legacy `handoffs/`, `reports/`, `audits/`, and `consultations/` entry
+points are retired. Their evidence and retired templates live in phase bundles
+under `history/`; new development does not use H###/R### chains.
 
-- One handoff = one coherent unit of work with binary-checkable acceptance criteria.
-- Handoffs are numbered sequentially and never reused or rewritten after execution
-  starts (fix-ups get a new number, e.g. `H002_h001_fixes.md`).
-- Every handoff header carries a status: `draft -> approved -> in_progress -> complete -> audited`.
-  The executing agent updates `in_progress`/`complete`; orchestrator sets the rest.
-- Handoff prescriptiveness is **calibrated to the executor** (`routing.md`):
-  DeepSeek gets fully prescriptive steps (exact paths, signatures, precomputed
-  values); Grok gets exact outcomes/constraints with bounded local judgment;
-  GPT 5.5 gets goal-oriented handoffs with explicitly delegated design bounds.
-  Explicit "do not build" lists for everyone. When in doubt, over-specify the
-  task boundary, not the amount of background context.
-- Every handoff header declares a **Model** and **Risk level** per `routing.md`.
-  When a task needs a specialist hat (e.g. "migration reviewer"), the orchestrator
-  writes a **micro-role** framing inside the handoff on top of a base role; no new
-  permanent role files (D001, D021).
-- Every handoff must include a **Context Manifest**: exact decisions, doc
-  sections, reports/audits, and source files the agent must read. Broad "read all
-  docs" instructions are reserved for formal phase audits and must say why.
-- Handoffs should state an expected output size for memos/audits/reports. Longer
-  artifacts are allowed only when the task explicitly needs that depth.
-- Per D030, `progress.md` stays live and compact. Phase-close/milestone
-  orchestration archives old detailed session logs into `agents/history/`; role
-  agents read archives only when their handoff names them.
+## Charter Rules
 
-## Escalation
+A charter contains only:
 
-Any agent that hits ambiguity, a contradiction with `soul.md`/`decisions.md`, or a
-scope question: **stop, log it under "Blocked/Questions" in `progress.md`, end the
-session.** Never guess on decision-level questions. The orchestrator picks it up
-from there.
+- phase outcome and exclusions;
+- delegated authority and true stop conditions;
+- a few high-value context starting points;
+- binary acceptance criteria and final verification;
+- branch/worktree arrangement when relevant.
+
+It should not dictate ordinary implementation steps or enumerate every file an
+autonomous owner may inspect.
+
+## Tool Compatibility
+
+The workflow is independent of the coding harness:
+
+- Claude Code: launch it from the checkout/worktree that owns the phase.
+- T3 Code: let the app create a thread branch/worktree and point the thread at the
+  phase charter.
+- Codex: use the current checkout or a Codex-managed worktree.
+
+Branches isolate history. Worktrees additionally isolate filesystem state and are
+useful for parallelism. Neither changes the repository instructions.

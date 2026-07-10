@@ -1,0 +1,35 @@
+{
+  "exportedAt": "2026-07-10T04:32:30.291Z",
+  "model": "grok-4.5",
+  "promptVersion": "guess.v1+direction.v1",
+  "entries": [
+    {
+      "judgeId": "blind_0001",
+      "difficulty": "easy",
+      "payloadHash": "sha256:5bc26da0f93b351d0af19c72debe3bc092c26a2b5ee97cf37720f21ccdaf3a3d",
+      "payload": {
+        "title": "Aisle Shift",
+        "era": "Inventory and inflation shock",
+        "decisionDateLabel": "Late 2021",
+        "holdingPeriodLabel": "One year",
+        "companyDescription": "A national general-merchandise retailer selling groceries, apparel, home goods, and discretionary products through stores and digital channels.",
+        "macroContext": "Consumers are shifting spending toward services while freight costs and inflation complicate retail inventory plans.",
+        "situation": "Can a store-led omnichannel model protect traffic as the pandemic merchandise mix reverses?",
+        "longCase": "Convenient pickup services, owned brands, and frequent store visits could sustain sales across categories.",
+        "shortCase": "Excess discretionary inventory and rising freight and labor costs could force markdowns and crush margins.",
+        "setupHints": [
+          "Most digital orders are fulfilled by the companyÃ¢â‚¬â„¢s existing store network."
+        ],
+        "lookbackPrices": [
+          100,
+          101.2,
+          112.4,
+          144.3,
+          162.2,
+          236.3,
+          248
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,321 @@
+{
+    "id":  "scenario_alphabet_2022_2023",
+    "status":  "active",
+    "company":  {
+                    "name":  "Alphabet",
+                    "ticker":  "GOOGL",
+                    "exchange":  "NASDAQ",
+                    "sector":  "Communication Services",
+                    "industry":  "Interactive Media \u0026 Services",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "alphabet",
+                                          "alphabet"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Google",
+                                                "YouTube",
+                                                "Android",
+                                                "Chrome"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Attention Reset",
+                     "decisionDate":  "2022-01-03",
+                     "endDate":  "2023-01-03",
+                     "decisionDateLabel":  "2022",
+                     "outcomeLabel":  "2022 to 2023",
+                     "holdingPeriodLabel":  "About one year",
+                     "era":  "Inflation and rate reset",
+                     "eraId":  "rate_reset",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "part_b_phase_campaign"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  143.72,
+                       "endingPrice":  88.34,
+                       "actualReturnPercent":  -0.3853,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2021-01-04",
+                       "preDecisionChartEndDate":  "2022-01-03",
+                       "outcomeChartStartDate":  "2022-01-03",
+                       "outcomeChartEndDate":  "2023-01-03",
+                       "lookbackPrices":  [
+                                              85.55,
+                                              99.91,
+                                              113.48,
+                                              119.34,
+                                              133.54,
+                                              137.81,
+                                              144.61,
+                                              143.72
+                                          ],
+                       "outcomePrices":  [
+                                             143.72,
+                                             131.52,
+                                             126.55,
+                                             116.16,
+                                             115.3,
+                                             100.25,
+                                             86.55,
+                                             88.34
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A global internet platform funded mainly by digital advertising.",
+                                    "macroContext":  "Rising interest rates and softer marketing budgets are challenging highly valued growth companies.",
+                                    "situation":  "Can dominant consumer services defend advertising demand while funding expensive newer businesses?",
+                                    "longCase":  "Massive daily usage and measurement data can keep advertisers engaged through a slowdown.",
+                                    "shortCase":  "Cyclical ad budgets, regulation, and heavy investment can compress growth and margins.",
+                                    "setupHints":  [
+                                                       "The company also operates a large cloud-computing business."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A large consumer internet and cloud company.",
+                                      "macroContext":  "Advertisers are becoming cautious as economic growth slows and financing costs rise.",
+                                      "situation":  "Can scale protect demand while investment spending remains elevated?",
+                                      "longCase":  "Broad reach and strong cash generation can preserve share during a weaker market.",
+                                      "shortCase":  "A sharp advertising slowdown and costly long-term projects can pressure earnings.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A large global business with several major operating lines.",
+                                    "macroContext":  "Higher financing costs and cautious customer budgets are testing companies that invested heavily during the prior expansion.",
+                                    "situation":  "Can a market leader absorb a cyclical slowdown while continuing to fund its next sources of growth?",
+                                    "longCase":  "Scale, liquidity, and entrenched customer relationships can provide resilience.",
+                                    "shortCase":  "A large cost base and long-horizon projects can pressure earnings when near-term demand weakens.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Alphabet. Advertising growth slowed sharply in 2022 while expenses and investment remained high, contributing to weaker reported profitability.",
+                   "funFact":  "The parent company was created in 2015 to hold the core internet business and other long-term ventures.",
+                   "whyItMoved":  [
+                                      "Advertising demand weakened during the economic slowdown.",
+                                      "Operating expenses continued to rise.",
+                                      "Higher interest rates reduced investor appetite for expensive growth stocks."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ GOOGL",
+                        "url":  "https://finance.yahoo.com/quote/GOOGL/history/",
+                        "notes":  "Split-adjusted closes for 2022-01-03 and 2023-01-03; sampled lookback/outcome series and computed price return."
+                    },
+                    {
+                        "label":  "Alphabet SEC filings",
+                        "url":  "https://www.sec.gov/edgar/browse/?CIK=GOOGL\u0026owner=exclude\u0026action=getcompany",
+                        "notes":  "Annual filings covering business model, operating risks, company history, and the reported operating trends summarized in the reveal."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Phase 4B production candidate. Recognition bucket: famous. Authored fact-bank first and Hard first, then Medium/Easy. Payload-only editorial self-check retained the named peer set across difficulties, avoided correct-company dominance on Medium/Hard, kept both calls articulable, and found no unsupported candidate. No authoritative Gate 2 judgment is recorded. Phase-internal clean-Grok rewrite changed hard only: removed the stored judge\u0027s company-pointing conjunctions while keeping concrete long/short tension. Stored Gate 2 evidence is preserved but stale for changed variants; clean rejudge required. Shared title unchanged, so no sibling-only rejudge expansion.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "Alphabet name and GOOGL ticker",
+                                                       "Google",
+                                                       "YouTube",
+                                                       "Android",
+                                                       "Chrome"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "Can dominant consumer services defend advertising demand while funding expensive newer businesses?",
+                                                           "Massive daily usage and measurement data can keep advertisers engaged through a slowdown.",
+                                                           "Cyclical ad budgets, regulation, and heavy investment can compress growth and margins.",
+                                                           "Can a market leader absorb a cyclical slowdown while continuing to fund its next sources of growth?",
+                                                           "Scale, liquidity, and entrenched customer relationships can provide resilience.",
+                                                           "A large cost base and long-horizon projects can pressure earnings when near-term demand weakens."
+                                                       ],
+                                    "prohibited":  [
+                                                       "Google",
+                                                       "YouTube",
+                                                       "Android",
+                                                       "Chrome",
+                                                       "attention platform plus 2022 rate reset",
+                                                       "advertising cyclicality plus premium valuation",
+                                                       "consumer internet plus cloud"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Alphabet",
+                                                                  "Meta Platforms",
+                                                                  "Amazon",
+                                                                  "Microsoft"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Alphabet",
+                                                                    "Meta Platforms",
+                                                                    "Amazon",
+                                                                    "Microsoft",
+                                                                    "Snap"
+                                                                ],
+                                                     "hard":  [
+                                                                  "Amazon",
+                                                                  "Meta Platforms",
+                                                                  "Microsoft",
+                                                                  "Alibaba",
+                                                                  "Alphabet",
+                                                                  "Apple"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "2022 chart silhouette plus company-specific product language",
+                                                                   "Rising interest rates and softer marketing budgets are challenging highly valued growth companies. plus named product or brand",
+                                                                   "Can dominant consumer services defend advertising demand while funding expensive newer businesses? plus GOOGL ticker or company name",
+                                                                   "attention platform plus 2022 rate reset",
+                                                                   "advertising cyclicality plus premium valuation",
+                                                                   "consumer internet plus cloud"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Alphabet",
+                                             "Meta Platforms",
+                                             "Amazon",
+                                             "Microsoft"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Alphabet",
+                                               "Meta Platforms",
+                                               "Amazon",
+                                               "Microsoft"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "Amazon",
+                                             "Meta Platforms",
+                                             "Microsoft",
+                                             "Alibaba"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:7e8e9a6b3d6429811deb5edae6d1548ee978a4f71af3d8377b6f8c4d2509c66d",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Alphabet",
+                                                                  "confidence":  93,
+                                                                  "pointingFact":  "Dominant ad-funded consumer internet platform that also runs a large cloud-computing business."
+                                                              },
+                                                              {
+                                                                  "company":  "Meta Platforms",
+                                                                  "confidence":  46,
+                                                                  "pointingFact":  "Global digital advertising platform with massive daily usage facing 2022 ad and rate pressure."
+                                                              },
+                                                              {
+                                                                  "company":  "Amazon",
+                                                                  "confidence":  28,
+                                                                  "pointingFact":  "Large cloud business plus growing digital ads, though not mainly an attention platform."
+                                                              },
+                                                              {
+                                                                  "company":  "Microsoft",
+                                                                  "confidence":  18,
+                                                                  "pointingFact":  "Cloud scale and some advertising, less centered on consumer attention services."
+                                                              },
+                                                              {
+                                                                  "company":  "Snap",
+                                                                  "confidence":  12,
+                                                                  "pointingFact":  "Ad-funded consumer internet platform hit by marketing budget cuts, without a cloud franchise."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  66,
+                                                                "cue":  "2022 rate shock, softer ad budgets, and heavy newer-business investment point to growth and multiple compression."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:03ed8d09158af5e78a6db201d085e12beebbd38b2cb82c354a0e2d98dc834ded",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-10T04:30:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "Meta Platforms",
+                                                                    "confidence":  74,
+                                                                    "pointingFact":  "Large consumer internet advertiser with elevated long-term investment spend during the 2022 ad and rate reset."
+                                                                },
+                                                                {
+                                                                    "company":  "Alphabet",
+                                                                    "confidence":  58,
+                                                                    "pointingFact":  "Consumer internet plus cloud giant whose ad demand is sensitive to slowing growth and higher financing costs."
+                                                                },
+                                                                {
+                                                                    "company":  "Amazon",
+                                                                    "confidence":  34,
+                                                                    "pointingFact":  "Consumer internet and cloud scale player with heavy investment cycles and advertising exposure."
+                                                                },
+                                                                {
+                                                                    "company":  "Snap",
+                                                                    "confidence":  26,
+                                                                    "pointingFact":  "Ad-funded consumer internet name hit hard when marketers cut budgets in a 2022 slowdown."
+                                                                },
+                                                                {
+                                                                    "company":  "Pinterest",
+                                                                    "confidence":  16,
+                                                                    "pointingFact":  "Consumer attention platform reliant on advertising demand during an inflation-driven spend reset."
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "short",
+                                                                  "confidence":  57,
+                                                                  "cue":  "Payload stresses cautious advertisers plus costly multi-year projects just as rates and growth reset in 2022."
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:e61119eb5b1ff45e499436613c0100e32912ec74490ce946d08228ee9a1d5e44",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Meta Platforms",
+                                                                  "confidence":  58,
+                                                                  "pointingFact":  "2022 attention/ad reset plus heavy next-horizon investment across several major consumer operating lines."
+                                                              },
+                                                              {
+                                                                  "company":  "Alphabet",
+                                                                  "confidence":  40,
+                                                                  "pointingFact":  "Scaled multi-line global leader absorbing an ad and financing reset while funding long-horizon projects."
+                                                              },
+                                                              {
+                                                                  "company":  "Amazon",
+                                                                  "confidence":  34,
+                                                                  "pointingFact":  "Large multi-segment firm that invested heavily in the expansion and faced cost pressure as demand cooled."
+                                                              },
+                                                              {
+                                                                  "company":  "Microsoft",
+                                                                  "confidence":  26,
+                                                                  "pointingFact":  "Cash-rich market leader with entrenched relationships and continued growth spending into a rate shock."
+                                                              },
+                                                              {
+                                                                  "company":  "Disney",
+                                                                  "confidence":  18,
+                                                                  "pointingFact":  "Diversified global operator funding next growth engines while a cyclical and budget-tight environment hits core lines."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "toss_up",
+                                                                "confidence":  50,
+                                                                "cue":  "Scale and liquidity support resilience, but the payload equally stresses a large cost base and long-horizon spend into weaker demand."
+                                                            }
+                                          }
+                             }
+               }
+}

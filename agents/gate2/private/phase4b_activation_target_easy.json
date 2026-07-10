@@ -1,0 +1,11 @@
+{
+  "exportedAt": "2026-07-10T04:32:30.291Z",
+  "entries": [
+    {
+      "judgeId": "blind_0001",
+      "scenarioId": "scenario_target_2021_2022",
+      "difficulty": "easy",
+      "payloadHash": "sha256:5bc26da0f93b351d0af19c72debe3bc092c26a2b5ee97cf37720f21ccdaf3a3d"
+    }
+  ]
+}

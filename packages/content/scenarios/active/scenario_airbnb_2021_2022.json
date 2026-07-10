@@ -1,0 +1,304 @@
+{
+    "id":  "scenario_airbnb_2021_2022",
+    "status":  "active",
+    "company":  {
+                    "name":  "Airbnb",
+                    "ticker":  "ABNB",
+                    "exchange":  "NASDAQ",
+                    "sector":  "Consumer Cyclical",
+                    "industry":  "Travel Services",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "airbnb"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Airbnb Experiences",
+                                                "Belong Anywhere"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Open Calendar",
+                     "decisionDate":  "2021-02-16",
+                     "endDate":  "2022-02-16",
+                     "decisionDateLabel":  "Early 2021",
+                     "outcomeLabel":  "Early 2021 to early 2022",
+                     "holdingPeriodLabel":  "One year",
+                     "era":  "Pandemic reopening uncertainty",
+                     "eraId":  "pandemic_winners_losers",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "phase_4b_wave"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  209.86,
+                       "endingPrice":  186.64,
+                       "actualReturnPercent":  -0.1106,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2020-12-10",
+                       "preDecisionChartEndDate":  "2021-02-16",
+                       "outcomeChartStartDate":  "2021-02-16",
+                       "outcomeChartEndDate":  "2022-02-16",
+                       "lookbackPrices":  [
+                                              144.71,
+                                              163.02,
+                                              146.8,
+                                              169.99,
+                                              177.53,
+                                              185.72,
+                                              209.86
+                                          ],
+                       "outcomePrices":  [
+                                             209.86,
+                                             178.69,
+                                             149.15,
+                                             143.9,
+                                             169.18,
+                                             168.14,
+                                             186.64
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A global online marketplace for short-term stays supplied by individual property owners and professional operators.",
+                                    "macroContext":  "Vaccination campaigns are improving travel expectations, but border rules and urban demand remain uneven.",
+                                    "situation":  "Can an asset-light travel marketplace convert pent-up demand into durable booking growth?",
+                                    "longCase":  "A broad supply base and flexible trip patterns could capture travelers before traditional lodging fully recovers.",
+                                    "shortCase":  "Uneven reopening, local restrictions, and a rich valuation could outweigh the rebound in bookings.",
+                                    "setupHints":  [
+                                                       "The platform earns service fees from both sides of a lodging reservation."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A consumer platform coordinating demand with independently supplied capacity.",
+                                      "macroContext":  "A disrupted service market is recovering unevenly while customer patterns remain unsettled.",
+                                      "situation":  "Can flexible capacity produce durable network gains as activity returns?",
+                                      "longCase":  "A larger participant base can improve availability and utilization without requiring heavy asset ownership.",
+                                      "shortCase":  "Uneven service quality, participant acquisition costs, and local restrictions can limit operating leverage.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A consumer platform dependent on third-party capacity.",
+                                    "macroContext":  "Demand is recovering unevenly after a broad disruption, while prior usage patterns remain uncertain.",
+                                    "situation":  "Can the network balance returning demand with enough reliable capacity to improve economics?",
+                                    "longCase":  "More participation can improve matching and utilization while keeping fixed investment limited.",
+                                    "shortCase":  "Quality control, local constraints, and costly participant incentives can prevent durable margins.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Airbnb. Travel demand recovered, but uneven cross-border and urban reopening kept the rebound from producing a clean one-year win.",
+                   "funFact":  "Airbnb reported more than four million hosts on its platform at the end of 2021.",
+                   "whyItMoved":  [
+                                      "Nights and experiences booked rebounded as travel restrictions eased.",
+                                      "Cross-border and urban travel recovered more slowly than nearby and non-urban trips.",
+                                      "Regulatory exposure and high growth expectations kept execution risk elevated."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ ABNB",
+                        "url":  "https://finance.yahoo.com/quote/ABNB/history/",
+                        "notes":  "Split-adjusted closes for 2021-02-16 and 2022-02-16, chart samples, and calculated price return."
+                    },
+                    {
+                        "label":  "Airbnb 2021 Form 10-K Ã¢â‚¬â€ SEC EDGAR",
+                        "url":  "https://www.sec.gov/edgar/browse/?CIK=ABNB\u0026owner=exclude",
+                        "notes":  "Host count, booking recovery, travel mix, regulatory exposure, and material reveal claims."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Famous bucket. Stored Grok evidence identified the travel-plus-fragmented-supply conjunction on Medium and the two-sided reopening marketplace on Hard. Both variants now use third-party capacity, matching, utilization, quality, and local-cost tensions that also fit mobility, delivery, and booking peers. Easy is unchanged. Stored M/H Gate 2 results are retained as adversarial evidence and are stale pending blind rejudge.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "Airbnb name and ticker",
+                                                       "2020 initial public offering",
+                                                       "exact host count"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "third-party capacity network",
+                                                           "matching and utilization",
+                                                           "uneven service-demand recovery",
+                                                           "local operating constraints",
+                                                           "participant acquisition and quality costs"
+                                                       ],
+                                    "prohibited":  [
+                                                       "initial public offering language",
+                                                       "signature brand slogan",
+                                                       "named service categories unique to the company"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Airbnb",
+                                                                  "Booking Holdings",
+                                                                  "Expedia",
+                                                                  "Tripadvisor"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Booking Holdings",
+                                                                    "Airbnb",
+                                                                    "Expedia",
+                                                                    "Trip.com"
+                                                                ],
+                                                     "hard":  [
+                                                                  "Booking Holdings",
+                                                                  "Expedia",
+                                                                  "Tripadvisor",
+                                                                  "Marriott",
+                                                                  "Airbnb"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "short post-listing chart plus travel or lodging marketplace language",
+                                                                   "2021 reopening plus exact host count",
+                                                                   "two-sided consumer marketplace plus fragmented lodging supply"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Airbnb",
+                                             "Booking Holdings",
+                                             "Expedia",
+                                             "Tripadvisor"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Booking Holdings",
+                                               "Uber",
+                                               "Expedia",
+                                               "DoorDash"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "Uber",
+                                             "DoorDash",
+                                             "Booking Holdings",
+                                             "Lyft"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:2e7024a6b6f7477a7f9c49eabfc0f7b952021031e51b19abe6bb639abd2f5eb5",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Airbnb",
+                                                                  "confidence":  95,
+                                                                  "pointingFact":  "Global asset-light marketplace for short-term stays from hosts and operators is the core model."
+                                                              },
+                                                              {
+                                                                  "company":  "Booking Holdings",
+                                                                  "confidence":  38,
+                                                                  "pointingFact":  "Major online lodging marketplace earning fees on reservations worldwide."
+                                                              },
+                                                              {
+                                                                  "company":  "Expedia Group",
+                                                                  "confidence":  32,
+                                                                  "pointingFact":  "Online travel platform with alternative-accommodation supply and booking fees."
+                                                              },
+                                                              {
+                                                                  "company":  "Tripadvisor",
+                                                                  "confidence":  14,
+                                                                  "pointingFact":  "Travel marketplace exposure to stays and experiences around reopening demand."
+                                                              },
+                                                              {
+                                                                  "company":  "Marriott International",
+                                                                  "confidence":  10,
+                                                                  "pointingFact":  "Global lodging brand, but asset-heavy and not primarily host-supplied inventory."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  52,
+                                                                "cue":  "Early-2021 vaccine-driven travel rebound and flexible trip patterns support durable booking growth despite uneven borders."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:c2930373f1e13f8f6b00dc73394cb318ad82e2bb8df3df06e6a25c61db1cb981",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "Airbnb",
+                                                                    "confidence":  72,
+                                                                    "pointingFact":  "Consumer platform matching travelers with independently supplied host capacity; Ã¢â‚¬Å“Open CalendarÃ¢â‚¬Â and pandemic reopening map cleanly to hosts reactivating inventory."
+                                                                },
+                                                                {
+                                                                    "company":  "Uber",
+                                                                    "confidence":  44,
+                                                                    "pointingFact":  "Asset-light marketplace coordinating consumer demand with independent driver capacity during uneven 2021 recovery."
+                                                                },
+                                                                {
+                                                                    "company":  "Booking Holdings",
+                                                                    "confidence":  32,
+                                                                    "pointingFact":  "Travel platform coordinating demand with third-party lodging supply as calendars reopen after pandemic disruption."
+                                                                },
+                                                                {
+                                                                    "company":  "Expedia Group",
+                                                                    "confidence":  26,
+                                                                    "pointingFact":  "Consumer travel intermediary dependent on supplier capacity returning as service markets reopen unevenly."
+                                                                },
+                                                                {
+                                                                    "company":  "Lyft",
+                                                                    "confidence":  18,
+                                                                    "pointingFact":  "Rides marketplace with flexible independent capacity and reopening-driven utilization uncertainty in early 2021."
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "long",
+                                                                  "confidence":  61,
+                                                                  "cue":  "Early-2021 reopening setup plus rising lookback prices favor network gains from a larger participant base without heavy asset ownership."
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:acbb7bc36bca8b910b3919849f2f053335b806d248f4a9ddbe048c5a18aa5678",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Airbnb",
+                                                                  "confidence":  56,
+                                                                  "pointingFact":  "Consumer booking platform dependent on third-party host capacity during uneven pandemic reopening."
+                                                              },
+                                                              {
+                                                                  "company":  "Uber",
+                                                                  "confidence":  42,
+                                                                  "pointingFact":  "Marketplace matching riders to third-party drivers with utilization and incentive-cost tensions."
+                                                              },
+                                                              {
+                                                                  "company":  "Booking Holdings",
+                                                                  "confidence":  36,
+                                                                  "pointingFact":  "Travel platform monetizing open lodging inventory as demand returned unevenly after disruption."
+                                                              },
+                                                              {
+                                                                  "company":  "Expedia Group",
+                                                                  "confidence":  30,
+                                                                  "pointingFact":  "Consumer travel intermediary reliant on partner supply and recovering booking calendars."
+                                                              },
+                                                              {
+                                                                  "company":  "Lyft",
+                                                                  "confidence":  24,
+                                                                  "pointingFact":  "Asset-light mobility network whose economics hinge on reliable third-party driver capacity."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "toss_up",
+                                                                "confidence":  48,
+                                                                "cue":  "Reopening demand is constructive, but prices already ran hard and capacity, quality, and incentive costs remain unresolved."
+                                                            }
+                                          }
+                             }
+               }
+}

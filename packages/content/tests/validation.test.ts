@@ -14,7 +14,7 @@ import type { Gate2Guess, Gate2VariantResult, Scenario } from '../src/types';
 function loadActiveNetflix(): Scenario {
   const path = resolve(
     __dirname,
-    '../scenarios/active/scenario_netflix_2012_2017.json',
+    '../scenarios/archived/scenario_netflix_2012_2017.json',
   );
   return JSON.parse(readFileSync(path, 'utf8')) as Scenario;
 }
@@ -510,4 +510,3 @@ describe('validateScenario Gate 2 stored results (H021)', () => {
     expect(errors.some((f) => f.path.endsWith('.promptVersion'))).toBe(true);
   });
 });
-

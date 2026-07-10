@@ -1,0 +1,309 @@
+{
+    "id":  "scenario_fastly_2020_2021",
+    "status":  "active",
+    "company":  {
+                    "name":  "Fastly",
+                    "ticker":  "FSLY",
+                    "exchange":  "NYSE",
+                    "sector":  "Information Technology",
+                    "industry":  "IT Services",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "fastly",
+                                          "fastly inc"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Fastly",
+                                                "edge cloud",
+                                                "CDN"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Operating Leverage",
+                     "decisionDate":  "2020-01-02",
+                     "endDate":  "2021-01-04",
+                     "decisionDateLabel":  "Early 2020",
+                     "outcomeLabel":  "Early 2020 to early 2021",
+                     "holdingPeriodLabel":  "About one year",
+                     "era":  "Pandemic-era disruption",
+                     "eraId":  "pandemic_era",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "part_b_batch_1"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  21.5,
+                       "endingPrice":  86.14,
+                       "actualReturnPercent":  3.006,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2019-05-17",
+                       "preDecisionChartEndDate":  "2020-01-02",
+                       "outcomeChartStartDate":  "2020-01-02",
+                       "outcomeChartEndDate":  "2021-01-04",
+                       "lookbackPrices":  [
+                                              19,
+                                              21,
+                                              18,
+                                              20,
+                                              22,
+                                              24,
+                                              21.5
+                                          ],
+                       "outcomePrices":  [
+                                             21.5,
+                                             19,
+                                             25,
+                                             40,
+                                             75,
+                                             95,
+                                             86.14
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A cloud infrastructure provider that helps online services deliver data quickly and safely to users.",
+                                    "macroContext":  "Internet traffic is growing quickly as work, entertainment, and commerce move online, but large customers can have outsized influence on young providers.",
+                                    "situation":  "Can a network-services specialist convert surging customer traffic into durable revenue before concentration and larger rivals weaken its position?",
+                                    "longCase":  "More online activity can increase usage-based revenue and make performance services more valuable to digital customers.",
+                                    "shortCase":  "Reliance on a few large accounts and competition from broader cloud platforms can make growth volatile.",
+                                    "setupHints":  [
+                                                       "Customers use the service to improve the speed and reliability of online applications."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A specialist digital-infrastructure supplier.",
+                                      "macroContext":  "Online demand is rising quickly while large vendors bundle more capabilities into broad contracts.",
+                                      "situation":  "Can variable customer demand create operating leverage before account concentration and bundling limit growth?",
+                                      "longCase":  "Automated capacity can process more workload without proportional growth in customer-acquisition expense.",
+                                      "shortCase":  "A few large accounts and integrated rivals can make revenue volatile and weaken pricing power.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A metered business-technology provider.",
+                                    "macroContext":  "Customers need more digital capacity while procurement teams favor fewer strategic suppliers.",
+                                    "situation":  "Can higher customer activity improve unit economics before concentration becomes a constraint?",
+                                    "longCase":  "Automated delivery can absorb more workload with limited incremental selling expense.",
+                                    "shortCase":  "Concentrated demand and bundled substitutes can reverse gains when a major account changes course.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Fastly. Surging online traffic increased demand for its network services, though the business remained sensitive to large customers.",
+                   "funFact":  "The companyÃ¢â‚¬â„¢s revenue is primarily usage based, so customer traffic can affect reported growth quickly.",
+                   "whyItMoved":  [
+                                      "Online activity increased demand for network-performance services.",
+                                      "Usage-based revenue grew with customer traffic.",
+                                      "Investors recognized both the growth opportunity and customer-concentration risk."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ FSLY",
+                        "url":  "https://finance.yahoo.com/quote/FSLY/history/",
+                        "notes":  "Split-adjusted closes for 2020-01-02 and 2021-01-04; chart series and return."
+                    },
+                    {
+                        "label":  "Fastly 2020 Form 10-K",
+                        "url":  "https://www.sec.gov/Archives/edgar/data/1517413/000156459121006536/fsly-10k_20201231.htm",
+                        "notes":  "Usage-based revenue, customer concentration, internet traffic demand, services, and competition."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Obscure; adversarial rewrite from clean stored Grok evidence. Changed Medium and Hard plus the identifying Traffic Test title, making all sibling payloads require rejudge. Removed traffic, edge/CDN, internet-demand, usage-revenue, speed, and network-specialist conjunctions. New metered-capacity versus concentration tension fits Twilio, DigitalOcean, Snowflake, Cloudflare, Akamai, and Fastly. Stored review.gate2 is preserved but stale by hash.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "Fastly name/ticker",
+                                                       "technical category labels",
+                                                       "specific large-customer names"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "metered customer demand",
+                                                           "automated capacity",
+                                                           "account concentration",
+                                                           "bundled competition",
+                                                           "operating leverage"
+                                                       ],
+                                    "prohibited":  [
+                                                       "edge-network language",
+                                                       "content-delivery terminology",
+                                                       "named large customer",
+                                                       "speed and reliability branding"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Fastly",
+                                                                  "Cloudflare",
+                                                                  "Akamai",
+                                                                  "DigitalOcean"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Twilio",
+                                                                    "DigitalOcean",
+                                                                    "Cloudflare",
+                                                                    "Fastly"
+                                                                ],
+                                                     "hard":  [
+                                                                  "Snowflake",
+                                                                  "Twilio",
+                                                                  "DigitalOcean",
+                                                                  "Cloudflare",
+                                                                  "Fastly"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "2020 spike chart plus edge-network wording",
+                                                                   "traffic surge plus named large customer",
+                                                                   "speed-and-reliability phrase plus delivery acronym",
+                                                                   "online-demand surge plus specialist network",
+                                                                   "usage revenue plus customer traffic"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Fastly",
+                                             "Cloudflare",
+                                             "Akamai",
+                                             "Zscaler"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Twilio",
+                                               "DigitalOcean",
+                                               "Cloudflare",
+                                               "Fastly"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "Snowflake",
+                                             "Twilio",
+                                             "DigitalOcean",
+                                             "Cloudflare"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:a07a8669de5f7aeb9618ca6fab75a84feb88417065e455c3537df167d3341e76",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:30:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Fastly",
+                                                                  "confidence":  72,
+                                                                  "pointingFact":  "Young network-services specialist monetizing traffic speed/reliability with known large-account concentration risk"
+                                                              },
+                                                              {
+                                                                  "company":  "Cloudflare",
+                                                                  "confidence":  68,
+                                                                  "pointingFact":  "Cloud infrastructure/network provider helping apps deliver content quickly and safely as traffic surges"
+                                                              },
+                                                              {
+                                                                  "company":  "Akamai Technologies",
+                                                                  "confidence":  36,
+                                                                  "pointingFact":  "Established CDN/performance network improving online application speed and reliability"
+                                                              },
+                                                              {
+                                                                  "company":  "Limelight Networks",
+                                                                  "confidence":  22,
+                                                                  "pointingFact":  "Smaller content-delivery network competing on performance services for digital customers"
+                                                              },
+                                                              {
+                                                                  "company":  "F5",
+                                                                  "confidence":  16,
+                                                                  "pointingFact":  "Application delivery and security networking vendor tied to online service performance"
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "toss_up",
+                                                                "confidence":  54,
+                                                                "cue":  "Traffic-driven usage growth is offset by customer concentration and larger cloud-platform competitive pressure"
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:237923628c3894441e45a2bf822bb68675ed2fd74a9d54315052bd3ba70a16b7",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "Fastly",
+                                                                    "confidence":  44,
+                                                                    "pointingFact":  "Specialist digital infrastructure with automated capacity, operating leverage, and known large-account concentration risk"
+                                                                },
+                                                                {
+                                                                    "company":  "Cloudflare",
+                                                                    "confidence":  40,
+                                                                    "pointingFact":  "Specialist edge/digital-infrastructure supplier where rising online demand can add workload without proportional cost growth"
+                                                                },
+                                                                {
+                                                                    "company":  "Akamai",
+                                                                    "confidence":  26,
+                                                                    "pointingFact":  "Established CDN/digital-infrastructure specialist facing bundling from broader cloud and security vendors"
+                                                                },
+                                                                {
+                                                                    "company":  "Twilio",
+                                                                    "confidence":  24,
+                                                                    "pointingFact":  "Specialist digital communications infrastructure with usage-based leverage and large-customer concentration risk"
+                                                                },
+                                                                {
+                                                                    "company":  "Datadog",
+                                                                    "confidence":  18,
+                                                                    "pointingFact":  "Digital-infrastructure software benefiting from online demand scale while competing with bundled large-vendor suites"
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "long",
+                                                                  "confidence":  56,
+                                                                  "cue":  "Early-2020 online demand surge can create operating leverage on automated capacity before bundling fully bites"
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:a4d57fce25c68ac006d6f4b9131d1619bdc75d639ecf2e1d039454afb6d53651",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Twilio",
+                                                                  "confidence":  46,
+                                                                  "pointingFact":  "Usage-metered communications platform whose automated delivery scales with customer activity and has account concentration risk"
+                                                              },
+                                                              {
+                                                                  "company":  "Cloudflare",
+                                                                  "confidence":  33,
+                                                                  "pointingFact":  "Metered internet infrastructure provider absorbing more digital workload with limited incremental selling cost"
+                                                              },
+                                                              {
+                                                                  "company":  "Fastly",
+                                                                  "confidence":  31,
+                                                                  "pointingFact":  "Usage-based edge platform with operating leverage on traffic growth and known major-account concentration risk"
+                                                              },
+                                                              {
+                                                                  "company":  "MongoDB",
+                                                                  "confidence":  24,
+                                                                  "pointingFact":  "Business-technology platform with consumption-linked cloud usage and competition from broader database suites"
+                                                              },
+                                                              {
+                                                                  "company":  "Elastic",
+                                                                  "confidence":  20,
+                                                                  "pointingFact":  "Metered enterprise search/observability software benefiting from digital capacity needs and vendor consolidation pressure"
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  54,
+                                                                "cue":  "Higher customer activity on automated, metered delivery should expand unit economics during a digital-capacity surge"
+                                                            }
+                                          }
+                             }
+               }
+}

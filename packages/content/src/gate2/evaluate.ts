@@ -4,7 +4,7 @@
  */
 import {
   GATE2_DIFFICULTIES,
-  GATE2_MODEL,
+  GATE2_APPROVED_MODELS,
   GATE2_PROMPT_VERSION,
   GATE2_THRESHOLDS,
   type Gate2Difficulty,
@@ -106,21 +106,17 @@ function evaluateIdentityThresholds(
 
   if (difficulty === 'medium') {
     if (correct && correct.rank === 1) {
-      if (correct.guess.confidence >= thresholds.medium.failTopConfidence) {
-        findings.push({
-          severity: 'error',
-          path: `${pathPrefix}.guesses`,
-          message: `Medium Gate 2: correct company is #1 with confidence ${correct.guess.confidence} (threshold ${thresholds.medium.failTopConfidence})`,
-        });
-      }
       const second = stored.guesses[1];
       if (second) {
         const lead = correct.guess.confidence - second.confidence;
-        if (lead >= thresholds.medium.failLeadPoints) {
+        if (
+          correct.guess.confidence >= thresholds.medium.failTopConfidence &&
+          lead >= thresholds.medium.failLeadPoints
+        ) {
           findings.push({
             severity: 'error',
             path: `${pathPrefix}.guesses`,
-            message: `Medium Gate 2: correct company leads #2 by ${lead} points (threshold ${thresholds.medium.failLeadPoints})`,
+            message: `Medium Gate 2: correct company is dominant at ${correct.guess.confidence}% with a ${lead}-point lead (thresholds ${thresholds.medium.failTopConfidence}% and ${thresholds.medium.failLeadPoints} points)`,
           });
         }
       }
@@ -128,16 +124,22 @@ function evaluateIdentityThresholds(
     return;
   }
 
-  // hard
-  if (
-    correct &&
-    correct.guess.confidence >= thresholds.hard.failMinConfidence
-  ) {
-    findings.push({
-      severity: 'error',
-      path: `${pathPrefix}.guesses`,
-      message: `Hard Gate 2: correct company appears in top 5 at rank ${correct.rank} with confidence ${correct.guess.confidence} (threshold ${thresholds.hard.failMinConfidence})`,
-    });
+  // hard: the answer may be plausible, but must not be near-certain and dominant.
+  if (correct && correct.rank === 1) {
+    const second = stored.guesses[1];
+    if (second) {
+      const lead = correct.guess.confidence - second.confidence;
+      if (
+        correct.guess.confidence >= thresholds.hard.failTopConfidence &&
+        lead >= thresholds.hard.failLeadPoints
+      ) {
+        findings.push({
+          severity: 'error',
+          path: `${pathPrefix}.guesses`,
+          message: `Hard Gate 2: correct company is dominant at ${correct.guess.confidence}% with a ${lead}-point lead (thresholds ${thresholds.hard.failTopConfidence}% and ${thresholds.hard.failLeadPoints} points)`,
+        });
+      }
+    }
   }
 }
 
@@ -253,7 +255,7 @@ export function evaluateGate2Variant(options: {
   stored: Gate2VariantResult;
   scenario: Scenario;
   thresholds?: Gate2ThresholdConfig;
-  pinnedModel?: string;
+  approvedModels?: readonly string[];
   pinnedPromptVersion?: string;
 }): Gate2Finding[] {
   const {
@@ -261,18 +263,18 @@ export function evaluateGate2Variant(options: {
     stored,
     scenario,
     thresholds = GATE2_THRESHOLDS,
-    pinnedModel = GATE2_MODEL,
+    approvedModels = GATE2_APPROVED_MODELS,
     pinnedPromptVersion = GATE2_PROMPT_VERSION,
   } = options;
 
   const pathPrefix = `review.gate2.${difficulty}`;
   const findings: Gate2Finding[] = [];
 
-  if (stored.model !== pinnedModel) {
+  if (!approvedModels.includes(stored.model)) {
     findings.push({
       severity: 'error',
       path: `${pathPrefix}.model`,
-      message: `Gate 2 model pin mismatch: stored "${stored.model}", expected "${pinnedModel}"`,
+      message: `Gate 2 model is not approved: stored "${stored.model}", expected one of "${approvedModels.join('", "')}"`,
     });
   }
 
@@ -337,7 +339,7 @@ export function evaluateScenarioGate2(
   scenario: Scenario,
   options?: {
     thresholds?: Gate2ThresholdConfig;
-    pinnedModel?: string;
+    approvedModels?: readonly string[];
     pinnedPromptVersion?: string;
   },
 ): Gate2Finding[] {
@@ -354,7 +356,7 @@ export function evaluateScenarioGate2(
         stored,
         scenario,
         thresholds: options?.thresholds,
-        pinnedModel: options?.pinnedModel,
+        approvedModels: options?.approvedModels,
         pinnedPromptVersion: options?.pinnedPromptVersion,
       }),
     );

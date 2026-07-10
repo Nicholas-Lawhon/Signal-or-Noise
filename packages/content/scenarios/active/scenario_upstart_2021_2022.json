@@ -1,0 +1,324 @@
+{
+    "id":  "scenario_upstart_2021_2022",
+    "status":  "active",
+    "company":  {
+                    "name":  "Upstart Holdings",
+                    "ticker":  "UPST",
+                    "exchange":  "NASDAQ",
+                    "sector":  "Financials",
+                    "industry":  "Consumer Finance",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "upstart holdings",
+                                          "upstart"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Upstart",
+                                                "AI lending",
+                                                "Upstart Auto",
+                                                "FICO"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Model Cycle",
+                     "decisionDate":  "2021-01-04",
+                     "endDate":  "2022-01-03",
+                     "decisionDateLabel":  "2021",
+                     "outcomeLabel":  "2021 to 2022",
+                     "holdingPeriodLabel":  "About one year",
+                     "era":  "Post-pandemic reopening",
+                     "eraId":  "reopening_era",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "part_b_phase_campaign"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  43.99,
+                       "endingPrice":  144.66,
+                       "actualReturnPercent":  2.2885,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2020-12-16",
+                       "preDecisionChartEndDate":  "2021-01-04",
+                       "outcomeChartStartDate":  "2021-01-04",
+                       "outcomeChartEndDate":  "2022-01-03",
+                       "lookbackPrices":  [
+                                              29.47,
+                                              44.09,
+                                              41.1,
+                                              46.32,
+                                              43.96,
+                                              40.75,
+                                              38.87,
+                                              43.99
+                                          ],
+                       "outcomePrices":  [
+                                             43.99,
+                                             68.52,
+                                             97.55,
+                                             152.43,
+                                             120.76,
+                                             320.77,
+                                             256.59,
+                                             144.66
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A technology platform that helps banks evaluate unsecured consumer loans using automated models.",
+                                    "macroContext":  "Credit demand is recovering as stimulus and low rates reshape household borrowing and lender risk appetite.",
+                                    "situation":  "Can a newer underwriting approach prove itself across a full credit cycle while partner banks scale originations?",
+                                    "longCase":  "Better risk selection and automated approvals can attract lenders and borrowers to the platform.",
+                                    "shortCase":  "Model drift, funding dependence, regulation, and an untested downturn can expose hidden credit risk.",
+                                    "setupHints":  [
+                                                       "The company earns fees from partner-originated loans rather than intending to hold most loans long term."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A fee-based financial technology platform that helps institutions evaluate customer applications.",
+                                      "macroContext":  "Unusual financing conditions are supporting rapid transaction growth while leaving newer analytical approaches lightly tested.",
+                                      "situation":  "Can automated evaluation scale before the cycle tests its assumptions?",
+                                      "longCase":  "Faster decisions and partner expansion can drive volume without a traditional physical network.",
+                                      "shortCase":  "Funding shifts and limited downturn history can expose fragile model performance.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "An asset-light financial services intermediary.",
+                                    "macroContext":  "Benign conditions are supporting rapid volume while newer analytical methods remain lightly tested.",
+                                    "situation":  "Can data-driven selection stay reliable when funding markets and customer behavior normalize?",
+                                    "longCase":  "Automation can lower acquisition and processing costs as partners expand volume.",
+                                    "shortCase":  "A cycle change can weaken model accuracy, funding access, and demand at the same time.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Upstart. Loan originations and fee revenue grew rapidly during 2021 as bank and credit-union partners expanded use of the platform.",
+                   "funFact":  "The company was founded in 2012 and completed its public offering in December 2020.",
+                   "whyItMoved":  [
+                                      "Partner loan originations increased sharply.",
+                                      "Fee revenue scaled with transaction volume.",
+                                      "Strong credit and funding conditions supported rapid platform adoption."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ UPST",
+                        "url":  "https://finance.yahoo.com/quote/UPST/history/",
+                        "notes":  "Split-adjusted closes for 2021-01-04 and 2022-01-03; sampled lookback/outcome series and computed price return."
+                    },
+                    {
+                        "label":  "Upstart Holdings SEC filings",
+                        "url":  "https://www.sec.gov/edgar/browse/?CIK=UPST\u0026owner=exclude\u0026action=getcompany",
+                        "notes":  "Annual filings covering business model, operating risks, company history, and the reported operating trends summarized in the reveal."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Phase 4B production candidate. Recognition bucket: obscure. Authored fact-bank first and Hard first, then Medium/Easy. Payload-only editorial self-check retained the named peer set across difficulties, avoided correct-company dominance on Medium/Hard, kept both calls articulable, and found no unsupported candidate. No authoritative Gate 2 judgment is recorded. Phase-internal clean-Grok rewrite changed medium/hard only: removed the stored judge\u0027s company-pointing conjunctions while keeping concrete long/short tension. Stored Gate 2 evidence is preserved but stale for changed variants; clean rejudge required. Shared title unchanged, so no sibling-only rejudge expansion.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "Upstart Holdings name and UPST ticker",
+                                                       "Upstart",
+                                                       "AI lending",
+                                                       "Upstart Auto",
+                                                       "FICO"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "Can a newer underwriting approach prove itself across a full credit cycle while partner banks scale originations?",
+                                                           "Better risk selection and automated approvals can attract lenders and borrowers to the platform.",
+                                                           "Model drift, funding dependence, regulation, and an untested downturn can expose hidden credit risk.",
+                                                           "Can automated evaluation scale before the cycle tests its assumptions?",
+                                                           "Faster decisions and partner expansion can drive volume without a traditional physical network.",
+                                                           "Funding shifts and limited downturn history can expose fragile model performance.",
+                                                           "Can data-driven selection stay reliable when funding markets and customer behavior normalize?",
+                                                           "Automation can lower acquisition and processing costs as partners expand volume.",
+                                                           "A cycle change can weaken model accuracy, funding access, and demand at the same time."
+                                                       ],
+                                    "prohibited":  [
+                                                       "Upstart",
+                                                       "AI lending",
+                                                       "Upstart Auto",
+                                                       "FICO",
+                                                       "AI lending marketplace",
+                                                       "borrower-bank matching plus fee revenue",
+                                                       "underwriting model plus benign credit cycle"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Upstart Holdings",
+                                                                  "LendingClub",
+                                                                  "SoFi Technologies",
+                                                                  "Pagaya Technologies"
+                                                              ],
+                                                     "medium":  [
+                                                                    "LendingTree",
+                                                                    "LendingClub",
+                                                                    "Fair Isaac",
+                                                                    "Upstart Holdings",
+                                                                    "SoFi Technologies"
+                                                                ],
+                                                     "hard":  [
+                                                                  "LendingClub",
+                                                                  "Affirm",
+                                                                  "SoFi Technologies",
+                                                                  "Fair Isaac",
+                                                                  "Upstart Holdings",
+                                                                  "Block"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "2021 chart silhouette plus company-specific product language",
+                                                                   "Credit demand is recovering as stimulus and low rates reshape household borrowing and lender risk appetite. plus named product or brand",
+                                                                   "Can a newer underwriting approach prove itself across a full credit cycle while partner banks scale originations? plus UPST ticker or company name",
+                                                                   "AI lending marketplace",
+                                                                   "borrower-bank matching plus fee revenue",
+                                                                   "underwriting model plus benign credit cycle"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Upstart Holdings",
+                                             "LendingClub",
+                                             "SoFi Technologies",
+                                             "Pagaya Technologies"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "LendingTree",
+                                               "LendingClub",
+                                               "Fair Isaac",
+                                               "Upstart Holdings"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "LendingClub",
+                                             "Affirm",
+                                             "SoFi Technologies",
+                                             "Fair Isaac"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:37b7b5d8b42c27420246823f4b99fabcc122dcfb3d2afdc94578359c9ba4449f",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Upstart",
+                                                                  "confidence":  84,
+                                                                  "pointingFact":  "AI/automated underwriting platform that earns fees on partner bank unsecured consumer loans rather than holding most credit."
+                                                              },
+                                                              {
+                                                                  "company":  "LendingClub",
+                                                                  "confidence":  40,
+                                                                  "pointingFact":  "Marketplace for consumer loans with bank/partner distribution, less pure automated bank-underwriting platform."
+                                                              },
+                                                              {
+                                                                  "company":  "SoFi",
+                                                                  "confidence":  28,
+                                                                  "pointingFact":  "Tech-enabled consumer lending platform, but more balance-sheet and multi-product finance than fee-only bank models."
+                                                              },
+                                                              {
+                                                                  "company":  "Affirm",
+                                                                  "confidence":  22,
+                                                                  "pointingFact":  "Automated consumer credit decisioning at checkout, not mainly bank unsecured personal-loan partners."
+                                                              },
+                                                              {
+                                                                  "company":  "Enova",
+                                                                  "confidence":  12,
+                                                                  "pointingFact":  "Online consumer credit with models and partners, more specialty lender than bank decisioning platform."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  58,
+                                                                "cue":  "Elevated lookback into 2021 leaves the untested credit-cycle, funding, and model-drift risks poorly priced if conditions tighten."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:7a4b2254e49ef9c4b12b6b5790ea2b2d43f8926c119484d710a28eb2ea332d89",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "Upstart",
+                                                                    "confidence":  74,
+                                                                    "pointingFact":  "Fee-based AI underwriting for bank/credit partners with models lightly tested outside easy financing conditions."
+                                                                },
+                                                                {
+                                                                    "company":  "Affirm",
+                                                                    "confidence":  36,
+                                                                    "pointingFact":  "Fintech decisioning platform scaling application approvals under unusual credit and funding conditions."
+                                                                },
+                                                                {
+                                                                    "company":  "LendingClub",
+                                                                    "confidence":  31,
+                                                                    "pointingFact":  "Marketplace lending/underwriting model exposed when funding costs rise and credit assumptions break."
+                                                                },
+                                                                {
+                                                                    "company":  "SoFi",
+                                                                    "confidence":  24,
+                                                                    "pointingFact":  "Financial technology platform expanding automated consumer credit evaluation without a branch network."
+                                                                },
+                                                                {
+                                                                    "company":  "Lemonade",
+                                                                    "confidence":  17,
+                                                                    "pointingFact":  "Automated application evaluation fintech with limited hard-cycle history and partner-driven distribution."
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "short",
+                                                                  "confidence":  67,
+                                                                  "cue":  "2021 decision into a holding period where funding regime shifts can expose untested automated underwriting assumptions."
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:798efc84931afafe9f3e7a56b74eac228cb57276db03518a2102324f669e7fab",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Upstart",
+                                                                  "confidence":  56,
+                                                                  "pointingFact":  "2021 fintech intermediary built on lightly tested data-driven credit selection amid easy funding"
+                                                              },
+                                                              {
+                                                                  "company":  "Affirm",
+                                                                  "confidence":  32,
+                                                                  "pointingFact":  "Asset-light consumer credit intermediary whose models and funding access are highly cycle-sensitive"
+                                                              },
+                                                              {
+                                                                  "company":  "LendingClub",
+                                                                  "confidence":  26,
+                                                                  "pointingFact":  "Marketplace lending intermediary dependent on volume, model performance, and partner funding"
+                                                              },
+                                                              {
+                                                                  "company":  "SoFi",
+                                                                  "confidence":  22,
+                                                                  "pointingFact":  "Asset-light financial intermediary scaling volume under benign post-pandemic credit conditions"
+                                                              },
+                                                              {
+                                                                  "company":  "Lemonade",
+                                                                  "confidence":  14,
+                                                                  "pointingFact":  "Data-driven financial intermediary where untested models can fail when customer behavior normalizes"
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  68,
+                                                                "cue":  "Benign 2021 volume plus untested models set up simultaneous hits to accuracy, funding, and demand"
+                                                            }
+                                          }
+                             }
+               }
+}

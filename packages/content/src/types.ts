@@ -7,6 +7,31 @@ export type ScenarioStatus =
 
 export type Difficulty = 'easy' | 'medium' | 'hard';
 
+export type RecognitionBucket = 'famous' | 'moderate' | 'obscure';
+
+export type ProductionScenarioInventoryEntry = {
+  scenarioId: string;
+  recognitionBucket: RecognitionBucket;
+};
+
+export type DailyChallengePoolEntry = {
+  scenarioId: string;
+  difficulty: Difficulty;
+};
+
+export type DailyChallengePool = {
+  id: string;
+  name: string;
+  startingBankroll: number;
+  scenarios: DailyChallengePoolEntry[];
+};
+
+export type MarketEra = {
+  id: string;
+  name: string;
+  description: string;
+};
+
 export type Company = {
   name: string;
   ticker: string;
@@ -130,7 +155,7 @@ export type Review = {
   easyLikelyGuesses: string[];
   mediumLikelyGuesses: string[];
   hardLikelyGuesses: string[];
-  /** Optional stored Gate 2 raw results (H021). Not required by schema yet. */
+  /** Optional stored Gate 2 raw results. Required by production phase acceptance. */
   gate2?: Gate2Review;
 };
 

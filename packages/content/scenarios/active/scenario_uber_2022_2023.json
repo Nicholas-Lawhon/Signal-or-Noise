@@ -1,0 +1,307 @@
+{
+    "id":  "scenario_uber_2022_2023",
+    "status":  "active",
+    "company":  {
+                    "name":  "Uber",
+                    "ticker":  "UBER",
+                    "exchange":  "NYSE",
+                    "sector":  "Technology",
+                    "industry":  "Software - Application",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "uber",
+                                          "uber technologies"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Uber Eats",
+                                                "Uber One",
+                                                "UberX"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Network Turn",
+                     "decisionDate":  "2022-07-01",
+                     "endDate":  "2023-06-30",
+                     "decisionDateLabel":  "Mid 2022",
+                     "outcomeLabel":  "Mid 2022 to mid 2023",
+                     "holdingPeriodLabel":  "One year",
+                     "era":  "Mobility reopening and rate hikes",
+                     "eraId":  "rate_hike_inflation_era",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "phase_4b_wave"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  21.34,
+                       "endingPrice":  43.17,
+                       "actualReturnPercent":  1.023,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2020-07-01",
+                       "preDecisionChartEndDate":  "2022-07-01",
+                       "outcomeChartStartDate":  "2022-07-01",
+                       "outcomeChartEndDate":  "2023-06-30",
+                       "lookbackPrices":  [
+                                              30.43,
+                                              34.06,
+                                              56.11,
+                                              50.59,
+                                              43.82,
+                                              34.04,
+                                              21.34
+                                          ],
+                       "outcomePrices":  [
+                                             21.34,
+                                             28.71,
+                                             27.5,
+                                             24.91,
+                                             32.99,
+                                             32.74,
+                                             43.17
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A global app-based marketplace connecting riders, drivers, restaurants, couriers, and freight customers.",
+                                    "macroContext":  "Urban mobility is recovering while fuel costs, worker rules, and higher rates challenge platform economics.",
+                                    "situation":  "Can a local-services network turn post-pandemic volume into sustained cash generation?",
+                                    "longCase":  "Recovery in trips and shared infrastructure across mobility and delivery could improve utilization and margins.",
+                                    "shortCase":  "Driver incentives, regulation, and intense local competition could keep the network structurally expensive.",
+                                    "setupHints":  [
+                                                       "The same consumer app spans on-demand transportation and meal delivery in many markets."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A consumer platform coordinating demand with independent local service providers.",
+                                      "macroContext":  "In-person activity is recovering as capital markets demand clearer paths to profitability.",
+                                      "situation":  "Can network density convert recovering activity into durable operating leverage?",
+                                      "longCase":  "More transactions can improve matching, provider utilization, and repeat engagement.",
+                                      "shortCase":  "Participant incentives and regulatory costs can absorb gains while rivals compete market by market.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "An asset-light service platform reliant on independent participants.",
+                                    "macroContext":  "Demand is normalizing while investors withdraw support from cash-burning platforms.",
+                                    "situation":  "Can network density produce cash flow before participant costs rise again?",
+                                    "longCase":  "Higher activity can improve matching efficiency and spread platform costs across more transactions.",
+                                    "shortCase":  "Local competition and participant economics can require incentives that prevent durable margins.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Uber. Mobility rebounded, delivery remained scaled, and improving operating discipline shifted attention toward cash flow.",
+                   "funFact":  "UberÃ¢â‚¬â„¢s platform combined mobility, delivery, and freight operations rather than relying on a single transaction category.",
+                   "whyItMoved":  [
+                                      "Gross bookings and mobility activity recovered as travel and commuting returned.",
+                                      "Delivery scale remained meaningful after pandemic restrictions eased.",
+                                      "Cost discipline and improving adjusted earnings strengthened the path-to-profitability story."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ UBER",
+                        "url":  "https://finance.yahoo.com/quote/UBER/history/",
+                        "notes":  "Split-adjusted closes, chart samples, and calculated return."
+                    },
+                    {
+                        "label":  "Uber 2023 Form 10-K Ã¢â‚¬â€ SEC EDGAR",
+                        "url":  "https://www.sec.gov/edgar/browse/?CIK=1543151\u0026owner=exclude",
+                        "notes":  "Segment mix, bookings, mobility recovery, delivery scale, regulation, and profitability claims."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Famous bucket. Stored Grok evidence identified the transportation-plus-delivery combination and trip/driver wording on Medium; two-sided local services with worker economics preserved the Hard silhouette. M/H now use independent local participants, transaction matching, utilization, incentives, regulation, and market-level rivalry without mobility, ride, trip, delivery, or worker labels. Easy is unchanged. Stored M/H results remain stale evidence pending blind rejudge.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "company/ticker",
+                                                       "named service products",
+                                                       "exact segment bookings"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "independent-participant platform",
+                                                           "network density",
+                                                           "in-person activity recovery",
+                                                           "matching efficiency",
+                                                           "participant incentives and regulation"
+                                                       ],
+                                    "prohibited":  [
+                                                       "named ride or delivery service",
+                                                       "one-company membership program",
+                                                       "founder history"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Uber",
+                                                                  "Grab",
+                                                                  "Lyft",
+                                                                  "DoorDash",
+                                                                  "DiDi"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Grab",
+                                                                    "Uber",
+                                                                    "Lyft",
+                                                                    "DoorDash"
+                                                                ],
+                                                     "hard":  [
+                                                                  "Grab",
+                                                                  "DoorDash",
+                                                                  "Lyft",
+                                                                  "Uber",
+                                                                  "Instacart"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "mobility or delivery category on Medium/Hard",
+                                                                   "2022 platform drawdown plus global ride scale",
+                                                                   "driver or trip language plus named membership"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Uber",
+                                             "Grab",
+                                             "Lyft",
+                                             "DoorDash"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "DoorDash",
+                                               "Lyft",
+                                               "Grab",
+                                               "Airbnb"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "DoorDash",
+                                             "Lyft",
+                                             "Airbnb",
+                                             "Instacart"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:2d5c247f5ca483a8419441b0334897481354efd5f384a15a4500c316369a2c2e",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Uber",
+                                                                  "confidence":  94,
+                                                                  "pointingFact":  "Global app spanning rides, drivers, restaurants, couriers, and freight in one local-services network."
+                                                              },
+                                                              {
+                                                                  "company":  "Lyft",
+                                                                  "confidence":  30,
+                                                                  "pointingFact":  "App-based mobility marketplace, but lacks the multi-vertical delivery and freight breadth."
+                                                              },
+                                                              {
+                                                                  "company":  "DoorDash",
+                                                                  "confidence":  24,
+                                                                  "pointingFact":  "Strong delivery marketplace recovering with mobility reopen, not the combined rides-plus-delivery app."
+                                                              },
+                                                              {
+                                                                  "company":  "Grab",
+                                                                  "confidence":  16,
+                                                                  "pointingFact":  "Super-app for mobility and deliveries, more regional than the global footprint implied."
+                                                              },
+                                                              {
+                                                                  "company":  "Delivery Hero",
+                                                                  "confidence":  10,
+                                                                  "pointingFact":  "Global delivery network without the core ride-hailing marketplace identity."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  66,
+                                                                "cue":  "Mid-2022 lookback is deeply drawn down while trip recovery and shared mobility-delivery infrastructure point to cash generation."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:44404ab4157fbc32e6277f0cc858f7306c353661ba72b65c9a2da74d6e1e4980",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "Uber",
+                                                                    "confidence":  68,
+                                                                    "pointingFact":  "Consumer network matching riders/eaters with independent local providers into mid-2022 reopening and profitability scrutiny."
+                                                                },
+                                                                {
+                                                                    "company":  "Lyft",
+                                                                    "confidence":  48,
+                                                                    "pointingFact":  "Mobility marketplace of independent drivers where density, incentives, and local competition decide leverage."
+                                                                },
+                                                                {
+                                                                    "company":  "DoorDash",
+                                                                    "confidence":  41,
+                                                                    "pointingFact":  "Local independent-provider platform converting recovering in-person activity into network utilization."
+                                                                },
+                                                                {
+                                                                    "company":  "Airbnb",
+                                                                    "confidence":  29,
+                                                                    "pointingFact":  "Consumer platform coordinating demand with independent local hosts as travel mobility reopened."
+                                                                },
+                                                                {
+                                                                    "company":  "Instacart",
+                                                                    "confidence":  18,
+                                                                    "pointingFact":  "Local service-provider marketplace dependent on density and incentives amid post-pandemic demand shifts."
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "long",
+                                                                  "confidence":  61,
+                                                                  "cue":  "Mid-2022 lookback is already crushed from peak while reopening plus network-density operating leverage is the core long thesis."
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:4d30e1e094586a9edf8f7ff4a5ea9e95978bb2d3cb5e7ef6d9c22f44cd0c6d4a",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Uber",
+                                                                  "confidence":  48,
+                                                                  "pointingFact":  "Mid-2022 mobility reopening, asset-light platform of independent drivers, network-density-to-cash-flow debate"
+                                                              },
+                                                              {
+                                                                  "company":  "Lyft",
+                                                                  "confidence":  34,
+                                                                  "pointingFact":  "Pure-play rideshare with same participant-cost and matching-efficiency dynamics after a sharp drawdown"
+                                                              },
+                                                              {
+                                                                  "company":  "DoorDash",
+                                                                  "confidence":  28,
+                                                                  "pointingFact":  "Asset-light gig network where local competition and courier incentives can block durable margins"
+                                                              },
+                                                              {
+                                                                  "company":  "Airbnb",
+                                                                  "confidence":  20,
+                                                                  "pointingFact":  "Marketplace of independent hosts; reopening activity vs host/guest incentive economics"
+                                                              },
+                                                              {
+                                                                  "company":  "Upwork",
+                                                                  "confidence":  12,
+                                                                  "pointingFact":  "Asset-light platform matching independent participants, though less tied to mobility reopening"
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  52,
+                                                                "cue":  "Lookback already collapsed from ~184 to ~70 while the density-to-cash-flow thesis remains the open question"
+                                                            }
+                                          }
+                             }
+               }
+}

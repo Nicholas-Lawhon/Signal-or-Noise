@@ -1,0 +1,324 @@
+{
+    "id":  "scenario_snap_2020_2021",
+    "status":  "active",
+    "company":  {
+                    "name":  "Snap",
+                    "ticker":  "SNAP",
+                    "exchange":  "NYSE",
+                    "sector":  "Communication Services",
+                    "industry":  "Interactive Media \u0026 Services",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "snap",
+                                          "snap"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Snapchat",
+                                                "Snap",
+                                                "Spectacles",
+                                                "Bitmoji"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Attention Conversion",
+                     "decisionDate":  "2020-01-02",
+                     "endDate":  "2021-01-04",
+                     "decisionDateLabel":  "2020",
+                     "outcomeLabel":  "2020 to 2021",
+                     "holdingPeriodLabel":  "About one year",
+                     "era":  "Pandemic-era disruption",
+                     "eraId":  "pandemic_era",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "part_b_phase_campaign"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  16.78,
+                       "endingPrice":  49.59,
+                       "actualReturnPercent":  1.9553,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2019-01-02",
+                       "preDecisionChartEndDate":  "2020-01-02",
+                       "outcomeChartStartDate":  "2020-01-02",
+                       "outcomeChartEndDate":  "2021-01-04",
+                       "lookbackPrices":  [
+                                              5.79,
+                                              10.12,
+                                              11.69,
+                                              13.87,
+                                              16.93,
+                                              16.88,
+                                              14.19,
+                                              16.78
+                                          ],
+                       "outcomePrices":  [
+                                             16.78,
+                                             15.89,
+                                             13.02,
+                                             20.65,
+                                             22.41,
+                                             23.88,
+                                             38.54,
+                                             49.59
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A mobile social platform popular with younger users and funded mainly by advertising.",
+                                    "macroContext":  "Time spent online is rising quickly, but advertisers are initially cutting budgets amid economic uncertainty.",
+                                    "situation":  "Can growing engagement translate into durable ad demand before larger platforms copy its formats?",
+                                    "longCase":  "A distinct audience and improving ad tools can attract spending as marketers return.",
+                                    "shortCase":  "Dependence on advertising and powerful platform gatekeepers can make growth volatile.",
+                                    "setupHints":  [
+                                                       "The service emphasizes visual communication between friends."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A consumer platform monetized mainly through customer marketing budgets.",
+                                      "macroContext":  "Audience activity is rising while commercial demand moves unevenly through a sudden downturn.",
+                                      "situation":  "Can engagement growth become efficient revenue before competition and distribution dependence tighten?",
+                                      "longCase":  "Higher usage can create more opportunities for returning customers to reach an audience.",
+                                      "shortCase":  "Weak budgets and reliance on outside distribution partners can constrain monetization.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A consumer engagement business.",
+                                    "macroContext":  "Audience activity is increasing faster than near-term commercial demand.",
+                                    "situation":  "Can higher engagement become durable revenue before larger ecosystems absorb the value?",
+                                    "longCase":  "More frequent use can improve monetization when customer budgets recover.",
+                                    "shortCase":  "Concentrated revenue and dependence on distribution partners can amplify a slowdown.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Snap. Daily active users and revenue grew strongly in 2020 as engagement increased and advertising demand recovered.",
+                   "funFact":  "The company describes itself as a camera company even though most revenue comes from advertising.",
+                   "whyItMoved":  [
+                                      "Daily active users increased.",
+                                      "Advertising demand recovered after an early-pandemic slowdown.",
+                                      "New ad products and measurement tools supported monetization."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ SNAP",
+                        "url":  "https://finance.yahoo.com/quote/SNAP/history/",
+                        "notes":  "Split-adjusted closes for 2020-01-02 and 2021-01-04; sampled lookback/outcome series and computed price return."
+                    },
+                    {
+                        "label":  "Snap SEC filings",
+                        "url":  "https://www.sec.gov/edgar/browse/?CIK=SNAP\u0026owner=exclude\u0026action=getcompany",
+                        "notes":  "Annual filings covering business model, operating risks, company history, and the reported operating trends summarized in the reveal."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Phase 4B production candidate. Recognition bucket: famous. Authored fact-bank first and Hard first, then Medium/Easy. Payload-only editorial self-check retained the named peer set across difficulties, avoided correct-company dominance on Medium/Hard, kept both calls articulable, and found no unsupported candidate. No authoritative Gate 2 judgment is recorded. Phase-internal clean-Grok rewrite changed medium/hard only: removed the stored judge\u0027s company-pointing conjunctions while keeping concrete long/short tension. Stored Gate 2 evidence is preserved but stale for changed variants; clean rejudge required. Shared title unchanged, so no sibling-only rejudge expansion.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "Snap name and SNAP ticker",
+                                                       "Snapchat",
+                                                       "Snap",
+                                                       "Spectacles",
+                                                       "Bitmoji"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "Can growing engagement translate into durable ad demand before larger platforms copy its formats?",
+                                                           "A distinct audience and improving ad tools can attract spending as marketers return.",
+                                                           "Dependence on advertising and powerful platform gatekeepers can make growth volatile.",
+                                                           "Can engagement growth become efficient revenue before competition and distribution dependence tighten?",
+                                                           "Higher usage can create more opportunities for returning customers to reach an audience.",
+                                                           "Weak budgets and reliance on outside distribution partners can constrain monetization.",
+                                                           "Can higher engagement become durable revenue before larger ecosystems absorb the value?",
+                                                           "More frequent use can improve monetization when customer budgets recover.",
+                                                           "Concentrated revenue and dependence on distribution partners can amplify a slowdown."
+                                                       ],
+                                    "prohibited":  [
+                                                       "Snapchat",
+                                                       "Snap",
+                                                       "Spectacles",
+                                                       "Bitmoji",
+                                                       "mobile social ads plus platform gatekeepers",
+                                                       "younger audience plus visual communication",
+                                                       "attention platform plus 2020 ad recovery"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Snap",
+                                                                  "Meta Platforms",
+                                                                  "Pinterest",
+                                                                  "Twitter"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Pinterest",
+                                                                    "Twitter",
+                                                                    "Roku",
+                                                                    "Snap",
+                                                                    "Spotify"
+                                                                ],
+                                                     "hard":  [
+                                                                  "Pinterest",
+                                                                  "Roku",
+                                                                  "Twitter",
+                                                                  "Spotify",
+                                                                  "Snap",
+                                                                  "Yelp"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "2020 chart silhouette plus company-specific product language",
+                                                                   "Time spent online is rising quickly, but advertisers are initially cutting budgets amid economic uncertainty. plus named product or brand",
+                                                                   "Can growing engagement translate into durable ad demand before larger platforms copy its formats? plus SNAP ticker or company name",
+                                                                   "mobile social ads plus platform gatekeepers",
+                                                                   "younger audience plus visual communication",
+                                                                   "attention platform plus 2020 ad recovery"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Snap",
+                                             "Meta Platforms",
+                                             "Pinterest",
+                                             "Twitter"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Pinterest",
+                                               "Twitter",
+                                               "Roku",
+                                               "Snap"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "Pinterest",
+                                             "Roku",
+                                             "Twitter",
+                                             "Spotify"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:50daa6ebba2ccd720088c298243b7f2a95e2731bae0b9b1a3ef7c02b96a21223",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Snap",
+                                                                  "confidence":  91,
+                                                                  "pointingFact":  "Young-user mobile social app funded by ads and built around visual friend communication under platform gatekeepers."
+                                                              },
+                                                              {
+                                                                  "company":  "Pinterest",
+                                                                  "confidence":  28,
+                                                                  "pointingFact":  "Ad-funded visual social platform, but less centered on private friend messaging among younger users."
+                                                              },
+                                                              {
+                                                                  "company":  "Meta Platforms",
+                                                                  "confidence":  22,
+                                                                  "pointingFact":  "Owns youth-facing visual social products, yet is a broad multi-app franchise rather than a pure young mobile ad platform."
+                                                              },
+                                                              {
+                                                                  "company":  "Twitter",
+                                                                  "confidence":  15,
+                                                                  "pointingFact":  "Mobile social and ad-funded, but not primarily visual friend-to-friend communication."
+                                                              },
+                                                              {
+                                                                  "company":  "Match Group",
+                                                                  "confidence":  10,
+                                                                  "pointingFact":  "Youth-heavy mobile social usage, but monetization is subscriptions more than advertising."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  62,
+                                                                "cue":  "Rising online attention and a distinct young audience can convert into ad demand as marketers return, matching the strong lookback re-rating."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:43013929373864d575fe8d3b726a0adb47e7483bb74c2fabd868c232cabffefd",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "Snap",
+                                                                    "confidence":  52,
+                                                                    "pointingFact":  "Consumer attention app monetized almost entirely by marketing budgets, with growth tied to engagement and heavy app-store distribution dependence in 2020"
+                                                                },
+                                                                {
+                                                                    "company":  "Pinterest",
+                                                                    "confidence":  48,
+                                                                    "pointingFact":  "Discovery platform selling ads against returning user attention while ad budgets moved unevenly through the pandemic shock"
+                                                                },
+                                                                {
+                                                                    "company":  "Twitter",
+                                                                    "confidence":  34,
+                                                                    "pointingFact":  "Consumer media platform funded by advertiser budgets, sensitive to downturn spending and outside distribution/platform rules"
+                                                                },
+                                                                {
+                                                                    "company":  "Roku",
+                                                                    "confidence":  30,
+                                                                    "pointingFact":  "Consumer engagement surface monetized via advertising as at-home attention rose, still dependent on partner ecosystems"
+                                                                },
+                                                                {
+                                                                    "company":  "Meta Platforms",
+                                                                    "confidence":  24,
+                                                                    "pointingFact":  "Large social platform converting rising usage into marketer spend, though less purely Ã¢â‚¬Ëœdistribution-partner constrainedÃ¢â‚¬â„¢ than peers"
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "toss_up",
+                                                                  "confidence":  55,
+                                                                  "cue":  "Engagement tailwinds in 2020 clash with weak and uneven ad budgets plus partner dependence, so monetization timing is ambiguous"
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:0b12fc40d94bf70089dc1cb3e991e025a6ead156c956982a4f3754d440d1e9ff",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Snap",
+                                                                  "confidence":  58,
+                                                                  "pointingFact":  "Consumer engagement app where pandemic usage outpaced near-term ads, with concentrated revenue and dependence on larger platform ecosystems"
+                                                              },
+                                                              {
+                                                                  "company":  "Pinterest",
+                                                                  "confidence":  49,
+                                                                  "pointingFact":  "Attention-driven consumer platform needing to convert rising engagement into durable ad revenue before bigger ecosystems absorb value"
+                                                              },
+                                                              {
+                                                                  "company":  "Twitter",
+                                                                  "confidence":  34,
+                                                                  "pointingFact":  "Consumer attention business with engagement-monetization lag and advertiser concentration risk in 2020"
+                                                              },
+                                                              {
+                                                                  "company":  "Spotify",
+                                                                  "confidence":  31,
+                                                                  "pointingFact":  "High-engagement consumer platform struggling to turn usage into profitable recurring revenue amid larger ecosystem competition"
+                                                              },
+                                                              {
+                                                                  "company":  "Match Group",
+                                                                  "confidence":  27,
+                                                                  "pointingFact":  "Consumer engagement franchise seeing activity spikes in disruption periods while commercial conversion and competition remain central"
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  57,
+                                                                "cue":  "2020 engagement spike should convert into stronger monetization over about a year as advertiser budgets recover, outweighing partner-concentration risk"
+                                                            }
+                                          }
+                             }
+               }
+}

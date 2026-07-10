@@ -1,0 +1,204 @@
+{
+  "exportedAt": "2026-07-10T03:50:44.711Z",
+  "model": "grok-4.5",
+  "promptVersion": "guess.v1+direction.v1",
+  "entries": [
+    {
+      "judgeId": "blind_0001",
+      "difficulty": "easy",
+      "payloadHash": "sha256:2031164676a443764cb1f03ba38a52e0268698b7bfc0d85e603ae725be345ab3",
+      "payload": {
+        "title": "Execution Window",
+        "era": "Late-cycle expansion",
+        "decisionDateLabel": "2019",
+        "holdingPeriodLabel": "About one year",
+        "companyDescription": "A smaller semiconductor designer competing against larger suppliers across several computing markets.",
+        "macroContext": "Customers are reassessing component suppliers as a new generation of products reaches the market.",
+        "situation": "Can stronger execution convert a product-cycle opening into durable customer wins?",
+        "longCase": "A competitive portfolio can reopen important accounts and improve product mix.",
+        "shortCase": "Larger rivals, cyclical demand, and dependence on outside manufacturing can interrupt momentum.",
+        "setupHints": [
+          "The company uses external manufacturers rather than owning leading-edge fabrication plants."
+        ],
+        "lookbackPrices": [
+          100,
+          109.9,
+          95.8,
+          135.6,
+          172.5,
+          290.8,
+          198.9,
+          171.5
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0002",
+      "difficulty": "easy",
+      "payloadHash": "sha256:2146e361b13534116af8384b44f7eb5cfcb759cfa321f0375cbeae8d18cea6ff",
+      "payload": {
+        "title": "Recovery Cost",
+        "era": "Late-cycle uncertainty",
+        "decisionDateLabel": "Spring 2019",
+        "holdingPeriodLabel": "One year",
+        "companyDescription": "A commercial aerospace manufacturer with a large installed base and a major defense business.",
+        "macroContext": "Airlines are balancing fleet renewal plans against safety scrutiny, supplier constraints, and a less certain travel outlook.",
+        "situation": "Can a leading aircraft maker resolve a certification crisis quickly enough to protect deliveries, cash flow, and customer confidence?",
+        "longCase": "A large order book and duopoly industry structure could support demand once regulators allow deliveries to resume.",
+        "shortCase": "A prolonged grounding, compensation costs, and damaged customer trust could drain cash and delay recovery.",
+        "setupHints": [
+          "The company builds large passenger aircraft as well as military and space systems."
+        ],
+        "lookbackPrices": [
+          100,
+          112,
+          124,
+          140,
+          148,
+          160,
+          156.3
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0003",
+      "difficulty": "easy",
+      "payloadHash": "sha256:0f76469039d28d20e591532c1ce1b098768026a23f17a23352cb30a240430518",
+      "payload": {
+        "title": "Adoption Test",
+        "era": "Pandemic-era disruption",
+        "decisionDateLabel": "Early 2020",
+        "holdingPeriodLabel": "About one year",
+        "companyDescription": "A cloud software company that helps businesses complete approvals and agreements without paper.",
+        "macroContext": "Remote work is making companies reconsider manual processes, but software buyers still demand proof that new tools save time and money.",
+        "situation": "Can a workflow software provider turn an unusual surge in remote demand into durable subscriptions before larger suites bundle similar features?",
+        "longCase": "Distributed teams may adopt digital workflows faster, expanding recurring revenue and usage across customers.",
+        "shortCase": "A temporary demand spike and competition from broader software suites could make growth hard to sustain.",
+        "setupHints": [
+          "Customers use the service to prepare, send, and complete business documents electronically."
+        ],
+        "lookbackPrices": [
+          100,
+          112.5,
+          125,
+          137.5,
+          162.5,
+          175,
+          189.8
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0004",
+      "difficulty": "easy",
+      "payloadHash": "sha256:a07a8669de5f7aeb9618ca6fab75a84feb88417065e455c3537df167d3341e76",
+      "payload": {
+        "title": "Operating Leverage",
+        "era": "Pandemic-era disruption",
+        "decisionDateLabel": "Early 2020",
+        "holdingPeriodLabel": "About one year",
+        "companyDescription": "A cloud infrastructure provider that helps online services deliver data quickly and safely to users.",
+        "macroContext": "Internet traffic is growing quickly as work, entertainment, and commerce move online, but large customers can have outsized influence on young providers.",
+        "situation": "Can a network-services specialist convert surging customer traffic into durable revenue before concentration and larger rivals weaken its position?",
+        "longCase": "More online activity can increase usage-based revenue and make performance services more valuable to digital customers.",
+        "shortCase": "Reliance on a few large accounts and competition from broader cloud platforms can make growth volatile.",
+        "setupHints": [
+          "Customers use the service to improve the speed and reliability of online applications."
+        ],
+        "lookbackPrices": [
+          100,
+          110.5,
+          94.7,
+          105.3,
+          115.8,
+          126.3,
+          113.2
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0005",
+      "difficulty": "easy",
+      "payloadHash": "sha256:34622b1fc5299cccc63502b39a2c6111f95f7ceadf063222f351ffb59ec6e22b",
+      "payload": {
+        "title": "Core and Horizon",
+        "era": "Rate-hike and inflation era",
+        "decisionDateLabel": "Early 2022",
+        "holdingPeriodLabel": "About one year",
+        "companyDescription": "A global digital platform that earns most of its revenue by selling targeted advertising against user attention.",
+        "macroContext": "Higher rates are pressuring long-duration growth stocks while advertisers reconsider budgets and privacy rules are changing data access.",
+        "situation": "Can a large attention platform protect ad demand while funding a costly new computing initiative and adapting to weaker targeting data?",
+        "longCase": "Its scale, measurement tools, and large audience could keep advertisers spending even as the economy slows.",
+        "shortCase": "Privacy changes, competition for attention, and heavier investment could compress growth and margins at the same time.",
+        "setupHints": [
+          "Advertisers buy placements that are priced through automated auctions."
+        ],
+        "lookbackPrices": [
+          100,
+          112.2,
+          131.7,
+          161,
+          170.7,
+          165.9,
+          163.7
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0006",
+      "difficulty": "easy",
+      "payloadHash": "sha256:21f1acfa32c753510c2b6ebab3baec2807d8464a1b408bd5fcab201a7da49421",
+      "payload": {
+        "title": "Monetization Gap",
+        "era": "Pandemic-era disruption",
+        "decisionDateLabel": "Early 2020",
+        "holdingPeriodLabel": "About one year",
+        "companyDescription": "A visual discovery platform where users collect ideas and advertisers are still building out commercial tools.",
+        "macroContext": "More time at home is changing online behavior, while advertisers seek measurable ways to reach audiences beyond established social platforms.",
+        "situation": "Can a growing discovery audience become a stronger advertising business before engagement proves temporary and monetization lags?",
+        "longCase": "Higher engagement and better shopping tools could give advertisers a valuable new path to interested consumers.",
+        "shortCase": "Users may return to other activities, and a smaller ad system may struggle against much larger platforms.",
+        "setupHints": [
+          "People use the service to save and organize images around projects and interests."
+        ],
+        "lookbackPrices": [
+          100,
+          87.5,
+          79.2,
+          95.8,
+          83.3,
+          91.7,
+          78.3
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0007",
+      "difficulty": "easy",
+      "payloadHash": "sha256:e75f4ea4d393f929fd0d3f5f1415e61d473fc299fe7002193154ea8f17d81cc4",
+      "payload": {
+        "title": "Access Point",
+        "era": "Streaming wars",
+        "decisionDateLabel": "Early 2020",
+        "holdingPeriodLabel": "About one year",
+        "companyDescription": "A home-entertainment platform that sells low-margin hardware while trying to grow advertising and distribution revenue.",
+        "macroContext": "Households are spending more time at home as media companies compete for direct access to viewers.",
+        "situation": "Can a platform turn a growing installed base into higher-margin advertising revenue before larger technology firms control the living room?",
+        "longCase": "More viewing and a larger installed base could attract advertisers and content partners to the platform.",
+        "shortCase": "Hardware economics, platform competition, and negotiations with content suppliers could limit the value of that audience.",
+        "setupHints": [
+          "The company’s software is built into some television sets and external devices."
+        ],
+        "lookbackPrices": [
+          100,
+          122.2,
+          88.9,
+          144.4,
+          222.2,
+          266.7,
+          304.7
+        ]
+      }
+    }
+  ]
+}

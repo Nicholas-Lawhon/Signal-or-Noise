@@ -1,0 +1,324 @@
+{
+    "id":  "scenario_mongodb_2020_2021",
+    "status":  "active",
+    "company":  {
+                    "name":  "MongoDB",
+                    "ticker":  "MDB",
+                    "exchange":  "NASDAQ",
+                    "sector":  "Information Technology",
+                    "industry":  "Systems Software",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "mongodb",
+                                          "mongodb"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "MongoDB",
+                                                "Atlas",
+                                                "document database",
+                                                "BSON"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Developer Standard",
+                     "decisionDate":  "2020-01-02",
+                     "endDate":  "2021-01-04",
+                     "decisionDateLabel":  "2020",
+                     "outcomeLabel":  "2020 to 2021",
+                     "holdingPeriodLabel":  "About one year",
+                     "era":  "Pandemic-era disruption",
+                     "eraId":  "pandemic_era",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "part_b_phase_campaign"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  134.33,
+                       "endingPrice":  350.41,
+                       "actualReturnPercent":  1.6086,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2019-01-02",
+                       "preDecisionChartEndDate":  "2020-01-02",
+                       "outcomeChartStartDate":  "2020-01-02",
+                       "outcomeChartEndDate":  "2021-01-04",
+                       "lookbackPrices":  [
+                                              79.95,
+                                              107.92,
+                                              138.14,
+                                              169.97,
+                                              142.03,
+                                              131.46,
+                                              126.13,
+                                              134.33
+                                          ],
+                       "outcomePrices":  [
+                                             134.33,
+                                             149.38,
+                                             153.98,
+                                             203.88,
+                                             228.58,
+                                             222.54,
+                                             230.06,
+                                             350.41
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A developer-focused data software company offering both subscriptions and a managed cloud service.",
+                                    "macroContext":  "Application development is accelerating as organizations modernize older technology stacks.",
+                                    "situation":  "Can developer adoption of a flexible data platform translate into durable enterprise spending?",
+                                    "longCase":  "A popular product and managed service can expand with customer workloads and reduce operating friction.",
+                                    "shortCase":  "Large incumbent vendors, open alternatives, and cloud-provider competition can pressure growth.",
+                                    "setupHints":  [
+                                                       "Customers can run the software themselves or buy a managed version."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "An enterprise software specialist with strong practitioner-led adoption.",
+                                      "macroContext":  "Organizations are modernizing core workflows while concentrating more spending with broad technology vendors.",
+                                      "situation":  "Can grassroots use become larger managed-service contracts before platforms bundle alternatives?",
+                                      "longCase":  "Growing customer workloads can expand recurring usage within existing accounts.",
+                                      "shortCase":  "Open alternatives and vendor bundling can limit pricing and retention.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "An enterprise software specialist.",
+                                    "macroContext":  "Frontline practitioners increasingly influence purchasing while large vendors seek to own more of the technology stack.",
+                                    "situation":  "Can bottom-up adoption become durable company-wide standardization before bundled alternatives improve?",
+                                    "longCase":  "Growing use can drive account expansion and deepen operational dependence.",
+                                    "shortCase":  "Accessible alternatives and platform control can restrict long-term economics.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was MongoDB. Revenue and adoption of its managed cloud service grew rapidly during 2020 as customers built more modern applications.",
+                   "funFact":  "The company traces its roots to a development effort begun in 2007.",
+                   "whyItMoved":  [
+                                      "Managed-cloud revenue expanded quickly.",
+                                      "Digital modernization increased demand for flexible data infrastructure.",
+                                      "Existing customers increased usage while new customers adopted the platform."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ MDB",
+                        "url":  "https://finance.yahoo.com/quote/MDB/history/",
+                        "notes":  "Split-adjusted closes for 2020-01-02 and 2021-01-04; sampled lookback/outcome series and computed price return."
+                    },
+                    {
+                        "label":  "MongoDB SEC filings",
+                        "url":  "https://www.sec.gov/edgar/browse/?CIK=MDB\u0026owner=exclude\u0026action=getcompany",
+                        "notes":  "Annual filings covering business model, operating risks, company history, and the reported operating trends summarized in the reveal."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Phase 4B production candidate. Recognition bucket: moderate. Authored fact-bank first and Hard first, then Medium/Easy. Payload-only editorial self-check retained the named peer set across difficulties, avoided correct-company dominance on Medium/Hard, kept both calls articulable, and found no unsupported candidate. No authoritative Gate 2 judgment is recorded. Phase-internal clean-Grok rewrite changed medium/hard only: removed the stored judge\u0027s company-pointing conjunctions while keeping concrete long/short tension. Stored Gate 2 evidence is preserved but stale for changed variants; clean rejudge required. Shared title unchanged, so no sibling-only rejudge expansion.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "MongoDB name and MDB ticker",
+                                                       "MongoDB",
+                                                       "Atlas",
+                                                       "document database",
+                                                       "BSON"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "Can developer adoption of a flexible data platform translate into durable enterprise spending?",
+                                                           "A popular product and managed service can expand with customer workloads and reduce operating friction.",
+                                                           "Large incumbent vendors, open alternatives, and cloud-provider competition can pressure growth.",
+                                                           "Can grassroots use become larger managed-service contracts before platforms bundle alternatives?",
+                                                           "Growing customer workloads can expand recurring usage within existing accounts.",
+                                                           "Open alternatives and vendor bundling can limit pricing and retention.",
+                                                           "Can bottom-up adoption become durable company-wide standardization before bundled alternatives improve?",
+                                                           "Growing use can drive account expansion and deepen operational dependence.",
+                                                           "Accessible alternatives and platform control can restrict long-term economics."
+                                                       ],
+                                    "prohibited":  [
+                                                       "MongoDB",
+                                                       "Atlas",
+                                                       "document database",
+                                                       "BSON",
+                                                       "database plus developer standard",
+                                                       "data infrastructure plus managed cloud",
+                                                       "developer adoption plus hyperscaler alternatives"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "MongoDB",
+                                                                  "Snowflake",
+                                                                  "Elastic",
+                                                                  "Oracle"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Elastic",
+                                                                    "Datadog",
+                                                                    "Atlassian",
+                                                                    "MongoDB",
+                                                                    "Confluent"
+                                                                ],
+                                                     "hard":  [
+                                                                  "Datadog",
+                                                                  "Atlassian",
+                                                                  "ServiceNow",
+                                                                  "Elastic",
+                                                                  "MongoDB",
+                                                                  "Cloudflare"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "2020 chart silhouette plus company-specific product language",
+                                                                   "Application development is accelerating as organizations modernize older technology stacks. plus named product or brand",
+                                                                   "Can developer adoption of a flexible data platform translate into durable enterprise spending? plus MDB ticker or company name",
+                                                                   "database plus developer standard",
+                                                                   "data infrastructure plus managed cloud",
+                                                                   "developer adoption plus hyperscaler alternatives"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "MongoDB",
+                                             "Snowflake",
+                                             "Elastic",
+                                             "Oracle"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Elastic",
+                                               "Datadog",
+                                               "Atlassian",
+                                               "MongoDB"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "Datadog",
+                                             "Atlassian",
+                                             "ServiceNow",
+                                             "Elastic"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:df724e3c2d4babf8672c3a14f98870389be47bccf677218f456142fc27a65704",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "MongoDB",
+                                                                  "confidence":  86,
+                                                                  "pointingFact":  "Developer-focused data platform with self-managed software plus a managed cloud service matches Atlas dual-deployment model."
+                                                              },
+                                                              {
+                                                                  "company":  "Elastic",
+                                                                  "confidence":  48,
+                                                                  "pointingFact":  "Developer-centric data software sold as self-hosted stacks and a managed cloud offering."
+                                                              },
+                                                              {
+                                                                  "company":  "Confluent",
+                                                                  "confidence":  32,
+                                                                  "pointingFact":  "Data platform with subscription software and managed cloud, popular with developers modernizing stacks."
+                                                              },
+                                                              {
+                                                                  "company":  "Databricks",
+                                                                  "confidence":  22,
+                                                                  "pointingFact":  "Flexible data platform monetized through cloud-managed usage as application development accelerates."
+                                                              },
+                                                              {
+                                                                  "company":  "Redis",
+                                                                  "confidence":  18,
+                                                                  "pointingFact":  "Developer data software available as self-run software and managed cloud service."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  58,
+                                                                "cue":  "Pandemic-era stack modernization and managed-service expansion support durable enterprise spend despite incumbent pressure."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:3e33d0274bf0e354e6f24c55a1068b4018f1fa3ef7823529d2cca3449e63ecfe",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "MongoDB",
+                                                                    "confidence":  48,
+                                                                    "pointingFact":  "Practitioner-led enterprise software that became a de facto developer standard, with managed-cloud upsell and threat from open alternatives plus hyperscaler bundling."
+                                                                },
+                                                                {
+                                                                    "company":  "Elastic",
+                                                                    "confidence":  44,
+                                                                    "pointingFact":  "Grassroots developer/ops adoption of a search/observability stack expanding into paid managed services while cloud vendors ship overlapping products."
+                                                                },
+                                                                {
+                                                                    "company":  "Datadog",
+                                                                    "confidence":  36,
+                                                                    "pointingFact":  "Strong bottom-up practitioner adoption in enterprise software where usage growth inside accounts drives expansion amid platform competition."
+                                                                },
+                                                                {
+                                                                    "company":  "HashiCorp",
+                                                                    "confidence":  30,
+                                                                    "pointingFact":  "Developer/infrastructure standard tools with product-led roots, managed offerings, and risk from open alternatives and big-vendor bundling."
+                                                                },
+                                                                {
+                                                                    "company":  "Confluent",
+                                                                    "confidence":  24,
+                                                                    "pointingFact":  "Kafka-centered developer standard with enterprise managed-service conversion path and open-source/cloud competitive pressure."
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "long",
+                                                                  "confidence":  52,
+                                                                  "cue":  "Pandemic modernization and account-expansion long case likely still dominated over a one-year 2020 hold even after a volatile lookback run-up."
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:205c0cd53603c82189eb95a014172d1fb781c089ce58e040af6f5462ce7a1435",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Atlassian",
+                                                                  "confidence":  42,
+                                                                  "pointingFact":  "Enterprise software with bottom-up practitioner adoption aiming to become company-wide standard"
+                                                              },
+                                                              {
+                                                                  "company":  "Datadog",
+                                                                  "confidence":  37,
+                                                                  "pointingFact":  "Developer/ops tool spreading land-and-expand as frontline teams influence purchasing"
+                                                              },
+                                                              {
+                                                                  "company":  "Twilio",
+                                                                  "confidence":  31,
+                                                                  "pointingFact":  "Developer-centric communications platform becoming a default building block for enterprises"
+                                                              },
+                                                              {
+                                                                  "company":  "MongoDB",
+                                                                  "confidence":  29,
+                                                                  "pointingFact":  "Developer-first data platform with bottom-up adoption and account expansion dynamics"
+                                                              },
+                                                              {
+                                                                  "company":  "Elastic",
+                                                                  "confidence":  21,
+                                                                  "pointingFact":  "Specialist enterprise software used by practitioners, facing large-vendor stack competition"
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  57,
+                                                                "cue":  "2020 pandemic disruption favored bottom-up tools becoming operationally embedded before alternatives matured"
+                                                            }
+                                          }
+                             }
+               }
+}

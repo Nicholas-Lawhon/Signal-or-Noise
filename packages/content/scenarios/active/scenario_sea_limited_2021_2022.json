@@ -1,0 +1,307 @@
+{
+    "id":  "scenario_sea_limited_2021_2022",
+    "status":  "active",
+    "company":  {
+                    "name":  "Sea Limited",
+                    "ticker":  "SE",
+                    "exchange":  "NYSE",
+                    "sector":  "Communication Services",
+                    "industry":  "Internet Content \u0026 Information",
+                    "country":  "Singapore",
+                    "acceptedNames":  [
+                                          "sea limited",
+                                          "sea ltd"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Shopee",
+                                                "Garena",
+                                                "Free Fire"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Regional Flywheel",
+                     "decisionDate":  "2021-11-01",
+                     "endDate":  "2022-11-01",
+                     "decisionDateLabel":  "Late 2021",
+                     "outcomeLabel":  "Late 2021 to late 2022",
+                     "holdingPeriodLabel":  "One year",
+                     "era":  "Emerging-market internet reset",
+                     "eraId":  "rate_hike_inflation_era",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "phase_4b_wave"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  354.04,
+                       "endingPrice":  49.11,
+                       "actualReturnPercent":  -0.8613,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2019-11-01",
+                       "preDecisionChartEndDate":  "2021-11-01",
+                       "outcomeChartStartDate":  "2021-11-01",
+                       "outcomeChartEndDate":  "2022-11-01",
+                       "lookbackPrices":  [
+                                              29.9,
+                                              52.52,
+                                              117.62,
+                                              157.7,
+                                              229.68,
+                                              273.7,
+                                              354.04
+                                          ],
+                       "outcomePrices":  [
+                                             354.04,
+                                             223.71,
+                                             110.04,
+                                             87.59,
+                                             75.34,
+                                             61.32,
+                                             49.11
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A Southeast Asian internet group operating a large e-commerce marketplace, digital entertainment business, and financial services arm.",
+                                    "macroContext":  "Pandemic digital adoption is normalizing while higher rates and a strong dollar tighten funding across emerging markets.",
+                                    "situation":  "Can a regional consumer ecosystem turn market-share gains into self-funded growth?",
+                                    "longCase":  "Commerce scale, payments adoption, and a profitable entertainment engine could reinforce customer acquisition.",
+                                    "shortCase":  "Falling game bookings, expensive commerce subsidies, and country-by-country competition could accelerate cash burn.",
+                                    "setupHints":  [
+                                                       "The group uses profits from digital entertainment to help fund commerce and financial-services expansion."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A multi-product digital platform operating across developing markets.",
+                                      "macroContext":  "Online usage remains high while funding conditions tighten and customers return to offline activity.",
+                                      "situation":  "Can adjacent services reinforce one another before the most mature operation slows?",
+                                      "longCase":  "Shared users and distribution can lower acquisition costs across a growing digital ecosystem.",
+                                      "shortCase":  "Subsidies and weakening demand in the mature operation can remove funding before newer services mature.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A multi-service digital platform pursuing growth across adjacent markets.",
+                                    "macroContext":  "Capital is retreating from subsidized growth as online behavior normalizes.",
+                                    "situation":  "Can the broader ecosystem reach self-funding scale before its strongest operation weakens?",
+                                    "longCase":  "Shared distribution and customer relationships can compound adoption across adjacent services.",
+                                    "shortCase":  "A slowdown in the established operation can expose heavy subsidies and fragmented local competition.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Sea Limited. Gaming bookings fell, commerce losses remained heavy, and the global growth-stock reset erased most of the prior gains.",
+                   "funFact":  "SeaÃ¢â‚¬â„¢s businesses combined digital entertainment, e-commerce, and digital financial services across multiple emerging markets.",
+                   "whyItMoved":  [
+                                      "Bookings in the digital-entertainment business declined as pandemic engagement normalized.",
+                                      "The commerce operation required substantial sales and marketing investment.",
+                                      "Higher rates and tighter funding increased pressure to prioritize profitability over expansion."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ SE",
+                        "url":  "https://finance.yahoo.com/quote/SE/history/",
+                        "notes":  "Split-adjusted closes, chart samples, and return."
+                    },
+                    {
+                        "label":  "Sea Limited 2022 Form 20-F Ã¢â‚¬â€ SEC EDGAR",
+                        "url":  "https://www.sec.gov/edgar/browse/?CIK=1703399\u0026owner=exclude",
+                        "notes":  "Segment mix, entertainment bookings, commerce investment, regional competition, and reveal claims."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Moderate bucket. Stored Grok evidence identified the commerce-entertainment-finance trio and gaming-funded expansion on Medium; the mature-profit-engine-funded ecosystem still exposed Hard. M/H now use a multi-service digital platform, shared distribution, subsidized adjacent growth, a slowing established operation, normalization, and tight capital without geography or segment labels. Easy is unchanged. Stored M/H results are stale evidence pending blind rejudge.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "company/ticker",
+                                                       "named marketplace and game",
+                                                       "specific bookings decline"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "multi-service digital ecosystem",
+                                                           "mature operation funds expansion",
+                                                           "subsidized adjacent growth",
+                                                           "online-behavior normalization",
+                                                           "tight funding"
+                                                       ],
+                                    "prohibited":  [
+                                                       "named game title",
+                                                       "named shopping platform",
+                                                       "exact countries plus segment trio"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Sea Limited",
+                                                                  "Grab",
+                                                                  "MercadoLibre",
+                                                                  "GoTo",
+                                                                  "Alibaba"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Grab",
+                                                                    "Sea Limited",
+                                                                    "MercadoLibre",
+                                                                    "GoTo"
+                                                                ],
+                                                     "hard":  [
+                                                                  "Grab",
+                                                                  "MercadoLibre",
+                                                                  "GoTo",
+                                                                  "Sea Limited",
+                                                                  "Coupang"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "regional label plus exact segment combination",
+                                                                   "2021 chart plus gaming-funded commerce",
+                                                                   "mature profit engine plus entertainment bookings"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Sea Limited",
+                                             "Grab",
+                                             "MercadoLibre",
+                                             "GoTo"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Grab",
+                                               "MercadoLibre",
+                                               "GoTo",
+                                               "Alibaba"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "Grab",
+                                             "MercadoLibre",
+                                             "Meituan",
+                                             "Alibaba"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:b81579d66befa5472a6bc3fee1aeb15cc12eabb14deb7896278a69e4196021d0",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Sea Limited",
+                                                                  "confidence":  96,
+                                                                  "pointingFact":  "Southeast Asian group with e-commerce marketplace, profitable gaming/entertainment, and financial services funding expansion."
+                                                              },
+                                                              {
+                                                                  "company":  "Grab",
+                                                                  "confidence":  40,
+                                                                  "pointingFact":  "Southeast Asian super-app spanning commerce-adjacent services and fintech amid funding tightening."
+                                                              },
+                                                              {
+                                                                  "company":  "GoTo",
+                                                                  "confidence":  34,
+                                                                  "pointingFact":  "Indonesian internet group combining commerce and financial services after pandemic digital adoption."
+                                                              },
+                                                              {
+                                                                  "company":  "MercadoLibre",
+                                                                  "confidence":  18,
+                                                                  "pointingFact":  "Regional commerce-plus-fintech ecosystem model, though Latin America rather than Southeast Asia."
+                                                              },
+                                                              {
+                                                                  "company":  "Bukalapak",
+                                                                  "confidence":  12,
+                                                                  "pointingFact":  "Southeast Asian marketplace exposed to post-pandemic growth normalization and competition."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  81,
+                                                                "cue":  "Parabolic multi-year lookback, falling game bookings, commerce subsidies, and EM funding stress after late-2021 rates rise."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:4bdbdd53852426b399c755d24fe03cb794f3bdb17c3296dd884bf0a3706435ff",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "Sea Limited",
+                                                                    "confidence":  72,
+                                                                    "pointingFact":  "Emerging-market flywheel of gaming, commerce, and fintech where the mature arm funds newer subsidized services."
+                                                                },
+                                                                {
+                                                                    "company":  "Grab",
+                                                                    "confidence":  42,
+                                                                    "pointingFact":  "Multi-product developing-market super-app relying on shared users across mobility, deliveries, and finance."
+                                                                },
+                                                                {
+                                                                    "company":  "MercadoLibre",
+                                                                    "confidence":  38,
+                                                                    "pointingFact":  "Regional platform combining commerce, fintech, and logistics across emerging markets with ecosystem cross-sell."
+                                                                },
+                                                                {
+                                                                    "company":  "GoTo",
+                                                                    "confidence":  26,
+                                                                    "pointingFact":  "Developing-market multi-service digital platform facing funding tightness after high online adoption."
+                                                                },
+                                                                {
+                                                                    "company":  "Delivery Hero",
+                                                                    "confidence":  20,
+                                                                    "pointingFact":  "Multi-country digital platform spanning food and adjacent services with subsidy-heavy growth economics."
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "short",
+                                                                  "confidence":  74,
+                                                                  "cue":  "Late-2021 setup after a massive price run, tighter funding, and risk that the mature unit slows before the flywheel pays off."
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:3085421f49d70bd299f3fa78c9c0e47183ad5621c356222f55d5eeafd7f2bed7",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Sea Limited",
+                                                                  "confidence":  71,
+                                                                  "pointingFact":  "Emerging-market multi-service platform where a strong gaming cash engine subsidized adjacent commerce/fintech before the late-2021 growth reset"
+                                                              },
+                                                              {
+                                                                  "company":  "Grab",
+                                                                  "confidence":  52,
+                                                                  "pointingFact":  "Southeast Asian super-app spanning mobility, deliveries, and financial services facing subsidy withdrawal as capital retreated"
+                                                              },
+                                                              {
+                                                                  "company":  "Meituan",
+                                                                  "confidence":  38,
+                                                                  "pointingFact":  "Regional multi-service platform with a dominant core operation funding adjacent growth amid an internet capital reset"
+                                                              },
+                                                              {
+                                                                  "company":  "MercadoLibre",
+                                                                  "confidence":  34,
+                                                                  "pointingFact":  "Emerging-market commerce-plus-fintech flywheel using shared distribution across adjacent services after a long price run-up"
+                                                              },
+                                                              {
+                                                                  "company":  "Delivery Hero",
+                                                                  "confidence":  28,
+                                                                  "pointingFact":  "Multi-market digital platform dependent on subsidized adjacent growth while core online ordering normalizes"
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  73,
+                                                                "cue":  "Late-2021 retreat from subsidized EM internet growth after a parabolic lookback run leaves self-funding unproven if the core engine slows"
+                                                            }
+                                          }
+                             }
+               }
+}

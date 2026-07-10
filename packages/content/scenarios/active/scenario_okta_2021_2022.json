@@ -1,0 +1,305 @@
+{
+    "id":  "scenario_okta_2021_2022",
+    "status":  "active",
+    "company":  {
+                    "name":  "Okta",
+                    "ticker":  "OKTA",
+                    "exchange":  "NASDAQ",
+                    "sector":  "Technology",
+                    "industry":  "Software - Infrastructure",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "okta"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Auth0",
+                                                "Okta Identity Cloud"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Access Layer",
+                     "decisionDate":  "2021-09-01",
+                     "endDate":  "2022-09-01",
+                     "decisionDateLabel":  "Late 2021",
+                     "outcomeLabel":  "Late 2021 to late 2022",
+                     "holdingPeriodLabel":  "One year",
+                     "era":  "Cloud security consolidation",
+                     "eraId":  "rate_hike_inflation_era",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "phase_4b_wave"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  264.76,
+                       "endingPrice":  60.6,
+                       "actualReturnPercent":  -0.7711,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2019-09-03",
+                       "preDecisionChartEndDate":  "2021-09-01",
+                       "outcomeChartStartDate":  "2021-09-01",
+                       "outcomeChartEndDate":  "2022-09-01",
+                       "lookbackPrices":  [
+                                              128.19,
+                                              117.31,
+                                              154.69,
+                                              224.5,
+                                              254.26,
+                                              244.07,
+                                              264.76
+                                          ],
+                       "outcomePrices":  [
+                                             264.76,
+                                             250.2,
+                                             224.17,
+                                             167.98,
+                                             117.72,
+                                             102.56,
+                                             60.6
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A cloud identity and access software provider helping organizations connect employees and customers to applications.",
+                                    "macroContext":  "Remote work and cloud adoption have increased security demand while software buyers consolidate vendors.",
+                                    "situation":  "Can a major acquisition broaden an identity platform without disrupting sales execution?",
+                                    "longCase":  "A larger developer and enterprise offering could expand the addressable market and cross-selling opportunities.",
+                                    "shortCase":  "Product overlap, sales-force integration, and strong competition could slow bookings while expenses rise.",
+                                    "setupHints":  [
+                                                       "The company sells both workforce access tools and customer-login infrastructure."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A subscription enterprise software provider broadening its product suite.",
+                                      "macroContext":  "Critical software demand remains resilient while technology budgets and vendor counts face scrutiny.",
+                                      "situation":  "Can broader capabilities accelerate account growth before organizational changes disrupt sales execution?",
+                                      "longCase":  "A more complete suite can improve cross-selling and deepen the platform\u0027s role inside customer workflows.",
+                                      "shortCase":  "Overlapping products and sales attrition can delay returns while rivals target the same budgets.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A subscription enterprise software platform expanding into adjacent needs.",
+                                    "macroContext":  "Critical software demand remains resilient, but buyers are consolidating suppliers.",
+                                    "situation":  "Can a broader suite expand within existing accounts before organizational friction slows execution?",
+                                    "longCase":  "A wider product set can deepen strategic relevance and increase expansion revenue.",
+                                    "shortCase":  "Product overlap and sales disruption can weaken bookings before operating leverage emerges.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Okta. Integration problems following a large identity-software acquisition and a worsening growth outlook triggered a severe reset.",
+                   "funFact":  "Okta completed its acquisition of Auth0 in 2021 to expand its customer-identity developer offering.",
+                   "whyItMoved":  [
+                                      "Sales integration and employee attrition created execution problems.",
+                                      "Guidance reflected weaker bookings and longer-term growth expectations.",
+                                      "Rising rates and security-software competition amplified the valuation decline."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ OKTA",
+                        "url":  "https://finance.yahoo.com/quote/OKTA/history/",
+                        "notes":  "Split-adjusted closes, chart samples, and return."
+                    },
+                    {
+                        "label":  "Okta fiscal 2023 Form 10-K Ã¢â‚¬â€ SEC EDGAR",
+                        "url":  "https://www.sec.gov/edgar/browse/?CIK=1660134\u0026owner=exclude",
+                        "notes":  "Acquisition, workforce and customer identity offerings, integration, competition, and reveal claims."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Moderate bucket. Stored Grok evidence identified enterprise access plus a developer-focused acquisition on Medium and the large 2021 security acquisition on Hard. M/H now omit access, identity, security, acquisition size, and acquired-product framing in favor of general suite expansion, cross-selling, sales execution, overlap, and vendor consolidation. Easy is unchanged. Stored M/H results remain stale evidence pending blind rejudge.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "company/ticker",
+                                                       "acquired company name",
+                                                       "specific guidance cut"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "subscription enterprise platform",
+                                                           "adjacent product expansion",
+                                                           "account cross-selling",
+                                                           "sales execution",
+                                                           "vendor consolidation"
+                                                       ],
+                                    "prohibited":  [
+                                                       "named acquired product",
+                                                       "breach incident",
+                                                       "one-company identity slogan"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Okta",
+                                                                  "Ping Identity",
+                                                                  "CyberArk",
+                                                                  "SailPoint",
+                                                                  "Zscaler"
+                                                              ],
+                                                     "medium":  [
+                                                                    "CyberArk",
+                                                                    "Okta",
+                                                                    "Ping Identity",
+                                                                    "SailPoint"
+                                                                ],
+                                                     "hard":  [
+                                                                  "CyberArk",
+                                                                  "Zscaler",
+                                                                  "SailPoint",
+                                                                  "Okta",
+                                                                  "Cloudflare"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "2021 acquisition plus access or identity category",
+                                                                   "late-2022 cliff plus acquisition-integration wording",
+                                                                   "workforce and customer use cases plus named developer platform"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Okta",
+                                             "Ping Identity",
+                                             "CyberArk",
+                                             "SailPoint"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "ServiceNow",
+                                               "Salesforce",
+                                               "CrowdStrike",
+                                               "Datadog"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "ServiceNow",
+                                             "Datadog",
+                                             "CrowdStrike",
+                                             "Snowflake"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:a3eb48528e8e5f0b0aff7527ecc90c6440efd0d5bcc0abee3e050c6a1b70e39b",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Okta",
+                                                                  "confidence":  92,
+                                                                  "pointingFact":  "Cloud identity platform for workforce access and customer login that completed a major identity acquisition around late 2021."
+                                                              },
+                                                              {
+                                                                  "company":  "Ping Identity",
+                                                                  "confidence":  35,
+                                                                  "pointingFact":  "Enterprise identity and access software spanning workforce and customer authentication use cases."
+                                                              },
+                                                              {
+                                                                  "company":  "CyberArk",
+                                                                  "confidence":  24,
+                                                                  "pointingFact":  "Identity security vendor expanding platform scope amid remote-work access demand."
+                                                              },
+                                                              {
+                                                                  "company":  "SailPoint",
+                                                                  "confidence":  18,
+                                                                  "pointingFact":  "Identity governance software competing in enterprise access consolidation cycles."
+                                                              },
+                                                              {
+                                                                  "company":  "Auth0",
+                                                                  "confidence":  15,
+                                                                  "pointingFact":  "Developer-friendly customer identity infrastructure often paired with workforce access platforms."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  64,
+                                                                "cue":  "Major acquisition integration risk plus software multiple compression after a strong run favor caution on bookings."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:6355732c9c3ca7b11026f8933e26d652092b4d5859cabd627de341f9f9a97d1f",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "Zscaler",
+                                                                    "confidence":  52,
+                                                                    "pointingFact":  "\u0027Access Layer\u0027 plus cloud security consolidation and a broadening subscription security suite map closely to Zscaler\u0027s zero-trust access platform."
+                                                                },
+                                                                {
+                                                                    "company":  "Okta",
+                                                                    "confidence":  50,
+                                                                    "pointingFact":  "Identity/access subscription software expanding the suite, with cross-sell ambitions and clear risk of sales execution disruption and product overlap."
+                                                                },
+                                                                {
+                                                                    "company":  "Palo Alto Networks",
+                                                                    "confidence":  34,
+                                                                    "pointingFact":  "Enterprise security platform consolidating more capabilities into a subscription suite during cloud security spend concentration."
+                                                                },
+                                                                {
+                                                                    "company":  "CrowdStrike",
+                                                                    "confidence":  30,
+                                                                    "pointingFact":  "Subscription security vendor broadening modules and land-and-expand account growth amid vendor consolidation scrutiny."
+                                                                },
+                                                                {
+                                                                    "company":  "Cloudflare",
+                                                                    "confidence":  26,
+                                                                    "pointingFact":  "Connectivity/security edge platform selling broader access and security services on a subscription model into enterprise budgets."
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "short",
+                                                                  "confidence":  58,
+                                                                  "cue":  "Late-2021 high multiples after a steep climb meet budget scrutiny, suite-overlap, and sales-attrition risks over a one-year rate-sensitive window."
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:8d65c19c916a22159561d4a5b5b54d2d4a249ed36f7bc9164f7885c5655419e0",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Okta",
+                                                                  "confidence":  42,
+                                                                  "pointingFact":  "Access-layer identity platform expanding suite amid cloud security consolidation and enterprise buyer vendor reduction."
+                                                              },
+                                                              {
+                                                                  "company":  "Zscaler",
+                                                                  "confidence":  34,
+                                                                  "pointingFact":  "Zero-trust access security subscription expanding adjacent products while customers consolidate critical software vendors."
+                                                              },
+                                                              {
+                                                                  "company":  "CrowdStrike",
+                                                                  "confidence":  26,
+                                                                  "pointingFact":  "Enterprise security subscription platform broadening modules into adjacent needs with land-and-expand account motion."
+                                                              },
+                                                              {
+                                                                  "company":  "Palo Alto Networks",
+                                                                  "confidence":  22,
+                                                                  "pointingFact":  "Platformizing security suite for consolidation-era buyers with risk of product overlap and sales disruption."
+                                                              },
+                                                              {
+                                                                  "company":  "Cloudflare",
+                                                                  "confidence":  18,
+                                                                  "pointingFact":  "Subscription security and access platform expanding adjacent enterprise offerings during cloud security consolidation."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  58,
+                                                                "cue":  "Late-2021 high-multiple software into consolidation and execution friction before operating leverage appears."
+                                                            }
+                                          }
+                             }
+               }
+}

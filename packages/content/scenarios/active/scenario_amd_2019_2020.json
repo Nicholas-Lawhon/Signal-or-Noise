@@ -1,0 +1,328 @@
+{
+    "id":  "scenario_amd_2019_2020",
+    "status":  "active",
+    "company":  {
+                    "name":  "Advanced Micro Devices",
+                    "ticker":  "AMD",
+                    "exchange":  "NASDAQ",
+                    "sector":  "Information Technology",
+                    "industry":  "Semiconductors",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "advanced micro devices",
+                                          "advanced micro devices"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Ryzen",
+                                                "EPYC",
+                                                "Radeon",
+                                                "x86"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Execution Window",
+                     "decisionDate":  "2019-01-02",
+                     "endDate":  "2020-01-02",
+                     "decisionDateLabel":  "2019",
+                     "outcomeLabel":  "2019 to 2020",
+                     "holdingPeriodLabel":  "About one year",
+                     "era":  "Late-cycle expansion",
+                     "eraId":  "late_cycle_expansion",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "part_b_phase_campaign"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  18.83,
+                       "endingPrice":  49.1,
+                       "actualReturnPercent":  1.6075,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2018-01-02",
+                       "preDecisionChartEndDate":  "2019-01-02",
+                       "outcomeChartStartDate":  "2019-01-02",
+                       "outcomeChartEndDate":  "2020-01-02",
+                       "lookbackPrices":  [
+                                              10.98,
+                                              12.07,
+                                              10.52,
+                                              14.89,
+                                              18.94,
+                                              31.93,
+                                              21.84,
+                                              18.83
+                                          ],
+                       "outcomePrices":  [
+                                             18.83,
+                                             24.71,
+                                             27.93,
+                                             32.41,
+                                             33.87,
+                                             30.29,
+                                             36.29,
+                                             49.1
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A smaller semiconductor designer competing against larger suppliers across several computing markets.",
+                                    "macroContext":  "Customers are reassessing component suppliers as a new generation of products reaches the market.",
+                                    "situation":  "Can stronger execution convert a product-cycle opening into durable customer wins?",
+                                    "longCase":  "A competitive portfolio can reopen important accounts and improve product mix.",
+                                    "shortCase":  "Larger rivals, cyclical demand, and dependence on outside manufacturing can interrupt momentum.",
+                                    "setupHints":  [
+                                                       "The company uses external manufacturers rather than owning leading-edge fabrication plants."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A design-focused component supplier in a concentrated industry.",
+                                      "macroContext":  "A major product refresh is giving customers reasons to reconsider long-standing vendor relationships.",
+                                      "situation":  "Can improved execution turn a temporary opening into sustained account gains?",
+                                      "longCase":  "Well-timed products can win new designs and lift the value of the sales mix.",
+                                      "shortCase":  "Rapid response from larger rivals can close the opportunity before gains become durable.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A capital-light hardware designer.",
+                                    "macroContext":  "A concentrated supply market is entering a product transition while customer demand remains cyclical.",
+                                    "situation":  "Can better execution overcome a scale disadvantage before established rivals respond?",
+                                    "longCase":  "A timely portfolio refresh can reopen customer accounts and improve mix.",
+                                    "shortCase":  "Execution slips or aggressive competitor pricing can erase a narrow advantage.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was AMD. Competitive processor launches and growing data-center traction helped the company report strong revenue growth during 2019.",
+                   "funFact":  "The company was founded in 1969 and has alternated between owning factories and relying on external manufacturers.",
+                   "whyItMoved":  [
+                                      "New product launches improved competitive positioning.",
+                                      "Data-center and client demand broadened the opportunity.",
+                                      "Execution against product roadmaps increased investor confidence."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ AMD",
+                        "url":  "https://finance.yahoo.com/quote/AMD/history/",
+                        "notes":  "Split-adjusted closes for 2019-01-02 and 2020-01-02; sampled lookback/outcome series and computed price return."
+                    },
+                    {
+                        "label":  "Advanced Micro Devices SEC filings",
+                        "url":  "https://www.sec.gov/edgar/browse/?CIK=AMD\u0026owner=exclude\u0026action=getcompany",
+                        "notes":  "Annual filings covering business model, operating risks, company history, and the reported operating trends summarized in the reveal."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Phase 4B production candidate. Recognition bucket: famous. Authored fact-bank first and Hard first, then Medium/Easy. Payload-only editorial self-check retained the named peer set across difficulties, avoided correct-company dominance on Medium/Hard, kept both calls articulable, and found no unsupported candidate. No authoritative Gate 2 judgment is recorded. Phase-internal clean-Grok rewrite changed easy/medium/hard only: removed the stored judge\u0027s company-pointing conjunctions while keeping concrete long/short tension. Stored Gate 2 evidence is preserved but stale for changed variants; clean rejudge required. Shared title unchanged, so no sibling-only rejudge expansion.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "Advanced Micro Devices name and AMD ticker",
+                                                       "Ryzen",
+                                                       "EPYC",
+                                                       "Radeon",
+                                                       "x86"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "Can a smaller chip designer turn a product-cycle advantage into durable market-share gains?",
+                                                           "A competitive new portfolio can win customers in several large computing markets.",
+                                                           "A larger incumbent, cyclical demand, and dependence on outside manufacturing can interrupt momentum.",
+                                                           "Can stronger execution convert a product-cycle opening into durable customer wins?",
+                                                           "A competitive portfolio can reopen important accounts and improve product mix.",
+                                                           "Larger rivals, cyclical demand, and dependence on outside manufacturing can interrupt momentum.",
+                                                           "Can improved execution turn a temporary opening into sustained account gains?",
+                                                           "Well-timed products can win new designs and lift the value of the sales mix.",
+                                                           "Rapid response from larger rivals can close the opportunity before gains become durable.",
+                                                           "Can better execution overcome a scale disadvantage before established rivals respond?",
+                                                           "A timely portfolio refresh can reopen customer accounts and improve mix.",
+                                                           "Execution slips or aggressive competitor pricing can erase a narrow advantage."
+                                                       ],
+                                    "prohibited":  [
+                                                       "Ryzen",
+                                                       "EPYC",
+                                                       "Radeon",
+                                                       "x86",
+                                                       "PC plus data center plus graphics",
+                                                       "semiconductor share gains plus 2019",
+                                                       "chip architecture or process-node transition"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Advanced Micro Devices",
+                                                                  "Nvidia",
+                                                                  "Qualcomm",
+                                                                  "Marvell Technology",
+                                                                  "Intel"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Nvidia",
+                                                                    "Qualcomm",
+                                                                    "Marvell Technology",
+                                                                    "Advanced Micro Devices",
+                                                                    "Broadcom"
+                                                                ],
+                                                     "hard":  [
+                                                                  "Cisco",
+                                                                  "Marvell Technology",
+                                                                  "Qualcomm",
+                                                                  "Nvidia",
+                                                                  "Advanced Micro Devices",
+                                                                  "Seagate Technology"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "2019 chart silhouette plus company-specific product language",
+                                                                   "Demand is shifting toward more computing power while manufacturing advances create openings between rivals. plus named product or brand",
+                                                                   "Can a smaller chip designer turn a product-cycle advantage into durable market-share gains? plus AMD ticker or company name",
+                                                                   "PC plus data center plus graphics",
+                                                                   "semiconductor share gains plus 2019",
+                                                                   "chip architecture or process-node transition"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Advanced Micro Devices",
+                                             "Nvidia",
+                                             "Qualcomm",
+                                             "Marvell Technology"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Nvidia",
+                                               "Qualcomm",
+                                               "Marvell Technology",
+                                               "Advanced Micro Devices"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "Cisco",
+                                             "Marvell Technology",
+                                             "Qualcomm",
+                                             "Nvidia"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:2031164676a443764cb1f03ba38a52e0268698b7bfc0d85e603ae725be345ab3",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:30:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Advanced Micro Devices",
+                                                                  "confidence":  84,
+                                                                  "pointingFact":  "Smaller fabless semiconductor designer reopening accounts against larger rivals in a 2019 product-cycle window"
+                                                              },
+                                                              {
+                                                                  "company":  "Marvell Technology",
+                                                                  "confidence":  32,
+                                                                  "pointingFact":  "Fabless chip designer competing across computing markets without owning leading-edge fabs"
+                                                              },
+                                                              {
+                                                                  "company":  "Xilinx",
+                                                                  "confidence":  28,
+                                                                  "pointingFact":  "Specialist semiconductor designer reliant on external manufacturing and competing with larger suppliers"
+                                                              },
+                                                              {
+                                                                  "company":  "NVIDIA",
+                                                                  "confidence":  22,
+                                                                  "pointingFact":  "Semiconductor designer with multi-market computing exposure and foundry dependence"
+                                                              },
+                                                              {
+                                                                  "company":  "Qualcomm",
+                                                                  "confidence":  18,
+                                                                  "pointingFact":  "Fabless chip company competing in computing-related markets against larger platform suppliers"
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  62,
+                                                                "cue":  "Payload centers on a product-cycle opening where stronger execution can convert share and mix gains"
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:4faa99d1ab50a8df5b7b6db94e20e4ebe8a00171ab259e622ec61b8108042d47",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "AMD",
+                                                                    "confidence":  66,
+                                                                    "pointingFact":  "Design-focused chip supplier in a concentrated CPU/GPU industry where a major product refresh let customers reconsider the long-standing leader in 2019."
+                                                                },
+                                                                {
+                                                                    "company":  "NVIDIA",
+                                                                    "confidence":  36,
+                                                                    "pointingFact":  "Component designer whose product cycles can win new sockets and lift mix when customers refresh platforms."
+                                                                },
+                                                                {
+                                                                    "company":  "Skyworks Solutions",
+                                                                    "confidence":  29,
+                                                                    "pointingFact":  "RF component supplier whose design wins hinge on handset and device refreshes in a concentrated customer set."
+                                                                },
+                                                                {
+                                                                    "company":  "Qorvo",
+                                                                    "confidence":  24,
+                                                                    "pointingFact":  "Design-centric RF parts vendor competing for sockets during major product refresh windows."
+                                                                },
+                                                                {
+                                                                    "company":  "Marvell Technology",
+                                                                    "confidence":  18,
+                                                                    "pointingFact":  "Semiconductor design supplier that can gain share when customers reopen vendor choices on new platforms."
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "long",
+                                                                  "confidence":  55,
+                                                                  "cue":  "The execution-and-design-win case is stronger than the already-visible drawdown alone implies, though larger rivals closing the window keeps conviction moderate."
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:79f48c4e48f0a03f6e78f8ae791a3610f2ef66c8864c6459fec10d6cd9923704",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Advanced Micro Devices",
+                                                                  "confidence":  62,
+                                                                  "pointingFact":  "Capital-light chip designer trying to take share via a product refresh against a much larger incumbent."
+                                                              },
+                                                              {
+                                                                  "company":  "NVIDIA",
+                                                                  "confidence":  33,
+                                                                  "pointingFact":  "Fabless hardware architect in a concentrated supply chain with cyclical demand and product transitions."
+                                                              },
+                                                              {
+                                                                  "company":  "Qualcomm",
+                                                                  "confidence":  27,
+                                                                  "pointingFact":  "Capital-light chip designer facing cyclical customers and competitive pricing around platform refreshes."
+                                                              },
+                                                              {
+                                                                  "company":  "Xilinx",
+                                                                  "confidence":  22,
+                                                                  "pointingFact":  "Smaller programmable-chip designer competing on execution and mix versus larger silicon rivals."
+                                                              },
+                                                              {
+                                                                  "company":  "Marvell Technology",
+                                                                  "confidence":  18,
+                                                                  "pointingFact":  "Fabless semiconductor name where timely portfolio execution can reopen accounts despite scale limits."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  55,
+                                                                "cue":  "Post-spike pullback into a product-transition window where better execution and mix can reopen customer accounts."
+                                                            }
+                                          }
+                             }
+               }
+}

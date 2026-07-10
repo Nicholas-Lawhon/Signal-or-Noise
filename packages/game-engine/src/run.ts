@@ -37,6 +37,33 @@ export function createRunState(params: {
   };
 }
 
+export function createDailyChallengeRunState(params?: {
+  startingBankroll?: number;
+  totalRounds?: number;
+}): RunState {
+  if (params?.startingBankroll !== undefined && params.startingBankroll < 0) {
+    throw new Error('startingBankroll must not be negative.');
+  }
+  if (params?.totalRounds !== undefined && params.totalRounds < 1) {
+    throw new Error('totalRounds must be at least 1.');
+  }
+
+  const startingBankroll = params?.startingBankroll ?? 10000;
+  return {
+    mode: 'daily_challenge',
+    difficulty: null,
+    startingBankroll,
+    currentBankroll: startingBankroll,
+    signalScore: 0,
+    totalRounds: params?.totalRounds ?? 10,
+    currentRoundIndex: 0,
+    status: 'in_progress',
+    rounds: [],
+    currentStreak: 0,
+    bestStreak: 0,
+  };
+}
+
 export function applyRoundResult(run: RunState, input: ApplyRoundResultInput): RunState {
   if (run.status !== 'in_progress') {
     throw new Error('Cannot apply round to a run that is not in_progress.');

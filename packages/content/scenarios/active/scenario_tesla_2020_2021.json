@@ -1,0 +1,310 @@
+{
+    "id":  "scenario_tesla_2020_2021",
+    "status":  "active",
+    "company":  {
+                    "name":  "Tesla",
+                    "ticker":  "TSLA",
+                    "exchange":  "NASDAQ",
+                    "sector":  "Consumer Discretionary",
+                    "industry":  "Automobile Manufacturers",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "tesla",
+                                          "tesla inc"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Model 3",
+                                                "Model Y",
+                                                "Gigafactory",
+                                                "Supercharger"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Capacity Question",
+                     "decisionDate":  "2020-01-02",
+                     "endDate":  "2021-01-04",
+                     "decisionDateLabel":  "Early 2020",
+                     "outcomeLabel":  "Early 2020 to early 2021",
+                     "holdingPeriodLabel":  "About one year",
+                     "era":  "Pandemic-era disruption",
+                     "eraId":  "pandemic_era",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "part_b_batch_1"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  28.684,
+                       "endingPrice":  243.257,
+                       "actualReturnPercent":  7.481,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2018-01-02",
+                       "preDecisionChartEndDate":  "2020-01-02",
+                       "outcomeChartStartDate":  "2020-01-02",
+                       "outcomeChartEndDate":  "2021-01-04",
+                       "lookbackPrices":  [
+                                              21,
+                                              19,
+                                              22,
+                                              20,
+                                              18,
+                                              24,
+                                              28.684
+                                          ],
+                       "outcomePrices":  [
+                                             28.684,
+                                             35,
+                                             55,
+                                             90,
+                                             130,
+                                             190,
+                                             243.257
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A manufacturer selling premium electric vehicles directly to consumers.",
+                                    "macroContext":  "Governments and buyers are paying closer attention to lower-emission transport while traditional manufacturers prepare competing models.",
+                                    "situation":  "Can a fast-growing vehicle maker turn new factory capacity into dependable deliveries before larger rivals narrow the gap?",
+                                    "longCase":  "More production capacity and falling battery costs could let deliveries grow quickly in a category still gaining acceptance.",
+                                    "shortCase":  "Capital needs, manufacturing delays, and better-funded rivals could expose how demanding the expansion plan is.",
+                                    "setupHints":  [
+                                                       "The business sells vehicles and related energy products rather than licensing its technology."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A capital-intensive producer expanding owned manufacturing capacity.",
+                                      "macroContext":  "Low financing costs are supporting ambitious expansion plans while investors debate which growth manufacturers can reach scale.",
+                                      "situation":  "Can new facilities reach reliable output before startup costs and competition consume the expected gains?",
+                                      "longCase":  "Higher utilization and improving production yields can spread fixed costs across more units.",
+                                      "shortCase":  "Ramp delays, quality problems, and heavy cash needs can make added capacity uneconomic.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A growth-stage manufacturer.",
+                                    "macroContext":  "Capital is available for expansion, but new facilities must prove repeatable economics.",
+                                    "situation":  "Can a rapid capacity build become reliable output before execution costs compound?",
+                                    "longCase":  "Better utilization and yield can improve unit economics as volume rises.",
+                                    "shortCase":  "Startup inefficiency and sustained capital needs can overwhelm demand growth.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Tesla. Vehicle deliveries accelerated as new capacity came online and enthusiasm for electric transport grew.",
+                   "funFact":  "The company also sells stationary energy-storage systems alongside its vehicles.",
+                   "whyItMoved":  [
+                                      "Vehicle deliveries grew as production capacity expanded.",
+                                      "Interest in electric transport strengthened during the period.",
+                                      "Investors assigned a higher value to the companyÃ¢â‚¬â„¢s growth prospects."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ TSLA",
+                        "url":  "https://finance.yahoo.com/quote/TSLA/history/",
+                        "notes":  "Split-adjusted closes for 2020-01-02 and 2021-01-04; chart series and return."
+                    },
+                    {
+                        "label":  "Tesla 2020 Form 10-K",
+                        "url":  "https://www.sec.gov/Archives/edgar/data/1318605/000156459021004599/tsla-10k_20201231.htm",
+                        "notes":  "Vehicle deliveries, production capacity, energy-storage business, competition, and execution risks."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Famous; adversarial rewrite from clean stored Grok evidence. Changed Medium and Hard. Removed consumer-product, maturing category, direct sales, transport, vehicle, rival-distribution, and famous capacity-ramp conjunctions. The facility-ramp and yield tension now fits First Solar, Enphase, GlobalFoundries, Peloton, NIO, and Tesla. Stored review.gate2 is preserved and stale by hash.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "Tesla name and ticker",
+                                                       "specific vehicle and charging brands",
+                                                       "widely remembered valuation surge"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "owned manufacturing capacity",
+                                                           "facility ramp",
+                                                           "utilization and yield",
+                                                           "startup inefficiency",
+                                                           "capital needs"
+                                                       ],
+                                    "prohibited":  [
+                                                       "electric vehicle language",
+                                                       "battery and charging terms",
+                                                       "direct-sales model",
+                                                       "named factories"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Tesla",
+                                                                  "NIO",
+                                                                  "Ford Motor",
+                                                                  "General Motors"
+                                                              ],
+                                                     "medium":  [
+                                                                    "First Solar",
+                                                                    "GlobalFoundries",
+                                                                    "NIO",
+                                                                    "Tesla"
+                                                                ],
+                                                     "hard":  [
+                                                                  "Enphase Energy",
+                                                                  "GlobalFoundries",
+                                                                  "First Solar",
+                                                                  "Peloton",
+                                                                  "Tesla"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "late-2019 chart plus electric-vehicle narrative",
+                                                                   "direct sales plus charging infrastructure",
+                                                                   "2020 date plus transport technology",
+                                                                   "new capacity plus established vehicle distribution",
+                                                                   "factory ramp plus battery-cost improvement"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Tesla",
+                                             "Rivian",
+                                             "Lucid",
+                                             "NIO"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "First Solar",
+                                               "GlobalFoundries",
+                                               "NIO",
+                                               "Tesla"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "Enphase Energy",
+                                             "GlobalFoundries",
+                                             "First Solar",
+                                             "Peloton"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:734602663da692f76d528c2a651007c187e0fb0067b0f28202d767464924dcca",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Tesla",
+                                                                  "confidence":  95,
+                                                                  "pointingFact":  "Premium EV maker selling vehicles and energy products directly to consumers while racing factory capacity in early 2020."
+                                                              },
+                                                              {
+                                                                  "company":  "NIO",
+                                                                  "confidence":  26,
+                                                                  "pointingFact":  "Premium EV manufacturer scaling production, but less the global direct-sales plus energy-products template."
+                                                              },
+                                                              {
+                                                                  "company":  "Rivian",
+                                                                  "confidence":  12,
+                                                                  "pointingFact":  "Direct-to-consumer premium EVs, but not yet the established capacity story in early 2020."
+                                                              },
+                                                              {
+                                                                  "company":  "Ford",
+                                                                  "confidence":  10,
+                                                                  "pointingFact":  "Large auto maker adding EVs, not a pure premium EV direct-sales manufacturer."
+                                                              },
+                                                              {
+                                                                  "company":  "General Motors",
+                                                                  "confidence":  9,
+                                                                  "pointingFact":  "Incumbent preparing competing EV models rather than the pure capacity-upstart described."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  68,
+                                                                "cue":  "New capacity and falling battery costs can convert EV demand into deliveries while the lookback already turns higher."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:f6e45bae0c1cf7a564d58eef7cc77961666257c31f2308395fb29fefa8a680fb",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "Tesla",
+                                                                    "confidence":  62,
+                                                                    "pointingFact":  "Early-2020 capital-intensive owned-capacity expansion with classic ramp, yield, and fixed-cost absorption debates."
+                                                                },
+                                                                {
+                                                                    "company":  "NIO",
+                                                                    "confidence":  28,
+                                                                    "pointingFact":  "Pandemic-era EV manufacturer pouring cash into owned plants while markets questioned scale economics."
+                                                                },
+                                                                {
+                                                                    "company":  "Intel",
+                                                                    "confidence":  22,
+                                                                    "pointingFact":  "Heavy owned manufacturing buildout where utilization and yield determine whether new capacity pays off."
+                                                                },
+                                                                {
+                                                                    "company":  "First Solar",
+                                                                    "confidence":  18,
+                                                                    "pointingFact":  "Capital-intensive producer expanding owned factories with long ramps and competition-sensitive returns."
+                                                                },
+                                                                {
+                                                                    "company":  "Albemarle",
+                                                                    "confidence":  14,
+                                                                    "pointingFact":  "Materials producer funding large capacity adds under low rates amid debates over timely utilization."
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "long",
+                                                                  "confidence":  56,
+                                                                  "cue":  "Lookback already rebounding off the trough into early 2020, and the long case hinges on utilization spreading fixed costs if ramps work."
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:b741b59bd4e9dacb03e39527d14da8821f9372c9201129ec48cf73836a079251",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Tesla",
+                                                                  "confidence":  52,
+                                                                  "pointingFact":  "Growth-stage manufacturer racing to turn new capacity into reliable output and better unit economics."
+                                                              },
+                                                              {
+                                                                  "company":  "Beyond Meat",
+                                                                  "confidence":  33,
+                                                                  "pointingFact":  "Growth manufacturer expanding production facilities where utilization and yields determine unit economics."
+                                                              },
+                                                              {
+                                                                  "company":  "NIO",
+                                                                  "confidence":  24,
+                                                                  "pointingFact":  "EV growth manufacturer dependent on ramping capacity before cash burn and execution costs dominate."
+                                                              },
+                                                              {
+                                                                  "company":  "Plug Power",
+                                                                  "confidence":  20,
+                                                                  "pointingFact":  "Capital-intensive growth manufacturer where new facilities must prove repeatable economics."
+                                                              },
+                                                              {
+                                                                  "company":  "Enphase Energy",
+                                                                  "confidence":  16,
+                                                                  "pointingFact":  "Growth manufacturing story where volume, yield, and utilization drive whether expansion pays off."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  50,
+                                                                "cue":  "Early-2020 capacity fear is real, but utilization and yield gains can improve unit economics as volume rises."
+                                                            }
+                                          }
+                             }
+               }
+}

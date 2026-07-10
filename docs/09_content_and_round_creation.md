@@ -318,10 +318,15 @@ difficulty; they do not replace this whole-card review.
 
 ### Gate 2 — The Guessability Test (model, falsifiable)
 
-Gate 2 uses the pinned **Grok 4.5** judge and the pinned prompt version under
-D031. A separate agent workflow receives only the canonical pre-decision
-payload, returns five guesses with confidence and pointing facts plus a
-direction call, and stores raw results under `review.gate2`. The content
+Gate 2 defaults to **Grok 4.5**, but an approved phase charter may select another
+approved high-reasoning judge under D031; the selected model and prompt version
+are pinned in each stored result. A separate phase-internal judge receives only
+an opaque judge ID, one difficulty, payload hash, and the canonical pre-decision
+payload. The answer-bearing scenario-ID mapping is written separately and withheld
+until every judgment is final. Judge sessions must not receive sibling difficulty
+variants of the same scenario. The judge returns five guesses with confidence and
+pointing facts plus a direction call, and raw results are stored under
+`review.gate2`. The content
 package checks hashes, pins, and thresholds offline (D032). Direction findings
 are WARN-only. This blind judgment is separate from the author self-judge and
 is required with current results plus human review before activation.
@@ -331,10 +336,14 @@ reopening D022:
 
 - **Easy:** the correct company should appear in the top 3 (it MAY be #1).
   Missing from the top 5 entirely — too vague, fail.
-- **Medium:** fail if the correct company is #1 with ≥ 40% confidence, or
-  leads the #2 guess by 15+ points.
-- **Hard:** fail if the correct company appears in the top 5 with ≥ 15%
-  confidence.
+- **Medium:** the answer may be recognizable. Fail only when it is #1 with both
+  ≥85% confidence and a lead of 35+ points over #2.
+- **Hard:** the answer may appear among plausible guesses. Fail only when it is
+  #1 with both ≥75% confidence and a lead of 35+ points over #2.
+
+These D044 thresholds treat recognizability as playable signal and reserve
+failure for near-certain dominance. They replace the earlier anti-identification
+calibration that made Medium/Hard cards overly abstract in playtests.
 
 Automated plausible-count WARNs fire only when fewer than two model guesses
 meet the confidence floor with pointing facts, for Medium and Hard as well as
@@ -421,9 +430,9 @@ Use this required workflow for all Part B cards:
    public companies before prose); a pointing fact or conjunction for every
    peer; and prohibited conjunctions, including chart-plus-prose paths.
 4. Review the chart silhouette as an identity fact. Do not write prose that
-   confirms its favorite candidate. If only a window shift, vagueness, or card
-   retirement would resolve the conflict, escalate to the user; never silently
-   shift the window.
+   confirms its favorite candidate. Never silently shift the historical window.
+   When a candidate cannot meet the identity bar without vagueness, retire and
+   replace it within the approved recognition mix.
 5. Draft Hard first from the broad peer set and matched factual tension. Keep
    two non-identifying causal facts so Long and Short are each one sentence and
    neither applies unchanged to nearly any public company.
@@ -433,19 +442,21 @@ Use this required workflow for all Part B cards:
    literal or unique hook. Never write Easy first and vague it down.
 7. Red-team likely guesses with pointing reasons. Gate 1 aspirations remain
    Easy at least 2, Medium 2-4, and Hard at least 4 plausible candidates.
-8. Run a mandatory payload-only self-judge: exactly five company guesses with
-   confidence and pointing fact, plus direction call/confidence/cue. It sees no
-   company or reveal fields. Compare it with the red-team list and revise for
-   zero overlap, correct-company dominance, or unsupported candidates. Record
-   a summary in `review.reviewNotes` or the completion report; it is not an
-   authoritative `review.gate2` result.
+8. Run a payload-only self-check before blind judging. It sees no company or
+   reveal fields. Compare it with the red-team list and revise for zero overlap,
+   correct-company dominance, or unsupported candidates. Record only a concise
+   summary in `review.reviewNotes`; do not create a per-batch report artifact.
 9. Run deterministic schema and leakage validation, then export canonical
-   payloads for a separate blind Grok Gate 2 handoff. Only changed payloads are
-   rejudged. Human review and current Gate 2 results are required before
+   opaque payloads plus a separate private mapping. Judge Easy, Medium, and Hard
+   in separate clean sessions so sibling variants cannot contaminate one another.
+   Only changed
+   payloads are rejudged. After one failed repair/rejudge, retire and replace a
+   persistently identifying candidate instead of opening another workflow loop.
+   Human review and current Gate 2 results remain required before
    `humanReviewed` / `active`.
-10. Author four batches of about 10 cards (about 6 famous / 3 moderate / 1
-    obscure). Blind-judge each batch and hold user playtests after batches 1
-    and 2 before batches 3 and 4.
+10. Internal authoring batches may be used for attention management, but they do
+    not create separate handoffs, reports, approvals, playtest gates, or reviews.
+    Review the complete production set once at the Phase 4B boundary.
 
 ## Legacy AI Prompt Template (superseded by Part B template below)
 
@@ -539,8 +550,8 @@ overlap with the red-team list, correct-company dominance, or unsupported
 candidates. Record its non-authoritative summary in review notes.
 
 Validate deterministically, then export the canonical payload for a separate
-blind Grok 4.5 Gate 2 agent workflow. Store its raw results under review.gate2;
-offline checks enforce the pinned model, prompt, payload hash, and identity
+blind Gate 2 model inside the phase using the charter's approved judge. Store its raw results under review.gate2;
+offline checks enforce the approved model, prompt, payload hash, and identity
 thresholds. Human review and current blind results are required for activation.
 ```
 

@@ -1,0 +1,305 @@
+{
+    "id":  "scenario_crowdstrike_2023_2024",
+    "status":  "active",
+    "company":  {
+                    "name":  "CrowdStrike",
+                    "ticker":  "CRWD",
+                    "exchange":  "NASDAQ",
+                    "sector":  "Technology",
+                    "industry":  "Software - Infrastructure",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "crowdstrike"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Falcon",
+                                                "CrowdStrike Falcon"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Control Plane",
+                     "decisionDate":  "2023-01-03",
+                     "endDate":  "2024-01-03",
+                     "decisionDateLabel":  "Early 2023",
+                     "outcomeLabel":  "Early 2023 to early 2024",
+                     "holdingPeriodLabel":  "One year",
+                     "era":  "Rate-hike and software reset",
+                     "eraId":  "rate_hike_inflation_era",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "phase_4b_wave"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  25.82,
+                       "endingPrice":  61.09,
+                       "actualReturnPercent":  1.366,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2021-01-04",
+                       "preDecisionChartEndDate":  "2023-01-03",
+                       "outcomeChartStartDate":  "2023-01-03",
+                       "outcomeChartEndDate":  "2024-01-03",
+                       "lookbackPrices":  [
+                                              50.123,
+                                              49.447,
+                                              67.493,
+                                              51.188,
+                                              49.85,
+                                              43.243,
+                                              25.82
+                                          ],
+                       "outcomePrices":  [
+                                             25.82,
+                                             31.51,
+                                             29.417,
+                                             36.27,
+                                             40.307,
+                                             44.588,
+                                             61.09
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A cloud-delivered cybersecurity software company protecting corporate devices, workloads, and identities.",
+                                    "macroContext":  "Technology budgets are tightening while security incidents keep defensive spending high on priority lists.",
+                                    "situation":  "Can a security platform keep consolidating customer tools as buyers scrutinize every software contract?",
+                                    "longCase":  "Recurring subscriptions and adoption of additional modules could lift retention and operating leverage.",
+                                    "shortCase":  "Long sales cycles, platform competition, and premium expectations could slow growth faster than costs adjust.",
+                                    "setupHints":  [
+                                                       "Customers can add multiple security modules through one cloud-based platform."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A subscription software platform serving security teams.",
+                                      "macroContext":  "Enterprise buyers are consolidating vendors while slowing discretionary technology projects.",
+                                      "situation":  "Can a platform win a larger share of fixed security budgets without sacrificing growth efficiency?",
+                                      "longCase":  "High retention and cross-selling can deepen recurring revenue even when new-logo decisions take longer.",
+                                      "shortCase":  "Crowded competition and delayed contracts can pressure growth while valuation still assumes durable leadership.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A recurring-revenue enterprise software provider.",
+                                    "macroContext":  "Customers are reducing vendor sprawl and demanding measurable returns from critical systems.",
+                                    "situation":  "Can one control layer expand within existing accounts faster than new demand slows?",
+                                    "longCase":  "Mission-critical use and modular expansion can support retention and improve unit economics.",
+                                    "shortCase":  "Procurement delays and capable rivals can narrow growth before operating leverage fully appears.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was CrowdStrike. Subscription expansion and broader module adoption helped growth reaccelerate as customers consolidated security tools.",
+                   "funFact":  "By fiscal 2024, a substantial share of subscription customers used five or more cloud modules.",
+                   "whyItMoved":  [
+                                      "Annual recurring revenue continued to grow at a strong rate.",
+                                      "Existing customers adopted additional modules across the platform.",
+                                      "Improving scale and operating leverage strengthened the earnings narrative."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ CRWD",
+                        "url":  "https://finance.yahoo.com/quote/CRWD/history/",
+                        "notes":  "Split-adjusted closes for 2023-01-03 and 2024-01-03, chart samples, and calculated price return."
+                    },
+                    {
+                        "label":  "CrowdStrike fiscal 2024 Form 10-K Ã¢â‚¬â€ SEC EDGAR",
+                        "url":  "https://www.sec.gov/edgar/browse/?CIK=CRWD\u0026owner=exclude",
+                        "notes":  "Recurring revenue, subscription module adoption, competitive risks, and operating leverage claims."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Famous bucket. Fact bank first; Hard drafted first. Peer pointing: Palo Alto fits platform consolidation; Zscaler fits cloud security subscriptions; Okta fits identity modules; Cloudflare fits critical cloud services. Chart review: deep software drawdown is shared by growth peers; prose avoids breach or endpoint-specific hooks. Payload-only self-check (non-authoritative): Easy [CrowdStrike 40, Palo Alto 27, Zscaler 18, Okta 9, Cloudflare 6]; Medium [Palo Alto 27, CrowdStrike 25, Zscaler 23, Okta 14, Cloudflare 11]; Hard [ServiceNow 24, Palo Alto 21, Zscaler 19, CrowdStrike 14, Okta 12], direction long 56 from retention and cross-sell versus procurement delays. Overlap and support checks passed.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "company and ticker",
+                                                       "named platform",
+                                                       "exact module-adoption percentages"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "recurring subscriptions",
+                                                           "module cross-selling",
+                                                           "vendor consolidation",
+                                                           "procurement delays",
+                                                           "operating leverage"
+                                                       ],
+                                    "prohibited":  [
+                                                       "named endpoint product",
+                                                       "breach headlines",
+                                                       "one-answer cybersecurity superlatives"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "CrowdStrike",
+                                                                  "Palo Alto Networks",
+                                                                  "Zscaler",
+                                                                  "Okta",
+                                                                  "Cloudflare"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Palo Alto Networks",
+                                                                    "CrowdStrike",
+                                                                    "Zscaler",
+                                                                    "Okta"
+                                                                ],
+                                                     "hard":  [
+                                                                  "ServiceNow",
+                                                                  "Palo Alto Networks",
+                                                                  "Zscaler",
+                                                                  "CrowdStrike",
+                                                                  "Okta"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "2022 drawdown plus named platform architecture",
+                                                                   "endpoint security plus module-count statistic",
+                                                                   "vendor consolidation plus exact retention metric"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "CrowdStrike",
+                                             "Palo Alto Networks",
+                                             "Zscaler",
+                                             "Okta"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Palo Alto Networks",
+                                               "CrowdStrike",
+                                               "Zscaler",
+                                               "Okta"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "ServiceNow",
+                                             "Palo Alto Networks",
+                                             "Zscaler",
+                                             "CrowdStrike"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:a3cf13deccf348fe0d029d9c73aa89f89be06e4a702f18d16437d8c9e6d9f7a5",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "CrowdStrike",
+                                                                  "confidence":  78,
+                                                                  "pointingFact":  "Cloud cybersecurity platform covering devices, workloads, and identities via add-on modules fits Falcon-style consolidation."
+                                                              },
+                                                              {
+                                                                  "company":  "Zscaler",
+                                                                  "confidence":  56,
+                                                                  "pointingFact":  "Cloud-delivered security platform sold as a multi-module subscription during budget scrutiny."
+                                                              },
+                                                              {
+                                                                  "company":  "Palo Alto Networks",
+                                                                  "confidence":  48,
+                                                                  "pointingFact":  "Broad security platform strategy pushing customers to consolidate tools on one stack."
+                                                              },
+                                                              {
+                                                                  "company":  "SentinelOne",
+                                                                  "confidence":  34,
+                                                                  "pointingFact":  "Cloud endpoint and workload security vendor with platform upsell after the software reset."
+                                                              },
+                                                              {
+                                                                  "company":  "Okta",
+                                                                  "confidence":  24,
+                                                                  "pointingFact":  "Identity-centric cloud security subscriptions, narrower on devices and workloads."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  57,
+                                                                "cue":  "Early-2023 setup after a sharp drawdown still prioritizes security spend and multi-module platform consolidation."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:3c0944bd998df5bdd15e7a054ec917177fada33ce52b1c57e4b49712ba3ba5be",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-10T04:30:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "CrowdStrike",
+                                                                    "confidence":  58,
+                                                                    "pointingFact":  "Subscription security platform for security teams with high retention and cross-sell after the early-2023 software reset."
+                                                                },
+                                                                {
+                                                                    "company":  "Zscaler",
+                                                                    "confidence":  52,
+                                                                    "pointingFact":  "Cloud security control-plane style platform competing for consolidating enterprise security budgets."
+                                                                },
+                                                                {
+                                                                    "company":  "Palo Alto Networks",
+                                                                    "confidence":  46,
+                                                                    "pointingFact":  "Broad security platformization story aimed at winning share of fixed security spend."
+                                                                },
+                                                                {
+                                                                    "company":  "Okta",
+                                                                    "confidence":  34,
+                                                                    "pointingFact":  "Identity security subscription vendor facing delayed enterprise deals and a valuation reset."
+                                                                },
+                                                                {
+                                                                    "company":  "SentinelOne",
+                                                                    "confidence":  24,
+                                                                    "pointingFact":  "Endpoint security pure-play with growth-efficiency and crowded-competition pressure after a sharp drawdown."
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "long",
+                                                                  "confidence":  57,
+                                                                  "cue":  "Entry after a roughly half-off lookback drawdown, with sticky security budgets, retention, and cross-sell as the long case into early 2023."
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:fc929151b7ba6a24ab55623792fa922fbd1579541e7b9e714a607c76d1642c65",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:30:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "ServiceNow",
+                                                                  "confidence":  44,
+                                                                  "pointingFact":  "Mission-critical enterprise control/workflow layer sold as a consolidating system of action inside existing accounts"
+                                                              },
+                                                              {
+                                                                  "company":  "HashiCorp",
+                                                                  "confidence":  38,
+                                                                  "pointingFact":  "Infrastructure control-plane software with recurring revenue and land-and-expand modular adoption"
+                                                              },
+                                                              {
+                                                                  "company":  "Palo Alto Networks",
+                                                                  "confidence":  34,
+                                                                  "pointingFact":  "Security platform pitched as a unifying control layer while customers cut vendor sprawl in 2023"
+                                                              },
+                                                              {
+                                                                  "company":  "Datadog",
+                                                                  "confidence":  32,
+                                                                  "pointingFact":  "Recurring observability suite that expands modules in-account when buyers demand measurable ROI"
+                                                              },
+                                                              {
+                                                                  "company":  "Snowflake",
+                                                                  "confidence":  28,
+                                                                  "pointingFact":  "Consumption-based enterprise data platform hit by the software reset and slower new demand"
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  57,
+                                                                "cue":  "Lookback already halved into early 2023 while mission-critical retention and modular expansion can stabilize unit economics"
+                                                            }
+                                          }
+                             }
+               }
+}

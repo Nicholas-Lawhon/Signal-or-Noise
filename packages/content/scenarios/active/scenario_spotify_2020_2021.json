@@ -1,0 +1,324 @@
+{
+    "id":  "scenario_spotify_2020_2021",
+    "status":  "active",
+    "company":  {
+                    "name":  "Spotify Technology",
+                    "ticker":  "SPOT",
+                    "exchange":  "NYSE",
+                    "sector":  "Communication Services",
+                    "industry":  "Entertainment",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "spotify technology",
+                                          "spotify"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Spotify",
+                                                "Discover Weekly",
+                                                "Wrapped",
+                                                "podcast"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Scale Versus Royalties",
+                     "decisionDate":  "2020-01-02",
+                     "endDate":  "2021-01-04",
+                     "decisionDateLabel":  "2020",
+                     "outcomeLabel":  "2020 to 2021",
+                     "holdingPeriodLabel":  "About one year",
+                     "era":  "Pandemic-era disruption",
+                     "eraId":  "pandemic_era",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "part_b_phase_campaign"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  151.62,
+                       "endingPrice":  311,
+                       "actualReturnPercent":  1.0512,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2019-01-02",
+                       "preDecisionChartEndDate":  "2020-01-02",
+                       "outcomeChartStartDate":  "2020-01-02",
+                       "outcomeChartEndDate":  "2021-01-04",
+                       "lookbackPrices":  [
+                                              113.74,
+                                              149.33,
+                                              139.41,
+                                              140.08,
+                                              155.2,
+                                              124.39,
+                                              147.85,
+                                              151.62
+                                          ],
+                       "outcomePrices":  [
+                                             151.62,
+                                             141.8,
+                                             139.49,
+                                             187.3,
+                                             261.79,
+                                             239.34,
+                                             249.99,
+                                             311
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A global audio-streaming subscription and advertising platform.",
+                                    "macroContext":  "On-demand media consumption is rising while content owners retain substantial bargaining power.",
+                                    "situation":  "Can subscriber scale and new audio formats improve economics despite high content costs?",
+                                    "longCase":  "More listeners can strengthen discovery, advertising inventory, and bargaining leverage.",
+                                    "shortCase":  "Royalties, competition from bundled services, and costly content investment can cap margins.",
+                                    "setupHints":  [
+                                                       "The service offers both paid subscriptions and an advertising-supported tier."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A global digital consumer service with both subscriptions and advertising-supported access.",
+                                      "macroContext":  "On-demand use is growing while essential outside partners retain bargaining power over key inputs.",
+                                      "situation":  "Can audience scale improve economics before access costs absorb the gains?",
+                                      "longCase":  "A larger audience can support retention, advertising reach, and negotiating leverage.",
+                                      "shortCase":  "Supplier power and competing bundles can keep profitability structurally thin.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A digital consumer platform.",
+                                    "macroContext":  "Audience growth is strong, but important outside partners capture a meaningful share of revenue.",
+                                    "situation":  "Can scale improve the economics of a service whose key inputs remain externally controlled?",
+                                    "longCase":  "More users can strengthen retention, monetization options, and bargaining position.",
+                                    "shortCase":  "Supplier concentration and aggressive bundles can prevent growth from reaching the bottom line.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Spotify. Monthly active users and premium subscribers grew during 2020 while the company invested in a broader audio strategy.",
+                   "funFact":  "The company launched in Sweden in 2008 before expanding into a global audio platform.",
+                   "whyItMoved":  [
+                                      "Premium subscribers continued to grow.",
+                                      "At-home listening patterns broadened use cases.",
+                                      "Investment in additional audio formats expanded the addressable market while raising costs."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ SPOT",
+                        "url":  "https://finance.yahoo.com/quote/SPOT/history/",
+                        "notes":  "Split-adjusted closes for 2020-01-02 and 2021-01-04; sampled lookback/outcome series and computed price return."
+                    },
+                    {
+                        "label":  "Spotify Technology SEC filings",
+                        "url":  "https://www.sec.gov/edgar/browse/?CIK=SPOT\u0026owner=exclude\u0026action=getcompany",
+                        "notes":  "Annual filings covering business model, operating risks, company history, and the reported operating trends summarized in the reveal."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Phase 4B production candidate. Recognition bucket: famous. Authored fact-bank first and Hard first, then Medium/Easy. Payload-only editorial self-check retained the named peer set across difficulties, avoided correct-company dominance on Medium/Hard, kept both calls articulable, and found no unsupported candidate. No authoritative Gate 2 judgment is recorded. Phase-internal clean-Grok rewrite changed medium/hard only: removed the stored judge\u0027s company-pointing conjunctions while keeping concrete long/short tension. Stored Gate 2 evidence is preserved but stale for changed variants; clean rejudge required. Shared title unchanged, so no sibling-only rejudge expansion.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "Spotify Technology name and SPOT ticker",
+                                                       "Spotify",
+                                                       "Discover Weekly",
+                                                       "Wrapped",
+                                                       "podcast"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "Can subscriber scale and new audio formats improve economics despite high content costs?",
+                                                           "More listeners can strengthen discovery, advertising inventory, and bargaining leverage.",
+                                                           "Royalties, competition from bundled services, and costly content investment can cap margins.",
+                                                           "Can audience scale improve economics before access costs absorb the gains?",
+                                                           "A larger audience can support retention, advertising reach, and negotiating leverage.",
+                                                           "Supplier power and competing bundles can keep profitability structurally thin.",
+                                                           "Can scale improve the economics of a service whose key inputs remain externally controlled?",
+                                                           "More users can strengthen retention, monetization options, and bargaining position.",
+                                                           "Supplier concentration and aggressive bundles can prevent growth from reaching the bottom line."
+                                                       ],
+                                    "prohibited":  [
+                                                       "Spotify",
+                                                       "Discover Weekly",
+                                                       "Wrapped",
+                                                       "podcast",
+                                                       "audio plus royalties",
+                                                       "music rights plus subscription advertising",
+                                                       "essential content suppliers plus 2020"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Spotify Technology",
+                                                                  "Apple",
+                                                                  "Amazon",
+                                                                  "Sirius XM"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Netflix",
+                                                                    "Sirius XM",
+                                                                    "Spotify Technology",
+                                                                    "Roku",
+                                                                    "Match Group"
+                                                                ],
+                                                     "hard":  [
+                                                                  "Netflix",
+                                                                  "Sirius XM",
+                                                                  "Roku",
+                                                                  "Match Group",
+                                                                  "Spotify Technology",
+                                                                  "Tencent Music"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "2020 chart silhouette plus company-specific product language",
+                                                                   "On-demand media consumption is rising while content owners retain substantial bargaining power. plus named product or brand",
+                                                                   "Can subscriber scale and new audio formats improve economics despite high content costs? plus SPOT ticker or company name",
+                                                                   "audio plus royalties",
+                                                                   "music rights plus subscription advertising",
+                                                                   "essential content suppliers plus 2020"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Spotify Technology",
+                                             "Apple",
+                                             "Amazon",
+                                             "Sirius XM"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Netflix",
+                                               "Sirius XM",
+                                               "Spotify Technology",
+                                               "Roku"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "Netflix",
+                                             "Sirius XM",
+                                             "Roku",
+                                             "Match Group"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:1fc763014247bc691a6cbdee9bb50e40f1e6a594b68e1fb813e8c554bf994f9b",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Spotify",
+                                                                  "confidence":  94,
+                                                                  "pointingFact":  "Global audio streamer with both paid subscriptions and an ad-supported tier facing heavy content royalties."
+                                                              },
+                                                              {
+                                                                  "company":  "Sirius XM",
+                                                                  "confidence":  30,
+                                                                  "pointingFact":  "Large audio platform with subscriptions and ads, but less defined by on-demand streaming scale versus labels."
+                                                              },
+                                                              {
+                                                                  "company":  "Pandora",
+                                                                  "confidence":  18,
+                                                                  "pointingFact":  "Ad-plus-subscription audio streaming, but not the clear global scale leader implied here."
+                                                              },
+                                                              {
+                                                                  "company":  "Tencent Music",
+                                                                  "confidence":  14,
+                                                                  "pointingFact":  "Major audio streaming franchise with royalties pressure, though more regionally concentrated."
+                                                              },
+                                                              {
+                                                                  "company":  "Amazon",
+                                                                  "confidence":  8,
+                                                                  "pointingFact":  "Operates a large music service, but audio is not the standalone subscription-and-ad business described."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "toss_up",
+                                                                "confidence":  55,
+                                                                "cue":  "Subscriber scale and new formats help, but royalties, bundles, and content costs keep economics contested; lookback is range-bound."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:d5292d821b7beb9ebb12a8941833c4620001c21c1779e1fa15af66b86c7df5d5",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "Spotify",
+                                                                    "confidence":  84,
+                                                                    "pointingFact":  "Global on-demand consumer service with paid subscriptions and ad-supported free tier, where label/royalty partners keep input costs high"
+                                                                },
+                                                                {
+                                                                    "company":  "Netflix",
+                                                                    "confidence":  36,
+                                                                    "pointingFact":  "Scaled digital entertainment service whose economics hinge on content access costs versus audience growth, though historically less ad-driven in 2020"
+                                                                },
+                                                                {
+                                                                    "company":  "Sirius XM",
+                                                                    "confidence":  22,
+                                                                    "pointingFact":  "Audio subscription franchise with advertising exposure and ongoing content/rights cost pressure"
+                                                                },
+                                                                {
+                                                                    "company":  "Match Group",
+                                                                    "confidence":  12,
+                                                                    "pointingFact":  "Global digital consumer subscriptions at scale, but weaker fit for royalty-like supplier power and ad freemium mix"
+                                                                },
+                                                                {
+                                                                    "company":  "iQIYI",
+                                                                    "confidence":  10,
+                                                                    "pointingFact":  "Streaming service mixing subscriptions and ads while content partners and competitors pressure margins"
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "toss_up",
+                                                                  "confidence":  58,
+                                                                  "cue":  "Pandemic on-demand growth supports scale, but supplier power and thin structural profitability leave one-year outcome finely balanced"
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:9a7c32e39fd0de31f4e9ab78be785b9a23feadfa3e9ef22e67f703088fbde028",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Spotify",
+                                                                  "confidence":  58,
+                                                                  "pointingFact":  "Digital consumer platform whose economics are dominated by externally controlled content royalties despite strong audience scale."
+                                                              },
+                                                              {
+                                                                  "company":  "Netflix",
+                                                                  "confidence":  28,
+                                                                  "pointingFact":  "Pandemic-era digital consumer platform where outside content costs can keep growth from fully reaching profits."
+                                                              },
+                                                              {
+                                                                  "company":  "Roku",
+                                                                  "confidence":  22,
+                                                                  "pointingFact":  "Consumer streaming platform dependent on external content and platform partners that capture value."
+                                                              },
+                                                              {
+                                                                  "company":  "Snap",
+                                                                  "confidence":  18,
+                                                                  "pointingFact":  "Digital consumer app with strong user growth but monetization constrained by powerful platform gatekeepers."
+                                                              },
+                                                              {
+                                                                  "company":  "Uber",
+                                                                  "confidence":  15,
+                                                                  "pointingFact":  "Scaled consumer platform where key service inputs remain externally controlled and share economics with partners."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "toss_up",
+                                                                "confidence":  48,
+                                                                "cue":  "User-scale and retention support the long case, but supplier concentration and bundling can neutralize margin gains."
+                                                            }
+                                          }
+                             }
+               }
+}

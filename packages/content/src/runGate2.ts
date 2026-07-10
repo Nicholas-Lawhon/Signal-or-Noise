@@ -34,12 +34,20 @@ function main(): void {
 
   if (parsed.command === 'export') {
     try {
-      const { absoluteOutPath, entryCount } = exportGate2Payloads({
+      const { absoluteOutPath, absoluteMappingOutPath, entryCount } =
+        exportGate2Payloads({
         outPath: parsed.outPath!,
+        mappingOutPath: parsed.mappingOutPath,
         scenarioId: parsed.scenarioId,
+        difficulty: parsed.difficulty!,
+        changedFromMappingPath: parsed.changedFromMappingPath,
         includeDraft: parsed.includeDraft,
+        draftOnly: parsed.draftOnly,
       });
       console.log(`Exported ${entryCount} payload(s) to ${absoluteOutPath}`);
+      console.log(
+        `Wrote private mapping to ${absoluteMappingOutPath}; do not expose it to the blind judge`,
+      );
       process.exit(0);
     } catch (err) {
       const message = err instanceof Error ? err.message : String(err);
@@ -73,7 +81,7 @@ function main(): void {
     );
     if (report.missingCount > 0 && report.errorCount === 0) {
       console.log(
-        'Missing Gate 2 results are informational only in H021 (fail-closed enforcement comes later).',
+        'Missing Gate 2 results are informational for draft work; phase acceptance remains fail-closed.',
       );
     }
     process.exit(report.exitCode);

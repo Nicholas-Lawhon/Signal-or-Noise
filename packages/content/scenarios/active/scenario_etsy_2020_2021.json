@@ -1,0 +1,324 @@
+{
+    "id":  "scenario_etsy_2020_2021",
+    "status":  "active",
+    "company":  {
+                    "name":  "Etsy",
+                    "ticker":  "ETSY",
+                    "exchange":  "NASDAQ",
+                    "sector":  "Consumer Discretionary",
+                    "industry":  "Broadline Retail",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "etsy",
+                                          "etsy"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Etsy",
+                                                "handmade",
+                                                "vintage",
+                                                "Reverb"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Marketplace Surge",
+                     "decisionDate":  "2020-01-02",
+                     "endDate":  "2021-01-04",
+                     "decisionDateLabel":  "2020",
+                     "outcomeLabel":  "2020 to 2021",
+                     "holdingPeriodLabel":  "About one year",
+                     "era":  "Pandemic-era disruption",
+                     "eraId":  "pandemic_era",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "part_b_phase_campaign"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  45.19,
+                       "endingPrice":  172.08,
+                       "actualReturnPercent":  2.8079,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2019-01-02",
+                       "preDecisionChartEndDate":  "2020-01-02",
+                       "outcomeChartStartDate":  "2020-01-02",
+                       "outcomeChartEndDate":  "2021-01-04",
+                       "lookbackPrices":  [
+                                              47,
+                                              59.01,
+                                              66.28,
+                                              63.89,
+                                              68,
+                                              59.07,
+                                              41.99,
+                                              45.19
+                                          ],
+                       "outcomePrices":  [
+                                             45.19,
+                                             49.89,
+                                             59.72,
+                                             76.47,
+                                             112.38,
+                                             116.01,
+                                             119.43,
+                                             172.08
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A two-sided online marketplace connecting independent sellers with buyers seeking distinctive goods.",
+                                    "macroContext":  "Store closures are pushing both shoppers and small merchants toward digital commerce.",
+                                    "situation":  "Can a sudden wave of buyers and sellers become a lasting marketplace habit after physical retail reopens?",
+                                    "longCase":  "More participants can improve selection, discovery, and transaction growth through network effects.",
+                                    "shortCase":  "Pandemic-specific demand, seller quality control, and larger retail platforms can weaken retention.",
+                                    "setupHints":  [
+                                                       "The platform does not generally own the inventory sold by its merchants."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "An asset-light digital marketplace serving many small businesses.",
+                                      "macroContext":  "A sudden channel shift is bringing new participants online while established platforms compete for their activity.",
+                                      "situation":  "Can accelerated adoption create durable repeat use rather than temporary transaction volume?",
+                                      "longCase":  "More participants can improve selection and reinforce activity across both sides.",
+                                      "shortCase":  "Low switching costs and normalization of customer behavior can unwind unusually strong engagement.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A two-sided digital marketplace.",
+                                    "macroContext":  "A sudden change in customer behavior is moving participants toward new transaction channels.",
+                                    "situation":  "Can a rapid influx become a durable network after familiar alternatives regain availability?",
+                                    "longCase":  "A larger participant base can improve selection and reinforce repeat use.",
+                                    "shortCase":  "Temporary demand and low switching costs can reverse apparent network gains.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Etsy. Gross merchandise sales and active buyers surged in 2020 as consumers shifted online and new sellers joined the marketplace.",
+                   "funFact":  "The marketplace was founded in Brooklyn in 2005.",
+                   "whyItMoved":  [
+                                      "Online shopping accelerated during store closures.",
+                                      "Active buyers and sellers increased substantially.",
+                                      "Marketplace scale supported higher transaction and services revenue."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ ETSY",
+                        "url":  "https://finance.yahoo.com/quote/ETSY/history/",
+                        "notes":  "Split-adjusted closes for 2020-01-02 and 2021-01-04; sampled lookback/outcome series and computed price return."
+                    },
+                    {
+                        "label":  "Etsy SEC filings",
+                        "url":  "https://www.sec.gov/edgar/browse/?CIK=ETSY\u0026owner=exclude\u0026action=getcompany",
+                        "notes":  "Annual filings covering business model, operating risks, company history, and the reported operating trends summarized in the reveal."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Phase 4B production candidate. Recognition bucket: moderate. Authored fact-bank first and Hard first, then Medium/Easy. Payload-only editorial self-check retained the named peer set across difficulties, avoided correct-company dominance on Medium/Hard, kept both calls articulable, and found no unsupported candidate. No authoritative Gate 2 judgment is recorded. Phase-internal clean-Grok rewrite changed medium/hard only: removed the stored judge\u0027s company-pointing conjunctions while keeping concrete long/short tension. Stored Gate 2 evidence is preserved but stale for changed variants; clean rejudge required. Shared title unchanged, so no sibling-only rejudge expansion.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "Etsy name and ETSY ticker",
+                                                       "Etsy",
+                                                       "handmade",
+                                                       "vintage",
+                                                       "Reverb"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "Can a sudden wave of buyers and sellers become a lasting marketplace habit after physical retail reopens?",
+                                                           "More participants can improve selection, discovery, and transaction growth through network effects.",
+                                                           "Pandemic-specific demand, seller quality control, and larger retail platforms can weaken retention.",
+                                                           "Can accelerated adoption create durable repeat use rather than temporary transaction volume?",
+                                                           "More participants can improve selection and reinforce activity across both sides.",
+                                                           "Low switching costs and normalization of customer behavior can unwind unusually strong engagement.",
+                                                           "Can a rapid influx become a durable network after familiar alternatives regain availability?",
+                                                           "A larger participant base can improve selection and reinforce repeat use.",
+                                                           "Temporary demand and low switching costs can reverse apparent network gains."
+                                                       ],
+                                    "prohibited":  [
+                                                       "Etsy",
+                                                       "handmade",
+                                                       "vintage",
+                                                       "Reverb",
+                                                       "independent sellers plus store closures",
+                                                       "distinctive goods plus two-sided marketplace",
+                                                       "small merchants plus pandemic reopening"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Etsy",
+                                                                  "eBay",
+                                                                  "Shopify",
+                                                                  "Wayfair"
+                                                              ],
+                                                     "medium":  [
+                                                                    "eBay",
+                                                                    "MercadoLibre",
+                                                                    "Etsy",
+                                                                    "Shopify",
+                                                                    "Farfetch"
+                                                                ],
+                                                     "hard":  [
+                                                                  "eBay",
+                                                                  "Uber",
+                                                                  "Airbnb",
+                                                                  "MercadoLibre",
+                                                                  "Etsy",
+                                                                  "DoorDash"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "2020 chart silhouette plus company-specific product language",
+                                                                   "Store closures are pushing both shoppers and small merchants toward digital commerce. plus named product or brand",
+                                                                   "Can a sudden wave of buyers and sellers become a lasting marketplace habit after physical retail reopens? plus ETSY ticker or company name",
+                                                                   "independent sellers plus store closures",
+                                                                   "distinctive goods plus two-sided marketplace",
+                                                                   "small merchants plus pandemic reopening"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Etsy",
+                                             "eBay",
+                                             "Shopify",
+                                             "Wayfair"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "eBay",
+                                               "MercadoLibre",
+                                               "Etsy",
+                                               "Shopify"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "eBay",
+                                             "Uber",
+                                             "Airbnb",
+                                             "MercadoLibre"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:f6d82984f94faabe2c5512cb70a633eea3fe4ad651f0c6bd969258cc76f78536",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Etsy",
+                                                                  "confidence":  88,
+                                                                  "pointingFact":  "Two-sided marketplace for independent sellers of distinctive goods without owning inventory."
+                                                              },
+                                                              {
+                                                                  "company":  "eBay",
+                                                                  "confidence":  52,
+                                                                  "pointingFact":  "Asset-light marketplace connecting independent sellers and buyers, though less focused on distinctive handmade goods."
+                                                              },
+                                                              {
+                                                                  "company":  "Mercari",
+                                                                  "confidence":  34,
+                                                                  "pointingFact":  "Consumer-to-consumer marketplace that does not take inventory and grew with digital commerce habits."
+                                                              },
+                                                              {
+                                                                  "company":  "Poshmark",
+                                                                  "confidence":  30,
+                                                                  "pointingFact":  "Social marketplace for independent sellers, closer to apparel resale than broad distinctive goods."
+                                                              },
+                                                              {
+                                                                  "company":  "Shopify",
+                                                                  "confidence":  22,
+                                                                  "pointingFact":  "Enables independent merchants online, but is primarily commerce infrastructure rather than a two-sided marketplace."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  70,
+                                                                "cue":  "2020 store closures create a sudden buyer-and-seller influx that can compound marketplace network effects over about a year."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:6939749d518e1b9b4056d590507cdf0574c9ab1c6f11168dbf7af495d4ef8f40",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "Etsy",
+                                                                    "confidence":  42,
+                                                                    "pointingFact":  "Asset-light two-sided marketplace for many small sellers, pandemic channel-shift and temporary volume vs durable use"
+                                                                },
+                                                                {
+                                                                    "company":  "Shopify",
+                                                                    "confidence":  38,
+                                                                    "pointingFact":  "Asset-light digital platform enabling many small businesses online amid 2020 accelerated adoption"
+                                                                },
+                                                                {
+                                                                    "company":  "eBay",
+                                                                    "confidence":  22,
+                                                                    "pointingFact":  "Established asset-light marketplace competing for small-seller and buyer activity during channel shift"
+                                                                },
+                                                                {
+                                                                    "company":  "MercadoLibre",
+                                                                    "confidence":  16,
+                                                                    "pointingFact":  "Asset-light digital commerce marketplace serving many small merchants through a participation surge"
+                                                                },
+                                                                {
+                                                                    "company":  "Alibaba",
+                                                                    "confidence":  12,
+                                                                    "pointingFact":  "Large digital marketplace platform with network effects and low switching costs on both sides"
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "toss_up",
+                                                                  "confidence":  48,
+                                                                  "cue":  "Network effects from more participants vs low switching costs and likely normalization of pandemic engagement"
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:f9df9a55ca9693685af73e06dc5cd19abc844f4acdda577e5bb1ac13f2ab614c",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Etsy",
+                                                                  "confidence":  44,
+                                                                  "pointingFact":  "Two-sided marketplace that saw pandemic channel shift then faced risk as offline retail alternatives reopened"
+                                                              },
+                                                              {
+                                                                  "company":  "Airbnb",
+                                                                  "confidence":  40,
+                                                                  "pointingFact":  "Two-sided lodging marketplace whose surge depended on temporary behavior shifts versus hotels and travel norms"
+                                                              },
+                                                              {
+                                                                  "company":  "eBay",
+                                                                  "confidence":  27,
+                                                                  "pointingFact":  "Established two-sided digital marketplace benefiting from sudden online transaction migration with low switching costs"
+                                                              },
+                                                              {
+                                                                  "company":  "Uber",
+                                                                  "confidence":  25,
+                                                                  "pointingFact":  "Two-sided marketplace where pandemic behavior shifted participants across ride and delivery transaction channels"
+                                                              },
+                                                              {
+                                                                  "company":  "DoorDash",
+                                                                  "confidence":  23,
+                                                                  "pointingFact":  "Pandemic-boosted two-sided delivery marketplace whose network gains could reverse when dining alternatives returned"
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  51,
+                                                                "cue":  "Payload emphasizes temporary demand and low switching costs that can unwind after alternatives regain availability"
+                                                            }
+                                          }
+                             }
+               }
+}

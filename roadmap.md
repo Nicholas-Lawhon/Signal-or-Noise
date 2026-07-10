@@ -1,16 +1,17 @@
 # roadmap.md — Signal or Noise?
 
-> **Current phase: Phase 4 — Content Foundation & Expansion (Part B).**
+> **Current phase: Phase 6 - Auth & Guest Play (charter preparation).**
 > Phases 0 + 1 COMPLETE and audited (A002 PASS). Phase 2 COMPLETE under D024.
 > Phase 3 COMPLETE and audited (A005 PASS WITH FINDINGS). Phase order
 > renumbered by D027 (Content Expansion moved up from Phase 8). Only the
 > orchestrator updates this file.
 
 Phase contents follow `docs/10_agentic_coding_handoff.md`; phase ORDER here
-supersedes docs/10 after the D027 renumbering. Each phase ships as one or more
-numbered handoff prompts (`agents/handoffs/H###_*.md`). During active development,
-a phase is complete when its acceptance criteria pass and the orchestrator accepts
-it under D024; formal audits are reserved for selected gates/high-risk work.
+supersedes docs/10 after the D027 renumbering. Under D043, each active phase uses
+one charter in `agents/phases/`, one autonomous owner, and one phase-boundary
+review. Historical H### entries below record the legacy workflow. A phase closes
+when its acceptance criteria pass and the user/orchestrator accepts the final
+review; high-risk phases receive independent cross-model depth.
 
 ## Phase 0 — Project Setup ✅
 
@@ -82,15 +83,19 @@ D031 thresholds (H021/H022); every active card was re-reviewed and rewritten
 against the hardened gates (H025–H032; Netflix blind rejudge waived per D035);
 user signed off that the guards are trusted (D035).
 
-**Part B — Content generation at scale (the original Phase 8 scope):**
+**Part B — Content generation at scale (the original Phase 8 scope): CLOSED (D045, 2026-07-09)**
 40 scenario cards (D034; was 100), 10 daily challenge pools, 10 famous market
 eras. AI-assisted generation → validate → human review → mark active. JSON
 seeds until the database lands in Phase 5. (Content Curator + Auditor heavy.)
 
-**Accept (Part B):** 40 active cards pass validation and gates; pools and eras
-defined.
+**Accept (Part B):** MET - 40 active, human-reviewed cards pass validation and
+Gate 2; pools and eras are defined. Classic Run loads the production set; the
+six prototype seeds are archived outside gameplay.
 
-## Phase 5 — Database ⬜ (was Phase 4)
+**Closeout:** `agents/phase-closeouts/P04B_content_expansion.md`. The legacy
+H034-H037 batch chain is archived provenance only; it received no separate review.
+
+## Phase 5 — Database ✅ (was Phase 4)
 
 Prisma schema (see `docs/06_data_model.md`), Postgres connection, scenario import,
 Run/RoundDecision persistence, user/profile tables, DailyChallenge model, leaderboard

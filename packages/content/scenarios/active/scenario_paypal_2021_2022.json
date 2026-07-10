@@ -1,0 +1,306 @@
+{
+    "id":  "scenario_paypal_2021_2022",
+    "status":  "active",
+    "company":  {
+                    "name":  "PayPal",
+                    "ticker":  "PYPL",
+                    "exchange":  "NASDAQ",
+                    "sector":  "Financial Services",
+                    "industry":  "Credit Services",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "paypal",
+                                          "paypal holdings"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Venmo",
+                                                "PayPal Checkout"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Checkout Reset",
+                     "decisionDate":  "2021-11-01",
+                     "endDate":  "2022-11-01",
+                     "decisionDateLabel":  "Late 2021",
+                     "outcomeLabel":  "Late 2021 to late 2022",
+                     "holdingPeriodLabel":  "One year",
+                     "era":  "Digital spending normalization",
+                     "eraId":  "rate_hike_inflation_era",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "phase_4b_wave"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  230.05,
+                       "endingPrice":  82.668,
+                       "actualReturnPercent":  -0.6407,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2019-11-01",
+                       "preDecisionChartEndDate":  "2021-11-01",
+                       "outcomeChartStartDate":  "2021-11-01",
+                       "outcomeChartEndDate":  "2022-11-01",
+                       "lookbackPrices":  [
+                                              104.422,
+                                              114.687,
+                                              176.268,
+                                              185.14,
+                                              237.799,
+                                              288.697,
+                                              230.05
+                                          ],
+                       "outcomePrices":  [
+                                             230.05,
+                                             187.577,
+                                             100.801,
+                                             90.228,
+                                             74.004,
+                                             92.167,
+                                             82.668
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A global digital-payments network serving online merchants and consumers through branded checkout and peer-to-peer services.",
+                                    "macroContext":  "Online spending remains above pre-pandemic levels, but growth is normalizing as stores reopen and interest rates rise.",
+                                    "situation":  "Can a large payment network deepen engagement after an exceptional period of account growth?",
+                                    "longCase":  "Scale, merchant acceptance, and more frequent customer use could sustain transaction growth as commerce stays digital.",
+                                    "shortCase":  "Slower new-account growth, intense wallet competition, and weaker discretionary spending could reset expectations.",
+                                    "setupHints":  [
+                                                       "The company earns fees by processing digital commerce and consumer money movement."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A mature online service with a large base of consumers and business customers.",
+                                      "macroContext":  "Digital activity is slowing from an unusual peak while inflation and higher rates pressure valuations.",
+                                      "situation":  "Can deeper engagement replace participant expansion as the next growth engine?",
+                                      "longCase":  "A large network can support more activity and adjacent services from existing users.",
+                                      "shortCase":  "Competition and weaker household spending can expose how much prior growth depended on temporary behavior.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A scaled digital network with an established customer base.",
+                                    "macroContext":  "Online activity is normalizing while capital becomes more expensive and household budgets tighten.",
+                                    "situation":  "Can deeper use of existing relationships offset slower participant growth?",
+                                    "longCase":  "Network scale can support recurring activity and lower acquisition costs across adjacent services.",
+                                    "shortCase":  "Commoditized features and softer discretionary demand can compress growth before costs reset.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was PayPal. E-commerce normalization and a shift away from chasing account growth caused investors to sharply reduce expectations.",
+                   "funFact":  "PayPal ended its longtime emphasis on net-new active accounts and focused more heavily on engagement and higher-value customers.",
+                   "whyItMoved":  [
+                                      "Pandemic-era online spending growth normalized as in-person commerce returned.",
+                                      "Management reduced its long-term active-account ambitions and emphasized engagement.",
+                                      "Competition, inflation, and rising rates pressured both transaction expectations and valuation."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ PYPL",
+                        "url":  "https://finance.yahoo.com/quote/PYPL/history/",
+                        "notes":  "Split-adjusted closes for 2021-11-01 and 2022-11-01, chart samples, and calculated price return."
+                    },
+                    {
+                        "label":  "PayPal 2022 Form 10-K Ã¢â‚¬â€ SEC EDGAR",
+                        "url":  "https://www.sec.gov/edgar/browse/?CIK=PYPL\u0026owner=exclude",
+                        "notes":  "Payments model, engagement strategy, active-account priorities, competition, macroeconomic risks, and reveal claims."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Famous bucket. Stored Grok evidence showed that consumer-merchant checkout language and pandemic e-commerce normalization made Medium identifiable, while scaled two-sided fintech preserved the Hard silhouette. M/H now describe a mature digital network using engagement, participant growth, adjacent services, competition, household budgets, and acquisition costs. Easy is unchanged. Stored M/H results remain stale evidence pending blind rejudge.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "company and ticker",
+                                                       "named consumer wallet",
+                                                       "former marketplace ownership"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "scaled digital network",
+                                                           "consumer and business participation",
+                                                           "engagement versus account growth",
+                                                           "online-activity normalization",
+                                                           "feature competition"
+                                                       ],
+                                    "prohibited":  [
+                                                       "named wallet",
+                                                       "one-click branded checkout",
+                                                       "former parent marketplace"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "PayPal",
+                                                                  "Block",
+                                                                  "Adyen",
+                                                                  "Fiserv",
+                                                                  "Global Payments"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Block",
+                                                                    "PayPal",
+                                                                    "Adyen",
+                                                                    "Fiserv"
+                                                                ],
+                                                     "hard":  [
+                                                                  "Fiserv",
+                                                                  "Block",
+                                                                  "Adyen",
+                                                                  "PayPal",
+                                                                  "Global Payments"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "pandemic fintech chart plus payment or checkout category",
+                                                                   "account-growth reset plus branded wallet",
+                                                                   "peer-to-peer service plus former marketplace history"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "PayPal",
+                                             "Block",
+                                             "Adyen",
+                                             "Fiserv"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Block",
+                                               "Shopify",
+                                               "Adyen",
+                                               "Affirm"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "Block",
+                                             "Adyen",
+                                             "Shopify",
+                                             "Affirm"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:7f944629a3d3cc3e43d6e47f6bba9b2c2f2ce65dd5996bf6e4acc1b746286464",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "PayPal",
+                                                                  "confidence":  93,
+                                                                  "pointingFact":  "Global branded digital checkout and peer-to-peer network earning fees on online commerce and consumer money movement."
+                                                              },
+                                                              {
+                                                                  "company":  "Block",
+                                                                  "confidence":  42,
+                                                                  "pointingFact":  "Consumer payment and P2P ecosystem tied to digital spending normalization after pandemic account growth."
+                                                              },
+                                                              {
+                                                                  "company":  "Adyen",
+                                                                  "confidence":  30,
+                                                                  "pointingFact":  "Global merchant payment network focused on online checkout for large digital commerce clients."
+                                                              },
+                                                              {
+                                                                  "company":  "Visa",
+                                                                  "confidence":  18,
+                                                                  "pointingFact":  "Large payments network benefiting from digital transaction volume though less P2P-branded checkout focused."
+                                                              },
+                                                              {
+                                                                  "company":  "Shopify",
+                                                                  "confidence":  12,
+                                                                  "pointingFact":  "Commerce platform with checkout and payments exposure, but less a consumer P2P brand network."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  76,
+                                                                "cue":  "Exceptional pandemic account growth is normalizing while wallet competition and rate-driven discretionary weakness reset expectations."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:f1576333cbff7b35096a188023c97a742d7473d968a2c125103777e8f6f03432",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "PayPal",
+                                                                    "confidence":  72,
+                                                                    "pointingFact":  "\u0027Checkout Reset\u0027, mature two-sided consumer/merchant network, and post-pandemic digital spending normalization is the classic late-2021 PayPal debate."
+                                                                },
+                                                                {
+                                                                    "company":  "Shopify",
+                                                                    "confidence":  54,
+                                                                    "pointingFact":  "Online commerce platform with checkout products, large merchant base, and growth shifting from new participants to deeper engagement after the e-commerce peak."
+                                                                },
+                                                                {
+                                                                    "company":  "Block",
+                                                                    "confidence":  36,
+                                                                    "pointingFact":  "Consumer-and-business payments network facing digital-activity normalization and valuation pressure from higher rates."
+                                                                },
+                                                                {
+                                                                    "company":  "eBay",
+                                                                    "confidence":  24,
+                                                                    "pointingFact":  "Mature online marketplace with large consumer and seller bases where pandemic activity gains could reverse as spending normalizes."
+                                                                },
+                                                                {
+                                                                    "company":  "Amazon",
+                                                                    "confidence":  20,
+                                                                    "pointingFact":  "Large mature online service spanning consumers and businesses after an unusual digital peak, debating engagement depth versus expansion."
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "short",
+                                                                  "confidence":  74,
+                                                                  "cue":  "Huge lookback run-up already peaking then rolling over into late-2021 digital-normalization and higher-rate multiple compression; short case of temporary pandemic growth fading is strong."
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:4fac2bb1c7baca308fafd0d4fd7e50cad6db581b361f018b09217341913e4ae0",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "PayPal",
+                                                                  "confidence":  40,
+                                                                  "pointingFact":  "Scaled checkout network with established users facing digital spend normalization and pressure to deepen existing relationships."
+                                                              },
+                                                              {
+                                                                  "company":  "Shopify",
+                                                                  "confidence":  32,
+                                                                  "pointingFact":  "Digital commerce network whose growth depended on merchant activity as online activity and household budgets normalized."
+                                                              },
+                                                              {
+                                                                  "company":  "Block",
+                                                                  "confidence":  28,
+                                                                  "pointingFact":  "Payments network monetizing an installed base while discretionary digital activity cooled and capital costs rose."
+                                                              },
+                                                              {
+                                                                  "company":  "Affirm",
+                                                                  "confidence":  20,
+                                                                  "pointingFact":  "Checkout-linked digital credit network exposed to softer discretionary demand and tighter household financing."
+                                                              },
+                                                              {
+                                                                  "company":  "Etsy",
+                                                                  "confidence":  15,
+                                                                  "pointingFact":  "Scaled digital marketplace with sticky base but growth compression as pandemic-era online spending normalized."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  68,
+                                                                "cue":  "Checkout-era digital winners at peak multiples into spend normalization, costlier capital, and growth compression."
+                                                            }
+                                          }
+                             }
+               }
+}

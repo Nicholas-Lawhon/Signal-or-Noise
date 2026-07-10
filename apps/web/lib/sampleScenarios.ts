@@ -1,5 +1,4 @@
-// Loads Classic Run scenarios from the validated JSON content package (Phase 3).
-// Sample seeds are prototype-grade (generatedByAi, not human-reviewed).
+// Loads approved production scenarios from the validated JSON content package.
 
 import { getActiveScenarios } from '@signal-or-noise/content';
 import type { Scenario } from '@signal-or-noise/content';

@@ -1,4 +1,5 @@
 export type Difficulty = 'easy' | 'medium' | 'hard';
+export type GameMode = 'classic_run' | 'daily_challenge';
 export type RoundAction = 'long' | 'short' | 'pass';
 export type Confidence = 'low' | 'medium' | 'high' | 'all_in';
 export type RunStatus = 'in_progress' | 'completed' | 'bankrupt';
@@ -35,8 +36,8 @@ export type CompletedRound = {
 };
 
 export type RunState = {
-  mode: 'classic_run';
-  difficulty: Difficulty;
+  mode: GameMode;
+  difficulty: Difficulty | null;
   startingBankroll: number;
   currentBankroll: number;
   signalScore: number;

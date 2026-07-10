@@ -1,0 +1,102 @@
+{
+  "handoff": "H036",
+  "description": "Exactly the 19 Medium/Hard draft variants rewritten for identity fix-up",
+  "count": 19,
+  "rows": [
+    {
+      "scenarioId": "scenario_boeing_2019_2020",
+      "difficulty": "medium",
+      "payloadHash": "sha256:afcf415cdb63c0588a290cb378800aa3482103c4055d2488c48cbf8822886bd2"
+    },
+    {
+      "scenarioId": "scenario_boeing_2019_2020",
+      "difficulty": "hard",
+      "payloadHash": "sha256:f4870aabf9519f29fa639fcf3df24b7313c721d2e7cc1e4f41b1ccd697159dbf"
+    },
+    {
+      "scenarioId": "scenario_disney_2019_2020",
+      "difficulty": "medium",
+      "payloadHash": "sha256:02bfcd1908b87d327b4dc524e8a84247e9b7ed2d7dc3610e7cd3528c84f4fd3e"
+    },
+    {
+      "scenarioId": "scenario_disney_2019_2020",
+      "difficulty": "hard",
+      "payloadHash": "sha256:3bf0ea05f3321a3fa878c1bc90b0df7156c7fa7de4dea5b9694d054afdd0f678"
+    },
+    {
+      "scenarioId": "scenario_docusign_2020_2021",
+      "difficulty": "medium",
+      "payloadHash": "sha256:54d934da98d21793c58f66a39c8c5e0d6a550a3e85112f9e2f1c85d67330bf5b"
+    },
+    {
+      "scenarioId": "scenario_docusign_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:f777f16b93951086a90f462820457795455747a8fbe806760452d86365e3fb15"
+    },
+    {
+      "scenarioId": "scenario_fastly_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:4a2f09ec37556aed8945355e2b21684dd9da1ecc5cc7b990c712886475949fb4"
+    },
+    {
+      "scenarioId": "scenario_ford_2021_2022",
+      "difficulty": "medium",
+      "payloadHash": "sha256:32a7c65b0f4649138a169bab451b5f055eb6f555d50a23da240da376ef2f93ef"
+    },
+    {
+      "scenarioId": "scenario_ford_2021_2022",
+      "difficulty": "hard",
+      "payloadHash": "sha256:b42184a71e729517d79ac39baefd2abc8fc706684584b37a3460cdd06f169c93"
+    },
+    {
+      "scenarioId": "scenario_meta_2022_2023",
+      "difficulty": "medium",
+      "payloadHash": "sha256:ab3dbc008397ce781a73ae154606cbc866ed31fb91f93175e0100a7b3f0916c7"
+    },
+    {
+      "scenarioId": "scenario_meta_2022_2023",
+      "difficulty": "hard",
+      "payloadHash": "sha256:e25b29715af972393a3fee1a9c5d53866b41c286bc58ad238bbcfc5d66b51c04"
+    },
+    {
+      "scenarioId": "scenario_pinterest_2020_2021",
+      "difficulty": "medium",
+      "payloadHash": "sha256:68bff29c190d1a9507b2f28323b70c96d514e864095dccd9f9808778f22a3c79"
+    },
+    {
+      "scenarioId": "scenario_pinterest_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:8643f58704bb2e019a00debb327f2e1d736330296f3eda4550f98bf852a5ed89"
+    },
+    {
+      "scenarioId": "scenario_roku_2020_2021",
+      "difficulty": "medium",
+      "payloadHash": "sha256:22bd2a43210c2c92aa5d18d1639c8a8529d277d1e7f233ebf7eff54f37311529"
+    },
+    {
+      "scenarioId": "scenario_roku_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:00f9c3181654aea0a67a5f0caf8312cdf32af5203788f9e7553a802971f147f9"
+    },
+    {
+      "scenarioId": "scenario_starbucks_2020_2021",
+      "difficulty": "medium",
+      "payloadHash": "sha256:7434d7bfec1f3ac0b1ec5d7eb96c7a2bf757d646e0a016d908e4ec708100b972"
+    },
+    {
+      "scenarioId": "scenario_starbucks_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:e464ebc6b9cd23e9f2e746c8ab21a8ac770874eb9f36c2d72b6f3135a03f7088"
+    },
+    {
+      "scenarioId": "scenario_tesla_2020_2021",
+      "difficulty": "medium",
+      "payloadHash": "sha256:5ded85fd257c6b12ca2930077d12249309ddce752be952551a3c74fd555bc592"
+    },
+    {
+      "scenarioId": "scenario_tesla_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:fec54b6589892e9c194105f4b61e283c9f0da15e78e32ae0a281cbabde944810"
+    }
+  ]
+}

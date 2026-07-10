@@ -1,0 +1,725 @@
+{
+  "summary": {
+    "testedAt": "2026-07-09T18:00:00.000Z",
+    "model": "grok-4.5",
+    "promptVersion": "guess.v1+direction.v1",
+    "inScopeCount": 32,
+    "pass": 11,
+    "warn": 2,
+    "fail": 19,
+    "identityErrorVariants": [
+      {
+        "scenarioId": "scenario_boeing_2019_2020",
+        "difficulty": "medium",
+        "rules": [
+          "Medium Gate 2: correct company is #1 with confidence 58 (threshold 40)",
+          "Medium Gate 2: correct company leads #2 by 22 points (threshold 15)"
+        ]
+      },
+      {
+        "scenarioId": "scenario_boeing_2019_2020",
+        "difficulty": "hard",
+        "rules": [
+          "Hard Gate 2: correct company appears in top 5 at rank 1 with confidence 32 (threshold 15)"
+        ]
+      },
+      {
+        "scenarioId": "scenario_disney_2019_2020",
+        "difficulty": "medium",
+        "rules": [
+          "Medium Gate 2: correct company is #1 with confidence 52 (threshold 40)",
+          "Medium Gate 2: correct company leads #2 by 18 points (threshold 15)"
+        ]
+      },
+      {
+        "scenarioId": "scenario_disney_2019_2020",
+        "difficulty": "hard",
+        "rules": [
+          "Hard Gate 2: correct company appears in top 5 at rank 1 with confidence 28 (threshold 15)"
+        ]
+      },
+      {
+        "scenarioId": "scenario_docusign_2020_2021",
+        "difficulty": "medium",
+        "rules": [
+          "Medium Gate 2: correct company is #1 with confidence 42 (threshold 40)"
+        ]
+      },
+      {
+        "scenarioId": "scenario_docusign_2020_2021",
+        "difficulty": "hard",
+        "rules": [
+          "Hard Gate 2: correct company appears in top 5 at rank 2 with confidence 18 (threshold 15)"
+        ]
+      },
+      {
+        "scenarioId": "scenario_fastly_2020_2021",
+        "difficulty": "hard",
+        "rules": [
+          "Hard Gate 2: correct company appears in top 5 at rank 3 with confidence 16 (threshold 15)"
+        ]
+      },
+      {
+        "scenarioId": "scenario_ford_2021_2022",
+        "difficulty": "medium",
+        "rules": [
+          "Medium Gate 2: correct company is #1 with confidence 40 (threshold 40)"
+        ]
+      },
+      {
+        "scenarioId": "scenario_ford_2021_2022",
+        "difficulty": "hard",
+        "rules": [
+          "Hard Gate 2: correct company appears in top 5 at rank 2 with confidence 23 (threshold 15)"
+        ]
+      },
+      {
+        "scenarioId": "scenario_meta_2022_2023",
+        "difficulty": "medium",
+        "rules": [
+          "Medium Gate 2: correct company is #1 with confidence 50 (threshold 40)"
+        ]
+      },
+      {
+        "scenarioId": "scenario_meta_2022_2023",
+        "difficulty": "hard",
+        "rules": [
+          "Hard Gate 2: correct company appears in top 5 at rank 1 with confidence 30 (threshold 15)"
+        ]
+      },
+      {
+        "scenarioId": "scenario_pinterest_2020_2021",
+        "difficulty": "medium",
+        "rules": [
+          "Medium Gate 2: correct company is #1 with confidence 48 (threshold 40)"
+        ]
+      },
+      {
+        "scenarioId": "scenario_pinterest_2020_2021",
+        "difficulty": "hard",
+        "rules": [
+          "Hard Gate 2: correct company appears in top 5 at rank 3 with confidence 16 (threshold 15)"
+        ]
+      },
+      {
+        "scenarioId": "scenario_roku_2020_2021",
+        "difficulty": "medium",
+        "rules": [
+          "Medium Gate 2: correct company is #1 with confidence 52 (threshold 40)",
+          "Medium Gate 2: correct company leads #2 by 22 points (threshold 15)"
+        ]
+      },
+      {
+        "scenarioId": "scenario_roku_2020_2021",
+        "difficulty": "hard",
+        "rules": [
+          "Hard Gate 2: correct company appears in top 5 at rank 2 with confidence 20 (threshold 15)"
+        ]
+      },
+      {
+        "scenarioId": "scenario_starbucks_2020_2021",
+        "difficulty": "medium",
+        "rules": [
+          "Medium Gate 2: correct company is #1 with confidence 50 (threshold 40)"
+        ]
+      },
+      {
+        "scenarioId": "scenario_starbucks_2020_2021",
+        "difficulty": "hard",
+        "rules": [
+          "Hard Gate 2: correct company appears in top 5 at rank 1 with confidence 28 (threshold 15)"
+        ]
+      },
+      {
+        "scenarioId": "scenario_tesla_2020_2021",
+        "difficulty": "medium",
+        "rules": [
+          "Medium Gate 2: correct company is #1 with confidence 56 (threshold 40)",
+          "Medium Gate 2: correct company leads #2 by 30 points (threshold 15)"
+        ]
+      },
+      {
+        "scenarioId": "scenario_tesla_2020_2021",
+        "difficulty": "hard",
+        "rules": [
+          "Hard Gate 2: correct company appears in top 5 at rank 1 with confidence 34 (threshold 15)"
+        ]
+      }
+    ]
+  },
+  "rows": [
+    {
+      "scenarioId": "scenario_boeing_2019_2020",
+      "difficulty": "easy",
+      "payloadHash": "sha256:f330251bdb7a751535ac7b03814fa844bc330875d60fbfd51ebada09eb04338a",
+      "topGuess": "Boeing",
+      "topConfidence": 88,
+      "correctRank": 1,
+      "correctConfidence": 88,
+      "directionCall": "short",
+      "directionConfidence": 62,
+      "outcome": "pass",
+      "findings": []
+    },
+    {
+      "scenarioId": "scenario_boeing_2019_2020",
+      "difficulty": "medium",
+      "payloadHash": "sha256:db2e880ea68967562db7130e91b0e443aba9fa836b8b5954708ff5fa6e02d7c0",
+      "topGuess": "Boeing",
+      "topConfidence": 58,
+      "correctRank": 1,
+      "correctConfidence": 58,
+      "directionCall": "short",
+      "directionConfidence": 52,
+      "outcome": "fail",
+      "findings": [
+        {
+          "severity": "error",
+          "message": "Medium Gate 2: correct company is #1 with confidence 58 (threshold 40)"
+        },
+        {
+          "severity": "error",
+          "message": "Medium Gate 2: correct company leads #2 by 22 points (threshold 15)"
+        },
+        {
+          "severity": "warning",
+          "message": "Medium Gate 2: dominant guess \"Boeing\" at 58% (>= 40)"
+        }
+      ]
+    },
+    {
+      "scenarioId": "scenario_boeing_2019_2020",
+      "difficulty": "hard",
+      "payloadHash": "sha256:aaf919d673b2f3f8c692a0363275806aa04aa2f432818d4ef0142d87d040f4bb",
+      "topGuess": "Boeing",
+      "topConfidence": 32,
+      "correctRank": 1,
+      "correctConfidence": 32,
+      "directionCall": "toss_up",
+      "directionConfidence": 40,
+      "outcome": "fail",
+      "findings": [
+        {
+          "severity": "error",
+          "message": "Hard Gate 2: correct company appears in top 5 at rank 1 with confidence 32 (threshold 15)"
+        }
+      ]
+    },
+    {
+      "scenarioId": "scenario_disney_2019_2020",
+      "difficulty": "easy",
+      "payloadHash": "sha256:28b97aba5dd64659e8d8af50e43315050daa0f4d88f71b26175ae1833a506bf8",
+      "topGuess": "Disney",
+      "topConfidence": 82,
+      "correctRank": 1,
+      "correctConfidence": 82,
+      "directionCall": "toss_up",
+      "directionConfidence": 48,
+      "outcome": "pass",
+      "findings": []
+    },
+    {
+      "scenarioId": "scenario_disney_2019_2020",
+      "difficulty": "medium",
+      "payloadHash": "sha256:7c08b38c4e8bd15394110e04c3c6793ebb86301d49b13374f6b2da0e4ae49828",
+      "topGuess": "Disney",
+      "topConfidence": 52,
+      "correctRank": 1,
+      "correctConfidence": 52,
+      "directionCall": "toss_up",
+      "directionConfidence": 50,
+      "outcome": "fail",
+      "findings": [
+        {
+          "severity": "error",
+          "message": "Medium Gate 2: correct company is #1 with confidence 52 (threshold 40)"
+        },
+        {
+          "severity": "error",
+          "message": "Medium Gate 2: correct company leads #2 by 18 points (threshold 15)"
+        },
+        {
+          "severity": "warning",
+          "message": "Medium Gate 2: dominant guess \"Disney\" at 52% (>= 40)"
+        }
+      ]
+    },
+    {
+      "scenarioId": "scenario_disney_2019_2020",
+      "difficulty": "hard",
+      "payloadHash": "sha256:d78de262e83f9d3d92be63e91ac5b96682abf7f9d928fc70c7e7305f262be18e",
+      "topGuess": "Disney",
+      "topConfidence": 28,
+      "correctRank": 1,
+      "correctConfidence": 28,
+      "directionCall": "toss_up",
+      "directionConfidence": 42,
+      "outcome": "fail",
+      "findings": [
+        {
+          "severity": "error",
+          "message": "Hard Gate 2: correct company appears in top 5 at rank 1 with confidence 28 (threshold 15)"
+        }
+      ]
+    },
+    {
+      "scenarioId": "scenario_docusign_2020_2021",
+      "difficulty": "easy",
+      "payloadHash": "sha256:350557af9c34b260a13ffeee3c351171b31fc571d9168c105fd854b2ab98dde8",
+      "topGuess": "DocuSign",
+      "topConfidence": 78,
+      "correctRank": 1,
+      "correctConfidence": 78,
+      "directionCall": "long",
+      "directionConfidence": 58,
+      "outcome": "pass",
+      "findings": []
+    },
+    {
+      "scenarioId": "scenario_docusign_2020_2021",
+      "difficulty": "medium",
+      "payloadHash": "sha256:eff3e83095b03d1c5f6e046ee225d579f565eada5b39f15ea00ece85ff3084d6",
+      "topGuess": "DocuSign",
+      "topConfidence": 42,
+      "correctRank": 1,
+      "correctConfidence": 42,
+      "directionCall": "long",
+      "directionConfidence": 52,
+      "outcome": "fail",
+      "findings": [
+        {
+          "severity": "error",
+          "message": "Medium Gate 2: correct company is #1 with confidence 42 (threshold 40)"
+        },
+        {
+          "severity": "warning",
+          "message": "Medium Gate 2: dominant guess \"DocuSign\" at 42% (>= 40)"
+        }
+      ]
+    },
+    {
+      "scenarioId": "scenario_docusign_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:6fee79f15f89435e733f7c14732343a849c2fedc99778e785113e9845872a242",
+      "topGuess": "Zoom",
+      "topConfidence": 26,
+      "correctRank": 2,
+      "correctConfidence": 18,
+      "directionCall": "long",
+      "directionConfidence": 46,
+      "outcome": "fail",
+      "findings": [
+        {
+          "severity": "error",
+          "message": "Hard Gate 2: correct company appears in top 5 at rank 2 with confidence 18 (threshold 15)"
+        }
+      ]
+    },
+    {
+      "scenarioId": "scenario_fastly_2020_2021",
+      "difficulty": "easy",
+      "payloadHash": "sha256:959a259157a54eb3757af8efa07ce8760c2b671ac2e9a73c3723770bcd10909c",
+      "topGuess": "Cloudflare",
+      "topConfidence": 54,
+      "correctRank": 2,
+      "correctConfidence": 50,
+      "directionCall": "toss_up",
+      "directionConfidence": 48,
+      "outcome": "pass",
+      "findings": []
+    },
+    {
+      "scenarioId": "scenario_fastly_2020_2021",
+      "difficulty": "medium",
+      "payloadHash": "sha256:cf6474b567c565e956981e26c61687b9a78dea59f4b2e06bf169e5a51d11130f",
+      "topGuess": "Cloudflare",
+      "topConfidence": 42,
+      "correctRank": 2,
+      "correctConfidence": 40,
+      "directionCall": "toss_up",
+      "directionConfidence": 50,
+      "outcome": "warn",
+      "findings": [
+        {
+          "severity": "warning",
+          "message": "Medium Gate 2: dominant guess \"Cloudflare\" at 42% (>= 40)"
+        }
+      ]
+    },
+    {
+      "scenarioId": "scenario_fastly_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:c8e4838463890022defafd6d120aec8212b815f56e1ecabce8a02ae4fa581ef0",
+      "topGuess": "Zoom",
+      "topConfidence": 22,
+      "correctRank": 3,
+      "correctConfidence": 16,
+      "directionCall": "long",
+      "directionConfidence": 42,
+      "outcome": "fail",
+      "findings": [
+        {
+          "severity": "error",
+          "message": "Hard Gate 2: correct company appears in top 5 at rank 3 with confidence 16 (threshold 15)"
+        }
+      ]
+    },
+    {
+      "scenarioId": "scenario_ford_2021_2022",
+      "difficulty": "easy",
+      "payloadHash": "sha256:e98fa2c0247ee5505485b96eaa89c99697ffe0c06bc42bb9c67944a56502de0b",
+      "topGuess": "Ford",
+      "topConfidence": 72,
+      "correctRank": 1,
+      "correctConfidence": 72,
+      "directionCall": "toss_up",
+      "directionConfidence": 50,
+      "outcome": "pass",
+      "findings": []
+    },
+    {
+      "scenarioId": "scenario_ford_2021_2022",
+      "difficulty": "medium",
+      "payloadHash": "sha256:1d119853b0bfeddfe46eb291f3f3a84b541e11286a87df00336ac0c2ad7a06cc",
+      "topGuess": "Ford",
+      "topConfidence": 40,
+      "correctRank": 1,
+      "correctConfidence": 40,
+      "directionCall": "toss_up",
+      "directionConfidence": 46,
+      "outcome": "fail",
+      "findings": [
+        {
+          "severity": "error",
+          "message": "Medium Gate 2: correct company is #1 with confidence 40 (threshold 40)"
+        },
+        {
+          "severity": "warning",
+          "message": "Medium Gate 2: dominant guess \"Ford\" at 40% (>= 40)"
+        }
+      ]
+    },
+    {
+      "scenarioId": "scenario_ford_2021_2022",
+      "difficulty": "hard",
+      "payloadHash": "sha256:e98dc373aac6fa9c348976f3bfb84fbbb0c291d5e09d0555a3f41e2d80b5d25d",
+      "topGuess": "General Motors",
+      "topConfidence": 24,
+      "correctRank": 2,
+      "correctConfidence": 23,
+      "directionCall": "toss_up",
+      "directionConfidence": 40,
+      "outcome": "fail",
+      "findings": [
+        {
+          "severity": "error",
+          "message": "Hard Gate 2: correct company appears in top 5 at rank 2 with confidence 23 (threshold 15)"
+        }
+      ]
+    },
+    {
+      "scenarioId": "scenario_meta_2022_2023",
+      "difficulty": "easy",
+      "payloadHash": "sha256:0ec8ca9a4a7df1899b187163b9a9dc9bf9bbc1d4afb723725d40736526f212f6",
+      "topGuess": "Meta",
+      "topConfidence": 80,
+      "correctRank": 1,
+      "correctConfidence": 80,
+      "directionCall": "short",
+      "directionConfidence": 56,
+      "outcome": "pass",
+      "findings": []
+    },
+    {
+      "scenarioId": "scenario_meta_2022_2023",
+      "difficulty": "medium",
+      "payloadHash": "sha256:786fcc9e99b6b170465428875d287f3d239f9e946d65be3ab129e825aef905c9",
+      "topGuess": "Meta",
+      "topConfidence": 50,
+      "correctRank": 1,
+      "correctConfidence": 50,
+      "directionCall": "short",
+      "directionConfidence": 50,
+      "outcome": "fail",
+      "findings": [
+        {
+          "severity": "error",
+          "message": "Medium Gate 2: correct company is #1 with confidence 50 (threshold 40)"
+        },
+        {
+          "severity": "warning",
+          "message": "Medium Gate 2: dominant guess \"Meta\" at 50% (>= 40)"
+        }
+      ]
+    },
+    {
+      "scenarioId": "scenario_meta_2022_2023",
+      "difficulty": "hard",
+      "payloadHash": "sha256:3c9c91f24e809227c6b85eabe71b2d6fd962fe00c6a898da00f2d9cc93fab01f",
+      "topGuess": "Meta",
+      "topConfidence": 30,
+      "correctRank": 1,
+      "correctConfidence": 30,
+      "directionCall": "short",
+      "directionConfidence": 46,
+      "outcome": "fail",
+      "findings": [
+        {
+          "severity": "error",
+          "message": "Hard Gate 2: correct company appears in top 5 at rank 1 with confidence 30 (threshold 15)"
+        }
+      ]
+    },
+    {
+      "scenarioId": "scenario_pinterest_2020_2021",
+      "difficulty": "easy",
+      "payloadHash": "sha256:568a35e34e74dcb86a3509b93d2c7a4045ad8cec40b5857549ee4c542e00d7b0",
+      "topGuess": "Pinterest",
+      "topConfidence": 76,
+      "correctRank": 1,
+      "correctConfidence": 76,
+      "directionCall": "toss_up",
+      "directionConfidence": 48,
+      "outcome": "pass",
+      "findings": []
+    },
+    {
+      "scenarioId": "scenario_pinterest_2020_2021",
+      "difficulty": "medium",
+      "payloadHash": "sha256:c405fd7cf2f5351509671943ca8f175147c0101ee4efea9234db78c340866c93",
+      "topGuess": "Pinterest",
+      "topConfidence": 48,
+      "correctRank": 1,
+      "correctConfidence": 48,
+      "directionCall": "toss_up",
+      "directionConfidence": 46,
+      "outcome": "fail",
+      "findings": [
+        {
+          "severity": "error",
+          "message": "Medium Gate 2: correct company is #1 with confidence 48 (threshold 40)"
+        },
+        {
+          "severity": "warning",
+          "message": "Medium Gate 2: dominant guess \"Pinterest\" at 48% (>= 40)"
+        }
+      ]
+    },
+    {
+      "scenarioId": "scenario_pinterest_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:067d6071a5186142ae780edfe732ccb6f518ec1aa19ef90abd3ec8c03a7ca9fc",
+      "topGuess": "Zoom",
+      "topConfidence": 20,
+      "correctRank": 3,
+      "correctConfidence": 16,
+      "directionCall": "toss_up",
+      "directionConfidence": 40,
+      "outcome": "fail",
+      "findings": [
+        {
+          "severity": "error",
+          "message": "Hard Gate 2: correct company appears in top 5 at rank 3 with confidence 16 (threshold 15)"
+        }
+      ]
+    },
+    {
+      "scenarioId": "scenario_roku_2020_2021",
+      "difficulty": "easy",
+      "payloadHash": "sha256:35a92fc1cd5ac1788ba48d1fab0be2f4953f86262203a41332d6c7c06726848e",
+      "topGuess": "Roku",
+      "topConfidence": 78,
+      "correctRank": 1,
+      "correctConfidence": 78,
+      "directionCall": "long",
+      "directionConfidence": 58,
+      "outcome": "pass",
+      "findings": []
+    },
+    {
+      "scenarioId": "scenario_roku_2020_2021",
+      "difficulty": "medium",
+      "payloadHash": "sha256:75cbb26bc50cb2478e48ffd41509b75760ba41d11a0357f6851ebc4741499b74",
+      "topGuess": "Roku",
+      "topConfidence": 52,
+      "correctRank": 1,
+      "correctConfidence": 52,
+      "directionCall": "long",
+      "directionConfidence": 52,
+      "outcome": "fail",
+      "findings": [
+        {
+          "severity": "error",
+          "message": "Medium Gate 2: correct company is #1 with confidence 52 (threshold 40)"
+        },
+        {
+          "severity": "error",
+          "message": "Medium Gate 2: correct company leads #2 by 22 points (threshold 15)"
+        },
+        {
+          "severity": "warning",
+          "message": "Medium Gate 2: dominant guess \"Roku\" at 52% (>= 40)"
+        }
+      ]
+    },
+    {
+      "scenarioId": "scenario_roku_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:985eba7b6b8fb8d0aaa506bdcee2c021c6841e2739f7cff2404f5712f16901f2",
+      "topGuess": "Netflix",
+      "topConfidence": 22,
+      "correctRank": 2,
+      "correctConfidence": 20,
+      "directionCall": "long",
+      "directionConfidence": 46,
+      "outcome": "fail",
+      "findings": [
+        {
+          "severity": "error",
+          "message": "Hard Gate 2: correct company appears in top 5 at rank 2 with confidence 20 (threshold 15)"
+        }
+      ]
+    },
+    {
+      "scenarioId": "scenario_starbucks_2020_2021",
+      "difficulty": "easy",
+      "payloadHash": "sha256:174344c64be84f0b133ca46d19473db7edb6f8e6eb2d1f1a70d6d81f3ad90646",
+      "topGuess": "Starbucks",
+      "topConfidence": 86,
+      "correctRank": 1,
+      "correctConfidence": 86,
+      "directionCall": "long",
+      "directionConfidence": 50,
+      "outcome": "pass",
+      "findings": []
+    },
+    {
+      "scenarioId": "scenario_starbucks_2020_2021",
+      "difficulty": "medium",
+      "payloadHash": "sha256:74f06676f9087c6007ae7b38aa35193e3513bcc4e8f8738196c48b6124b9dfc1",
+      "topGuess": "Starbucks",
+      "topConfidence": 50,
+      "correctRank": 1,
+      "correctConfidence": 50,
+      "directionCall": "toss_up",
+      "directionConfidence": 46,
+      "outcome": "fail",
+      "findings": [
+        {
+          "severity": "error",
+          "message": "Medium Gate 2: correct company is #1 with confidence 50 (threshold 40)"
+        },
+        {
+          "severity": "warning",
+          "message": "Medium Gate 2: dominant guess \"Starbucks\" at 50% (>= 40)"
+        }
+      ]
+    },
+    {
+      "scenarioId": "scenario_starbucks_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:aa9ba132b90f4771087c574915958037381af07bfd586f58e98ee5abdb152601",
+      "topGuess": "Starbucks",
+      "topConfidence": 28,
+      "correctRank": 1,
+      "correctConfidence": 28,
+      "directionCall": "toss_up",
+      "directionConfidence": 42,
+      "outcome": "fail",
+      "findings": [
+        {
+          "severity": "error",
+          "message": "Hard Gate 2: correct company appears in top 5 at rank 1 with confidence 28 (threshold 15)"
+        }
+      ]
+    },
+    {
+      "scenarioId": "scenario_tesla_2020_2021",
+      "difficulty": "easy",
+      "payloadHash": "sha256:734602663da692f76d528c2a651007c187e0fb0067b0f28202d767464924dcca",
+      "topGuess": "Tesla",
+      "topConfidence": 84,
+      "correctRank": 1,
+      "correctConfidence": 84,
+      "directionCall": "long",
+      "directionConfidence": 56,
+      "outcome": "pass",
+      "findings": []
+    },
+    {
+      "scenarioId": "scenario_tesla_2020_2021",
+      "difficulty": "medium",
+      "payloadHash": "sha256:ba2ce4e944831114ddca4d1b673ba6ba6bcad9c70cce03b8a5e43390823ba106",
+      "topGuess": "Tesla",
+      "topConfidence": 56,
+      "correctRank": 1,
+      "correctConfidence": 56,
+      "directionCall": "long",
+      "directionConfidence": 50,
+      "outcome": "fail",
+      "findings": [
+        {
+          "severity": "error",
+          "message": "Medium Gate 2: correct company is #1 with confidence 56 (threshold 40)"
+        },
+        {
+          "severity": "error",
+          "message": "Medium Gate 2: correct company leads #2 by 30 points (threshold 15)"
+        },
+        {
+          "severity": "warning",
+          "message": "Medium Gate 2: dominant guess \"Tesla\" at 56% (>= 40)"
+        }
+      ]
+    },
+    {
+      "scenarioId": "scenario_tesla_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:24be54d5ee9d67abfbb55dc723a58e126ebba17638d2cefe2e08821ba05ee539",
+      "topGuess": "Tesla",
+      "topConfidence": 34,
+      "correctRank": 1,
+      "correctConfidence": 34,
+      "directionCall": "long",
+      "directionConfidence": 44,
+      "outcome": "fail",
+      "findings": [
+        {
+          "severity": "error",
+          "message": "Hard Gate 2: correct company appears in top 5 at rank 1 with confidence 34 (threshold 15)"
+        }
+      ]
+    },
+    {
+      "scenarioId": "scenario_netflix_2012_2017",
+      "difficulty": "medium",
+      "payloadHash": "sha256:1a74849fd520c817fdb671ef28b1d738161b1d8d616ddcfdd796b0dd162449b5",
+      "topGuess": "Netflix",
+      "topConfidence": 30,
+      "correctRank": 1,
+      "correctConfidence": 30,
+      "directionCall": "toss_up",
+      "directionConfidence": 42,
+      "outcome": "pass",
+      "findings": []
+    },
+    {
+      "scenarioId": "scenario_netflix_2012_2017",
+      "difficulty": "hard",
+      "payloadHash": "sha256:251737ca2656a0a03bb8dc49b2b480e4252df5a221bbb0af18acdb5147a7feee",
+      "topGuess": "Amazon",
+      "topConfidence": 18,
+      "correctRank": 3,
+      "correctConfidence": 12,
+      "directionCall": "toss_up",
+      "directionConfidence": 36,
+      "outcome": "warn",
+      "findings": [
+        {
+          "severity": "warning",
+          "message": "Gate 2 top-5 has zero overlap with review.hardLikelyGuesses"
+        }
+      ]
+    }
+  ]
+}

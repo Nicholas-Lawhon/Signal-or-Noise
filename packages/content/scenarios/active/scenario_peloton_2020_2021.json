@@ -1,0 +1,325 @@
+{
+    "id":  "scenario_peloton_2020_2021",
+    "status":  "active",
+    "company":  {
+                    "name":  "Peloton Interactive",
+                    "ticker":  "PTON",
+                    "exchange":  "NASDAQ",
+                    "sector":  "Consumer Discretionary",
+                    "industry":  "Leisure Products",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "peloton interactive",
+                                          "peloton"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Peloton",
+                                                "Bike+",
+                                                "Tread",
+                                                "All-Access"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Demand Pull-Forward",
+                     "decisionDate":  "2020-05-01",
+                     "endDate":  "2021-05-03",
+                     "decisionDateLabel":  "2020",
+                     "outcomeLabel":  "2020 to 2021",
+                     "holdingPeriodLabel":  "About one year",
+                     "era":  "Pandemic-era disruption",
+                     "eraId":  "pandemic_era",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "part_b_phase_campaign"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  32.05,
+                       "endingPrice":  95.84,
+                       "actualReturnPercent":  1.9903,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2019-09-26",
+                       "preDecisionChartEndDate":  "2020-05-01",
+                       "outcomeChartStartDate":  "2020-05-01",
+                       "outcomeChartEndDate":  "2021-05-03",
+                       "lookbackPrices":  [
+                                              25.76,
+                                              22.4,
+                                              30.96,
+                                              27,
+                                              32.26,
+                                              27.92,
+                                              27.96,
+                                              32.05
+                                          ],
+                       "outcomePrices":  [
+                                             32.05,
+                                             54.88,
+                                             65.71,
+                                             110.74,
+                                             105.42,
+                                             150.14,
+                                             117.65,
+                                             95.84
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A connected-fitness company combining premium home equipment with recurring digital memberships.",
+                                    "macroContext":  "Stay-at-home restrictions are abruptly shifting exercise away from gyms and studios.",
+                                    "situation":  "Can a surge in home demand create a lasting subscription platform rather than a one-time hardware boom?",
+                                    "longCase":  "A growing installed base can produce recurring revenue and strong member engagement.",
+                                    "shortCase":  "Supply constraints, premium prices, and eventual reopening can expose pulled-forward demand.",
+                                    "setupHints":  [
+                                                       "Customers pay both for equipment and ongoing access to instructor-led classes."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A consumer company combining an upfront product with an ongoing digital relationship.",
+                                      "macroContext":  "A sudden behavior shift is accelerating at-home adoption while supply chains struggle to keep pace.",
+                                      "situation":  "Can unusually strong customer acquisition become durable retention after normal routines return?",
+                                      "longCase":  "Rapid adoption can create a larger recurring customer base and stronger brand awareness.",
+                                      "shortCase":  "Capacity bottlenecks and changing routines can turn exceptional demand into a temporary spike.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A consumer platform built around an upfront purchase and an ongoing service.",
+                                    "macroContext":  "An external shock is accelerating adoption far beyond normal planning assumptions.",
+                                    "situation":  "Can shock-driven customer growth translate into durable economics once familiar alternatives return?",
+                                    "longCase":  "A larger installed base can support recurring revenue and continued customer engagement.",
+                                    "shortCase":  "Pulled-forward purchases and costly capacity expansion can leave later demand below expectations.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Peloton. Demand for connected home fitness surged during pandemic restrictions, expanding both product sales and subscription memberships.",
+                   "funFact":  "The company was founded in 2012 and began selling its first connected exercise product in 2014.",
+                   "whyItMoved":  [
+                                      "At-home exercise demand increased sharply.",
+                                      "The connected-fitness subscriber base expanded.",
+                                      "Manufacturing and delivery constraints highlighted both demand strength and execution risk."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ PTON",
+                        "url":  "https://finance.yahoo.com/quote/PTON/history/",
+                        "notes":  "Split-adjusted closes for 2020-05-01 and 2021-05-03; sampled lookback/outcome series and computed price return."
+                    },
+                    {
+                        "label":  "Peloton Interactive SEC filings",
+                        "url":  "https://www.sec.gov/edgar/browse/?CIK=PTON\u0026owner=exclude\u0026action=getcompany",
+                        "notes":  "Annual filings covering business model, operating risks, company history, and the reported operating trends summarized in the reveal."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Phase 4B production candidate. Recognition bucket: famous. Authored fact-bank first and Hard first, then Medium/Easy. Payload-only editorial self-check retained the named peer set across difficulties, avoided correct-company dominance on Medium/Hard, kept both calls articulable, and found no unsupported candidate. No authoritative Gate 2 judgment is recorded. Phase-internal clean-Grok rewrite changed medium/hard only: removed the stored judge\u0027s company-pointing conjunctions while keeping concrete long/short tension. Stored Gate 2 evidence is preserved but stale for changed variants; clean rejudge required. Shared title unchanged, so no sibling-only rejudge expansion.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "Peloton Interactive name and PTON ticker",
+                                                       "Peloton",
+                                                       "Bike+",
+                                                       "Tread",
+                                                       "All-Access"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "Can a surge in home demand create a lasting subscription platform rather than a one-time hardware boom?",
+                                                           "A growing installed base can produce recurring revenue and strong member engagement.",
+                                                           "Supply constraints, premium prices, and eventual reopening can expose pulled-forward demand.",
+                                                           "Can unusually strong customer acquisition become durable retention after normal routines return?",
+                                                           "Rapid adoption can create a larger recurring customer base and stronger brand awareness.",
+                                                           "Capacity bottlenecks and changing routines can turn exceptional demand into a temporary spike.",
+                                                           "Can shock-driven customer growth translate into durable economics once familiar alternatives return?",
+                                                           "A larger installed base can support recurring revenue and continued customer engagement.",
+                                                           "Pulled-forward purchases and costly capacity expansion can leave later demand below expectations."
+                                                       ],
+                                    "prohibited":  [
+                                                       "Peloton",
+                                                       "Bike+",
+                                                       "Tread",
+                                                       "All-Access",
+                                                       "fitness hardware plus subscription",
+                                                       "home exercise plus reopening",
+                                                       "specialized equipment plus instructor content"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Peloton Interactive",
+                                                                  "Nautilus",
+                                                                  "Lululemon Athletica",
+                                                                  "Planet Fitness"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Roku",
+                                                                    "Sonos",
+                                                                    "Garmin",
+                                                                    "Peloton Interactive",
+                                                                    "Apple",
+                                                                    "Nintendo"
+                                                                ],
+                                                     "hard":  [
+                                                                  "Roku",
+                                                                  "Nintendo",
+                                                                  "Sonos",
+                                                                  "Apple",
+                                                                  "Peloton Interactive",
+                                                                  "Garmin"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "2020 chart silhouette plus company-specific product language",
+                                                                   "Stay-at-home restrictions are abruptly shifting exercise away from gyms and studios. plus named product or brand",
+                                                                   "Can a surge in home demand create a lasting subscription platform rather than a one-time hardware boom? plus PTON ticker or company name",
+                                                                   "fitness hardware plus subscription",
+                                                                   "home exercise plus reopening",
+                                                                   "specialized equipment plus instructor content"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Peloton Interactive",
+                                             "Nautilus",
+                                             "Lululemon Athletica",
+                                             "Planet Fitness"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Roku",
+                                               "Sonos",
+                                               "Garmin",
+                                               "Peloton Interactive"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "Roku",
+                                             "Nintendo",
+                                             "Sonos",
+                                             "Apple"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:26579244b1bc311a3ee59889af9cae03dff16127582229d0e69246db353d874f",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Peloton",
+                                                                  "confidence":  96,
+                                                                  "pointingFact":  "Connected fitness hardware sold with recurring memberships for instructor-led home classes during stay-at-home demand."
+                                                              },
+                                                              {
+                                                                  "company":  "iFIT",
+                                                                  "confidence":  28,
+                                                                  "pointingFact":  "Home fitness equipment plus digital training memberships competing in pandemic home-workout surge."
+                                                              },
+                                                              {
+                                                                  "company":  "Tonal",
+                                                                  "confidence":  18,
+                                                                  "pointingFact":  "Premium connected home gym hardware bundled with subscription coaching content."
+                                                              },
+                                                              {
+                                                                  "company":  "Mirror",
+                                                                  "confidence":  14,
+                                                                  "pointingFact":  "Connected home fitness device model combining equipment purchase with class subscriptions."
+                                                              },
+                                                              {
+                                                                  "company":  "NordicTrack",
+                                                                  "confidence":  12,
+                                                                  "pointingFact":  "Home exercise equipment brand pushing connected classes as gyms closed."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  61,
+                                                                "cue":  "Situation frames pull-forward hardware demand, premium pricing, and reopening risk against a one-year hold."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:8164fc94a9c92d8c1480b8e76b1744089e4e73c336a8072a1d135b6af781ced7",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "Peloton",
+                                                                    "confidence":  74,
+                                                                    "pointingFact":  "Upfront fitness hardware plus paid digital membership matches pandemic at-home pull-forward and supply bottlenecks."
+                                                                },
+                                                                {
+                                                                    "company":  "Nintendo",
+                                                                    "confidence":  36,
+                                                                    "pointingFact":  "Console sale plus ongoing digital software/online relationship amid pandemic demand and capacity constraints."
+                                                                },
+                                                                {
+                                                                    "company":  "Lululemon",
+                                                                    "confidence":  28,
+                                                                    "pointingFact":  "Consumer brand pairing physical product with connected at-home fitness relationship during routine disruption."
+                                                                },
+                                                                {
+                                                                    "company":  "iRobot",
+                                                                    "confidence":  22,
+                                                                    "pointingFact":  "Hardware purchase with ongoing app/connected home use and pandemic home-centered demand surge."
+                                                                },
+                                                                {
+                                                                    "company":  "Sonos",
+                                                                    "confidence":  18,
+                                                                    "pointingFact":  "Consumer audio hardware with recurring software ecosystem and at-home entertainment adoption."
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "short",
+                                                                  "confidence":  56,
+                                                                  "cue":  "Title and short case frame exceptional acquisition as pull-forward that fades when routines and capacity normalize."
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:f6a04ca9ad9739a1458e8dbfe257db404f264bbd5d5bcc15f937d757bc1bf022",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Peloton Interactive",
+                                                                  "confidence":  52,
+                                                                  "pointingFact":  "Consumer platform combining upfront hardware purchase with ongoing subscription, classically pulled forward by pandemic shock."
+                                                              },
+                                                              {
+                                                                  "company":  "Nintendo",
+                                                                  "confidence":  24,
+                                                                  "pointingFact":  "Console-plus-services model where shock-driven device sales risk leaving later demand and engagement below plans."
+                                                              },
+                                                              {
+                                                                  "company":  "Sony",
+                                                                  "confidence":  18,
+                                                                  "pointingFact":  "Hardware plus ongoing gaming services facing pandemic pull-forward of console demand and capacity investment risk."
+                                                              },
+                                                              {
+                                                                  "company":  "Roku",
+                                                                  "confidence":  14,
+                                                                  "pointingFact":  "Device-plus-platform consumer model accelerated by stay-home shock with durability question once alternatives return."
+                                                              },
+                                                              {
+                                                                  "company":  "Apple",
+                                                                  "confidence":  12,
+                                                                  "pointingFact":  "Upfront device purchase with expanding services revenue, though less uniquely defined by pandemic pull-forward alone."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "toss_up",
+                                                                "confidence":  48,
+                                                                "cue":  "2020 shock-driven install base can still compound for a year even while pull-forward and capacity risks loom."
+                                                            }
+                                          }
+                             }
+               }
+}

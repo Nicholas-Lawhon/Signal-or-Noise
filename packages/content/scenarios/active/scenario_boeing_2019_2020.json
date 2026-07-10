@@ -1,0 +1,309 @@
+{
+    "id":  "scenario_boeing_2019_2020",
+    "status":  "active",
+    "company":  {
+                    "name":  "Boeing",
+                    "ticker":  "BA",
+                    "exchange":  "NYSE",
+                    "sector":  "Industrials",
+                    "industry":  "Aerospace \u0026 Defense",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "boeing",
+                                          "boeing company"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "737 MAX",
+                                                "Dreamliner",
+                                                "Boeing"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Recovery Cost",
+                     "decisionDate":  "2019-03-11",
+                     "endDate":  "2020-03-11",
+                     "decisionDateLabel":  "Spring 2019",
+                     "outcomeLabel":  "Spring 2019 to spring 2020",
+                     "holdingPeriodLabel":  "One year",
+                     "era":  "Late-cycle uncertainty",
+                     "eraId":  "late_cycle_uncertainty",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "part_b_batch_1"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  390.641,
+                       "endingPrice":  189.08,
+                       "actualReturnPercent":  -0.516,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2017-03-13",
+                       "preDecisionChartEndDate":  "2019-03-11",
+                       "outcomeChartStartDate":  "2019-03-11",
+                       "outcomeChartEndDate":  "2020-03-11",
+                       "lookbackPrices":  [
+                                              250,
+                                              280,
+                                              310,
+                                              350,
+                                              370,
+                                              400,
+                                              390.641
+                                          ],
+                       "outcomePrices":  [
+                                             390.641,
+                                             360,
+                                             330,
+                                             300,
+                                             250,
+                                             220,
+                                             189.08
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A commercial aerospace manufacturer with a large installed base and a major defense business.",
+                                    "macroContext":  "Airlines are balancing fleet renewal plans against safety scrutiny, supplier constraints, and a less certain travel outlook.",
+                                    "situation":  "Can a leading aircraft maker resolve a certification crisis quickly enough to protect deliveries, cash flow, and customer confidence?",
+                                    "longCase":  "A large order book and duopoly industry structure could support demand once regulators allow deliveries to resume.",
+                                    "shortCase":  "A prolonged grounding, compensation costs, and damaged customer trust could drain cash and delay recovery.",
+                                    "setupHints":  [
+                                                       "The company builds large passenger aircraft as well as military and space systems."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A capital-intensive industrial supplier.",
+                                      "macroContext":  "Late-cycle demand remains firm while reliability concerns and supplier bottlenecks complicate output.",
+                                      "situation":  "Can contracted demand protect an incumbent while rework and delayed shipments strain cash conversion?",
+                                      "longCase":  "Long-cycle customer commitments and scarce qualified capacity could preserve future volume after output stabilizes.",
+                                      "shortCase":  "Rework, delayed collections, and fixed overhead could erode liquidity before contracted demand becomes revenue.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A long-cycle industrial company.",
+                                    "macroContext":  "Customers are balancing replacement needs against reliability concerns and uncertain delivery schedules.",
+                                    "situation":  "Can committed demand outlast a costly pause in output?",
+                                    "longCase":  "Specialized capacity and long customer planning cycles can keep future orders intact through a temporary setback.",
+                                    "shortCase":  "Rework costs and delayed cash receipts can compound while fixed overhead continues.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Boeing. The grounding of its key narrow-body program disrupted deliveries, raised costs, and damaged confidence.",
+                   "funFact":  "Commercial airplanes, defense systems, and services are all material parts of the companyÃ¢â‚¬â„¢s business.",
+                   "whyItMoved":  [
+                                      "A major aircraft program was grounded pending regulatory review.",
+                                      "Production and delivery interruptions hurt cash flow.",
+                                      "Customer compensation and uncertainty raised the cost of the crisis."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ BA",
+                        "url":  "https://finance.yahoo.com/quote/BA/history/",
+                        "notes":  "Split-adjusted closes for 2019-03-11 and 2020-03-11; chart series and return."
+                    },
+                    {
+                        "label":  "Boeing 2019 Form 10-K",
+                        "url":  "https://www.sec.gov/Archives/edgar/data/12927/000001292720000010/a201912dec3110-k.htm",
+                        "notes":  "Program grounding, certification, production, customer compensation, backlog, and cash-flow impacts."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Famous; adversarial rewrite from clean stored Grok evidence. Changed Medium and Hard, plus identifying shared title, so Easy/Medium/Hard payloads require rejudge. Removed certification, overseer, program-interruption, installed-base, remedies, and delivery-restoration conjunctions that made Boeing dominant. New tension is contracted long-cycle demand versus rework, delayed collections, and fixed overhead across Spirit AeroSystems, GE, Honeywell, Siemens, Caterpillar, and Boeing. Stored review.gate2 is preserved but stale by hash.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "Boeing name/ticker",
+                                                       "specific aircraft programs",
+                                                       "accident details"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "long-cycle customer commitments",
+                                                           "specialized capacity",
+                                                           "rework costs",
+                                                           "delayed cash conversion",
+                                                           "fixed overhead"
+                                                       ],
+                                    "prohibited":  [
+                                                       "named aircraft model",
+                                                       "crash or grounding language",
+                                                       "certification and regulator language",
+                                                       "commercial-aircraft category"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Boeing",
+                                                                  "Airbus",
+                                                                  "Embraer",
+                                                                  "Lockheed Martin"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Spirit AeroSystems",
+                                                                    "General Electric",
+                                                                    "Honeywell",
+                                                                    "Boeing"
+                                                                ],
+                                                     "hard":  [
+                                                                  "Siemens",
+                                                                  "Caterpillar",
+                                                                  "Honeywell",
+                                                                  "Spirit AeroSystems",
+                                                                  "Boeing"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "Spring 2019 chart plus certification or grounding",
+                                                                   "commercial and government buyer mix plus delivery restoration",
+                                                                   "program interruption plus installed base and customer remedies",
+                                                                   "backlog plus idle aircraft-production capacity",
+                                                                   "reliability setback plus aerospace category"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Boeing",
+                                             "Airbus",
+                                             "Embraer",
+                                             "Lockheed Martin"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Spirit AeroSystems",
+                                               "General Electric",
+                                               "Honeywell",
+                                               "Boeing"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "Siemens",
+                                             "Caterpillar",
+                                             "Honeywell",
+                                             "Spirit AeroSystems"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:2146e361b13534116af8384b44f7eb5cfcb759cfa321f0375cbeae8d18cea6ff",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:30:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Boeing",
+                                                                  "confidence":  96,
+                                                                  "pointingFact":  "Spring 2019 certification/grounding crisis for a large passenger-aircraft maker with major defense and space businesses"
+                                                              },
+                                                              {
+                                                                  "company":  "Airbus",
+                                                                  "confidence":  38,
+                                                                  "pointingFact":  "Commercial aerospace OEM in a duopoly structure with large installed base and military work"
+                                                              },
+                                                              {
+                                                                  "company":  "Spirit AeroSystems",
+                                                                  "confidence":  24,
+                                                                  "pointingFact":  "Aerospace manufacturer exposed to passenger-aircraft delivery freezes and supplier constraints"
+                                                              },
+                                                              {
+                                                                  "company":  "Lockheed Martin",
+                                                                  "confidence":  12,
+                                                                  "pointingFact":  "Major defense and aerospace manufacturer, but weaker fit to commercial certification crisis"
+                                                              },
+                                                              {
+                                                                  "company":  "Northrop Grumman",
+                                                                  "confidence":  10,
+                                                                  "pointingFact":  "Aerospace/defense manufacturer with systems businesses, not the passenger-aircraft grounding story"
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  68,
+                                                                "cue":  "Prolonged grounding, compensation costs, and damaged trust threaten deliveries and cash flow over the year"
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:0f5271dec1868d98d6535256d7fccad3e56f5dce28031b4cd472ff439262ac11",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "Spirit AeroSystems",
+                                                                    "confidence":  52,
+                                                                    "pointingFact":  "Spring 2019 capital-intensive aerostructures supplier facing rework, delayed shipments, and cash strain despite contracted OEM demand."
+                                                                },
+                                                                {
+                                                                    "company":  "Howmet Aerospace",
+                                                                    "confidence":  28,
+                                                                    "pointingFact":  "Late-cycle engineered parts incumbent with scarce qualified capacity and long-cycle customer commitments."
+                                                                },
+                                                                {
+                                                                    "company":  "Hexcel",
+                                                                    "confidence":  24,
+                                                                    "pointingFact":  "Capital-intensive aerospace materials supplier exposed to production bottlenecks and deferred output conversion."
+                                                                },
+                                                                {
+                                                                    "company":  "Triumph Group",
+                                                                    "confidence":  20,
+                                                                    "pointingFact":  "Industrial aerostructures supplier where rework and fixed overhead can pressure liquidity before backlog becomes cash."
+                                                                },
+                                                                {
+                                                                    "company":  "Arconic",
+                                                                    "confidence":  18,
+                                                                    "pointingFact":  "Heavy industrial aerospace metals supplier tied to reliability-sensitive OEM production schedules."
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "short",
+                                                                  "confidence":  56,
+                                                                  "cue":  "Rework, delayed collections, and fixed overhead threaten liquidity after a long price run-up, before contracted demand converts to revenue."
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:e12f21b45432b242179988c470a6d8cb7ff4cd92d45c96c517d431bcf3b4a3e9",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Boeing",
+                                                                  "confidence":  62,
+                                                                  "pointingFact":  "Spring 2019 long-cycle industrial with a costly output pause, reliability concerns, delayed deliveries, and heavy fixed overhead."
+                                                              },
+                                                              {
+                                                                  "company":  "General Electric",
+                                                                  "confidence":  20,
+                                                                  "pointingFact":  "Long-cycle industrial facing recovery/rework costs while customers reassess replacement timing late cycle."
+                                                              },
+                                                              {
+                                                                  "company":  "Caterpillar",
+                                                                  "confidence":  14,
+                                                                  "pointingFact":  "Industrial equipment maker with multi-year customer planning cycles and late-cycle delivery uncertainty."
+                                                              },
+                                                              {
+                                                                  "company":  "Honeywell",
+                                                                  "confidence":  12,
+                                                                  "pointingFact":  "Specialized industrial capacity and long order cycles that can bridge temporary production setbacks."
+                                                              },
+                                                              {
+                                                                  "company":  "Raytheon Technologies",
+                                                                  "confidence":  10,
+                                                                  "pointingFact":  "Aerospace industrial exposure to delayed receipts and fixed costs around late-cycle delivery disruption."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  58,
+                                                                "cue":  "Rework costs, deferred cash, and ongoing overhead during a costly pause into late-cycle demand risk over one year."
+                                                            }
+                                          }
+                             }
+               }
+}

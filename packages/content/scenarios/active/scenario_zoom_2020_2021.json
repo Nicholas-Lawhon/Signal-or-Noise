@@ -1,0 +1,321 @@
+{
+    "id":  "scenario_zoom_2020_2021",
+    "status":  "active",
+    "company":  {
+                    "name":  "Zoom Video Communications",
+                    "ticker":  "ZM",
+                    "exchange":  "NASDAQ",
+                    "sector":  "Information Technology",
+                    "industry":  "Application Software",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "zoom video communications",
+                                          "zoom video communications"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Zoom",
+                                                "Zoom Rooms",
+                                                "Zoom Phone",
+                                                "video conferencing"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Capacity Shock",
+                     "decisionDate":  "2020-01-02",
+                     "endDate":  "2021-01-04",
+                     "decisionDateLabel":  "2020",
+                     "outcomeLabel":  "2020 to 2021",
+                     "holdingPeriodLabel":  "About one year",
+                     "era":  "Pandemic-era disruption",
+                     "eraId":  "pandemic_era",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "part_b_phase_campaign"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  68.72,
+                       "endingPrice":  359.98,
+                       "actualReturnPercent":  4.2384,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2019-04-18",
+                       "preDecisionChartEndDate":  "2020-01-02",
+                       "outcomeChartStartDate":  "2020-01-02",
+                       "outcomeChartEndDate":  "2021-01-04",
+                       "lookbackPrices":  [
+                                              62,
+                                              76.25,
+                                              85.13,
+                                              92.45,
+                                              78.85,
+                                              66.08,
+                                              74.55,
+                                              68.72
+                                          ],
+                       "outcomePrices":  [
+                                             68.72,
+                                             107.08,
+                                             150.26,
+                                             209.83,
+                                             250,
+                                             468.47,
+                                             376.01,
+                                             359.98
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A cloud communications company focused on simple live online meetings.",
+                                    "macroContext":  "Workplaces and schools are rapidly moving activity online during a global health emergency.",
+                                    "situation":  "Can explosive adoption become a lasting enterprise platform rather than a temporary utility?",
+                                    "longCase":  "Ease of use and viral team adoption can drive rapid customer growth and expansion.",
+                                    "shortCase":  "Security concerns, infrastructure costs, and bundled competitors can challenge retention.",
+                                    "setupHints":  [
+                                                       "Many users can join from ordinary computers and mobile devices without specialized hardware."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A cloud-based workplace communications provider.",
+                                      "macroContext":  "Organizations need remote collaboration immediately while established software suites bundle similar tools.",
+                                      "situation":  "Can sudden user growth become durable paid demand before larger rivals close the gap?",
+                                      "longCase":  "Fast adoption can create strong brand awareness and enterprise expansion opportunities.",
+                                      "shortCase":  "Free usage, capacity expense, and bundled alternatives can pressure long-term economics.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A subscription service used by organizations and individuals.",
+                                    "macroContext":  "An external shock is accelerating adoption far beyond normal planning assumptions.",
+                                    "situation":  "Can emergency-driven usage turn into durable paid relationships once routines normalize?",
+                                    "longCase":  "Rapid adoption can establish new habits and open larger customer accounts.",
+                                    "shortCase":  "Temporary demand, operating strain, and bundled competition can reverse the surge.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Zoom. Revenue and customer counts increased dramatically in 2020 as remote work and education drove unprecedented usage.",
+                   "funFact":  "The company was founded in 2011 and completed its public offering in April 2019.",
+                   "whyItMoved":  [
+                                      "Remote work and education created extraordinary demand.",
+                                      "Large-customer adoption expanded rapidly.",
+                                      "Infrastructure scaling and security scrutiny grew alongside usage."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ ZM",
+                        "url":  "https://finance.yahoo.com/quote/ZM/history/",
+                        "notes":  "Split-adjusted closes for 2020-01-02 and 2021-01-04; sampled lookback/outcome series and computed price return."
+                    },
+                    {
+                        "label":  "Zoom Video Communications SEC filings",
+                        "url":  "https://www.sec.gov/edgar/browse/?CIK=ZM\u0026owner=exclude\u0026action=getcompany",
+                        "notes":  "Annual filings covering business model, operating risks, company history, and the reported operating trends summarized in the reveal."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Phase 4B production candidate. Recognition bucket: famous. Authored fact-bank first and Hard first, then Medium/Easy. Payload-only editorial self-check retained the named peer set across difficulties, avoided correct-company dominance on Medium/Hard, kept both calls articulable, and found no unsupported candidate. No authoritative Gate 2 judgment is recorded. Phase-internal clean-Grok rewrite changed hard only: removed the stored judge\u0027s company-pointing conjunctions while keeping concrete long/short tension. Stored Gate 2 evidence is preserved but stale for changed variants; clean rejudge required. Shared title unchanged, so no sibling-only rejudge expansion.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "Zoom Video Communications name and ZM ticker",
+                                                       "Zoom",
+                                                       "Zoom Rooms",
+                                                       "Zoom Phone",
+                                                       "video conferencing"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "Can explosive adoption become a lasting enterprise platform rather than a temporary utility?",
+                                                           "Ease of use and viral team adoption can drive rapid customer growth and expansion.",
+                                                           "Security concerns, infrastructure costs, and bundled competitors can challenge retention.",
+                                                           "Can emergency-driven usage turn into durable paid relationships once routines normalize?",
+                                                           "Rapid adoption can establish new habits and open larger customer accounts.",
+                                                           "Temporary demand, operating strain, and bundled competition can reverse the surge."
+                                                       ],
+                                    "prohibited":  [
+                                                       "Zoom",
+                                                       "Zoom Rooms",
+                                                       "Zoom Phone",
+                                                       "video conferencing",
+                                                       "workplace communications plus pandemic",
+                                                       "capacity shock plus remote work",
+                                                       "online meetings plus suite bundling"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Zoom Video Communications",
+                                                                  "Microsoft",
+                                                                  "Cisco",
+                                                                  "RingCentral"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Zoom Video Communications",
+                                                                    "Microsoft",
+                                                                    "Cisco",
+                                                                    "RingCentral",
+                                                                    "Slack"
+                                                                ],
+                                                     "hard":  [
+                                                                  "DocuSign",
+                                                                  "Slack Technologies",
+                                                                  "Chegg",
+                                                                  "Teladoc Health",
+                                                                  "Zoom Video Communications",
+                                                                  "RingCentral"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "2020 chart silhouette plus company-specific product language",
+                                                                   "Workplaces and schools are rapidly moving activity online during a global health emergency. plus named product or brand",
+                                                                   "Can explosive adoption become a lasting enterprise platform rather than a temporary utility? plus ZM ticker or company name",
+                                                                   "workplace communications plus pandemic",
+                                                                   "capacity shock plus remote work",
+                                                                   "online meetings plus suite bundling"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Zoom Video Communications",
+                                             "Microsoft",
+                                             "Cisco",
+                                             "RingCentral"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Zoom Video Communications",
+                                               "Microsoft",
+                                               "Cisco",
+                                               "RingCentral"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "DocuSign",
+                                             "Slack Technologies",
+                                             "Chegg",
+                                             "Teladoc Health"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:af1ce7d32d36e1f9878651672f71f189e4747ffe8226cf8f02397a20b330a4dc",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Zoom Video Communications",
+                                                                  "confidence":  96,
+                                                                  "pointingFact":  "Cloud meetings product known for simple live online meetings joinable from ordinary computers and phones in 2020."
+                                                              },
+                                                              {
+                                                                  "company":  "Cisco",
+                                                                  "confidence":  24,
+                                                                  "pointingFact":  "Enterprise Webex meetings franchise, less the pure simple viral meetings utility story."
+                                                              },
+                                                              {
+                                                                  "company":  "Microsoft",
+                                                                  "confidence":  18,
+                                                                  "pointingFact":  "Teams became a bundled meetings rival, not a standalone live-meetings pure play."
+                                                              },
+                                                              {
+                                                                  "company":  "RingCentral",
+                                                                  "confidence":  14,
+                                                                  "pointingFact":  "Cloud communications including meetings, broader UCaaS suite than meetings-first adoption."
+                                                              },
+                                                              {
+                                                                  "company":  "DocuSign",
+                                                                  "confidence":  8,
+                                                                  "pointingFact":  "Pandemic digital-workflow beneficiary, not live online meetings infrastructure."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  60,
+                                                                "cue":  "Explosive work-and-school shift online favors easy viral meetings adoption over a one-year horizon despite security and bundling risks."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:318e6cc53bd05ecbb7be6d0a7832fb79c24a51ac9c5cdc22b10e06d8aa3d7a75",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-10T04:30:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "Zoom",
+                                                                    "confidence":  90,
+                                                                    "pointingFact":  "Cloud workplace communications that exploded in remote work with free usage and capacity strain."
+                                                                },
+                                                                {
+                                                                    "company":  "RingCentral",
+                                                                    "confidence":  44,
+                                                                    "pointingFact":  "Cloud UCaaS provider competing against suite-bundled collaboration tools."
+                                                                },
+                                                                {
+                                                                    "company":  "8x8",
+                                                                    "confidence":  34,
+                                                                    "pointingFact":  "Cloud workplace communications pure-play with similar remote-adoption and bundling risk."
+                                                                },
+                                                                {
+                                                                    "company":  "Slack",
+                                                                    "confidence":  28,
+                                                                    "pointingFact":  "Workplace communications app adopted rapidly for remote collaboration in 2020."
+                                                                },
+                                                                {
+                                                                    "company":  "Cisco",
+                                                                    "confidence":  20,
+                                                                    "pointingFact":  "Webex franchise as an established collaboration suite alternative in the same category."
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "short",
+                                                                  "confidence":  58,
+                                                                  "cue":  "Free usage, capacity costs, and suite bundling threaten converting pandemic surge into durable paid demand."
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:18d64303d0236db4ec14d83ae3e6586c15716ab4bdb693285c0253d548dfabac",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Zoom",
+                                                                  "confidence":  54,
+                                                                  "pointingFact":  "2020 subscription used by orgs and individuals with pandemic-driven adoption far above plan"
+                                                              },
+                                                              {
+                                                                  "company":  "DocuSign",
+                                                                  "confidence":  30,
+                                                                  "pointingFact":  "Org-and-individual subscription whose emergency workflow adoption may not fully retain"
+                                                              },
+                                                              {
+                                                                  "company":  "Netflix",
+                                                                  "confidence":  26,
+                                                                  "pointingFact":  "Subscription surge under stay-home shock with durability risk once routines normalize"
+                                                              },
+                                                              {
+                                                                  "company":  "Peloton",
+                                                                  "confidence":  22,
+                                                                  "pointingFact":  "Subscription service with pandemic demand spike and high risk of temporary usage reversing"
+                                                              },
+                                                              {
+                                                                  "company":  "Slack",
+                                                                  "confidence":  16,
+                                                                  "pointingFact":  "Collaboration subscription accelerated by remote work, exposed to bundled competition"
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "toss_up",
+                                                                "confidence":  48,
+                                                                "cue":  "Habit formation and account expansion compete with temporary demand, strain, and bundled rivals after a partial pullback"
+                                                            }
+                                          }
+                             }
+               }
+}

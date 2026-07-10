@@ -21,7 +21,7 @@ packages/content/    Scenario JSON seeds, schemas, validation scripts (Phase 3+)
 packages/database/   Prisma schema, migrations, import scripts (Phase 4+)
 packages/shared-types/ Shared interfaces (when needed)
 docs/                Product documentation
-agents/              Roles, handoffs, audits
+agents/              Phase charters, roles, closeouts, archived workflow history
 ```
 
 ## Documentation

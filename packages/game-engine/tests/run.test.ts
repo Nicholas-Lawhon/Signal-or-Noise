@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   createRunState,
+  createDailyChallengeRunState,
   applyRoundResult,
   advanceRun,
   isBankrupt,
@@ -29,6 +30,14 @@ describe('createRunState', () => {
     const run = createRunState({ difficulty: 'hard' });
     expect(run.currentBankroll).toBe(7500);
     expect(run.totalRounds).toBe(20);
+  });
+
+  it('creates a daily challenge run with locked defaults', () => {
+    const run = createDailyChallengeRunState();
+    expect(run.mode).toBe('daily_challenge');
+    expect(run.difficulty).toBeNull();
+    expect(run.currentBankroll).toBe(10000);
+    expect(run.totalRounds).toBe(10);
   });
 
   it('throws when startingBankroll is negative', () => {

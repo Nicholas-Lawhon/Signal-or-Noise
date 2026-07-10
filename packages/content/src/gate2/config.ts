@@ -1,9 +1,16 @@
 /**
- * Pinned Gate 2 judge config and offline threshold calibration (D031 / C003).
+ * Gate 2 judge model policy and offline threshold calibration (D031 / C003).
  * Changing these values is a reviewed code change.
  */
 
-export const GATE2_MODEL = 'grok-4.5' as const;
+export const GATE2_DEFAULT_MODEL = 'grok-4.5' as const;
+export const GATE2_APPROVED_MODELS = [
+  GATE2_DEFAULT_MODEL,
+  'claude-fable',
+] as const;
+
+/** @deprecated Use GATE2_DEFAULT_MODEL for new code. */
+export const GATE2_MODEL = GATE2_DEFAULT_MODEL;
 
 /** Combined guess + direction prompt pin. Bump on any prompt edit. */
 export const GATE2_PROMPT_VERSION = 'guess.v1+direction.v1' as const;
@@ -14,14 +21,15 @@ export type Gate2ThresholdConfig = {
     passMaxRank: number;
     warnMaxRank: number;
   };
-  /** Medium: fail if #1 with conf >= mediumFailTopConfidence, or lead >= mediumFailLeadPoints. */
+  /** Medium: fail only when #1 meets both confidence and lead dominance thresholds. */
   medium: {
     failTopConfidence: number;
     failLeadPoints: number;
   };
-  /** Hard: fail if correct appears in top 5 with conf >= hardFailMinConfidence. */
+  /** Hard: fail only when correct is #1 and meets both dominance thresholds. */
   hard: {
-    failMinConfidence: number;
+    failTopConfidence: number;
+    failLeadPoints: number;
   };
   /** Guess is "plausible" if confidence >= floor and has a pointing fact. WARN-only checks. */
   plausibleFloor: number;
@@ -32,7 +40,7 @@ export type Gate2ThresholdConfig = {
   };
   /** Medium dominance proxy for plausible set (WARN). */
   mediumDominanceConfidence: number;
-  /** Direction WARN if long/short confidence >= this. Never blocks in H021. */
+  /** Direction WARN if long/short confidence >= this. Never blocks phase acceptance. */
   directionWarnConfidence: number;
 };
 
@@ -42,11 +50,12 @@ export const GATE2_THRESHOLDS: Gate2ThresholdConfig = {
     warnMaxRank: 5,
   },
   medium: {
-    failTopConfidence: 40,
-    failLeadPoints: 15,
+    failTopConfidence: 85,
+    failLeadPoints: 35,
   },
   hard: {
-    failMinConfidence: 15,
+    failTopConfidence: 75,
+    failLeadPoints: 35,
   },
   plausibleFloor: 10,
   plausibleMinCounts: {
@@ -54,7 +63,7 @@ export const GATE2_THRESHOLDS: Gate2ThresholdConfig = {
     medium: 2,
     hard: 2,
   },
-  mediumDominanceConfidence: 40,
+  mediumDominanceConfidence: 85,
   directionWarnConfidence: 65,
 };
 

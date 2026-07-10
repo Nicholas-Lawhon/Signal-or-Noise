@@ -1,0 +1,310 @@
+{
+    "id":  "scenario_ford_2021_2022",
+    "status":  "active",
+    "company":  {
+                    "name":  "Ford Motor",
+                    "ticker":  "F",
+                    "exchange":  "NYSE",
+                    "sector":  "Consumer Discretionary",
+                    "industry":  "Automobile Manufacturers",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "ford",
+                                          "ford motor"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "F-150",
+                                                "Mustang",
+                                                "Bronco",
+                                                "Ford"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Supply Chain Shift",
+                     "decisionDate":  "2021-01-04",
+                     "endDate":  "2022-01-03",
+                     "decisionDateLabel":  "Early 2021",
+                     "outcomeLabel":  "Early 2021 to early 2022",
+                     "holdingPeriodLabel":  "About one year",
+                     "era":  "Supply-chain disruption",
+                     "eraId":  "supply_chain_disruption",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "part_b_batch_1"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  6.316,
+                       "endingPrice":  16.219,
+                       "actualReturnPercent":  1.568,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2019-01-02",
+                       "preDecisionChartEndDate":  "2021-01-04",
+                       "outcomeChartStartDate":  "2021-01-04",
+                       "outcomeChartEndDate":  "2022-01-03",
+                       "lookbackPrices":  [
+                                              7.5,
+                                              8,
+                                              6,
+                                              5,
+                                              8,
+                                              10,
+                                              6.316
+                                          ],
+                       "outcomePrices":  [
+                                             6.316,
+                                             9,
+                                             12,
+                                             14,
+                                             16,
+                                             18,
+                                             16.219
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A legacy vehicle manufacturer with a large truck business and plans to expand battery-powered models.",
+                                    "macroContext":  "Vehicle demand is recovering, but parts shortages are limiting production and forcing manufacturers to rethink supply chains.",
+                                    "situation":  "Can an established automaker use strong demand and a product transition to improve profits despite constrained production?",
+                                    "longCase":  "Tight vehicle inventories and higher prices could lift earnings while investment in new powertrains refreshes the product lineup.",
+                                    "shortCase":  "Parts shortages, costly retooling, and aggressive new entrants could keep the transition from producing durable returns.",
+                                    "setupHints":  [
+                                                       "The company sells a mix of consumer vehicles and commercial fleet products."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "An established manufacturer investing through a product-technology shift.",
+                                      "macroContext":  "Supply shortages are limiting shipments even as customers show renewed demand for durable goods.",
+                                      "situation":  "Can a legacy producer convert tight supply and a new product cycle into better economics?",
+                                      "longCase":  "Limited inventories can improve pricing power while new offerings refresh demand.",
+                                      "shortCase":  "Component shortages and transition spending can erase the benefit of higher prices.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A capital-intensive manufacturer.",
+                                    "macroContext":  "Component shortages are constraining output while several industries begin expensive product-generation changes.",
+                                    "situation":  "Can an incumbent use scarce supply to improve pricing while funding a multiyear redesign?",
+                                    "longCase":  "Tight availability can raise realized prices, and a refreshed product cycle can support future mix.",
+                                    "shortCase":  "Interrupted output and heavy engineering costs can consume the temporary pricing benefit.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Ford Motor. Tight vehicle inventories, stronger pricing, and enthusiasm around its product transition lifted the shares.",
+                   "funFact":  "The company reports separate automotive, financing, and mobility-related operations.",
+                   "whyItMoved":  [
+                                      "Vehicle inventories remained tight during the supply shortage.",
+                                      "Higher transaction prices supported earnings expectations.",
+                                      "Investors focused on the companyÃ¢â‚¬â„¢s transition plans and refreshed products."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ F",
+                        "url":  "https://finance.yahoo.com/quote/F/history/",
+                        "notes":  "Split-adjusted closes for 2021-01-04 and 2022-01-03; chart series and return."
+                    },
+                    {
+                        "label":  "Ford Motor Company 2021 Form 10-K",
+                        "url":  "https://www.sec.gov/Archives/edgar/data/37996/000003799622000012/f-20211231.htm",
+                        "notes":  "Supply constraints, vehicle pricing, product transition, financing operations, and competitive risks."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Famous; adversarial rewrite from clean stored Grok evidence. Ford Medium remains byte-identical because it passes; only Hard changed. Removed finished-goods, vehicle, factory-utilization, and transport-transition conjunctions that kept Ford and auto peers dominant. Hard now fits Caterpillar, GE, Intel, Boeing, appliance makers, and Ford through scarce supply versus redesign spending. Stored Hard review.gate2 is preserved but stale by hash.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "Ford name/ticker",
+                                                       "vehicle badges",
+                                                       "specific transition announcements"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "scarce supply",
+                                                           "realized pricing",
+                                                           "component shortages",
+                                                           "product-generation change",
+                                                           "engineering costs"
+                                                       ],
+                                    "prohibited":  [
+                                                       "vehicle or transport category",
+                                                       "named model or badge",
+                                                       "battery and charging language",
+                                                       "commercial fleets"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Ford Motor",
+                                                                  "General Motors",
+                                                                  "Stellantis",
+                                                                  "Toyota"
+                                                              ],
+                                                     "medium":  [
+                                                                    "General Motors",
+                                                                    "Ford Motor",
+                                                                    "Whirlpool",
+                                                                    "Stellantis"
+                                                                ],
+                                                     "hard":  [
+                                                                  "Caterpillar",
+                                                                  "General Electric",
+                                                                  "Intel",
+                                                                  "Boeing",
+                                                                  "Ford Motor"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "2021 chart plus truck badge",
+                                                                   "legacy automaker plus named battery model",
+                                                                   "commercial fleets plus brand-specific language",
+                                                                   "component shortage plus vehicle product cycle",
+                                                                   "finished-goods scarcity plus transport redesign"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Ford Motor",
+                                             "General Motors",
+                                             "Stellantis",
+                                             "Toyota"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Ford Motor",
+                                               "General Motors",
+                                               "Stellantis",
+                                               "Volkswagen"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "Caterpillar",
+                                             "General Electric",
+                                             "Intel",
+                                             "Boeing"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:e98fa2c0247ee5505485b96eaa89c99697ffe0c06bc42bb9c67944a56502de0b",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Ford",
+                                                                  "confidence":  72,
+                                                                  "pointingFact":  "Legacy automaker famous for trucks and commercial fleets while investing in battery-electric models."
+                                                              },
+                                                              {
+                                                                  "company":  "General Motors",
+                                                                  "confidence":  68,
+                                                                  "pointingFact":  "Large legacy OEM with pickup/commercial exposure and a major battery-electric product transition."
+                                                              },
+                                                              {
+                                                                  "company":  "Stellantis",
+                                                                  "confidence":  40,
+                                                                  "pointingFact":  "Legacy multi-brand vehicle maker with trucks/commercial products and electrification plans."
+                                                              },
+                                                              {
+                                                                  "company":  "Toyota",
+                                                                  "confidence":  32,
+                                                                  "pointingFact":  "Established global automaker with fleet-relevant products, though less centered on a U.S. truck narrative."
+                                                              },
+                                                              {
+                                                                  "company":  "Volkswagen",
+                                                                  "confidence":  26,
+                                                                  "pointingFact":  "Legacy manufacturer funding a broad EV transition amid supply-chain constraints."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "toss_up",
+                                                                "confidence":  58,
+                                                                "cue":  "Tight inventories and pricing support earnings, but chip shortages and costly EV retooling can erase the one-year gain."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:32a7c65b0f4649138a169bab451b5f055eb6f555d50a23da240da376ef2f93ef",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-10T04:30:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "General Motors",
+                                                                    "confidence":  48,
+                                                                    "pointingFact":  "Legacy durable-goods manufacturer in early-2021 chip-shortage pricing power plus EV/product-tech transition."
+                                                                },
+                                                                {
+                                                                    "company":  "Ford",
+                                                                    "confidence":  45,
+                                                                    "pointingFact":  "Established auto OEM facing component shortages while funding a major product-technology shift."
+                                                                },
+                                                                {
+                                                                    "company":  "Whirlpool",
+                                                                    "confidence":  32,
+                                                                    "pointingFact":  "Legacy durable-goods maker tied to renewed household demand and supply-constrained shipments."
+                                                                },
+                                                                {
+                                                                    "company":  "Stellantis",
+                                                                    "confidence":  28,
+                                                                    "pointingFact":  "Large legacy vehicle producer navigating tight inventories and a multi-year product refresh."
+                                                                },
+                                                                {
+                                                                    "company":  "Caterpillar",
+                                                                    "confidence":  22,
+                                                                    "pointingFact":  "Established equipment manufacturer with cyclical supply limits and technology-heavy product cycles."
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "long",
+                                                                  "confidence":  52,
+                                                                  "cue":  "Scarce inventories and renewed durable demand can lift pricing even if transition costs are elevated."
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:2043bb631842b3ac9c52a8aeb24bbd14de6db4c1785fa3b8fbeff00b9dc4ef62",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Intel",
+                                                                  "confidence":  49,
+                                                                  "pointingFact":  "Capital-intensive chip manufacturer facing shortages plus a costly multiyear process/product redesign in early 2021"
+                                                              },
+                                                              {
+                                                                  "company":  "General Motors",
+                                                                  "confidence":  35,
+                                                                  "pointingFact":  "Large manufacturer constrained by component shortages while funding an expensive multiyear vehicle-architecture shift"
+                                                              },
+                                                              {
+                                                                  "company":  "Ford",
+                                                                  "confidence":  32,
+                                                                  "pointingFact":  "Capital-intensive auto maker using scarce supply conditions while investing heavily in next-generation product redesign"
+                                                              },
+                                                              {
+                                                                  "company":  "Texas Instruments",
+                                                                  "confidence":  23,
+                                                                  "pointingFact":  "Capital-intensive semiconductor manufacturer that could price into shortages while still carrying heavy manufacturing investment"
+                                                              },
+                                                              {
+                                                                  "company":  "Micron Technology",
+                                                                  "confidence":  19,
+                                                                  "pointingFact":  "Capital-intensive memory manufacturer exposed to component tightness, cyclical pricing, and expensive product transitions"
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  50,
+                                                                "cue":  "Interrupted output and heavy multiyear engineering spend can erase temporary shortage-driven pricing gains"
+                                                            }
+                                          }
+                             }
+               }
+}

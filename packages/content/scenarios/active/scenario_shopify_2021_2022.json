@@ -1,0 +1,305 @@
+{
+    "id":  "scenario_shopify_2021_2022",
+    "status":  "active",
+    "company":  {
+                    "name":  "Shopify",
+                    "ticker":  "SHOP",
+                    "exchange":  "NYSE",
+                    "sector":  "Technology",
+                    "industry":  "Software - Application",
+                    "country":  "Canada",
+                    "acceptedNames":  [
+                                          "shopify"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Shop Pay",
+                                                "Shopify Plus"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Merchant Stack",
+                     "decisionDate":  "2021-11-19",
+                     "endDate":  "2022-11-18",
+                     "decisionDateLabel":  "Late 2021",
+                     "outcomeLabel":  "Late 2021 to late 2022",
+                     "holdingPeriodLabel":  "One year",
+                     "era":  "E-commerce normalization",
+                     "eraId":  "rate_hike_inflation_era",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "phase_4b_wave"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  169.06,
+                       "endingPrice":  36.59,
+                       "actualReturnPercent":  -0.7836,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2019-11-19",
+                       "preDecisionChartEndDate":  "2021-11-19",
+                       "outcomeChartStartDate":  "2021-11-19",
+                       "outcomeChartEndDate":  "2022-11-18",
+                       "lookbackPrices":  [
+                                              31.628,
+                                              37.539,
+                                              95.733,
+                                              93.143,
+                                              116.2,
+                                              159.409,
+                                              169.06
+                                          ],
+                       "outcomePrices":  [
+                                             169.06,
+                                             102.395,
+                                             72.701,
+                                             36.385,
+                                             37.35,
+                                             30.55,
+                                             36.59
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A commerce software platform helping merchants build online stores, accept payments, and manage sales channels.",
+                                    "macroContext":  "Digital shopping remains elevated, but store reopenings and rising rates are testing pandemic-era growth assumptions.",
+                                    "situation":  "Can a merchant platform expand into more services without overspending after an extraordinary demand surge?",
+                                    "longCase":  "A broad merchant base and payments adoption could compound recurring and transaction revenue.",
+                                    "shortCase":  "Slower online growth and heavy logistics investment could pressure margins before new services reach scale.",
+                                    "setupHints":  [
+                                                       "Revenue combines software subscriptions with fees tied to merchant sales and services."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A subscription platform serving small businesses through software and embedded services.",
+                                      "macroContext":  "Online demand is normalizing while capital-intensive growth projects face higher scrutiny.",
+                                      "situation":  "Can an expanding service stack deepen customer economics before spending outruns demand?",
+                                      "longCase":  "More embedded and operational tools can increase revenue from a large installed base.",
+                                      "shortCase":  "Customer churn, platform competition, and infrastructure investment can delay durable profitability.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A subscription software platform broadening its role for business customers.",
+                                    "macroContext":  "A demand surge is fading while investors demand efficiency from growth businesses.",
+                                    "situation":  "Can a wider ecosystem add customer value without making the operating model too costly?",
+                                    "longCase":  "Embedded services can deepen retention and raise revenue from existing customers.",
+                                    "shortCase":  "Expansion beyond core software can absorb cash as customer growth normalizes.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Shopify. E-commerce growth normalized while a costly logistics expansion and broad technology selloff drove a severe reset.",
+                   "funFact":  "Shopify completed a ten-for-one share split in 2022; the market prices in this card are split adjusted.",
+                   "whyItMoved":  [
+                                      "Merchant growth slowed from pandemic-era rates as physical retail reopened.",
+                                      "Spending on fulfillment and logistics increased operating risk.",
+                                      "Rising rates compressed valuations for high-growth software companies."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ SHOP",
+                        "url":  "https://finance.yahoo.com/quote/SHOP/history/",
+                        "notes":  "Split-adjusted closes, chart samples, share-split adjustment, and calculated return."
+                    },
+                    {
+                        "label":  "Shopify 2022 Form 40-F Ã¢â‚¬â€ SEC EDGAR",
+                        "url":  "https://www.sec.gov/edgar/browse/?CIK=1594805\u0026owner=exclude",
+                        "notes":  "Merchant solutions, subscription model, logistics investment, growth normalization, and reveal claims."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Famous bucket. Stored Grok evidence tied Medium to independent-merchant software expanding payments and fulfillment, while vertical software turning asset-light operations into infrastructure made Hard identifiable. M/H now use a subscription platform, embedded services, installed-base expansion, normalization, and investment beyond core software across broader small-business and enterprise peers. Easy is unchanged. Stored M/H results remain stale evidence pending blind rejudge.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "company/ticker",
+                                                       "ten-for-one split",
+                                                       "named fulfillment acquisitions"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "small-business subscription platform",
+                                                           "embedded service revenue",
+                                                           "installed-base expansion",
+                                                           "online-demand normalization",
+                                                           "infrastructure spending"
+                                                       ],
+                                    "prohibited":  [
+                                                       "named checkout product",
+                                                       "named enterprise tier",
+                                                       "signature fulfillment acquisition"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Shopify",
+                                                                  "BigCommerce",
+                                                                  "Wix",
+                                                                  "Block",
+                                                                  "Adobe"
+                                                              ],
+                                                     "medium":  [
+                                                                    "BigCommerce",
+                                                                    "Shopify",
+                                                                    "Wix",
+                                                                    "Block"
+                                                                ],
+                                                     "hard":  [
+                                                                  "Salesforce",
+                                                                  "Adobe",
+                                                                  "BigCommerce",
+                                                                  "Shopify",
+                                                                  "Block"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "pandemic chart plus independent-merchant or commerce category",
+                                                                   "logistics acquisition plus subscription platform",
+                                                                   "asset-light model plus fulfillment infrastructure"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Shopify",
+                                             "BigCommerce",
+                                             "Wix",
+                                             "Block"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Block",
+                                               "Toast",
+                                               "Wix",
+                                               "BigCommerce"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "Salesforce",
+                                             "Adobe",
+                                             "Toast",
+                                             "Block"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:3aecd1aeeaa9c88d393700691374326eb16f46412f03a2bf9f9b168d26fc4d76",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Shopify",
+                                                                  "confidence":  95,
+                                                                  "pointingFact":  "Merchant platform for online stores, payments, and multi-channel sales with subscription plus GMV-linked fee revenue."
+                                                              },
+                                                              {
+                                                                  "company":  "BigCommerce",
+                                                                  "confidence":  38,
+                                                                  "pointingFact":  "Commerce software for online stores competing on subscriptions and merchant services after e-commerce surge."
+                                                              },
+                                                              {
+                                                                  "company":  "Square",
+                                                                  "confidence":  26,
+                                                                  "pointingFact":  "Merchant software and payments stack expanding services as digital shopping normalizes."
+                                                              },
+                                                              {
+                                                                  "company":  "Wix",
+                                                                  "confidence":  20,
+                                                                  "pointingFact":  "Website and commerce tools helping merchants sell online with software and transaction-related services."
+                                                              },
+                                                              {
+                                                                  "company":  "Stripe",
+                                                                  "confidence":  14,
+                                                                  "pointingFact":  "Payments-heavy merchant infrastructure adjacent to online store economics, though less storefront-subscription led."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  74,
+                                                                "cue":  "Late-2021 e-commerce normalization after an extraordinary surge plus heavy logistics spend threaten growth and margins."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:dbc12706661d51c454e7bed0b6b46dba39eb9ce8e1503f5537599f3ef88b0811",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "Shopify",
+                                                                    "confidence":  78,
+                                                                    "pointingFact":  "SMB subscription commerce platform with a deepening stack of embedded payments and ops tools after a multi-year e-commerce re-rating into late 2021"
+                                                                },
+                                                                {
+                                                                    "company":  "Block",
+                                                                    "confidence":  42,
+                                                                    "pointingFact":  "Seller software plus embedded financial services for small merchants, with heavy platform investment and profitability debate around 2021"
+                                                                },
+                                                                {
+                                                                    "company":  "Toast",
+                                                                    "confidence":  28,
+                                                                    "pointingFact":  "Vertical SMB subscription stack bundling software with payments and operational add-ons for merchants"
+                                                                },
+                                                                {
+                                                                    "company":  "BigCommerce",
+                                                                    "confidence":  22,
+                                                                    "pointingFact":  "Merchant SaaS platform competing for online storefronts during e-commerce normalization"
+                                                                },
+                                                                {
+                                                                    "company":  "Lightspeed Commerce",
+                                                                    "confidence":  18,
+                                                                    "pointingFact":  "Retail and hospitality SMB software suite expanding into payments and broader merchant services"
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "short",
+                                                                  "confidence":  68,
+                                                                  "cue":  "Lookback shows a multi-bagger into late 2021 just as online demand normalizes and capital-heavy growth faces scrutiny"
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:ef41c797d62efbe48c97f55a0c1e50470308d89aaab33c27171ad2a68f8c5b96",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Shopify",
+                                                                  "confidence":  76,
+                                                                  "pointingFact":  "Merchant subscription platform that broadened into logistics and embedded services just as pandemic e-commerce demand normalized in late 2021"
+                                                              },
+                                                              {
+                                                                  "company":  "Block",
+                                                                  "confidence":  44,
+                                                                  "pointingFact":  "Seller-facing software-plus-payments stack expanding ecosystem scope while growth businesses faced efficiency pressure"
+                                                              },
+                                                              {
+                                                                  "company":  "BigCommerce",
+                                                                  "confidence":  33,
+                                                                  "pointingFact":  "Merchant commerce software platform exposed to e-commerce normalization after a strong multi-year re-rating"
+                                                              },
+                                                              {
+                                                                  "company":  "Lightspeed Commerce",
+                                                                  "confidence":  29,
+                                                                  "pointingFact":  "Subscription commerce software expanding the merchant stack amid fading pandemic demand and cash-consuming growth plans"
+                                                              },
+                                                              {
+                                                                  "company":  "Toast",
+                                                                  "confidence":  26,
+                                                                  "pointingFact":  "Vertical merchant software platform broadening services for business customers after a demand-surge era"
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  74,
+                                                                "cue":  "Late-2021 e-commerce normalization plus costly expansion beyond core software after a large lookback multiple expansion favors mean reversion over one year"
+                                                            }
+                                          }
+                             }
+               }
+}

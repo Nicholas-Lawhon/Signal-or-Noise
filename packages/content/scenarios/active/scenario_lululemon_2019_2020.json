@@ -1,0 +1,324 @@
+{
+    "id":  "scenario_lululemon_2019_2020",
+    "status":  "active",
+    "company":  {
+                    "name":  "Lululemon Athletica",
+                    "ticker":  "LULU",
+                    "exchange":  "NASDAQ",
+                    "sector":  "Consumer Discretionary",
+                    "industry":  "Apparel Retail",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "lululemon athletica",
+                                          "lululemon"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Lululemon",
+                                                "Align",
+                                                "Luon",
+                                                "yoga"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Premium Expansion",
+                     "decisionDate":  "2019-01-02",
+                     "endDate":  "2020-01-02",
+                     "decisionDateLabel":  "2019",
+                     "outcomeLabel":  "2019 to 2020",
+                     "holdingPeriodLabel":  "About one year",
+                     "era":  "Late-cycle expansion",
+                     "eraId":  "late_cycle_expansion",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "part_b_phase_campaign"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  123.35,
+                       "endingPrice":  233.42,
+                       "actualReturnPercent":  0.8923,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2018-01-02",
+                       "preDecisionChartEndDate":  "2019-01-02",
+                       "outcomeChartStartDate":  "2019-01-02",
+                       "outcomeChartEndDate":  "2020-01-02",
+                       "lookbackPrices":  [
+                                              79.69,
+                                              81.86,
+                                              94.6,
+                                              122.7,
+                                              120,
+                                              158.44,
+                                              143.23,
+                                              123.35
+                                          ],
+                       "outcomePrices":  [
+                                             123.35,
+                                             148.54,
+                                             169.33,
+                                             172.49,
+                                             191.77,
+                                             193.61,
+                                             204.13,
+                                             233.42
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A premium athletic-apparel retailer with a strong direct relationship to customers.",
+                                    "macroContext":  "Casual performance clothing is moving into everyday wardrobes while brands invest in stores and online channels.",
+                                    "situation":  "Can a focused premium brand expand products and markets without weakening its pricing power?",
+                                    "longCase":  "Strong customer loyalty and direct sales can support new categories and international growth.",
+                                    "shortCase":  "Fashion shifts, imitation, and expensive retail expansion can expose a narrow brand position.",
+                                    "setupHints":  [
+                                                       "The company is expanding beyond its original women-focused assortment."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A premium consumer brand with a strong direct relationship to customers.",
+                                      "macroContext":  "Shoppers are blending specialized products into everyday use while brands expand across channels and regions.",
+                                      "situation":  "Can loyalty support broader categories and markets without diluting the core franchise?",
+                                      "longCase":  "Direct customer relationships can preserve pricing and provide useful demand signals.",
+                                      "shortCase":  "Fast-changing tastes and aggressive competitors can make adjacent growth costly.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A premium consumer company.",
+                                    "macroContext":  "A category leader is seeking growth beyond the focused position that established its reputation.",
+                                    "situation":  "Can expansion increase the addressable market without weakening differentiation and loyalty?",
+                                    "longCase":  "Strong unit economics and direct relationships can fund measured adjacent growth.",
+                                    "shortCase":  "Broader distribution and product extensions can make the brand less distinctive.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Lululemon. Comparable sales, digital revenue, and international expansion supported strong growth during 2019.",
+                   "funFact":  "The company opened its first standalone store in Vancouver in 2000.",
+                   "whyItMoved":  [
+                                      "Comparable sales remained strong.",
+                                      "Direct-to-consumer revenue expanded.",
+                                      "New categories and international markets broadened growth."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ LULU",
+                        "url":  "https://finance.yahoo.com/quote/LULU/history/",
+                        "notes":  "Split-adjusted closes for 2019-01-02 and 2020-01-02; sampled lookback/outcome series and computed price return."
+                    },
+                    {
+                        "label":  "Lululemon Athletica SEC filings",
+                        "url":  "https://www.sec.gov/edgar/browse/?CIK=LULU\u0026owner=exclude\u0026action=getcompany",
+                        "notes":  "Annual filings covering business model, operating risks, company history, and the reported operating trends summarized in the reveal."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Phase 4B production candidate. Recognition bucket: moderate. Authored fact-bank first and Hard first, then Medium/Easy. Payload-only editorial self-check retained the named peer set across difficulties, avoided correct-company dominance on Medium/Hard, kept both calls articulable, and found no unsupported candidate. No authoritative Gate 2 judgment is recorded. Phase-internal clean-Grok rewrite changed medium/hard only: removed the stored judge\u0027s company-pointing conjunctions while keeping concrete long/short tension. Stored Gate 2 evidence is preserved but stale for changed variants; clean rejudge required. Shared title unchanged, so no sibling-only rejudge expansion.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "Lululemon Athletica name and LULU ticker",
+                                                       "Lululemon",
+                                                       "Align",
+                                                       "Luon",
+                                                       "yoga"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "Can a focused premium brand expand products and markets without weakening its pricing power?",
+                                                           "Strong customer loyalty and direct sales can support new categories and international growth.",
+                                                           "Fashion shifts, imitation, and expensive retail expansion can expose a narrow brand position.",
+                                                           "Can loyalty support broader categories and markets without diluting the core franchise?",
+                                                           "Direct customer relationships can preserve pricing and provide useful demand signals.",
+                                                           "Fast-changing tastes and aggressive competitors can make adjacent growth costly.",
+                                                           "Can expansion increase the addressable market without weakening differentiation and loyalty?",
+                                                           "Strong unit economics and direct relationships can fund measured adjacent growth.",
+                                                           "Broader distribution and product extensions can make the brand less distinctive."
+                                                       ],
+                                    "prohibited":  [
+                                                       "Lululemon",
+                                                       "Align",
+                                                       "Luon",
+                                                       "yoga",
+                                                       "athletic apparel plus direct channel",
+                                                       "performance clothing plus category expansion",
+                                                       "premium retailer plus scarcity"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Lululemon Athletica",
+                                                                  "Nike",
+                                                                  "Under Armour",
+                                                                  "Deckers Outdoor"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Nike",
+                                                                    "Deckers Outdoor",
+                                                                    "Canada Goose",
+                                                                    "Lululemon Athletica",
+                                                                    "Under Armour"
+                                                                ],
+                                                     "hard":  [
+                                                                  "Yeti Holdings",
+                                                                  "RH",
+                                                                  "Deckers Outdoor",
+                                                                  "Canada Goose",
+                                                                  "Lululemon Athletica",
+                                                                  "Nike"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "2019 chart silhouette plus company-specific product language",
+                                                                   "Casual performance clothing is moving into everyday wardrobes while brands invest in stores and online channels. plus named product or brand",
+                                                                   "Can a focused premium brand expand products and markets without weakening its pricing power? plus LULU ticker or company name",
+                                                                   "athletic apparel plus direct channel",
+                                                                   "performance clothing plus category expansion",
+                                                                   "premium retailer plus scarcity"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Lululemon Athletica",
+                                             "Nike",
+                                             "Under Armour",
+                                             "Deckers Outdoor"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Nike",
+                                               "Deckers Outdoor",
+                                               "Canada Goose",
+                                               "Lululemon Athletica"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "Yeti Holdings",
+                                             "RH",
+                                             "Deckers Outdoor",
+                                             "Canada Goose"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:33c89decce64fe12f7e1461d6c37d0bea126cfec92b756431aeee00a1325e493",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Lululemon",
+                                                                  "confidence":  90,
+                                                                  "pointingFact":  "Premium athletic apparel brand with strong direct-to-consumer ties expanding beyond a women-focused assortment."
+                                                              },
+                                                              {
+                                                                  "company":  "Nike",
+                                                                  "confidence":  48,
+                                                                  "pointingFact":  "Premium athletic brand with major direct sales push, though not originally women-focused in the same way."
+                                                              },
+                                                              {
+                                                                  "company":  "Under Armour",
+                                                                  "confidence":  34,
+                                                                  "pointingFact":  "Performance apparel retailer investing in brand and channels, with weaker premium pricing power."
+                                                              },
+                                                              {
+                                                                  "company":  "Adidas",
+                                                                  "confidence":  28,
+                                                                  "pointingFact":  "Global athletic brand expanding categories and direct channels in lifestyle apparel."
+                                                              },
+                                                              {
+                                                                  "company":  "Alo Yoga",
+                                                                  "confidence":  16,
+                                                                  "pointingFact":  "Premium athletic/lifestyle apparel brand, but not the established public retailer implied by 2019 setup."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  67,
+                                                                "cue":  "2019 late-cycle demand for premium performance-as-lifestyle clothing supports loyal direct customers funding expansion."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:cdc985453b9c9628ea990be0af5c60e60cd7f7509155b5f50d2cca46dde684ff",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "Lululemon",
+                                                                    "confidence":  46,
+                                                                    "pointingFact":  "Premium brand with strong direct customer ties expanding specialized athletic wear into everyday categories and regions"
+                                                                },
+                                                                {
+                                                                    "company":  "Nike",
+                                                                    "confidence":  40,
+                                                                    "pointingFact":  "Premium consumer brand prioritizing direct relationships while expanding categories, channels, and geographies"
+                                                                },
+                                                                {
+                                                                    "company":  "YETI",
+                                                                    "confidence":  26,
+                                                                    "pointingFact":  "Premium consumer brand with loyal direct buyers expanding specialized products into broader everyday use"
+                                                                },
+                                                                {
+                                                                    "company":  "Starbucks",
+                                                                    "confidence":  18,
+                                                                    "pointingFact":  "Premium consumer brand with strong direct loyalty expanding products, channels, and international markets"
+                                                                },
+                                                                {
+                                                                    "company":  "Apple",
+                                                                    "confidence":  14,
+                                                                    "pointingFact":  "Premium brand with deep direct customer relationships and category expansion risk around franchise dilution"
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "toss_up",
+                                                                  "confidence":  47,
+                                                                  "cue":  "Direct loyalty and pricing power versus late-cycle expansion risk and costly adjacent-category competition"
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:307ccb370704c21f047c4070530ff6d83818e879f2ee628cd5fe4c5226d6ff9a",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Lululemon Athletica",
+                                                                  "confidence":  34,
+                                                                  "pointingFact":  "Premium category leader expanding beyond core athletic wear via adjacent products and channels"
+                                                              },
+                                                              {
+                                                                  "company":  "Nike",
+                                                                  "confidence":  27,
+                                                                  "pointingFact":  "Premium consumer brand stretching distribution and categories while protecting differentiation"
+                                                              },
+                                                              {
+                                                                  "company":  "Peloton Interactive",
+                                                                  "confidence":  22,
+                                                                  "pointingFact":  "Premium fitness brand seeking broader addressable market beyond focused hardware ecosystem"
+                                                              },
+                                                              {
+                                                                  "company":  "Starbucks",
+                                                                  "confidence":  18,
+                                                                  "pointingFact":  "Premium consumer leader expanding formats and products beyond its core reputation"
+                                                              },
+                                                              {
+                                                                  "company":  "Apple",
+                                                                  "confidence":  14,
+                                                                  "pointingFact":  "Premium consumer company with strong unit economics funding adjacent growth beyond core devices"
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "toss_up",
+                                                                "confidence":  48,
+                                                                "cue":  "Late-cycle 2019 expansion thesis collides with brand-dilution risk and an uncertain one-year macro path"
+                                                            }
+                                          }
+                             }
+               }
+}

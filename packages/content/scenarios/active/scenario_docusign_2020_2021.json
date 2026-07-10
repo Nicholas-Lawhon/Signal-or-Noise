@@ -1,0 +1,309 @@
+{
+    "id":  "scenario_docusign_2020_2021",
+    "status":  "active",
+    "company":  {
+                    "name":  "DocuSign",
+                    "ticker":  "DOCU",
+                    "exchange":  "NASDAQ",
+                    "sector":  "Information Technology",
+                    "industry":  "Application Software",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "docusign",
+                                          "docu sign"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "DocuSign",
+                                                "eSignature",
+                                                "Agreement Cloud"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Adoption Test",
+                     "decisionDate":  "2020-01-02",
+                     "endDate":  "2021-01-04",
+                     "decisionDateLabel":  "Early 2020",
+                     "outcomeLabel":  "Early 2020 to early 2021",
+                     "holdingPeriodLabel":  "About one year",
+                     "era":  "Pandemic-era disruption",
+                     "eraId":  "pandemic_era",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "part_b_batch_1"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  75.9,
+                       "endingPrice":  222.41,
+                       "actualReturnPercent":  1.93,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2018-01-02",
+                       "preDecisionChartEndDate":  "2020-01-02",
+                       "outcomeChartStartDate":  "2020-01-02",
+                       "outcomeChartEndDate":  "2021-01-04",
+                       "lookbackPrices":  [
+                                              40,
+                                              45,
+                                              50,
+                                              55,
+                                              65,
+                                              70,
+                                              75.9
+                                          ],
+                       "outcomePrices":  [
+                                             75.9,
+                                             90,
+                                             120,
+                                             160,
+                                             190,
+                                             240,
+                                             222.41
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A cloud software company that helps businesses complete approvals and agreements without paper.",
+                                    "macroContext":  "Remote work is making companies reconsider manual processes, but software buyers still demand proof that new tools save time and money.",
+                                    "situation":  "Can a workflow software provider turn an unusual surge in remote demand into durable subscriptions before larger suites bundle similar features?",
+                                    "longCase":  "Distributed teams may adopt digital workflows faster, expanding recurring revenue and usage across customers.",
+                                    "shortCase":  "A temporary demand spike and competition from broader software suites could make growth hard to sustain.",
+                                    "setupHints":  [
+                                                       "Customers use the service to prepare, send, and complete business documents electronically."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A subscription software specialist serving a repeatable business task.",
+                                      "macroContext":  "Organizations are digitizing routine work while comparing focused tools with broad software suites.",
+                                      "situation":  "Can rapid adoption become durable recurring revenue before bundled alternatives narrow the advantage?",
+                                      "longCase":  "Repeated use and integrations can deepen switching costs as customers standardize a task across teams.",
+                                      "shortCase":  "A temporary adoption burst and good-enough suite features can weaken seat expansion and pricing power.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A focused enterprise software provider.",
+                                    "macroContext":  "Buyers are accelerating selected digital tools while reducing the number of vendors they manage.",
+                                    "situation":  "Can a specialist become a durable system of record before larger suites absorb its task?",
+                                    "longCase":  "Frequent use and embedded integrations can support retention and expansion within existing accounts.",
+                                    "shortCase":  "Bundling and normalization can slow new demand before the specialist broadens its economics.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was DocuSign. Remote work accelerated adoption of its agreement workflow tools, sending revenue expectations higher.",
+                   "funFact":  "The companyÃ¢â‚¬â„¢s products cover steps around preparing, signing, and managing agreements.",
+                   "whyItMoved":  [
+                                      "Remote work increased demand for digital agreement workflows.",
+                                      "Subscription revenue grew as customers expanded usage.",
+                                      "Investors expected the adoption shift to persist beyond the initial disruption."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ DOCU",
+                        "url":  "https://finance.yahoo.com/quote/DOCU/history/",
+                        "notes":  "Split-adjusted closes for 2020-01-02 and 2021-01-04; chart series and return."
+                    },
+                    {
+                        "label":  "DocuSign 2020 Form 10-K",
+                        "url":  "https://www.sec.gov/Archives/edgar/data/1261333/000156459121006965/docu-10k_20210131.htm",
+                        "notes":  "Agreement workflow products, subscription revenue, remote-work adoption, and competition."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Moderate; adversarial rewrite from clean stored Grok evidence. Changed Medium and Hard plus the identifying shared Remote Workflow title, so every sibling payload requires rejudge. Removed remote-work, document, agreement, seat-surge, and early-pandemic workflow conjunctions. New specialist-versus-suite tension fits Adobe, Box, Atlassian, ServiceNow, Dropbox, and DocuSign. Stored review.gate2 remains intact and stale by hash.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "DocuSign name/ticker",
+                                                       "product family names",
+                                                       "signature terminology"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "repeatable business task",
+                                                           "subscription expansion",
+                                                           "embedded integrations",
+                                                           "vendor consolidation",
+                                                           "suite bundling"
+                                                       ],
+                                    "prohibited":  [
+                                                       "electronic signature language",
+                                                       "documents and agreements",
+                                                       "remote-work surge",
+                                                       "named product"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "DocuSign",
+                                                                  "Adobe",
+                                                                  "Dropbox",
+                                                                  "Box"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Adobe",
+                                                                    "Box",
+                                                                    "Atlassian",
+                                                                    "DocuSign"
+                                                                ],
+                                                     "hard":  [
+                                                                  "ServiceNow",
+                                                                  "Atlassian",
+                                                                  "Dropbox",
+                                                                  "Box",
+                                                                  "DocuSign"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "2020 chart plus electronic-signature wording",
+                                                                   "documents plus signature vocabulary",
+                                                                   "remote workflow plus named agreement product",
+                                                                   "early-pandemic date plus seat surge",
+                                                                   "repeatable task plus legal-document framing"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "DocuSign",
+                                             "Adobe",
+                                             "Dropbox",
+                                             "Salesforce"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Adobe",
+                                               "Box",
+                                               "Atlassian",
+                                               "DocuSign"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "ServiceNow",
+                                             "Atlassian",
+                                             "Dropbox",
+                                             "Box"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:0f76469039d28d20e591532c1ce1b098768026a23f17a23352cb30a240430518",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:30:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "DocuSign",
+                                                                  "confidence":  91,
+                                                                  "pointingFact":  "Cloud workflow software to prepare, send, and complete business agreements electronically amid 2020 remote work"
+                                                              },
+                                                              {
+                                                                  "company":  "Adobe",
+                                                                  "confidence":  42,
+                                                                  "pointingFact":  "Offers electronic agreement/document completion tools that could benefit from paperless remote processes"
+                                                              },
+                                                              {
+                                                                  "company":  "Dropbox",
+                                                                  "confidence":  26,
+                                                                  "pointingFact":  "Cloud document collaboration company with e-signature capabilities used in remote workflows"
+                                                              },
+                                                              {
+                                                                  "company":  "Box",
+                                                                  "confidence":  20,
+                                                                  "pointingFact":  "Cloud content platform used for business document workflows without paper"
+                                                              },
+                                                              {
+                                                                  "company":  "Salesforce",
+                                                                  "confidence":  14,
+                                                                  "pointingFact":  "Broad cloud software suite that could bundle approval and agreement workflows"
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  71,
+                                                                "cue":  "Pandemic remote work is framed as accelerating digital agreement adoption into durable subscriptions"
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:d4839afe618c282214e9b2d94d1fcd98095ed33c75a884a34ab2544ab9742f08",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "DocuSign",
+                                                                    "confidence":  50,
+                                                                    "pointingFact":  "Early-2020 specialist SaaS for a single repeatable task, racing suite vendors after a pandemic adoption surge."
+                                                                },
+                                                                {
+                                                                    "company":  "Zoom Video Communications",
+                                                                    "confidence":  46,
+                                                                    "pointingFact":  "Subscription specialist for one business workflow seeing rapid adoption while broad suites bundle competing features."
+                                                                },
+                                                                {
+                                                                    "company":  "Slack Technologies",
+                                                                    "confidence":  29,
+                                                                    "pointingFact":  "Focused workplace software monetizing standardized team usage against suite encroachment."
+                                                                },
+                                                                {
+                                                                    "company":  "Dropbox",
+                                                                    "confidence":  21,
+                                                                    "pointingFact":  "Task-focused subscription tool relying on habitual use and integrations versus good-enough suite alternatives."
+                                                                },
+                                                                {
+                                                                    "company":  "Okta",
+                                                                    "confidence":  18,
+                                                                    "pointingFact":  "Specialist identity SaaS deepening seat adoption as organizations digitize routine access workflows."
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "long",
+                                                                  "confidence":  53,
+                                                                  "cue":  "Pandemic digitization and habit-forming integrations can convert a temporary adoption burst into stickier recurring revenue."
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:1513050de63f1a41120a45ad2841ca428fcd0933d47fa9d40135692e8fe8f6f7",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Slack",
+                                                                  "confidence":  41,
+                                                                  "pointingFact":  "Focused enterprise tool whose pandemic adoption faced bundling risk from larger productivity suites"
+                                                              },
+                                                              {
+                                                                  "company":  "DocuSign",
+                                                                  "confidence":  39,
+                                                                  "pointingFact":  "Specialist workflow software pitched as a system of record, accelerated by remote work and vulnerable to suite bundling"
+                                                              },
+                                                              {
+                                                                  "company":  "Zoom",
+                                                                  "confidence":  36,
+                                                                  "pointingFact":  "Pandemic-era specialist app with rapid enterprise adoption and clear threat from free suite alternatives"
+                                                              },
+                                                              {
+                                                                  "company":  "Okta",
+                                                                  "confidence":  28,
+                                                                  "pointingFact":  "Focused identity platform aiming to become durable infrastructure before broader suites absorb the task"
+                                                              },
+                                                              {
+                                                                  "company":  "Twilio",
+                                                                  "confidence":  21,
+                                                                  "pointingFact":  "Specialist communications software with embedded integrations but competition from broader cloud platforms"
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  56,
+                                                                "cue":  "Frequent use and embedded integrations support retention while digital tool spend was accelerating in early 2020"
+                                                            }
+                                          }
+                             }
+               }
+}

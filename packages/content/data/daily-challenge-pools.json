@@ -1,0 +1,172 @@
+[
+  {
+    "id": "daily_pool_001",
+    "name": "MVP Daily Pool 001",
+    "startingBankroll": 10000,
+    "scenarios": [
+      { "scenarioId": "scenario_alphabet_2022_2023", "difficulty": "easy" },
+      { "scenarioId": "scenario_adobe_2019_2020", "difficulty": "medium" },
+      { "scenarioId": "scenario_airbnb_2021_2022", "difficulty": "hard" },
+      { "scenarioId": "scenario_chipotle_2018_2019", "difficulty": "easy" },
+      { "scenarioId": "scenario_boeing_2019_2020", "difficulty": "medium" },
+      { "scenarioId": "scenario_cloudflare_2020_2021", "difficulty": "hard" },
+      { "scenarioId": "scenario_block_2021_2022", "difficulty": "easy" },
+      { "scenarioId": "scenario_disney_2019_2020", "difficulty": "medium" },
+      { "scenarioId": "scenario_meta_2022_2023", "difficulty": "hard" },
+      { "scenarioId": "scenario_etsy_2020_2021", "difficulty": "medium" }
+    ]
+  },
+  {
+    "id": "daily_pool_002",
+    "name": "MVP Daily Pool 002",
+    "startingBankroll": 10000,
+    "scenarios": [
+      { "scenarioId": "scenario_sea_limited_2021_2022", "difficulty": "easy" },
+      { "scenarioId": "scenario_amd_2019_2020", "difficulty": "medium" },
+      { "scenarioId": "scenario_nike_2021_2022", "difficulty": "hard" },
+      { "scenarioId": "scenario_salesforce_2020_2021", "difficulty": "easy" },
+      { "scenarioId": "scenario_okta_2021_2022", "difficulty": "medium" },
+      { "scenarioId": "scenario_ford_2021_2022", "difficulty": "hard" },
+      { "scenarioId": "scenario_paypal_2021_2022", "difficulty": "easy" },
+      { "scenarioId": "scenario_snap_2020_2021", "difficulty": "medium" },
+      { "scenarioId": "scenario_intel_2021_2022", "difficulty": "hard" },
+      { "scenarioId": "scenario_spotify_2020_2021", "difficulty": "medium" }
+    ]
+  },
+  {
+    "id": "daily_pool_003",
+    "name": "MVP Daily Pool 003",
+    "startingBankroll": 10000,
+    "scenarios": [
+      { "scenarioId": "scenario_shopify_2021_2022", "difficulty": "easy" },
+      { "scenarioId": "scenario_starbucks_2020_2021", "difficulty": "medium" },
+      { "scenarioId": "scenario_datadog_2021_2022", "difficulty": "hard" },
+      { "scenarioId": "scenario_tesla_2020_2021", "difficulty": "easy" },
+      { "scenarioId": "scenario_crowdstrike_2023_2024", "difficulty": "medium" },
+      { "scenarioId": "scenario_zoom_2020_2021", "difficulty": "hard" },
+      { "scenarioId": "scenario_lemonade_2021_2022", "difficulty": "easy" },
+      { "scenarioId": "scenario_lululemon_2019_2020", "difficulty": "medium" },
+      { "scenarioId": "scenario_upstart_2021_2022", "difficulty": "hard" },
+      { "scenarioId": "scenario_peloton_2020_2021", "difficulty": "medium" }
+    ]
+  },
+  {
+    "id": "daily_pool_004",
+    "name": "MVP Daily Pool 004",
+    "startingBankroll": 10000,
+    "scenarios": [
+      { "scenarioId": "scenario_target_2021_2022", "difficulty": "easy" },
+      { "scenarioId": "scenario_walmart_2022_2023", "difficulty": "medium" },
+      { "scenarioId": "scenario_applovin_2022_2023", "difficulty": "hard" },
+      { "scenarioId": "scenario_pinterest_2020_2021", "difficulty": "easy" },
+      { "scenarioId": "scenario_mongodb_2020_2021", "difficulty": "medium" },
+      { "scenarioId": "scenario_roku_2020_2021", "difficulty": "hard" },
+      { "scenarioId": "scenario_docusign_2020_2021", "difficulty": "easy" },
+      { "scenarioId": "scenario_uber_2022_2023", "difficulty": "medium" },
+      { "scenarioId": "scenario_twilio_2020_2021", "difficulty": "hard" },
+      { "scenarioId": "scenario_fastly_2020_2021", "difficulty": "medium" }
+    ]
+  },
+  {
+    "id": "daily_pool_005",
+    "name": "MVP Daily Pool 005",
+    "startingBankroll": 10000,
+    "scenarios": [
+      { "scenarioId": "scenario_cloudflare_2020_2021", "difficulty": "easy" },
+      { "scenarioId": "scenario_block_2021_2022", "difficulty": "medium" },
+      { "scenarioId": "scenario_disney_2019_2020", "difficulty": "hard" },
+      { "scenarioId": "scenario_meta_2022_2023", "difficulty": "easy" },
+      { "scenarioId": "scenario_etsy_2020_2021", "difficulty": "medium" },
+      { "scenarioId": "scenario_sea_limited_2021_2022", "difficulty": "hard" },
+      { "scenarioId": "scenario_amd_2019_2020", "difficulty": "easy" },
+      { "scenarioId": "scenario_nike_2021_2022", "difficulty": "medium" },
+      { "scenarioId": "scenario_salesforce_2020_2021", "difficulty": "hard" },
+      { "scenarioId": "scenario_okta_2021_2022", "difficulty": "medium" }
+    ]
+  },
+  {
+    "id": "daily_pool_006",
+    "name": "MVP Daily Pool 006",
+    "startingBankroll": 10000,
+    "scenarios": [
+      { "scenarioId": "scenario_ford_2021_2022", "difficulty": "easy" },
+      { "scenarioId": "scenario_paypal_2021_2022", "difficulty": "medium" },
+      { "scenarioId": "scenario_snap_2020_2021", "difficulty": "hard" },
+      { "scenarioId": "scenario_intel_2021_2022", "difficulty": "easy" },
+      { "scenarioId": "scenario_spotify_2020_2021", "difficulty": "medium" },
+      { "scenarioId": "scenario_shopify_2021_2022", "difficulty": "hard" },
+      { "scenarioId": "scenario_starbucks_2020_2021", "difficulty": "easy" },
+      { "scenarioId": "scenario_datadog_2021_2022", "difficulty": "medium" },
+      { "scenarioId": "scenario_tesla_2020_2021", "difficulty": "hard" },
+      { "scenarioId": "scenario_crowdstrike_2023_2024", "difficulty": "medium" }
+    ]
+  },
+  {
+    "id": "daily_pool_007",
+    "name": "MVP Daily Pool 007",
+    "startingBankroll": 10000,
+    "scenarios": [
+      { "scenarioId": "scenario_zoom_2020_2021", "difficulty": "easy" },
+      { "scenarioId": "scenario_lemonade_2021_2022", "difficulty": "medium" },
+      { "scenarioId": "scenario_lululemon_2019_2020", "difficulty": "hard" },
+      { "scenarioId": "scenario_upstart_2021_2022", "difficulty": "easy" },
+      { "scenarioId": "scenario_peloton_2020_2021", "difficulty": "medium" },
+      { "scenarioId": "scenario_target_2021_2022", "difficulty": "hard" },
+      { "scenarioId": "scenario_walmart_2022_2023", "difficulty": "easy" },
+      { "scenarioId": "scenario_applovin_2022_2023", "difficulty": "medium" },
+      { "scenarioId": "scenario_pinterest_2020_2021", "difficulty": "hard" },
+      { "scenarioId": "scenario_mongodb_2020_2021", "difficulty": "medium" }
+    ]
+  },
+  {
+    "id": "daily_pool_008",
+    "name": "MVP Daily Pool 008",
+    "startingBankroll": 10000,
+    "scenarios": [
+      { "scenarioId": "scenario_roku_2020_2021", "difficulty": "easy" },
+      { "scenarioId": "scenario_docusign_2020_2021", "difficulty": "medium" },
+      { "scenarioId": "scenario_uber_2022_2023", "difficulty": "hard" },
+      { "scenarioId": "scenario_twilio_2020_2021", "difficulty": "easy" },
+      { "scenarioId": "scenario_fastly_2020_2021", "difficulty": "medium" },
+      { "scenarioId": "scenario_alphabet_2022_2023", "difficulty": "hard" },
+      { "scenarioId": "scenario_adobe_2019_2020", "difficulty": "easy" },
+      { "scenarioId": "scenario_airbnb_2021_2022", "difficulty": "medium" },
+      { "scenarioId": "scenario_chipotle_2018_2019", "difficulty": "hard" },
+      { "scenarioId": "scenario_boeing_2019_2020", "difficulty": "medium" }
+    ]
+  },
+  {
+    "id": "daily_pool_009",
+    "name": "MVP Daily Pool 009",
+    "startingBankroll": 10000,
+    "scenarios": [
+      { "scenarioId": "scenario_alphabet_2022_2023", "difficulty": "easy" },
+      { "scenarioId": "scenario_amd_2019_2020", "difficulty": "medium" },
+      { "scenarioId": "scenario_boeing_2019_2020", "difficulty": "hard" },
+      { "scenarioId": "scenario_cloudflare_2020_2021", "difficulty": "easy" },
+      { "scenarioId": "scenario_etsy_2020_2021", "difficulty": "medium" },
+      { "scenarioId": "scenario_meta_2022_2023", "difficulty": "hard" },
+      { "scenarioId": "scenario_paypal_2021_2022", "difficulty": "easy" },
+      { "scenarioId": "scenario_peloton_2020_2021", "difficulty": "medium" },
+      { "scenarioId": "scenario_sea_limited_2021_2022", "difficulty": "hard" },
+      { "scenarioId": "scenario_walmart_2022_2023", "difficulty": "medium" }
+    ]
+  },
+  {
+    "id": "daily_pool_010",
+    "name": "MVP Daily Pool 010",
+    "startingBankroll": 10000,
+    "scenarios": [
+      { "scenarioId": "scenario_adobe_2019_2020", "difficulty": "easy" },
+      { "scenarioId": "scenario_airbnb_2021_2022", "difficulty": "medium" },
+      { "scenarioId": "scenario_applovin_2022_2023", "difficulty": "hard" },
+      { "scenarioId": "scenario_block_2021_2022", "difficulty": "easy" },
+      { "scenarioId": "scenario_crowdstrike_2023_2024", "difficulty": "medium" },
+      { "scenarioId": "scenario_disney_2019_2020", "difficulty": "hard" },
+      { "scenarioId": "scenario_lemonade_2021_2022", "difficulty": "easy" },
+      { "scenarioId": "scenario_lululemon_2019_2020", "difficulty": "medium" },
+      { "scenarioId": "scenario_target_2021_2022", "difficulty": "hard" },
+      { "scenarioId": "scenario_zoom_2020_2021", "difficulty": "medium" }
+    ]
+  }
+]

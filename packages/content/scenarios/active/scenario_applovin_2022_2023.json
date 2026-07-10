@@ -1,0 +1,306 @@
+{
+    "id":  "scenario_applovin_2022_2023",
+    "status":  "active",
+    "company":  {
+                    "name":  "AppLovin",
+                    "ticker":  "APP",
+                    "exchange":  "NASDAQ",
+                    "sector":  "Technology",
+                    "industry":  "Software - Application",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "applovin"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "MAX",
+                                                "AXON",
+                                                "AppDiscovery"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Auction Engine",
+                     "decisionDate":  "2022-11-01",
+                     "endDate":  "2023-11-01",
+                     "decisionDateLabel":  "Late 2022",
+                     "outcomeLabel":  "Late 2022 to late 2023",
+                     "holdingPeriodLabel":  "One year",
+                     "era":  "Mobile advertising reset",
+                     "eraId":  "rate_hike_inflation_era",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "phase_4b_wave"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  17.12,
+                       "endingPrice":  36.7,
+                       "actualReturnPercent":  1.1437,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2021-04-15",
+                       "preDecisionChartEndDate":  "2022-11-01",
+                       "outcomeChartStartDate":  "2022-11-01",
+                       "outcomeChartEndDate":  "2023-11-01",
+                       "lookbackPrices":  [
+                                              65.2,
+                                              60.51,
+                                              95.66,
+                                              68.49,
+                                              38.6,
+                                              35.54,
+                                              17.12
+                                          ],
+                       "outcomePrices":  [
+                                             17.12,
+                                             10.53,
+                                             13.95,
+                                             16.45,
+                                             26.56,
+                                             43.19,
+                                             36.7
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A mobile advertising software company helping publishers acquire users, monetize inventory, and optimize ad auctions.",
+                                    "macroContext":  "Privacy changes and weaker consumer spending are disrupting mobile advertising while machine learning improves auction tools.",
+                                    "situation":  "Can a rebuilt ad-matching engine improve publisher returns enough to restart growth?",
+                                    "longCase":  "Better prediction and a large transaction dataset could lift conversion, advertiser demand, and software margins.",
+                                    "shortCase":  "Platform-policy dependence, cyclical ad budgets, and intense auction competition could limit any recovery.",
+                                    "setupHints":  [
+                                                       "The company also owns a portfolio of mobile applications alongside its advertising software."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A software intermediary matching business demand with third-party digital inventory.",
+                                      "macroContext":  "Changing data access and weaker budgets are forcing transaction platforms to improve measurement and allocation.",
+                                      "situation":  "Can rebuilt decision tools improve marketplace efficiency before demand weakens further?",
+                                      "longCase":  "Better matching can raise returns for both sides of an established transaction network.",
+                                      "shortCase":  "Dependence on external platforms and cyclical customer budgets can overwhelm product gains.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A software platform coordinating buyers and sellers in a digital market.",
+                                    "macroContext":  "Data restrictions and tighter budgets are changing how demand is measured and allocated.",
+                                    "situation":  "Can improved decision tools strengthen transaction economics before the cycle weakens?",
+                                    "longCase":  "More efficient matching can increase value for both sides and deepen activity on the platform.",
+                                    "shortCase":  "External rule changes and volatile spending can offset better technology before costs adjust.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was AppLovin. A new machine-learning advertising engine improved matching performance and drove a sharp recovery in software-platform growth.",
+                   "funFact":  "AppLovin began as a mobile advertising platform and also built a portfolio of owned applications through acquisitions.",
+                   "whyItMoved":  [
+                                      "The upgraded prediction engine improved advertising performance and marketplace efficiency.",
+                                      "Software-platform revenue and margins strengthened as adoption increased.",
+                                      "A recovering mobile advertising market amplified the operational improvement."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ APP",
+                        "url":  "https://finance.yahoo.com/quote/APP/history/",
+                        "notes":  "Split-adjusted closes, chart samples, and return."
+                    },
+                    {
+                        "label":  "AppLovin 2023 Form 10-K Ã¢â‚¬â€ SEC EDGAR",
+                        "url":  "https://www.sec.gov/edgar/browse/?CIK=1751008\u0026owner=exclude",
+                        "notes":  "Advertising platform, machine-learning engine, owned applications, platform dependencies, and reveal claims."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Obscure bucket. Stored Grok evidence tied Medium to mobile-publisher advertising and a rebuilt prediction system; Hard still exposed the advertising exchange through privacy and matching language. M/H now describe a general digital transaction intermediary facing data restrictions, external rules, and cyclical budgets. Easy is unchanged. Stored M/H Gate 2 results remain as stale adversarial evidence pending blind rejudge.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "company/ticker",
+                                                       "named ad engine",
+                                                       "owned application titles"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "digital transaction matching",
+                                                           "decision-tool quality",
+                                                           "two-sided marketplace economics",
+                                                           "external-platform dependence",
+                                                           "cyclical customer budgets"
+                                                       ],
+                                    "prohibited":  [
+                                                       "named machine-learning engine",
+                                                       "named mediation product",
+                                                       "specific owned games"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "AppLovin",
+                                                                  "Unity",
+                                                                  "Digital Turbine",
+                                                                  "ironSource",
+                                                                  "Magnite"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Digital Turbine",
+                                                                    "AppLovin",
+                                                                    "Unity",
+                                                                    "Magnite"
+                                                                ],
+                                                     "hard":  [
+                                                                  "Magnite",
+                                                                  "The Trade Desk",
+                                                                  "Digital Turbine",
+                                                                  "AppLovin",
+                                                                  "Unity"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "post-IPO chart plus owned mobile games",
+                                                                   "mobile advertising plus rebuilt prediction-engine language",
+                                                                   "publisher inventory plus named mediation platform"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "AppLovin",
+                                             "Unity",
+                                             "Digital Turbine",
+                                             "ironSource"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "The Trade Desk",
+                                               "Magnite",
+                                               "PubMatic",
+                                               "Unity"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "The Trade Desk",
+                                             "Magnite",
+                                             "PubMatic",
+                                             "Criteo"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:2f2d9bd89053d1d8d3d957f3fdd22bfddbbc854a533603161c2c604bf0f5475d",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "AppLovin",
+                                                                  "confidence":  88,
+                                                                  "pointingFact":  "Mobile ad auction/software engine plus an owned portfolio of mobile apps matches the dual business model."
+                                                              },
+                                                              {
+                                                                  "company":  "Unity Software",
+                                                                  "confidence":  48,
+                                                                  "pointingFact":  "Mobile advertising and monetization tools for publishers after privacy-driven ad disruption."
+                                                              },
+                                                              {
+                                                                  "company":  "Digital Turbine",
+                                                                  "confidence":  26,
+                                                                  "pointingFact":  "Mobile user-acquisition and ad-monetization software tied to app ecosystems."
+                                                              },
+                                                              {
+                                                                  "company":  "Magnite",
+                                                                  "confidence":  16,
+                                                                  "pointingFact":  "Ad-auction technology for publishers optimizing programmatic inventory."
+                                                              },
+                                                              {
+                                                                  "company":  "The Trade Desk",
+                                                                  "confidence":  12,
+                                                                  "pointingFact":  "Advertising software improving auctions with machine learning, though less mobile-app-portfolio focused."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  54,
+                                                                "cue":  "Rebuilt ad-matching engine and rich transaction data after a deep price reset can restart growth if conversion improves."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:bd845f351418fb2b2fae7e947c6681f0005748995e0aa26e905cb83aafb45c8b",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "The Trade Desk",
+                                                                    "confidence":  71,
+                                                                    "pointingFact":  "Programmatic auction intermediary matching ad demand with third-party digital inventory amid the mobile privacy and budget reset of late 2022."
+                                                                },
+                                                                {
+                                                                    "company":  "Magnite",
+                                                                    "confidence":  41,
+                                                                    "pointingFact":  "Sell-side ad exchange software that runs auctions for third-party digital inventory and was hit by measurement and spend resets."
+                                                                },
+                                                                {
+                                                                    "company":  "PubMatic",
+                                                                    "confidence":  33,
+                                                                    "pointingFact":  "Digital advertising auction platform dependent on external inventory and cyclical marketer budgets."
+                                                                },
+                                                                {
+                                                                    "company":  "Criteo",
+                                                                    "confidence":  27,
+                                                                    "pointingFact":  "Ad-tech intermediary focused on matching demand to third-party inventory after data-access changes."
+                                                                },
+                                                                {
+                                                                    "company":  "AppLovin",
+                                                                    "confidence":  22,
+                                                                    "pointingFact":  "Mobile advertising software platform whose economics were reshaped by privacy changes and weaker app-marketing budgets."
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "long",
+                                                                  "confidence":  58,
+                                                                  "cue":  "Lookback collapse to the mid-20s on a 100 base into late 2022 already prices severe demand and data shocks, so rebuilt matching tools have asymmetric recovery potential over one year."
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:35ad6583db4f3222c2def78bcc22534df08d22d0ae7e786557d19214e25172d0",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "The Trade Desk",
+                                                                  "confidence":  54,
+                                                                  "pointingFact":  "Software auction platform matching ad buyers and sellers amid privacy rules and tighter budgets."
+                                                              },
+                                                              {
+                                                                  "company":  "Snap",
+                                                                  "confidence":  36,
+                                                                  "pointingFact":  "Mobile-ad marketplace hit by measurement restrictions and volatile advertiser spending into late 2022."
+                                                              },
+                                                              {
+                                                                  "company":  "Magnite",
+                                                                  "confidence":  32,
+                                                                  "pointingFact":  "Sell-side ad software coordinating digital auctions through a mobile and privacy-led demand reset."
+                                                              },
+                                                              {
+                                                                  "company":  "PubMatic",
+                                                                  "confidence":  28,
+                                                                  "pointingFact":  "Ad-tech platform whose transaction economics depend on efficient buyer-seller matching under new data rules."
+                                                              },
+                                                              {
+                                                                  "company":  "AppLovin",
+                                                                  "confidence":  24,
+                                                                  "pointingFact":  "Mobile advertising software engine linking demand and supply with decision tools after an industry reset."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  58,
+                                                                "cue":  "Lookback already shows a collapse into late 2022 while improved matching tools can rebuild platform economics off depressed levels."
+                                                            }
+                                          }
+                             }
+               }
+}

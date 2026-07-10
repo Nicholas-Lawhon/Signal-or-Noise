@@ -1,0 +1,308 @@
+{
+    "id":  "scenario_block_2021_2022",
+    "status":  "active",
+    "company":  {
+                    "name":  "Block",
+                    "ticker":  "SQ",
+                    "exchange":  "NYSE",
+                    "sector":  "Technology",
+                    "industry":  "Software - Infrastructure",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "block",
+                                          "square"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Cash App",
+                                                "Afterpay",
+                                                "Square seller"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Two Ledgers",
+                     "decisionDate":  "2021-11-01",
+                     "endDate":  "2022-11-01",
+                     "decisionDateLabel":  "Late 2021",
+                     "outcomeLabel":  "Late 2021 to late 2022",
+                     "holdingPeriodLabel":  "One year",
+                     "era":  "Fintech normalization",
+                     "eraId":  "rate_hike_inflation_era",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "phase_4b_wave"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  255.04,
+                       "endingPrice":  59,
+                       "actualReturnPercent":  -0.7687,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2019-11-01",
+                       "preDecisionChartEndDate":  "2021-11-01",
+                       "outcomeChartStartDate":  "2021-11-01",
+                       "outcomeChartEndDate":  "2022-11-01",
+                       "lookbackPrices":  [
+                                              62.6,
+                                              79.26,
+                                              113.39,
+                                              154.88,
+                                              218.41,
+                                              241.08,
+                                              255.04
+                                          ],
+                       "outcomePrices":  [
+                                             255.04,
+                                             161.51,
+                                             114.22,
+                                             102.33,
+                                             66.73,
+                                             68.75,
+                                             59
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A financial-technology company serving small merchants and consumers through payment tools, software, and a mobile money ecosystem.",
+                                    "macroContext":  "Digital payments remain popular, but small-business conditions, consumer spending, and rising rates are changing the growth equation.",
+                                    "situation":  "Can two connected financial ecosystems create durable cross-selling after a pandemic surge?",
+                                    "longCase":  "Merchant relationships and consumer engagement could support more payment volume and higher-margin services.",
+                                    "shortCase":  "A costly acquisition, volatile trading activity, and weaker small-business demand could expose scattered economics.",
+                                    "setupHints":  [
+                                                       "The business spans point-of-sale tools for sellers and a separate consumer finance application."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A multi-product digital platform serving distinct customer groups.",
+                                      "macroContext":  "Online activity remains elevated while capital costs rise and speculative demand fades.",
+                                      "situation":  "Can a broader service bundle deepen customer relationships faster than complexity raises costs?",
+                                      "longCase":  "Cross-selling adjacent tools can improve retention and revenue across an established user base.",
+                                      "shortCase":  "Integration work and volatile low-margin activity can obscure underlying cash generation.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A digital services platform broadening beyond its original products.",
+                                    "macroContext":  "Customer activity is normalizing as capital and acquisition become more expensive.",
+                                    "situation":  "Can adjacent services deepen existing relationships faster than complexity raises costs?",
+                                    "longCase":  "A wider toolset can increase retention and revenue per customer without rebuilding distribution.",
+                                    "shortCase":  "Integration risk and uneven product economics can make scale look stronger than cash generation.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Block. The fintech selloff, integration risk, and slowing discretionary activity overwhelmed continued growth in its merchant and consumer ecosystems.",
+                   "funFact":  "The company changed its corporate name from Square to Block in late 2021 while retaining its original seller brand.",
+                   "whyItMoved":  [
+                                      "Higher rates sharply reduced valuations for long-duration financial-technology growth.",
+                                      "The large acquisition of a buy-now-pay-later provider increased integration and execution risk.",
+                                      "Small-business and consumer activity normalized as pandemic-era behavior faded."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ XYZ (formerly SQ)",
+                        "url":  "https://finance.yahoo.com/quote/XYZ/history/",
+                        "notes":  "Historical closes for the then-SQ shares, chart samples, and calculated return."
+                    },
+                    {
+                        "label":  "Block 2022 Form 10-K Ã¢â‚¬â€ SEC EDGAR",
+                        "url":  "https://www.sec.gov/edgar/browse/?CIK=1512673\u0026owner=exclude",
+                        "notes":  "Corporate renaming, seller and consumer ecosystems, acquisition, transaction mix, and risks."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Moderate bucket. Stored Grok evidence isolated the merchant-plus-consumer ecosystems and two-sided fintech framing as the M/H identity path. Both variants now use a multi-product digital platform, customer-group expansion, integration complexity, and uneven product economics that fit broader software and service peers. Easy is unchanged. Stored M/H Gate 2 evidence is intentionally retained and stale pending blind rejudge.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "company/ticker",
+                                                       "former corporate name",
+                                                       "named consumer application",
+                                                       "named acquisition"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "multiple customer groups",
+                                                           "adjacent digital services",
+                                                           "integration complexity",
+                                                           "uneven product economics",
+                                                           "higher capital costs"
+                                                       ],
+                                    "prohibited":  [
+                                                       "named payment hardware",
+                                                       "cryptocurrency trading product",
+                                                       "founder identity"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Block",
+                                                                  "PayPal",
+                                                                  "Toast",
+                                                                  "SoFi",
+                                                                  "Affirm"
+                                                              ],
+                                                     "medium":  [
+                                                                    "PayPal",
+                                                                    "Block",
+                                                                    "Adyen",
+                                                                    "Toast"
+                                                                ],
+                                                     "hard":  [
+                                                                  "PayPal",
+                                                                  "Adyen",
+                                                                  "Toast",
+                                                                  "Block",
+                                                                  "SoFi"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "merchant-and-consumer ecosystem pairing",
+                                                                   "2021 rename plus ticker history",
+                                                                   "fintech chart plus named acquisition or consumer app"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Block",
+                                             "PayPal",
+                                             "Toast",
+                                             "SoFi"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "PayPal",
+                                               "Shopify",
+                                               "SoFi",
+                                               "Toast"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "Shopify",
+                                             "PayPal",
+                                             "SoFi",
+                                             "Toast"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:df08fae809ab902e7c177bdf10c570fab75156384222174fac8e3b7019ec84ad",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Block",
+                                                                  "confidence":  93,
+                                                                  "pointingFact":  "Seller point-of-sale tools paired with a separate consumer finance app and a costly acquisition match the two-ecosystem fintech."
+                                                              },
+                                                              {
+                                                                  "company":  "PayPal",
+                                                                  "confidence":  40,
+                                                                  "pointingFact":  "Merchant payments plus large consumer wallet ecosystem after pandemic payment surge."
+                                                              },
+                                                              {
+                                                                  "company":  "Affirm",
+                                                                  "confidence":  24,
+                                                                  "pointingFact":  "Consumer finance app linked to merchant checkout in a rising-rate fintech normalization."
+                                                              },
+                                                              {
+                                                                  "company":  "Shopify",
+                                                                  "confidence":  20,
+                                                                  "pointingFact":  "Software and payments for small merchants facing tougher post-pandemic growth math."
+                                                              },
+                                                              {
+                                                                  "company":  "Toast",
+                                                                  "confidence":  14,
+                                                                  "pointingFact":  "Point-of-sale and payments stack for small merchants, weaker on consumer finance app."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  72,
+                                                                "cue":  "Late-2021 peak setup stresses costly acquisition, volatile consumer trading, and weaker small-business demand as rates rise."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:0e38a4bfaad4b6253a20442c8367bd6ddd9026764c52479f410ac13d1f530293",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "Block",
+                                                                    "confidence":  74,
+                                                                    "pointingFact":  "Multi-product fintech with two distinct ledgersÃ¢â‚¬â€seller commerce tools and consumer Cash AppÃ¢â‚¬â€facing normalization as speculative demand fades in late 2021."
+                                                                },
+                                                                {
+                                                                    "company":  "PayPal",
+                                                                    "confidence":  46,
+                                                                    "pointingFact":  "Digital payments platform serving consumers and merchants with cross-sell ambitions as online activity stays high but capital costs rise."
+                                                                },
+                                                                {
+                                                                    "company":  "Shopify",
+                                                                    "confidence":  31,
+                                                                    "pointingFact":  "Multi-product commerce platform bundling adjacent tools for distinct merchant needs after a pandemic-era growth surge."
+                                                                },
+                                                                {
+                                                                    "company":  "SoFi",
+                                                                    "confidence":  23,
+                                                                    "pointingFact":  "Digital multi-product financial platform trying to deepen relationships across lending, deposits, and other services into fintech normalization."
+                                                                },
+                                                                {
+                                                                    "company":  "Affirm",
+                                                                    "confidence":  17,
+                                                                    "pointingFact":  "Consumer-finance platform whose growth mixed elevated online activity with rising funding costs and fading speculative demand."
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "short",
+                                                                  "confidence":  68,
+                                                                  "cue":  "Parabolic lookback prices into late 2021 plus rising capital costs and fading speculative demand favor the short case that complexity and volatile low-margin activity hurt cash generation."
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:22c28743c0378581f6ece01bdc83362d6063267a2cf2301a4231395ad06a9288",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Block",
+                                                                  "confidence":  44,
+                                                                  "pointingFact":  "Late-2021 fintech platform with two core ledgersÃ¢â‚¬â€sellers and consumer cashÃ¢â‚¬â€broadening adjacent services after a multi-year price run-up."
+                                                              },
+                                                              {
+                                                                  "company":  "Shopify",
+                                                                  "confidence":  28,
+                                                                  "pointingFact":  "Digital commerce platform expanding beyond original store tools while merchant activity normalized and capital got scarcer."
+                                                              },
+                                                              {
+                                                                  "company":  "PayPal",
+                                                                  "confidence":  24,
+                                                                  "pointingFact":  "Digital payments platform adding merchant and consumer products without rebuilding distribution, into fintech normalization."
+                                                              },
+                                                              {
+                                                                  "company":  "Adyen",
+                                                                  "confidence":  16,
+                                                                  "pointingFact":  "Integrated payments platform scaling adjacent services as acquisition costs rose and activity normalized."
+                                                              },
+                                                              {
+                                                                  "company":  "Affirm",
+                                                                  "confidence":  12,
+                                                                  "pointingFact":  "Consumer fintech extending product surface after a steep 2020Ã¢â‚¬â€œ21 re-rating into higher funding costs."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  64,
+                                                                "cue":  "Late-2021 peak after a ~4x lookback run into normalization and more expensive capital over a one-year hold."
+                                                            }
+                                          }
+                             }
+               }
+}

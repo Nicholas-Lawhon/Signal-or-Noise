@@ -1,0 +1,312 @@
+{
+    "id":  "scenario_disney_2019_2020",
+    "status":  "active",
+    "company":  {
+                    "name":  "Walt Disney",
+                    "ticker":  "DIS",
+                    "exchange":  "NYSE",
+                    "sector":  "Communication Services",
+                    "industry":  "Entertainment",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "disney",
+                                          "walt disney"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Mickey Mouse",
+                                                "Disneyland",
+                                                "Disney+",
+                                                "Marvel",
+                                                "Star Wars"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Distribution Gamble",
+                     "decisionDate":  "2019-01-02",
+                     "endDate":  "2020-01-02",
+                     "decisionDateLabel":  "Early 2019",
+                     "outcomeLabel":  "Early 2019 to early 2020",
+                     "holdingPeriodLabel":  "About one year",
+                     "era":  "Streaming wars",
+                     "eraId":  "streaming_wars",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "part_b_batch_1"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  104.378,
+                       "endingPrice":  143.689,
+                       "actualReturnPercent":  0.377,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2017-01-03",
+                       "preDecisionChartEndDate":  "2019-01-02",
+                       "outcomeChartStartDate":  "2019-01-02",
+                       "outcomeChartEndDate":  "2020-01-02",
+                       "lookbackPrices":  [
+                                              103,
+                                              111,
+                                              108,
+                                              98,
+                                              115,
+                                              109,
+                                              104.378
+                                          ],
+                       "outcomePrices":  [
+                                             104.378,
+                                             115,
+                                             130,
+                                             140,
+                                             135,
+                                             145,
+                                             143.689
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A global entertainment company that owns filmed content, television businesses, and destination experiences.",
+                                    "macroContext":  "Media groups are shifting from wholesale distribution toward direct relationships with viewers.",
+                                    "situation":  "Can a legacy entertainment owner fund a direct-to-consumer push while absorbing a major acquisition and protecting older distribution profits?",
+                                    "longCase":  "A deep content library and broader scale could make a new direct offering attractive to households.",
+                                    "shortCase":  "Launch spending, integration costs, and pressure on traditional distribution could overwhelm the benefits of scale.",
+                                    "setupHints":  [
+                                                       "The company also earns meaningful revenue from parks and experiences."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A diversified media and entertainment company.",
+                                      "macroContext":  "Media groups are testing whether new distribution models can replace older cash-flow channels.",
+                                      "situation":  "Can a large media owner open a direct audience relationship without damaging the profits that finance it?",
+                                      "longCase":  "A broad catalogue and established brands could attract a durable direct audience over time.",
+                                      "shortCase":  "Heavy launch investment and disruption to older channels could delay a payoff.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A consumer-facing incumbent.",
+                                    "macroContext":  "Digital channels are changing how established businesses reach and retain customers.",
+                                    "situation":  "Can an incumbent build a direct relationship without weakening the partner economics that still fund expansion?",
+                                    "longCase":  "Recognized assets and an existing customer base can lower acquisition costs for a new owned channel.",
+                                    "shortCase":  "Technology, marketing, and cannibalization costs can outrun early recurring revenue.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Walt Disney. Investors welcomed its direct-to-consumer plans and the larger content portfolio after a major acquisition.",
+                   "funFact":  "The companyÃ¢â‚¬â„¢s businesses span filmed entertainment, television, consumer products, and destination experiences.",
+                   "whyItMoved":  [
+                                      "Investors anticipated a stronger direct-to-consumer offering.",
+                                      "A major acquisition expanded the companyÃ¢â‚¬â„¢s content portfolio.",
+                                      "Its established franchises and experiences businesses supported the broader story."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ DIS",
+                        "url":  "https://finance.yahoo.com/quote/DIS/history/",
+                        "notes":  "Split-adjusted closes for 2019-01-02 and 2020-01-02; chart series and return."
+                    },
+                    {
+                        "label":  "The Walt Disney Company 2019 Form 10-K",
+                        "url":  "https://www.sec.gov/Archives/edgar/data/1744489/000174448919000185/dis-20190928x10k.htm",
+                        "notes":  "Direct-to-consumer strategy, acquisition, content businesses, parks, and risks."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Famous; adversarial rewrite from clean stored Grok evidence. Disney Medium remains byte-identical because the phase owner marked it passing; only Hard changed. Hard removes entertainment, media, distribution, wholesale, content, and brand-library conjunctions that concentrated guesses on Disney. The direct-channel versus partner-economics tension now fits Nike, Adobe, Comcast, Walmart, and Disney. Stored Hard review.gate2 is preserved but stale by hash.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "Disney name and brands",
+                                                       "named streaming service",
+                                                       "named franchises",
+                                                       "acquisition target name"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "owned customer relationship",
+                                                           "partner economics",
+                                                           "customer acquisition cost",
+                                                           "recurring revenue",
+                                                           "channel cannibalization"
+                                                       ],
+                                    "prohibited":  [
+                                                       "named service or franchise",
+                                                       "parks and studio language",
+                                                       "entertainment library",
+                                                       "specific acquisition"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Walt Disney",
+                                                                  "Comcast",
+                                                                  "Warner Bros. Discovery",
+                                                                  "Paramount Global"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Walt Disney",
+                                                                    "AT\u0026T",
+                                                                    "Comcast",
+                                                                    "ViacomCBS"
+                                                                ],
+                                                     "hard":  [
+                                                                  "Nike",
+                                                                  "Adobe",
+                                                                  "Comcast",
+                                                                  "Walmart",
+                                                                  "Walt Disney"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "2019 date plus named direct service",
+                                                                   "parks plus famous franchises",
+                                                                   "acquisition plus specific studio library",
+                                                                   "entertainment incumbent plus wholesale distribution",
+                                                                   "content library plus direct subscription launch"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Walt Disney",
+                                             "Comcast",
+                                             "Warner Bros. Discovery",
+                                             "Paramount Global"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Walt Disney",
+                                               "Comcast",
+                                               "Warner Bros. Discovery",
+                                               "Sony"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "Nike",
+                                             "Adobe",
+                                             "Comcast",
+                                             "Walmart"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:28b97aba5dd64659e8d8af50e43315050daa0f4d88f71b26175ae1833a506bf8",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Walt Disney",
+                                                                  "confidence":  93,
+                                                                  "pointingFact":  "Filmed entertainment, TV networks, and parks plus a major acquisition-funded direct-to-consumer streaming push."
+                                                              },
+                                                              {
+                                                                  "company":  "Comcast",
+                                                                  "confidence":  38,
+                                                                  "pointingFact":  "Large media owner building streaming while still earning from traditional distribution businesses."
+                                                              },
+                                                              {
+                                                                  "company":  "Warner Bros. Discovery",
+                                                                  "confidence":  30,
+                                                                  "pointingFact":  "Legacy content owner absorbing scale deals and spending heavily to compete in streaming."
+                                                              },
+                                                              {
+                                                                  "company":  "Paramount Global",
+                                                                  "confidence":  24,
+                                                                  "pointingFact":  "Studio and TV franchise funding a direct consumer streaming push against wholesale decline."
+                                                              },
+                                                              {
+                                                                  "company":  "Universal Music Group",
+                                                                  "confidence":  12,
+                                                                  "pointingFact":  "Global entertainment rights owner, but lacks parks and filmed-TV conglomerate profile in the payload."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "toss_up",
+                                                                "confidence":  55,
+                                                                "cue":  "Deep library and parks scale support the DTC launch, but integration costs and pressure on legacy distribution keep one-year payoff mixed."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:02bfcd1908b87d327b4dc524e8a84247e9b7ed2d7dc3610e7cd3528c84f4fd3e",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-10T04:30:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "The Walt Disney Company",
+                                                                    "confidence":  82,
+                                                                    "pointingFact":  "Diversified media owner launching a direct streaming service while protecting parks/linear cash flows in 2019"
+                                                                },
+                                                                {
+                                                                    "company":  "AT\u0026T",
+                                                                    "confidence":  40,
+                                                                    "pointingFact":  "Large media owner via WarnerMedia testing HBO Max-style DTC against legacy distribution"
+                                                                },
+                                                                {
+                                                                    "company":  "Comcast",
+                                                                    "confidence":  36,
+                                                                    "pointingFact":  "Diversified cable/media group weighing Peacock-style direct distribution vs affiliate economics"
+                                                                },
+                                                                {
+                                                                    "company":  "ViacomCBS",
+                                                                    "confidence":  30,
+                                                                    "pointingFact":  "Catalogue-driven media conglomerate shifting toward owned streaming apps"
+                                                                },
+                                                                {
+                                                                    "company":  "Discovery",
+                                                                    "confidence":  24,
+                                                                    "pointingFact":  "Unscripted catalogue owner experimenting with direct consumer apps in the streaming wars"
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "toss_up",
+                                                                  "confidence":  52,
+                                                                  "cue":  "Brand catalogue support versus heavy launch spend and channel cannibalization, with only a flat lookback into early 2019"
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:b3863a23ded997390a4787d01664751c0df27b27e13d4b904e0209d8f62d5b4a",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Disney",
+                                                                  "confidence":  52,
+                                                                  "pointingFact":  "Streaming-wars incumbent building a direct consumer channel while still depending on partner/affiliate economics"
+                                                              },
+                                                              {
+                                                                  "company":  "AT\u0026T",
+                                                                  "confidence":  34,
+                                                                  "pointingFact":  "Media incumbent launching owned streaming distribution that risks cannibalizing existing carriage and licensing economics"
+                                                              },
+                                                              {
+                                                                  "company":  "Comcast",
+                                                                  "confidence":  30,
+                                                                  "pointingFact":  "Consumer-facing media/distribution incumbent adding a direct streaming product alongside partner-funded reach"
+                                                              },
+                                                              {
+                                                                  "company":  "Paramount Global",
+                                                                  "confidence":  22,
+                                                                  "pointingFact":  "Legacy content owner pivoting to DTC amid streaming competition and partner-revenue tradeoffs"
+                                                              },
+                                                              {
+                                                                  "company":  "Discovery",
+                                                                  "confidence":  18,
+                                                                  "pointingFact":  "Established content brand attempting owned streaming distribution while traditional affiliate economics still matter"
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  48,
+                                                                "cue":  "One-year case centers on tech, marketing, and cannibalization costs outrunning early owned-channel revenue"
+                                                            }
+                                          }
+                             }
+               }
+}

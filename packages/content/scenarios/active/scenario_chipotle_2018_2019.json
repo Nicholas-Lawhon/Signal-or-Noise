@@ -1,0 +1,324 @@
+{
+    "id":  "scenario_chipotle_2018_2019",
+    "status":  "active",
+    "company":  {
+                    "name":  "Chipotle Mexican Grill",
+                    "ticker":  "CMG",
+                    "exchange":  "NYSE",
+                    "sector":  "Consumer Discretionary",
+                    "industry":  "Restaurants",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "chipotle mexican grill",
+                                          "chipotle mexican grill"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Chipotle",
+                                                "burrito",
+                                                "Food With Integrity",
+                                                "sofritas"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Trust Rebuild",
+                     "decisionDate":  "2018-01-02",
+                     "endDate":  "2019-01-02",
+                     "decisionDateLabel":  "2018",
+                     "outcomeLabel":  "2018 to 2019",
+                     "holdingPeriodLabel":  "About one year",
+                     "era":  "Late-cycle expansion",
+                     "eraId":  "late_cycle_expansion",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "part_b_phase_campaign"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  5.86,
+                       "endingPrice":  8.87,
+                       "actualReturnPercent":  0.5134,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2017-01-03",
+                       "preDecisionChartEndDate":  "2018-01-02",
+                       "outcomeChartStartDate":  "2018-01-02",
+                       "outcomeChartEndDate":  "2019-01-02",
+                       "lookbackPrices":  [
+                                              7.5,
+                                              8.42,
+                                              9.37,
+                                              9.19,
+                                              7.01,
+                                              6.07,
+                                              5.48,
+                                              5.86
+                                          ],
+                       "outcomePrices":  [
+                                             5.86,
+                                             6.32,
+                                             6.69,
+                                             8.97,
+                                             9.45,
+                                             9.83,
+                                             9.55,
+                                             8.87
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A fast-casual restaurant chain rebuilding customer trust after food-safety incidents.",
+                                    "macroContext":  "Restaurant operators are investing in digital ordering and delivery while labor and ingredient costs rise.",
+                                    "situation":  "Can operational changes restore visits without sacrificing the simple service model that built the brand?",
+                                    "longCase":  "Better execution and convenient ordering can bring customers back and lift sales per restaurant.",
+                                    "shortCase":  "Another safety lapse, discounting, or higher costs can delay a durable recovery.",
+                                    "setupHints":  [
+                                                       "The menu is deliberately narrow and relies on assembly-line service."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A multi-site consumer service business recovering from operational failures.",
+                                      "macroContext":  "Customers increasingly expect both convenience and consistent execution from national operators.",
+                                      "situation":  "Can process improvements restore visits while new ordering channels add complexity?",
+                                      "longCase":  "An existing footprint can produce strong operating leverage if customers return.",
+                                      "shortCase":  "Reputation damage and higher operating costs can keep traffic and margins under pressure.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A consumer-facing company working through a damaged-trust turnaround.",
+                                    "macroContext":  "Customers have more alternatives while frontline consistency remains difficult to control.",
+                                    "situation":  "Can process improvements recover demand without adding enough complexity to undermine margins?",
+                                    "longCase":  "An established footprint can amplify results if customer confidence returns.",
+                                    "shortCase":  "A lingering reputation overhang and higher service costs can overwhelm incremental demand.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Chipotle. Comparable restaurant sales improved in 2018 as management emphasized operations, marketing, and digital access.",
+                   "funFact":  "The company began with a single restaurant in Denver in 1993.",
+                   "whyItMoved":  [
+                                      "Comparable sales returned to growth.",
+                                      "Digital ordering expanded customer access.",
+                                      "Operational and marketing changes supported a broader turnaround."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ CMG",
+                        "url":  "https://finance.yahoo.com/quote/CMG/history/",
+                        "notes":  "Split-adjusted closes for 2018-01-02 and 2019-01-02; sampled lookback/outcome series and computed price return."
+                    },
+                    {
+                        "label":  "Chipotle Mexican Grill SEC filings",
+                        "url":  "https://www.sec.gov/edgar/browse/?CIK=CMG\u0026owner=exclude\u0026action=getcompany",
+                        "notes":  "Annual filings covering business model, operating risks, company history, and the reported operating trends summarized in the reveal."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Phase 4B production candidate. Recognition bucket: famous. Authored fact-bank first and Hard first, then Medium/Easy. Payload-only editorial self-check retained the named peer set across difficulties, avoided correct-company dominance on Medium/Hard, kept both calls articulable, and found no unsupported candidate. No authoritative Gate 2 judgment is recorded. Phase-internal clean-Grok rewrite changed medium/hard only: removed the stored judge\u0027s company-pointing conjunctions while keeping concrete long/short tension. Stored Gate 2 evidence is preserved but stale for changed variants; clean rejudge required. Shared title unchanged, so no sibling-only rejudge expansion.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "Chipotle Mexican Grill name and CMG ticker",
+                                                       "Chipotle",
+                                                       "burrito",
+                                                       "Food With Integrity",
+                                                       "sofritas"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "Can operational changes restore visits without sacrificing the simple service model that built the brand?",
+                                                           "Better execution and convenient ordering can bring customers back and lift sales per restaurant.",
+                                                           "Another safety lapse, discounting, or higher costs can delay a durable recovery.",
+                                                           "Can process improvements restore visits while new ordering channels add complexity?",
+                                                           "An existing footprint can produce strong operating leverage if customers return.",
+                                                           "Reputation damage and higher operating costs can keep traffic and margins under pressure.",
+                                                           "Can process improvements recover demand without adding enough complexity to undermine margins?",
+                                                           "An established footprint can amplify results if customer confidence returns.",
+                                                           "A lingering reputation overhang and higher service costs can overwhelm incremental demand."
+                                                       ],
+                                    "prohibited":  [
+                                                       "Chipotle",
+                                                       "burrito",
+                                                       "Food With Integrity",
+                                                       "sofritas",
+                                                       "food preparation trust plus 2018",
+                                                       "restaurant turnaround plus digital ordering",
+                                                       "food-safety incident plus narrow menu"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Chipotle Mexican Grill",
+                                                                  "McDonald\u0027s",
+                                                                  "Yum! Brands",
+                                                                  "Restaurant Brands International"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Starbucks",
+                                                                    "McDonald\u0027s",
+                                                                    "Yum! Brands",
+                                                                    "Chipotle Mexican Grill",
+                                                                    "Domino\u0027s Pizza"
+                                                                ],
+                                                     "hard":  [
+                                                                  "Wells Fargo",
+                                                                  "United Airlines",
+                                                                  "Uber",
+                                                                  "Chipotle Mexican Grill",
+                                                                  "Meta Platforms",
+                                                                  "Starbucks"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "2018 chart silhouette plus company-specific product language",
+                                                                   "Restaurant operators are investing in digital ordering and delivery while labor and ingredient costs rise. plus named product or brand",
+                                                                   "Can operational changes restore visits without sacrificing the simple service model that built the brand? plus CMG ticker or company name",
+                                                                   "food preparation trust plus 2018",
+                                                                   "restaurant turnaround plus digital ordering",
+                                                                   "food-safety incident plus narrow menu"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Chipotle Mexican Grill",
+                                             "McDonald\u0027s",
+                                             "Yum! Brands",
+                                             "Restaurant Brands International"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Starbucks",
+                                               "McDonald\u0027s",
+                                               "Yum! Brands",
+                                               "Chipotle Mexican Grill"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "Wells Fargo",
+                                             "United Airlines",
+                                             "Uber",
+                                             "Meta Platforms"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:703ebbf405db28a4fbfa42523705ff6968caba347ed7f15aab9e9bcfa6f7339a",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Chipotle Mexican Grill",
+                                                                  "confidence":  94,
+                                                                  "pointingFact":  "Fast-casual chain rebuilding after food-safety incidents with a narrow assembly-line menu is distinctive."
+                                                              },
+                                                              {
+                                                                  "company":  "Shake Shack",
+                                                                  "confidence":  22,
+                                                                  "pointingFact":  "Fast-casual brand investing in digital ordering amid rising labor and food costs."
+                                                              },
+                                                              {
+                                                                  "company":  "McDonald\u0027s",
+                                                                  "confidence":  16,
+                                                                  "pointingFact":  "Assembly-line service model and digital ordering push, without the food-safety rebuild core."
+                                                              },
+                                                              {
+                                                                  "company":  "Yum! Brands",
+                                                                  "confidence":  14,
+                                                                  "pointingFact":  "Large quick-service franchises focused on traffic recovery and delivery."
+                                                              },
+                                                              {
+                                                                  "company":  "Starbucks",
+                                                                  "confidence":  12,
+                                                                  "pointingFact":  "High-traffic chain rebuilding convenience and digital orders, less food-safety centered."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  64,
+                                                                "cue":  "2018 operational fixes and digital ordering can restore visits and sales per restaurant after the trust shock."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:bda6b5146ec9da6905564faba105f6680b107159b70b61b304836899743b75f4",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "Chipotle Mexican Grill",
+                                                                    "confidence":  48,
+                                                                    "pointingFact":  "National multi-site food service rebuilding traffic after operational failures while adding digital ordering complexity."
+                                                                },
+                                                                {
+                                                                    "company":  "Starbucks",
+                                                                    "confidence":  34,
+                                                                    "pointingFact":  "Large footprint consumer service chain balancing convenience expectations against execution and mobile-order complexity."
+                                                                },
+                                                                {
+                                                                    "company":  "McDonald\u0027s",
+                                                                    "confidence":  22,
+                                                                    "pointingFact":  "National operator with process upgrades and new ordering channels intended to restore consistent visits."
+                                                                },
+                                                                {
+                                                                    "company":  "Domino\u0027s Pizza",
+                                                                    "confidence":  18,
+                                                                    "pointingFact":  "Multi-site service model where channel innovation and execution quality drive traffic recovery leverage."
+                                                                },
+                                                                {
+                                                                    "company":  "Yum! Brands",
+                                                                    "confidence":  15,
+                                                                    "pointingFact":  "Portfolio of national QSR formats exposed to reputation, operating-cost, and traffic-recovery dynamics."
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "long",
+                                                                  "confidence":  54,
+                                                                  "cue":  "Deep lookback drawdown plus existing footprint operating leverage if process fixes bring customers back."
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:8a7a0307ecfc6613c810bfdc13a51bec61a992856c8cbf95b8a6f9956216f1ee",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Meta Platforms",
+                                                                  "confidence":  34,
+                                                                  "pointingFact":  "2018 consumer trust crisis with rising alternatives and a deep lookback drawdown into the decision window."
+                                                              },
+                                                              {
+                                                                  "company":  "Wells Fargo",
+                                                                  "confidence":  30,
+                                                                  "pointingFact":  "Multi-year damaged-trust turnaround where frontline consistency and service costs dominate recovery."
+                                                              },
+                                                              {
+                                                                  "company":  "Chipotle Mexican Grill",
+                                                                  "confidence":  22,
+                                                                  "pointingFact":  "Consumer brand rebuilding demand after safety/trust damage via process controls that can pressure margins."
+                                                              },
+                                                              {
+                                                                  "company":  "Starbucks",
+                                                                  "confidence":  16,
+                                                                  "pointingFact":  "Large consumer footprint where store-level consistency and reputation overhang shape a turnaround."
+                                                              },
+                                                              {
+                                                                  "company":  "United Airlines",
+                                                                  "confidence":  12,
+                                                                  "pointingFact":  "Consumer-facing service franchise repairing trust while fixed service costs and alternatives remain high."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "toss_up",
+                                                                "confidence":  47,
+                                                                "cue":  "Established footprint can amplify recovery, but reputation overhang and higher service costs leave 2018Ã¢â‚¬â€œ19 path two-sided."
+                                                            }
+                                          }
+                             }
+               }
+}

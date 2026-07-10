@@ -1,156 +1,158 @@
-# AGENTS.md — Operating Rules for All Coding Agents
+# AGENTS.md — Phase-Oriented Operating Rules
 
-You are working on **Signal or Noise?**, a mobile-first market-history guessing game.
-This file defines how every agent (Claude Code, OpenCode, Codex, or any other)
-operates in this repository.
+You are working on **Signal or Noise?**, a mobile-first market-history guessing
+game. Work is organized by roadmap phase. The default unit of autonomous agent
+work is an entire phase, not a small handoff.
 
-## Required Reading Order
+## Startup
 
-Before doing ANY work, read in this order:
+### Interactive session with no assigned phase or role
 
-1. `soul.md` — product identity and locked rules (non-negotiable)
-2. `roadmap.md` — current phase marker and only the phase section relevant to the handoff
-3. `progress.md` — **Current Status**, **How to Run**, **Blocked/Questions**, and the latest 3 session entries; read older entries only when the handoff explicitly requires history
-4. Your role file in `agents/roles/` (the handoff prompt tells you which one)
-5. Your assigned handoff prompt in `agents/handoffs/`
+You are the Orchestrator. Read `agents/orchestrator_boot.md` first and follow its
+minimal-context startup.
 
-Consult only the `docs/` sections, decisions, reports, audits, and source files
-named in the handoff's context manifest. `decisions.md` records settled decisions —
-never re-litigate or contradict them, but do not read the whole file by default
-when the handoff lists specific D-numbers. During active development, D024 controls
-review depth: ship tested increments quickly; reserve formal audits for phase
-gates, major feature additions, and high-risk domains.
+### Assigned phase
 
-## Token-Economy Defaults
+Read, in order:
 
-- Context is loaded on demand. Do not read full historical logs, full docs, or
-  unrelated reports "just in case"; use headings/search first, then open the
-  relevant section.
-- A handoff should name exact files and sections it needs. If it says "read all of
-  docs/" or broadly duplicates this Required Reading Order, treat that as a
-  handoff defect and stop for orchestrator clarification.
-- Completion reports, consultation memos, and audit reports should be concise by
-  default. Include enough evidence for review, not exhaustive transcripts or full
-  reasoning traces.
+1. `soul.md` — locked product identity and rules.
+2. The current phase section of `roadmap.md`.
+3. `progress.md` — Current Status, How to Run, and Blocked/Questions only.
+4. The assigned charter in `agents/phases/`.
+5. A role file only when the charter assigns a specialist role.
 
-## The Golden Rule
+Then inspect the relevant source directly. Do not preload historical reports,
+old handoffs, archived decisions, or broad documentation unless the phase charter
+or a concrete blocker identifies them as necessary.
 
-**Implement exactly what your handoff prompt specifies. Nothing more, nothing less.**
+## Operating Model
 
-- Do not add features, packages, abstractions, or "improvements" beyond the handoff.
-- Do not refactor code outside the handoff's scope.
-- If the handoff is ambiguous, contradicts these docs, or seems wrong: STOP, write
-  what you found in `progress.md` under "Blocked/Questions", and end your session.
-  Do not guess on decision-level questions.
-- Small mechanical judgment calls (variable names, file-internal organization) are
-  yours to make. Product, architecture, and scope calls are not.
+1. The user approves a concise phase charter once.
+2. One high-autonomy **Phase Owner** executes the phase end to end: discovery,
+   implementation, tests, correction, and final verification.
+3. Internal batches and checkpoints are implementation details. They do not
+   require new handoffs, reports, approvals, or orchestrator reviews.
+4. The owner stops only for a decision outside delegated authority, a conflict
+   with locked rules, required external credentials/access, an irreversible or
+   outward-facing action, or a blocker that prevents the phase acceptance
+   criteria from being met.
+5. When every criterion passes, the owner writes one concise phase closeout in
+   `agents/phase-closeouts/` and marks the phase ready for review.
+6. A different capable agent reviews once at the phase boundary. High-risk
+   phases receive cross-model audit depth; normal phases receive acceptance-suite
+   verification and targeted diff inspection.
+7. The Orchestrator accepts or requests one focused repair cycle, then commits or
+   integrates the phase. Never push without the user's approval.
 
-## Tech Stack (locked — see decisions.md)
+Tests, validators, blind judging, security checks, and browser checks are
+**verification**, not extra management reviews. Run them whenever useful. When
+independence matters — for example blind content judging — use a separate model
+inside the phase without creating a new approval/report loop.
+
+## Token-Efficiency Rules
+
+- One source of truth per fact. Link to owning code/docs instead of restating it.
+- A phase charter states outcomes, constraints, delegated authority, acceptance,
+  and the few best starting points. It does not enumerate every file the owner
+  may inspect.
+- Let autonomous models discover implementation context with `rg` and tests.
+- Do not create routine session logs, fix-up handoffs, dispatch-approval reports,
+  review reports, or persisted diff summaries.
+- The phase closeout defaults to 500 words or fewer. Put bulky evidence in an
+  existing machine-readable product artifact only when the product workflow
+  genuinely needs it.
+- Record durable product/architecture decisions in `decisions.md`; do not record
+  ordinary implementation judgments.
+- Keep `progress.md` as current state, not chronology. Git history and archived
+  phase closeouts preserve history.
+- Split a phase only when external sequencing or an independently shippable
+  boundary makes one owner impractical. Do not split merely to reduce perceived
+  task size.
+
+## Branches and Worktrees
+
+- A dedicated phase branch is recommended because it gives the phase one clean
+  diff and keeps incomplete work off the main branch.
+- A separate worktree is optional. Use one for parallel agents, a dirty primary
+  checkout, or when the chosen harness creates one automatically. A single
+  sequential phase can run on a dedicated branch in the normal checkout.
+- This policy is harness-agnostic. Claude Code runs from the selected worktree
+  directory; T3 Code may create and manage a thread branch/worktree itself; Codex
+  may do the same. Repository rules and the phase charter remain authoritative.
+- A Phase Owner may make checkpoint commits only on a dedicated non-main phase
+  branch. Checkpoint commits are not approval. Never push unless authorized.
+- When working in the main/shared checkout, agents do not commit. Never discard
+  or overwrite changes they did not make.
+
+## Golden Rule
+
+Deliver the phase outcome and acceptance criteria while respecting locked rules
+and explicit exclusions. The owner has discretion over reversible implementation
+details and may repair, replace, or reorganize in-scope work without asking for
+permission. Product scope, game rules, architecture commitments, and outward
+actions remain Orchestrator/user decisions.
+
+## Locked Stack and Layout
 
 - pnpm monorepo (`pnpm-workspace.yaml`)
-- Next.js (App Router) + TypeScript (strict) + Tailwind CSS — `apps/web`
-- Pure game logic in `packages/game-engine` (no UI, no database imports)
-- Content pipeline in `packages/content` (Zod validation)
-- Prisma + PostgreSQL (Phase 5+, not before — D027 renumbering)
+- Next.js App Router + strict TypeScript + Tailwind CSS in `apps/web`
+- Pure game logic in `packages/game-engine`
+- Zod-validated content pipeline in `packages/content`
+- Prisma + PostgreSQL in Phase 5+, not before
 - Vitest for unit tests
-- Zod for scenario validation
-
-## Repository Layout
+- Mobile-first UI at approximately 375px first
+- Windows-compatible scripts; no bash-only package scripts
 
 ```text
-apps/web/            Next.js web app (routes, screens, server actions)
-apps/mobile/         Expo app — LATER, do not create yet
-packages/game-engine/ Pure TypeScript game logic + tests
-packages/content/    Scenario JSON seeds, schemas, validation scripts
-packages/database/   Prisma schema, migrations, import scripts (Phase 5+)
-packages/shared-types/ Shared interfaces (create only when first needed)
-docs/                Product documentation (read-only for implementors)
-agents/              Roles, handoffs, audits, consultations
-business/            Growth-role outputs (marketing, social, sales)
+apps/web/                 web app
+packages/game-engine/     pure scoring and run logic
+packages/content/         scenarios, schemas, validation
+packages/database/        database work from Phase 5+
+docs/                     product documentation
+agents/phases/            active phase charters
+agents/phase-closeouts/   one closeout per completed phase
+agents/history/           legacy and archived workflow evidence
+business/                 growth outputs
 ```
 
-## Game Math Quick Reference
+## Game-Math Guardrails
 
-All scoring math lives in `packages/game-engine` and nowhere else. The web app,
-and later the server and mobile app, import it. Never duplicate scoring logic.
+All scoring math lives in `packages/game-engine`; never duplicate it in UI or
+server code.
 
 - Confidence: Low 10%/±1, Medium 40%/±2, High 70%/±3, All-In 100%/±5
-- Pass: $0 bankroll change, −0.25 Signal Score, counts as completed round
-- Short losses capped at stake; bankroll floors at $0 (bankruptcy ends run)
-- `actualReturnPercent` is a decimal: +35% = `0.35`
-- A return of exactly 0 counts as an incorrect call (`rawReturn > 0` is the test)
+- Pass: $0 bankroll change, −0.25 Signal Score, completed round
+- Short losses capped at stake; bankroll never goes below $0
+- `actualReturnPercent` is decimal (`0.35` means +35%)
+- Exactly zero return is an incorrect call (`rawReturn > 0`)
 
-Full rules: `soul.md`. If code and `soul.md` disagree, `soul.md` wins — report the
-discrepancy.
+If code and `soul.md` disagree, `soul.md` wins and the owner reports the conflict.
 
-## Coding Conventions
+## Coding and Safety Conventions
 
-- TypeScript `strict: true` everywhere. No `any` unless justified in a comment.
-- String-union types for game enums (`'long' | 'short' | 'pass'`), matching
-  `docs/06_data_model.md`.
-- Game-engine functions are pure: no I/O, no Date.now() inside scoring, no
-  side effects.
-- Tests live next to packages (`packages/game-engine/tests/` or `src/*.test.ts`);
-  run with `pnpm test` from repo root.
-- Currency is stored/computed as plain numbers (dollars) in the prototype;
-  display formatting happens only in UI components.
-- Mobile-first: build every screen for ~375px width first.
-- Keep components small; screens compose components.
-- Cross-platform scripts only — the primary dev machine is **Windows**. No bash-only
-  script commands in package.json (no `rm -rf`, use `rimraf` or Node scripts if needed).
+- TypeScript `strict: true`; no `any` without a comment explaining why.
+- Use string unions for game enums.
+- Game-engine functions are pure: no I/O, time reads, or side effects.
+- Currency uses plain numbers in the prototype; formatting belongs in UI.
+- Keep components small and compose screens from them.
+- Never expose pre-decision answer, reveal, end-price, return, or outcome-chart
+  data in database-backed phases. Official scores are server-calculated.
+- Never edit `soul.md`, roadmap phase definitions, or settled decisions without
+  explicit user approval.
+- Never stage or commit secrets, `.env`, or `node_modules`.
+- Preserve unrelated dirty-worktree changes.
 
-## Anti-Cheat Posture
+## Definition of Done
 
-Local prototype (pre-database phases): reveal data may live client-side.
-Database-backed phases (5+, D027): server calculates official scores; the pre-decision
-payload must not contain company name, ticker, end price, return, reveal text, or
-outcome chart data. Never trust client-calculated scores for leaderboards.
+A phase is ready for its single review when:
 
-## Definition of Done (development default)
+1. Every phase-charter acceptance criterion passes.
+2. Relevant tests and validators pass; the full phase acceptance suite has run.
+3. Runtime behavior was checked when the phase changes user-facing execution.
+4. Known limitations are explicit and do not contradict acceptance.
+5. `progress.md` current state is accurate.
+6. One concise phase closeout exists.
 
-Work is done only when:
-
-1. All acceptance criteria in the handoff prompt pass.
-2. The verification commands named in the handoff pass. By default this means
-   `pnpm test` and `pnpm typecheck`; `pnpm dev` is required only when the handoff
-   changes web runtime behavior or explicitly asks for a browser/dev-server check.
-3. Existing and new tests pass, unless the handoff explicitly records an accepted
-   prototype limitation.
-4. `progress.md` is updated and a completion report is written (see below).
-
-Production-readiness work uses a stricter definition of done: install/dev/test,
-typecheck, manual QA where relevant, formal audit, and any content/security checks
-required by the owning docs. Placeholder prototype scenario content does not need
-full doc 09 Gate 1/Gate 2 polishing unless the handoff says it is production
-content; it must still avoid literal `soul.md` leaks and keep D022 clue counts.
-
-## Session End Protocol
-
-At the end of every session:
-
-1. Append a session log entry to `progress.md` using the template at the top of
-   that file (what changed, how to run, test status, known issues, blocked
-   questions, next recommended task) and update its "Current Status" section.
-2. Write a concise completion report to `agents/reports/R###_H###.md` following
-   `agents/reports/TEMPLATE.md` (next sequential R-number). The orchestrator
-   reads this report to approve or reject your work. No report = no review =
-   the work doesn't count. (Consultants and Auditors: your memo/audit file is
-   your report.)
-
-Orchestrator phase-close / major-milestone sessions also apply D030: compact old
-`progress.md` session detail into `agents/history/progress_phase_*.md`, keep
-`progress.md` as the live dashboard, and update archive pointers. Ordinary role
-agents do not compact history unless a handoff explicitly assigns it.
-
-Never edit `soul.md`, `decisions.md`, or `roadmap.md` phase definitions — those
-belong to the orchestrator.
-
-## Git Rules (decision D012)
-
-- **Role agents never run `git commit` or `git push`.** Leave all work
-  uncommitted in the working tree — that diff, together with your completion
-  report, is what the orchestrator reviews. Only the orchestrator commits, and
-  only after approving the report.
-- Never stage or write `.env`, secrets, or `node_modules`.
-- Never discard or revert uncommitted changes you didn't make — they may be
-  another agent's work awaiting review; escalate instead.
+Legacy `agents/handoffs/` and `agents/reports/` files remain evidence for work
+started under the old process. Do not create new H### or R### artifacts unless an
+active phase charter explicitly requires compatibility with unfinished legacy work.

@@ -1,0 +1,308 @@
+{
+    "id":  "scenario_lemonade_2021_2022",
+    "status":  "active",
+    "company":  {
+                    "name":  "Lemonade",
+                    "ticker":  "LMND",
+                    "exchange":  "NYSE",
+                    "sector":  "Financial Services",
+                    "industry":  "Insurance - Property \u0026 Casualty",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "lemonade",
+                                          "lemonade inc"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Maya",
+                                                "AI Jim",
+                                                "Giveback"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Loss Curve",
+                     "decisionDate":  "2021-07-01",
+                     "endDate":  "2022-07-01",
+                     "decisionDateLabel":  "Mid 2021",
+                     "outcomeLabel":  "Mid 2021 to mid 2022",
+                     "holdingPeriodLabel":  "One year",
+                     "era":  "Insurtech growth reset",
+                     "eraId":  "rate_hike_inflation_era",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "phase_4b_wave"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  112.75,
+                       "endingPrice":  18.73,
+                       "actualReturnPercent":  -0.8339,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2020-07-02",
+                       "preDecisionChartEndDate":  "2021-07-01",
+                       "outcomeChartStartDate":  "2021-07-01",
+                       "outcomeChartEndDate":  "2022-07-01",
+                       "lookbackPrices":  [
+                                              69.41,
+                                              58.7,
+                                              46.9,
+                                              129.89,
+                                              103.07,
+                                              86.2,
+                                              112.75
+                                          ],
+                       "outcomePrices":  [
+                                             112.75,
+                                             75.54,
+                                             62.16,
+                                             42.91,
+                                             22.3,
+                                             22.36,
+                                             18.73
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A digital property-and-casualty insurer using automated underwriting and claims tools to sell renters, homeowners, pet, and auto coverage.",
+                                    "macroContext":  "Low rates and abundant venture capital favor digital insurers, but inflation and severe weather are raising claim costs.",
+                                    "situation":  "Can rapid customer and premium growth produce credible insurance economics before losses consume capital?",
+                                    "longCase":  "A digital experience and cross-selling across policy types could lower acquisition costs as customers mature.",
+                                    "shortCase":  "High loss ratios, limited pricing history, and catastrophe exposure could make growth destroy value.",
+                                    "setupHints":  [
+                                                       "The company began with renters insurance and has expanded into several consumer policy categories."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A young regulated service provider using automation to acquire and serve customers.",
+                                      "macroContext":  "Demand is steady while risk-related input costs rise and growth capital becomes less available.",
+                                      "situation":  "Can a rapidly growing customer book mature into better unit economics before capital needs increase?",
+                                      "longCase":  "Automation and cross-selling can spread acquisition and servicing costs across longer relationships.",
+                                      "shortCase":  "Limited operating history and volatile unit costs can require repeated repricing and capital adjustments.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A technology-led regulated service provider.",
+                                    "macroContext":  "Input costs are rising while investors become less willing to fund losses for growth.",
+                                    "situation":  "Can a rapidly expanding customer book develop favorable unit economics before risk costs compound?",
+                                    "longCase":  "Automation and cross-selling can reduce servicing and acquisition costs as relationships mature.",
+                                    "shortCase":  "Limited historical data and volatile operating costs can cause growth to consume capital rather than create scale.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Lemonade. Fast premium growth could not offset high loss ratios, catastrophe exposure, and a broad collapse in unprofitable growth valuations.",
+                   "funFact":  "Lemonade expanded from renters insurance into homeowners, pet, life, and auto products within a few years.",
+                   "whyItMoved":  [
+                                      "Gross earned premium and customer counts grew rapidly from a small base.",
+                                      "Loss ratios remained elevated and were affected by severe-weather events.",
+                                      "Rising rates and an acquisition increased scrutiny of cash burn and capital needs."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ LMND",
+                        "url":  "https://finance.yahoo.com/quote/LMND/history/",
+                        "notes":  "Split-adjusted closes, chart samples, and return."
+                    },
+                    {
+                        "label":  "Lemonade 2022 Form 10-K Ã¢â‚¬â€ SEC EDGAR",
+                        "url":  "https://www.sec.gov/edgar/browse/?CIK=1691421\u0026owner=exclude",
+                        "notes":  "Product expansion, premiums, customers, loss ratios, weather exposure, acquisition, and capital risks."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Obscure bucket. Stored Grok evidence showed that automated sales-underwriting-claims and explicit loss-ratio language made Medium identifiable, while claims volatility preserved the insurance silhouette on Hard. M/H now frame a young regulated service provider around automation, cohort maturation, volatile risk costs, repricing, and capital needs. Easy is unchanged. Stored M/H results are stale evidence pending blind rejudge.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "company/ticker",
+                                                       "named automation bots",
+                                                       "charitable program",
+                                                       "specific acquisition"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "automated customer service",
+                                                           "regulated growth model",
+                                                           "customer-book maturation",
+                                                           "volatile risk-related costs",
+                                                           "capital needs"
+                                                       ],
+                                    "prohibited":  [
+                                                       "named chatbot",
+                                                       "signature charitable model",
+                                                       "exact renters-first origin on Medium/Hard"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Lemonade",
+                                                                  "Root",
+                                                                  "Hippo",
+                                                                  "Metromile",
+                                                                  "Oscar Health"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Root",
+                                                                    "Lemonade",
+                                                                    "Hippo",
+                                                                    "Oscar Health"
+                                                                ],
+                                                     "hard":  [
+                                                                  "Oscar Health",
+                                                                  "Root",
+                                                                  "Hippo",
+                                                                  "Lemonade",
+                                                                  "Goosehead Insurance"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "insurance category plus automated underwriting and claims",
+                                                                   "2020 IPO chart plus charitable model",
+                                                                   "policy-book or loss-ratio language plus named chatbot"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Lemonade",
+                                             "Root",
+                                             "Hippo",
+                                             "Metromile"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Root",
+                                               "Oscar Health",
+                                               "SoFi",
+                                               "Hippo"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "Oscar Health",
+                                             "Root",
+                                             "Clover Health",
+                                             "SoFi"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:e4d79b22dad36265e6fb750da5d6a53060ed3512d863cf0ce5cacd874e70d0d0",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Lemonade",
+                                                                  "confidence":  89,
+                                                                  "pointingFact":  "Digital insurer that started with renters and expanded into homeowners, pet, and auto with automated underwriting."
+                                                              },
+                                                              {
+                                                                  "company":  "Root Insurance",
+                                                                  "confidence":  50,
+                                                                  "pointingFact":  "App-based P\u0026C insurer emphasizing automated underwriting, especially auto, in the insurtech cohort."
+                                                              },
+                                                              {
+                                                                  "company":  "Hippo",
+                                                                  "confidence":  41,
+                                                                  "pointingFact":  "Digital homeowners-focused carrier exposed to growth versus loss-ratio and catastrophe concerns."
+                                                              },
+                                                              {
+                                                                  "company":  "Metromile",
+                                                                  "confidence":  33,
+                                                                  "pointingFact":  "Digital auto insurer with usage-oriented model and weak unit-economics narrative around the same era."
+                                                              },
+                                                              {
+                                                                  "company":  "Oscar Health",
+                                                                  "confidence":  18,
+                                                                  "pointingFact":  "Digital insurer, but health insurance rather than renters/home/pet/auto P\u0026C mix."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  80,
+                                                                "cue":  "Mid-2021 growth-at-all-costs insurtech setup into rising claims inflation and catastrophe losses points to value-destructive growth."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:de1b812bc3c18e673b8375860ea2bee68e4a24ecb69b7949ef6aadaa10727752",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "Lemonade",
+                                                                    "confidence":  52,
+                                                                    "pointingFact":  "Young automated insurtech with loss-curve maturation thesis amid rising claims costs and scarcer growth capital"
+                                                                },
+                                                                {
+                                                                    "company":  "Root",
+                                                                    "confidence":  41,
+                                                                    "pointingFact":  "Young regulated auto insurer using automation/data to acquire customers while unit costs and capital stay volatile"
+                                                                },
+                                                                {
+                                                                    "company":  "Oscar Health",
+                                                                    "confidence":  34,
+                                                                    "pointingFact":  "Young regulated insurance provider using tech/automation, facing unit-economics and capital-reset pressure in 2021"
+                                                                },
+                                                                {
+                                                                    "company":  "Hippo",
+                                                                    "confidence":  24,
+                                                                    "pointingFact":  "Young digital insurer with automation-led growth and limited operating history through an insurtech reset"
+                                                                },
+                                                                {
+                                                                    "company":  "Metromile",
+                                                                    "confidence":  18,
+                                                                    "pointingFact":  "Young tech-enabled insurer whose growth and unit costs depend on capital markets and loss maturation"
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "short",
+                                                                  "confidence":  66,
+                                                                  "cue":  "Insurtech growth reset: rising risk costs, thin history, repeated repricing, and less available growth capital"
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:e576c4473a628117cbd7fde64e41414175823ccc7c2e6cdebd026bc2c10f419b",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Lemonade",
+                                                                  "confidence":  48,
+                                                                  "pointingFact":  "Tech-led insurer with rapid book growth, loss funding, and unit-economics scrutiny in 2021"
+                                                              },
+                                                              {
+                                                                  "company":  "Root Insurance",
+                                                                  "confidence":  36,
+                                                                  "pointingFact":  "Insurtech auto writer expanding customers while risk costs and capital access tightened"
+                                                              },
+                                                              {
+                                                                  "company":  "Oscar Health",
+                                                                  "confidence":  32,
+                                                                  "pointingFact":  "Technology-led regulated health insurer scaling membership amid rising medical costs"
+                                                              },
+                                                              {
+                                                                  "company":  "Hippo",
+                                                                  "confidence":  24,
+                                                                  "pointingFact":  "Digital home insurer with limited loss history and growth-funded expansion"
+                                                              },
+                                                              {
+                                                                  "company":  "Clover Health",
+                                                                  "confidence":  20,
+                                                                  "pointingFact":  "Tech-oriented regulated health plan facing medical-cost and growth-quality questions"
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  72,
+                                                                "cue":  "Mid-2021 insurtech reset: rising input costs and reluctance to fund losses for growth"
+                                                            }
+                                          }
+                             }
+               }
+}

@@ -1,0 +1,239 @@
+{
+  "exportedAt": "2026-07-10T03:50:46.508Z",
+  "entries": [
+    {
+      "judgeId": "blind_0001",
+      "scenarioId": "scenario_adobe_2019_2020",
+      "difficulty": "hard",
+      "payloadHash": "sha256:df5ba85c0e1bdd3693b5735e15966fc508a3883e530e327a6b5a5821a6d31b9d"
+    },
+    {
+      "judgeId": "blind_0002",
+      "scenarioId": "scenario_airbnb_2021_2022",
+      "difficulty": "hard",
+      "payloadHash": "sha256:acbb7bc36bca8b910b3919849f2f053335b806d248f4a9ddbe048c5a18aa5678"
+    },
+    {
+      "judgeId": "blind_0003",
+      "scenarioId": "scenario_alphabet_2022_2023",
+      "difficulty": "hard",
+      "payloadHash": "sha256:e61119eb5b1ff45e499436613c0100e32912ec74490ce946d08228ee9a1d5e44"
+    },
+    {
+      "judgeId": "blind_0004",
+      "scenarioId": "scenario_amd_2019_2020",
+      "difficulty": "hard",
+      "payloadHash": "sha256:79f48c4e48f0a03f6e78f8ae791a3610f2ef66c8864c6459fec10d6cd9923704"
+    },
+    {
+      "judgeId": "blind_0005",
+      "scenarioId": "scenario_applovin_2022_2023",
+      "difficulty": "hard",
+      "payloadHash": "sha256:35ad6583db4f3222c2def78bcc22534df08d22d0ae7e786557d19214e25172d0"
+    },
+    {
+      "judgeId": "blind_0006",
+      "scenarioId": "scenario_block_2021_2022",
+      "difficulty": "hard",
+      "payloadHash": "sha256:22c28743c0378581f6ece01bdc83362d6063267a2cf2301a4231395ad06a9288"
+    },
+    {
+      "judgeId": "blind_0007",
+      "scenarioId": "scenario_boeing_2019_2020",
+      "difficulty": "hard",
+      "payloadHash": "sha256:e12f21b45432b242179988c470a6d8cb7ff4cd92d45c96c517d431bcf3b4a3e9"
+    },
+    {
+      "judgeId": "blind_0008",
+      "scenarioId": "scenario_chipotle_2018_2019",
+      "difficulty": "hard",
+      "payloadHash": "sha256:8a7a0307ecfc6613c810bfdc13a51bec61a992856c8cbf95b8a6f9956216f1ee"
+    },
+    {
+      "judgeId": "blind_0009",
+      "scenarioId": "scenario_cloudflare_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:43e173d643744e754a8de98fcd3a18b0bc6081801ee63f70059c221cd65b2eba"
+    },
+    {
+      "judgeId": "blind_0010",
+      "scenarioId": "scenario_datadog_2021_2022",
+      "difficulty": "hard",
+      "payloadHash": "sha256:0fc32fe18e6276845bdd7b40f85f703bf16e6726f331888c2ab939ec4b7b3386"
+    },
+    {
+      "judgeId": "blind_0011",
+      "scenarioId": "scenario_disney_2019_2020",
+      "difficulty": "hard",
+      "payloadHash": "sha256:b3863a23ded997390a4787d01664751c0df27b27e13d4b904e0209d8f62d5b4a"
+    },
+    {
+      "judgeId": "blind_0012",
+      "scenarioId": "scenario_docusign_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:1513050de63f1a41120a45ad2841ca428fcd0933d47fa9d40135692e8fe8f6f7"
+    },
+    {
+      "judgeId": "blind_0013",
+      "scenarioId": "scenario_etsy_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:f9df9a55ca9693685af73e06dc5cd19abc844f4acdda577e5bb1ac13f2ab614c"
+    },
+    {
+      "judgeId": "blind_0014",
+      "scenarioId": "scenario_fastly_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:a4d57fce25c68ac006d6f4b9131d1619bdc75d639ecf2e1d039454afb6d53651"
+    },
+    {
+      "judgeId": "blind_0015",
+      "scenarioId": "scenario_ford_2021_2022",
+      "difficulty": "hard",
+      "payloadHash": "sha256:2043bb631842b3ac9c52a8aeb24bbd14de6db4c1785fa3b8fbeff00b9dc4ef62"
+    },
+    {
+      "judgeId": "blind_0016",
+      "scenarioId": "scenario_intel_2021_2022",
+      "difficulty": "hard",
+      "payloadHash": "sha256:98069070bf0d183c36d6945de421a5a7e9d9d2edf4a8508ab26cb0b4f4ee1430"
+    },
+    {
+      "judgeId": "blind_0017",
+      "scenarioId": "scenario_lemonade_2021_2022",
+      "difficulty": "hard",
+      "payloadHash": "sha256:e576c4473a628117cbd7fde64e41414175823ccc7c2e6cdebd026bc2c10f419b"
+    },
+    {
+      "judgeId": "blind_0018",
+      "scenarioId": "scenario_lululemon_2019_2020",
+      "difficulty": "hard",
+      "payloadHash": "sha256:307ccb370704c21f047c4070530ff6d83818e879f2ee628cd5fe4c5226d6ff9a"
+    },
+    {
+      "judgeId": "blind_0019",
+      "scenarioId": "scenario_meta_2022_2023",
+      "difficulty": "hard",
+      "payloadHash": "sha256:e3e223fc227c774620534f5b1b0c9d9054a2f203763f5f1aad0d9895d3ef6c12"
+    },
+    {
+      "judgeId": "blind_0020",
+      "scenarioId": "scenario_mongodb_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:205c0cd53603c82189eb95a014172d1fb781c089ce58e040af6f5462ce7a1435"
+    },
+    {
+      "judgeId": "blind_0021",
+      "scenarioId": "scenario_nike_2021_2022",
+      "difficulty": "hard",
+      "payloadHash": "sha256:422d5dbb3ac2bbc44435e9481818e57b898699f81298b4631b9f639ef967be03"
+    },
+    {
+      "judgeId": "blind_0022",
+      "scenarioId": "scenario_okta_2021_2022",
+      "difficulty": "hard",
+      "payloadHash": "sha256:8d65c19c916a22159561d4a5b5b54d2d4a249ed36f7bc9164f7885c5655419e0"
+    },
+    {
+      "judgeId": "blind_0023",
+      "scenarioId": "scenario_paypal_2021_2022",
+      "difficulty": "hard",
+      "payloadHash": "sha256:4fac2bb1c7baca308fafd0d4fd7e50cad6db581b361f018b09217341913e4ae0"
+    },
+    {
+      "judgeId": "blind_0024",
+      "scenarioId": "scenario_peloton_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:f6a04ca9ad9739a1458e8dbfe257db404f264bbd5d5bcc15f937d757bc1bf022"
+    },
+    {
+      "judgeId": "blind_0025",
+      "scenarioId": "scenario_pinterest_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:82c425a66d155b3bf64ee163be24fec41e4ce13d66c255a4faf1c4ccb3ccf699"
+    },
+    {
+      "judgeId": "blind_0026",
+      "scenarioId": "scenario_roku_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:3600b290d79dde91cd9c2d53624984f165bc6cfc5486115777a9a8bda99c6c83"
+    },
+    {
+      "judgeId": "blind_0027",
+      "scenarioId": "scenario_salesforce_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:5342471057a047015c1fa0d56bbe46ed4947870d5da250bad57df6525b0d999d"
+    },
+    {
+      "judgeId": "blind_0028",
+      "scenarioId": "scenario_sea_limited_2021_2022",
+      "difficulty": "hard",
+      "payloadHash": "sha256:3085421f49d70bd299f3fa78c9c0e47183ad5621c356222f55d5eeafd7f2bed7"
+    },
+    {
+      "judgeId": "blind_0029",
+      "scenarioId": "scenario_shopify_2021_2022",
+      "difficulty": "hard",
+      "payloadHash": "sha256:ef41c797d62efbe48c97f55a0c1e50470308d89aaab33c27171ad2a68f8c5b96"
+    },
+    {
+      "judgeId": "blind_0030",
+      "scenarioId": "scenario_snap_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:0b12fc40d94bf70089dc1cb3e991e025a6ead156c956982a4f3754d440d1e9ff"
+    },
+    {
+      "judgeId": "blind_0031",
+      "scenarioId": "scenario_spotify_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:9a7c32e39fd0de31f4e9ab78be785b9a23feadfa3e9ef22e67f703088fbde028"
+    },
+    {
+      "judgeId": "blind_0032",
+      "scenarioId": "scenario_starbucks_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:0393bedc6e1b090418a196ccef5befc255e50cac1b3bcfb3b1e6a0f529690226"
+    },
+    {
+      "judgeId": "blind_0033",
+      "scenarioId": "scenario_target_2021_2022",
+      "difficulty": "hard",
+      "payloadHash": "sha256:959509049818ab481a531b2f3c5d4844e561b991ebda1cc477f776c8662f5b15"
+    },
+    {
+      "judgeId": "blind_0034",
+      "scenarioId": "scenario_tesla_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:b741b59bd4e9dacb03e39527d14da8821f9372c9201129ec48cf73836a079251"
+    },
+    {
+      "judgeId": "blind_0035",
+      "scenarioId": "scenario_twilio_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:78d86e60f6fd933ecd9e8ab87c3982be4553b47c570b9e6e6aa6b1599604c777"
+    },
+    {
+      "judgeId": "blind_0036",
+      "scenarioId": "scenario_uber_2022_2023",
+      "difficulty": "hard",
+      "payloadHash": "sha256:4d30e1e094586a9edf8f7ff4a5ea9e95978bb2d3cb5e7ef6d9c22f44cd0c6d4a"
+    },
+    {
+      "judgeId": "blind_0037",
+      "scenarioId": "scenario_upstart_2021_2022",
+      "difficulty": "hard",
+      "payloadHash": "sha256:798efc84931afafe9f3e7a56b74eac228cb57276db03518a2102324f669e7fab"
+    },
+    {
+      "judgeId": "blind_0038",
+      "scenarioId": "scenario_walmart_2022_2023",
+      "difficulty": "hard",
+      "payloadHash": "sha256:9a69d2b48f503eafe4fc0c949faeb554e857cda4fba47d4e6bdf876387512138"
+    },
+    {
+      "judgeId": "blind_0039",
+      "scenarioId": "scenario_zoom_2020_2021",
+      "difficulty": "hard",
+      "payloadHash": "sha256:18d64303d0236db4ec14d83ae3e6586c15716ab4bdb693285c0253d548dfabac"
+    }
+  ]
+}

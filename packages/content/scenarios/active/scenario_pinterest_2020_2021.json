@@ -1,0 +1,309 @@
+{
+    "id":  "scenario_pinterest_2020_2021",
+    "status":  "active",
+    "company":  {
+                    "name":  "Pinterest",
+                    "ticker":  "PINS",
+                    "exchange":  "NYSE",
+                    "sector":  "Communication Services",
+                    "industry":  "Interactive Media \u0026 Services",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "pinterest",
+                                          "pinterest inc"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Pin",
+                                                "Pinboard",
+                                                "Pinterest"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Monetization Gap",
+                     "decisionDate":  "2020-01-02",
+                     "endDate":  "2021-01-04",
+                     "decisionDateLabel":  "Early 2020",
+                     "outcomeLabel":  "Early 2020 to early 2021",
+                     "holdingPeriodLabel":  "About one year",
+                     "era":  "Pandemic-era disruption",
+                     "eraId":  "pandemic_era",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "part_b_batch_1"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  18.8,
+                       "endingPrice":  68.07,
+                       "actualReturnPercent":  2.621,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2019-04-18",
+                       "preDecisionChartEndDate":  "2020-01-02",
+                       "outcomeChartStartDate":  "2020-01-02",
+                       "outcomeChartEndDate":  "2021-01-04",
+                       "lookbackPrices":  [
+                                              24,
+                                              21,
+                                              19,
+                                              23,
+                                              20,
+                                              22,
+                                              18.8
+                                          ],
+                       "outcomePrices":  [
+                                             18.8,
+                                             17,
+                                             24,
+                                             35,
+                                             48,
+                                             70,
+                                             68.07
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A visual discovery platform where users collect ideas and advertisers are still building out commercial tools.",
+                                    "macroContext":  "More time at home is changing online behavior, while advertisers seek measurable ways to reach audiences beyond established social platforms.",
+                                    "situation":  "Can a growing discovery audience become a stronger advertising business before engagement proves temporary and monetization lags?",
+                                    "longCase":  "Higher engagement and better shopping tools could give advertisers a valuable new path to interested consumers.",
+                                    "shortCase":  "Users may return to other activities, and a smaller ad system may struggle against much larger platforms.",
+                                    "setupHints":  [
+                                                       "People use the service to save and organize images around projects and interests."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A consumer internet service developing tools for business customers.",
+                                      "macroContext":  "Changes in daily routines are increasing use of some digital services while commercial budgets shift between channels.",
+                                      "situation":  "Can stronger usage become durable revenue before the behavior change fades?",
+                                      "longCase":  "More activity can create additional opportunities for businesses to reach customers and improve monetization.",
+                                      "shortCase":  "An immature commercial system and larger rivals can keep revenue growth below user growth.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A digital consumer service.",
+                                    "macroContext":  "A sudden routine change is lifting usage while businesses reconsider where to reach customers.",
+                                    "situation":  "Can a larger active base become repeat commercial demand before usage normalizes?",
+                                    "longCase":  "Higher frequency can improve inventory and feedback for a developing revenue system.",
+                                    "shortCase":  "Temporary behavior and stronger distribution channels can leave monetization structurally behind.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Pinterest. Pandemic-era engagement growth and improving advertising tools made investors more optimistic about monetization.",
+                   "funFact":  "The company reports both global users and revenue per user as key operating metrics.",
+                   "whyItMoved":  [
+                                      "At-home behavior increased user engagement.",
+                                      "Advertising tools and shopping features developed further.",
+                                      "Investors expected a larger audience to support more revenue per user."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ PINS",
+                        "url":  "https://finance.yahoo.com/quote/PINS/history/",
+                        "notes":  "Split-adjusted closes for 2020-01-02 and 2021-01-04; chart series and return."
+                    },
+                    {
+                        "label":  "Pinterest 2020 Form 10-K",
+                        "url":  "https://www.sec.gov/Archives/edgar/data/1506293/000150629321000010/pins-20201231.htm",
+                        "notes":  "User engagement, advertising revenue, commerce tools, and competitive risks."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Moderate; adversarial rewrite from clean stored Grok evidence. Changed Medium and Hard plus the identifying Discovery Loop title, so every sibling payload requires rejudge. Removed discovery, visual, intent, advertising, commerce-feature, and engagement-inventory conjunctions that pointed directly to Pinterest. New usage-to-business-monetization tension fits Reddit, Spotify, Snap, Match Group, Yelp, and Pinterest. Stored review.gate2 remains intact and stale by hash.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "Pinterest name/ticker",
+                                                       "pin terminology",
+                                                       "specific visual-board product mechanics"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "usage growth",
+                                                           "business monetization tools",
+                                                           "commercial budget shifts",
+                                                           "revenue maturity",
+                                                           "larger distribution rivals"
+                                                       ],
+                                    "prohibited":  [
+                                                       "visual discovery language",
+                                                       "pin or board mechanics",
+                                                       "shopping tools",
+                                                       "intent-linked advertising"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Pinterest",
+                                                                  "Snap",
+                                                                  "Reddit",
+                                                                  "Etsy"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Reddit",
+                                                                    "Spotify",
+                                                                    "Snap",
+                                                                    "Pinterest"
+                                                                ],
+                                                     "hard":  [
+                                                                  "Match Group",
+                                                                  "Yelp",
+                                                                  "Spotify",
+                                                                  "Reddit",
+                                                                  "Pinterest"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "2020 chart plus visual discovery",
+                                                                   "save-image mechanics plus shopping tools",
+                                                                   "usage growth plus intent-linked ads",
+                                                                   "discovery title plus commerce features",
+                                                                   "consumer audience plus pinboard behavior"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Pinterest",
+                                             "Snap",
+                                             "Meta Platforms",
+                                             "Reddit"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Reddit",
+                                               "Spotify",
+                                               "Snap",
+                                               "Pinterest"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "Match Group",
+                                             "Yelp",
+                                             "Spotify",
+                                             "Reddit"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:21f1acfa32c753510c2b6ebab3baec2807d8464a1b408bd5fcab201a7da49421",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:30:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Pinterest",
+                                                                  "confidence":  92,
+                                                                  "pointingFact":  "Visual discovery platform for saving and organizing images around projects and interests, with advertisers still building commercial tools in early 2020."
+                                                              },
+                                                              {
+                                                                  "company":  "Houzz",
+                                                                  "confidence":  28,
+                                                                  "pointingFact":  "Users collect visual ideas for projects, but it is more home-design marketplace than broad advertising discovery platform."
+                                                              },
+                                                              {
+                                                                  "company":  "Instagram",
+                                                                  "confidence":  22,
+                                                                  "pointingFact":  "Visual social product with discovery and ads, but less centered on saving and organizing idea boards."
+                                                              },
+                                                              {
+                                                                  "company":  "Tumblr",
+                                                                  "confidence":  15,
+                                                                  "pointingFact":  "Image-heavy collection culture, though weaker fit for project-oriented discovery and shopping ads."
+                                                              },
+                                                              {
+                                                                  "company":  "Flickr",
+                                                                  "confidence":  10,
+                                                                  "pointingFact":  "Image hosting and collections exist, but not a mainstream advertiser-facing discovery business in this era."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  58,
+                                                                "cue":  "Pandemic time-at-home should lift engagement on a discovery app while advertisers seek measurable reach beyond the largest social platforms."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:e6513eac5aa1d2942b997fa8291862be3db696b5736af0445a0d18f9262e8de3",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "Pinterest",
+                                                                    "confidence":  58,
+                                                                    "pointingFact":  "Consumer social service monetizing via business advertising tools with a long-standing usage-to-revenue gap."
+                                                                },
+                                                                {
+                                                                    "company":  "Snap",
+                                                                    "confidence":  48,
+                                                                    "pointingFact":  "Consumer internet app building business ad products while competing with larger platforms for budgets."
+                                                                },
+                                                                {
+                                                                    "company":  "Twitter",
+                                                                    "confidence":  40,
+                                                                    "pointingFact":  "Consumer service whose commercial tooling lagged engagement and faced stronger digital ad rivals."
+                                                                },
+                                                                {
+                                                                    "company":  "Spotify",
+                                                                    "confidence":  32,
+                                                                    "pointingFact":  "Consumer internet product expanding business-facing monetization amid shifting daily listening routines."
+                                                                },
+                                                                {
+                                                                    "company":  "Reddit",
+                                                                    "confidence":  22,
+                                                                    "pointingFact":  "High-usage consumer community platform still maturing business tools relative to traffic."
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "toss_up",
+                                                                  "confidence":  50,
+                                                                  "cue":  "Usage tailwind is clear, but immature monetization versus large rivals leaves revenue durability unresolved."
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:82c425a66d155b3bf64ee163be24fec41e4ce13d66c255a4faf1c4ccb3ccf699",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Snap",
+                                                                  "confidence":  36,
+                                                                  "pointingFact":  "Digital consumer app with usage lift in early 2020 while ad monetization lagged and was still being built out."
+                                                              },
+                                                              {
+                                                                  "company":  "Pinterest",
+                                                                  "confidence":  30,
+                                                                  "pointingFact":  "Consumer service seeing routine-change traffic spikes with a still-developing commercial revenue system versus larger ad platforms."
+                                                              },
+                                                              {
+                                                                  "company":  "Twitter",
+                                                                  "confidence":  24,
+                                                                  "pointingFact":  "Digital consumer platform with elevated engagement in disruption but structural monetization gaps versus stronger distribution rivals."
+                                                              },
+                                                              {
+                                                                  "company":  "Spotify",
+                                                                  "confidence":  20,
+                                                                  "pointingFact":  "Digital consumer service with rising usage while converting engagement into durable commercial demand remained the core question."
+                                                              },
+                                                              {
+                                                                  "company":  "Roku",
+                                                                  "confidence":  16,
+                                                                  "pointingFact":  "Consumer digital service benefiting from sudden at-home behavior shifts with advertising monetization still catching up to usage."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  55,
+                                                                "cue":  "Early-2020 usage shock into a one-year hold often rewarded digital engagement before normalization fully hit monetization."
+                                                            }
+                                          }
+                             }
+               }
+}

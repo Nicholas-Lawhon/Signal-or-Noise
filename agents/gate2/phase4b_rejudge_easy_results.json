@@ -1,0 +1,252 @@
+{
+  "model": "grok-4.5",
+  "promptVersion": "guess.v1+direction.v1",
+  "testedAt": "2026-07-09T18:30:00.000Z",
+  "entries": [
+    {
+      "judgeId": "blind_0001",
+      "guesses": [
+        {
+          "company": "Advanced Micro Devices",
+          "confidence": 84,
+          "pointingFact": "Smaller fabless semiconductor designer reopening accounts against larger rivals in a 2019 product-cycle window"
+        },
+        {
+          "company": "Marvell Technology",
+          "confidence": 32,
+          "pointingFact": "Fabless chip designer competing across computing markets without owning leading-edge fabs"
+        },
+        {
+          "company": "Xilinx",
+          "confidence": 28,
+          "pointingFact": "Specialist semiconductor designer reliant on external manufacturing and competing with larger suppliers"
+        },
+        {
+          "company": "NVIDIA",
+          "confidence": 22,
+          "pointingFact": "Semiconductor designer with multi-market computing exposure and foundry dependence"
+        },
+        {
+          "company": "Qualcomm",
+          "confidence": 18,
+          "pointingFact": "Fabless chip company competing in computing-related markets against larger platform suppliers"
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 62,
+        "cue": "Payload centers on a product-cycle opening where stronger execution can convert share and mix gains"
+      }
+    },
+    {
+      "judgeId": "blind_0002",
+      "guesses": [
+        {
+          "company": "Boeing",
+          "confidence": 96,
+          "pointingFact": "Spring 2019 certification/grounding crisis for a large passenger-aircraft maker with major defense and space businesses"
+        },
+        {
+          "company": "Airbus",
+          "confidence": 38,
+          "pointingFact": "Commercial aerospace OEM in a duopoly structure with large installed base and military work"
+        },
+        {
+          "company": "Spirit AeroSystems",
+          "confidence": 24,
+          "pointingFact": "Aerospace manufacturer exposed to passenger-aircraft delivery freezes and supplier constraints"
+        },
+        {
+          "company": "Lockheed Martin",
+          "confidence": 12,
+          "pointingFact": "Major defense and aerospace manufacturer, but weaker fit to commercial certification crisis"
+        },
+        {
+          "company": "Northrop Grumman",
+          "confidence": 10,
+          "pointingFact": "Aerospace/defense manufacturer with systems businesses, not the passenger-aircraft grounding story"
+        }
+      ],
+      "direction": {
+        "call": "short",
+        "confidence": 68,
+        "cue": "Prolonged grounding, compensation costs, and damaged trust threaten deliveries and cash flow over the year"
+      }
+    },
+    {
+      "judgeId": "blind_0003",
+      "guesses": [
+        {
+          "company": "DocuSign",
+          "confidence": 91,
+          "pointingFact": "Cloud workflow software to prepare, send, and complete business agreements electronically amid 2020 remote work"
+        },
+        {
+          "company": "Adobe",
+          "confidence": 42,
+          "pointingFact": "Offers electronic agreement/document completion tools that could benefit from paperless remote processes"
+        },
+        {
+          "company": "Dropbox",
+          "confidence": 26,
+          "pointingFact": "Cloud document collaboration company with e-signature capabilities used in remote workflows"
+        },
+        {
+          "company": "Box",
+          "confidence": 20,
+          "pointingFact": "Cloud content platform used for business document workflows without paper"
+        },
+        {
+          "company": "Salesforce",
+          "confidence": 14,
+          "pointingFact": "Broad cloud software suite that could bundle approval and agreement workflows"
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 71,
+        "cue": "Pandemic remote work is framed as accelerating digital agreement adoption into durable subscriptions"
+      }
+    },
+    {
+      "judgeId": "blind_0004",
+      "guesses": [
+        {
+          "company": "Fastly",
+          "confidence": 72,
+          "pointingFact": "Young network-services specialist monetizing traffic speed/reliability with known large-account concentration risk"
+        },
+        {
+          "company": "Cloudflare",
+          "confidence": 68,
+          "pointingFact": "Cloud infrastructure/network provider helping apps deliver content quickly and safely as traffic surges"
+        },
+        {
+          "company": "Akamai Technologies",
+          "confidence": 36,
+          "pointingFact": "Established CDN/performance network improving online application speed and reliability"
+        },
+        {
+          "company": "Limelight Networks",
+          "confidence": 22,
+          "pointingFact": "Smaller content-delivery network competing on performance services for digital customers"
+        },
+        {
+          "company": "F5",
+          "confidence": 16,
+          "pointingFact": "Application delivery and security networking vendor tied to online service performance"
+        }
+      ],
+      "direction": {
+        "call": "toss_up",
+        "confidence": 54,
+        "cue": "Traffic-driven usage growth is offset by customer concentration and larger cloud-platform competitive pressure"
+      }
+    },
+    {
+      "judgeId": "blind_0005",
+      "guesses": [
+        {
+          "company": "Meta Platforms",
+          "confidence": 90,
+          "pointingFact": "Large ad-auction attention platform funding a costly new computing push while privacy rules weaken targeting in early 2022"
+        },
+        {
+          "company": "Alphabet",
+          "confidence": 48,
+          "pointingFact": "Global digital ad platform dependent on automated auctions and adapting to privacy-driven data limits"
+        },
+        {
+          "company": "Snap",
+          "confidence": 34,
+          "pointingFact": "Attention-based advertising platform hit by privacy changes and weaker targeting data"
+        },
+        {
+          "company": "Pinterest",
+          "confidence": 18,
+          "pointingFact": "Digital ad platform selling targeted placements against user attention under privacy pressure"
+        },
+        {
+          "company": "Twitter",
+          "confidence": 15,
+          "pointingFact": "Attention platform monetized mainly through advertising amid budget and data-access uncertainty"
+        }
+      ],
+      "direction": {
+        "call": "short",
+        "confidence": 74,
+        "cue": "Rate pressure, privacy-driven targeting loss, and heavy new-initiative spend threaten growth and margins together"
+      }
+    },
+    {
+      "judgeId": "blind_0006",
+      "guesses": [
+        {
+          "company": "Pinterest",
+          "confidence": 92,
+          "pointingFact": "Visual discovery platform for saving and organizing images around projects and interests, with advertisers still building commercial tools in early 2020."
+        },
+        {
+          "company": "Houzz",
+          "confidence": 28,
+          "pointingFact": "Users collect visual ideas for projects, but it is more home-design marketplace than broad advertising discovery platform."
+        },
+        {
+          "company": "Instagram",
+          "confidence": 22,
+          "pointingFact": "Visual social product with discovery and ads, but less centered on saving and organizing idea boards."
+        },
+        {
+          "company": "Tumblr",
+          "confidence": 15,
+          "pointingFact": "Image-heavy collection culture, though weaker fit for project-oriented discovery and shopping ads."
+        },
+        {
+          "company": "Flickr",
+          "confidence": 10,
+          "pointingFact": "Image hosting and collections exist, but not a mainstream advertiser-facing discovery business in this era."
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 58,
+        "cue": "Pandemic time-at-home should lift engagement on a discovery app while advertisers seek measurable reach beyond the largest social platforms."
+      }
+    },
+    {
+      "judgeId": "blind_0007",
+      "guesses": [
+        {
+          "company": "Roku",
+          "confidence": 93,
+          "pointingFact": "Home-entertainment OS sold via low-margin hardware and devices, monetized through ads and content distribution, built into TVs and external streamers."
+        },
+        {
+          "company": "Vizio",
+          "confidence": 38,
+          "pointingFact": "Smart TVs with platform software and ad ambitions, but less purely a streaming OS hardware-plus-ads pure play."
+        },
+        {
+          "company": "Amazon",
+          "confidence": 24,
+          "pointingFact": "Fire TV hardware and living-room software fit, but the company is far broader than a home-entertainment platform."
+        },
+        {
+          "company": "Apple",
+          "confidence": 18,
+          "pointingFact": "Apple TV hardware and services compete in the living room, yet hardware is not positioned as a low-margin ad distribution business."
+        },
+        {
+          "company": "Google",
+          "confidence": 16,
+          "pointingFact": "Android TV and Chromecast put software in TVs and devices, but again as part of a much larger tech firm."
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 72,
+        "cue": "More at-home viewing in the streaming wars should expand the installed base and advertising/distribution leverage despite hardware margin pressure."
+      }
+    }
+  ]
+}

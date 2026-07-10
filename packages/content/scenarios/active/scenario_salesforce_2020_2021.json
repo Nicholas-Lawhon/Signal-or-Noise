@@ -1,0 +1,324 @@
+{
+    "id":  "scenario_salesforce_2020_2021",
+    "status":  "active",
+    "company":  {
+                    "name":  "Salesforce",
+                    "ticker":  "CRM",
+                    "exchange":  "NYSE",
+                    "sector":  "Information Technology",
+                    "industry":  "Application Software",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "salesforce",
+                                          "salesforce"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Salesforce",
+                                                "Customer 360",
+                                                "Trailhead",
+                                                "Slack"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Digital Workflow",
+                     "decisionDate":  "2020-01-02",
+                     "endDate":  "2021-01-04",
+                     "decisionDateLabel":  "2020",
+                     "outcomeLabel":  "2020 to 2021",
+                     "holdingPeriodLabel":  "About one year",
+                     "era":  "Pandemic-era disruption",
+                     "eraId":  "pandemic_era",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "part_b_phase_campaign"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  164.15,
+                       "endingPrice":  216.56,
+                       "actualReturnPercent":  0.3193,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2019-01-02",
+                       "preDecisionChartEndDate":  "2020-01-02",
+                       "outcomeChartStartDate":  "2020-01-02",
+                       "outcomeChartEndDate":  "2021-01-04",
+                       "lookbackPrices":  [
+                                              133.24,
+                                              158.62,
+                                              155.99,
+                                              158.53,
+                                              154.29,
+                                              150.99,
+                                              158.37,
+                                              164.15
+                                          ],
+                       "outcomePrices":  [
+                                             164.15,
+                                             178.19,
+                                             154.39,
+                                             173.55,
+                                             188.44,
+                                             240.88,
+                                             243.45,
+                                             216.56
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A large enterprise software company selling cloud subscriptions for customer-facing work.",
+                                    "macroContext":  "Organizations are accelerating digital projects as employees and customers move online.",
+                                    "situation":  "Can a broad software platform capture urgent demand while integrating an expanding product portfolio?",
+                                    "longCase":  "Recurring contracts and cross-selling can deepen strategic relationships with large customers.",
+                                    "shortCase":  "Complex implementations, acquisition costs, and strong platform rivals can slow profitable growth.",
+                                    "setupHints":  [
+                                                       "Its products span sales, service, marketing, and analytics workflows."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A large enterprise technology vendor with a broad product portfolio.",
+                                      "macroContext":  "Businesses are prioritizing digital processes while scrutinizing sprawling supplier relationships.",
+                                      "situation":  "Can portfolio breadth increase customer value faster than it increases integration complexity?",
+                                      "longCase":  "Existing contracts can support renewals and expansion across more departments.",
+                                      "shortCase":  "Product overlap and acquisition costs can rise without delivering expected customer benefits.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A large provider of business technology.",
+                                    "macroContext":  "Customers are modernizing operations while demanding fewer, more integrated suppliers.",
+                                    "situation":  "Can a broader portfolio strengthen retention without making delivery and integration too complex?",
+                                    "longCase":  "Long customer relationships can expand as buyers consolidate more work with one provider.",
+                                    "shortCase":  "Overlap, competition, and integration expense can dilute the benefit of scale.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Salesforce. Demand for cloud-based customer workflows remained resilient in 2020 as companies accelerated digital transformation.",
+                   "funFact":  "The company was founded in 1999 around the idea of delivering business software over the internet.",
+                   "whyItMoved":  [
+                                      "Subscription and support revenue continued to grow.",
+                                      "Digital transformation increased demand for cloud workflows.",
+                                      "A broad acquisition strategy expanded the platform while adding integration risk."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ CRM",
+                        "url":  "https://finance.yahoo.com/quote/CRM/history/",
+                        "notes":  "Split-adjusted closes for 2020-01-02 and 2021-01-04; sampled lookback/outcome series and computed price return."
+                    },
+                    {
+                        "label":  "Salesforce SEC filings",
+                        "url":  "https://www.sec.gov/edgar/browse/?CIK=CRM\u0026owner=exclude\u0026action=getcompany",
+                        "notes":  "Annual filings covering business model, operating risks, company history, and the reported operating trends summarized in the reveal."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Phase 4B production candidate. Recognition bucket: famous. Authored fact-bank first and Hard first, then Medium/Easy. Payload-only editorial self-check retained the named peer set across difficulties, avoided correct-company dominance on Medium/Hard, kept both calls articulable, and found no unsupported candidate. No authoritative Gate 2 judgment is recorded. Phase-internal clean-Grok rewrite changed medium/hard only: removed the stored judge\u0027s company-pointing conjunctions while keeping concrete long/short tension. Stored Gate 2 evidence is preserved but stale for changed variants; clean rejudge required. Shared title unchanged, so no sibling-only rejudge expansion.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "Salesforce name and CRM ticker",
+                                                       "Salesforce",
+                                                       "Customer 360",
+                                                       "Trailhead",
+                                                       "Slack"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "Can a broad software platform capture urgent demand while integrating an expanding product portfolio?",
+                                                           "Recurring contracts and cross-selling can deepen strategic relationships with large customers.",
+                                                           "Complex implementations, acquisition costs, and strong platform rivals can slow profitable growth.",
+                                                           "Can portfolio breadth increase customer value faster than it increases integration complexity?",
+                                                           "Existing contracts can support renewals and expansion across more departments.",
+                                                           "Product overlap and acquisition costs can rise without delivering expected customer benefits.",
+                                                           "Can a broader portfolio strengthen retention without making delivery and integration too complex?",
+                                                           "Long customer relationships can expand as buyers consolidate more work with one provider.",
+                                                           "Overlap, competition, and integration expense can dilute the benefit of scale."
+                                                       ],
+                                    "prohibited":  [
+                                                       "Salesforce",
+                                                       "Customer 360",
+                                                       "Trailhead",
+                                                       "Slack",
+                                                       "customer workflow suite plus acquisitions",
+                                                       "cloud software breadth plus cross-sell",
+                                                       "sales-service-marketing portfolio"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Salesforce",
+                                                                  "Microsoft",
+                                                                  "ServiceNow",
+                                                                  "Adobe"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Microsoft",
+                                                                    "Oracle",
+                                                                    "ServiceNow",
+                                                                    "Salesforce",
+                                                                    "Adobe"
+                                                                ],
+                                                     "hard":  [
+                                                                  "Microsoft",
+                                                                  "Oracle",
+                                                                  "SAP",
+                                                                  "ServiceNow",
+                                                                  "Salesforce",
+                                                                  "Adobe"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "2020 chart silhouette plus company-specific product language",
+                                                                   "Organizations are accelerating digital projects as employees and customers move online. plus named product or brand",
+                                                                   "Can a broad software platform capture urgent demand while integrating an expanding product portfolio? plus CRM ticker or company name",
+                                                                   "customer workflow suite plus acquisitions",
+                                                                   "cloud software breadth plus cross-sell",
+                                                                   "sales-service-marketing portfolio"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Salesforce",
+                                             "Microsoft",
+                                             "ServiceNow",
+                                             "Adobe"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Microsoft",
+                                               "Oracle",
+                                               "ServiceNow",
+                                               "Salesforce"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "Microsoft",
+                                             "Oracle",
+                                             "SAP",
+                                             "ServiceNow"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:106bf1cb015011a6034642bcc74eb0888e066ead7529fb96d9fc80d500cabf47",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Salesforce",
+                                                                  "confidence":  94,
+                                                                  "pointingFact":  "Large enterprise cloud suite spanning sales, service, marketing, and analytics subscriptions for customer-facing work."
+                                                              },
+                                                              {
+                                                                  "company":  "Adobe",
+                                                                  "confidence":  36,
+                                                                  "pointingFact":  "Enterprise cloud software with marketing and analytics workflows sold on recurring subscriptions."
+                                                              },
+                                                              {
+                                                                  "company":  "Oracle",
+                                                                  "confidence":  28,
+                                                                  "pointingFact":  "Broad enterprise software vendor pushing cloud customer and application suites amid digital projects."
+                                                              },
+                                                              {
+                                                                  "company":  "ServiceNow",
+                                                                  "confidence":  24,
+                                                                  "pointingFact":  "Large enterprise workflow cloud platform capturing digital transformation budgets."
+                                                              },
+                                                              {
+                                                                  "company":  "HubSpot",
+                                                                  "confidence":  18,
+                                                                  "pointingFact":  "Cloud CRM platform covering marketing, sales, and service though smaller than a full enterprise suite."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  68,
+                                                                "cue":  "2020 digital acceleration and sticky multi-cloud subscriptions favor capturing urgent demand despite integration complexity."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:60f07dff52fd65cd99eac0f97779b8c49161f10dd1b5fecaf133a3e0311c09fb",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "Microsoft",
+                                                                    "confidence":  56,
+                                                                    "pointingFact":  "Broad enterprise portfolio spanning productivity, cloud, and collaboration as digital workflows accelerated."
+                                                                },
+                                                                {
+                                                                    "company":  "Salesforce",
+                                                                    "confidence":  52,
+                                                                    "pointingFact":  "Large vendor expanded by acquisitions, selling cross-department workflow software with integration complexity risk."
+                                                                },
+                                                                {
+                                                                    "company":  "Adobe",
+                                                                    "confidence":  46,
+                                                                    "pointingFact":  "Enterprise and creative workflow suite sold on renewal/expansion, spanning documents, marketing, and design."
+                                                                },
+                                                                {
+                                                                    "company":  "Oracle",
+                                                                    "confidence":  36,
+                                                                    "pointingFact":  "Broad enterprise stack where portfolio breadth can deepen accounts or increase product overlap."
+                                                                },
+                                                                {
+                                                                    "company":  "Cisco",
+                                                                    "confidence":  30,
+                                                                    "pointingFact":  "Large tech supplier with collaboration and infrastructure breadth under digital-process and vendor-consolidation pressure."
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "long",
+                                                                  "confidence":  61,
+                                                                  "cue":  "Business prioritization of digital processes supports renewals and expansion across an installed enterprise base."
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:5342471057a047015c1fa0d56bbe46ed4947870d5da250bad57df6525b0d999d",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "IBM",
+                                                                  "confidence":  41,
+                                                                  "pointingFact":  "Large mature business-tech provider with a broad portfolio and multi-year flat lookback prices, pitching consolidation while carrying integration complexity"
+                                                              },
+                                                              {
+                                                                  "company":  "Oracle",
+                                                                  "confidence":  34,
+                                                                  "pointingFact":  "Enterprise technology giant selling broader cloud-plus-apps stacks as customers seek fewer integrated suppliers"
+                                                              },
+                                                              {
+                                                                  "company":  "Microsoft",
+                                                                  "confidence":  33,
+                                                                  "pointingFact":  "Large business-tech platform whose workflow suite expanded with pandemic modernization and supplier consolidation"
+                                                              },
+                                                              {
+                                                                  "company":  "Cisco",
+                                                                  "confidence":  29,
+                                                                  "pointingFact":  "Large provider spanning infrastructure and collaboration with portfolio overlap risks and historically subdued multi-year price action"
+                                                              },
+                                                              {
+                                                                  "company":  "Salesforce",
+                                                                  "confidence":  27,
+                                                                  "pointingFact":  "Business-software consolidator broadening the customer stack through adjacent products while facing integration and competition concerns"
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  52,
+                                                                "cue":  "2020 modernization and buyer consolidation support wallet-share expansion for a large incumbent over about a year, despite integration drag"
+                                                            }
+                                          }
+                             }
+               }
+}

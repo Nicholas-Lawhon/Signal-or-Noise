@@ -1,0 +1,212 @@
+{
+  "id": "scenario_nvidia_2015_2017",
+  "status": "archived",
+  "company": {
+    "name": "Nvidia",
+    "ticker": "NVDA",
+    "exchange": "NASDAQ",
+    "sector": "Information Technology",
+    "industry": "Semiconductors",
+    "country": "United States",
+    "acceptedNames": ["nvidia", "nvda"],
+    "identityBannedTerms": ["CUDA", "GeForce", "Jensen Huang", "GPU"]
+  },
+  "scenario": {
+    "title": "Demand Cycle Test",
+    "decisionDate": "2015-01-02",
+    "endDate": "2017-01-03",
+    "decisionDateLabel": "2015",
+    "outcomeLabel": "Jan 2015 â†’ Jan 2017",
+    "holdingPeriodLabel": "2 years",
+    "era": "Computing infrastructure cycle",
+    "eraId": "cloud_and_ai_acceleration",
+    "contentPackIds": ["mvp_core", "sample_seed"],
+    "difficultySupported": ["easy", "medium", "hard"]
+  },
+  "marketData": {
+    "startingPrice": 5,
+    "endingPrice": 16.5,
+    "actualReturnPercent": 2.3,
+    "usesSplitAdjustedPrices": true,
+    "usesTotalReturn": false,
+    "preDecisionChartStartDate": "2012-01-03",
+    "preDecisionChartEndDate": "2015-01-02",
+    "outcomeChartStartDate": "2015-01-02",
+    "outcomeChartEndDate": "2017-01-03",
+    "lookbackPrices": [3, 3.5, 4, 4.2, 4, 4.5, 4.8, 5],
+    "outcomePrices": [5, 6, 7.5, 9, 11, 13, 15, 16.5]
+  },
+  "hiddenCard": {
+    "easy": {
+      "companyDescription": "A specialized chip designer whose high-performance hardware serves enthusiasts and commercial computing buyers.",
+      "macroContext": "Cloud platforms and data-heavy workloads are increasing demand for specialized processing power.",
+      "situation": "Can a niche hardware category expand into larger commercial workloads without being overpriced as a cycle?",
+      "longCase": "New commercial workloads could expand demand beyond the original enthusiast market.",
+      "shortCase": "A cyclical chip market and volatile expectations make early growth easy to overprice.",
+      "setupHints": [
+        "The company already holds a strong niche in performance-focused computing hardware."
+      ]
+    },
+    "medium": {
+      "companyDescription": "A technology component supplier with several types of customers.",
+      "macroContext": "Large business buyers are adjusting procurement as equipment budgets shift across categories.",
+      "situation": "Is stronger demand from a changing customer mix durable enough to support current expectations?",
+      "longCase": "More spending from additional customer groups could support revenue beyond the historical base.",
+      "shortCase": "Pricing pressure and uneven equipment budgets could reverse an early improvement in demand.",
+      "setupHints": []
+    },
+    "hard": {
+      "companyDescription": "A technology supplier.",
+      "macroContext": "Business buyers are reallocating equipment budgets while suppliers compete for a changing mix of orders.",
+      "situation": "Can a broader order base support earnings if purchasing patterns remain uneven?",
+      "longCase": "Orders from more customer groups could reduce reliance on any one source of demand.",
+      "shortCase": "Competitive pricing and delayed purchases could weaken results if budgets become more cautious.",
+      "setupHints": []
+    }
+  },
+  "reveal": {
+    "shortText": "That was Nvidia. Demand for its specialized chips broadened well beyond the original enthusiast market, and the stock more than tripled.",
+    "funFact": "Hardware once aimed mainly at enthusiasts became central to training modern machine-learning models.",
+    "whyItMoved": [
+      "Commercial and data-center demand for specialized processors rose.",
+      "Investors re-rated the company's addressable market.",
+      "Performance leadership supported premium pricing for a period."
+    ]
+  },
+  "sources": [
+    {
+      "label": "Prototype sample seed",
+      "url": "https://example.com/sources/nvidia-2015-2017",
+      "notes": "Placeholder sample content for Phase 3 pipeline; not production research."
+    }
+  ],
+  "review": {
+    "generatedByAi": true,
+    "humanReviewed": false,
+    "reviewNotes": "H029 rewrote Medium and Hard after H028 connected a 2015 semiconductor designer, large-computing buyers, multi-end-market demand, and a durable-shift debate to Nvidia. Medium peer set: Nvidia/AMD/Intel/Broadcom. Hard peer set: Intel/AMD/Broadcom/Qualcomm/Micron/Nvidia; the decision core addresses generic order diversification and equipment-budget risk. Easy and shared labels remain unchanged; Medium/Hard Gate 2 results were removed as stale.",
+    "factBank": {
+      "revealOnly": ["Nvidia brand", "GPU / CUDA narrative", "enthusiast-to-commercial expansion story"],
+      "decisionUseful": ["customer-mix diversification","equipment-budget demand","competitive pricing pressure","uneven order timing"],
+      "prohibited": ["CUDA","GeForce","Jensen Huang","GPU","purpose-built data-center wording","high-performance specialty silhouette","AI acceleration era label","semiconductor-niche-supplier Hard wording","month-precise Jan 2015 decision label","semiconductor designer plus multi-end-market 2015 demand conjunction","large-computing-operator component-supplier hook","original-niche to new-buyer-categories expansion wording"]
+    },
+    "easyLikelyGuesses": ["Nvidia", "AMD", "Intel"],
+    "mediumLikelyGuesses": ["Nvidia","AMD","Intel","Broadcom"],
+    "hardLikelyGuesses": ["Intel","AMD","Broadcom","Qualcomm","Micron","Nvidia"],
+    "gate2": {
+      "easy": {
+        "payloadHash": "sha256:4956778a35897149e93940d25d83a16739b0d8d87a1afa99203a83a95f93f338",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T18:00:00.000Z",
+        "guesses": [
+          {
+            "company": "NVIDIA",
+            "confidence": 84,
+            "pointingFact": "Specialized high-performance chip designer for enthusiasts and commercial buyers in 2015"
+          },
+          {
+            "company": "AMD",
+            "confidence": 48,
+            "pointingFact": "Performance computing chip peer expanding demand"
+          },
+          {
+            "company": "Intel",
+            "confidence": 36,
+            "pointingFact": "Commercial computing hardware demand expansion"
+          },
+          {
+            "company": "Qualcomm",
+            "confidence": 26,
+            "pointingFact": "Specialized chip designer across end markets"
+          },
+          {
+            "company": "Broadcom",
+            "confidence": 22,
+            "pointingFact": "Semiconductor commercial demand cycle name"
+          }
+        ],
+        "direction": {
+          "call": "long",
+          "confidence": 52,
+          "cue": "New commercial workloads could expand demand beyond the original niche"
+        }
+      },
+      "medium": {
+        "payloadHash": "sha256:4db7310de6e9ab39f5ac8c370ef1e9d37764ca37ae29b0f53835f7ff1b3ca0af",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T22:30:00.000Z",
+        "guesses": [
+          {
+            "company": "NVIDIA",
+            "confidence": 27,
+            "pointingFact": "2015 computing-component supplier with multiple customer types in an infrastructure demand cycle"
+          },
+          {
+            "company": "Intel",
+            "confidence": 18,
+            "pointingFact": "Broad technology component maker exposed to uneven equipment budgets"
+          },
+          {
+            "company": "AMD",
+            "confidence": 15,
+            "pointingFact": "Semiconductor supplier whose results hinge on a changing customer mix"
+          },
+          {
+            "company": "Broadcom",
+            "confidence": 12,
+            "pointingFact": "Component supplier competing for diversified order flow across computing end markets"
+          },
+          {
+            "company": "Micron",
+            "confidence": 10,
+            "pointingFact": "Computing infrastructure component vendor sensitive to procurement cycles"
+          }
+        ],
+        "direction": {
+          "call": "long",
+          "confidence": 40,
+          "cue": "Additional customer groups could make the demand improvement more durable than a single-cycle spike"
+        }
+      },
+      "hard": {
+        "payloadHash": "sha256:3bac612021dff8a1a63e9a07471d32185bf5359f0baecf06a6783d6a047f23d4",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T22:30:00.000Z",
+        "guesses": [
+          {
+            "company": "NVIDIA",
+            "confidence": 11,
+            "pointingFact": "2015 computing infrastructure cycle for a multi-customer technology supplier"
+          },
+          {
+            "company": "Intel",
+            "confidence": 10,
+            "pointingFact": "Technology supplier competing for reallocated equipment budgets"
+          },
+          {
+            "company": "AMD",
+            "confidence": 9,
+            "pointingFact": "Component supplier whose earnings track an uneven order cycle"
+          },
+          {
+            "company": "Broadcom",
+            "confidence": 7,
+            "pointingFact": "Technology supplier serving a changing mix of business buyers"
+          },
+          {
+            "company": "Qualcomm",
+            "confidence": 6,
+            "pointingFact": "Technology component firm exposed to competitive pricing in equipment markets"
+          }
+        ],
+        "direction": {
+          "call": "toss_up",
+          "confidence": 33,
+          "cue": "Broader orders could help, but cautious budgets and pricing pressure cut both ways"
+        }
+      }
+    }
+  }
+}

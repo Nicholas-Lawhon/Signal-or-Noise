@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["model", "promptVersion", "testedAt", "entries"],
+  "properties": {
+    "model": { "const": "grok-4.5" },
+    "promptVersion": { "const": "guess.v1+direction.v1" },
+    "testedAt": { "type": "string", "format": "date-time" },
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["judgeId", "guesses", "direction"],
+        "properties": {
+          "judgeId": { "type": "string", "minLength": 1 },
+          "guesses": {
+            "type": "array",
+            "description": "Exactly five distinct companies ordered by non-increasing confidence (highest first; ties allowed). Runtime validation enforces company uniqueness and ordering.",
+            "minItems": 5,
+            "maxItems": 5,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["company", "confidence", "pointingFact"],
+              "properties": {
+                "company": { "type": "string", "minLength": 1 },
+                "confidence": { "type": "integer", "minimum": 0, "maximum": 100 },
+                "pointingFact": { "type": "string", "minLength": 1 }
+              }
+            }
+          },
+          "direction": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["call", "confidence", "cue"],
+            "properties": {
+              "call": { "enum": ["long", "short", "toss_up"] },
+              "confidence": { "type": "integer", "minimum": 0, "maximum": 100 },
+              "cue": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      }
+    }
+  }
+}

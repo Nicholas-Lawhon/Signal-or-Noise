@@ -1,0 +1,305 @@
+{
+    "id":  "scenario_datadog_2021_2022",
+    "status":  "active",
+    "company":  {
+                    "name":  "Datadog",
+                    "ticker":  "DDOG",
+                    "exchange":  "NASDAQ",
+                    "sector":  "Technology",
+                    "industry":  "Software - Application",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "datadog"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "DogStatsD",
+                                                "Watchdog"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Usage Meter",
+                     "decisionDate":  "2021-11-01",
+                     "endDate":  "2022-11-01",
+                     "decisionDateLabel":  "Late 2021",
+                     "outcomeLabel":  "Late 2021 to late 2022",
+                     "holdingPeriodLabel":  "One year",
+                     "era":  "Cloud growth and rate shock",
+                     "eraId":  "rate_hike_inflation_era",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "phase_4b_wave"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  165.2,
+                       "endingPrice":  80.8,
+                       "actualReturnPercent":  -0.5109,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2019-11-01",
+                       "preDecisionChartEndDate":  "2021-11-01",
+                       "outcomeChartStartDate":  "2021-11-01",
+                       "outcomeChartEndDate":  "2022-11-01",
+                       "lookbackPrices":  [
+                                              34.02,
+                                              44.525,
+                                              89.59,
+                                              90.75,
+                                              85,
+                                              106.47,
+                                              165.2
+                                          ],
+                       "outcomePrices":  [
+                                             165.2,
+                                             178.11,
+                                             148.46,
+                                             114.89,
+                                             108.38,
+                                             97.14,
+                                             80.8
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A cloud monitoring and analytics platform helping engineering teams observe applications, infrastructure, logs, and security signals.",
+                                    "macroContext":  "Cloud adoption is strong, but usage-based software demand and high valuations face a changing rate environment.",
+                                    "situation":  "Can a unified monitoring platform expand with customer cloud usage fast enough to justify premium expectations?",
+                                    "longCase":  "More workloads and cross-selling additional products could raise spend within a sticky developer customer base.",
+                                    "shortCase":  "Cloud-cost optimization, capable rivals, and usage-sensitive billing could slow expansion abruptly.",
+                                    "setupHints":  [
+                                                       "Customers can start with infrastructure monitoring and add adjacent observability products."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "An enterprise software platform whose revenue expands with customer activity.",
+                                      "macroContext":  "Digital workloads remain complex while customers scrutinize consumption and overlapping tools.",
+                                      "situation":  "Can a broader product set offset slower usage growth inside existing accounts?",
+                                      "longCase":  "Integrated analysis and rising operational complexity can deepen adoption across customer teams.",
+                                      "shortCase":  "Optimization efforts, bundled rivals, and lower-cost alternatives can reduce usage before costs adjust.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A recurring enterprise software provider with activity-linked expansion.",
+                                    "macroContext":  "Customers are balancing system complexity against a new focus on efficiency.",
+                                    "situation":  "Can a broadening toolset grow faster than customers optimize usage?",
+                                    "longCase":  "Operational complexity can make integrated analysis more valuable across established accounts.",
+                                    "shortCase":  "Usage controls and credible alternatives can weaken expansion even when customer counts rise.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Datadog. Strong customer and product growth continued, but rising rates and cloud-cost optimization cut the valuation dramatically.",
+                   "funFact":  "Datadog expanded from infrastructure monitoring into a broad observability and security product portfolio.",
+                   "whyItMoved":  [
+                                      "Customers continued adopting multiple products across the platform.",
+                                      "Usage growth became more sensitive to customer cloud-optimization efforts.",
+                                      "Higher interest rates compressed valuations across high-growth cloud software."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ DDOG",
+                        "url":  "https://finance.yahoo.com/quote/DDOG/history/",
+                        "notes":  "Split-adjusted closes, chart samples, and return."
+                    },
+                    {
+                        "label":  "Datadog 2022 Form 10-K Ã¢â‚¬â€ SEC EDGAR",
+                        "url":  "https://www.sec.gov/edgar/browse/?CIK=1561550\u0026owner=exclude",
+                        "notes":  "Usage model, product expansion, customer adoption, competition, and reveal claims."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Moderate bucket. Stored Grok evidence identified usage-based technical-operations software and observability-style product expansion as the M/H identity path. Both variants now frame activity-linked enterprise software, system complexity, integrated analysis, optimization, and bundled competition across a broader cloud-software peer set. Easy is unchanged. Stored M/H results remain stale evidence pending blind rejudge.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "company/ticker",
+                                                       "named agents and products",
+                                                       "exact multi-product percentages"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "activity-linked expansion revenue",
+                                                           "system complexity",
+                                                           "cross-selling",
+                                                           "customer optimization",
+                                                           "bundled and lower-cost competition"
+                                                       ],
+                                    "prohibited":  [
+                                                       "named monitoring agent",
+                                                       "mascot branding",
+                                                       "exact customer-spend threshold"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Datadog",
+                                                                  "Dynatrace",
+                                                                  "New Relic",
+                                                                  "Splunk",
+                                                                  "Elastic"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Dynatrace",
+                                                                    "Datadog",
+                                                                    "Elastic",
+                                                                    "Splunk"
+                                                                ],
+                                                     "hard":  [
+                                                                  "Elastic",
+                                                                  "Dynatrace",
+                                                                  "Splunk",
+                                                                  "Datadog",
+                                                                  "Cloudflare"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "cloud-software chart plus observability category",
+                                                                   "exact product count plus technical-operations audience",
+                                                                   "usage model plus named monitoring agent"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Datadog",
+                                             "Dynatrace",
+                                             "New Relic",
+                                             "Splunk"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Snowflake",
+                                               "Elastic",
+                                               "MongoDB",
+                                               "Dynatrace"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "Snowflake",
+                                             "Elastic",
+                                             "MongoDB",
+                                             "Dynatrace"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:bccfd10e8e92e7e5bfff717173556286fbe7730757a02857e578140826787a98",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Datadog",
+                                                                  "confidence":  91,
+                                                                  "pointingFact":  "Unified cloud monitoring with logs, infra, APM, and security add-ons matches its land-and-expand observability suite."
+                                                              },
+                                                              {
+                                                                  "company":  "New Relic",
+                                                                  "confidence":  48,
+                                                                  "pointingFact":  "Application and infrastructure observability platform with usage-oriented commercial model in the same late-2021 cloud software cohort."
+                                                              },
+                                                              {
+                                                                  "company":  "Dynatrace",
+                                                                  "confidence":  42,
+                                                                  "pointingFact":  "Enterprise monitoring platform sold as a broader observability stack tied to cloud workload growth."
+                                                              },
+                                                              {
+                                                                  "company":  "Splunk",
+                                                                  "confidence":  35,
+                                                                  "pointingFact":  "Log analytics and security monitoring franchise that expanded into broader observability products."
+                                                              },
+                                                              {
+                                                                  "company":  "Elastic",
+                                                                  "confidence":  28,
+                                                                  "pointingFact":  "Search-based observability stack covering logs, metrics, and security signals for cloud customers."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  72,
+                                                                "cue":  "Late-2021 premium after a huge multi-year run into a rate-shock and cloud-cost optimization regime favors multiple compression."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:8bc62038f9b3ed3272deec54c4e0213cb951d2b6d9ea92e7912146d6ff7e9b3b",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "Snowflake",
+                                                                    "confidence":  58,
+                                                                    "pointingFact":  "Late-2021 consumption-based enterprise data platform after a parabolic run, exposed to customer usage optimization."
+                                                                },
+                                                                {
+                                                                    "company":  "Datadog",
+                                                                    "confidence":  44,
+                                                                    "pointingFact":  "Activity-linked observability suite expanding products as customers scrutinize overlapping cloud tool spend."
+                                                                },
+                                                                {
+                                                                    "company":  "MongoDB",
+                                                                    "confidence":  33,
+                                                                    "pointingFact":  "Enterprise data platform with usage-driven cloud revenue facing optimization and lower-cost alternatives."
+                                                                },
+                                                                {
+                                                                    "company":  "Elastic N.V.",
+                                                                    "confidence":  24,
+                                                                    "pointingFact":  "Search/observability software where consumption growth and product breadth offset tool consolidation risk."
+                                                                },
+                                                                {
+                                                                    "company":  "Twilio",
+                                                                    "confidence":  22,
+                                                                    "pointingFact":  "Usage-metered communications cloud sensitive to customer cost-cutting after a large valuation re-rating."
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "short",
+                                                                  "confidence":  68,
+                                                                  "cue":  "Near-fivefold lookback surge into rate-shock scrutiny of consumption software, with optimization able to cut usage before costs flex."
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:0fc32fe18e6276845bdd7b40f85f703bf16e6726f331888c2ab939ec4b7b3386",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Snowflake",
+                                                                  "confidence":  50,
+                                                                  "pointingFact":  "Usage-metered enterprise data cloud with a parabolic late-2021 re-rating and clear customer optimization risk."
+                                                              },
+                                                              {
+                                                                  "company":  "Datadog",
+                                                                  "confidence":  30,
+                                                                  "pointingFact":  "Activity-linked observability suite broadening tools as buyers shifted from growth to efficiency."
+                                                              },
+                                                              {
+                                                                  "company":  "MongoDB",
+                                                                  "confidence":  18,
+                                                                  "pointingFact":  "Recurring database franchise with consumption-driven expansion vulnerable to usage controls."
+                                                              },
+                                                              {
+                                                                  "company":  "Elastic",
+                                                                  "confidence":  14,
+                                                                  "pointingFact":  "Usage-sensitive search/observability software into the cloud growth and rate-shock transition."
+                                                              },
+                                                              {
+                                                                  "company":  "Twilio",
+                                                                  "confidence":  12,
+                                                                  "pointingFact":  "Consumption-based communications platform where logo growth can mask weaker expansion economics."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  72,
+                                                                "cue":  "Late-2021 usage-software peak into rate shock and deliberate customer optimization over a one-year hold."
+                                                            }
+                                          }
+                             }
+               }
+}

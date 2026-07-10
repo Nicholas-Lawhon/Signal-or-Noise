@@ -1,0 +1,1407 @@
+{
+  "model": "grok-4.5",
+  "promptVersion": "guess.v1+direction.v1",
+  "testedAt": "2026-07-10T04:30:00.000Z",
+  "entries": [
+    {
+      "judgeId": "blind_0001",
+      "guesses": [
+        {
+          "company": "Adobe",
+          "confidence": 52,
+          "pointingFact": "Large pure subscription software franchise where renewals and cross-sell must offset fading first-time conversions."
+        },
+        {
+          "company": "Salesforce",
+          "confidence": 48,
+          "pointingFact": "Enterprise subscription platform with a huge installed base facing late-cycle growth saturation questions in 2019."
+        },
+        {
+          "company": "Microsoft",
+          "confidence": 36,
+          "pointingFact": "Broad durable software platforms consolidating enterprise spend via recurring contracts and upsell."
+        },
+        {
+          "company": "Oracle",
+          "confidence": 28,
+          "pointingFact": "Large incumbent subscription/cloud software provider competing on renewals against capable alternatives."
+        },
+        {
+          "company": "ServiceNow",
+          "confidence": 22,
+          "pointingFact": "High-retention enterprise subscription software whose growth depends on expanding an existing customer base."
+        }
+      ],
+      "direction": {
+        "call": "toss_up",
+        "confidence": 42,
+        "cue": "Cash-flow and renewal strengths offset saturation risk, while lookback prices already rolled over from a late-cycle peak."
+      }
+    },
+    {
+      "judgeId": "blind_0002",
+      "guesses": [
+        {
+          "company": "Airbnb",
+          "confidence": 86,
+          "pointingFact": "Asset-light marketplace matching travelers to fragmented non-hotel lodging supply during pandemic reopening."
+        },
+        {
+          "company": "Booking Holdings",
+          "confidence": 48,
+          "pointingFact": "Global travel marketplace with flexible lodging inventory and recovery tied to trip-pattern shifts."
+        },
+        {
+          "company": "Expedia Group",
+          "confidence": 40,
+          "pointingFact": "Online travel marketplace exposed to reopening demand and alternative lodging brands."
+        },
+        {
+          "company": "Tripadvisor",
+          "confidence": 24,
+          "pointingFact": "Travel platform monetizing lodging discovery as leisure demand returns unevenly by city and country."
+        },
+        {
+          "company": "Marriott Vacations Worldwide",
+          "confidence": 12,
+          "pointingFact": "Lodging-adjacent brand network, though less purely an asset-light open marketplace."
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 61,
+        "cue": "Early-2021 reopening setup plus rising lookback prices favor flexible global supply capturing recovering travel."
+      }
+    },
+    {
+      "judgeId": "blind_0003",
+      "guesses": [
+        {
+          "company": "Meta Platforms",
+          "confidence": 74,
+          "pointingFact": "Large consumer internet advertiser with elevated long-term investment spend during the 2022 ad and rate reset."
+        },
+        {
+          "company": "Alphabet",
+          "confidence": 58,
+          "pointingFact": "Consumer internet plus cloud giant whose ad demand is sensitive to slowing growth and higher financing costs."
+        },
+        {
+          "company": "Amazon",
+          "confidence": 34,
+          "pointingFact": "Consumer internet and cloud scale player with heavy investment cycles and advertising exposure."
+        },
+        {
+          "company": "Snap",
+          "confidence": 26,
+          "pointingFact": "Ad-funded consumer internet name hit hard when marketers cut budgets in a 2022 slowdown."
+        },
+        {
+          "company": "Pinterest",
+          "confidence": 16,
+          "pointingFact": "Consumer attention platform reliant on advertising demand during an inflation-driven spend reset."
+        }
+      ],
+      "direction": {
+        "call": "short",
+        "confidence": 57,
+        "cue": "Payload stresses cautious advertisers plus costly multi-year projects just as rates and growth reset in 2022."
+      }
+    },
+    {
+      "judgeId": "blind_0004",
+      "guesses": [
+        {
+          "company": "Advanced Micro Devices",
+          "confidence": 78,
+          "pointingFact": "Semiconductor designer trying to turn better execution into share gains across PC and data-center markets in 2019."
+        },
+        {
+          "company": "NVIDIA",
+          "confidence": 44,
+          "pointingFact": "Chip design firm spanning multiple computing end markets amid architecture and process transitions."
+        },
+        {
+          "company": "Intel",
+          "confidence": 32,
+          "pointingFact": "Broad computing semiconductor franchise where customers reassess suppliers as new process nodes arrive."
+        },
+        {
+          "company": "Qualcomm",
+          "confidence": 26,
+          "pointingFact": "Design-focused semiconductor company serving several device and computing-related markets."
+        },
+        {
+          "company": "Broadcom",
+          "confidence": 18,
+          "pointingFact": "Semiconductor design supplier across enterprise and consumer computing sockets with rapid product cycles."
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 54,
+        "cue": "Execution-window long case is specific, and lookback already corrected hard after a vertical run-up."
+      }
+    },
+    {
+      "judgeId": "blind_0005",
+      "guesses": [
+        {
+          "company": "AppLovin",
+          "confidence": 72,
+          "pointingFact": "Mobile publisher ad exchange known for rebuilding matching with a new prediction system amid privacy and budget shocks."
+        },
+        {
+          "company": "Unity Software",
+          "confidence": 50,
+          "pointingFact": "Mobile-centric ad software stack for publishers facing privacy changes and volatile marketing spend in late 2022."
+        },
+        {
+          "company": "Magnite",
+          "confidence": 34,
+          "pointingFact": "Ad-tech exchange optimizing publisher monetization as targeting and measurement are rebuilt."
+        },
+        {
+          "company": "Digital Turbine",
+          "confidence": 28,
+          "pointingFact": "Mobile advertising software platform dependent on app distribution and publisher monetization trends."
+        },
+        {
+          "company": "The Trade Desk",
+          "confidence": 22,
+          "pointingFact": "Software platform improving ad auction efficiency, though less exclusively mobile-publisher focused."
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 56,
+        "cue": "Extreme multi-leg price collapse into late 2022 plus a concrete prediction-engine catalyst supports a recovery long."
+      }
+    },
+    {
+      "judgeId": "blind_0006",
+      "guesses": [
+        {
+          "company": "Block",
+          "confidence": 78,
+          "pointingFact": "Two separate merchant and consumer ecosystems plus cross-sell of software and financial services, with acquisition-integration risk in late 2021."
+        },
+        {
+          "company": "PayPal",
+          "confidence": 48,
+          "pointingFact": "Merchant checkout and consumer wallet networks framed as two user bases needing a coherent profit engine."
+        },
+        {
+          "company": "Shopify",
+          "confidence": 28,
+          "pointingFact": "Merchant platform expanding into financial services during fintech normalization after a large re-rating."
+        },
+        {
+          "company": "Affirm",
+          "confidence": 22,
+          "pointingFact": "Consumer-facing fintech with volatile low-margin activity and a late-2021 peak valuation setup."
+        },
+        {
+          "company": "Square",
+          "confidence": 18,
+          "pointingFact": "Legacy merchant-payments identity for the same two-sided software-plus-finance story if still labeled separately."
+        }
+      ],
+      "direction": {
+        "call": "short",
+        "confidence": 72,
+        "cue": "Late-2021 decision after a multi-year price explosion into rising capital costs, with integration and low-margin activity as the short case."
+      }
+    },
+    {
+      "judgeId": "blind_0007",
+      "guesses": [
+        {
+          "company": "Boeing",
+          "confidence": 88,
+          "pointingFact": "Spring 2019 capital-goods leader facing certification, delivery restoration, oversight pressure, and commercial-plus-government programs."
+        },
+        {
+          "company": "Spirit AeroSystems",
+          "confidence": 32,
+          "pointingFact": "Supplier tightly tied to a major commercial airframe program hit by production and certification disruption."
+        },
+        {
+          "company": "Airbus",
+          "confidence": 16,
+          "pointingFact": "Large commercial aircraft manufacturer with multi-year programs, weaker fit for a U.S.-style certification setback cue."
+        },
+        {
+          "company": "General Electric",
+          "confidence": 14,
+          "pointingFact": "Industrial group with aviation and multi-year program exposure under late-cycle oversight pressure."
+        },
+        {
+          "company": "Lockheed Martin",
+          "confidence": 10,
+          "pointingFact": "Government-heavy capital-goods manufacturer, but less matched to a commercial delivery-restoration crisis."
+        }
+      ],
+      "direction": {
+        "call": "short",
+        "confidence": 68,
+        "cue": "Major program setback with claims, idle capacity, and cash risk over a one-year path into late-cycle uncertainty."
+      }
+    },
+    {
+      "judgeId": "blind_0008",
+      "guesses": [
+        {
+          "company": "Chipotle Mexican Grill",
+          "confidence": 76,
+          "pointingFact": "National chain turnaround centered on rebuilding trust in food preparation after reputation damage, around 2018."
+        },
+        {
+          "company": "McDonald's",
+          "confidence": 34,
+          "pointingFact": "Large national restaurant operator emphasizing operational consistency and new digital ordering channels."
+        },
+        {
+          "company": "Starbucks",
+          "confidence": 26,
+          "pointingFact": "National chain balancing convenience, traffic recovery, and more complex digital ordering."
+        },
+        {
+          "company": "Yum! Brands",
+          "confidence": 15,
+          "pointingFact": "Multi-brand national restaurant operator exposed to traffic, reputation, and cost inflation."
+        },
+        {
+          "company": "Domino's Pizza",
+          "confidence": 12,
+          "pointingFact": "National chain where digital ordering execution is central to traffic and unit economics."
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 58,
+        "cue": "Lookback already shows deep reputation drawdown into 2018, while the long case is operational cleanup plus digital convenience on an existing base."
+      }
+    },
+    {
+      "judgeId": "blind_0009",
+      "guesses": [
+        {
+          "company": "Cloudflare",
+          "confidence": 56,
+          "pointingFact": "Usage-sensitive edge/traffic platform expanding customer relationships while big platforms bundle security and performance."
+        },
+        {
+          "company": "Fastly",
+          "confidence": 52,
+          "pointingFact": "Traffic-driven CDN specialist in the 2020 pandemic surge with investment and competitive-margin pressure."
+        },
+        {
+          "company": "Akamai Technologies",
+          "confidence": 42,
+          "pointingFact": "Incumbent distributed internet infrastructure provider monetizing traffic and adjacent security tools."
+        },
+        {
+          "company": "Limelight Networks",
+          "confidence": 18,
+          "pointingFact": "Smaller usage-sensitive content-delivery name exposed to traffic growth and price competition."
+        },
+        {
+          "company": "Cloudflare Workers / edge peers",
+          "confidence": 12,
+          "pointingFact": "Weaker residual guess for edge compute layered on traffic infrastructure rather than a distinct listed pure-play."
+        }
+      ],
+      "direction": {
+        "call": "toss_up",
+        "confidence": 50,
+        "cue": "Pandemic traffic growth is constructive, but bundled platform competition, heavy investment, and choppy lookback prices keep the one-year path mixed."
+      }
+    },
+    {
+      "judgeId": "blind_0010",
+      "guesses": [
+        {
+          "company": "CrowdStrike",
+          "confidence": 58,
+          "pointingFact": "Subscription security platform for security teams with high retention and cross-sell after the early-2023 software reset."
+        },
+        {
+          "company": "Zscaler",
+          "confidence": 52,
+          "pointingFact": "Cloud security control-plane style platform competing for consolidating enterprise security budgets."
+        },
+        {
+          "company": "Palo Alto Networks",
+          "confidence": 46,
+          "pointingFact": "Broad security platformization story aimed at winning share of fixed security spend."
+        },
+        {
+          "company": "Okta",
+          "confidence": 34,
+          "pointingFact": "Identity security subscription vendor facing delayed enterprise deals and a valuation reset."
+        },
+        {
+          "company": "SentinelOne",
+          "confidence": 24,
+          "pointingFact": "Endpoint security pure-play with growth-efficiency and crowded-competition pressure after a sharp drawdown."
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 57,
+        "cue": "Entry after a roughly half-off lookback drawdown, with sticky security budgets, retention, and cross-sell as the long case into early 2023."
+      }
+    },
+    {
+      "judgeId": "blind_0011",
+      "guesses": [
+        {
+          "company": "Datadog",
+          "confidence": 78,
+          "pointingFact": "Usage-based platform for technical operations teams with multi-product expansion into late-2021 cloud growth"
+        },
+        {
+          "company": "Elastic",
+          "confidence": 42,
+          "pointingFact": "Observability/search stack sold on consumption with open-source competitive pressure"
+        },
+        {
+          "company": "New Relic",
+          "confidence": 38,
+          "pointingFact": "APM/observability for engineering teams with consumption pricing and product bundling"
+        },
+        {
+          "company": "Dynatrace",
+          "confidence": 32,
+          "pointingFact": "Enterprise observability suite competing on integrated tooling for ops teams"
+        },
+        {
+          "company": "Splunk",
+          "confidence": 28,
+          "pointingFact": "Log/ops analytics historically tied to data volume and cloud workload growth"
+        }
+      ],
+      "direction": {
+        "call": "short",
+        "confidence": 68,
+        "cue": "Late-2021 rate-shock era plus customer optimization and open-source alternatives after a large multi-year price run-up"
+      }
+    },
+    {
+      "judgeId": "blind_0012",
+      "guesses": [
+        {
+          "company": "The Walt Disney Company",
+          "confidence": 82,
+          "pointingFact": "Diversified media owner launching a direct streaming service while protecting parks/linear cash flows in 2019"
+        },
+        {
+          "company": "AT&T",
+          "confidence": 40,
+          "pointingFact": "Large media owner via WarnerMedia testing HBO Max-style DTC against legacy distribution"
+        },
+        {
+          "company": "Comcast",
+          "confidence": 36,
+          "pointingFact": "Diversified cable/media group weighing Peacock-style direct distribution vs affiliate economics"
+        },
+        {
+          "company": "ViacomCBS",
+          "confidence": 30,
+          "pointingFact": "Catalogue-driven media conglomerate shifting toward owned streaming apps"
+        },
+        {
+          "company": "Discovery",
+          "confidence": 24,
+          "pointingFact": "Unscripted catalogue owner experimenting with direct consumer apps in the streaming wars"
+        }
+      ],
+      "direction": {
+        "call": "toss_up",
+        "confidence": 52,
+        "cue": "Brand catalogue support versus heavy launch spend and channel cannibalization, with only a flat lookback into early 2019"
+      }
+    },
+    {
+      "judgeId": "blind_0013",
+      "guesses": [
+        {
+          "company": "DocuSign",
+          "confidence": 74,
+          "pointingFact": "Specialist cloud workflow for agreements/processes that saw pandemic adoption and suite competition fears"
+        },
+        {
+          "company": "Adobe",
+          "confidence": 40,
+          "pointingFact": "Document Cloud and workflow tools embedded in business processes with broader suite bundling"
+        },
+        {
+          "company": "ServiceNow",
+          "confidence": 38,
+          "pointingFact": "Cloud workflow platform for enterprise process digitization with sticky operational embedding"
+        },
+        {
+          "company": "Dropbox",
+          "confidence": 28,
+          "pointingFact": "Cloud collaboration software for remote work processes facing suite competition"
+        },
+        {
+          "company": "Box",
+          "confidence": 26,
+          "pointingFact": "Cloud content workflow specialist versus broader platform suites in pandemic digitization"
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 66,
+        "cue": "Early-2020 remote digitization plus sticky workflow embedding after a steady multi-year price climb"
+      }
+    },
+    {
+      "judgeId": "blind_0014",
+      "guesses": [
+        {
+          "company": "Etsy",
+          "confidence": 80,
+          "pointingFact": "Asset-light marketplace for independent merchants with pandemic online surge and reopening fade risk"
+        },
+        {
+          "company": "eBay",
+          "confidence": 48,
+          "pointingFact": "Asset-light online marketplace for third-party sellers seeing accelerated digital commerce"
+        },
+        {
+          "company": "Shopify",
+          "confidence": 42,
+          "pointingFact": "Enables independent merchants online; often framed with marketplace-like network dynamics in 2020"
+        },
+        {
+          "company": "MercadoLibre",
+          "confidence": 30,
+          "pointingFact": "Asset-light e-commerce marketplace benefiting from pandemic shift to online merchants and buyers"
+        },
+        {
+          "company": "Farfetch",
+          "confidence": 22,
+          "pointingFact": "Online marketplace model for independent brand/merchant inventory during digital acceleration"
+        }
+      ],
+      "direction": {
+        "call": "toss_up",
+        "confidence": 55,
+        "cue": "Durable buyer-seller network effects versus reopening and merchant competition after a volatile lookback already off highs"
+      }
+    },
+    {
+      "judgeId": "blind_0015",
+      "guesses": [
+        {
+          "company": "Fastly",
+          "confidence": 72,
+          "pointingFact": "Usage-based edge/CDN infrastructure with traffic-driven revenue and well-known customer concentration risk"
+        },
+        {
+          "company": "Cloudflare",
+          "confidence": 62,
+          "pointingFact": "Usage-linked cloud security/CDN specialist gaining from internet traffic while facing hyperscaler bundles"
+        },
+        {
+          "company": "Akamai",
+          "confidence": 48,
+          "pointingFact": "Traffic-driven cloud delivery infrastructure competing with integrated platform CDNs"
+        },
+        {
+          "company": "DigitalOcean",
+          "confidence": 26,
+          "pointingFact": "Usage-based cloud infrastructure specialist for developers with larger platform competitors"
+        },
+        {
+          "company": "Twilio",
+          "confidence": 22,
+          "pointingFact": "Usage-based cloud infrastructure for communications traffic with concentration and platform competition themes"
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 58,
+        "cue": "Early-2020 surge in internet demand can lift usage revenue faster than sales costs despite concentration risk"
+      }
+    },
+    {
+      "judgeId": "blind_0016",
+      "guesses": [
+        {
+          "company": "General Motors",
+          "confidence": 48,
+          "pointingFact": "Legacy durable-goods manufacturer in early-2021 chip-shortage pricing power plus EV/product-tech transition."
+        },
+        {
+          "company": "Ford",
+          "confidence": 45,
+          "pointingFact": "Established auto OEM facing component shortages while funding a major product-technology shift."
+        },
+        {
+          "company": "Whirlpool",
+          "confidence": 32,
+          "pointingFact": "Legacy durable-goods maker tied to renewed household demand and supply-constrained shipments."
+        },
+        {
+          "company": "Stellantis",
+          "confidence": 28,
+          "pointingFact": "Large legacy vehicle producer navigating tight inventories and a multi-year product refresh."
+        },
+        {
+          "company": "Caterpillar",
+          "confidence": 22,
+          "pointingFact": "Established equipment manufacturer with cyclical supply limits and technology-heavy product cycles."
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 52,
+        "cue": "Scarce inventories and renewed durable demand can lift pricing even if transition costs are elevated."
+      }
+    },
+    {
+      "judgeId": "blind_0017",
+      "guesses": [
+        {
+          "company": "Intel",
+          "confidence": 78,
+          "pointingFact": "Integrated chipmaker repairing a lagging process roadmap while racing to fund advanced capacity in mid-2021."
+        },
+        {
+          "company": "Samsung Electronics",
+          "confidence": 38,
+          "pointingFact": "Integrated semiconductor producer serving compute/infrastructure with large advanced-fab spending."
+        },
+        {
+          "company": "GlobalFoundries",
+          "confidence": 24,
+          "pointingFact": "Manufacturing-scale semiconductor firm in the shortage-era capacity expansion cycle."
+        },
+        {
+          "company": "Texas Instruments",
+          "confidence": 20,
+          "pointingFact": "Integrated chip company with broad industrial/compute exposure and heavy manufacturing investment."
+        },
+        {
+          "company": "Micron Technology",
+          "confidence": 18,
+          "pointingFact": "Semiconductor producer in a capacity-cycle, shortage-driven mid-2021 setup."
+        }
+      ],
+      "direction": {
+        "call": "short",
+        "confidence": 58,
+        "cue": "Roadmap repair plus large factory commitments can crush cash flow while focused rivals take share."
+      }
+    },
+    {
+      "judgeId": "blind_0018",
+      "guesses": [
+        {
+          "company": "Lemonade",
+          "confidence": 72,
+          "pointingFact": "Flagship digital consumer insurer automating sales, underwriting, and claims during the mid-2021 insurtech reset."
+        },
+        {
+          "company": "Root Insurance",
+          "confidence": 48,
+          "pointingFact": "Young digital personal-lines insurer with thin loss history and capital-sensitive unit economics."
+        },
+        {
+          "company": "Hippo",
+          "confidence": 40,
+          "pointingFact": "Digital home insurer facing rising severity/reinsurance costs and maturing policy-book questions."
+        },
+        {
+          "company": "Oscar Health",
+          "confidence": 30,
+          "pointingFact": "Tech-forward consumer insurer with growth versus underwriting and capital trade-offs."
+        },
+        {
+          "company": "Metromile",
+          "confidence": 22,
+          "pointingFact": "Digital consumer auto insurer with a young book and volatile loss-ratio narrative."
+        }
+      ],
+      "direction": {
+        "call": "short",
+        "confidence": 63,
+        "cue": "Rising severity, reinsurance costs, and thin underwriting history imply repeated capital and pricing pain."
+      }
+    },
+    {
+      "judgeId": "blind_0019",
+      "guesses": [
+        {
+          "company": "Lululemon",
+          "confidence": 74,
+          "pointingFact": "Premium DTC apparel brand blending performance and everyday wear with category and geographic expansion."
+        },
+        {
+          "company": "Nike",
+          "confidence": 42,
+          "pointingFact": "Premium athletic apparel name expanding categories via direct relationships and multi-channel retail."
+        },
+        {
+          "company": "Under Armour",
+          "confidence": 28,
+          "pointingFact": "Performance apparel brand pushed into lifestyle categories amid late-cycle competition."
+        },
+        {
+          "company": "Adidas",
+          "confidence": 24,
+          "pointingFact": "Premium sportswear brand balancing brand equity with broader lifestyle expansion."
+        },
+        {
+          "company": "Canada Goose",
+          "confidence": 18,
+          "pointingFact": "Premium DTC-leaning apparel brand testing category and market expansion without dilution."
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 55,
+        "cue": "Strong loyalty and DTC pricing power can fund adjacent growth before late-cycle demand fades."
+      }
+    },
+    {
+      "judgeId": "blind_0020",
+      "guesses": [
+        {
+          "company": "Meta Platforms",
+          "confidence": 76,
+          "pointingFact": "Huge ad-funded audience platform defending growth while funding a multi-year investment program into early 2022 rate hikes."
+        },
+        {
+          "company": "Alphabet",
+          "confidence": 44,
+          "pointingFact": "Large digital advertising media business facing cautious marketers and margin pressure in the rate-hike era."
+        },
+        {
+          "company": "Snap",
+          "confidence": 36,
+          "pointingFact": "Ad-dependent digital media company sensitive to attention competition and marketing budget cuts."
+        },
+        {
+          "company": "Pinterest",
+          "confidence": 28,
+          "pointingFact": "Audience-driven ad platform needing commercial demand resilience amid higher rates."
+        },
+        {
+          "company": "Roku",
+          "confidence": 20,
+          "pointingFact": "Digital media/ad platform exposed to weaker online advertising spend in early 2022."
+        }
+      ],
+      "direction": {
+        "call": "short",
+        "confidence": 64,
+        "cue": "Rate-driven ad caution plus heavy multi-year investment can compress growth and margins together."
+      }
+    },
+    {
+      "judgeId": "blind_0021",
+      "guesses": [
+        {
+          "company": "MongoDB",
+          "confidence": 72,
+          "pointingFact": "Developer-standard database with grassroots adoption converting into Atlas-style managed-service contracts against cloud-vendor bundling."
+        },
+        {
+          "company": "Elastic",
+          "confidence": 48,
+          "pointingFact": "Developer-led search/data stack monetized via managed cloud while hyperscalers ship competing services."
+        },
+        {
+          "company": "Confluent",
+          "confidence": 40,
+          "pointingFact": "Kafka as a developer data-infrastructure standard with managed-cloud upsell before platforms absorb streaming."
+        },
+        {
+          "company": "Datadog",
+          "confidence": 28,
+          "pointingFact": "Developer-oriented infrastructure product with usage-based expansion inside existing cloud accounts."
+        },
+        {
+          "company": "Snowflake",
+          "confidence": 22,
+          "pointingFact": "Cloud data platform growing with enterprise modernization and concentrated cloud spend, though less pure grassroots open-source adoption."
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 55,
+        "cue": "Pandemic-era app modernization and workload growth support land-and-expand usage even after a lookback pullback from peak."
+      }
+    },
+    {
+      "judgeId": "blind_0022",
+      "guesses": [
+        {
+          "company": "Nike",
+          "confidence": 68,
+          "pointingFact": "Global brand shifting to direct while wholesale restocks create a late-2021 full-shelves inventory reset risk."
+        },
+        {
+          "company": "Lululemon",
+          "confidence": 45,
+          "pointingFact": "Premium global consumer brand with strong DTC economics exposed to discretionary demand and channel inventory."
+        },
+        {
+          "company": "Adidas",
+          "confidence": 38,
+          "pointingFact": "Wholesale-heavy global apparel brand balancing direct growth as retailers rebuild stock into inflation."
+        },
+        {
+          "company": "Under Armour",
+          "confidence": 30,
+          "pointingFact": "Consumer athletic brand historically hit by excess inventory, markdowns, and channel conflict."
+        },
+        {
+          "company": "VF Corporation",
+          "confidence": 22,
+          "pointingFact": "Multi-brand apparel group spanning wholesale and direct channels sensitive to inventory gluts."
+        }
+      ],
+      "direction": {
+        "call": "short",
+        "confidence": 70,
+        "cue": "Late-2021 reopening inventory rebuild plus inflation and high logistics costs set up markdowns over a one-year hold."
+      }
+    },
+    {
+      "judgeId": "blind_0023",
+      "guesses": [
+        {
+          "company": "Okta",
+          "confidence": 78,
+          "pointingFact": "Enterprise access/identity control layer that acquired a developer auth offering around the cloud-security consolidation era."
+        },
+        {
+          "company": "CyberArk",
+          "confidence": 32,
+          "pointingFact": "Subscription access-security platform adjacent to identity consolidation and enterprise control-plane budgets."
+        },
+        {
+          "company": "Ping Identity",
+          "confidence": 28,
+          "pointingFact": "Identity and access management pure-play competing for the same enterprise access layer budgets."
+        },
+        {
+          "company": "CrowdStrike",
+          "confidence": 20,
+          "pointingFact": "Subscription security platform in the same consolidation cycle, though less centered on application access."
+        },
+        {
+          "company": "Zscaler",
+          "confidence": 18,
+          "pointingFact": "Cloud security subscription business tied to access modernization and vendor-count scrutiny."
+        }
+      ],
+      "direction": {
+        "call": "short",
+        "confidence": 65,
+        "cue": "Late-2021 entry after a large run, with integration, sales attrition, and budget scrutiny risks into a one-year tech derating."
+      }
+    },
+    {
+      "judgeId": "blind_0024",
+      "guesses": [
+        {
+          "company": "PayPal",
+          "confidence": 75,
+          "pointingFact": "Two-sided consumer-merchant checkout network whose pandemic e-commerce boom faced late-2021 growth normalization."
+        },
+        {
+          "company": "Block",
+          "confidence": 55,
+          "pointingFact": "Two-sided payments platform linking consumer cash app engagement with merchant acceptance."
+        },
+        {
+          "company": "Shopify",
+          "confidence": 30,
+          "pointingFact": "Merchant-centric digital commerce platform exposed to e-commerce peak fade and valuation compression."
+        },
+        {
+          "company": "Adyen",
+          "confidence": 25,
+          "pointingFact": "Global merchant payments platform tied to digital spending volume after an unusual growth peak."
+        },
+        {
+          "company": "Affirm",
+          "confidence": 20,
+          "pointingFact": "Consumer-merchant digital checkout financing sensitive to discretionary spending and higher rates."
+        }
+      ],
+      "direction": {
+        "call": "short",
+        "confidence": 75,
+        "cue": "Lookback peak-and-pullback plus e-commerce normalization, inflation, and rate-driven multiple pressure favor the short case."
+      }
+    },
+    {
+      "judgeId": "blind_0025",
+      "guesses": [
+        {
+          "company": "Peloton",
+          "confidence": 80,
+          "pointingFact": "Consumer subscription paired with specialized fitness hardware and classic pandemic demand pull-forward."
+        },
+        {
+          "company": "Netflix",
+          "confidence": 25,
+          "pointingFact": "At-home subscription surge during lockdowns, though hardware is not the core product pairing."
+        },
+        {
+          "company": "Roku",
+          "confidence": 18,
+          "pointingFact": "At-home hardware plus platform adoption accelerated by pandemic viewing, with retention questions later."
+        },
+        {
+          "company": "iRobot",
+          "confidence": 14,
+          "pointingFact": "Specialized consumer hardware demand spiked with at-home time and supply-chain constraints."
+        },
+        {
+          "company": "Sonos",
+          "confidence": 12,
+          "pointingFact": "Consumer audio hardware benefiting from home time, less a pure recurring subscription model."
+        }
+      ],
+      "direction": {
+        "call": "short",
+        "confidence": 58,
+        "cue": "Capacity bottlenecks and reopening threaten to reclassify exceptional 2020 acquisition as a temporary spike within about a year."
+      }
+    },
+    {
+      "judgeId": "blind_0026",
+      "guesses": [
+        {
+          "company": "Pinterest",
+          "confidence": 62,
+          "pointingFact": "Discovery-led consumer platform still maturing ads while pandemic engagement rises"
+        },
+        {
+          "company": "Snap",
+          "confidence": 48,
+          "pointingFact": "Audience-driven app with a less mature ad stack versus larger social peers"
+        },
+        {
+          "company": "Twitter",
+          "confidence": 34,
+          "pointingFact": "Engagement-heavy consumer internet name monetizing mainly through advertising"
+        },
+        {
+          "company": "Spotify",
+          "confidence": 28,
+          "pointingFact": "Consumer platform building ads and commerce tools around usage growth"
+        },
+        {
+          "company": "Reddit",
+          "confidence": 18,
+          "pointingFact": "Rising community engagement with advertising still catching up to audience scale"
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 54,
+        "cue": "At-home digital lift can create ad inventory even if monetization is immature"
+      }
+    },
+    {
+      "judgeId": "blind_0027",
+      "guesses": [
+        {
+          "company": "Roku",
+          "confidence": 74,
+          "pointingFact": "Living-room streaming platform pairing device sales with engagement monetization"
+        },
+        {
+          "company": "Amazon",
+          "confidence": 32,
+          "pointingFact": "Competes for living-room relationships via devices plus ads and content ecosystems"
+        },
+        {
+          "company": "Netflix",
+          "confidence": 26,
+          "pointingFact": "Streaming wars beneficiary of at-home media, though product-sales angle is weaker"
+        },
+        {
+          "company": "Disney",
+          "confidence": 22,
+          "pointingFact": "Media giant racing for direct living-room customer relationships in streaming wars"
+        },
+        {
+          "company": "Sony",
+          "confidence": 16,
+          "pointingFact": "Consumer hardware and entertainment platform competing for home media engagement"
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 58,
+        "cue": "Rising at-home media use supports engagement monetization despite ecosystem rivals"
+      }
+    },
+    {
+      "judgeId": "blind_0028",
+      "guesses": [
+        {
+          "company": "Salesforce",
+          "confidence": 56,
+          "pointingFact": "Broad enterprise cloud suite grown by acquisitions with cross-sell and integration risk"
+        },
+        {
+          "company": "Adobe",
+          "confidence": 48,
+          "pointingFact": "Large multi-product cloud software stack spanning workflow and experience tools"
+        },
+        {
+          "company": "Microsoft",
+          "confidence": 42,
+          "pointingFact": "Enterprise cloud portfolio central to digital workflows across departments"
+        },
+        {
+          "company": "Oracle",
+          "confidence": 30,
+          "pointingFact": "Wide enterprise software suite facing integration and stack-complexity questions"
+        },
+        {
+          "company": "ServiceNow",
+          "confidence": 24,
+          "pointingFact": "Enterprise workflow platform benefiting when digital process spend accelerates"
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 61,
+        "cue": "Pandemic push for digital workflows favors broad enterprise subscription platforms"
+      }
+    },
+    {
+      "judgeId": "blind_0029",
+      "guesses": [
+        {
+          "company": "Sea Limited",
+          "confidence": 78,
+          "pointingFact": "Regional commerce-gaming-fintech flywheel where entertainment cash funded expansion"
+        },
+        {
+          "company": "Grab",
+          "confidence": 36,
+          "pointingFact": "Southeast Asia super-app spanning mobility, deliveries, and financial services"
+        },
+        {
+          "company": "MercadoLibre",
+          "confidence": 33,
+          "pointingFact": "Regional commerce and payments ecosystem with shared-user flywheel economics"
+        },
+        {
+          "company": "Prosus",
+          "confidence": 22,
+          "pointingFact": "Emerging-market internet holding exposure across commerce and consumer platforms"
+        },
+        {
+          "company": "Kakao",
+          "confidence": 15,
+          "pointingFact": "Regional consumer internet group spanning content, commerce, and financial services"
+        }
+      ],
+      "direction": {
+        "call": "short",
+        "confidence": 72,
+        "cue": "Huge prior run-up plus tighter funding and offline return threaten subsidy-heavy flywheel"
+      }
+    },
+    {
+      "judgeId": "blind_0030",
+      "guesses": [
+        {
+          "company": "Shopify",
+          "confidence": 81,
+          "pointingFact": "Merchant software stack expanding into payments and fulfillment after pandemic boom"
+        },
+        {
+          "company": "Block",
+          "confidence": 41,
+          "pointingFact": "Seller platform monetizing payments and tools across online and physical commerce"
+        },
+        {
+          "company": "BigCommerce",
+          "confidence": 29,
+          "pointingFact": "Independent-merchant ecommerce software competing as online demand normalizes"
+        },
+        {
+          "company": "Toast",
+          "confidence": 24,
+          "pointingFact": "Merchant platform selling software and payments across digital and physical channels"
+        },
+        {
+          "company": "Lightspeed",
+          "confidence": 18,
+          "pointingFact": "Omnichannel commerce software for independents facing growth-to-profitability scrutiny"
+        }
+      ],
+      "direction": {
+        "call": "short",
+        "confidence": 66,
+        "cue": "E-commerce normalization and heavy fulfillment spend after a large multi-year run-up"
+      }
+    },
+    {
+      "judgeId": "blind_0031",
+      "guesses": [
+        {
+          "company": "Snap",
+          "confidence": 62,
+          "pointingFact": "Mobile-first consumer app monetized almost entirely via ads, with heavy dependence on Apple/Google ecosystems."
+        },
+        {
+          "company": "Pinterest",
+          "confidence": 48,
+          "pointingFact": "Ad-funded mobile discovery platform where pandemic usage and advertiser return efficiency were core debates."
+        },
+        {
+          "company": "Twitter",
+          "confidence": 35,
+          "pointingFact": "Consumer attention platform monetized by advertising and sensitive to ad-budget cycles and platform rules."
+        },
+        {
+          "company": "Meta Platforms",
+          "confidence": 28,
+          "pointingFact": "Large mobile social ad business, though less purely ‘still converting attention’ than smaller peers."
+        },
+        {
+          "company": "Roku",
+          "confidence": 18,
+          "pointingFact": "Ad-monetized consumer platform with inventory growth narrative, but more CTV than mobile-native."
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 58,
+        "cue": "Usage-driven inventory and measurement gains into advertiser reopening outweigh near-term ad softness after a strong pre-decision run."
+      }
+    },
+    {
+      "judgeId": "blind_0032",
+      "guesses": [
+        {
+          "company": "Spotify",
+          "confidence": 68,
+          "pointingFact": "Global digital media with both subscriptions and ads, where label royalties structurally pressure unit economics."
+        },
+        {
+          "company": "Netflix",
+          "confidence": 42,
+          "pointingFact": "Scale vs content-cost story, though in 2020 revenue was still almost pure subscription rather than dual-model."
+        },
+        {
+          "company": "Walt Disney",
+          "confidence": 30,
+          "pointingFact": "Streaming scale and content-supplier power via studios and sports rights in a bundle war."
+        },
+        {
+          "company": "Warner Bros. Discovery",
+          "confidence": 22,
+          "pointingFact": "Digital-media scale ambitions versus expensive content libraries and thin streaming margins."
+        },
+        {
+          "company": "Match Group",
+          "confidence": 12,
+          "pointingFact": "Consumer digital platform with subscription economics, but weak fit to royalties/content-supplier framing."
+        }
+      ],
+      "direction": {
+        "call": "toss_up",
+        "confidence": 52,
+        "cue": "Audience scale can help ads and leverage, but supplier power and competing bundles keep profitability structurally contested."
+      }
+    },
+    {
+      "judgeId": "blind_0033",
+      "guesses": [
+        {
+          "company": "Starbucks",
+          "confidence": 64,
+          "pointingFact": "Global high-frequency small-ticket chain hit by routine disruption, with mobile ordering as the adaptation lever."
+        },
+        {
+          "company": "McDonald's",
+          "confidence": 52,
+          "pointingFact": "Worldwide QSR with frequent visits, drive-thru/app ordering, and fixed-location cost leverage into reopening."
+        },
+        {
+          "company": "Chipotle",
+          "confidence": 40,
+          "pointingFact": "High-frequency restaurant concept that leaned hard on digital ordering after traffic shock."
+        },
+        {
+          "company": "Yum! Brands",
+          "confidence": 28,
+          "pointingFact": "Global multi-brand QSR portfolio exposed to in-person routine recovery and remote ordering."
+        },
+        {
+          "company": "Domino's",
+          "confidence": 24,
+          "pointingFact": "Delivery-centric frequent-purchase chain, though less dependent on physical traffic rebound than peers."
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 66,
+        "cue": "Lookback crash into spring 2020 plus loyalty and remote ordering support a one-year reopening rebound thesis."
+      }
+    },
+    {
+      "judgeId": "blind_0034",
+      "guesses": [
+        {
+          "company": "Target",
+          "confidence": 72,
+          "pointingFact": "Omnichannel big-box with essentials plus discretionary mix; late-2021 inventory glut and aisle-shift narrative is iconic."
+        },
+        {
+          "company": "Walmart",
+          "confidence": 45,
+          "pointingFact": "Large store-plus-fulfillment retailer spanning necessities and general merchandise through supply-chain whiplash."
+        },
+        {
+          "company": "Best Buy",
+          "confidence": 33,
+          "pointingFact": "Omnichannel retailer that rode goods demand then faced inventory and discretionary pullback risk."
+        },
+        {
+          "company": "Kohl's",
+          "confidence": 26,
+          "pointingFact": "Store-based general merchandise exposed to discretionary pivots and markdown cycles."
+        },
+        {
+          "company": "Macy's",
+          "confidence": 18,
+          "pointingFact": "Broad assortment retailer vulnerable when delayed inventory meets shifting household spending."
+        }
+      ],
+      "direction": {
+        "call": "short",
+        "confidence": 70,
+        "cue": "Huge pre-decision price run into late 2021 plus late inventory and category pivot point to markdown and margin risk."
+      }
+    },
+    {
+      "judgeId": "blind_0035",
+      "guesses": [
+        {
+          "company": "Tesla",
+          "confidence": 70,
+          "pointingFact": "Capital-intensive consumer manufacturer scaling a still-maturing EV line; early-2020 capacity-vs-cash debate is classic."
+        },
+        {
+          "company": "NIO",
+          "confidence": 38,
+          "pointingFact": "EV maker needing volume from new capacity against better-funded global rivals."
+        },
+        {
+          "company": "Beyond Meat",
+          "confidence": 32,
+          "pointingFact": "Consumer product manufacturer expanding production of a maturing alternative-protein category with cash burn concerns."
+        },
+        {
+          "company": "XPeng",
+          "confidence": 24,
+          "pointingFact": "Growth-stage EV producer racing to convert capacity into volume before competition raises CAC."
+        },
+        {
+          "company": "Lucid",
+          "confidence": 10,
+          "pointingFact": "EV capacity narrative, but public listing timing fits early 2020 poorly versus pure peers."
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 63,
+        "cue": "If new capacity lands volume with improving unit economics, a scale producer is rewarded over a one-year horizon despite cash-burn risk."
+      }
+    },
+    {
+      "judgeId": "blind_0036",
+      "guesses": [
+        {
+          "company": "Twilio",
+          "confidence": 82,
+          "pointingFact": "Developer-focused cloud communications with usage-driven APIs and carrier network cost exposure."
+        },
+        {
+          "company": "Bandwidth",
+          "confidence": 38,
+          "pointingFact": "CPaaS/network provider where transport economics and usage growth are central."
+        },
+        {
+          "company": "Vonage",
+          "confidence": 34,
+          "pointingFact": "API communications platform competing on digital contact channels versus suites."
+        },
+        {
+          "company": "Sinch",
+          "confidence": 28,
+          "pointingFact": "Cloud messaging and voice APIs with similar commodity messaging cost pressure."
+        },
+        {
+          "company": "MessageBird",
+          "confidence": 22,
+          "pointingFact": "Developer-oriented omnichannel communications platform from the same CPaaS category."
+        }
+      ],
+      "direction": {
+        "call": "short",
+        "confidence": 56,
+        "cue": "Lookback already rolled off the peak while short case cites commodity network costs and suite bundling."
+      }
+    },
+    {
+      "judgeId": "blind_0037",
+      "guesses": [
+        {
+          "company": "Uber",
+          "confidence": 88,
+          "pointingFact": "Global marketplace for local rides and delivery with network-density and cross-service leverage."
+        },
+        {
+          "company": "Lyft",
+          "confidence": 42,
+          "pointingFact": "Mobility marketplace where trip recovery and driver incentives drive unit economics."
+        },
+        {
+          "company": "Grab",
+          "confidence": 36,
+          "pointingFact": "Super-app coordinating local transport and delivery across many cities."
+        },
+        {
+          "company": "DoorDash",
+          "confidence": 30,
+          "pointingFact": "Local logistics marketplace with density, incentives, and city-level competition themes."
+        },
+        {
+          "company": "GoTo",
+          "confidence": 24,
+          "pointingFact": "Regional multi-service mobility and delivery platform with similar network leverage debates."
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 68,
+        "cue": "Prices compressed into mid-2022 lows while reopening and density could convert activity into operating leverage."
+      }
+    },
+    {
+      "judgeId": "blind_0038",
+      "guesses": [
+        {
+          "company": "Upstart",
+          "confidence": 74,
+          "pointingFact": "Fee-based AI lending marketplace matching borrowers to partners with untested-cycle model risk."
+        },
+        {
+          "company": "LendingClub",
+          "confidence": 52,
+          "pointingFact": "Marketplace lender connecting borrowers and capital without a traditional branch network."
+        },
+        {
+          "company": "LendingTree",
+          "confidence": 40,
+          "pointingFact": "Fee platform routing borrowers to lending partners under shifting credit conditions."
+        },
+        {
+          "company": "SoFi",
+          "confidence": 33,
+          "pointingFact": "Fintech credit platform with partner and automated underwriting growth narratives."
+        },
+        {
+          "company": "Affirm",
+          "confidence": 28,
+          "pointingFact": "Fee-driven consumer credit platform sensitive to funding costs and model assumptions."
+        }
+      ],
+      "direction": {
+        "call": "short",
+        "confidence": 61,
+        "cue": "Situation centers on models untested by a downturn amid unusual credit and funding conditions."
+      }
+    },
+    {
+      "judgeId": "blind_0039",
+      "guesses": [
+        {
+          "company": "Walmart",
+          "confidence": 78,
+          "pointingFact": "Large value retailer with food-plus-GM mix, trade-down traffic, and purchasing scale."
+        },
+        {
+          "company": "Target",
+          "confidence": 58,
+          "pointingFact": "Big-box retailer hit by inflation basket shifts and discretionary inventory markdowns."
+        },
+        {
+          "company": "Costco",
+          "confidence": 36,
+          "pointingFact": "Value-oriented membership retailer spanning food and general merchandise."
+        },
+        {
+          "company": "Dollar General",
+          "confidence": 32,
+          "pointingFact": "Value retail format benefiting from trade-down but sensitive to mix and costs."
+        },
+        {
+          "company": "BJ's Wholesale Club",
+          "confidence": 22,
+          "pointingFact": "Warehouse club with food-heavy baskets and inflation-era mix pressure."
+        }
+      ],
+      "direction": {
+        "call": "toss_up",
+        "confidence": 52,
+        "cue": "Trade-down share gains versus food-heavy mix and markdowns leave spring-2022 payoff balanced."
+      }
+    },
+    {
+      "judgeId": "blind_0040",
+      "guesses": [
+        {
+          "company": "Zoom",
+          "confidence": 90,
+          "pointingFact": "Cloud workplace communications that exploded in remote work with free usage and capacity strain."
+        },
+        {
+          "company": "RingCentral",
+          "confidence": 44,
+          "pointingFact": "Cloud UCaaS provider competing against suite-bundled collaboration tools."
+        },
+        {
+          "company": "8x8",
+          "confidence": 34,
+          "pointingFact": "Cloud workplace communications pure-play with similar remote-adoption and bundling risk."
+        },
+        {
+          "company": "Slack",
+          "confidence": 28,
+          "pointingFact": "Workplace communications app adopted rapidly for remote collaboration in 2020."
+        },
+        {
+          "company": "Cisco",
+          "confidence": 20,
+          "pointingFact": "Webex franchise as an established collaboration suite alternative in the same category."
+        }
+      ],
+      "direction": {
+        "call": "short",
+        "confidence": 58,
+        "cue": "Free usage, capacity costs, and suite bundling threaten converting pandemic surge into durable paid demand."
+      }
+    }
+  ]
+}

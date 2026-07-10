@@ -1,0 +1,324 @@
+{
+    "id":  "scenario_adobe_2019_2020",
+    "status":  "active",
+    "company":  {
+                    "name":  "Adobe",
+                    "ticker":  "ADBE",
+                    "exchange":  "NASDAQ",
+                    "sector":  "Information Technology",
+                    "industry":  "Application Software",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "adobe",
+                                          "adobe"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Photoshop",
+                                                "Creative Cloud",
+                                                "Acrobat",
+                                                "PDF"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Subscription Test",
+                     "decisionDate":  "2019-01-02",
+                     "endDate":  "2020-01-02",
+                     "decisionDateLabel":  "2019",
+                     "outcomeLabel":  "2019 to 2020",
+                     "holdingPeriodLabel":  "About one year",
+                     "era":  "Late-cycle expansion",
+                     "eraId":  "late_cycle_expansion",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "part_b_phase_campaign"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  224.57,
+                       "endingPrice":  334.43,
+                       "actualReturnPercent":  0.4892,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2018-01-02",
+                       "preDecisionChartEndDate":  "2019-01-02",
+                       "outcomeChartStartDate":  "2019-01-02",
+                       "outcomeChartEndDate":  "2020-01-02",
+                       "lookbackPrices":  [
+                                              177.7,
+                                              209.74,
+                                              231.16,
+                                              247.51,
+                                              254.81,
+                                              270.79,
+                                              253.43,
+                                              224.57
+                                          ],
+                       "outcomePrices":  [
+                                             224.57,
+                                             258.62,
+                                             271.43,
+                                             278.16,
+                                             303.64,
+                                             281.26,
+                                             292.46,
+                                             334.43
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A subscription software company serving creative and business workflows.",
+                                    "macroContext":  "Businesses are shifting licensed desktop tools toward continuously updated online subscriptions.",
+                                    "situation":  "Can a mature software franchise convert customers to recurring plans without slowing adoption?",
+                                    "longCase":  "Recurring revenue and frequent updates can deepen retention and expand customer value.",
+                                    "shortCase":  "Migration friction, cheaper rivals, and a high valuation can limit the payoff.",
+                                    "setupHints":  [
+                                                       "A growing document-workflow business broadens the revenue base."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A profitable technology vendor with a large installed base.",
+                                      "macroContext":  "Business customers are concentrating spending while expecting established suppliers to deliver more value from existing relationships.",
+                                      "situation":  "Can an incumbent sustain growth as the easiest customer conversions fade?",
+                                      "longCase":  "Renewals, add-on services, and a broad customer base can support steady expansion.",
+                                      "shortCase":  "Saturation and capable alternatives can make each additional sale harder to earn.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "An established business-services company.",
+                                    "macroContext":  "Investors favor predictable results but are questioning how long mature leaders can outgrow their markets.",
+                                    "situation":  "Can a successful strategic reset keep compounding after its early benefits are widely understood?",
+                                    "longCase":  "Deep customer relationships can support retention and incremental expansion.",
+                                    "shortCase":  "High expectations may outrun demand once the most accessible gains have been captured.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Adobe. Subscription adoption and growth across its creative and document businesses supported higher reported revenue through the window.",
+                   "funFact":  "Adobe was founded in 1982 and became a major producer of creative and document software.",
+                   "whyItMoved":  [
+                                      "Subscription revenue continued to expand.",
+                                      "Recurring plans improved revenue visibility.",
+                                      "Growth across multiple software categories reduced reliance on one workflow."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ ADBE",
+                        "url":  "https://finance.yahoo.com/quote/ADBE/history/",
+                        "notes":  "Split-adjusted closes for 2019-01-02 and 2020-01-02; sampled lookback/outcome series and computed price return."
+                    },
+                    {
+                        "label":  "Adobe SEC filings",
+                        "url":  "https://www.sec.gov/edgar/browse/?CIK=ADBE\u0026owner=exclude\u0026action=getcompany",
+                        "notes":  "Annual filings covering business model, operating risks, company history, and the reported operating trends summarized in the reveal."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Phase 4B production candidate. Recognition bucket: famous. Authored fact-bank first and Hard first, then Medium/Easy. Payload-only editorial self-check retained the named peer set across difficulties, avoided correct-company dominance on Medium/Hard, kept both calls articulable, and found no unsupported candidate. No authoritative Gate 2 judgment is recorded. Phase-internal clean-Grok rewrite changed medium/hard only: removed the stored judge\u0027s company-pointing conjunctions while keeping concrete long/short tension. Stored Gate 2 evidence is preserved but stale for changed variants; clean rejudge required. Shared title unchanged, so no sibling-only rejudge expansion.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "Adobe name and ADBE ticker",
+                                                       "Photoshop",
+                                                       "Creative Cloud",
+                                                       "Acrobat",
+                                                       "PDF"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "Can a mature software franchise convert customers to recurring plans without slowing adoption?",
+                                                           "Recurring revenue and frequent updates can deepen retention and expand customer value.",
+                                                           "Migration friction, cheaper rivals, and a high valuation can limit the payoff.",
+                                                           "Can an incumbent sustain growth as the easiest customer conversions fade?",
+                                                           "Renewals, add-on services, and a broad customer base can support steady expansion.",
+                                                           "Saturation and capable alternatives can make each additional sale harder to earn.",
+                                                           "Can a successful strategic reset keep compounding after its early benefits are widely understood?",
+                                                           "Deep customer relationships can support retention and incremental expansion.",
+                                                           "High expectations may outrun demand once the most accessible gains have been captured."
+                                                       ],
+                                    "prohibited":  [
+                                                       "Photoshop",
+                                                       "Creative Cloud",
+                                                       "Acrobat",
+                                                       "PDF",
+                                                       "pure subscription software",
+                                                       "subscription transition plus 2019 chart",
+                                                       "creative or document workflow plus installed-base conversion"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Adobe",
+                                                                  "Autodesk",
+                                                                  "Microsoft",
+                                                                  "Salesforce"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Microsoft",
+                                                                    "Oracle",
+                                                                    "Salesforce",
+                                                                    "Adobe",
+                                                                    "Autodesk"
+                                                                ],
+                                                     "hard":  [
+                                                                  "IBM",
+                                                                  "Cisco",
+                                                                  "Oracle",
+                                                                  "SAP",
+                                                                  "Adobe",
+                                                                  "Autodesk"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "2019 chart silhouette plus company-specific product language",
+                                                                   "Businesses are shifting licensed desktop tools toward continuously updated online subscriptions. plus named product or brand",
+                                                                   "Can a mature software franchise convert customers to recurring plans without slowing adoption? plus ADBE ticker or company name",
+                                                                   "pure subscription software",
+                                                                   "subscription transition plus 2019 chart",
+                                                                   "creative or document workflow plus installed-base conversion"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Adobe",
+                                             "Autodesk",
+                                             "Microsoft",
+                                             "Salesforce"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Microsoft",
+                                               "Oracle",
+                                               "Salesforce",
+                                               "Adobe"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "IBM",
+                                             "Cisco",
+                                             "Oracle",
+                                             "SAP"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:a9b205647a6f7b67967b3e6456070fbaecb074fc06fa4b45414dd14f595a0076",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Adobe",
+                                                                  "confidence":  92,
+                                                                  "pointingFact":  "Creative and business subscription software plus a growing document-workflow franchise matches Creative Cloud and Document Cloud."
+                                                              },
+                                                              {
+                                                                  "company":  "Autodesk",
+                                                                  "confidence":  34,
+                                                                  "pointingFact":  "Mature design software shifting from licenses to subscriptions fits the workflow-subscription setup."
+                                                              },
+                                                              {
+                                                                  "company":  "Microsoft",
+                                                                  "confidence":  24,
+                                                                  "pointingFact":  "Large productivity franchise with document workflows and recurring cloud plans."
+                                                              },
+                                                              {
+                                                                  "company":  "Salesforce",
+                                                                  "confidence":  14,
+                                                                  "pointingFact":  "Subscription software for business workflows, though weaker on creative tools."
+                                                              },
+                                                              {
+                                                                  "company":  "Intuit",
+                                                                  "confidence":  12,
+                                                                  "pointingFact":  "Recurring software franchise for business customers with continuous online updates."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  58,
+                                                                "cue":  "Payload emphasizes successful recurring-revenue conversion and document expansion outweighing migration friction in 2019."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:8663066f091778e87e67d3103eafe828e6447d170ee0cfae1aacc7d1015f0741",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "Adobe",
+                                                                    "confidence":  52,
+                                                                    "pointingFact":  "Profitable software incumbent with a large installed base testing whether subscription renewals and add-ons can sustain growth after easy conversions fade."
+                                                                },
+                                                                {
+                                                                    "company":  "Autodesk",
+                                                                    "confidence":  38,
+                                                                    "pointingFact":  "Design-software vendor that shifted customers to subscriptions and relies on an entrenched professional installed base for expansion."
+                                                                },
+                                                                {
+                                                                    "company":  "Salesforce",
+                                                                    "confidence":  34,
+                                                                    "pointingFact":  "Large CRM platform selling more into existing enterprise relationships as buyers concentrate spend with established suppliers."
+                                                                },
+                                                                {
+                                                                    "company":  "Microsoft",
+                                                                    "confidence":  28,
+                                                                    "pointingFact":  "Highly profitable tech vendor monetizing a broad installed base through renewals and layered services in late-cycle 2019."
+                                                                },
+                                                                {
+                                                                    "company":  "Oracle",
+                                                                    "confidence":  24,
+                                                                    "pointingFact":  "Incumbent enterprise software supplier dependent on installed-base renewals and upsell as new-logo growth gets harder."
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "toss_up",
+                                                                  "confidence":  48,
+                                                                  "cue":  "Sticky renewals support the long case, but lookback prices already rolled over from a peak and the short case of saturation plus alternatives is equally plausible into 2019Ã¢â‚¬â€œ2020."
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:df5ba85c0e1bdd3693b5735e15966fc508a3883e530e327a6b5a5821a6d31b9d",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Adobe",
+                                                                  "confidence":  38,
+                                                                  "pointingFact":  "Established business software firm whose subscription reset was already widely understood by 2019."
+                                                              },
+                                                              {
+                                                                  "company":  "Autodesk",
+                                                                  "confidence":  34,
+                                                                  "pointingFact":  "Mature design-software leader whose multi-year subscription conversion was being tested for residual compounding."
+                                                              },
+                                                              {
+                                                                  "company":  "Intuit",
+                                                                  "confidence":  28,
+                                                                  "pointingFact":  "Business-services franchise with deep customer retention and recurring subscription economics."
+                                                              },
+                                                              {
+                                                                  "company":  "Salesforce",
+                                                                  "confidence":  24,
+                                                                  "pointingFact":  "Large subscription platform where incremental expansion depends on embedded customer relationships."
+                                                              },
+                                                              {
+                                                                  "company":  "ServiceNow",
+                                                                  "confidence":  20,
+                                                                  "pointingFact":  "Enterprise workflow vendor sold on predictable growth after an earlier model and product reset."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  52,
+                                                                "cue":  "Late-cycle 2019 setup with lookback already rolling over and short case that high expectations outrun remaining demand."
+                                                            }
+                                          }
+                             }
+               }
+}

@@ -1,0 +1,367 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum ScenarioStatus {
+  draft
+  reviewed
+  active
+  inactive
+  archived
+}
+
+enum Difficulty {
+  easy
+  medium
+  hard
+}
+
+enum RecognitionBucket {
+  famous
+  moderate
+  obscure
+}
+
+enum ContentPackStatus {
+  draft
+  active
+  inactive
+  archived
+}
+
+enum MarketPointPhase {
+  pre_decision
+  outcome
+}
+
+enum RunMode {
+  classic_run
+  daily_challenge
+}
+
+enum RunStatus {
+  in_progress
+  completed
+  bankrupt
+  abandoned
+}
+
+enum RoundAction {
+  long
+  short
+  pass
+}
+
+enum Confidence {
+  low
+  medium
+  high
+  all_in
+}
+
+enum LeaderboardType {
+  daily_challenge_bankroll
+  best_classic_run_bankroll
+  all_time_signal_score
+  weekly_bankroll
+  monthly_bankroll
+}
+
+model User {
+  id             String             @id @default(cuid())
+  externalAuthId String?            @unique
+  email          String?            @unique
+  displayName    String?
+  createdAt      DateTime           @default(now())
+  updatedAt      DateTime           @updatedAt
+  profile        Profile?
+  stats          PlayerStats?
+  runs           Run[]
+  roundDecisions RoundDecision[]
+  leaderboard    LeaderboardEntry[]
+}
+
+model Profile {
+  id          String   @id @default(cuid())
+  userId      String   @unique
+  displayName String?
+  avatarKey   String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model PlayerStats {
+  id                   String   @id @default(cuid())
+  userId               String   @unique
+  totalRuns            Int      @default(0)
+  completedRuns        Int      @default(0)
+  totalRounds          Int      @default(0)
+  correctCalls         Int      @default(0)
+  wrongCalls           Int      @default(0)
+  passes               Int      @default(0)
+  totalSignalScore     Decimal  @default(0)
+  bestRunBankroll      Decimal?
+  averageFinalBankroll Decimal?
+  bestStreak           Int      @default(0)
+  currentStreak        Int      @default(0)
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+  user                 User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model GuestSession {
+  id              String   @id @default(cuid())
+  clientSessionId String   @unique
+  createdAt       DateTime @default(now())
+  lastSeenAt      DateTime @updatedAt
+  runs            Run[]
+}
+
+model Era {
+  id          String     @id
+  name        String
+  description String
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  scenarios   Scenario[]
+}
+
+model ContentPack {
+  id          String                @id
+  name        String
+  description String?
+  status      ContentPackStatus     @default(active)
+  isPaid      Boolean               @default(false)
+  createdAt   DateTime              @default(now())
+  updatedAt   DateTime              @updatedAt
+  scenarios   ScenarioContentPack[]
+}
+
+model Scenario {
+  id                  String                    @id
+  status              ScenarioStatus
+  title               String
+  decisionDate        DateTime                  @db.Date
+  endDate             DateTime                  @db.Date
+  decisionDateLabel   String
+  outcomeLabel        String
+  holdingPeriodLabel  String
+  eraId               String
+  recognitionBucket   RecognitionBucket
+  companyName         String
+  ticker              String
+  exchange            String
+  sector              String
+  industry            String
+  country             String
+  acceptedNames       String[]
+  identityBannedTerms String[]
+  revealShortText     String
+  revealFunFact       String
+  revealWhyItMoved    String[]
+  startingPrice       Decimal
+  endingPrice         Decimal
+  actualReturnPercent Decimal
+  splitAdjustedPrices Boolean
+  totalReturn         Boolean
+  reviewGeneratedByAi Boolean
+  humanReviewed       Boolean
+  reviewedBy          String?
+  reviewedAt          DateTime?
+  reviewNotes         String
+  factBank            Json
+  likelyGuesses       Json
+  createdAt           DateTime                  @default(now())
+  updatedAt           DateTime                  @updatedAt
+  era                 Era                       @relation(fields: [eraId], references: [id])
+  variants            ScenarioVariant[]
+  sources             ScenarioSource[]
+  marketPoints        MarketPoint[]
+  contentPacks        ScenarioContentPack[]
+  roundDecisions      RoundDecision[]
+  poolEntries         DailyChallengePoolEntry[]
+
+  @@index([status])
+  @@index([eraId])
+}
+
+model ScenarioContentPack {
+  scenarioId    String
+  contentPackId String
+  scenario      Scenario    @relation(fields: [scenarioId], references: [id], onDelete: Cascade)
+  contentPack   ContentPack @relation(fields: [contentPackId], references: [id], onDelete: Cascade)
+
+  @@id([scenarioId, contentPackId])
+}
+
+model ScenarioVariant {
+  id                 String     @id @default(cuid())
+  scenarioId         String
+  difficulty         Difficulty
+  companyDescription String
+  macroContext       String
+  situation          String
+  longCase           String
+  shortCase          String
+  setupHints         String[]
+  createdAt          DateTime   @default(now())
+  updatedAt          DateTime   @updatedAt
+  scenario           Scenario   @relation(fields: [scenarioId], references: [id], onDelete: Cascade)
+
+  @@unique([scenarioId, difficulty])
+}
+
+model ScenarioSource {
+  id         String   @id @default(cuid())
+  scenarioId String
+  label      String
+  url        String
+  notes      String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  scenario   Scenario @relation(fields: [scenarioId], references: [id], onDelete: Cascade)
+
+  @@unique([scenarioId, url])
+}
+
+model MarketPoint {
+  id         String           @id @default(cuid())
+  scenarioId String
+  phase      MarketPointPhase
+  pointDate  DateTime         @db.Date
+  price      Decimal
+  ordinal    Int
+  createdAt  DateTime         @default(now())
+  updatedAt  DateTime         @updatedAt
+  scenario   Scenario         @relation(fields: [scenarioId], references: [id], onDelete: Cascade)
+
+  @@unique([scenarioId, phase, ordinal])
+  @@index([scenarioId, phase, pointDate])
+}
+
+model DailyChallengePool {
+  id               String                    @id
+  name             String
+  startingBankroll Decimal
+  createdAt        DateTime                  @default(now())
+  updatedAt        DateTime                  @updatedAt
+  entries          DailyChallengePoolEntry[]
+  challenges       DailyChallenge[]
+}
+
+model DailyChallengePoolEntry {
+  poolId     String
+  scenarioId String
+  ordinal    Int
+  difficulty Difficulty
+  pool       DailyChallengePool @relation(fields: [poolId], references: [id], onDelete: Cascade)
+  scenario   Scenario           @relation(fields: [scenarioId], references: [id])
+
+  @@id([poolId, ordinal])
+  @@unique([poolId, scenarioId])
+}
+
+model DailyChallenge {
+  id               String             @id @default(cuid())
+  challengeDate    DateTime           @unique @db.Date
+  poolId           String
+  startingBankroll Decimal
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+  pool             DailyChallengePool @relation(fields: [poolId], references: [id])
+  runs             Run[]
+
+  @@index([poolId])
+}
+
+model Run {
+  id                 String             @id @default(cuid())
+  userId             String?
+  guestSessionId     String?
+  dailyChallengeId   String?
+  mode               RunMode
+  difficulty         Difficulty?
+  status             RunStatus          @default(in_progress)
+  isOfficial         Boolean            @default(false)
+  scenarioOrder      Json
+  currentRoundIndex  Int                @default(0)
+  startingBankroll   Decimal
+  finalBankroll      Decimal?
+  currentBankroll    Decimal
+  signalScore        Decimal            @default(0)
+  totalRounds        Int
+  completedRounds    Int                @default(0)
+  correctCalls       Int                @default(0)
+  wrongCalls         Int                @default(0)
+  passes             Int                @default(0)
+  currentStreak      Int                @default(0)
+  bestStreak         Int                @default(0)
+  startedAt          DateTime           @default(now())
+  completedAt        DateTime?
+  completionTimeMs   Int?
+  user               User?              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  guestSession       GuestSession?      @relation(fields: [guestSessionId], references: [id], onDelete: Cascade)
+  dailyChallenge     DailyChallenge?    @relation(fields: [dailyChallengeId], references: [id], onDelete: Restrict)
+  roundDecisions     RoundDecision[]
+  leaderboardEntries LeaderboardEntry[]
+
+  @@unique([dailyChallengeId, userId])
+  @@index([userId, status])
+  @@index([guestSessionId, status])
+  @@index([dailyChallengeId])
+}
+
+model RoundDecision {
+  id                  String      @id @default(cuid())
+  runId               String
+  userId              String?
+  scenarioId          String
+  roundIndex          Int
+  action              RoundAction
+  confidence          Confidence?
+  companyGuess        String?
+  companyGuessCorrect Boolean?
+  confidencePercent   Decimal?
+  stakeAmount         Decimal
+  bankrollBefore      Decimal
+  bankrollAfter       Decimal
+  actualReturnPercent Decimal
+  pnlAmount           Decimal
+  signalScoreDelta    Decimal
+  wasCorrect          Boolean?
+  createdAt           DateTime    @default(now())
+  run                 Run         @relation(fields: [runId], references: [id], onDelete: Cascade)
+  user                User?       @relation(fields: [userId], references: [id])
+  scenario            Scenario    @relation(fields: [scenarioId], references: [id])
+
+  @@unique([runId, roundIndex])
+  @@index([scenarioId])
+}
+
+model LeaderboardEntry {
+  id               String          @id @default(cuid())
+  userId           String
+  runId            String?
+  leaderboardType  LeaderboardType
+  periodKey        String?
+  scoreBankroll    Decimal?
+  scoreSignal      Decimal?
+  correctCalls     Int             @default(0)
+  passes           Int             @default(0)
+  completionTimeMs Int?
+  completedAt      DateTime?
+  metadata         Json?
+  createdAt        DateTime        @default(now())
+  user             User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  run              Run?            @relation(fields: [runId], references: [id])
+
+  @@index([leaderboardType, periodKey])
+  @@index([userId, leaderboardType])
+}

@@ -1,0 +1,324 @@
+{
+    "id":  "scenario_cloudflare_2020_2021",
+    "status":  "active",
+    "company":  {
+                    "name":  "Cloudflare",
+                    "ticker":  "NET",
+                    "exchange":  "NYSE",
+                    "sector":  "Information Technology",
+                    "industry":  "Internet Services \u0026 Infrastructure",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "cloudflare",
+                                          "cloudflare"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Cloudflare",
+                                                "Workers",
+                                                "1.1.1.1",
+                                                "CDN"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Traffic Layer",
+                     "decisionDate":  "2020-01-02",
+                     "endDate":  "2021-01-04",
+                     "decisionDateLabel":  "2020",
+                     "outcomeLabel":  "2020 to 2021",
+                     "holdingPeriodLabel":  "About one year",
+                     "era":  "Pandemic-era disruption",
+                     "eraId":  "pandemic_era",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "part_b_phase_campaign"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  17.03,
+                       "endingPrice":  74.59,
+                       "actualReturnPercent":  3.3799,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2019-09-13",
+                       "preDecisionChartEndDate":  "2020-01-02",
+                       "outcomeChartStartDate":  "2020-01-02",
+                       "outcomeChartEndDate":  "2021-01-04",
+                       "lookbackPrices":  [
+                                              18,
+                                              18.57,
+                                              16.36,
+                                              16.73,
+                                              16.26,
+                                              19.48,
+                                              18.37,
+                                              17.03
+                                          ],
+                       "outcomePrices":  [
+                                             17.03,
+                                             20.29,
+                                             25.42,
+                                             29.17,
+                                             41.13,
+                                             38.96,
+                                             61.24,
+                                             74.59
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A cloud network provider that helps websites improve performance, reliability, and security.",
+                                    "macroContext":  "Internet traffic is climbing rapidly as work, commerce, and entertainment shift online.",
+                                    "situation":  "Can a broad global network convert higher traffic into durable customer expansion before larger cloud vendors bundle similar services?",
+                                    "longCase":  "More online activity can increase demand and create opportunities to sell additional services.",
+                                    "shortCase":  "Intense competition, infrastructure spending, and a history of losses can delay profitable scale.",
+                                    "setupHints":  [
+                                                       "Customers can adopt entry-level services online and expand into larger contracts."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A usage-sensitive business technology provider.",
+                                      "macroContext":  "Customer activity is rising while large vendors bundle more capabilities into broad contracts.",
+                                      "situation":  "Can a specialist turn higher usage into deeper customer relationships?",
+                                      "longCase":  "Expanding activity can support additional services within existing accounts.",
+                                      "shortCase":  "Bundled competition and continued capacity investment can keep margins under pressure.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A business technology specialist.",
+                                    "macroContext":  "Customer activity is expanding while buyers increasingly prefer consolidated supplier relationships.",
+                                    "situation":  "Can a focused provider deepen accounts before broader vendors absorb the spending?",
+                                    "longCase":  "Higher usage can create natural expansion opportunities inside existing customers.",
+                                    "shortCase":  "Scale competitors and ongoing capacity costs can prevent operating leverage from emerging.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Cloudflare. Revenue and large-customer counts grew in 2020 as organizations relied more heavily on internet-based services.",
+                   "funFact":  "The company began operating in 2010 and built a network spanning cities around the world.",
+                   "whyItMoved":  [
+                                      "Internet traffic and digital-service reliance increased.",
+                                      "Large-customer adoption continued to grow.",
+                                      "An expanding product portfolio created cross-selling opportunities."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ NET",
+                        "url":  "https://finance.yahoo.com/quote/NET/history/",
+                        "notes":  "Split-adjusted closes for 2020-01-02 and 2021-01-04; sampled lookback/outcome series and computed price return."
+                    },
+                    {
+                        "label":  "Cloudflare SEC filings",
+                        "url":  "https://www.sec.gov/edgar/browse/?CIK=NET\u0026owner=exclude\u0026action=getcompany",
+                        "notes":  "Annual filings covering business model, operating risks, company history, and the reported operating trends summarized in the reveal."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Phase 4B production candidate. Recognition bucket: moderate. Authored fact-bank first and Hard first, then Medium/Easy. Payload-only editorial self-check retained the named peer set across difficulties, avoided correct-company dominance on Medium/Hard, kept both calls articulable, and found no unsupported candidate. No authoritative Gate 2 judgment is recorded. Phase-internal clean-Grok rewrite changed medium/hard only: removed the stored judge\u0027s company-pointing conjunctions while keeping concrete long/short tension. Stored Gate 2 evidence is preserved but stale for changed variants; clean rejudge required. Shared title unchanged, so no sibling-only rejudge expansion.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "Cloudflare name and NET ticker",
+                                                       "Cloudflare",
+                                                       "Workers",
+                                                       "1.1.1.1",
+                                                       "CDN"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "Can a broad global network convert higher traffic into durable customer expansion before larger cloud vendors bundle similar services?",
+                                                           "More online activity can increase demand and create opportunities to sell additional services.",
+                                                           "Intense competition, infrastructure spending, and a history of losses can delay profitable scale.",
+                                                           "Can a specialist turn higher usage into deeper customer relationships?",
+                                                           "Expanding activity can support additional services within existing accounts.",
+                                                           "Bundled competition and continued capacity investment can keep margins under pressure.",
+                                                           "Can a focused provider deepen accounts before broader vendors absorb the spending?",
+                                                           "Higher usage can create natural expansion opportunities inside existing customers.",
+                                                           "Scale competitors and ongoing capacity costs can prevent operating leverage from emerging."
+                                                       ],
+                                    "prohibited":  [
+                                                       "Cloudflare",
+                                                       "Workers",
+                                                       "1.1.1.1",
+                                                       "CDN",
+                                                       "traffic plus security plus performance",
+                                                       "distributed network plus 2020 chart",
+                                                       "internet workloads plus hyperscaler bundling"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Cloudflare",
+                                                                  "Fastly",
+                                                                  "Akamai",
+                                                                  "Zscaler"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Fastly",
+                                                                    "Datadog",
+                                                                    "Cloudflare",
+                                                                    "Twilio",
+                                                                    "Akamai Technologies"
+                                                                ],
+                                                     "hard":  [
+                                                                  "Datadog",
+                                                                  "Twilio",
+                                                                  "Cloudflare",
+                                                                  "Fastly",
+                                                                  "Okta",
+                                                                  "Elastic"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "2020 chart silhouette plus company-specific product language",
+                                                                   "Internet traffic is climbing rapidly as work, commerce, and entertainment shift online. plus named product or brand",
+                                                                   "Can a broad global network convert higher traffic into durable customer expansion before larger cloud vendors bundle similar services? plus NET ticker or company name",
+                                                                   "traffic plus security plus performance",
+                                                                   "distributed network plus 2020 chart",
+                                                                   "internet workloads plus hyperscaler bundling"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Cloudflare",
+                                             "Fastly",
+                                             "Akamai",
+                                             "Zscaler"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Fastly",
+                                               "Datadog",
+                                               "Cloudflare",
+                                               "Twilio"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "Datadog",
+                                             "Twilio",
+                                             "Fastly",
+                                             "Okta"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:2fa0d8d4bddcee386bfb09e08c1ebe5b45de91fdf2556bf906dce84c7528fb6d",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Cloudflare",
+                                                                  "confidence":  86,
+                                                                  "pointingFact":  "Cloud network for performance, reliability, and security with online self-serve entry expanding to larger contracts."
+                                                              },
+                                                              {
+                                                                  "company":  "Fastly",
+                                                                  "confidence":  52,
+                                                                  "pointingFact":  "Edge cloud/CDN helping sites with performance and security during pandemic traffic spikes."
+                                                              },
+                                                              {
+                                                                  "company":  "Akamai Technologies",
+                                                                  "confidence":  36,
+                                                                  "pointingFact":  "Global content delivery and security network monetizing higher internet traffic."
+                                                              },
+                                                              {
+                                                                  "company":  "Zscaler",
+                                                                  "confidence":  18,
+                                                                  "pointingFact":  "Cloud security network benefiting from online shift, less of a website performance CDN story."
+                                                              },
+                                                              {
+                                                                  "company":  "Amazon",
+                                                                  "confidence":  10,
+                                                                  "pointingFact":  "Larger cloud vendor that can bundle network and security services against specialists."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "toss_up",
+                                                                "confidence":  50,
+                                                                "cue":  "Traffic-driven demand is real, but competition from big clouds, spending needs, and loss history balance the one-year bet."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:080c2e6382d39fc4d8b914e459af3c3047c3316594a6a932aa8cc2bb752abcea",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "Fastly",
+                                                                    "confidence":  41,
+                                                                    "pointingFact":  "2020 usage-sensitive edge traffic platform competing as larger vendors bundle adjacent capabilities."
+                                                                },
+                                                                {
+                                                                    "company":  "Cloudflare",
+                                                                    "confidence":  38,
+                                                                    "pointingFact":  "Specialist traffic/security layer monetizing rising customer activity while investing in capacity."
+                                                                },
+                                                                {
+                                                                    "company":  "Akamai Technologies",
+                                                                    "confidence":  36,
+                                                                    "pointingFact":  "Incumbent CDN/traffic specialist facing bundled hyperscaler competition and margin pressure."
+                                                                },
+                                                                {
+                                                                    "company":  "Twilio",
+                                                                    "confidence":  31,
+                                                                    "pointingFact":  "Usage-based business communications technology where higher activity can deepen accounts or invite bundling."
+                                                                },
+                                                                {
+                                                                    "company":  "Datadog",
+                                                                    "confidence":  20,
+                                                                    "pointingFact":  "Usage-sensitive observability vendor expanding services inside accounts as activity rises."
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "toss_up",
+                                                                  "confidence":  47,
+                                                                  "cue":  "Rising usage supports expansion, but bundled rivals and capacity spend keep the margin outcome two-sided."
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:43e173d643744e754a8de98fcd3a18b0bc6081801ee63f70059c221cd65b2eba",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Cloudflare",
+                                                                  "confidence":  32,
+                                                                  "pointingFact":  "Pandemic-era traffic/edge specialist deepening accounts as digital activity rose and buyers sought fewer vendors."
+                                                              },
+                                                              {
+                                                                  "company":  "Fastly",
+                                                                  "confidence":  26,
+                                                                  "pointingFact":  "Focused edge traffic platform facing scale competitors while usage expanded in 2020."
+                                                              },
+                                                              {
+                                                                  "company":  "Akamai Technologies",
+                                                                  "confidence":  22,
+                                                                  "pointingFact":  "CDN/traffic-layer incumbent where higher usage can expand wallets before hyperscalers consolidate spend."
+                                                              },
+                                                              {
+                                                                  "company":  "F5",
+                                                                  "confidence":  15,
+                                                                  "pointingFact":  "Application traffic specialist competing with broader platform vendors for consolidated IT budgets."
+                                                              },
+                                                              {
+                                                                  "company":  "Zscaler",
+                                                                  "confidence":  14,
+                                                                  "pointingFact":  "Security traffic-path pure play benefiting from digital expansion yet threatened by suite vendors."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "toss_up",
+                                                                "confidence":  46,
+                                                                "cue":  "2020 usage tailwinds aid expansion, but capacity costs and broader vendors absorbing spend keep the one-year outcome mixed."
+                                                            }
+                                          }
+                             }
+               }
+}

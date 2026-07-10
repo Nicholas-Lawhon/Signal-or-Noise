@@ -1,0 +1,35 @@
+{
+  "exportedAt": "2026-07-10T04:32:29.710Z",
+  "model": "grok-4.5",
+  "promptVersion": "guess.v1+direction.v1",
+  "entries": [
+    {
+      "judgeId": "blind_0001",
+      "difficulty": "easy",
+      "payloadHash": "sha256:f42ba04a5491c069f589c6d343c21189f994dfeccd54ce149f1cb75771d4d4a3",
+      "payload": {
+        "title": "Access Point",
+        "era": "Streaming wars",
+        "decisionDateLabel": "Early 2020",
+        "holdingPeriodLabel": "About one year",
+        "companyDescription": "A home-entertainment platform that sells low-margin hardware while trying to grow advertising and distribution revenue.",
+        "macroContext": "Households are spending more time at home as media companies compete for direct access to viewers.",
+        "situation": "Can a platform turn a growing installed base into higher-margin advertising revenue before larger technology firms control the living room?",
+        "longCase": "More viewing and a larger installed base could attract advertisers and content partners to the platform.",
+        "shortCase": "Hardware economics, platform competition, and negotiations with content suppliers could limit the value of that audience.",
+        "setupHints": [
+          "The companyÃ¢â‚¬â„¢s software is built into some television sets and external devices."
+        ],
+        "lookbackPrices": [
+          100,
+          122.2,
+          88.9,
+          144.4,
+          222.2,
+          266.7,
+          304.7
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "model": "grok-4.5",
+  "promptVersion": "guess.v1+direction.v1",
+  "testedAt": "2026-07-10T05:00:00.000Z",
+  "entries": [
+    {
+      "judgeId": "blind_0001",
+      "guesses": [
+        {
+          "company": "Roku",
+          "confidence": 86,
+          "pointingFact": "Low-margin streaming hardware plus ads/distribution, with OS embedded in TVs and external players during the streaming wars."
+        },
+        {
+          "company": "Vizio",
+          "confidence": 38,
+          "pointingFact": "Sells thin-margin TVs while monetizing the living-room installed base through platform advertising and data."
+        },
+        {
+          "company": "Amazon",
+          "confidence": 28,
+          "pointingFact": "Fire TV hardware and living-room OS compete for household viewing and ad/distribution economics."
+        },
+        {
+          "company": "Alphabet",
+          "confidence": 22,
+          "pointingFact": "Android TV/Chromecast software in TVs and devices targets the same home-entertainment access-point battle."
+        },
+        {
+          "company": "Apple",
+          "confidence": 15,
+          "pointingFact": "tvOS devices and living-room software are another tech platform path into the home, though less ad-hardware driven."
+        }
+      ],
+      "direction": {
+        "call": "long",
+        "confidence": 62,
+        "cue": "Early-2020 stay-at-home viewing boom and a growing installed base favor converting audience into higher-margin ads despite prior price run-up."
+      }
+    }
+  ]
+}

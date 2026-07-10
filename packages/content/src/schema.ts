@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { gate2VariantResultSchema } from './gate2/resultValidation';
 
 export const scenarioStatusSchema = z.enum([
   'draft',
@@ -9,8 +10,142 @@ export const scenarioStatusSchema = z.enum([
 ]);
 
 export const difficultySchema = z.enum(['easy', 'medium', 'hard']);
+export const recognitionBucketSchema = z.enum([
+  'famous',
+  'moderate',
+  'obscure',
+]);
 
 const nonEmptyString = z.string().min(1);
+const contentIdSchema = z
+  .string()
+  .regex(
+    /^[a-z0-9]+(?:_[a-z0-9]+)*$/,
+    'Expected a lowercase snake_case content ID',
+  );
+
+export const productionScenarioInventoryEntrySchema = z.object({
+  scenarioId: contentIdSchema,
+  recognitionBucket: recognitionBucketSchema,
+});
+
+const REQUIRED_RECOGNITION_COUNTS = {
+  famous: 24,
+  moderate: 12,
+  obscure: 4,
+} as const;
+
+export const productionScenarioInventorySchema = z
+  .array(productionScenarioInventoryEntrySchema)
+  .length(40)
+  .superRefine((entries, context) => {
+    const scenarioIds = new Set<string>();
+    const counts: Record<z.infer<typeof recognitionBucketSchema>, number> = {
+      famous: 0,
+      moderate: 0,
+      obscure: 0,
+    };
+
+    entries.forEach((entry, index) => {
+      if (scenarioIds.has(entry.scenarioId)) {
+        context.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: [index, 'scenarioId'],
+          message: 'Production inventory scenario IDs must be unique',
+        });
+      }
+      scenarioIds.add(entry.scenarioId);
+      counts[entry.recognitionBucket] += 1;
+    });
+
+    recognitionBucketSchema.options.forEach((bucket) => {
+      const required = REQUIRED_RECOGNITION_COUNTS[bucket];
+      if (counts[bucket] !== required) {
+        context.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: [],
+          message: `Production inventory must contain exactly ${required} ${bucket} scenarios (got ${counts[bucket]})`,
+        });
+      }
+    });
+  });
+
+export const dailyChallengePoolEntrySchema = z.object({
+  scenarioId: contentIdSchema,
+  difficulty: difficultySchema,
+});
+
+export const dailyChallengePoolSchema = z
+  .object({
+    id: contentIdSchema,
+    name: nonEmptyString,
+    startingBankroll: z.literal(10000),
+    scenarios: z.array(dailyChallengePoolEntrySchema).length(10),
+  })
+  .superRefine((pool, context) => {
+    const scenarioIds = new Set<string>();
+    const difficulties = new Set<string>();
+
+    pool.scenarios.forEach((entry, index) => {
+      if (scenarioIds.has(entry.scenarioId)) {
+        context.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ['scenarios', index, 'scenarioId'],
+          message: 'A daily challenge pool cannot repeat a scenario',
+        });
+      }
+      scenarioIds.add(entry.scenarioId);
+      difficulties.add(entry.difficulty);
+    });
+
+    if (difficulties.size !== difficultySchema.options.length) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['scenarios'],
+        message: 'A daily challenge pool must include easy, medium, and hard',
+      });
+    }
+  });
+
+export const dailyChallengePoolsSchema = z
+  .array(dailyChallengePoolSchema)
+  .length(10)
+  .superRefine((pools, context) => {
+    const ids = new Set<string>();
+    pools.forEach((pool, index) => {
+      if (ids.has(pool.id)) {
+        context.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: [index, 'id'],
+          message: 'Daily challenge pool IDs must be unique',
+        });
+      }
+      ids.add(pool.id);
+    });
+  });
+
+export const marketEraSchema = z.object({
+  id: contentIdSchema,
+  name: nonEmptyString,
+  description: nonEmptyString,
+});
+
+export const marketErasSchema = z
+  .array(marketEraSchema)
+  .length(10)
+  .superRefine((eras, context) => {
+    const ids = new Set<string>();
+    eras.forEach((era, index) => {
+      if (ids.has(era.id)) {
+        context.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: [index, 'id'],
+          message: 'Market era IDs must be unique',
+        });
+      }
+      ids.add(era.id);
+    });
+  });
 
 /** True when value is a real calendar day in zero-padded YYYY-MM-DD form. */
 function isValidCalendarDate(value: string): boolean {
@@ -56,28 +191,6 @@ const factBankSchema = z.object({
     })
     .optional(),
   prohibitedConjunctions: z.array(z.string()).optional(),
-});
-
-const gate2GuessSchema = z.object({
-  company: nonEmptyString,
-  confidence: z.number().min(0).max(100),
-  pointingFact: nonEmptyString,
-});
-
-const gate2DirectionSchema = z.object({
-  call: z.enum(['long', 'short', 'toss_up']),
-  confidence: z.number().min(0).max(100),
-  cue: nonEmptyString,
-});
-
-/** Stored raw Gate 2 result for one difficulty (optional; verdicts recomputed offline). */
-const gate2VariantResultSchema = z.object({
-  payloadHash: nonEmptyString,
-  model: nonEmptyString,
-  promptVersion: nonEmptyString,
-  testedAt: nonEmptyString,
-  guesses: z.array(gate2GuessSchema).length(5),
-  direction: gate2DirectionSchema,
 });
 
 const gate2ReviewSchema = z

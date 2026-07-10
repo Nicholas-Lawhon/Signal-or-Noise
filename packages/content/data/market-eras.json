@@ -1,0 +1,52 @@
+[
+  {
+    "id": "dotcom_bubble_aftermath",
+    "name": "Dot-Com Bubble and Aftermath",
+    "description": "Internet enthusiasm, speculative valuations, and the correction that followed the late-1990s boom."
+  },
+  {
+    "id": "pre_financial_crisis_expansion",
+    "name": "Pre-Financial-Crisis Expansion",
+    "description": "Easy credit, rising asset prices, and broad economic growth before the 2007-2009 crisis."
+  },
+  {
+    "id": "global_financial_crisis",
+    "name": "Global Financial Crisis",
+    "description": "The credit-market breakdown, recession, and severe equity-market decline of 2007-2009."
+  },
+  {
+    "id": "post_financial_crisis_recovery",
+    "name": "Post-Financial-Crisis Recovery",
+    "description": "Rebuilding demand, low interest rates, and recovering risk appetite after the financial crisis."
+  },
+  {
+    "id": "smartphone_platform_era",
+    "name": "Smartphone and Platform Era",
+    "description": "Mobile computing and software platforms reshaped consumer behavior and technology markets."
+  },
+  {
+    "id": "streaming_wars",
+    "name": "Streaming Wars",
+    "description": "Media distribution shifted online as incumbents and digital challengers competed for audiences."
+  },
+  {
+    "id": "cloud_software_expansion",
+    "name": "Cloud Software Expansion",
+    "description": "Businesses moved computing and software spending toward cloud-hosted and subscription services."
+  },
+  {
+    "id": "pandemic_crash_recovery",
+    "name": "Pandemic Crash and Recovery",
+    "description": "Markets fell sharply as activity stopped, then rebounded amid policy support and reopening expectations."
+  },
+  {
+    "id": "pandemic_winners_losers",
+    "name": "Pandemic Winners and Losers",
+    "description": "Abrupt changes in work, mobility, and consumption created unusually divergent company outcomes."
+  },
+  {
+    "id": "rate_hike_inflation_era",
+    "name": "Rate-Hike and Inflation Era",
+    "description": "High inflation and rising interest rates challenged valuations, financing conditions, and consumer demand."
+  }
+]

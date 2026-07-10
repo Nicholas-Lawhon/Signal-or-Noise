@@ -1,0 +1,303 @@
+{
+  "id": "scenario_target_2021_2022",
+  "status": "active",
+  "company": {
+    "name": "Target",
+    "ticker": "TGT",
+    "exchange": "NYSE",
+    "sector": "Consumer Defensive",
+    "industry": "Discount Stores",
+    "country": "United States",
+    "acceptedNames": [
+      "target",
+      "target corporation"
+    ],
+    "identityBannedTerms": [
+      "Bullseye",
+      "Circle rewards",
+      "Good & Gather"
+    ]
+  },
+  "scenario": {
+    "title": "Aisle Shift",
+    "decisionDate": "2021-11-01",
+    "endDate": "2022-11-01",
+    "decisionDateLabel": "Late 2021",
+    "outcomeLabel": "Late 2021 to late 2022",
+    "holdingPeriodLabel": "One year",
+    "era": "Inventory and inflation shock",
+    "eraId": "rate_hike_inflation_era",
+    "contentPackIds": [
+      "mvp_core",
+      "phase_4b_wave"
+    ],
+    "difficultySupported": [
+      "easy",
+      "medium",
+      "hard"
+    ]
+  },
+  "marketData": {
+    "startingPrice": 222.412,
+    "endingPrice": 144.522,
+    "actualReturnPercent": -0.3502,
+    "usesSplitAdjustedPrices": true,
+    "usesTotalReturn": false,
+    "preDecisionChartStartDate": "2019-11-01",
+    "preDecisionChartEndDate": "2021-11-01",
+    "outcomeChartStartDate": "2021-11-01",
+    "outcomeChartEndDate": "2022-11-01",
+    "lookbackPrices": [
+      89.675,
+      90.72,
+      100.759,
+      129.393,
+      145.467,
+      211.906,
+      222.412
+    ],
+    "outcomePrices": [
+      222.412,
+      200.259,
+      194.522,
+      202.083,
+      127.147,
+      144.742,
+      144.522
+    ]
+  },
+  "hiddenCard": {
+    "easy": {
+      "companyDescription": "A national general-merchandise retailer selling groceries, apparel, home goods, and discretionary products through stores and digital channels.",
+      "macroContext": "Consumers are shifting spending toward services while freight costs and inflation complicate retail inventory plans.",
+      "situation": "Can a store-led omnichannel model protect traffic as the pandemic merchandise mix reverses?",
+      "longCase": "Convenient pickup services, owned brands, and frequent store visits could sustain sales across categories.",
+      "shortCase": "Excess discretionary inventory and rising freight and labor costs could force markdowns and crush margins.",
+      "setupHints": [
+        "Most digital orders are fulfilled by the companyÃ¢â‚¬â„¢s existing store network."
+      ]
+    },
+    "medium": {
+      "companyDescription": "A large retailer spanning frequent-purchase and discretionary categories.",
+      "macroContext": "Households are changing category spending while supply chains deliver delayed merchandise.",
+      "situation": "Can a broad physical network preserve loyalty before the inventory mix becomes a liability?",
+      "longCase": "Frequent visits and convenient fulfillment can support traffic while differentiated merchandise protects demand.",
+      "shortCase": "Late-arriving stock and a consumer pivot can require markdowns as operating costs rise.",
+      "setupHints": []
+    },
+    "hard": {
+      "companyDescription": "A scaled consumer retailer with a broad physical footprint.",
+      "macroContext": "Supply is catching up just as household demand rotates and inflation pressures budgets.",
+      "situation": "Can convenient distribution offset a mismatch between inventory and current demand?",
+      "longCase": "Existing locations and repeat visits can support efficient fulfillment and resilient traffic.",
+      "shortCase": "Category misalignment can trigger promotions while freight and labor costs remain elevated.",
+      "setupHints": []
+    }
+  },
+  "reveal": {
+    "shortText": "That was Target. A rapid shift away from discretionary goods left too much inventory and forced markdowns that sharply reduced profit.",
+    "funFact": "Target used its stores to fulfill the vast majority of sales, including many digital pickup and delivery orders.",
+    "whyItMoved": [
+      "Consumer spending shifted away from categories that had surged during the pandemic.",
+      "Excess inventory required aggressive clearance and markdown activity.",
+      "Freight, labor, and supply-chain costs added pressure to operating margins."
+    ]
+  },
+  "sources": [
+    {
+      "label": "Yahoo Finance historical data Ã¢â‚¬â€ TGT",
+      "url": "https://finance.yahoo.com/quote/TGT/history/",
+      "notes": "Split-adjusted closes, chart samples, and return for the stated dates."
+    },
+    {
+      "label": "Target 2022 Form 10-K Ã¢â‚¬â€ SEC EDGAR",
+      "url": "https://www.sec.gov/edgar/browse/?CIK=27419&owner=exclude",
+      "notes": "Store fulfillment, category mix, inventory actions, freight, labor, and margin reveal claims."
+    }
+  ],
+  "review": {
+    "generatedByAi": true,
+    "humanReviewed": true,
+    "reviewNotes": "Famous bucket. Stored Grok evidence identified the omnichannel essentials/discretionary mix and store-pickup inventory reset on Medium; dense locations, pickup, and the famous inventory mismatch kept Hard recognizable. M/H now use broad retail categories, physical distribution, repeat visits, inventory timing, promotions, freight, and labor without service names or owned-brand cues. Easy is unchanged. Stored M/H results remain stale evidence pending blind rejudge.",
+    "factBank": {
+      "revealOnly": [
+        "company/ticker",
+        "named loyalty program",
+        "specific quarterly profit warning"
+      ],
+      "decisionUseful": [
+        "broad physical network",
+        "frequent and discretionary category mix",
+        "inventory mismatch",
+        "markdowns",
+        "freight and labor costs"
+      ],
+      "prohibited": [
+        "logo nickname",
+        "named pickup services",
+        "exact profit-warning date"
+      ],
+      "peerSets": {
+        "easy": [
+          "Target",
+          "Walmart",
+          "Kroger",
+          "Costco",
+          "Kohl's"
+        ],
+        "medium": [
+          "Walmart",
+          "Target",
+          "Kroger",
+          "Costco"
+        ],
+        "hard": [
+          "Kroger",
+          "Walmart",
+          "Costco",
+          "Target",
+          "Kohl's"
+        ]
+      },
+      "prohibitedConjunctions": [
+        "2021 retail chart plus same-day or pickup service",
+        "inventory warning plus logo language",
+        "essential/discretionary mix plus owned brands"
+      ]
+    },
+    "easyLikelyGuesses": [
+      "Target",
+      "Walmart",
+      "Kroger",
+      "Costco"
+    ],
+    "mediumLikelyGuesses": [
+      "Walmart",
+      "Kroger",
+      "Kohl's",
+      "Best Buy"
+    ],
+    "hardLikelyGuesses": [
+      "Walmart",
+      "Kroger",
+      "Best Buy",
+      "Kohl's"
+    ],
+    "gate2": {
+      "easy": {
+        "payloadHash": "sha256:5bc26da0f93b351d0af19c72debe3bc092c26a2b5ee97cf37720f21ccdaf3a3d",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T12:00:00.000Z",
+        "guesses": [
+          {
+            "company": "Target",
+            "confidence": 88,
+            "pointingFact": "National general-merchandise retailer with groceries plus discretionary categories and a store-fulfilled digital/pickup model that was the textbook late-2021 inventory and margin-shock story."
+          },
+          {
+            "company": "Walmart",
+            "confidence": 62,
+            "pointingFact": "Also a national store-led omnichannel seller of groceries, apparel, home goods, and discretionary items, with heavy store-network fulfillment of digital orders."
+          },
+          {
+            "company": "Costco",
+            "confidence": 28,
+            "pointingFact": "National warehouse retailer spanning groceries and general merchandise through membership clubs and growing digital channels during the inflation era."
+          },
+          {
+            "company": "Kohl's",
+            "confidence": 18,
+            "pointingFact": "National store-based retailer of apparel, home, and discretionary goods that faced post-pandemic traffic and inventory pressure, though with weaker grocery fit."
+          },
+          {
+            "company": "Macy's",
+            "confidence": 12,
+            "pointingFact": "National multi-category merchandise retailer with stores and digital channels exposed to discretionary demand reversal and markdown risk after the pandemic boom."
+          }
+        ],
+        "direction": {
+          "call": "short",
+          "confidence": 72,
+          "cue": "Late-2021 setup after a sharp multi-year price run-up into an inventory, freight, labor, and goods-to-services demand shift that points to markdowns and margin compression over a one-year hold."
+        }
+      },
+      "medium": {
+        "payloadHash": "sha256:3459676860da5a6dafd70bf22badbe1e0e36dfb05f7284c79c551d510d0996d4",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-09T18:00:00.000Z",
+        "guesses": [
+          {
+            "company": "Target",
+            "confidence": 76,
+            "pointingFact": "Broad-line physical retailer mixing consumables and discretionary goods that rode a pandemic boom into late-2021 inventory and category-mix stress"
+          },
+          {
+            "company": "Walmart",
+            "confidence": 44,
+            "pointingFact": "Large multi-category retailer with frequent trips and fulfillment options facing shifting household baskets and supply delays"
+          },
+          {
+            "company": "Kohl's",
+            "confidence": 30,
+            "pointingFact": "National chain spanning apparel and home discretionary goods vulnerable to inventory glut and traffic pivots"
+          },
+          {
+            "company": "Macy's",
+            "confidence": 24,
+            "pointingFact": "Department retailer with delayed merchandise risk and discretionary demand shifts after a strong goods cycle"
+          },
+          {
+            "company": "Best Buy",
+            "confidence": 20,
+            "pointingFact": "Big-box retailer of goods that boomed then faced inventory and demand digestion as spending patterns changed"
+          }
+        ],
+        "direction": {
+          "call": "short",
+          "confidence": 72,
+          "cue": "Huge lookback run into late 2021 meets inventory lag, category spending shifts, and rising markdown/operating-cost risk"
+        }
+      },
+      "hard": {
+        "payloadHash": "sha256:959509049818ab481a531b2f3c5d4844e561b991ebda1cc477f776c8662f5b15",
+        "model": "grok-4.5",
+        "promptVersion": "guess.v1+direction.v1",
+        "testedAt": "2026-07-10T04:15:00.000Z",
+        "guesses": [
+          {
+            "company": "Target",
+            "confidence": 55,
+            "pointingFact": "Broad physical retailer that faced late-2021 inventory mix mismatch as demand rotated and inflation hit budgets."
+          },
+          {
+            "company": "Walmart",
+            "confidence": 40,
+            "pointingFact": "Scaled footprint retailer navigating supply catch-up, category shifts, and elevated freight/labor costs."
+          },
+          {
+            "company": "Best Buy",
+            "confidence": 30,
+            "pointingFact": "Big-box retailer with pandemic inventory run-up and risk of promotions when demand rotates."
+          },
+          {
+            "company": "Home Depot",
+            "confidence": 24,
+            "pointingFact": "Physical retailer exposed to household demand rotation after a multi-year home-spend boom."
+          },
+          {
+            "company": "Kohl's",
+            "confidence": 18,
+            "pointingFact": "Broadline physical retailer vulnerable to inventory misalignment and promotional clearance under inflation."
+          }
+        ],
+        "direction": {
+          "call": "short",
+          "confidence": 61,
+          "cue": "Huge pre-decision run-up plus inventory/demand mismatch and sticky freight and labor costs point to margin pressure."
+        }
+      }
+    }
+  }
+}

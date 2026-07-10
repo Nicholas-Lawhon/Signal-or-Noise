@@ -1,0 +1,11 @@
+{
+  "exportedAt": "2026-07-10T04:32:29.710Z",
+  "entries": [
+    {
+      "judgeId": "blind_0001",
+      "scenarioId": "scenario_roku_2020_2021",
+      "difficulty": "easy",
+      "payloadHash": "sha256:f42ba04a5491c069f589c6d343c21189f994dfeccd54ce149f1cb75771d4d4a3"
+    }
+  ]
+}

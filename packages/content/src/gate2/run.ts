@@ -27,10 +27,18 @@ import { validateScenario } from '../validation';
 import type { Scenario, ScenarioStatus } from '../types';
 
 export type ExportPayloadEntry = {
-  scenarioId: string;
+  /** Opaque key used by the judge. The answer-bearing scenario id is withheld. */
+  judgeId: string;
   difficulty: Gate2Difficulty;
   payloadHash: string;
   payload: Gate2VariantPayload;
+};
+
+export type ExportMappingEntry = {
+  judgeId: string;
+  scenarioId: string;
+  difficulty: Gate2Difficulty;
+  payloadHash: string;
 };
 
 export type ExportPayloadFile = {
@@ -38,6 +46,11 @@ export type ExportPayloadFile = {
   model: typeof GATE2_MODEL;
   promptVersion: typeof GATE2_PROMPT_VERSION;
   entries: ExportPayloadEntry[];
+};
+
+export type ExportMappingFile = {
+  exportedAt: string;
+  entries: ExportMappingEntry[];
 };
 
 type ScenarioFolder = 'draft' | 'reviewed' | 'active';
@@ -67,7 +80,8 @@ export function getScenariosRoot(
  * Load + validate scenarios for Gate 2 CLI.
  * - `skipGate2: true` for check: non-Gate-2 failures still block; Gate 2
  *   stored-result issues are reported later as structured findings.
- * - `skipGate2: false` (default) for export: full validation required.
+ * - `skipGate2: true` for export too: exports are the repair path for stale or
+ *   missing stored evidence, while all non-Gate-2 validation still blocks.
  */
 function loadScenariosFromFolders(
   folders: ScenarioFolder[],
@@ -112,10 +126,18 @@ function loadScenariosFromFolders(
 
 export type ExportOptions = {
   outPath: string;
+  /** Answer-bearing mapping written separately and withheld from the judge. */
+  mappingOutPath?: string;
   /** Filter to a single scenario id when set. */
   scenarioId?: string;
+  /** Required isolation boundary so a judge never sees sibling variants. */
+  difficulty: Gate2Difficulty;
+  /** Emit only payloads whose hash differs from a prior private mapping. */
+  changedFromMappingPath?: string;
   /** When true, also load draft/ folder. Default: reviewed + active only. */
   includeDraft?: boolean;
+  /** When true, load only draft/ (for a phase candidate campaign). */
+  draftOnly?: boolean;
   scenariosRoot?: string;
   contentPackageRoot?: string;
   monorepoRoot?: string;
@@ -123,26 +145,35 @@ export type ExportOptions = {
 };
 
 /**
- * Export blind pre-decision payloads for the next Grok judge handoff.
+ * Export blind pre-decision payloads for an independent phase-internal judge.
  * Payload entries never include company name, ticker, reveal, return, or review.
  * Relative `--out` paths resolve from the monorepo root (e.g. agents/gate2/...).
  */
 export function exportGate2Payloads(options: ExportOptions): {
   absoluteOutPath: string;
+  absoluteMappingOutPath: string;
   file: ExportPayloadFile;
+  mappingFile: ExportMappingFile;
   entryCount: number;
 } {
+  if (!GATE2_DIFFICULTIES.includes(options.difficulty)) {
+    throw new Error('Gate 2 export requires exactly one difficulty');
+  }
   const contentPackageRoot =
     options.contentPackageRoot ?? getContentPackageRoot();
   const monorepoRoot =
     options.monorepoRoot ?? getMonorepoRoot(contentPackageRoot);
   const scenariosRoot =
     options.scenariosRoot ?? getScenariosRoot(contentPackageRoot);
-  const folders: ScenarioFolder[] = options.includeDraft
-    ? ['draft', 'reviewed', 'active']
-    : [...DEFAULT_FOLDERS];
+  const folders: ScenarioFolder[] = options.draftOnly
+    ? ['draft']
+    : options.includeDraft
+      ? ['draft', 'reviewed', 'active']
+      : [...DEFAULT_FOLDERS];
 
-  let loaded = loadScenariosFromFolders(folders, scenariosRoot);
+  let loaded = loadScenariosFromFolders(folders, scenariosRoot, {
+    skipGate2: true,
+  });
   if (options.scenarioId) {
     loaded = loaded.filter((s) => s.scenario.id === options.scenarioId);
     if (loaded.length === 0) {
@@ -152,33 +183,84 @@ export function exportGate2Payloads(options: ExportOptions): {
     }
   }
 
+  const exportedAt = (options.now ?? (() => new Date().toISOString()))();
+  const baselineByVariant = new Map<string, string>();
+  if (options.changedFromMappingPath) {
+    const baselinePath = isAbsolute(options.changedFromMappingPath)
+      ? options.changedFromMappingPath
+      : resolve(monorepoRoot, options.changedFromMappingPath);
+    const baseline = JSON.parse(
+      readFileSync(baselinePath, 'utf8'),
+    ) as ExportMappingFile;
+    for (const entry of baseline.entries) {
+      baselineByVariant.set(
+        `${entry.scenarioId}:${entry.difficulty}`,
+        entry.payloadHash,
+      );
+    }
+  }
   const entries: ExportPayloadEntry[] = [];
+  const mappingEntries: ExportMappingEntry[] = [];
   for (const { scenario } of loaded) {
     for (const difficulty of GATE2_DIFFICULTIES) {
+      if (difficulty !== options.difficulty) continue;
       const payload = renderVariantPayload(scenario, difficulty);
+      const payloadHash = hashVariantPayload(payload);
+      if (
+        baselineByVariant.get(`${scenario.id}:${difficulty}`) === payloadHash
+      ) {
+        continue;
+      }
+      const judgeId = `blind_${String(entries.length + 1).padStart(4, '0')}`;
       entries.push({
+        judgeId,
+        difficulty,
+        payloadHash,
+        payload,
+      });
+      mappingEntries.push({
+        judgeId,
         scenarioId: scenario.id,
         difficulty,
-        payloadHash: hashVariantPayload(payload),
-        payload,
+        payloadHash,
       });
     }
   }
 
   const file: ExportPayloadFile = {
-    exportedAt: (options.now ?? (() => new Date().toISOString()))(),
+    exportedAt,
     model: GATE2_MODEL,
     promptVersion: GATE2_PROMPT_VERSION,
     entries,
+  };
+  const mappingFile: ExportMappingFile = {
+    exportedAt,
+    entries: mappingEntries,
   };
 
   const absoluteOutPath = isAbsolute(options.outPath)
     ? options.outPath
     : resolve(monorepoRoot, options.outPath);
+  const mappingOutPath = options.mappingOutPath ?? `${options.outPath}.mapping.json`;
+  const absoluteMappingOutPath = isAbsolute(mappingOutPath)
+    ? mappingOutPath
+    : resolve(monorepoRoot, mappingOutPath);
   mkdirSync(dirname(absoluteOutPath), { recursive: true });
+  mkdirSync(dirname(absoluteMappingOutPath), { recursive: true });
   writeFileSync(absoluteOutPath, `${JSON.stringify(file, null, 2)}\n`, 'utf8');
+  writeFileSync(
+    absoluteMappingOutPath,
+    `${JSON.stringify(mappingFile, null, 2)}\n`,
+    'utf8',
+  );
 
-  return { absoluteOutPath, file, entryCount: entries.length };
+  return {
+    absoluteOutPath,
+    absoluteMappingOutPath,
+    file,
+    mappingFile,
+    entryCount: entries.length,
+  };
 }
 
 export type CheckOptions = {
@@ -197,7 +279,7 @@ export type CheckReportLine = {
 
 /**
  * Offline check of any stored review.gate2 results.
- * Missing results are reported as info (not failures) in H021.
+ * Missing results are reported as info for draft content.
  * Returns exitCode 1 only when real error findings exist on stored results.
  */
 export function checkGate2StoredResultsCli(options: CheckOptions = {}): {
@@ -216,7 +298,7 @@ export function checkGate2StoredResultsCli(options: CheckOptions = {}): {
     : [...DEFAULT_FOLDERS];
 
   // Skip Gate 2 during load so stale/wrong-pin/threshold failures become
-  // structured ERROR lines instead of aborting the command (H022).
+  // structured ERROR lines instead of aborting the command.
   let loaded = loadScenariosFromFolders(folders, scenariosRoot, {
     skipGate2: true,
   });
@@ -238,7 +320,7 @@ export function checkGate2StoredResultsCli(options: CheckOptions = {}): {
         severity: 'info',
         scenarioId: scenario.id,
         path: `review.gate2.${difficulty}`,
-        message: `Missing Gate 2 result (${status}) — not enforced in H021`,
+        message: `Missing Gate 2 result (${status}) — informational until the phase gate`,
       });
     }
 
@@ -277,11 +359,15 @@ export function checkGate2StoredResultsCli(options: CheckOptions = {}): {
 export function parseGate2Args(argv: string[]): {
   command: 'export' | 'check' | 'help';
   outPath?: string;
+  mappingOutPath?: string;
   scenarioId?: string;
+  difficulty?: Gate2Difficulty;
+  changedFromMappingPath?: string;
   includeDraft: boolean;
+  draftOnly: boolean;
 } {
   if (argv.length === 0 || argv[0] === 'help' || argv[0] === '--help') {
-    return { command: 'help', includeDraft: false };
+    return { command: 'help', includeDraft: false, draftOnly: false };
   }
 
   const command = argv[0];
@@ -292,8 +378,12 @@ export function parseGate2Args(argv: string[]): {
   }
 
   let outPath: string | undefined;
+  let mappingOutPath: string | undefined;
   let scenarioId: string | undefined;
+  let difficulty: Gate2Difficulty | undefined;
+  let changedFromMappingPath: string | undefined;
   let includeDraft = false;
+  let draftOnly = false;
 
   for (let i = 1; i < argv.length; i += 1) {
     const arg = argv[i];
@@ -301,14 +391,33 @@ export function parseGate2Args(argv: string[]): {
       outPath = argv[i + 1];
       i += 1;
       if (!outPath) throw new Error('--out requires a path');
+    } else if (arg === '--mapping-out') {
+      mappingOutPath = argv[i + 1];
+      i += 1;
+      if (!mappingOutPath) throw new Error('--mapping-out requires a path');
     } else if (arg === '--id') {
       scenarioId = argv[i + 1];
       i += 1;
       if (!scenarioId) throw new Error('--id requires a scenario id');
     } else if (arg === '--include-draft') {
       includeDraft = true;
+    } else if (arg === '--draft-only') {
+      draftOnly = true;
+    } else if (arg === '--difficulty') {
+      const value = argv[i + 1];
+      i += 1;
+      if (!value || !GATE2_DIFFICULTIES.includes(value as Gate2Difficulty)) {
+        throw new Error('--difficulty requires easy, medium, or hard');
+      }
+      difficulty = value as Gate2Difficulty;
+    } else if (arg === '--changed-from') {
+      changedFromMappingPath = argv[i + 1];
+      i += 1;
+      if (!changedFromMappingPath) {
+        throw new Error('--changed-from requires a private mapping path');
+      }
     } else if (arg === '--help') {
-      return { command: 'help', includeDraft: false };
+      return { command: 'help', includeDraft: false, draftOnly: false };
     } else {
       throw new Error(`Unknown argument: ${arg}`);
     }
@@ -317,19 +426,34 @@ export function parseGate2Args(argv: string[]): {
   if (command === 'export' && !outPath) {
     throw new Error('export requires --out <path>');
   }
+  if (command === 'export' && !difficulty) {
+    throw new Error('export requires --difficulty <easy|medium|hard>');
+  }
+  if (includeDraft && draftOnly) {
+    throw new Error('--include-draft and --draft-only are mutually exclusive');
+  }
 
-  return { command, outPath, scenarioId, includeDraft };
+  return {
+    command,
+    outPath,
+    mappingOutPath,
+    scenarioId,
+    difficulty,
+    changedFromMappingPath,
+    includeDraft,
+    draftOnly,
+  };
 }
 
 export function printHelp(): void {
   console.log(`Gate 2 offline helpers (no model calls)
 
 Usage:
-  pnpm --filter @signal-or-noise/content gate2 -- export --out <path> [--id <scenarioId>] [--include-draft]
+  pnpm --filter @signal-or-noise/content gate2 -- export --out <judge-path> --difficulty <easy|medium|hard> [--mapping-out <private-path>] [--id <scenarioId>] [--changed-from <prior-private-mapping>] [--draft-only|--include-draft]
   pnpm --filter @signal-or-noise/content gate2 -- check [--id <scenarioId>] [--include-draft]
 
 Commands:
-  export   Write blind pre-decision payloads (scenario id, difficulty, hash, payload only)
-  check    Evaluate any stored review.gate2 results offline; missing = info only in H021
+  export   Write opaque blind payloads plus a separate answer-bearing mapping
+  check    Evaluate stored review.gate2 results offline; draft missing = informational
 `);
 }

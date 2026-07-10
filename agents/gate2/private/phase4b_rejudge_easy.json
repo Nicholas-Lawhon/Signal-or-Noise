@@ -1,0 +1,47 @@
+{
+  "exportedAt": "2026-07-10T03:50:44.711Z",
+  "entries": [
+    {
+      "judgeId": "blind_0001",
+      "scenarioId": "scenario_amd_2019_2020",
+      "difficulty": "easy",
+      "payloadHash": "sha256:2031164676a443764cb1f03ba38a52e0268698b7bfc0d85e603ae725be345ab3"
+    },
+    {
+      "judgeId": "blind_0002",
+      "scenarioId": "scenario_boeing_2019_2020",
+      "difficulty": "easy",
+      "payloadHash": "sha256:2146e361b13534116af8384b44f7eb5cfcb759cfa321f0375cbeae8d18cea6ff"
+    },
+    {
+      "judgeId": "blind_0003",
+      "scenarioId": "scenario_docusign_2020_2021",
+      "difficulty": "easy",
+      "payloadHash": "sha256:0f76469039d28d20e591532c1ce1b098768026a23f17a23352cb30a240430518"
+    },
+    {
+      "judgeId": "blind_0004",
+      "scenarioId": "scenario_fastly_2020_2021",
+      "difficulty": "easy",
+      "payloadHash": "sha256:a07a8669de5f7aeb9618ca6fab75a84feb88417065e455c3537df167d3341e76"
+    },
+    {
+      "judgeId": "blind_0005",
+      "scenarioId": "scenario_meta_2022_2023",
+      "difficulty": "easy",
+      "payloadHash": "sha256:34622b1fc5299cccc63502b39a2c6111f95f7ceadf063222f351ffb59ec6e22b"
+    },
+    {
+      "judgeId": "blind_0006",
+      "scenarioId": "scenario_pinterest_2020_2021",
+      "difficulty": "easy",
+      "payloadHash": "sha256:21f1acfa32c753510c2b6ebab3baec2807d8464a1b408bd5fcab201a7da49421"
+    },
+    {
+      "judgeId": "blind_0007",
+      "scenarioId": "scenario_roku_2020_2021",
+      "difficulty": "easy",
+      "payloadHash": "sha256:e75f4ea4d393f929fd0d3f5f1415e61d473fc299fe7002193154ea8f17d81cc4"
+    }
+  ]
+}

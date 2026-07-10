@@ -1,0 +1,1062 @@
+{
+  "exportedAt": "2026-07-10T03:12:32.466Z",
+  "model": "grok-4.5",
+  "promptVersion": "guess.v1+direction.v1",
+  "entries": [
+    {
+      "judgeId": "blind_0001",
+      "difficulty": "medium",
+      "payloadHash": "sha256:7ff2f27a51e31a9e84302f00b06135e79b6ae7f727ea741b23ae48fc5c2c81df",
+      "payload": {
+        "title": "Subscription Test",
+        "era": "Late-cycle expansion",
+        "decisionDateLabel": "2019",
+        "holdingPeriodLabel": "About one year",
+        "companyDescription": "A large subscription software provider.",
+        "macroContext": "Enterprise buyers are consolidating spending around durable software platforms.",
+        "situation": "Can recurring contracts sustain growth as the easiest customer conversions fade?",
+        "longCase": "A broad installed base can support renewals, cross-selling, and steady cash generation.",
+        "shortCase": "Saturation and capable alternatives can make future growth harder to earn.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          118,
+          130.1,
+          139.3,
+          143.4,
+          152.4,
+          142.6,
+          126.4
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0002",
+      "difficulty": "medium",
+      "payloadHash": "sha256:cfe53d479b299077e92539d23b80fec6d76116f626904be74e491ea894f0109e",
+      "payload": {
+        "title": "Open Calendar",
+        "era": "Pandemic reopening uncertainty",
+        "decisionDateLabel": "Early 2021",
+        "holdingPeriodLabel": "One year",
+        "companyDescription": "An asset-light marketplace connecting travelers with fragmented lodging supply.",
+        "macroContext": "Travel demand is beginning to recover while international and city activity lag.",
+        "situation": "Can flexible supply turn a reopening wave into lasting marketplace scale?",
+        "longCase": "A global network and low ownership costs could support faster recovery as trip patterns shift.",
+        "shortCase": "Regulatory limits, inconsistent supply quality, and delayed urban travel could restrain growth.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          112.7,
+          101.4,
+          117.5,
+          122.7,
+          128.3,
+          145
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0003",
+      "difficulty": "medium",
+      "payloadHash": "sha256:03ed8d09158af5e78a6db201d085e12beebbd38b2cb82c354a0e2d98dc834ded",
+      "payload": {
+        "title": "Attention Reset",
+        "era": "Inflation and rate reset",
+        "decisionDateLabel": "2022",
+        "holdingPeriodLabel": "About one year",
+        "companyDescription": "A large consumer internet and cloud company.",
+        "macroContext": "Advertisers are becoming cautious as economic growth slows and financing costs rise.",
+        "situation": "Can scale protect demand while investment spending remains elevated?",
+        "longCase": "Broad reach and strong cash generation can preserve share during a weaker market.",
+        "shortCase": "A sharp advertising slowdown and costly long-term projects can pressure earnings.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          116.8,
+          132.6,
+          139.5,
+          156.1,
+          161.1,
+          169,
+          168
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0004",
+      "difficulty": "medium",
+      "payloadHash": "sha256:4024022d6a7dc9d56f268def804887ea5ad47f03830cdbeb97f098f4243c42e2",
+      "payload": {
+        "title": "Execution Window",
+        "era": "Late-cycle expansion",
+        "decisionDateLabel": "2019",
+        "holdingPeriodLabel": "About one year",
+        "companyDescription": "A semiconductor design company serving several computing markets.",
+        "macroContext": "Customers are reassessing suppliers as new manufacturing processes and architectures arrive.",
+        "situation": "Can stronger execution convert a temporary opening into sustained share gains?",
+        "longCase": "Competitive products can expand revenue across both consumer and enterprise customers.",
+        "shortCase": "Powerful rivals and rapid product cycles can erase an advantage quickly.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          109.9,
+          95.8,
+          135.6,
+          172.5,
+          290.8,
+          198.9,
+          171.5
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0005",
+      "difficulty": "medium",
+      "payloadHash": "sha256:5e32b3da935d37bff0b6cceeecde78e67771069ba566ee5122e01c6e7a56c2af",
+      "payload": {
+        "title": "Auction Engine",
+        "era": "Mobile advertising reset",
+        "decisionDateLabel": "Late 2022",
+        "holdingPeriodLabel": "One year",
+        "companyDescription": "A software platform optimizing advertising transactions for mobile publishers.",
+        "macroContext": "Privacy rules and weaker budgets are forcing ad-technology providers to rebuild targeting and measurement.",
+        "situation": "Can a new prediction system raise marketplace efficiency before demand weakens further?",
+        "longCase": "Improved matching can raise advertiser returns and publisher revenue across a scaled exchange.",
+        "shortCase": "Reliance on mobile platforms and volatile marketing budgets can quickly reverse gains.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          92.8,
+          146.7,
+          105,
+          59.2,
+          54.5,
+          26.3
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0006",
+      "difficulty": "medium",
+      "payloadHash": "sha256:3da63b9d283cea43340e55fcc6ff6e153d073fb4ef674560c6d2926475bf542a",
+      "payload": {
+        "title": "Two Ledgers",
+        "era": "Fintech normalization",
+        "decisionDateLabel": "Late 2021",
+        "holdingPeriodLabel": "One year",
+        "companyDescription": "A financial-technology platform serving merchants and consumers through separate ecosystems.",
+        "macroContext": "Payment digitization continues while capital costs rise and speculative activity fades.",
+        "situation": "Can broader services turn two user networks into a coherent profit engine?",
+        "longCase": "Cross-selling software and financial services can deepen engagement on both sides.",
+        "shortCase": "Acquisition integration and volatile low-margin activity can obscure underlying profitability.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          126.6,
+          181.1,
+          247.4,
+          348.9,
+          385.1,
+          407.4
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0007",
+      "difficulty": "medium",
+      "payloadHash": "sha256:afcf415cdb63c0588a290cb378800aa3482103c4055d2488c48cbf8822886bd2",
+      "payload": {
+        "title": "Certification Clock",
+        "era": "Late-cycle uncertainty",
+        "decisionDateLabel": "Spring 2019",
+        "holdingPeriodLabel": "One year",
+        "companyDescription": "A capital-goods manufacturer serving commercial and government buyers.",
+        "macroContext": "Oversight pressure and supplier constraints are testing multi-year industrial programs.",
+        "situation": "Can a market leader restore deliveries after a major program setback without losing customer confidence?",
+        "longCase": "A deep order book and limited near-term substitutes could preserve demand once production normalizes.",
+        "shortCase": "Prolonged disruption, customer claims, and idle capacity could turn a program issue into a cash problem.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          112,
+          124,
+          140,
+          148,
+          160,
+          156.3
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0008",
+      "difficulty": "medium",
+      "payloadHash": "sha256:d93531d339f8b00a8739ac4a415195b2bb8562ea7d35a6d501a87c9160300ae5",
+      "payload": {
+        "title": "Trust Rebuild",
+        "era": "Late-cycle expansion",
+        "decisionDateLabel": "2018",
+        "holdingPeriodLabel": "About one year",
+        "companyDescription": "A national restaurant chain attempting an operational turnaround.",
+        "macroContext": "Consumers want both convenience and confidence in how food is prepared.",
+        "situation": "Can improved execution restore traffic while new ordering channels add complexity?",
+        "longCase": "Clearer operations and digital convenience can rebuild demand across an existing store base.",
+        "shortCase": "Reputation damage and cost inflation can keep traffic and margins under pressure.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          112.3,
+          124.9,
+          122.5,
+          93.5,
+          80.9,
+          73.1,
+          78.1
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0009",
+      "difficulty": "medium",
+      "payloadHash": "sha256:40f181bcd77e7a25d6fc1b616ee0e15100a1dc5351accddae8bf41ec0c4db200",
+      "payload": {
+        "title": "Traffic Layer",
+        "era": "Pandemic-era disruption",
+        "decisionDateLabel": "2020",
+        "holdingPeriodLabel": "About one year",
+        "companyDescription": "A usage-sensitive internet infrastructure provider.",
+        "macroContext": "Digital activity is increasing while large platforms bundle more security and performance tools.",
+        "situation": "Can a specialist turn traffic growth into broader customer relationships?",
+        "longCase": "A distributed service footprint can support expansion as customer workloads grow.",
+        "shortCase": "Bundled competition and continued infrastructure investment can keep margins under pressure.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          103.2,
+          90.9,
+          92.9,
+          90.3,
+          108.2,
+          102.1,
+          94.6
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0010",
+      "difficulty": "medium",
+      "payloadHash": "sha256:3c0944bd998df5bdd15e7a054ec917177fada33ce52b1c57e4b49712ba3ba5be",
+      "payload": {
+        "title": "Control Plane",
+        "era": "Rate-hike and software reset",
+        "decisionDateLabel": "Early 2023",
+        "holdingPeriodLabel": "One year",
+        "companyDescription": "A subscription software platform serving security teams.",
+        "macroContext": "Enterprise buyers are consolidating vendors while slowing discretionary technology projects.",
+        "situation": "Can a platform win a larger share of fixed security budgets without sacrificing growth efficiency?",
+        "longCase": "High retention and cross-selling can deepen recurring revenue even when new-logo decisions take longer.",
+        "shortCase": "Crowded competition and delayed contracts can pressure growth while valuation still assumes durable leadership.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          98.7,
+          134.7,
+          102.1,
+          99.5,
+          86.3,
+          51.5
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0011",
+      "difficulty": "medium",
+      "payloadHash": "sha256:69548c3525c876e58632feffdd1d49b402f361277988384e187cbdd390a951f7",
+      "payload": {
+        "title": "Usage Meter",
+        "era": "Cloud growth and rate shock",
+        "decisionDateLabel": "Late 2021",
+        "holdingPeriodLabel": "One year",
+        "companyDescription": "A usage-based software platform serving technical operations teams.",
+        "macroContext": "Cloud workloads keep growing while customers scrutinize consumption and software sprawl.",
+        "situation": "Can product expansion offset slower usage growth inside existing accounts?",
+        "longCase": "Integrated tools and rising workload complexity can deepen adoption across engineering teams.",
+        "shortCase": "Optimization efforts and open-source alternatives can reduce consumption before costs adjust.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          130.9,
+          263.3,
+          266.8,
+          249.9,
+          313,
+          485.6
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0012",
+      "difficulty": "medium",
+      "payloadHash": "sha256:02bfcd1908b87d327b4dc524e8a84247e9b7ed2d7dc3610e7cd3528c84f4fd3e",
+      "payload": {
+        "title": "Distribution Gamble",
+        "era": "Streaming wars",
+        "decisionDateLabel": "Early 2019",
+        "holdingPeriodLabel": "About one year",
+        "companyDescription": "A diversified media and entertainment company.",
+        "macroContext": "Media groups are testing whether new distribution models can replace older cash-flow channels.",
+        "situation": "Can a large media owner open a direct audience relationship without damaging the profits that finance it?",
+        "longCase": "A broad catalogue and established brands could attract a durable direct audience over time.",
+        "shortCase": "Heavy launch investment and disruption to older channels could delay a payoff.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          107.8,
+          104.9,
+          95.1,
+          111.7,
+          105.8,
+          101.3
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0013",
+      "difficulty": "medium",
+      "payloadHash": "sha256:54d934da98d21793c58f66a39c8c5e0d6a550a3e85112f9e2f1c85d67330bf5b",
+      "payload": {
+        "title": "Remote Workflow Test",
+        "era": "Pandemic-era disruption",
+        "decisionDateLabel": "Early 2020",
+        "holdingPeriodLabel": "About one year",
+        "companyDescription": "A cloud software provider for business process workflows.",
+        "macroContext": "Companies are digitizing routine processes while comparing specialists with broader software platforms.",
+        "situation": "Can a specialist convert higher adoption into lasting recurring revenue before bundled alternatives catch up?",
+        "longCase": "A workflow that saves time across many transactions can become hard to remove once embedded in operations.",
+        "shortCase": "A growth spike may normalize, and broader suites can undercut specialist pricing power.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          112.5,
+          125,
+          137.5,
+          162.5,
+          175,
+          189.8
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0014",
+      "difficulty": "medium",
+      "payloadHash": "sha256:eebe77ffbd1927aedf0f82748829237a8189f35d309fabb9fd5b1d4a21e658c9",
+      "payload": {
+        "title": "Marketplace Surge",
+        "era": "Pandemic-era disruption",
+        "decisionDateLabel": "2020",
+        "holdingPeriodLabel": "About one year",
+        "companyDescription": "An asset-light online marketplace for independent merchants.",
+        "macroContext": "Consumers and small businesses are moving online rapidly during widespread store disruption.",
+        "situation": "Can accelerated adoption create durable network effects rather than temporary transaction volume?",
+        "longCase": "More buyers can attract more sellers and improve the breadth of available goods.",
+        "shortCase": "Reopening and competition for merchants can reverse unusually strong engagement.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          125.6,
+          141,
+          135.9,
+          144.7,
+          125.7,
+          89.3,
+          96.1
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0015",
+      "difficulty": "medium",
+      "payloadHash": "sha256:cf6474b567c565e956981e26c61687b9a78dea59f4b2e06bf169e5a51d11130f",
+      "payload": {
+        "title": "Traffic Test",
+        "era": "Pandemic-era disruption",
+        "decisionDateLabel": "Early 2020",
+        "holdingPeriodLabel": "About one year",
+        "companyDescription": "A usage-based cloud infrastructure provider.",
+        "macroContext": "Rapidly rising internet demand is increasing spending on digital infrastructure while large platforms bundle more services.",
+        "situation": "Can a specialist benefit from higher customer usage before concentration risk and bundled rivals take control?",
+        "longCase": "Growing traffic can lift consumption revenue without requiring equivalent growth in sales headcount.",
+        "shortCase": "A small number of customers and larger integrated competitors can make revenue unpredictable.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          110.5,
+          94.7,
+          105.3,
+          115.8,
+          126.3,
+          113.2
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0016",
+      "difficulty": "medium",
+      "payloadHash": "sha256:32a7c65b0f4649138a169bab451b5f055eb6f555d50a23da240da376ef2f93ef",
+      "payload": {
+        "title": "Supply Chain Shift",
+        "era": "Supply-chain disruption",
+        "decisionDateLabel": "Early 2021",
+        "holdingPeriodLabel": "About one year",
+        "companyDescription": "An established manufacturer investing through a product-technology shift.",
+        "macroContext": "Supply shortages are limiting shipments even as customers show renewed demand for durable goods.",
+        "situation": "Can a legacy producer convert tight supply and a new product cycle into better economics?",
+        "longCase": "Limited inventories can improve pricing power while new offerings refresh demand.",
+        "shortCase": "Component shortages and transition spending can erase the benefit of higher prices.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          106.7,
+          80,
+          66.7,
+          106.7,
+          133.3,
+          84.2
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0017",
+      "difficulty": "medium",
+      "payloadHash": "sha256:31645e9c3f58e1543205c82ec3b9e3bdc4eb1df581f3681e7224be22de81432f",
+      "payload": {
+        "title": "Capacity Cycle",
+        "era": "Chip shortage and capacity race",
+        "decisionDateLabel": "Mid 2021",
+        "holdingPeriodLabel": "One year",
+        "companyDescription": "An integrated semiconductor company serving computing and infrastructure markets.",
+        "macroContext": "A global shortage is colliding with an expensive race to expand advanced manufacturing.",
+        "situation": "Can scale and customer reach offset the cost of repairing a technology roadmap?",
+        "longCase": "Broad demand and control of production can support recovery if new products arrive on schedule.",
+        "shortCase": "Execution delays and large factory commitments can weaken cash flow while focused rivals gain share.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          118,
+          123.2,
+          127.4,
+          94.9,
+          133,
+          122.4
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0018",
+      "difficulty": "medium",
+      "payloadHash": "sha256:424a45dfb99ee1ce12e101c0ebb9fe8ae58cf8883c3dfcdf5f4bca28f1f1300c",
+      "payload": {
+        "title": "Loss Curve",
+        "era": "Insurtech growth reset",
+        "decisionDateLabel": "Mid 2021",
+        "holdingPeriodLabel": "One year",
+        "companyDescription": "A digital consumer insurer using automation across sales, underwriting, and claims.",
+        "macroContext": "Insurance demand is stable while claim severity and reinsurance costs rise.",
+        "situation": "Can a young policy book mature into better unit economics before capital needs increase?",
+        "longCase": "Customer growth and cross-selling can spread acquisition costs across more premium.",
+        "shortCase": "Thin underwriting history and volatile loss ratios can require repeated pricing and capital adjustments.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          84.6,
+          67.6,
+          187.1,
+          148.5,
+          124.2,
+          162.4
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0019",
+      "difficulty": "medium",
+      "payloadHash": "sha256:76128e2bc4e6f62375338c782ff1939070291c3235420d6c2791a34b36fd5b69",
+      "payload": {
+        "title": "Premium Expansion",
+        "era": "Late-cycle expansion",
+        "decisionDateLabel": "2019",
+        "holdingPeriodLabel": "About one year",
+        "companyDescription": "A premium direct-to-consumer apparel brand.",
+        "macroContext": "Consumers are blending performance clothing with everyday wear while shopping across stores and online.",
+        "situation": "Can loyalty support broader categories and markets without diluting the brand?",
+        "longCase": "Direct customer relationships can preserve pricing and provide data for expansion.",
+        "shortCase": "Fast-changing tastes and aggressive competitors can make adjacent growth costly.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          102.7,
+          118.7,
+          154,
+          150.6,
+          198.8,
+          179.7,
+          154.8
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0020",
+      "difficulty": "medium",
+      "payloadHash": "sha256:ab3dbc008397ce781a73ae154606cbc866ed31fb91f93175e0100a7b3f0916c7",
+      "payload": {
+        "title": "Attention Economy",
+        "era": "Rate-hike and inflation era",
+        "decisionDateLabel": "Early 2022",
+        "holdingPeriodLabel": "About one year",
+        "companyDescription": "A digital media company funded largely by advertising.",
+        "macroContext": "Higher rates and cautious marketers are forcing online platforms to defend both growth and margins.",
+        "situation": "Can a large audience business protect commercial demand while funding a multi-year investment program?",
+        "longCase": "Scale and a broad advertiser base could support a rebound if spending conditions stabilize.",
+        "shortCase": "Competition for attention and rising operating costs could reduce the payoff from that scale.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          112.2,
+          131.7,
+          161,
+          170.7,
+          165.9,
+          163.7
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0021",
+      "difficulty": "medium",
+      "payloadHash": "sha256:51d6e70d879a7cc190529733a31b7a307a26a300f7bd72d26bf6fd8a5a6fa8cb",
+      "payload": {
+        "title": "Developer Standard",
+        "era": "Pandemic-era disruption",
+        "decisionDateLabel": "2020",
+        "holdingPeriodLabel": "About one year",
+        "companyDescription": "A developer-oriented data infrastructure provider.",
+        "macroContext": "Enterprises are modernizing applications while concentrating more spending with major cloud vendors.",
+        "situation": "Can grassroots adoption become larger managed-service contracts before platforms bundle alternatives?",
+        "longCase": "Workload growth can expand recurring usage within existing customer accounts.",
+        "shortCase": "Open competition and vendor bundling can limit pricing and retention.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          135,
+          172.8,
+          212.6,
+          177.6,
+          164.4,
+          157.8,
+          168
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0022",
+      "difficulty": "medium",
+      "payloadHash": "sha256:f4f14aa3beb57e75e0f9edc567fa82d821ea68a1b302d05837b419f93bcab414",
+      "payload": {
+        "title": "Full Shelves",
+        "era": "Reopening and inventory reset",
+        "decisionDateLabel": "Late 2021",
+        "holdingPeriodLabel": "One year",
+        "companyDescription": "A global consumer brand balancing wholesale distribution with a growing direct channel.",
+        "macroContext": "Supply bottlenecks are easing just as inflation changes household spending and retailers rebuild stock.",
+        "situation": "Can direct distribution improve economics before inventory and channel conflict create a reset?",
+        "longCase": "Pricing power and digital customer relationships can support demand across regions and channels.",
+        "shortCase": "Too much stock and weaker discretionary spending can trigger markdowns while logistics costs stay high.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          105.7,
+          111.2,
+          136,
+          150.2,
+          182,
+          189.9
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0023",
+      "difficulty": "medium",
+      "payloadHash": "sha256:a91fb8e85be70f47d7a119a0cfca585de018cb8c3a00b82c9e85a6f1e4a0f37d",
+      "payload": {
+        "title": "Access Layer",
+        "era": "Cloud security consolidation",
+        "decisionDateLabel": "Late 2021",
+        "holdingPeriodLabel": "One year",
+        "companyDescription": "A subscription security platform managing access across enterprise and customer applications.",
+        "macroContext": "Cloud adoption supports demand while technology budgets and vendor counts face scrutiny.",
+        "situation": "Can an acquired developer offering accelerate growth before integration disrupts the core sales motion?",
+        "longCase": "Broader capabilities can improve cross-selling and strengthen a central control layer.",
+        "shortCase": "Overlapping products and sales attrition can delay synergies while rivals target the same budgets.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          91.5,
+          120.7,
+          175.1,
+          198.3,
+          190.4,
+          206.5
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0024",
+      "difficulty": "medium",
+      "payloadHash": "sha256:60573bbac9b2d7b1610136af8961f3144178c280dd6ab04a4b1572467986e5e6",
+      "payload": {
+        "title": "Checkout Reset",
+        "era": "Digital spending normalization",
+        "decisionDateLabel": "Late 2021",
+        "holdingPeriodLabel": "One year",
+        "companyDescription": "A two-sided digital-payments platform connecting consumers and merchants.",
+        "macroContext": "E-commerce growth is slowing from an unusual peak while inflation and higher rates pressure valuations.",
+        "situation": "Can engagement and merchant reach replace account expansion as the next growth engine?",
+        "longCase": "A large network can support more payment volume and services from existing users.",
+        "shortCase": "Competition and weaker consumer spending can expose how much prior growth depended on temporary behavior.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          109.8,
+          168.8,
+          177.3,
+          227.7,
+          276.5,
+          220.3
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0025",
+      "difficulty": "medium",
+      "payloadHash": "sha256:f5d0fe49f3773375be1166c66540a595d37cde84e999d3eff13aed6b26a4e7a4",
+      "payload": {
+        "title": "Demand Pull-Forward",
+        "era": "Pandemic-era disruption",
+        "decisionDateLabel": "2020",
+        "holdingPeriodLabel": "About one year",
+        "companyDescription": "A consumer subscription company paired with specialized hardware.",
+        "macroContext": "Households are adopting at-home services quickly while supply chains struggle to keep pace.",
+        "situation": "Can unusually strong acquisition become durable retention after normal routines return?",
+        "longCase": "Rapid adoption can expand a recurring customer base and improve brand awareness.",
+        "shortCase": "Capacity bottlenecks and future reopening can turn exceptional demand into a temporary spike.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          87,
+          120.2,
+          104.8,
+          125.2,
+          108.4,
+          108.5,
+          124.4
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0026",
+      "difficulty": "medium",
+      "payloadHash": "sha256:68bff29c190d1a9507b2f28323b70c96d514e864095dccd9f9808778f22a3c79",
+      "payload": {
+        "title": "Discovery Loop",
+        "era": "Pandemic-era disruption",
+        "decisionDateLabel": "Early 2020",
+        "holdingPeriodLabel": "About one year",
+        "companyDescription": "A consumer internet platform still building its advertising business.",
+        "macroContext": "At-home behavior is lifting digital engagement while advertisers compare channels.",
+        "situation": "Can a rising audience translate into commercial revenue before its engagement advantage fades?",
+        "longCase": "More engagement can create useful inventory for advertisers and support commerce tools.",
+        "shortCase": "A less mature ad system and intense competition can keep revenue below the value of the audience.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          87.5,
+          79.2,
+          95.8,
+          83.3,
+          91.7,
+          78.3
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0027",
+      "difficulty": "medium",
+      "payloadHash": "sha256:22bd2a43210c2c92aa5d18d1639c8a8529d277d1e7f233ebf7eff54f37311529",
+      "payload": {
+        "title": "Living Room Landgrab",
+        "era": "Streaming wars",
+        "decisionDateLabel": "Early 2020",
+        "holdingPeriodLabel": "About one year",
+        "companyDescription": "A consumer digital platform monetizing engagement alongside product sales.",
+        "macroContext": "At-home media use is rising while large technology and media companies compete for the customer relationship.",
+        "situation": "Can a growing user base create profitable recurring revenue before larger ecosystems close in?",
+        "longCase": "More engagement can improve the value of advertising and partner distribution relationships.",
+        "shortCase": "Low-margin product economics and powerful ecosystem rivals can limit how much value the company keeps.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          122.2,
+          88.9,
+          144.4,
+          222.2,
+          266.7,
+          304.7
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0028",
+      "difficulty": "medium",
+      "payloadHash": "sha256:e599d84509c08dc51221b32b77aad42b6d9fec797037ff9680334c540ef92a7c",
+      "payload": {
+        "title": "Digital Workflow",
+        "era": "Pandemic-era disruption",
+        "decisionDateLabel": "2020",
+        "holdingPeriodLabel": "About one year",
+        "companyDescription": "A large cloud-software platform serving enterprises.",
+        "macroContext": "Businesses are prioritizing digital workflows while scrutinizing sprawling vendor stacks.",
+        "situation": "Can breadth increase customer value faster than it increases integration complexity?",
+        "longCase": "A wide subscription portfolio can support renewals and cross-selling across departments.",
+        "shortCase": "Acquisitions and platform overlap can raise costs without producing expected synergies.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          119,
+          117.1,
+          119,
+          115.8,
+          113.3,
+          118.9,
+          123.2
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0029",
+      "difficulty": "medium",
+      "payloadHash": "sha256:9ada7d113c32358c3fd7fd07efcbc68c60b17d7ce87b266af4c1e67ac6f44bcc",
+      "payload": {
+        "title": "Regional Flywheel",
+        "era": "Emerging-market internet reset",
+        "decisionDateLabel": "Late 2021",
+        "holdingPeriodLabel": "One year",
+        "companyDescription": "A regional consumer-internet group spanning commerce, entertainment, and financial services.",
+        "macroContext": "Digital usage remains high while funding conditions tighten and consumers return to offline activity.",
+        "situation": "Can multiple platforms reinforce one another before the profitable segment slows?",
+        "longCase": "Shared users and payments can lower acquisition costs across a fast-growing regional ecosystem.",
+        "shortCase": "Subsidies and weakening entertainment bookings can remove the cash engine before commerce matures.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          175.7,
+          393.4,
+          527.4,
+          768.2,
+          915.4,
+          1184.1
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0030",
+      "difficulty": "medium",
+      "payloadHash": "sha256:7cb73ff77cbac276f49c1b0c2714cb57f7830a832ea160142dd69be5f1cd6f47",
+      "payload": {
+        "title": "Merchant Stack",
+        "era": "E-commerce normalization",
+        "decisionDateLabel": "Late 2021",
+        "holdingPeriodLabel": "One year",
+        "companyDescription": "A software platform serving independent merchants across digital and physical channels.",
+        "macroContext": "Online demand is normalizing while capital-intensive growth projects face higher scrutiny.",
+        "situation": "Can an expanding service stack deepen merchant economics before spending outruns demand?",
+        "longCase": "More payment and operational services can increase revenue from a large installed base.",
+        "shortCase": "Merchant churn, platform competition, and fulfillment investment can delay durable profitability.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          118.7,
+          302.7,
+          294.5,
+          367.4,
+          504,
+          534.5
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0031",
+      "difficulty": "medium",
+      "payloadHash": "sha256:d1c0932b713742741b24b56c9caaea58a3c60960dbc972caa9aba3e584376664",
+      "payload": {
+        "title": "Attention Conversion",
+        "era": "Pandemic-era disruption",
+        "decisionDateLabel": "2020",
+        "holdingPeriodLabel": "About one year",
+        "companyDescription": "A mobile consumer platform monetized through advertising.",
+        "macroContext": "Digital engagement is rising while marketing budgets move unevenly through a sudden downturn.",
+        "situation": "Can audience growth become efficient revenue before competition and platform dependence tighten?",
+        "longCase": "Higher usage can improve inventory and measurement for returning advertisers.",
+        "shortCase": "Weak ad demand and reliance on outside mobile ecosystems can constrain monetization.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          174.8,
+          201.9,
+          239.6,
+          292.4,
+          291.5,
+          245.1,
+          289.8
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0032",
+      "difficulty": "medium",
+      "payloadHash": "sha256:7ec990882ea155e29e00ba8a83c72261e03765a4fbeed4cfc481427666c202bf",
+      "payload": {
+        "title": "Scale Versus Royalties",
+        "era": "Pandemic-era disruption",
+        "decisionDateLabel": "2020",
+        "holdingPeriodLabel": "About one year",
+        "companyDescription": "A global digital-media platform with subscription and advertising revenue.",
+        "macroContext": "Consumers are shifting toward on-demand services while suppliers still control essential content.",
+        "situation": "Can audience scale produce stronger unit economics before content costs absorb the gains?",
+        "longCase": "A larger audience can improve retention, advertising reach, and negotiating leverage.",
+        "shortCase": "Supplier power and competing bundles can keep profitability structurally thin.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          131.3,
+          122.6,
+          123.2,
+          136.5,
+          109.4,
+          130,
+          133.3
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0033",
+      "difficulty": "medium",
+      "payloadHash": "sha256:7434d7bfec1f3ac0b1ec5d7eb96c7a2bf757d646e0a016d908e4ec708100b972",
+      "payload": {
+        "title": "Reopening Routine",
+        "era": "Pandemic crash and recovery",
+        "decisionDateLabel": "Spring 2020",
+        "holdingPeriodLabel": "One year",
+        "companyDescription": "A global consumer chain built around frequent small purchases.",
+        "macroContext": "Restrictions are disrupting in-person routines while remote ordering changes how service businesses reach customers.",
+        "situation": "Can a high-frequency retail concept adapt how customers reach it after a sudden traffic shock?",
+        "longCase": "Loyal customers and convenient remote ordering can support a rebound when daily routines return.",
+        "shortCase": "Extended disruption and fixed locations can keep costs high while visits remain uncertain.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          111.1,
+          120.4,
+          129.6,
+          148.1,
+          120.4,
+          91
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0034",
+      "difficulty": "medium",
+      "payloadHash": "sha256:a90733ced551535281dce4126c4711a5088af6796649d34f9c203f5458b03ae7",
+      "payload": {
+        "title": "Aisle Shift",
+        "era": "Inventory and inflation shock",
+        "decisionDateLabel": "Late 2021",
+        "holdingPeriodLabel": "One year",
+        "companyDescription": "A large omnichannel retailer with a broad mix of essential and discretionary goods.",
+        "macroContext": "Households are changing category spending while supply chains deliver delayed merchandise.",
+        "situation": "Can store-based fulfillment preserve loyalty before the inventory mix becomes a liability?",
+        "longCase": "Frequent visits and flexible pickup can support traffic while owned merchandise protects differentiation.",
+        "shortCase": "Late-arriving stock and a consumer pivot can require markdowns as operating costs rise.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          101.2,
+          112.4,
+          144.3,
+          162.2,
+          236.3,
+          248
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0035",
+      "difficulty": "medium",
+      "payloadHash": "sha256:5ded85fd257c6b12ca2930077d12249309ddce752be952551a3c74fd555bc592",
+      "payload": {
+        "title": "Capacity Question",
+        "era": "Pandemic-era disruption",
+        "decisionDateLabel": "Early 2020",
+        "holdingPeriodLabel": "About one year",
+        "companyDescription": "A consumer manufacturer scaling production of a still-maturing product line.",
+        "macroContext": "Investors are debating which capital-intensive producers can grow volume without burning too much cash.",
+        "situation": "Can new capacity translate into reliable volume before competition makes growth more expensive?",
+        "longCase": "A broader market and improving unit economics could reward a producer that scales output faster than fixed costs.",
+        "shortCase": "Execution setbacks and better-funded rivals with established distribution could make the expansion hard to fund.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          90.5,
+          104.8,
+          95.2,
+          85.7,
+          114.3,
+          136.6
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0036",
+      "difficulty": "medium",
+      "payloadHash": "sha256:b2295f67fc94212fec7db0d6a0a9559c868ccab1604ede3b3a5529cef2b48f2d",
+      "payload": {
+        "title": "Embedded Contact",
+        "era": "Pandemic-era disruption",
+        "decisionDateLabel": "2020",
+        "holdingPeriodLabel": "About one year",
+        "companyDescription": "A developer-focused cloud communications provider.",
+        "macroContext": "Companies are rapidly digitizing customer interactions while larger suites add similar capabilities.",
+        "situation": "Can usage growth deepen customer relationships before underlying network costs absorb the gains?",
+        "longCase": "More digital contact can expand consumption within existing applications.",
+        "shortCase": "Commodity transport costs and bundled competition can constrain margins.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          136,
+          145.5,
+          165.7,
+          161,
+          132.4,
+          107.2,
+          118.6
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0037",
+      "difficulty": "medium",
+      "payloadHash": "sha256:a61bce6520fa83b55dbcdfd03c14c7c024de9f192325b5450d073e6f9233374a",
+      "payload": {
+        "title": "Network Turn",
+        "era": "Mobility reopening and rate hikes",
+        "decisionDateLabel": "Mid 2022",
+        "holdingPeriodLabel": "One year",
+        "companyDescription": "A global marketplace coordinating local transportation and delivery services.",
+        "macroContext": "Mobility demand is returning as capital markets demand clearer paths to profitability.",
+        "situation": "Can network density convert recovering activity into durable operating leverage?",
+        "longCase": "More trips can improve matching, driver utilization, and cross-service engagement.",
+        "shortCase": "Participant incentives and regulatory costs can absorb gains while rivals compete city by city.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          111.9,
+          184.4,
+          166.3,
+          144,
+          111.9,
+          70.1
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0038",
+      "difficulty": "medium",
+      "payloadHash": "sha256:0d20e10fedb66199ceb5df96486fa4ba0c87cba966cbdcdcec74a74946bc69ae",
+      "payload": {
+        "title": "Model Cycle",
+        "era": "Post-pandemic reopening",
+        "decisionDateLabel": "2021",
+        "holdingPeriodLabel": "About one year",
+        "companyDescription": "A fee-based financial technology platform connecting borrowers with lending partners.",
+        "macroContext": "Low rates and changing household finances are producing unusual credit conditions.",
+        "situation": "Can automated risk models scale before the cycle tests their assumptions?",
+        "longCase": "Faster approvals and partner expansion can drive transaction growth without a traditional branch network.",
+        "shortCase": "Funding shifts and limited downturn history can reveal fragile model performance.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          149.6,
+          139.5,
+          157.2,
+          149.2,
+          138.3,
+          131.9,
+          149.3
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0039",
+      "difficulty": "medium",
+      "payloadHash": "sha256:adee483530bc6f041865e00f86408e792b0f18d6a0e9015a334dd9d6193e7284",
+      "payload": {
+        "title": "Basket Mix",
+        "era": "Inflation and inventory shock",
+        "decisionDateLabel": "Spring 2022",
+        "holdingPeriodLabel": "One year",
+        "companyDescription": "A large value-oriented retailer spanning food and general merchandise.",
+        "macroContext": "Inflation is changing basket mix while retailers clear inventory ordered under different demand assumptions.",
+        "situation": "Can scale and essential traffic overcome pressure from a less profitable sales mix?",
+        "longCase": "Purchasing leverage and frequent visits can support share gains as consumers trade down.",
+        "shortCase": "Food-heavy growth and discretionary markdowns can raise revenue while weakening margins.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          107.2,
+          114.2,
+          112.9,
+          115.8,
+          116.3,
+          98.9
+        ]
+      }
+    },
+    {
+      "judgeId": "blind_0040",
+      "difficulty": "medium",
+      "payloadHash": "sha256:318e6cc53bd05ecbb7be6d0a7832fb79c24a51ac9c5cdc22b10e06d8aa3d7a75",
+      "payload": {
+        "title": "Capacity Shock",
+        "era": "Pandemic-era disruption",
+        "decisionDateLabel": "2020",
+        "holdingPeriodLabel": "About one year",
+        "companyDescription": "A cloud-based workplace communications provider.",
+        "macroContext": "Organizations need remote collaboration immediately while established software suites bundle similar tools.",
+        "situation": "Can sudden user growth become durable paid demand before larger rivals close the gap?",
+        "longCase": "Fast adoption can create strong brand awareness and enterprise expansion opportunities.",
+        "shortCase": "Free usage, capacity expense, and bundled alternatives can pressure long-term economics.",
+        "setupHints": [],
+        "lookbackPrices": [
+          100,
+          123,
+          137.3,
+          149.1,
+          127.2,
+          106.6,
+          120.2,
+          110.8
+        ]
+      }
+    }
+  ]
+}

@@ -3,6 +3,7 @@
  * Usage: pnpm --filter @signal-or-noise/content validate
  */
 import { loadAllScenarioFiles } from './loadScenarios';
+import { loadAndValidateContentCatalog } from './loadContentCatalog';
 
 function main(): void {
   const files = loadAllScenarioFiles();
@@ -39,9 +40,25 @@ function main(): void {
     }
   }
 
+  const validScenarios = files.flatMap((file) =>
+    file.result.success ? [file.result.scenario] : [],
+  );
+  const catalog = loadAndValidateContentCatalog(validScenarios);
+  if (catalog.success) {
+    console.log('PASS  data/daily-challenge-pools.json');
+    console.log('PASS  data/market-eras.json');
+    console.log('PASS  data/production-scenario-inventory.json');
+  } else {
+    errorCount += 1;
+    console.log('FAIL  content catalog');
+    for (const error of catalog.errors) {
+      console.log(`  error ${error.path}: ${error.message}`);
+    }
+  }
+
   console.log('');
   console.log(
-    `Validated ${files.length} file(s): ${files.length - errorCount} passed, ${errorCount} failed, ${warningCount} warning(s).`,
+    `Validated ${files.length} scenario file(s) and the content catalog: ${errorCount} failure(s), ${warningCount} warning(s).`,
   );
 
   if (errorCount > 0) {

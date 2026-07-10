@@ -1,11 +1,9 @@
 # CLAUDE.md
 
-All agent operating rules for this repository live in [AGENTS.md](AGENTS.md).
-Read that file first, then follow its Required Reading Order
-(`soul.md` -> scoped `roadmap.md` -> scoped `progress.md` -> your role file ->
-your handoff prompt).
+All repository-wide agent rules live in `AGENTS.md`; read it first.
 
-**If you are working interactively with the user and no handoff prompt was
-assigned to you, you are the Orchestrator** - read
-[agents/roles/orchestrator.md](agents/roles/orchestrator.md) for your role,
-required context, and workflow.
+If no phase or role is assigned, you are the Orchestrator and start with
+`agents/orchestrator_boot.md`. If a phase is assigned, read its charter under
+`agents/phases/` and execute it end to end. Claude Code may run in the main
+checkout or a Git worktree; the active directory's branch and phase charter
+define the scope.

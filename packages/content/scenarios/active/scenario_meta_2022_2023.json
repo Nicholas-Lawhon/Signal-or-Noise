@@ -1,0 +1,312 @@
+{
+    "id":  "scenario_meta_2022_2023",
+    "status":  "active",
+    "company":  {
+                    "name":  "Meta Platforms",
+                    "ticker":  "META",
+                    "exchange":  "NASDAQ",
+                    "sector":  "Communication Services",
+                    "industry":  "Interactive Media \u0026 Services",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "meta",
+                                          "meta platforms",
+                                          "facebook"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Instagram",
+                                                "WhatsApp",
+                                                "Facebook",
+                                                "Oculus",
+                                                "metaverse"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Core and Horizon",
+                     "decisionDate":  "2022-01-03",
+                     "endDate":  "2023-01-03",
+                     "decisionDateLabel":  "Early 2022",
+                     "outcomeLabel":  "Early 2022 to early 2023",
+                     "holdingPeriodLabel":  "About one year",
+                     "era":  "Rate-hike and inflation era",
+                     "eraId":  "rate_hike_era",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "part_b_batch_1"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  335.593,
+                       "endingPrice":  123.654,
+                       "actualReturnPercent":  -0.632,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2020-01-02",
+                       "preDecisionChartEndDate":  "2022-01-03",
+                       "outcomeChartStartDate":  "2022-01-03",
+                       "outcomeChartEndDate":  "2023-01-03",
+                       "lookbackPrices":  [
+                                              205,
+                                              230,
+                                              270,
+                                              330,
+                                              350,
+                                              340,
+                                              335.593
+                                          ],
+                       "outcomePrices":  [
+                                             335.593,
+                                             300,
+                                             240,
+                                             190,
+                                             150,
+                                             110,
+                                             123.654
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A global digital platform that earns most of its revenue by selling targeted advertising against user attention.",
+                                    "macroContext":  "Higher rates are pressuring long-duration growth stocks while advertisers reconsider budgets and privacy rules are changing data access.",
+                                    "situation":  "Can a large attention platform protect ad demand while funding a costly new computing initiative and adapting to weaker targeting data?",
+                                    "longCase":  "Its scale, measurement tools, and large audience could keep advertisers spending even as the economy slows.",
+                                    "shortCase":  "Privacy changes, competition for attention, and heavier investment could compress growth and margins at the same time.",
+                                    "setupHints":  [
+                                                       "Advertisers buy placements that are priced through automated auctions."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A large digital platform with a mature commercial engine.",
+                                      "macroContext":  "Business customers are slowing discretionary spending while platform-policy changes reduce measurement certainty.",
+                                      "situation":  "Can a scaled incumbent protect its core economics while increasing research and infrastructure spending?",
+                                      "longCase":  "Broad customer relationships and automated matching can sustain demand if commercial budgets stabilize.",
+                                      "shortCase":  "Weaker measurement and a rising cost base can compress growth before long-horizon projects contribute.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A large technology platform.",
+                                    "macroContext":  "Higher financing costs and cautious business budgets are testing companies that fund long-term development from a mature core.",
+                                    "situation":  "Can an incumbent preserve its cash engine while building a costly second growth path?",
+                                    "longCase":  "Scale and entrenched customer relationships can support demand through a spending slowdown.",
+                                    "shortCase":  "Heavy research and infrastructure costs can outrun a softer core before new products matter.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Meta Platforms. A sharp advertising slowdown, privacy-related targeting pressure, and heavy spending hurt the shares.",
+                   "funFact":  "The company reports users across a family of social and messaging services.",
+                   "whyItMoved":  [
+                                      "Advertisers reduced spending as economic conditions weakened.",
+                                      "Privacy changes made ad targeting and measurement harder.",
+                                      "Investment spending rose while investors demanded more near-term discipline."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ META",
+                        "url":  "https://finance.yahoo.com/quote/META/history/",
+                        "notes":  "Split-adjusted closes for 2022-01-03 and 2023-01-03; chart series and return."
+                    },
+                    {
+                        "label":  "Meta Platforms 2022 Form 10-K",
+                        "url":  "https://www.sec.gov/Archives/edgar/data/1326801/000132680123000013/meta-20221231.htm",
+                        "notes":  "Advertising revenue, privacy/data changes, competition, and investment spending."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Famous; adversarial rewrite from clean stored Grok evidence. Changed Medium and Hard plus the identifying Attention Economy title, so all sibling payloads require rejudge. Removed advertising, audience, attention, social, privacy, and strategic-bet conjunctions that made Meta dominant. The mature digital cash engine versus long-horizon spend now fits Alphabet, Amazon, Microsoft, Tencent, Adobe, and Meta. Stored review.gate2 is intact and stale by hash.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "Meta name and ticker",
+                                                       "named social and messaging services",
+                                                       "immersive-computing brand"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "mature commercial engine",
+                                                           "business-budget slowdown",
+                                                           "measurement uncertainty",
+                                                           "research and infrastructure spending",
+                                                           "long-horizon development"
+                                                       ],
+                                    "prohibited":  [
+                                                       "social-network category",
+                                                       "named privacy policy",
+                                                       "immersive-world language",
+                                                       "named applications"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Meta Platforms",
+                                                                  "Alphabet",
+                                                                  "Snap",
+                                                                  "Pinterest"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Alphabet",
+                                                                    "Amazon",
+                                                                    "Adobe",
+                                                                    "Meta Platforms"
+                                                                ],
+                                                     "hard":  [
+                                                                  "Microsoft",
+                                                                  "Alphabet",
+                                                                  "Amazon",
+                                                                  "Tencent",
+                                                                  "Meta Platforms"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "2022 chart plus social-media category",
+                                                                   "privacy-policy change plus advertising auction",
+                                                                   "large audience plus immersive-world investment",
+                                                                   "attention economy plus multiyear strategic bet",
+                                                                   "named application family plus infrastructure spend"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Meta Platforms",
+                                             "Alphabet",
+                                             "Snap",
+                                             "Pinterest"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Alphabet",
+                                               "Amazon",
+                                               "Adobe",
+                                               "Meta Platforms"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "Microsoft",
+                                             "Alphabet",
+                                             "Amazon",
+                                             "Tencent"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:34622b1fc5299cccc63502b39a2c6111f95f7ceadf063222f351ffb59ec6e22b",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:30:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Meta Platforms",
+                                                                  "confidence":  90,
+                                                                  "pointingFact":  "Large ad-auction attention platform funding a costly new computing push while privacy rules weaken targeting in early 2022"
+                                                              },
+                                                              {
+                                                                  "company":  "Alphabet",
+                                                                  "confidence":  48,
+                                                                  "pointingFact":  "Global digital ad platform dependent on automated auctions and adapting to privacy-driven data limits"
+                                                              },
+                                                              {
+                                                                  "company":  "Snap",
+                                                                  "confidence":  34,
+                                                                  "pointingFact":  "Attention-based advertising platform hit by privacy changes and weaker targeting data"
+                                                              },
+                                                              {
+                                                                  "company":  "Pinterest",
+                                                                  "confidence":  18,
+                                                                  "pointingFact":  "Digital ad platform selling targeted placements against user attention under privacy pressure"
+                                                              },
+                                                              {
+                                                                  "company":  "Twitter",
+                                                                  "confidence":  15,
+                                                                  "pointingFact":  "Attention platform monetized mainly through advertising amid budget and data-access uncertainty"
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  74,
+                                                                "cue":  "Rate pressure, privacy-driven targeting loss, and heavy new-initiative spend threaten growth and margins together"
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:4dac184ef622e088edb2e4f93d9dbf415785f2f420a7434eb47acc79724a5d2e",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "Meta Platforms",
+                                                                    "confidence":  78,
+                                                                    "pointingFact":  "Title \u0027Core and Horizon\u0027 plus ATT-style measurement shock, ad-matching engine, and heavy long-horizon infra/R\u0026D spend fits Meta in early 2022."
+                                                                },
+                                                                {
+                                                                    "company":  "Alphabet",
+                                                                    "confidence":  42,
+                                                                    "pointingFact":  "Large digital ad platform with automated matching, advertiser budget pressure, and rising research/infrastructure spend in the rate-hike era."
+                                                                },
+                                                                {
+                                                                    "company":  "Amazon",
+                                                                    "confidence":  28,
+                                                                    "pointingFact":  "Scaled commercial engine across ads/cloud with large infrastructure investment while business customers slow discretionary tech spend."
+                                                                },
+                                                                {
+                                                                    "company":  "Snap",
+                                                                    "confidence":  22,
+                                                                    "pointingFact":  "Digital advertising platform hit hard by platform-policy measurement changes and weaker commercial budgets in 2022."
+                                                                },
+                                                                {
+                                                                    "company":  "Microsoft",
+                                                                    "confidence":  15,
+                                                                    "pointingFact":  "Mature large digital platform investing heavily in research/cloud infrastructure amid enterprise spending caution."
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "short",
+                                                                  "confidence":  68,
+                                                                  "cue":  "Short case is concrete: weaker measurement plus rising cost base before long-horizon projects pay off, into a rate-hike year after a multi-year price run-up."
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:e3e223fc227c774620534f5b1b0c9d9054a2f203763f5f1aad0d9895d3ef6c12",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Meta Platforms",
+                                                                  "confidence":  54,
+                                                                  "pointingFact":  "Large platform funding costly second-horizon bets from a mature ad core into 2022 budget caution"
+                                                              },
+                                                              {
+                                                                  "company":  "Amazon",
+                                                                  "confidence":  38,
+                                                                  "pointingFact":  "Scale tech platform carrying heavy infrastructure and growth investment as financing costs rose"
+                                                              },
+                                                              {
+                                                                  "company":  "Alphabet",
+                                                                  "confidence":  33,
+                                                                  "pointingFact":  "Cash-engine core funding long-horizon R\u0026D while enterprise and ad spending softened"
+                                                              },
+                                                              {
+                                                                  "company":  "Microsoft",
+                                                                  "confidence":  26,
+                                                                  "pointingFact":  "Large platform balancing mature software cash flows against heavy cloud and long-term investment"
+                                                              },
+                                                              {
+                                                                  "company":  "Salesforce",
+                                                                  "confidence":  16,
+                                                                  "pointingFact":  "Enterprise platform with entrenched customers and costly multi-product growth path under rate pressure"
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "short",
+                                                                "confidence":  63,
+                                                                "cue":  "Early-2022 rate-hike era: heavy R\u0026D and infrastructure can outrun a softer mature core"
+                                                            }
+                                          }
+                             }
+               }
+}

@@ -1,0 +1,309 @@
+{
+    "id":  "scenario_starbucks_2020_2021",
+    "status":  "active",
+    "company":  {
+                    "name":  "Starbucks",
+                    "ticker":  "SBUX",
+                    "exchange":  "NASDAQ",
+                    "sector":  "Consumer Discretionary",
+                    "industry":  "Restaurants",
+                    "country":  "United States",
+                    "acceptedNames":  [
+                                          "starbucks",
+                                          "starbucks corporation"
+                                      ],
+                    "identityBannedTerms":  [
+                                                "Frappuccino",
+                                                "Pumpkin Spice Latte",
+                                                "Starbucks Rewards"
+                                            ]
+                },
+    "scenario":  {
+                     "title":  "Reopening Routine",
+                     "decisionDate":  "2020-03-23",
+                     "endDate":  "2021-03-22",
+                     "decisionDateLabel":  "Spring 2020",
+                     "outcomeLabel":  "Spring 2020 to spring 2021",
+                     "holdingPeriodLabel":  "One year",
+                     "era":  "Pandemic crash and recovery",
+                     "eraId":  "pandemic_recovery",
+                     "contentPackIds":  [
+                                            "mvp_core",
+                                            "part_b_batch_1"
+                                        ],
+                     "difficultySupported":  [
+                                                 "easy",
+                                                 "medium",
+                                                 "hard"
+                                             ]
+                 },
+    "marketData":  {
+                       "startingPrice":  49.131,
+                       "endingPrice":  95.347,
+                       "actualReturnPercent":  0.941,
+                       "usesSplitAdjustedPrices":  true,
+                       "usesTotalReturn":  false,
+                       "preDecisionChartStartDate":  "2018-03-23",
+                       "preDecisionChartEndDate":  "2020-03-23",
+                       "outcomeChartStartDate":  "2020-03-23",
+                       "outcomeChartEndDate":  "2021-03-22",
+                       "lookbackPrices":  [
+                                              54,
+                                              60,
+                                              65,
+                                              70,
+                                              80,
+                                              65,
+                                              49.131
+                                          ],
+                       "outcomePrices":  [
+                                             49.131,
+                                             60,
+                                             72,
+                                             80,
+                                             88,
+                                             93,
+                                             95.347
+                                         ]
+                   },
+    "hiddenCard":  {
+                       "easy":  {
+                                    "companyDescription":  "A global coffeehouse chain with a large loyalty base and many company-operated locations.",
+                                    "macroContext":  "Stay-at-home rules are disrupting discretionary visits, while investors are weighing how quickly everyday routines may return.",
+                                    "situation":  "Can a premium food-and-beverage chain recover traffic through new pickup formats before closures and labor costs do lasting damage?",
+                                    "longCase":  "A strong customer habit, digital ordering, and a broad store base could bring sales back as mobility improves.",
+                                    "shortCase":  "Long closures, weaker urban traffic, and fixed store costs could make recovery slower than customers expect.",
+                                    "setupHints":  [
+                                                       "A large share of sales comes from drinks bought for immediate consumption."
+                                                   ]
+                                },
+                       "medium":  {
+                                      "companyDescription":  "A multi-location consumer service built around frequent repeat visits.",
+                                      "macroContext":  "A mobility shock is disrupting routines while customers adopt alternate ordering and fulfillment methods.",
+                                      "situation":  "Can a dense physical network preserve loyalty while customers change how they access the service?",
+                                      "longCase":  "Repeat demand and alternate fulfillment can support a rebound as daily activity returns.",
+                                      "shortCase":  "Fixed occupancy and labor costs can remain high while traffic patterns stay uncertain.",
+                                      "setupHints":  [
+
+                                                     ]
+                                  },
+                       "hard":  {
+                                    "companyDescription":  "A multi-location consumer business.",
+                                    "macroContext":  "A sudden change in mobility is reducing routine visits across several service categories.",
+                                    "situation":  "Can repeat demand migrate to new access methods before a fixed footprint becomes a burden?",
+                                    "longCase":  "Established habits and flexible fulfillment can restore activity as restrictions ease.",
+                                    "shortCase":  "Occupancy and labor costs can compound if customer routines change permanently.",
+                                    "setupHints":  [
+
+                                                   ]
+                                }
+                   },
+    "reveal":  {
+                   "shortText":  "That was Starbucks. Store closures hurt first, then digital ordering and returning customer traffic supported a sharp recovery.",
+                   "funFact":  "The company operates both company-owned and licensed stores around the world.",
+                   "whyItMoved":  [
+                                      "Pandemic restrictions initially reduced store traffic.",
+                                      "Digital ordering and pickup formats became more important.",
+                                      "Reopening activity brought back frequent customer visits."
+                                  ]
+               },
+    "sources":  [
+                    {
+                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ SBUX",
+                        "url":  "https://finance.yahoo.com/quote/SBUX/history/",
+                        "notes":  "Split-adjusted closes for 2020-03-23 and 2021-03-22; chart series and return."
+                    },
+                    {
+                        "label":  "Starbucks 2020 Form 10-K",
+                        "url":  "https://www.sec.gov/Archives/edgar/data/829224/000082922420000109/sbux-20200927.htm",
+                        "notes":  "Store closures, digital ordering, company-operated/licensed stores, traffic, and pandemic risks."
+                    }
+                ],
+    "review":  {
+                   "generatedByAi":  true,
+                   "humanReviewed":  true,
+                   "reviewNotes":  "Famous; adversarial rewrite from clean stored Grok evidence. Changed Medium and Hard. Removed global-chain, small-ticket, remote-ordering, loyalty, restaurant, and reopening-traffic conjunctions that concentrated guesses on Starbucks and quick-service restaurants. The repeat-visit physical-network tension now also fits Planet Fitness, Ulta, Chipotle, McDonald\u0027s, Walgreens, and Starbucks. Stored review.gate2 is preserved and stale by hash.",
+                   "factBank":  {
+                                    "revealOnly":  [
+                                                       "Starbucks name/ticker",
+                                                       "drink brands",
+                                                       "rewards-program name"
+                                                   ],
+                                    "decisionUseful":  [
+                                                           "frequent repeat visits",
+                                                           "dense physical network",
+                                                           "alternate fulfillment",
+                                                           "fixed occupancy and labor",
+                                                           "routine disruption"
+                                                       ],
+                                    "prohibited":  [
+                                                       "coffee or drink language",
+                                                       "named loyalty program",
+                                                       "seasonal products",
+                                                       "restaurant category on Medium/Hard"
+                                                   ],
+                                    "peerSets":  {
+                                                     "easy":  [
+                                                                  "Starbucks",
+                                                                  "McDonald\u0027s",
+                                                                  "Chipotle",
+                                                                  "Yum! Brands"
+                                                              ],
+                                                     "medium":  [
+                                                                    "Planet Fitness",
+                                                                    "Ulta Beauty",
+                                                                    "Chipotle",
+                                                                    "Starbucks"
+                                                                ],
+                                                     "hard":  [
+                                                                  "Walgreens",
+                                                                  "Planet Fitness",
+                                                                  "Ulta Beauty",
+                                                                  "McDonald\u0027s",
+                                                                  "Starbucks"
+                                                              ]
+                                                 },
+                                    "prohibitedConjunctions":  [
+                                                                   "March 2020 chart plus coffee wording",
+                                                                   "loyalty program plus named seasonal drink",
+                                                                   "pickup format plus coffeehouse identity",
+                                                                   "remote ordering plus small-ticket global chain",
+                                                                   "habitual visits plus restaurant category"
+                                                               ]
+                                },
+                   "easyLikelyGuesses":  [
+                                             "Starbucks",
+                                             "McDonald\u0027s",
+                                             "Restaurant Brands",
+                                             "Yum! Brands"
+                                         ],
+                   "mediumLikelyGuesses":  [
+                                               "Planet Fitness",
+                                               "Ulta Beauty",
+                                               "Chipotle",
+                                               "Starbucks"
+                                           ],
+                   "hardLikelyGuesses":  [
+                                             "Walgreens",
+                                             "Planet Fitness",
+                                             "Ulta Beauty",
+                                             "McDonald\u0027s"
+                                         ],
+                   "gate2":  {
+                                 "easy":  {
+                                              "payloadHash":  "sha256:174344c64be84f0b133ca46d19473db7edb6f8e6eb2d1f1a70d6d81f3ad90646",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-09T18:45:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Starbucks",
+                                                                  "confidence":  93,
+                                                                  "pointingFact":  "Global coffeehouse chain with loyalty, many company-operated stores, and drink-led immediate-consumption sales hit by stay-at-home rules."
+                                                              },
+                                                              {
+                                                                  "company":  "Dutch Bros",
+                                                                  "confidence":  24,
+                                                                  "pointingFact":  "Drive-thru coffee growth story, but not a global multi-format coffeehouse platform in 2020."
+                                                              },
+                                                              {
+                                                                  "company":  "McDonald\u0027s",
+                                                                  "confidence":  20,
+                                                                  "pointingFact":  "Global QSR with digital pickup and loyalty, yet not a premium coffeehouse concept."
+                                                              },
+                                                              {
+                                                                  "company":  "Restaurant Brands International",
+                                                                  "confidence":  16,
+                                                                  "pointingFact":  "Owns coffee-heavy Tim Hortons, but the payload points to a pure global coffeehouse operator."
+                                                              },
+                                                              {
+                                                                  "company":  "Yum China",
+                                                                  "confidence":  10,
+                                                                  "pointingFact":  "Large company-operated restaurant base disrupted in 2020, not coffee-led global branding."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  70,
+                                                                "cue":  "Spring 2020 lookback ends near the crash low while loyalty, digital ordering, and routine reopening support traffic recovery."
+                                                            }
+                                          },
+                                 "medium":  {
+                                                "payloadHash":  "sha256:17e26e238a7a34acb298687ede0a856b00cbdf3ce739c6f0d36b824de899f5eb",
+                                                "model":  "grok-4.5",
+                                                "promptVersion":  "guess.v1+direction.v1",
+                                                "testedAt":  "2026-07-09T18:00:00.000Z",
+                                                "guesses":  [
+                                                                {
+                                                                    "company":  "Starbucks",
+                                                                    "confidence":  58,
+                                                                    "pointingFact":  "Dense multi-location repeat-visit chain that pushed mobile order and alternate fulfillment when mobility collapsed in spring 2020"
+                                                                },
+                                                                {
+                                                                    "company":  "McDonald\u0027s",
+                                                                    "confidence":  54,
+                                                                    "pointingFact":  "Large physical QSR network with drive-thru and delivery adapting routines after the mobility shock"
+                                                                },
+                                                                {
+                                                                    "company":  "Chipotle Mexican Grill",
+                                                                    "confidence":  46,
+                                                                    "pointingFact":  "Frequent-visit restaurant chain whose digital and pickup channels mattered as in-store traffic patterns broke"
+                                                                },
+                                                                {
+                                                                    "company":  "Yum! Brands",
+                                                                    "confidence":  32,
+                                                                    "pointingFact":  "Multi-banner global QSR operator with many locations and delivery/off-premise adaptation during lockdowns"
+                                                                },
+                                                                {
+                                                                    "company":  "Domino\u0027s Pizza",
+                                                                    "confidence":  28,
+                                                                    "pointingFact":  "Repeat-visit food service built around off-premise ordering and delivery when dine-in routines stopped"
+                                                                }
+                                                            ],
+                                                "direction":  {
+                                                                  "call":  "long",
+                                                                  "confidence":  66,
+                                                                  "cue":  "Spring 2020 crash into a habitual multi-location service with alternate fulfillment sets up a rebound as daily routines return"
+                                                              }
+                                            },
+                                 "hard":  {
+                                              "payloadHash":  "sha256:0393bedc6e1b090418a196ccef5befc255e50cac1b3bcfb3b1e6a0f529690226",
+                                              "model":  "grok-4.5",
+                                              "promptVersion":  "guess.v1+direction.v1",
+                                              "testedAt":  "2026-07-10T04:15:00.000Z",
+                                              "guesses":  [
+                                                              {
+                                                                  "company":  "Starbucks",
+                                                                  "confidence":  46,
+                                                                  "pointingFact":  "Multi-location routine consumer business hit by mobility collapse, with app/drive-thru as alternative access."
+                                                              },
+                                                              {
+                                                                  "company":  "Chipotle",
+                                                                  "confidence":  38,
+                                                                  "pointingFact":  "Restaurant chain with fixed footprint and digital/off-premise fulfillment as the reopening bridge."
+                                                              },
+                                                              {
+                                                                  "company":  "McDonald\u0027s",
+                                                                  "confidence":  34,
+                                                                  "pointingFact":  "Large multi-location consumer operator dependent on habitual visits and flexible service formats."
+                                                              },
+                                                              {
+                                                                  "company":  "Planet Fitness",
+                                                                  "confidence":  27,
+                                                                  "pointingFact":  "Membership routine business where fixed occupancy costs become burdensome if visit habits do not return."
+                                                              },
+                                                              {
+                                                                  "company":  "Domino\u0027s",
+                                                                  "confidence":  24,
+                                                                  "pointingFact":  "Multi-location food business already oriented to non-dine-in access as mobility fell."
+                                                              }
+                                                          ],
+                                              "direction":  {
+                                                                "call":  "long",
+                                                                "confidence":  52,
+                                                                "cue":  "Spring 2020 crash pricing plus established habits and flexible fulfillment favor restoration as restrictions ease."
+                                                            }
+                                          }
+                             }
+               }
+}

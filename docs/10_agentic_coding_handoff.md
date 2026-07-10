@@ -1,12 +1,17 @@
-# 10 Agentic Coding Handoff — Signal or Noise?
+# 10 Agentic Phase Guide — Signal or Noise?
 
 ## Purpose
 
-This handoff gives an agentic coding assistant enough context to begin implementation of Signal or Noise?.
+This document preserves broad product-planning context. The numbered phase examples
+below are a historical planning snapshot, not an execution queue. Active execution
+policy lives in `AGENTS.md`, the authoritative sequence lives in `roadmap.md`, and
+the current phase contract lives under `agents/phases/`.
 
 The user plans to use a mix of OpenCode, Claude Code, and Codex, while reviewing work in VS Code.
 
-The agent should implement carefully, phase by phase, without overbuilding beyond the current milestone.
+One high-autonomy Phase Owner should normally implement an entire roadmap phase
+without intermediate handoffs or reviews. Internal checkpoints are allowed; the
+single independent review occurs when the full phase acceptance criteria pass.
 
 ## Project Summary
 
@@ -63,7 +68,7 @@ The MVP includes:
 - Guest play
 - Basic profile
 - Curated scenario database
-- 100 curated scenario cards
+- 40 curated production scenario cards
 - 10 daily challenge pools
 - 10 famous market eras
 - Admin/content seed system
@@ -87,11 +92,9 @@ Do not implement yet:
 - Dynamic AI-generated production gameplay
 - Classroom mode
 
-## Required Agent Documentation
+## Agent Documentation
 
-Before significant implementation, create project memory/control files in the repo.
-
-Suggested files:
+The repository uses these control files:
 
 ```text
 AGENTS.md
@@ -99,21 +102,18 @@ roadmap.md
 progress.md
 ```
 
-Optional if the user's chosen agent expects them:
-
-```text
-.clinerules
-soul.md
-```
-
 Purpose:
 
 - `AGENTS.md` or `.clinerules`: coding-agent rules and project conventions.
 - `soul.md`: product identity, design principles, and boundaries.
-- `roadmap.md`: planned phases.
-- `progress.md`: current implementation status and session logs.
+- `roadmap.md`: planned phases and phase-level acceptance.
+- `progress.md`: compact current implementation status, not a session log.
+- `agents/phases/`: one active charter per roadmap phase.
+- `agents/phase-closeouts/`: one concise completion artifact per phase.
 
-The agent should read these docs before major work and update `progress.md` after meaningful changes.
+Claude Code, Codex, T3 Code, and other harnesses follow the same repository rules.
+A dedicated phase branch is recommended; a separate worktree is optional and most
+useful for parallelism or dirty-checkout isolation.
 
 ## Recommended Repository Structure
 
@@ -166,11 +166,10 @@ signal-or-noise/
 
 ## Implementation Rule
 
-Implement in vertical slices.
-
-Do not start with the database, auth, and full UI all at once.
-
-First prove the local gameplay loop.
+The roadmap is already sequenced as vertical product phases. Execute the current
+phase as one autonomous job, using internal slices only as an implementation
+technique. Do not begin later database/auth/UI phases early, and do not create
+review/report gates between internal slices.
 
 ## Phase 0 — Project Setup
 
@@ -558,60 +557,13 @@ Include disclaimer:
 Signal or Noise? is a game using historical market scenarios for entertainment and trivia. It does not provide financial advice, investment recommendations, or real-money trading.
 ```
 
-## First Agent Task Recommendation
+## Starting and Closing Current Work
 
-Start with this task:
+Do not reuse a generic bootstrap prompt or preload all documentation. Start from
+`AGENTS.md`, then follow its minimal startup order for the current roadmap phase.
+The user approves one concise phase charter; one owner executes it through its full
+acceptance suite without intermediate management gates.
 
-```text
-Create the monorepo structure and implement a local-only playable Classic Run prototype using hardcoded scenario objects. Include the shared game-engine scoring package and unit tests for bankroll and Signal Score calculations. Do not add database or auth yet.
-```
-
-## First Agent Prompt
-
-Use this as the initial coding prompt:
-
-```text
-You are implementing Signal or Noise?, a mobile-first market-history guessing game.
-
-Before coding, read all files in /docs, then create or update AGENTS.md, roadmap.md, and progress.md with the project rules, planned implementation phases, and current status.
-
-Build only Phase 0 and Phase 1 first:
-- monorepo setup
-- Next.js web app
-- packages/game-engine
-- local hardcoded scenario data
-- playable Classic Run prototype
-- Long / Short / Pass
-- Confidence selector
-- bankroll scoring
-- Signal Score
-- reveal screen
-- end-of-run summary
-- bankruptcy handling
-- unit tests for scoring logic
-
-Do not implement auth, database, payments, mobile app, friend challenges, or AI generation yet.
-
-Keep the UI mobile-first and game-like. Do not make it look like Robinhood or a finance dashboard.
-
-After implementation, update progress.md with what changed, how to run the app, what tests exist, known issues, and the next recommended task.
-```
-
-## Definition of Done for First Prototype
-
-The first prototype is done when:
-
-- `pnpm install` works.
-- `pnpm dev` starts the web app.
-- User can start a Classic Run.
-- User can play through multiple rounds.
-- Long/Short/Pass work.
-- Confidence amounts update based on bankroll.
-- Bankroll changes correctly.
-- Signal Score changes correctly.
-- Pass subtracts 0.25 Signal Score.
-- All-In can bankrupt the user.
-- Reveal shows hidden company.
-- End summary appears.
-- Unit tests pass for core scoring.
-- `progress.md` is updated.
+When the charter is complete, update only the current state in `progress.md`, write
+one concise phase closeout, and request the single phase-boundary review. The
+charter's acceptance criteria—not this historical phase sketch—define done.
