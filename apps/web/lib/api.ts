@@ -1,5 +1,6 @@
 import type {
   CurrentRunPayload,
+  DailyChallengePayload,
   LeaderboardPagePayload,
   PlayerStatsPayload,
   PublicIdentityPayload,
@@ -104,6 +105,13 @@ export const api = {
     apiFetch<{ run: CurrentRunPayload; context: ApiContext }>('/api/daily/attempts', {
       method: 'POST',
     }),
+  dailyStatus: () =>
+    apiFetch<{
+      challenge: DailyChallengePayload;
+      run: CurrentRunPayload | null;
+      completedAttempts: number;
+      context: ApiContext;
+    }>('/api/daily/attempts'),
   leaderboard: (query: LeaderboardApiQuery) => {
     const params = new URLSearchParams();
     params.set('board', query.board);

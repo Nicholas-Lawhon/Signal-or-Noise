@@ -1,10 +1,10 @@
-import { SignIn } from '@clerk/nextjs';
+import EmailCodeSignIn from '@/components/EmailCodeSignIn';
 
-/** Dedicated sign-in route used when a flow needs a full page instead of the modal. */
+/** Dedicated code-only sign-in route. Magic-link verification is never requested here. */
 export default function SignInPage() {
   return (
     <main className="flex min-h-screen items-start justify-center px-4 py-12">
-      <SignIn />
+      <EmailCodeSignIn />
     </main>
   );
 }

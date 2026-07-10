@@ -1,8 +1,8 @@
 'use client';
 
 import { Suspense, useCallback, useEffect, useRef, useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { SignInButton, useUser } from '@clerk/nextjs';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useUser } from '@clerk/nextjs';
 import { CONFIDENCE_CONFIG, calculateStake } from '@signal-or-noise/game-engine';
 import type { Confidence, RoundAction } from '@signal-or-noise/game-engine';
 import type { CurrentRunPayload, RunSummaryPayload } from '@signal-or-noise/database';
@@ -38,8 +38,12 @@ type View = 'loading' | 'error' | 'round' | 'locked' | 'reveal' | 'summary';
 
 function ClassicRunClient() {
   const searchParams = useSearchParams();
+  const pathname = usePathname();
   const router = useRouter();
   const { isSignedIn } = useUser();
+  const isDaily = pathname === '/play/daily/run';
+  const startPath = isDaily ? '/play/daily' : '/play/classic';
+  const runPath = isDaily ? '/play/daily/run' : '/play/classic/run';
 
   const [view, setView] = useState<View>('loading');
   const [run, setRun] = useState<CurrentRunPayload | null>(null);
@@ -68,10 +72,15 @@ function ClassicRunClient() {
       const result = await api.runSummary(runId);
       setSummary(result.summary);
       setView('summary');
-      router.replace(`/play/classic/run?runId=${encodeURIComponent(runId)}`);
+      router.replace(`${runPath}?runId=${encodeURIComponent(runId)}`);
     },
-    [router],
+    [router, runPath],
   );
+
+  const loadCurrentRun = useCallback(async (): Promise<CurrentRunPayload | null> => {
+    if (isDaily) return (await api.dailyStatus()).run;
+    return (await api.currentRun()).run;
+  }, [isDaily]);
 
   // Boot exactly once: an explicit difficulty starts a fresh run; otherwise
   // resume the active run (guest cookie or account), or reload a finished
@@ -88,6 +97,20 @@ function ClassicRunClient() {
 
     void (async () => {
       try {
+        if (isDaily) {
+          if (runIdParam) {
+            await showSummary(runIdParam);
+            return;
+          }
+          const current = await loadCurrentRun();
+          if (current) {
+            setRun(current);
+            setView('round');
+            return;
+          }
+          router.replace(startPath);
+          return;
+        }
         if (difficulty) {
           const created = await api.createClassicRun(difficulty);
           setRun(created.run);
@@ -96,9 +119,9 @@ function ClassicRunClient() {
           router.replace('/play/classic/run');
           return;
         }
-        const current = await api.currentRun();
-        if (current.run) {
-          setRun(current.run);
+        const current = await loadCurrentRun();
+        if (current) {
+          setRun(current);
           setView('round');
           return;
         }
@@ -106,13 +129,13 @@ function ClassicRunClient() {
           await showSummary(runIdParam);
           return;
         }
-        router.replace('/play/classic');
+        router.replace(startPath);
       } catch (error) {
         setFatalError(error instanceof Error ? error.message : 'Something went wrong');
         setView('error');
       }
     })();
-  }, [router, searchParams, showSummary]);
+  }, [isDaily, loadCurrentRun, router, searchParams, showSummary, startPath]);
 
   const performClaim = useCallback(
     async (runId: string) => {
@@ -173,7 +196,7 @@ function ClassicRunClient() {
           {fatalError ?? 'Something went wrong.'}
         </p>
         <a
-          href="/play/classic"
+          href={startPath}
           className="rounded-lg border border-son-border bg-son-card px-4 py-2 text-sm font-semibold text-son-textSecondary hover:border-son-borderStrong"
         >
           Back to Classic Run setup
@@ -200,9 +223,9 @@ function ClassicRunClient() {
       if (error instanceof ApiRequestError && error.status === 409) {
         // This round was already submitted (double tap / stale tab): resync.
         try {
-          const current = await api.currentRun();
-          if (current.run) {
-            setRun(current.run);
+          const current = await loadCurrentRun();
+          if (current) {
+            setRun(current);
             resetForm();
             setActionError(null);
           } else {
@@ -228,9 +251,9 @@ function ClassicRunClient() {
     if (lastResult.run.status === 'in_progress') {
       setView('loading');
       try {
-        const current = await api.currentRun();
-        if (current.run) {
-          setRun(current.run);
+        const current = await loadCurrentRun();
+        if (current) {
+          setRun(current);
           resetForm();
           setView('round');
         } else {
@@ -273,6 +296,11 @@ function ClassicRunClient() {
                 Signal Score: {formatSignalScore(run.signalScore)}
               </span>
             </div>
+            {isDaily && (
+              <p className="mt-1 text-xs text-son-textMuted">
+                Daily Challenge &middot; UTC day &middot; same 10 rounds for everyone
+              </p>
+            )}
             {!run.isOfficial && (
               <p className="mt-1 text-xs text-son-textMuted">
                 Guest run — finish it to save the result with an account.
@@ -684,16 +712,13 @@ function ClassicRunClient() {
             {claimPending ? 'Saving...' : claimError ? 'Retry save' : 'Save this run'}
           </button>
         ) : (
-          <SignInButton mode="modal">
-            <button
-              type="button"
-              disabled={claimPending}
-              onClick={() => sessionStorage.setItem(CLAIM_INTENT_KEY, summary.id)}
-              className="mt-4 w-full rounded-lg bg-son-signalBlue px-6 py-3 text-base font-semibold text-son-textInverse transition-colors hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
-            >
-              {claimPending ? 'Saving...' : 'Save this run'}
-            </button>
-          </SignInButton>
+          <a
+            href={`/sign-in?redirect_url=${encodeURIComponent(`/play/classic/run?runId=${summary.id}`)}`}
+            onClick={() => sessionStorage.setItem(CLAIM_INTENT_KEY, summary.id)}
+            className="mt-4 block w-full rounded-lg bg-son-signalBlue px-6 py-3 text-center text-base font-semibold text-son-textInverse transition-colors hover:brightness-110"
+          >
+            Save this run
+          </a>
         )}
         <p className="mt-2 text-center text-xs text-son-textMuted">
           Your guest result stays right here if you change your mind.
@@ -713,7 +738,9 @@ function ClassicRunClient() {
                 </p>
               </>
             ) : (
-              <h1 className="text-3xl font-bold text-son-text">Run Complete.</h1>
+              <h1 className="text-3xl font-bold text-son-text">
+                {isDaily ? 'Daily Complete.' : 'Run Complete.'}
+              </h1>
             )}
 
             {saved ? (
@@ -778,6 +805,12 @@ function ClassicRunClient() {
 
           {claimCard}
 
+          {isDaily && (
+            <p className="mt-4 rounded-lg border border-son-signalCyan/30 bg-son-signalCyan/5 px-3 py-2 text-center text-xs leading-relaxed text-son-textSecondary">
+              Your best completed attempt for this UTC date ranks on the Daily leaderboard.
+            </p>
+          )}
+
           {saved && (
             <a
               href="/profile"
@@ -789,7 +822,7 @@ function ClassicRunClient() {
 
           <div className="mt-4 flex gap-3">
             <a
-              href="/play/classic"
+              href={startPath}
               className="flex-1 rounded-lg border border-son-border bg-son-card px-4 py-3 text-center text-sm font-semibold text-son-textSecondary transition-colors hover:border-son-borderStrong"
             >
               Play Again

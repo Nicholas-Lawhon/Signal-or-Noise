@@ -5,11 +5,13 @@ Blocked/Questions accurate. Git history and one phase closeout preserve history.
 
 ## Current Status
 
-- **Phase:** 0-7 COMPLETE. **Phase 7 - Leaderboards was accepted on 2026-07-10**
-  (archived charter: `agents/history/phase_7/P07_leaderboards.md`; closeout:
-  `agents/phase-closeouts/P07_leaderboards.md`). Phase 8 - Daily Challenge has a
-  draft charter at `agents/phases/P08_daily_challenge.md` awaiting user approval.
-  Phase 6 - Auth & Guest Play was accepted on 2026-07-10 (closeout:
+- **Phase:** 0-7 COMPLETE. **Phase 8 - Daily Challenge has a verified focused
+  repair and is ready for final targeted high-risk review** (charter:
+  `agents/phases/P08_daily_challenge.md`; closeout:
+  `agents/phase-closeouts/P08_daily_challenge.md`). Phase 7 - Leaderboards was
+  accepted on 2026-07-10 (archived charter:
+  `agents/history/phase_7/P07_leaderboards.md`; closeout:
+  `agents/phase-closeouts/P07_leaderboards.md`). Phase 6 - Auth & Guest Play was accepted on 2026-07-10 (closeout:
   `agents/phase-closeouts/P06_auth_guest_play.md`).
   Phase 5 - Database closed on 2026-07-10. Phase 4B closed under **D045** with
   40 active cards at the
@@ -26,15 +28,22 @@ Blocked/Questions accurate. Git history and one phase closeout preserve history.
   unlimited immutable attempts (D049); the Phase 5 single-attempt constraint
   is removed by migration `20260710200000_phase6_auth_guest_play` (deployed to
   Neon). Saved runs/stats appear at `/profile`. Phase 7 adds leaderboards; Daily
-  gameplay and challenge scheduling remain for Phase 8. Phase 7 adds public
-  Daily, difficulty-separated Classic, and cumulative Signal leaderboards from
-  canonical official finished runs, plus stable generated aliases and optional
-  unique public display names. Migration `20260711010000_phase7_leaderboards`
-  is deployed to Neon. Current tests: game engine 41, content 77, database 16
-  (including Neon integration), web 14. Content
+  gameplay, deterministic UTC scheduling, immutable pool snapshots, resume, and
+  replay now ship in Phase 8. Each UTC date lazily publishes one 10-round mixed
+  challenge from the ordered pool rotation; concurrent publication converges on
+  the same snapshot, and a user can resume their one in-progress attempt even
+  across a UTC-day rollover while every terminal attempt remains immutable. Migration
+  `20260711120000_phase8_daily_challenge` is deployed to Neon. Daily setup and
+  gameplay are mobile-first at `/play/daily`; guests remain gated, while the
+  app's code-only Clerk sign-in route uses email OTP rather than magic links,
+  and its validated local redirects reject encoded or backslash external paths.
+  Phase 7 adds public Daily, difficulty-separated Classic, and cumulative Signal
+  leaderboards from canonical official finished runs, plus stable generated
+  aliases and optional unique public display names. Current tests: game engine
+  41, content 77, database 22 (including Neon integration), web 16. Content
   and Gate 2 remain at 0 errors / 40 non-blocking WARNs / 0 missing variants.
-- **Next task:** Review and approve the Phase 8 Daily Challenge draft charter,
-  including its proposed UTC schedule and immutable pool-rotation policy.
+- **Next task:** Final targeted high-risk Phase 8 Daily Challenge review,
+  followed by orchestrator acceptance.
 - **Workflow state:** D043 is active: one charter, one autonomous Phase Owner,
   one closeout, and one phase-boundary review. Legacy H/R artifacts remain
   evidence only under `agents/history/`.
@@ -56,6 +65,8 @@ pnpm --filter @signal-or-noise/database test
 
 All commands run from the repo root. Requires Node.js LTS and pnpm 9.x.
 Database commands also require repository-root `DATABASE_URL` and `DIRECT_URL`.
+For direct Prisma CLI commands, export those values into the shell first; the
+database test/import scripts load the root `.env` themselves.
 The web app additionally needs `apps/web/.env.local` (never committed) holding
 `DATABASE_URL`, `DIRECT_URL`, `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`, and
 `CLERK_SECRET_KEY` copied from the ignored root `.env`.
@@ -64,4 +75,4 @@ The web app additionally needs `apps/web/.env.local` (never committed) holding
 
 Detailed history is under `agents/history/`; read it only for a concrete
 provenance question. Phase closeouts live in `agents/phase-closeouts/`
-(latest: `P07_leaderboards.md`).
+(latest: `P08_daily_challenge.md`).

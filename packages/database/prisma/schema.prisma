@@ -276,6 +276,7 @@ model DailyChallenge {
   challengeDate    DateTime           @unique @db.Date
   poolId           String
   startingBankroll Decimal
+  scenarioOrder    Json
   createdAt        DateTime           @default(now())
   updatedAt        DateTime           @updatedAt
   pool             DailyChallengePool @relation(fields: [poolId], references: [id])

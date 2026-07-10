@@ -28,7 +28,7 @@ export default function PlayPage() {
               leaderboard
             </p>
             <span className="mt-2 inline-block rounded-full border border-son-borderSubtle px-3 py-0.5 text-xs text-son-textMuted">
-              Login required &middot; Gameplay coming soon
+              Login required &middot; Replay freely
             </span>
           </a>
 

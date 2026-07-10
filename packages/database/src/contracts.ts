@@ -26,7 +26,16 @@ export const createDailyChallengeRunSchema = z.object({
 export const getCurrentRunSchema = z.object({
   owner: runOwnerSchema,
   mode: z.enum(['classic_run', 'daily_challenge']).optional(),
-}).strict();
+  dailyChallengeId: z.string().min(1).max(128).optional(),
+}).strict().superRefine((input, context) => {
+  if (input.dailyChallengeId !== undefined && input.mode !== 'daily_challenge') {
+    context.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ['dailyChallengeId'],
+      message: 'Daily challenge IDs require daily_challenge mode',
+    });
+  }
+});
 
 export const submitRoundDecisionSchema = z.object({
   owner: runOwnerSchema,
@@ -134,6 +143,13 @@ export type CurrentRunPayload = {
   currentStreak: number;
   bestStreak: number;
   round: PreDecisionRoundPayload;
+};
+
+export type DailyChallengePayload = {
+  date: string;
+  totalRounds: number;
+  difficulties: Array<'easy' | 'medium' | 'hard'>;
+  startingBankroll: number;
 };
 
 export type RunSummaryTradePayload = {

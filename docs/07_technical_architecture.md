@@ -432,7 +432,8 @@ describe('scoreRound', () => {
 - Never expose provider secrets in client code.
 - Validate all round submissions server-side.
 - Do not trust client-calculated scores for leaderboard submission.
-- Prevent replaying/submitting Daily Challenge multiple times.
+- Allow unlimited authenticated Daily replays while preventing duplicate round
+  submissions and preserving every terminal attempt immutably.
 - Prevent scenario outcome data from being sent before decision if possible.
 - Avoid exposing hidden company name/ticker in client payload before reveal.
 - Use server-side reveal after decision submission.

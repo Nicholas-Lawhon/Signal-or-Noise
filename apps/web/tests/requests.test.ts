@@ -50,7 +50,7 @@ describe('web boundary request schemas', () => {
     expect(submitDecisionRequestSchema.safeParse(null).success).toBe(false);
   });
 
-  it('accepts empty mutation requests and rejects spoofed identity bodies', async () => {
+  it('accepts empty Daily mutations and rejects identity, schedule, and score spoofing', async () => {
     await expect(parseEmptyMutationRequest(new Request('http://local.test', {
       method: 'POST',
     }))).resolves.toBe(true);
@@ -58,10 +58,21 @@ describe('web boundary request schemas', () => {
       method: 'POST',
       body: '{}',
     }))).resolves.toBe(true);
-    await expect(parseEmptyMutationRequest(new Request('http://local.test', {
-      method: 'POST',
-      body: JSON.stringify({ userId: 'spoofed' }),
-    }))).resolves.toBe(false);
+    for (const body of [
+      { userId: 'spoofed' },
+      { challengeDate: '2099-12-30' },
+      { poolId: 'daily_pool_001' },
+      { scenarioOrder: [{ scenarioId: 'spoofed', difficulty: 'easy' }] },
+      { difficulty: 'easy' },
+      { startingBankroll: 999999 },
+      { isOfficial: true },
+      { signalScore: 999 },
+    ]) {
+      await expect(parseEmptyMutationRequest(new Request('http://local.test', {
+        method: 'POST',
+        body: JSON.stringify(body),
+      }))).resolves.toBe(false);
+    }
     await expect(parseEmptyMutationRequest(new Request('http://local.test', {
       method: 'POST',
       body: '{not-json',

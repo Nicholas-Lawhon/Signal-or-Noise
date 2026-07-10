@@ -107,6 +107,14 @@ function parseScenarioOrder(run: Run): ScenarioOrderEntry[] {
   return result.data;
 }
 
+function parseDailyScenarioOrder(value: unknown): ScenarioOrderEntry[] {
+  const result = scenarioOrderSchema.safeParse(value);
+  if (!result.success || result.data.length !== 10) {
+    throw new DatabaseDomainError('INVALID_STATE', 'Daily Challenge snapshot is invalid');
+  }
+  return result.data;
+}
+
 function hydrateRunState(run: RunWithDecisions): RunState {
   if (run.status !== 'in_progress') {
     throw new DatabaseDomainError('INVALID_STATE', 'Only in-progress runs can accept decisions');
@@ -316,46 +324,79 @@ export class RunService {
   /**
    * Daily Challenge play is login-gated (D048): guests are rejected here even if
    * a web boundary bug lets a guest request through. Authenticated users may
-   * create unlimited attempts (D049); each attempt is a separate run that becomes
-   * immutable once terminal.
+   * create unlimited terminal attempts (D049). A player has at most one
+   * resumable Daily attempt across date rollover, so no in-progress result is
+   * stranded when the UTC schedule advances.
    */
   async createDailyChallengeRun(input: unknown): Promise<CurrentRunPayload> {
     const parsed = parseInput(() => createDailyChallengeRunSchema.parse(input));
     if (parsed.owner.kind !== 'user') {
       throw new DatabaseDomainError('FORBIDDEN', 'Daily Challenge requires a signed-in account');
     }
-    const runId = await this.prisma.$transaction(async (tx) => {
-      const owner = await resolveOwner(tx, parsed.owner);
-      const challenge = await tx.dailyChallenge.findUnique({
-        where: { id: parsed.dailyChallengeId },
-        include: { pool: { include: { entries: { orderBy: { ordinal: 'asc' } } } } },
-      });
-      if (!challenge) throw new DatabaseDomainError('NOT_FOUND', 'Daily Challenge not found');
-      const state = createDailyChallengeRunState({
-        startingBankroll: number(challenge.startingBankroll),
-        totalRounds: challenge.pool.entries.length,
-      });
-      const run = await tx.run.create({
-        data: {
-          ...owner,
-          dailyChallengeId: challenge.id,
-          mode: 'daily_challenge',
-          difficulty: null,
-          status: state.status,
-          scenarioOrder: challenge.pool.entries.map((entry) => ({
-            scenarioId: entry.scenarioId,
-            difficulty: entry.difficulty,
-          })),
-          startingBankroll: state.startingBankroll,
-          currentBankroll: state.currentBankroll,
-          signalScore: state.signalScore,
-          totalRounds: state.totalRounds,
-        },
-        select: { id: true },
-      });
-      return run.id;
-    }, { isolationLevel: 'Serializable' });
-    return this.getInProgressRunById(runId, parsed.owner);
+    const existing = await this.getCurrentRun({ owner: parsed.owner, mode: 'daily_challenge' });
+    if (existing) return existing;
+
+    for (let retry = 0; retry < 3; retry += 1) {
+      try {
+        const runId = await this.prisma.$transaction(async (tx) => {
+          const owner = await resolveOwner(tx, parsed.owner);
+          const active = await tx.run.findFirst({
+            where: {
+              userId: owner.userId,
+              mode: 'daily_challenge',
+              status: 'in_progress',
+            },
+            orderBy: { startedAt: 'desc' },
+            select: { id: true },
+          });
+          if (active) return active.id;
+          const challenge = await tx.dailyChallenge.findUnique({
+            where: { id: parsed.dailyChallengeId },
+            select: {
+              id: true,
+              startingBankroll: true,
+              scenarioOrder: true,
+            },
+          });
+          if (!challenge) throw new DatabaseDomainError('NOT_FOUND', 'Daily Challenge not found');
+          const scenarioOrder = parseDailyScenarioOrder(challenge.scenarioOrder);
+          const state = createDailyChallengeRunState({
+            startingBankroll: number(challenge.startingBankroll),
+            totalRounds: scenarioOrder.length,
+          });
+          const run = await tx.run.create({
+            data: {
+              ...owner,
+              dailyChallengeId: challenge.id,
+              mode: 'daily_challenge',
+              difficulty: null,
+              status: state.status,
+              scenarioOrder,
+              startingBankroll: state.startingBankroll,
+              currentBankroll: state.currentBankroll,
+              signalScore: state.signalScore,
+              totalRounds: state.totalRounds,
+            },
+            select: { id: true },
+          });
+          return run.id;
+        }, { isolationLevel: 'Serializable' });
+        return this.getInProgressRunById(runId, parsed.owner);
+      } catch (error) {
+        // The partial unique index covers same-date taps; Serializable isolation
+        // makes a cross-midnight create race settle on one resumable attempt.
+        const code = typeof error === 'object' && error !== null && 'code' in error
+          ? error.code
+          : null;
+        if (code !== 'P2002' && code !== 'P2034') throw error;
+        const concurrent = await this.getCurrentRun({ owner: parsed.owner, mode: 'daily_challenge' });
+        if (concurrent) return concurrent;
+        if (retry === 2) {
+          throw new DatabaseDomainError('CONFLICT', 'Daily attempt creation conflicted — try again');
+        }
+      }
+    }
+    throw new DatabaseDomainError('CONFLICT', 'Daily attempt creation conflicted — try again');
   }
 
   async getCurrentRun(input: unknown): Promise<CurrentRunPayload | null> {
@@ -365,6 +406,7 @@ export class RunService {
         ...ownerWhere(parsed.owner),
         status: 'in_progress',
         ...(parsed.mode ? { mode: parsed.mode } : {}),
+        ...(parsed.dailyChallengeId ? { dailyChallengeId: parsed.dailyChallengeId } : {}),
       },
       orderBy: { startedAt: 'desc' },
       select: { id: true },

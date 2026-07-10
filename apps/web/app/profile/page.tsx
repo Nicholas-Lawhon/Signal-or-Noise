@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { SignInButton, useUser } from '@clerk/nextjs';
+import Link from 'next/link';
+import { useUser } from '@clerk/nextjs';
 import type { PlayerStatsPayload } from '@signal-or-noise/database';
 import { api } from '@/lib/api';
 import { formatMoney, formatSignalScore } from '@/lib/format';
@@ -52,14 +53,12 @@ export default function ProfilePage() {
               Guest runs stay on this device and are unofficial. Sign in to keep
               your scores and stats with your account.
             </p>
-            <SignInButton mode="modal">
-              <button
-                type="button"
-                className="mt-4 w-full rounded-lg bg-son-signalBlue px-6 py-3 text-base font-semibold text-son-textInverse transition-colors hover:brightness-110"
-              >
-                Sign in
-              </button>
-            </SignInButton>
+            <Link
+              href="/sign-in?redirect_url=%2Fprofile"
+              className="mt-4 block w-full rounded-lg bg-son-signalBlue px-6 py-3 text-center text-base font-semibold text-son-textInverse transition-colors hover:brightness-110"
+            >
+              Sign in
+            </Link>
           </div>
         ) : state.kind === 'loading' ? (
           <p className="text-sm text-son-textMuted">Loading your stats...</p>

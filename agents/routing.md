@@ -24,9 +24,20 @@ Harness choice does not change the charter or acceptance criteria.
 These are different dispatch mechanisms. Do not substitute one silently for the
 other.
 
-- **GPT/Codex model:** invoke a Codex subagent. Phase implementations and other
-  large tasks use a new Codex task/thread. Small bounded work may use a subagent
-  inside the current task.
+- **GPT/Codex model:** phase implementations and other large tasks use a new
+  Codex task/thread. Same-task Codex subagents have no available interface for
+  selecting or confirming their model and reasoning effort, so never use them
+  for model-sensitive work. Instead, create a dedicated task/thread, explicitly
+  select the requested model and reasoning effort, and do not begin
+  model-sensitive work until the user-visible app header has been checked and
+  matches the request. API model/thinking values are requested settings, not
+  confirmation; do not map or assume equivalence between API and app effort
+  labels. The app header is authoritative, and an agent prompt is not
+  confirmation. On a mismatch, cancel/recreate the task or let the user retarget
+  it before work begins. If the user explicitly allows a mismatched task to
+  finish, label it non-authoritative and do not use it to satisfy required
+  ownership or review. Same-task subagents are limited to small, bounded,
+  non-model-sensitive work.
 - **Non-GPT model:** invoke a headless CLI session from the selected worktree.
   Claude uses Claude Code; Grok uses its CLI; DeepSeek uses OpenCode. A Codex
   subagent cannot stand in for a specifically requested non-GPT model.

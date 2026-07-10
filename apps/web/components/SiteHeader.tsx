@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import {
   ClerkLoaded,
-  SignInButton,
   SignedIn,
   SignedOut,
   UserButton,
@@ -29,14 +28,12 @@ export default function SiteHeader() {
           </Link>
           <ClerkLoaded>
             <SignedOut>
-              <SignInButton mode="modal">
-                <button
-                  type="button"
-                  className="rounded-lg border border-son-border bg-son-card px-3 py-1.5 text-xs font-semibold text-son-textSecondary transition-colors hover:border-son-borderStrong hover:text-son-text"
-                >
-                  Sign in
-                </button>
-              </SignInButton>
+              <Link
+                href="/sign-in"
+                className="rounded-lg border border-son-border bg-son-card px-3 py-1.5 text-xs font-semibold text-son-textSecondary transition-colors hover:border-son-borderStrong hover:text-son-text"
+              >
+                Sign in
+              </Link>
             </SignedOut>
             <SignedIn>
               <Link

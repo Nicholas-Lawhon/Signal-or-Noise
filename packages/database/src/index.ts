@@ -17,7 +17,16 @@ export {
   getPublicIdentity,
   updatePublicIdentity,
 } from './identityService';
-export { findDailyChallengeForDate } from './dailyChallengeService';
+export {
+  findDailyChallengeById,
+  findDailyChallengeForDate,
+  materializeDailyChallengeForDate,
+  rotationIndex,
+  toDailyChallengeOverview,
+  utcDateKey,
+  utcDay,
+} from './dailyChallengeService';
+export type { DailyChallengeOverview, DailyChallengeSchedule } from './dailyChallengeService';
 export { LeaderboardService, leaderboardQuerySchema } from './leaderboardService';
 export type {
   LeaderboardPagePayload,
@@ -26,6 +35,7 @@ export type {
 } from './leaderboardService';
 export type {
   CurrentRunPayload,
+  DailyChallengePayload,
   PlayerStatsPayload,
   PublicIdentityPayload,
   PreDecisionRoundPayload,

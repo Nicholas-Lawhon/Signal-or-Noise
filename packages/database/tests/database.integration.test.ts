@@ -14,6 +14,7 @@ import {
   getPublicIdentity,
   updatePublicIdentity,
 } from '../src/identityService';
+import { materializeDailyChallengeForDate } from '../src/dailyChallengeService';
 import { LeaderboardService } from '../src/leaderboardService';
 import { RunService } from '../src/runService';
 import { scenarioOrderSchema } from '../src/contracts';
@@ -45,6 +46,8 @@ describeDatabase('PostgreSQL persistence integration', () => {
   const leaderboardAliasC = `Player-${suiteId.slice(24, 28).toUpperCase()}`;
   const challengeId = `phase5_test_challenge_${suiteId}`;
   const challengeDate = new Date('2099-12-30T00:00:00.000Z');
+  const scheduledChallengeDate = new Date('2099-12-29T00:00:00.000Z');
+  let scheduledChallengeId = '';
   let authenticatedRunId = '';
 
   /** Completes every remaining round of an in-progress run with passes. */
@@ -159,12 +162,22 @@ describeDatabase('PostgreSQL persistence integration', () => {
         publicAlias: `Player-${suiteId.slice(9, 13).toUpperCase()}`,
       },
     });
+    const pool = await prisma.dailyChallengePool.findUniqueOrThrow({
+      where: { id: 'daily_pool_001' },
+      select: {
+        entries: {
+          orderBy: { ordinal: 'asc' },
+          select: { scenarioId: true, difficulty: true },
+        },
+      },
+    });
     await prisma.dailyChallenge.create({
       data: {
         id: challengeId,
         challengeDate,
         poolId: 'daily_pool_001',
         startingBankroll: 10000,
+        scenarioOrder: pool.entries,
       },
     });
   });
@@ -190,6 +203,10 @@ describeDatabase('PostgreSQL persistence integration', () => {
     });
     await prisma.run.deleteMany({ where: { dailyChallengeId: challengeId } });
     await prisma.dailyChallenge.deleteMany({ where: { id: challengeId } });
+    if (scheduledChallengeId) {
+      await prisma.run.deleteMany({ where: { dailyChallengeId: scheduledChallengeId } });
+      await prisma.dailyChallenge.deleteMany({ where: { id: scheduledChallengeId } });
+    }
     await prisma.$disconnect();
   });
 
@@ -204,6 +221,29 @@ describeDatabase('PostgreSQL persistence integration', () => {
       dailyChallengePools: 10,
       dailyChallengePoolEntries: 100,
     });
+  });
+
+  it('materializes one deterministic immutable UTC challenge under concurrent retries', async () => {
+    const attempts = await Promise.all(
+      Array.from({ length: 6 }, () => materializeDailyChallengeForDate(prisma, scheduledChallengeDate)),
+    );
+    expect(new Set(attempts.map((attempt) => attempt.id)).size).toBe(1);
+    expect(attempts.every((attempt) => attempt.challengeDate.toISOString() === scheduledChallengeDate.toISOString()))
+      .toBe(true);
+    expect(attempts[0].scenarioOrder).toHaveLength(10);
+    expect(new Set(attempts[0].scenarioOrder.map((entry) => entry.difficulty))).toEqual(
+      new Set(['easy', 'medium', 'hard']),
+    );
+    scheduledChallengeId = attempts[0].id;
+
+    const stored = await prisma.dailyChallenge.findUniqueOrThrow({
+      where: { id: scheduledChallengeId },
+      select: { scenarioOrder: true, startingBankroll: true },
+    });
+    expect(scenarioOrderSchema.parse(stored.scenarioOrder)).toEqual(attempts[0].scenarioOrder);
+    expect(stored.startingBankroll.toNumber()).toBe(10000);
+    await expect(materializeDailyChallengeForDate(prisma, scheduledChallengeDate))
+      .resolves.toMatchObject({ id: scheduledChallengeId, scenarioOrder: attempts[0].scenarioOrder });
   });
 
   it('rejects invalid content before any database mutation', async () => {
@@ -363,10 +403,18 @@ describeDatabase('PostgreSQL persistence integration', () => {
 
     // D049: unlimited authenticated attempts, each a separate run.
     const owner = { kind: 'user' as const, userId };
-    const first = await service.createDailyChallengeRun({ owner, dailyChallengeId: challengeId });
+    const [first, concurrentStart] = await Promise.all([
+      service.createDailyChallengeRun({ owner, dailyChallengeId: challengeId }),
+      service.createDailyChallengeRun({ owner, dailyChallengeId: challengeId }),
+    ]);
     expect(first.mode).toBe('daily_challenge');
     expect(first.difficulty).toBeNull();
     expect(first.isOfficial).toBe(true);
+    expect(concurrentStart.id).toBe(first.id);
+    expect(first.round).not.toHaveProperty('scenarioId');
+    expect(first.round).not.toHaveProperty('companyName');
+    expect(first.round).not.toHaveProperty('actualReturnPercent');
+    expect(first.round).not.toHaveProperty('outcomeChart');
 
     const completed = await completeWithPasses(owner, first.id, first.totalRounds);
     expect(completed?.run.status).toBe('completed');
@@ -388,8 +436,36 @@ describeDatabase('PostgreSQL persistence integration', () => {
 
     const second = await service.createDailyChallengeRun({ owner, dailyChallengeId: challengeId });
     expect(second.id).not.toBe(first.id);
-    expect((await service.getCurrentRun({ owner, mode: 'daily_challenge' }))?.id).toBe(second.id);
+    expect((await service.getCurrentRun({
+      owner,
+      mode: 'daily_challenge',
+      dailyChallengeId: challengeId,
+    }))?.id).toBe(second.id);
     expect(await service.getCurrentRun({ owner, mode: 'classic_run' })).toBeNull();
+
+    const storedSecond = await prisma.run.findUniqueOrThrow({
+      where: { id: second.id },
+      select: { scenarioOrder: true },
+    });
+    const secondOrder = scenarioOrderSchema.parse(storedSecond.scenarioOrder);
+    const secondScenario = await prisma.scenario.findUniqueOrThrow({
+      where: { id: secondOrder[0].scenarioId },
+      select: { actualReturnPercent: true },
+    });
+    const losingAction = secondScenario.actualReturnPercent.toNumber() > 0 ? 'short' : 'long';
+    const bankrupt = await service.submitRoundDecision({
+      owner,
+      runId: second.id,
+      roundIndex: 0,
+      action: losingAction,
+      confidence: 'all_in',
+    });
+    expect(bankrupt.run.status).toBe('bankrupt');
+    expect(bankrupt.run.currentBankroll).toBe(0);
+    expect((await service.getRunSummary({ owner, runId: second.id })).status).toBe('bankrupt');
+
+    const dailyBoard = await leaderboards.list({ board: 'daily', date: '2099-12-30' }, userId);
+    expect(dailyBoard.currentUserRow).toMatchObject({ bankroll: 10000, signalScore: -2.5 });
 
     const attempts = await prisma.run.findMany({
       where: { dailyChallengeId: challengeId, userId },
@@ -399,6 +475,78 @@ describeDatabase('PostgreSQL persistence integration', () => {
     const stored = await prisma.run.findUniqueOrThrow({ where: { id: first.id } });
     expect(stored.status).toBe('completed');
     expect(stored.completedRounds).toBe(first.totalRounds);
+  });
+
+  it('resumes the latest Daily attempt across a controlled UTC midnight', async () => {
+    const rolloverUserId = `phase8_rollover_user_${suiteId}`;
+    const yesterdayId = `phase8_rollover_yesterday_${suiteId}`;
+    const todayId = `phase8_rollover_today_${suiteId}`;
+    const yesterday = new Date('2098-06-10T00:00:00.000Z');
+    const today = new Date('2098-06-11T00:00:00.000Z');
+    const pool = await prisma.dailyChallengePool.findUniqueOrThrow({
+      where: { id: 'daily_pool_001' },
+      select: {
+        entries: {
+          orderBy: { ordinal: 'asc' },
+          select: { scenarioId: true, difficulty: true },
+        },
+      },
+    });
+
+    try {
+      await prisma.user.create({
+        data: {
+          id: rolloverUserId,
+          publicAlias: `Player-${suiteId.slice(0, 4).toUpperCase()}R`,
+        },
+      });
+      await prisma.dailyChallenge.createMany({
+        data: [
+          {
+            id: yesterdayId,
+            challengeDate: yesterday,
+            poolId: 'daily_pool_001',
+            startingBankroll: 10000,
+            scenarioOrder: pool.entries,
+          },
+          {
+            id: todayId,
+            challengeDate: today,
+            poolId: 'daily_pool_001',
+            startingBankroll: 10000,
+            scenarioOrder: pool.entries,
+          },
+        ],
+      });
+
+      const owner = { kind: 'user' as const, userId: rolloverUserId };
+      const yesterdayRun = await service.createDailyChallengeRun({
+        owner,
+        dailyChallengeId: yesterdayId,
+      });
+      expect((await service.getCurrentRun({ owner, mode: 'daily_challenge' }))?.id)
+        .toBe(yesterdayRun.id);
+
+      // The post-midnight start request converges on the still-active prior
+      // challenge rather than creating a second attempt that would strand it.
+      const resumed = await service.createDailyChallengeRun({
+        owner,
+        dailyChallengeId: todayId,
+      });
+      expect(resumed.id).toBe(yesterdayRun.id);
+      expect(await service.getCurrentRun({
+        owner,
+        mode: 'daily_challenge',
+        dailyChallengeId: todayId,
+      })).toBeNull();
+      expect(await prisma.run.count({
+        where: { userId: rolloverUserId, mode: 'daily_challenge', status: 'in_progress' },
+      })).toBe(1);
+    } finally {
+      await prisma.run.deleteMany({ where: { dailyChallengeId: { in: [yesterdayId, todayId] } } });
+      await prisma.dailyChallenge.deleteMany({ where: { id: { in: [yesterdayId, todayId] } } });
+      await prisma.user.deleteMany({ where: { id: rolloverUserId } });
+    }
   });
 
   it('claims a completed guest Classic Run exactly once, transactionally', async () => {
