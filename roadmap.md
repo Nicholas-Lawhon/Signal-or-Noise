@@ -1,6 +1,6 @@
 # roadmap.md — Signal or Noise?
 
-> **Current phase: Phase 9 - MVP Polish.**
+> **Current phase: Phase 9A/9B - Competitive Modes and MVP Polish.**
 > Phases 0 + 1 COMPLETE and audited (A002 PASS). Phase 2 COMPLETE under D024.
 > Phase 3 COMPLETE and audited (A005 PASS WITH FINDINGS). Phase order
 > renumbered by D027 (Content Expansion moved up from Phase 8). Only the
@@ -129,13 +129,29 @@ best completed score per user/day on the daily leaderboard, mixed difficulty.
 authenticated resume/replay, server-owned scoring/reveal privacy, and best-attempt
 Daily leaderboard integration ship end to end.
 
-## Phase 9 — MVP Polish ⬜
+## Phase 9 — Competitive Expansion and MVP Polish ⬜
 
-Mobile UI polish, reveal animation, bankroll count-up, rules + disclaimer pages,
-accessibility, performance, QA checklist.
-**TODO (playtest, 2026-07-03):** reveal sound effects + win/loss animation
-(count-up on bankroll, win/loss sting). Deferred here from H006, which ships only
-the static clearer win/loss result banner.
+D051 authorizes two parallel, independently owned tracks because the user is
+running the high-risk competitive work in a separate Claude harness/worktree.
+
+### Phase 9A — Competitive Modes
+
+Portfolio Draft plus synchronized one-on-one Friend Battles. Draft is a six-card,
+choose-three equal-weight historical winner-picking mode with no MVP leaderboard.
+Friend Battles use Classic difficulty lengths and scoring over one immutable
+scenario snapshot, synchronized server-timed rounds, safe opponent progress, and
+a 24-hour expiry. Full rules are locked by D052 in `soul.md`.
+
+### Phase 9B — Polish and Analytics
+
+Mobile/desktop UI polish, app shell and navigation, reveal animation, bankroll
+count-up, win/loss sound, improved charts and supporting states, rules/settings/
+disclaimer pages, accessibility, performance, PostHog analytics under D053, and
+the MVP QA checklist.
+
+**Phase boundary:** both track suites pass, 9A receives independent high-risk
+review, both branches integrate cleanly, the new modes receive the shared visual
+system, and the integrated acceptance suite passes before Phase 9 is accepted.
 
 ## Business Track (parallel, milestone-gated)
 
@@ -157,8 +173,8 @@ Growth role activates per gate — see `agents/roles/growth.md` and
 ## Post-MVP Queue (do not build during MVP)
 
 1. Smart pass scoring
-2. Portfolio Draft mode
-3. Shared package cleanup for Expo readiness
-4. Expo mobile app
-5. Friend challenges & private leagues
+2. Portfolio Draft leaderboard and expanded draft formats
+3. Expanded Friend Battle settings and private leagues
+4. Shared package cleanup for Expo readiness
+5. Expo mobile app
 6. Expanded/paid content packs, cosmetics, advanced stats

@@ -109,7 +109,41 @@ Daily Challenge:  10 rounds, same scenarios for everyone, mixed difficulty,
                   default $10,000. Login required; guests cannot start.
                   Authenticated users may replay freely; the leaderboard uses
                   each user's best completed attempt for that date.
+Portfolio Draft:  6 hidden companies from one compatible historical window,
+                  Medium variants, choose exactly 3. A fictional $10,000 is
+                  split equally and final value is server-calculated from the
+                  three actual returns. Guests may play; signed-in results save.
+                  No Signal Score and no MVP leaderboard.
+Friend Battle:    Exactly 2 signed-in players, one immutable battle per invite,
+                  unlimited new invites. Difficulty uses Classic length and
+                  starting bankroll. Both players receive the same ordered
+                  scenario snapshot and advance through synchronized rounds.
 ```
+
+### Friend Battle (D052)
+
+- The creator chooses difficulty and an optional per-round timer: off, 30, 60,
+  or 120 seconds (60 seconds default).
+- Both players ready before round 1; later rounds begin after both players leave
+  the prior reveal. Server time is authoritative and reconnects keep the same
+  deadline.
+- A missing decision at the deadline becomes Pass under the normal locked rules.
+- After each jointly completed round, the opponent progress card may show current
+  bankroll, Signal Score, and the prior call as position plus confidence (for
+  example `Long (40%)`), plus their submitted company guess when one exists.
+  Current-round choices are never exposed before both decisions settle.
+- Highest final bankroll wins; equal bankroll uses Signal Score. Equality on both
+  is a draw. If one player goes bankrupt, the other wins immediately; simultaneous
+  bankruptcy uses the same tiebreak and may draw.
+- Unfinished battles expire 24 hours after creation with no winner.
+
+### Portfolio Draft (D052)
+
+- Portfolio Draft is a historical winner-picking game, not a simulator. It has no
+  Long/Short/Pass, confidence, company-guess, or Signal Score mechanics.
+- Reveal shows all six companies and returns, the selected portfolio's final
+  value, the optimal three selections, and the gap from optimal.
+- Portfolio Draft leaderboards are deferred until post-MVP.
 
 ### Difficulty
 
@@ -172,8 +206,8 @@ Required disclaimer (must appear in the app footer/disclaimer page):
 ## MVP Exclusions (do not build)
 
 Native mobile app, real-money trading, brokerage connections, financial advice,
-options, leverage, true short mechanics, ETFs/crypto/indexes, friend challenges,
-private leagues, Portfolio Draft, smart pass scoring, optional clue reveals, paid
+options, leverage, true short mechanics, ETFs/crypto/indexes, private leagues,
+smart pass scoring, optional clue reveals, paid
 monetization, ads, season pass, dynamic AI-generated production gameplay,
 classroom mode, multi-tone reveals.
 

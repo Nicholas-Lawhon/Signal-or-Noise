@@ -41,11 +41,13 @@ Blocked/Questions accurate. Git history and one phase closeout preserve history.
   aliases and optional unique public display names. Current tests: game engine
   41, content 77, database 22 (including Neon integration), web 16. Content
   and Gate 2 remain at 0 errors / 40 non-blocking WARNs / 0 missing variants.
-- **Next task:** Phase 9 - MVP Polish and Growth Gate A/B preparation proceed in
-  parallel on separate branches/worktrees.
-- **Workflow state:** D043 is active: one charter, one autonomous Phase Owner,
-  one closeout, and one phase-boundary review. Legacy H/R artifacts remain
-  evidence only under `agents/history/`.
+- **Next task:** Phase 9A Competitive Modes and Phase 9B Polish/Analytics proceed
+  in parallel on isolated branches/worktrees; Growth Gate A/B remains separate.
+- **Workflow state:** D051 is the user-approved Phase 9 exception to D043: two
+  independent track charters/owners converge at one integrated phase boundary.
+  D054 permits direct routine branch/worktree git operations while retaining
+  Luna Low for broad diff and consequential integration work. Legacy H/R
+  artifacts remain evidence only under `agents/history/`.
 - **Blocked/Questions:** None.
 
 ## How to Run

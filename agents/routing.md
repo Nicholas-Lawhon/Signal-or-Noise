@@ -74,15 +74,15 @@ other outward/irreversible actions.
 
 ## Git and Diff Offloading
 
-All git operations in the orchestrated workflow—including status, diff, staging,
-committing, branch cleanup, merging, and pushing—are delegated to a dedicated
-Codex task using **GPT 5.6 Luna at Low reasoning**. Target the exact local project
-or worktree, explicitly select `gpt-5.6-luna` and `low`, and confirm the visible
-task header matches before allowing git commands. Same-task subagents cannot
-substitute because their model and effort cannot be selected or confirmed. The
-orchestrator supplies the exact intended scope and retains responsibility for
-authorization and the result. Luna Low must not push without explicit user
-approval or discard unrelated work.
+Orchestrators may perform routine, low-context git inspection and branch/worktree
+setup directly. Use a dedicated Codex task with **GPT 5.6 Luna at Low reasoning**
+for broad diff summaries and consequential integration work such as staging a
+large phase, committing, conflict-heavy merges, cleanup, and pushing. Target the
+exact local project or worktree, explicitly select `gpt-5.6-luna` and `low`, and
+confirm the visible task header before delegated work begins. The orchestrator
+supplies the exact scope and retains responsibility for authorization and the
+result. Luna Low must not push without explicit user approval or discard
+unrelated work.
 
 The normal Codex-app flow is authoritative. Use the pinned non-interactive helper
 only when a dedicated app task is unavailable:
