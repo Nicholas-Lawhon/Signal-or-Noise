@@ -5,7 +5,9 @@ Blocked/Questions accurate. Git history and one phase closeout preserve history.
 
 ## Current Status
 
-- **Phase:** 0-6 COMPLETE. **Phase 6 - Auth & Guest Play was accepted on
+- **Phase:** 0-6 COMPLETE. **Phase 7 - Leaderboards is approved and ready for
+  implementation under `agents/phases/P07_leaderboards.md`.** Phase 6 - Auth &
+  Guest Play was accepted on
   2026-07-10** (closeout: `agents/phase-closeouts/P06_auth_guest_play.md`).
   Phase 5 - Database closed on 2026-07-10. Phase 4B closed under **D045** with
   40 active cards at the
@@ -21,13 +23,13 @@ Blocked/Questions accurate. Git history and one phase closeout preserve history.
   entry is login-gated (D048) with
   unlimited immutable attempts (D049); the Phase 5 single-attempt constraint
   is removed by migration `20260710200000_phase6_auth_guest_play` (deployed to
-  Neon). Saved runs/stats appear at `/profile`. Daily gameplay, leaderboards,
-  and challenge scheduling remain for Phases 7-8. Current tests: game engine
+  Neon). Saved runs/stats appear at `/profile`. Phase 7 adds leaderboards; Daily
+  gameplay and challenge scheduling remain for Phase 8. Current tests: game engine
   38, content 77, database 15 (including Neon integration), web 11. Content
   and Gate 2 remain at 0 errors / 40 non-blocking WARNs / 0 missing variants.
-- **Next task:** Review the recommended leaderboard fairness, public identity,
-  All-Time Signal Score, and tie-rank decisions in
-  `agents/phases/P07_leaderboards.md`; then approve or revise the Phase 7 charter.
+- **Next task:** Dispatch the autonomous Phase 7 Owner against the approved
+  charter. The fairness, public identity, cumulative Signal Score, and
+  competition-ranking policies are approved under **D050**.
 - **Workflow state:** D043 is active: one charter, one autonomous Phase Owner,
   one closeout, and one phase-boundary review. Legacy H/R artifacts remain
   evidence only under `agents/history/`.

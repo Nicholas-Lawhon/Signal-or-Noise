@@ -1,6 +1,8 @@
 # Phase 7 — Leaderboards
 
-**Status:** draft — awaiting user approval
+**Status:** approved — ready for implementation
+**Approved by:** user
+**Approved:** 2026-07-10
 **Risk:** high
 **Owner:** autonomous Phase Owner
 **Branch/worktree:** dedicated Phase 7 branch; preserve unrelated changes
@@ -12,7 +14,7 @@ Classic Run Bankroll, and All-Time Signal Score. Rankings are server-authoritati
 exclude unofficial guest play, update from immutable saved results, and never
 accept client-calculated scores or identity.
 
-## Decisions to Approve
+## Approved Decisions (D050)
 
 1. **Classic fairness:** separate Easy, Medium, and Hard rankings because their
    starting bankrolls and run lengths differ; expose them as tabs/filters.

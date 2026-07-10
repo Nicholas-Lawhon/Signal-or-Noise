@@ -53,3 +53,4 @@ Settled decisions. This file is the live index only: do not load historical deci
 | D047 | Phase 6 uses Clerk Hobby; completed Classic guest runs may be claimed once | Active auth / guest conversion; details in `docs/consultant_memo_phase_6.md` |
 | D048 | Daily Challenge requires login; no unofficial guest play | Active Daily/auth product rule; locked in `soul.md` |
 | D049 | Daily Challenge is repeatable; leaderboard uses best completed attempt per user/day | Active Daily/leaderboard rule; locked in `soul.md` |
+| D050 | Phase 7 leaderboard fairness, public identity, Signal aggregation, and tie ranks | Active leaderboard policy; details in `agents/phases/P07_leaderboards.md` |

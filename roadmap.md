@@ -1,6 +1,6 @@
 # roadmap.md — Signal or Noise?
 
-> **Current phase: Phase 7 - Leaderboards (charter preparation).**
+> **Current phase: Phase 7 - Leaderboards (approved; ready for implementation).**
 > Phases 0 + 1 COMPLETE and audited (A002 PASS). Phase 2 COMPLETE under D024.
 > Phase 3 COMPLETE and audited (A005 PASS WITH FINDINGS). Phase order
 > renumbered by D027 (Content Expansion moved up from Phase 8). Only the
