@@ -1,7 +1,6 @@
 # Phase 8 — Daily Challenge Closeout
 
-**Status:** Focused repair verified; ready for final targeted high-risk review
-(2026-07-10)
+**Status:** Accepted and integrated (2026-07-10)
 
 Delivered the authenticated Daily Challenge end to end. UTC-day lazy
 publication deterministically selects an ordered pool, snapshots its ten
@@ -33,5 +32,5 @@ encoded-redirect protection, updated replay copy, and Classic fallback passed.
 Local API smoke checks verified guest Daily POST returns 401 and public
 metadata has no pool, scenario, or reveal leakage.
 
-Known limitations: none. No commit, push, or deployment beyond the approved
-Neon migration was performed.
+Known limitations: none. The approved Neon migration and Phase 8 application
+changes are integrated into the project history.

@@ -1,12 +1,22 @@
 [CmdletBinding()]
 param(
     [Parameter(Mandatory)]
-    [string]$Task
+    [string]$Task,
+
+    [switch]$PrintInvocation
 )
 
 $ErrorActionPreference = 'Stop'
 $repoRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 Set-Location $repoRoot
+
+$model = 'gpt-5.6-luna'
+$reasoningConfig = 'model_reasoning_effort="low"'
+
+if ($PrintInvocation) {
+    Write-Output "codex exec --ephemeral --strict-config --model $model --config '$reasoningConfig' --sandbox danger-full-access <task>"
+    exit 0
+}
 
 $prompt = @"
 You are the Git Operator for Signal or Noise?. Read AGENTS.md and
@@ -24,7 +34,9 @@ commands run and concise results. Do not make product or acceptance decisions.
 $previousErrorActionPreference = $ErrorActionPreference
 $ErrorActionPreference = 'Continue'
 try {
-    $rawResult = & opencode run --auto --pure -m deepseek/deepseek-v4-pro --format default $prompt 2>&1
+    $rawResult = & codex exec --ephemeral --strict-config --model $model `
+        --config $reasoningConfig --sandbox danger-full-access --color never `
+        $prompt 2>&1
     $exitCode = $LASTEXITCODE
 } finally {
     $ErrorActionPreference = $previousErrorActionPreference
@@ -34,7 +46,7 @@ $stderrOutput = @($rawResult | Where-Object { $_ -is [System.Management.Automati
 $result = @($rawResult | Where-Object { $_ -isnot [System.Management.Automation.ErrorRecord] })
 if ($exitCode -ne 0) {
     $details = ($stderrOutput | ForEach-Object ToString) -join [Environment]::NewLine
-    throw "DeepSeek Git Operator failed with exit code $exitCode. $details"
+    throw "Codex Luna Low Git Operator failed with exit code $exitCode. $details"
 }
 
 $result | ForEach-Object { Write-Output $_ }

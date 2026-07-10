@@ -6,7 +6,10 @@ Signal or Noise? is a mobile-first market-history guessing game where players re
 
 The product sits at the intersection of casual games, trivia, fantasy sports, and market history. It is not a brokerage tool, trading simulator, or financial advice app.
 
-The initial business goal is to build a strong MVP that proves the core game loop is fun, repeatable, and shareable. Monetization should be designed for later, but not implemented before the product has evidence of retention.
+The initial business goal is to turn the working MVP into a coordinated web,
+iOS, and Android game business. Launch includes a useful free experience and a
+one-time Premium Unlock; retention and unit economics determine whether paid
+acquisition scales and which additional monetization is built.
 
 ## Vision
 
@@ -100,7 +103,10 @@ Signal or Noise? is different because:
 
 ## Business Model Strategy
 
-Monetization should be future-focused during MVP. The first milestone is retention and replayability.
+The launch model is free-to-try with a one-time Premium Unlock. Daily Challenge
+and a meaningful Classic sampler remain free; the full core game unlock belongs
+to an authenticated account and restores across web, iOS, and Android. Paid
+scenario packs are the first planned expansion. Other models remain evidence-gated.
 
 Potential monetization paths:
 
@@ -202,7 +208,9 @@ Do not:
 
 ## Pricing Strategy Placeholder
 
-Pricing should be tested after retention exists.
+Premium Unlock pricing should be tested during private beta and approved before
+store products are configured. Retention evidence still governs acquisition
+scale and post-launch monetization expansion.
 
 Potential future pricing models:
 
@@ -214,10 +222,11 @@ One-time paid app + optional packs
 Ad-supported free + premium ad-free
 ```
 
-Recommended starting assumption:
+Approved launch assumption:
 
 ```text
-Launch with a generous free/trial experience, then monetize content packs and/or a full-game unlock.
+Free Daily Challenge + meaningful Classic sampler + one-time Premium Unlock.
+Add paid scenario packs after launch when demand and content economics validate them.
 ```
 
 ## MVP Cost Notes
@@ -253,7 +262,7 @@ Goal:
 - Validate whether the bankroll/confidence system is understandable.
 - Validate whether users share results.
 
-### Public MVP
+### Coordinated Public Launch
 
 Launch as:
 
@@ -268,6 +277,11 @@ Public messaging should emphasize:
 - Leaderboards
 - Bankroll score
 - Fun market-history scenarios
+
+The existing web domain serves as both the playable web product and marketing
+site. Web, iOS, and Android launch with consistent positioning, platform-aware
+calls to action, authenticated Premium restoration, and store-native mobile
+purchases.
 
 ### Social Sharing
 
@@ -400,6 +414,7 @@ Mitigation:
 ### Business Metrics Later
 
 - Free-to-paid conversion.
+- Premium Unlock conversion and refunds.
 - Pack purchase rate.
 - Subscription conversion.
 - Ad revenue per active user.
@@ -433,15 +448,22 @@ Mitigation:
 - Daily leaderboard.
 - Login requirement for Daily play.
 
-### Milestone 4: Post-Prototype Improvements
+### Milestone 4: MVP Polish and Growth Foundation
 
-- Smart pass scoring.
-- Portfolio Draft.
-- Better player stats.
-- Mobile app preparation.
+- Mobile polish, accessibility, performance, analytics, legal/support pages.
+- Positioning, private testing, store/website assets, and launch preparation.
+- Shared package and API readiness for Expo.
 
-### Milestone 5: Expo Mobile App
+### Milestone 5: Expo Mobile Apps and Private Beta
 
 - Shared game logic.
 - Mobile-native experience.
 - App store readiness.
+- TestFlight, Play closed testing, and coordinated web beta.
+
+### Milestone 6: Coordinated Launch and Revenue
+
+- Web, iOS, and Android public release.
+- Free Daily and Classic sampler plus one-time Premium Unlock.
+- Approved organic, creator/community, and capped paid acquisition.
+- Paid scenario packs after retention and demand validation.

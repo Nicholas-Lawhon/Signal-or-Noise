@@ -32,11 +32,11 @@ cancel/recreate the task or have the user retarget it before work begins. If the
 user explicitly permits a mismatched task to finish, label it non-authoritative
 and do not use it for required ownership or review. A requested non-GPT model
 requires the headless CLI path in `routing.md`.
-Delegate every git operation and broad diff summary to DeepSeek v4 Pro using the
-documented OpenCode helpers.
-
-If Codex blocks that approved external CLI path, follow routing's user-run
-fallback; never replace DeepSeek git work with direct orchestrator git commands.
+Delegate every git operation and broad diff summary to a dedicated GPT 5.6 Luna
+task at Low reasoning using the documented Codex workflow. Confirm the visible
+task header says GPT 5.6 Luna and Low before work begins. The pinned Codex CLI
+helpers are fallback paths only; never replace delegated git work with direct
+orchestrator git commands.
 
 Do not load legacy H/R artifacts by default. They are evidence, not the active
 workflow. Never let a low-autonomy model make product, architecture, acceptance,

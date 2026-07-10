@@ -35,13 +35,14 @@ current task; phase implementations and large tasks use a new task/thread.
 1. Confirm the closeout exists and every acceptance criterion claims evidence.
 2. Run the phase acceptance suite independently.
 3. Use a different capable model for high-risk or broad cross-cutting review.
-4. Run the DeepSeek diff summarizer, then inspect the phase diff selectively only
+4. Run the Luna Low diff summarizer, then inspect the phase diff selectively only
    where test evidence, risk, or a discrepancy warrants it.
 5. Accept, or request one focused repair against the same charter. Do not create a
    fix-up handoff.
 6. On acceptance, finish the required project-file/archive edits, then have a
-   headless DeepSeek v4 Pro session perform all git operations needed to
-   integrate/commit and update branch state. Never push without user approval.
+   dedicated GPT 5.6 Luna task at Low reasoning perform all git operations needed
+   to integrate/commit and update branch state. Confirm its visible header before
+   work begins. Never push without user approval.
 
 ## Context Discipline
 

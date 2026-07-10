@@ -1,6 +1,6 @@
 # roadmap.md — Signal or Noise?
 
-> **Current phase: Phase 8 - Daily Challenge (draft charter awaiting approval).**
+> **Current phase: Phase 9 - MVP Polish.**
 > Phases 0 + 1 COMPLETE and audited (A002 PASS). Phase 2 COMPLETE under D024.
 > Phase 3 COMPLETE and audited (A005 PASS WITH FINDINGS). Phase order
 > renumbered by D027 (Content Expansion moved up from Phase 8). Only the
@@ -120,10 +120,14 @@ completion time.
 and cumulative Signal leaderboards derive from official immutable runs; public
 identity uses stable generated aliases or an explicitly chosen unique name.
 
-## Phase 8 — Daily Challenge ⬜ (was Phase 7; draft charter awaiting approval)
+## Phase 8 — Daily Challenge ✅ (was Phase 7)
 
 10 rounds, same curated pool for everyone, login required, unlimited attempts,
 best completed score per user/day on the daily leaderboard, mixed difficulty.
+
+**Accepted 2026-07-10.** Deterministic UTC scheduling, immutable daily snapshots,
+authenticated resume/replay, server-owned scoring/reveal privacy, and best-attempt
+Daily leaderboard integration ship end to end.
 
 ## Phase 9 — MVP Polish ⬜
 
@@ -135,14 +139,20 @@ the static clearer win/loss result banner.
 
 ## Business Track (parallel, milestone-gated)
 
-Growth role activates per gate — see `agents/roles/growth.md`.
+Growth role activates per gate — see `agents/roles/growth.md` and
+`business/growth-roadmap.md`.
 
-- **Gate A (Phase 1 done):** positioning one-pager, name/handle availability check,
-  private-tester recruitment plan.
-- **Gate B (Phase 8 Daily Challenge done — was Phase 7 pre-D027):** launch plan, share-card copy, social content calendar,
-  creator/community outreach list.
-- **Gate C (post-MVP retention proven):** monetization experiments per
-  `docs/03_business_plan.md` (content packs first).
+- **Gate A — Foundation (active):** positioning, audience, name/domain/handle
+  checks, tester recruitment, channel hypotheses, and measurement requirements.
+- **Gate B — Product readiness and beta:** coordinate Phase 9 and Expo readiness;
+  prepare the integrated website, store assets, private testing, launch plan,
+  share copy, social calendar, and creator/community outreach.
+- **Gate C — Coordinated launch:** release web, iOS, and Android with a useful
+  free experience and one-time Premium Unlock, plus approved organic and capped
+  paid acquisition campaigns.
+- **Gate D — Retention and revenue expansion:** optimize the funnel and add paid
+  scenario packs first; consider other monetization only when retention and unit
+  economics support it.
 
 ## Post-MVP Queue (do not build during MVP)
 

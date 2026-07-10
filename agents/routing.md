@@ -11,10 +11,10 @@ decomposition.
 | Claude Fable    |           10 |               2 |       10 | hardest phases, independent high-risk review |
 | GPT 5.6 Sol     |           10 |               5 |       10 | Orchestrator, broad autonomous phase ownership |
 | GPT 5.6 Terra   |            9 |               6 |        9 | broad autonomous phase ownership/review |
-| GPT 5.6 Luna    |            7 |               8 |        8 | focused execution, clear low/medium phase implementations, judging |
+| GPT 5.6 Luna    |            7 |               8 |        8 | focused execution and judging; Low effort for git/diff work |
 | GPT 5.5         |            7 |               6 |        8 | clear medium/large phases, UI and content |
 | Grok 4.5        |            8 |               8 |        8 | bounded validation, judging, focused execution |
-| DeepSeek v4 Pro |            4 |              10 |        2 | git operations, diff summaries, mechanical internal subtasks |
+| DeepSeek v4 Pro |            4 |              10 |        2 | fully prescribed mechanical internal subtasks |
 
 The user chooses the initial orchestrator and may choose the execution harness.
 Harness choice does not change the charter or acceptance criteria.
@@ -75,27 +75,35 @@ other outward/irreversible actions.
 ## Git and Diff Offloading
 
 All git operations in the orchestrated workflow—including status, diff, staging,
-committing, branch cleanup, merging, and pushing—are delegated to a headless
-**DeepSeek v4 Pro** OpenCode session. The orchestrator supplies the exact intended
-scope and retains responsibility for authorization and the result. DeepSeek must
-not push without explicit user approval or discard unrelated work.
+committing, branch cleanup, merging, and pushing—are delegated to a dedicated
+Codex task using **GPT 5.6 Luna at Low reasoning**. Target the exact local project
+or worktree, explicitly select `gpt-5.6-luna` and `low`, and confirm the visible
+task header matches before allowing git commands. Same-task subagents cannot
+substitute because their model and effort cannot be selected or confirmed. The
+orchestrator supplies the exact intended scope and retains responsibility for
+authorization and the result. Luna Low must not push without explicit user
+approval or discard unrelated work.
 
-Use the generic helper for git operations:
+The normal Codex-app flow is authoritative. Use the pinned non-interactive helper
+only when a dedicated app task is unavailable:
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File scripts/Invoke-DeepSeekGit.ps1 `
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/Invoke-CodexGit.ps1 `
   -Task "Inspect status, stage only the approved Phase 7 files, run the staged diff check, and report the result. Do not commit or push."
 ```
 
 Use the read-only diff summarizer before a higher-reasoning model reads a broad
-diff. It prints a compact DeepSeek summary and does not create a report artifact:
+diff. It prints a compact Luna Low summary and does not create a report artifact:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/Invoke-DiffSummarizer.ps1 -Mode Staged
 ```
 
-The summary is a routing aid, not approval. Expand into the raw diff only for
-security-sensitive areas, discrepancies, or risks the summary identifies.
+Both helpers pin `gpt-5.6-luna`, `model_reasoning_effort="low"`, and strict
+configuration validation. A CLI request is not a substitute for visible header
+confirmation when the app flow is available. The summary is a routing aid, not
+approval. Expand into the raw diff only for security-sensitive areas,
+discrepancies, or risks the summary identifies.
 
 ## Routing Rules
 

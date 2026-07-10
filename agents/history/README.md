@@ -13,4 +13,8 @@ current/next work and artifacts a live handoff needs.
 | `progress_phase_4a.md` | Phase 4 Part A session log |
 | `phase_4a/` | Closed Phase 4A handoffs, reports, consultations, and retired Gate 2 exports |
 | `phase_4b_legacy/` | Retired Phase 4B H033-H037/R046-R063 workflow, Gate 2 artifacts, C004 consultation, session log, templates, and diff-summary tool |
+| `phase_5/` | Accepted Phase 5 Database charter |
+| `phase_6/` | Accepted Phase 6 Auth & Guest Play charter |
+| `phase_7/` | Accepted Phase 7 Leaderboards charter |
+| `phase_8/` | Accepted Phase 8 Daily Challenge charter |
 | `decisions_phase_0_4.md` | Full decision bodies; use only when a named decision needs detail |

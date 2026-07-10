@@ -3,12 +3,22 @@ param(
     [ValidateSet('Working', 'Staged', 'Head')]
     [string]$Mode = 'Staged',
 
-    [string[]]$Paths = @()
+    [string[]]$Paths = @(),
+
+    [switch]$PrintInvocation
 )
 
 $ErrorActionPreference = 'Stop'
 $repoRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 Set-Location $repoRoot
+
+$model = 'gpt-5.6-luna'
+$reasoningConfig = 'model_reasoning_effort="low"'
+
+if ($PrintInvocation) {
+    Write-Output "codex exec --ephemeral --strict-config --model $model --config '$reasoningConfig' --sandbox read-only <diff-task>"
+    exit 0
+}
 
 $scope = if ($Paths.Count -gt 0) {
     "Restrict inspection to these paths: $($Paths -join ', ')."
@@ -44,7 +54,8 @@ routing aid, not approval.
 $previousErrorActionPreference = $ErrorActionPreference
 $ErrorActionPreference = 'Continue'
 try {
-    $rawResult = & opencode run --auto --pure -m deepseek/deepseek-v4-pro --format default $prompt 2>&1
+    $rawResult = & codex exec --ephemeral --strict-config --model $model `
+        --config $reasoningConfig --sandbox read-only --color never $prompt 2>&1
     $exitCode = $LASTEXITCODE
 } finally {
     $ErrorActionPreference = $previousErrorActionPreference
@@ -54,7 +65,7 @@ $stderrOutput = @($rawResult | Where-Object { $_ -is [System.Management.Automati
 $result = @($rawResult | Where-Object { $_ -isnot [System.Management.Automation.ErrorRecord] })
 if ($exitCode -ne 0) {
     $details = ($stderrOutput | ForEach-Object ToString) -join [Environment]::NewLine
-    throw "DeepSeek Diff Summarizer failed with exit code $exitCode. $details"
+    throw "Codex Luna Low Diff Summarizer failed with exit code $exitCode. $details"
 }
 
 $result | ForEach-Object { Write-Output $_ }
