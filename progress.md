@@ -5,12 +5,10 @@ Blocked/Questions accurate. Git history and one phase closeout preserve history.
 
 ## Current Status
 
-- **Phase:** 0-5 COMPLETE. **Phase 6 - Auth & Guest Play is implemented and
-  passed its independent phase-boundary review on branch
-  `codex/phase-6-auth-guest-play`; it is ready for user acceptance and
-  integration** (closeout:
-  `agents/phase-closeouts/P06_auth_guest_play.md`). Phase 5 - Database closed
-  on 2026-07-10. Phase 4B closed under **D045** with 40 active cards at the
+- **Phase:** 0-6 COMPLETE. **Phase 6 - Auth & Guest Play was accepted on
+  2026-07-10** (closeout: `agents/phase-closeouts/P06_auth_guest_play.md`).
+  Phase 5 - Database closed on 2026-07-10. Phase 4B closed under **D045** with
+  40 active cards at the
   D034 24 famous / 12 moderate / 4 obscure mix, 10 daily pools, and 10 market
   eras.
 - **App state:** Classic Run is fully server-backed: the web UI plays through
@@ -27,8 +25,7 @@ Blocked/Questions accurate. Git history and one phase closeout preserve history.
   and challenge scheduling remain for Phases 7-8. Current tests: game engine
   38, content 77, database 15 (including Neon integration), web 11. Content
   and Gate 2 remain at 0 errors / 40 non-blocking WARNs / 0 missing variants.
-- **Next task:** User acceptance and Orchestrator integration of Phase 6, then
-  prepare Phase 7 - Leaderboards as the next roadmap phase.
+- **Next task:** Prepare and approve the Phase 7 - Leaderboards charter.
 - **Workflow state:** D043 is active: one charter, one autonomous Phase Owner,
   one closeout, and one phase-boundary review. Legacy H/R artifacts remain
   evidence only under `agents/history/`.

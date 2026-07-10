@@ -1,6 +1,6 @@
 # roadmap.md — Signal or Noise?
 
-> **Current phase: Phase 6 - Auth & Guest Play (approved; ready for implementation).**
+> **Current phase: Phase 7 - Leaderboards (charter preparation).**
 > Phases 0 + 1 COMPLETE and audited (A002 PASS). Phase 2 COMPLETE under D024.
 > Phase 3 COMPLETE and audited (A005 PASS WITH FINDINGS). Phase order
 > renumbered by D027 (Content Expansion moved up from Phase 8). Only the
@@ -103,7 +103,7 @@ storage. Server-side score calculation — never trust the client.
 
 **Consultant memo required before this phase** (DB provider, guest strategy).
 
-## Phase 6 — Auth & Guest Play ⬜ (was Phase 5)
+## Phase 6 — Auth & Guest Play ✅ (was Phase 5)
 
 Optional login for Classic Run. Guests play Classic unofficially; login gates
 saved stats, leaderboard eligibility, and all Daily Challenge play.
