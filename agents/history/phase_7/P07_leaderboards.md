@@ -1,6 +1,8 @@
 # Phase 7 — Leaderboards
 
-**Status:** implementation and phase-boundary review complete — awaiting user acceptance
+**Status:** accepted and archived
+
+**Accepted:** 2026-07-10
 **Approved by:** user
 **Approved:** 2026-07-10
 **Risk:** high

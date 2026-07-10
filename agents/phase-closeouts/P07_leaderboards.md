@@ -1,6 +1,6 @@
 # Phase 7 — Leaderboards Closeout
 
-**Status:** Independent phase-boundary review passed; awaiting user acceptance
+**Status:** accepted
 
 **Date:** 2026-07-10
 

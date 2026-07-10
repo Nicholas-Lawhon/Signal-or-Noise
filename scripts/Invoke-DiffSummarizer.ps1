@@ -21,9 +21,14 @@ You are the read-only Diff Summarizer for Signal or Noise?. Read AGENTS.md and
 agents/routing.md. Use git only to inspect the $Mode diff. $scope
 
 Mode meanings:
-- Working: unstaged working-tree diff.
+- Working: unstaged working-tree diff plus untracked, non-ignored files.
 - Staged: staged/index diff.
-- Head: all current changes relative to HEAD, including staged and unstaged.
+- Head: all current changes relative to HEAD, including staged, unstaged, and
+  untracked non-ignored files.
+
+For Working and Head, run `git ls-files --others --exclude-standard` and inspect
+the listed file contents in addition to `git diff`; ordinary diff output does not
+include untracked files. Apply any requested path restriction to both sources.
 
 Do not edit, stage, commit, switch branches, clean, merge, or push. Return
 Markdown only, at most 250 words, with exactly these headings:

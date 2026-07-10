@@ -1,6 +1,6 @@
 # roadmap.md — Signal or Noise?
 
-> **Current phase: Phase 7 - Leaderboards (approved; ready for implementation).**
+> **Current phase: Phase 8 - Daily Challenge (draft charter awaiting approval).**
 > Phases 0 + 1 COMPLETE and audited (A002 PASS). Phase 2 COMPLETE under D024.
 > Phase 3 COMPLETE and audited (A005 PASS WITH FINDINGS). Phase order
 > renumbered by D027 (Content Expansion moved up from Phase 8). Only the
@@ -110,13 +110,17 @@ saved stats, leaderboard eligibility, and all Daily Challenge play.
 
 **Consultant memo required before this phase** (auth provider selection).
 
-## Phase 7 — Leaderboards ⬜ (was Phase 6)
+## Phase 7 — Leaderboards ✅ (was Phase 6)
 
 Daily Challenge Bankroll, Best Classic Run Bankroll, All-Time Signal Score.
 Tiebreakers per doc 10: bankroll → Signal Score → correct calls → fewer passes →
 completion time.
 
-## Phase 8 — Daily Challenge ⬜ (was Phase 7)
+**Accepted 2026-07-10 under D050.** Public Daily, difficulty-separated Classic,
+and cumulative Signal leaderboards derive from official immutable runs; public
+identity uses stable generated aliases or an explicitly chosen unique name.
+
+## Phase 8 — Daily Challenge ⬜ (was Phase 7; draft charter awaiting approval)
 
 10 rounds, same curated pool for everyone, login required, unlimited attempts,
 best completed score per user/day on the daily leaderboard, mixed difficulty.
