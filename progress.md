@@ -25,7 +25,9 @@ Blocked/Questions accurate. Git history and one phase closeout preserve history.
   and challenge scheduling remain for Phases 7-8. Current tests: game engine
   38, content 77, database 15 (including Neon integration), web 11. Content
   and Gate 2 remain at 0 errors / 40 non-blocking WARNs / 0 missing variants.
-- **Next task:** Prepare and approve the Phase 7 - Leaderboards charter.
+- **Next task:** Review the recommended leaderboard fairness, public identity,
+  All-Time Signal Score, and tie-rank decisions in
+  `agents/phases/P07_leaderboards.md`; then approve or revise the Phase 7 charter.
 - **Workflow state:** D043 is active: one charter, one autonomous Phase Owner,
   one closeout, and one phase-boundary review. Legacy H/R artifacts remain
   evidence only under `agents/history/`.
