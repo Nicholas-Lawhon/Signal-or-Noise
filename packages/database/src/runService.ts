@@ -16,10 +16,12 @@ import {
 import type { CompletedRound, RunState } from '@signal-or-noise/game-engine';
 import { ZodError } from 'zod';
 import {
+  claimCompletedGuestRunSchema,
   createClassicRunSchema,
   createDailyChallengeRunSchema,
   createLeaderboardEntrySchema,
   getCurrentRunSchema,
+  getRunSummarySchema,
   runOwnerSchema,
   scenarioOrderSchema,
   submitRoundDecisionSchema,
@@ -28,6 +30,7 @@ import type {
   CurrentRunPayload,
   RevealPayload,
   RunOwner,
+  RunSummaryPayload,
   ScenarioOrderEntry,
 } from './contracts';
 import { DatabaseDomainError } from './errors';
@@ -157,6 +160,57 @@ function completionTimeMs(startedAt: Date, completedAt: Date): number {
   return Math.min(2_147_483_647, Math.max(0, completedAt.getTime() - startedAt.getTime()));
 }
 
+type RunWithSummaryDecisions = Run & {
+  roundDecisions: Array<RoundDecision & { scenario: { companyName: string } }>;
+  guestSession: { clientSessionId: string } | null;
+};
+
+function buildRunSummaryPayload(run: RunWithSummaryDecisions): RunSummaryPayload {
+  if (run.status !== 'completed' && run.status !== 'bankrupt') {
+    throw new DatabaseDomainError('INVALID_STATE', 'Run is not finished');
+  }
+  let companiesCalled = 0;
+  let bestTrade: RunSummaryPayload['bestTrade'] = null;
+  let worstTrade: RunSummaryPayload['worstTrade'] = null;
+  for (const decision of run.roundDecisions) {
+    if (decision.companyGuessCorrect === true) companiesCalled += 1;
+    if (number(decision.stakeAmount) > 0) {
+      const trade = {
+        companyName: decision.scenario.companyName,
+        pnlAmount: number(decision.pnlAmount),
+      };
+      if (!bestTrade || trade.pnlAmount > bestTrade.pnlAmount) bestTrade = trade;
+      if (!worstTrade || trade.pnlAmount < worstTrade.pnlAmount) worstTrade = trade;
+    }
+  }
+  return {
+    id: run.id,
+    mode: run.mode,
+    difficulty: run.difficulty,
+    status: run.status,
+    isOfficial: run.isOfficial,
+    claimed: run.claimedAt !== null,
+    claimable:
+      run.mode === 'classic_run' &&
+      (run.status === 'completed' || run.status === 'bankrupt') &&
+      run.userId === null &&
+      run.claimedAt === null,
+    startingBankroll: number(run.startingBankroll),
+    finalBankroll: number(run.finalBankroll ?? run.currentBankroll),
+    signalScore: number(run.signalScore),
+    totalRounds: run.totalRounds,
+    completedRounds: run.completedRounds,
+    correctCalls: run.correctCalls,
+    wrongCalls: run.wrongCalls,
+    passes: run.passes,
+    companiesCalled,
+    bestStreak: run.bestStreak,
+    completionTimeMs: run.completionTimeMs,
+    bestTrade,
+    worstTrade,
+  };
+}
+
 async function updatePlayerStats(tx: TransactionClient, userId: string): Promise<void> {
   const [runAggregates, totals] = await Promise.all([
     tx.run.aggregate({
@@ -217,6 +271,18 @@ export class RunService {
     const parsed = parseInput(() => createClassicRunSchema.parse(input));
     const runId = await this.prisma.$transaction(async (tx) => {
       const owner = await resolveOwner(tx, parsed.owner);
+      // Starting a new Classic Run is an explicit choice; any prior unfinished
+      // Classic Run for the same owner becomes abandoned rather than lingering.
+      await tx.run.updateMany({
+        where: {
+          ...(owner.userId !== null
+            ? { userId: owner.userId }
+            : { guestSessionId: owner.guestSessionId }),
+          mode: 'classic_run',
+          status: 'in_progress',
+        },
+        data: { status: 'abandoned' },
+      });
       const scenarioCount = CLASSIC_RUN_ROUNDS[parsed.difficulty];
       const candidates = await tx.scenario.findMany({
         where: { status: 'active' },
@@ -249,65 +315,59 @@ export class RunService {
     return this.getInProgressRunById(runId, parsed.owner);
   }
 
+  /**
+   * Daily Challenge play is login-gated (D048): guests are rejected here even if
+   * a web boundary bug lets a guest request through. Authenticated users may
+   * create unlimited attempts (D049); each attempt is a separate run that becomes
+   * immutable once terminal.
+   */
   async createDailyChallengeRun(input: unknown): Promise<CurrentRunPayload> {
     const parsed = parseInput(() => createDailyChallengeRunSchema.parse(input));
-    try {
-      const runId = await this.prisma.$transaction(async (tx) => {
-        const owner = await resolveOwner(tx, parsed.owner);
-        const challenge = await tx.dailyChallenge.findUnique({
-          where: { id: parsed.dailyChallengeId },
-          include: { pool: { include: { entries: { orderBy: { ordinal: 'asc' } } } } },
-        });
-        if (!challenge) throw new DatabaseDomainError('NOT_FOUND', 'Daily Challenge not found');
-        if (parsed.owner.kind === 'user') {
-          const existing = await tx.run.findFirst({
-            where: { dailyChallengeId: challenge.id, userId: parsed.owner.userId },
-            select: { id: true },
-          });
-          if (existing) {
-            throw new DatabaseDomainError('CONFLICT', 'Official Daily Challenge attempt already exists');
-          }
-        }
-        const state = createDailyChallengeRunState({
-          startingBankroll: number(challenge.startingBankroll),
-          totalRounds: challenge.pool.entries.length,
-        });
-        const run = await tx.run.create({
-          data: {
-            ...owner,
-            dailyChallengeId: challenge.id,
-            mode: 'daily_challenge',
-            difficulty: null,
-            status: state.status,
-            scenarioOrder: challenge.pool.entries.map((entry) => ({
-              scenarioId: entry.scenarioId,
-              difficulty: entry.difficulty,
-            })),
-            startingBankroll: state.startingBankroll,
-            currentBankroll: state.currentBankroll,
-            signalScore: state.signalScore,
-            totalRounds: state.totalRounds,
-          },
-          select: { id: true },
-        });
-        return run.id;
-      }, { isolationLevel: 'Serializable' });
-      return this.getInProgressRunById(runId, parsed.owner);
-    } catch (error) {
-      if (
-        typeof error === 'object' && error !== null &&
-        'code' in error && error.code === 'P2002'
-      ) {
-        throw new DatabaseDomainError('CONFLICT', 'Official Daily Challenge attempt already exists');
-      }
-      throw error;
+    if (parsed.owner.kind !== 'user') {
+      throw new DatabaseDomainError('FORBIDDEN', 'Daily Challenge requires a signed-in account');
     }
+    const runId = await this.prisma.$transaction(async (tx) => {
+      const owner = await resolveOwner(tx, parsed.owner);
+      const challenge = await tx.dailyChallenge.findUnique({
+        where: { id: parsed.dailyChallengeId },
+        include: { pool: { include: { entries: { orderBy: { ordinal: 'asc' } } } } },
+      });
+      if (!challenge) throw new DatabaseDomainError('NOT_FOUND', 'Daily Challenge not found');
+      const state = createDailyChallengeRunState({
+        startingBankroll: number(challenge.startingBankroll),
+        totalRounds: challenge.pool.entries.length,
+      });
+      const run = await tx.run.create({
+        data: {
+          ...owner,
+          dailyChallengeId: challenge.id,
+          mode: 'daily_challenge',
+          difficulty: null,
+          status: state.status,
+          scenarioOrder: challenge.pool.entries.map((entry) => ({
+            scenarioId: entry.scenarioId,
+            difficulty: entry.difficulty,
+          })),
+          startingBankroll: state.startingBankroll,
+          currentBankroll: state.currentBankroll,
+          signalScore: state.signalScore,
+          totalRounds: state.totalRounds,
+        },
+        select: { id: true },
+      });
+      return run.id;
+    }, { isolationLevel: 'Serializable' });
+    return this.getInProgressRunById(runId, parsed.owner);
   }
 
   async getCurrentRun(input: unknown): Promise<CurrentRunPayload | null> {
     const parsed = parseInput(() => getCurrentRunSchema.parse(input));
     const run = await this.prisma.run.findFirst({
-      where: { ...ownerWhere(parsed.owner), status: 'in_progress' },
+      where: {
+        ...ownerWhere(parsed.owner),
+        status: 'in_progress',
+        ...(parsed.mode ? { mode: parsed.mode } : {}),
+      },
       orderBy: { startedAt: 'desc' },
       select: { id: true },
     });
@@ -420,6 +480,7 @@ export class RunService {
           id: true,
           companyName: true,
           ticker: true,
+          outcomeLabel: true,
           acceptedNames: true,
           endingPrice: true,
           actualReturnPercent: true,
@@ -508,6 +569,7 @@ export class RunService {
           scenarioId: scenario.id,
           companyName: scenario.companyName,
           ticker: scenario.ticker,
+          outcomeLabel: scenario.outcomeLabel,
           endingPrice: number(scenario.endingPrice),
           actualReturnPercent: number(scenario.actualReturnPercent),
           shortText: scenario.revealShortText,
@@ -520,6 +582,138 @@ export class RunService {
         },
       };
     }, { isolationLevel: 'Serializable', timeout: 30_000 });
+  }
+
+  /**
+   * Owner-checked summary of a finished run. Reveal-level fields (company names)
+   * are allowed here because every round decision has already been committed.
+   */
+  async getRunSummary(input: unknown): Promise<RunSummaryPayload> {
+    const parsed = parseInput(() => getRunSummarySchema.parse(input));
+    const run = await this.prisma.run.findUnique({
+      where: { id: parsed.runId },
+      include: {
+        guestSession: { select: { clientSessionId: true } },
+        roundDecisions: {
+          orderBy: { roundIndex: 'asc' },
+          include: { scenario: { select: { companyName: true } } },
+        },
+      },
+    });
+    if (!run) throw new DatabaseDomainError('NOT_FOUND', 'Run not found');
+    assertRunOwner(run, parsed.owner);
+    if (run.status !== 'completed' && run.status !== 'bankrupt') {
+      throw new DatabaseDomainError('INVALID_STATE', 'Run is not finished');
+    }
+    return buildRunSummaryPayload(run);
+  }
+
+  /**
+   * One-time explicit claim of a completed guest Classic Run (D047). Both the
+   * internal user ID and the guest session ID must be derived server-side (the
+   * verified Clerk session and the httpOnly guest cookie); request data never
+   * supplies either. The guarded updateMany makes double/concurrent claims fail
+   * safely even before Serializable isolation is considered.
+   */
+  async claimCompletedGuestRun(input: unknown): Promise<RunSummaryPayload> {
+    const parsed = parseInput(() => claimCompletedGuestRunSchema.parse(input));
+    // Serializable claims that race each other abort with P2034. Retry a few
+    // times so the guarded checks settle the truth: exactly one claim wins and
+    // every other attempt sees a clean, retry-safe CONFLICT.
+    for (let attempt = 0; ; attempt += 1) {
+      try {
+        return await this.claimCompletedGuestRunOnce(parsed);
+      } catch (error) {
+        const conflictCode =
+          typeof error === 'object' && error !== null && 'code' in error
+            ? error.code
+            : null;
+        if (conflictCode === 'P2034' && attempt < 2) continue;
+        if (conflictCode === 'P2034' || conflictCode === 'P2002') {
+          throw new DatabaseDomainError('CONFLICT', 'Run claim conflicted — try again');
+        }
+        throw error;
+      }
+    }
+  }
+
+  private async claimCompletedGuestRunOnce(parsed: {
+    userId: string;
+    guestSessionId: string;
+    runId: string;
+  }): Promise<RunSummaryPayload> {
+    return this.prisma.$transaction(async (tx) => {
+      const user = await tx.user.findUnique({
+        where: { id: parsed.userId },
+        select: { id: true },
+      });
+      if (!user) throw new DatabaseDomainError('NOT_FOUND', 'User not found');
+      const run = await tx.run.findUnique({
+        where: { id: parsed.runId },
+        include: { guestSession: { select: { clientSessionId: true } } },
+      });
+      if (!run) throw new DatabaseDomainError('NOT_FOUND', 'Run not found');
+      // Claimed runs drop their guest link (the schema enforces exactly one
+      // owner), so report "already claimed" before the ownership check to keep
+      // duplicate claims from the original device retry-safe and truthful.
+      if (run.claimedAt !== null) {
+        throw new DatabaseDomainError('CONFLICT', 'Run was already claimed');
+      }
+      if (
+        run.guestSessionId === null ||
+        run.guestSession?.clientSessionId !== parsed.guestSessionId
+      ) {
+        throw new DatabaseDomainError('FORBIDDEN', 'Run does not belong to this guest session');
+      }
+      if (run.userId !== null) {
+        throw new DatabaseDomainError('CONFLICT', 'Run was already claimed');
+      }
+      if (run.mode !== 'classic_run') {
+        throw new DatabaseDomainError('INVALID_STATE', 'Only Classic Runs can be claimed');
+      }
+      if (run.status !== 'completed' && run.status !== 'bankrupt') {
+        throw new DatabaseDomainError('INVALID_STATE', 'Only finished runs can be claimed');
+      }
+
+      const claimed = await tx.run.updateMany({
+        where: {
+          id: run.id,
+          userId: null,
+          claimedAt: null,
+          mode: 'classic_run',
+          status: { in: ['completed', 'bankrupt'] },
+          guestSessionId: run.guestSessionId,
+        },
+        // The run transfers fully to the account: the exactly-one-owner schema
+        // constraint requires dropping the guest link when userId is set.
+        data: {
+          userId: user.id,
+          guestSessionId: null,
+          isOfficial: true,
+          claimedAt: new Date(),
+        },
+      });
+      if (claimed.count !== 1) {
+        throw new DatabaseDomainError('CONFLICT', 'Run was already claimed');
+      }
+      await tx.roundDecision.updateMany({
+        where: { runId: run.id },
+        data: { userId: user.id },
+      });
+      await updatePlayerStats(tx, user.id);
+
+      const saved = await tx.run.findUniqueOrThrow({
+        where: { id: run.id },
+        include: {
+          guestSession: { select: { clientSessionId: true } },
+          roundDecisions: {
+            orderBy: { roundIndex: 'asc' },
+            include: { scenario: { select: { companyName: true } } },
+          },
+        },
+      });
+      return buildRunSummaryPayload(saved);
+    }, { isolationLevel: 'Serializable' });
   }
 
   async createLeaderboardEntryForRun(input: unknown) {

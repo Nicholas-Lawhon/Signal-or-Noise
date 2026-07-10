@@ -1,25 +1,14 @@
 'use client';
 
-import { useState, useEffect, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
-import {
-  createRunState,
-  applyRoundResult,
-  summarizeRun,
-  calculateStake,
-  CONFIDENCE_CONFIG,
-} from '@signal-or-noise/game-engine';
-import type {
-  RunState,
-  Difficulty,
-  RoundAction,
-  Confidence,
-  CompletedRound,
-} from '@signal-or-noise/game-engine';
-import { buildRunScenarioList } from '@/lib/sampleScenarios';
-import type { PrototypeScenario } from '@/lib/sampleScenarios';
+import { Suspense, useCallback, useEffect, useRef, useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { SignInButton, useUser } from '@clerk/nextjs';
+import { CONFIDENCE_CONFIG, calculateStake } from '@signal-or-noise/game-engine';
+import type { Confidence, RoundAction } from '@signal-or-noise/game-engine';
+import type { CurrentRunPayload, RunSummaryPayload } from '@signal-or-noise/database';
+import { api, ApiRequestError } from '@/lib/api';
+import type { SubmitDecisionResult } from '@/lib/api';
 import { formatMoney, formatSignedMoney, formatPercent, formatSignalScore } from '@/lib/format';
-import { normalizeGuess } from '@/lib/guess';
 import Sparkline from '@/components/Sparkline';
 
 // Fully-literal class strings so Tailwind's JIT compiler emits them.
@@ -42,94 +31,231 @@ const DECISION_SELECTED: Record<RoundAction, string> = {
   pass: 'border-son-textSecondary bg-son-textSecondary/10 text-son-textSecondary',
 };
 
+/** sessionStorage key marking an explicit "Save this run" request (D047). */
+const CLAIM_INTENT_KEY = 'son_claim_intent_run';
+
+type View = 'loading' | 'error' | 'round' | 'locked' | 'reveal' | 'summary';
+
 function ClassicRunClient() {
   const searchParams = useSearchParams();
-  const difficultyParam = searchParams.get('difficulty');
-  const difficulty: Difficulty =
-    difficultyParam === 'easy' || difficultyParam === 'medium' || difficultyParam === 'hard'
-      ? difficultyParam
-      : 'medium';
+  const router = useRouter();
+  const { isSignedIn } = useUser();
 
-  const [mounted, setMounted] = useState(false);
-  const [run, setRun] = useState<RunState | null>(null);
-  const [scenarios, setScenarios] = useState<PrototypeScenario[]>([]);
-  const [view, setView] = useState<'round' | 'locked' | 'reveal' | 'summary'>('round');
-  const [lastRound, setLastRound] = useState<CompletedRound | null>(null);
+  const [view, setView] = useState<View>('loading');
+  const [run, setRun] = useState<CurrentRunPayload | null>(null);
+  const [lastResult, setLastResult] = useState<SubmitDecisionResult | null>(null);
+  const [summary, setSummary] = useState<RunSummaryPayload | null>(null);
+  const [fatalError, setFatalError] = useState<string | null>(null);
+  const [actionError, setActionError] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
+  const [claimPending, setClaimPending] = useState(false);
+  const [claimError, setClaimError] = useState<string | null>(null);
+
   const [action, setAction] = useState<RoundAction | null>(null);
   const [confidence, setConfidence] = useState<Confidence | null>(null);
   const [companyGuess, setCompanyGuess] = useState('');
 
-  useEffect(() => {
-    const initialRun = createRunState({ difficulty });
-    setRun(initialRun);
-    setScenarios(buildRunScenarioList(initialRun.totalRounds));
-    setMounted(true);
-  }, [difficulty]);
+  const bootedRef = useRef(false);
 
-  if (!mounted || !run) {
-    return (
-      <main className="flex min-h-screen items-center justify-center bg-son-bg">
-        <p className="text-son-textMuted">Loading...</p>
-      </main>
-    );
-  }
-
-  const scenario = scenarios[run.currentRoundIndex];
-  if (!scenario && view === 'round') {
-    return (
-      <main className="flex min-h-screen items-center justify-center bg-son-bg">
-        <p className="text-son-textMuted">No scenario available.</p>
-      </main>
-    );
-  }
-
-  const handleLockIn = () => {
-    if (!scenario) return;
-
-    const trimmedGuess = companyGuess.trim();
-    const submittedGuess = trimmedGuess.length > 0 ? trimmedGuess : null;
-    const companyGuessCorrect = submittedGuess
-      ? scenario.acceptedNames.map(normalizeGuess).includes(normalizeGuess(submittedGuess))
-      : null;
-
-    const next = applyRoundResult(run, {
-      scenarioId: scenario.id,
-      action: action!,
-      confidence: action === 'pass' ? undefined : confidence ?? undefined,
-      actualReturnPercent: scenario.actualReturnPercent,
-      companyGuess: submittedGuess,
-      companyGuessCorrect,
-    });
-
-    setLastRound(next.rounds[next.rounds.length - 1]);
-    setRun(next);
-    setView('locked');
+  const resetForm = () => {
+    setAction(null);
+    setConfidence(null);
+    setCompanyGuess('');
   };
 
-  const handleReveal = () => {
-    setView('reveal');
-  };
-
-  const handleNext = () => {
-    if (run.status === 'in_progress') {
-      setAction(null);
-      setConfidence(null);
-      setCompanyGuess('');
-      setView('round');
-    } else {
+  const showSummary = useCallback(
+    async (runId: string) => {
+      const result = await api.runSummary(runId);
+      setSummary(result.summary);
       setView('summary');
+      router.replace(`/play/classic/run?runId=${encodeURIComponent(runId)}`);
+    },
+    [router],
+  );
+
+  // Boot exactly once: an explicit difficulty starts a fresh run; otherwise
+  // resume the active run (guest cookie or account), or reload a finished
+  // run's summary from the runId param after a refresh.
+  useEffect(() => {
+    if (bootedRef.current) return;
+    bootedRef.current = true;
+    const difficultyParam = searchParams.get('difficulty');
+    const runIdParam = searchParams.get('runId');
+    const difficulty =
+      difficultyParam === 'easy' || difficultyParam === 'medium' || difficultyParam === 'hard'
+        ? difficultyParam
+        : null;
+
+    void (async () => {
+      try {
+        if (difficulty) {
+          const created = await api.createClassicRun(difficulty);
+          setRun(created.run);
+          setView('round');
+          // Strip the param so a refresh resumes this run instead of starting over.
+          router.replace('/play/classic/run');
+          return;
+        }
+        const current = await api.currentRun();
+        if (current.run) {
+          setRun(current.run);
+          setView('round');
+          return;
+        }
+        if (runIdParam) {
+          await showSummary(runIdParam);
+          return;
+        }
+        router.replace('/play/classic');
+      } catch (error) {
+        setFatalError(error instanceof Error ? error.message : 'Something went wrong');
+        setView('error');
+      }
+    })();
+  }, [router, searchParams, showSummary]);
+
+  const performClaim = useCallback(
+    async (runId: string) => {
+      setClaimPending(true);
+      setClaimError(null);
+      try {
+        const claimed = await api.claimRun(runId);
+        sessionStorage.removeItem(CLAIM_INTENT_KEY);
+        setSummary(claimed.summary);
+      } catch (error) {
+        if (error instanceof ApiRequestError && error.status === 409) {
+          // The claim may have landed already (double-click/retry) — reload the
+          // summary; if it now belongs to this account it renders as saved.
+          try {
+            const reloaded = await api.runSummary(runId);
+            setSummary(reloaded.summary);
+            if (reloaded.summary.claimed) {
+              sessionStorage.removeItem(CLAIM_INTENT_KEY);
+              return;
+            }
+          } catch {
+            // fall through to the retryable error state
+          }
+        }
+        setClaimError(
+          error instanceof ApiRequestError && error.status !== 500
+            ? error.message
+            : 'Saving failed — your guest result is untouched. Try again.',
+        );
+      } finally {
+        setClaimPending(false);
+      }
+    },
+    [],
+  );
+
+  // After an explicit "Save this run" sign-in completes, finish the claim.
+  // A plain sign-in (header button) sets no intent and never claims anything.
+  useEffect(() => {
+    if (!isSignedIn || view !== 'summary' || !summary?.claimable || claimPending) return;
+    if (sessionStorage.getItem(CLAIM_INTENT_KEY) === summary.id) {
+      void performClaim(summary.id);
+    }
+  }, [isSignedIn, view, summary, claimPending, performClaim]);
+
+  if (view === 'loading') {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-son-bg">
+        <p className="text-son-textMuted">Loading your run...</p>
+      </main>
+    );
+  }
+
+  if (view === 'error') {
+    return (
+      <main className="flex min-h-screen flex-col items-center justify-center gap-4 px-4">
+        <p className="text-center text-sm text-son-textSecondary">
+          {fatalError ?? 'Something went wrong.'}
+        </p>
+        <a
+          href="/play/classic"
+          className="rounded-lg border border-son-border bg-son-card px-4 py-2 text-sm font-semibold text-son-textSecondary hover:border-son-borderStrong"
+        >
+          Back to Classic Run setup
+        </a>
+      </main>
+    );
+  }
+
+  const handleLockIn = async () => {
+    if (!run || !action || submitting) return;
+    const trimmedGuess = companyGuess.trim();
+    setSubmitting(true);
+    setActionError(null);
+    try {
+      const result = await api.submitDecision(run.id, {
+        roundIndex: run.round.roundIndex,
+        action,
+        confidence: action === 'pass' ? undefined : confidence ?? undefined,
+        companyGuess: trimmedGuess.length > 0 ? trimmedGuess : undefined,
+      });
+      setLastResult(result);
+      setView('locked');
+    } catch (error) {
+      if (error instanceof ApiRequestError && error.status === 409) {
+        // This round was already submitted (double tap / stale tab): resync.
+        try {
+          const current = await api.currentRun();
+          if (current.run) {
+            setRun(current.run);
+            resetForm();
+            setActionError(null);
+          } else {
+            setActionError('This run already finished on another tab. Refresh to see the result.');
+          }
+        } catch {
+          setActionError('Could not resync the run. Check your connection and try again.');
+        }
+      } else {
+        setActionError(
+          error instanceof ApiRequestError && error.status !== 500
+            ? error.message
+            : 'Could not lock your call. Check your connection and try again.',
+        );
+      }
+    } finally {
+      setSubmitting(false);
     }
   };
 
-  const canLockIn = action !== null && (action === 'pass' || confidence !== null);
-
-  const summary = summarizeRun(run);
-
-  const scenarioByLookup = Object.fromEntries(scenarios.map((s) => [s.id, s]));
+  const handleNext = async () => {
+    if (!lastResult) return;
+    if (lastResult.run.status === 'in_progress') {
+      setView('loading');
+      try {
+        const current = await api.currentRun();
+        if (current.run) {
+          setRun(current.run);
+          resetForm();
+          setView('round');
+        } else {
+          await showSummary(lastResult.run.id);
+        }
+      } catch (error) {
+        setFatalError(error instanceof Error ? error.message : 'Something went wrong');
+        setView('error');
+      }
+    } else {
+      setView('loading');
+      try {
+        await showSummary(lastResult.run.id);
+      } catch (error) {
+        setFatalError(error instanceof Error ? error.message : 'Something went wrong');
+        setView('error');
+      }
+    }
+  };
 
   // ---- Round View ----
-  if (view === 'round' && scenario) {
-    const hidden = scenario.hidden[difficulty];
+  if (view === 'round' && run) {
+    const round = run.round;
+    const canLockIn =
+      !submitting && action !== null && (action === 'pass' || confidence !== null);
 
     return (
       <main className="flex min-h-screen flex-col items-center px-4 py-6">
@@ -147,26 +273,27 @@ function ClassicRunClient() {
                 Signal Score: {formatSignalScore(run.signalScore)}
               </span>
             </div>
+            {!run.isOfficial && (
+              <p className="mt-1 text-xs text-son-textMuted">
+                Guest run — finish it to save the result with an account.
+              </p>
+            )}
           </div>
 
           {/* Scenario card */}
           <div className="mb-6 rounded-2xl border border-son-border bg-son-card p-5">
-            <div className="mb-3 inline-block rounded-full border border-son-borderSubtle px-3 py-0.5 text-xs text-son-textSecondary">
-              {scenario.era}
-            </div>
-
             <p className="mb-1 text-xs text-son-textMuted">
-              {scenario.decisionDateLabel} &middot; {scenario.holdingPeriodLabel}
+              {round.decisionDateLabel} &middot; {round.holdingPeriodLabel}
             </p>
 
-            <h2 className="mb-1 text-lg font-semibold text-son-text">{scenario.title}</h2>
+            <h2 className="mb-1 text-lg font-semibold text-son-text">{round.title}</h2>
 
             <p className="mb-2 text-sm leading-relaxed text-son-textSecondary">
-              {hidden.companyDescription}
+              {round.companyDescription}
             </p>
 
             <p className="mb-4 text-sm leading-relaxed text-son-textMuted">
-              {hidden.macroContext}
+              {round.macroContext}
             </p>
 
             {/* Lookback sparkline — demoted to context (D026) */}
@@ -174,21 +301,25 @@ function ClassicRunClient() {
               <p className="mb-1 text-xs text-son-textMuted">
                 Price path into this decision
               </p>
-              <Sparkline prices={scenario.lookbackPrices} height={96} variant="lookback" />
+              <Sparkline
+                prices={round.lookbackChart.map((point) => point.price)}
+                height={96}
+                variant="lookback"
+              />
             </div>
 
             {/* Balanced Tension (D026) */}
             <div className="mb-0 space-y-3">
               <h3 className="text-sm font-semibold text-son-text">Signal or Noise?</h3>
               <p className="text-sm leading-relaxed text-son-textSecondary">
-                {hidden.situation}
+                {round.situation}
               </p>
               <div>
                 <p className="mb-1 text-xs font-medium uppercase tracking-wide text-son-textMuted">
                   Why it might work
                 </p>
                 <p className="text-sm leading-relaxed text-son-textSecondary">
-                  {hidden.longCase}
+                  {round.longCase}
                 </p>
               </div>
               <div>
@@ -196,12 +327,12 @@ function ClassicRunClient() {
                   What could break
                 </p>
                 <p className="text-sm leading-relaxed text-son-textSecondary">
-                  {hidden.shortCase}
+                  {round.shortCase}
                 </p>
               </div>
-              {hidden.setupHints.length > 0 ? (
+              {round.setupHints.length > 0 ? (
                 <ul className="list-inside list-disc space-y-1 text-sm text-son-textSecondary">
-                  {hidden.setupHints.map((hint, i) => (
+                  {round.setupHints.map((hint, i) => (
                     <li key={i}>{hint}</li>
                   ))}
                 </ul>
@@ -294,6 +425,12 @@ function ClassicRunClient() {
             </div>
           </div>
 
+          {actionError && (
+            <p className="mb-3 rounded-lg border border-son-red/40 bg-son-red/10 px-4 py-2 text-sm text-son-red">
+              {actionError}
+            </p>
+          )}
+
           {/* Lock In */}
           <button
             type="button"
@@ -305,7 +442,7 @@ function ClassicRunClient() {
                 : 'cursor-not-allowed bg-son-surface text-son-textMuted'
             }`}
           >
-            Lock In
+            {submitting ? 'Locking...' : 'Lock In'}
           </button>
         </div>
       </main>
@@ -313,7 +450,8 @@ function ClassicRunClient() {
   }
 
   // ---- Locked View ----
-  if (view === 'locked' && lastRound) {
+  if (view === 'locked' && lastResult) {
+    const lastRound = lastResult.round;
     const isPass = lastRound.action === 'pass';
     const confLabel = lastRound.confidence ? CONFIDENCE_CONFIG[lastRound.confidence].label : null;
     const pct = lastRound.confidence
@@ -360,7 +498,7 @@ function ClassicRunClient() {
 
           <button
             type="button"
-            onClick={handleReveal}
+            onClick={() => setView('reveal')}
             className="mt-8 w-full rounded-lg bg-son-signalBlue px-6 py-3 text-base font-semibold text-son-textInverse transition-colors hover:brightness-110"
           >
             Reveal Result
@@ -371,8 +509,9 @@ function ClassicRunClient() {
   }
 
   // ---- Reveal View ----
-  if (view === 'reveal' && lastRound) {
-    const revealScenario = scenarioByLookup[lastRound.scenarioId];
+  if (view === 'reveal' && lastResult) {
+    const lastRound = lastResult.round;
+    const reveal = lastResult.reveal;
     const isPass = lastRound.action === 'pass';
 
     return (
@@ -399,21 +538,23 @@ function ClassicRunClient() {
             )}
 
             <h2 className="text-2xl font-bold text-son-text">
-              That was {revealScenario?.companyName ?? '?'}.
+              That was {reveal.companyName}.
             </h2>
 
             <div className="mt-3 space-y-1 text-sm text-son-textSecondary">
-              <p>{revealScenario?.ticker}</p>
-              <p>{revealScenario?.outcomeLabel}</p>
-              <p>Actual return: {formatPercent(revealScenario?.actualReturnPercent ?? 0)}</p>
+              <p>{reveal.ticker}</p>
+              <p>{reveal.outcomeLabel}</p>
+              <p>Actual return: {formatPercent(reveal.actualReturnPercent)}</p>
             </div>
 
             {/* Outcome sparkline */}
-            {revealScenario && (
-              <div className="mt-3">
-                <Sparkline prices={revealScenario.outcomePrices} height={96} variant="outcome" />
-              </div>
-            )}
+            <div className="mt-3">
+              <Sparkline
+                prices={reveal.outcomeChart.map((point) => point.price)}
+                height={96}
+                variant="outcome"
+              />
+            </div>
 
             <div className="mt-4 border-t border-son-border pt-4 space-y-1 text-sm">
               {isPass ? (
@@ -431,7 +572,7 @@ function ClassicRunClient() {
                     <span className="text-son-text font-medium">
                       {lastRound.confidence
                         ? CONFIDENCE_CONFIG[lastRound.confidence].label
-                        : '\u2014'}
+                        : '—'}
                     </span>
                   </p>
                   <p className="text-son-textSecondary">
@@ -478,9 +619,9 @@ function ClassicRunClient() {
                   {formatSignalScore(lastRound.signalScoreDelta)}
                 </span>
               </p>
-              {lastRound.companyGuess && revealScenario && lastRound.companyGuessCorrect === true && (
+              {lastRound.companyGuess && lastRound.companyGuessCorrect === true && (
                 <p className="text-son-green">
-                  You called it &mdash; it was {revealScenario.companyName}. +2 Signal
+                  You called it &mdash; it was {reveal.companyName}. +2 Signal
                 </p>
               )}
               {lastRound.companyGuess && lastRound.companyGuessCorrect === false && (
@@ -491,19 +632,17 @@ function ClassicRunClient() {
               )}
             </div>
 
-            {revealScenario && (
-              <div className="mt-4 border-t border-son-border pt-4">
-                <p className="text-sm leading-relaxed text-son-textSecondary">
-                  {revealScenario.revealShortText}
+            <div className="mt-4 border-t border-son-border pt-4">
+              <p className="text-sm leading-relaxed text-son-textSecondary">
+                {reveal.shortText}
+              </p>
+              {reveal.funFact && (
+                <p className="mt-2 text-xs leading-relaxed text-son-textMuted">
+                  <span className="font-semibold text-son-textSecondary">Fun fact:</span>{' '}
+                  {reveal.funFact}
                 </p>
-                {revealScenario.funFact && (
-                  <p className="mt-2 text-xs leading-relaxed text-son-textMuted">
-                    <span className="font-semibold text-son-textSecondary">Fun fact:</span>{' '}
-                    {revealScenario.funFact}
-                  </p>
-                )}
-              </div>
-            )}
+              )}
+            </div>
           </div>
 
           <button
@@ -511,7 +650,7 @@ function ClassicRunClient() {
             onClick={handleNext}
             className="mt-4 w-full rounded-lg bg-son-signalBlue px-6 py-3 text-base font-semibold text-son-textInverse transition-colors hover:brightness-110"
           >
-            {run.status === 'in_progress' ? 'Next Round' : 'See Summary'}
+            {lastResult.run.status === 'in_progress' ? 'Next Round' : 'See Summary'}
           </button>
         </div>
       </main>
@@ -519,17 +658,54 @@ function ClassicRunClient() {
   }
 
   // ---- Summary View ----
-  if (view === 'summary') {
-    const bestCompany =
-      summary.bestTrade && scenarioByLookup[summary.bestTrade.scenarioId]?.companyName;
-    const worstCompany =
-      summary.worstTrade && scenarioByLookup[summary.worstTrade.scenarioId]?.companyName;
+  if (view === 'summary' && summary) {
+    const wentBankrupt = summary.status === 'bankrupt';
+    const saved = summary.isOfficial || summary.claimed;
+
+    const claimCard = summary.claimable ? (
+      <div className="mt-4 rounded-2xl border border-son-signalBlue/50 bg-son-card p-5">
+        <h2 className="text-base font-semibold text-son-text">Save this run</h2>
+        <p className="mt-1 text-sm leading-relaxed text-son-textSecondary">
+          Keep this score and your stats, qualify for the future Classic
+          leaderboard, and unlock profile features.
+        </p>
+        {claimError && (
+          <p className="mt-3 rounded-lg border border-son-red/40 bg-son-red/10 px-3 py-2 text-sm text-son-red">
+            {claimError}
+          </p>
+        )}
+        {isSignedIn ? (
+          <button
+            type="button"
+            disabled={claimPending}
+            onClick={() => void performClaim(summary.id)}
+            className="mt-4 w-full rounded-lg bg-son-signalBlue px-6 py-3 text-base font-semibold text-son-textInverse transition-colors hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {claimPending ? 'Saving...' : claimError ? 'Retry save' : 'Save this run'}
+          </button>
+        ) : (
+          <SignInButton mode="modal">
+            <button
+              type="button"
+              disabled={claimPending}
+              onClick={() => sessionStorage.setItem(CLAIM_INTENT_KEY, summary.id)}
+              className="mt-4 w-full rounded-lg bg-son-signalBlue px-6 py-3 text-base font-semibold text-son-textInverse transition-colors hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              {claimPending ? 'Saving...' : 'Save this run'}
+            </button>
+          </SignInButton>
+        )}
+        <p className="mt-2 text-center text-xs text-son-textMuted">
+          Your guest result stays right here if you change your mind.
+        </p>
+      </div>
+    ) : null;
 
     return (
       <main className="flex min-h-screen flex-col items-center px-4 py-6">
         <div className="w-full max-w-md">
           <div className="rounded-2xl border border-son-border bg-son-card p-6">
-            {summary.wentBankrupt ? (
+            {wentBankrupt ? (
               <>
                 <h1 className="text-3xl font-bold text-son-red">Bankrupt.</h1>
                 <p className="mt-2 text-sm text-son-textSecondary">
@@ -538,6 +714,16 @@ function ClassicRunClient() {
               </>
             ) : (
               <h1 className="text-3xl font-bold text-son-text">Run Complete.</h1>
+            )}
+
+            {saved ? (
+              <p className="mt-2 inline-block rounded-full border border-son-green/50 bg-son-green/10 px-3 py-0.5 text-xs font-semibold text-son-green">
+                Saved to your account
+              </p>
+            ) : (
+              <p className="mt-2 inline-block rounded-full border border-son-borderSubtle px-3 py-0.5 text-xs text-son-textMuted">
+                Guest run &mdash; unofficial
+              </p>
             )}
 
             <div className="mt-6 space-y-3 text-sm">
@@ -573,8 +759,8 @@ function ClassicRunClient() {
                 <div className="flex justify-between">
                   <span className="text-son-textSecondary">Best Trade</span>
                   <span className="font-semibold text-son-green">
-                    {formatSignedMoney(summary.bestTrade.pnlAmount)}
-                    {bestCompany ? ` on ${bestCompany}` : ''}
+                    {formatSignedMoney(summary.bestTrade.pnlAmount)} on{' '}
+                    {summary.bestTrade.companyName}
                   </span>
                 </div>
               )}
@@ -582,13 +768,24 @@ function ClassicRunClient() {
                 <div className="flex justify-between">
                   <span className="text-son-textSecondary">Worst Trade</span>
                   <span className="font-semibold text-son-red">
-                    {formatSignedMoney(summary.worstTrade.pnlAmount)}
-                    {worstCompany ? ` on ${worstCompany}` : ''}
+                    {formatSignedMoney(summary.worstTrade.pnlAmount)} on{' '}
+                    {summary.worstTrade.companyName}
                   </span>
                 </div>
               )}
             </div>
           </div>
+
+          {claimCard}
+
+          {saved && (
+            <a
+              href="/profile"
+              className="mt-4 block rounded-lg border border-son-border bg-son-card px-4 py-3 text-center text-sm font-semibold text-son-textSecondary transition-colors hover:border-son-borderStrong"
+            >
+              View my saved stats
+            </a>
+          )}
 
           <div className="mt-4 flex gap-3">
             <a

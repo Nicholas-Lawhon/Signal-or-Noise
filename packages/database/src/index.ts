@@ -11,11 +11,16 @@ export type {
   PreparedContentImport,
 } from './contentImport';
 export { RunService, parseRunOwner } from './runService';
+export { ensureUserForExternalAuth, getPlayerStats } from './identityService';
+export { findDailyChallengeForDate } from './dailyChallengeService';
 export type {
   CurrentRunPayload,
+  PlayerStatsPayload,
   PreDecisionRoundPayload,
   RevealPayload,
   RunOwner,
+  RunSummaryPayload,
+  RunSummaryTradePayload,
   ScenarioOrderEntry,
 } from './contracts';
 export { ContentImportValidationError, DatabaseDomainError } from './errors';

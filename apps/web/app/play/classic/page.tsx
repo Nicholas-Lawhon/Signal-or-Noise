@@ -1,4 +1,5 @@
 import { CLASSIC_RUN_ROUNDS, STARTING_BANKROLL } from '@signal-or-noise/game-engine';
+import ResumeRunCard from '@/components/ResumeRunCard';
 
 const DIFFICULTIES: {
   key: 'easy' | 'medium' | 'hard';
@@ -18,6 +19,8 @@ export default function ClassicSetupPage() {
         <p className="mb-8 text-sm text-son-textSecondary">
           Choose your difficulty and run length.
         </p>
+
+        <ResumeRunCard />
 
         <div className="space-y-3">
           {DIFFICULTIES.map((d) => (

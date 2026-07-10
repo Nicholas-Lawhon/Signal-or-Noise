@@ -306,16 +306,17 @@ model Run {
   startedAt          DateTime           @default(now())
   completedAt        DateTime?
   completionTimeMs   Int?
+  claimedAt          DateTime?
   user               User?              @relation(fields: [userId], references: [id], onDelete: Cascade)
   guestSession       GuestSession?      @relation(fields: [guestSessionId], references: [id], onDelete: Cascade)
   dailyChallenge     DailyChallenge?    @relation(fields: [dailyChallengeId], references: [id], onDelete: Restrict)
   roundDecisions     RoundDecision[]
   leaderboardEntries LeaderboardEntry[]
 
-  @@unique([dailyChallengeId, userId])
   @@index([userId, status])
   @@index([guestSessionId, status])
   @@index([dailyChallengeId])
+  @@index([dailyChallengeId, userId, status])
 }
 
 model RoundDecision {

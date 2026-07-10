@@ -25,6 +25,7 @@ export const createDailyChallengeRunSchema = z.object({
 
 export const getCurrentRunSchema = z.object({
   owner: runOwnerSchema,
+  mode: z.enum(['classic_run', 'daily_challenge']).optional(),
 }).strict();
 
 export const submitRoundDecisionSchema = z.object({
@@ -50,6 +51,27 @@ export const submitRoundDecisionSchema = z.object({
     });
   }
 });
+
+export const claimCompletedGuestRunSchema = z.object({
+  userId: z.string().min(1).max(128),
+  guestSessionId: z.string().uuid(),
+  runId: z.string().min(1).max(128),
+}).strict();
+
+export const getRunSummarySchema = z.object({
+  owner: runOwnerSchema,
+  runId: z.string().min(1).max(128),
+}).strict();
+
+export const ensureUserForExternalAuthSchema = z.object({
+  externalAuthId: z.string().min(1).max(255),
+  email: z.string().email().max(320).optional(),
+  displayName: z.string().trim().min(1).max(120).optional(),
+}).strict();
+
+export const getPlayerStatsSchema = z.object({
+  userId: z.string().min(1).max(128),
+}).strict();
 
 export const createLeaderboardEntrySchema = z.object({
   owner: runOwnerSchema,
@@ -106,10 +128,52 @@ export type CurrentRunPayload = {
   round: PreDecisionRoundPayload;
 };
 
+export type RunSummaryTradePayload = {
+  companyName: string;
+  pnlAmount: number;
+};
+
+export type RunSummaryPayload = {
+  id: string;
+  mode: 'classic_run' | 'daily_challenge';
+  difficulty: 'easy' | 'medium' | 'hard' | null;
+  status: 'completed' | 'bankrupt';
+  isOfficial: boolean;
+  claimed: boolean;
+  claimable: boolean;
+  startingBankroll: number;
+  finalBankroll: number;
+  signalScore: number;
+  totalRounds: number;
+  completedRounds: number;
+  correctCalls: number;
+  wrongCalls: number;
+  passes: number;
+  companiesCalled: number;
+  bestStreak: number;
+  completionTimeMs: number | null;
+  bestTrade: RunSummaryTradePayload | null;
+  worstTrade: RunSummaryTradePayload | null;
+};
+
+export type PlayerStatsPayload = {
+  totalRuns: number;
+  completedRuns: number;
+  totalRounds: number;
+  correctCalls: number;
+  wrongCalls: number;
+  passes: number;
+  totalSignalScore: number;
+  bestRunBankroll: number | null;
+  averageFinalBankroll: number | null;
+  bestStreak: number;
+};
+
 export type RevealPayload = {
   scenarioId: string;
   companyName: string;
   ticker: string;
+  outcomeLabel: string;
   endingPrice: number;
   actualReturnPercent: number;
   shortText: string;

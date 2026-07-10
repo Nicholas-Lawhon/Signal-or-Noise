@@ -18,16 +18,19 @@ export default function PlayPage() {
             </p>
           </a>
 
-          <div className="rounded-2xl border border-son-borderSubtle/50 bg-son-card/50 p-5 opacity-60">
-            <h2 className="text-lg font-semibold text-son-textMuted">Daily Challenge</h2>
-            <p className="mt-1 text-sm text-son-textMuted">
+          <a
+            href="/play/daily"
+            className="block rounded-2xl border border-son-border bg-son-card p-5 transition-colors hover:border-son-signalBlue/50"
+          >
+            <h2 className="text-lg font-semibold text-son-text">Daily Challenge</h2>
+            <p className="mt-1 text-sm text-son-textSecondary">
               10 rounds &middot; Same challenge for everyone &middot; Climb today&apos;s
               leaderboard
             </p>
             <span className="mt-2 inline-block rounded-full border border-son-borderSubtle px-3 py-0.5 text-xs text-son-textMuted">
-              Coming soon
+              Login required &middot; Gameplay coming soon
             </span>
-          </div>
+          </a>
 
           <div className="rounded-2xl border border-son-borderSubtle/50 bg-son-card/50 p-5 opacity-60">
             <h2 className="text-lg font-semibold text-son-textMuted">Portfolio Draft</h2>
