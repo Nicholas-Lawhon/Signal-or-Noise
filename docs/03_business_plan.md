@@ -429,9 +429,9 @@ Mitigation:
 ### Milestone 3: Daily Challenge
 
 - 10-round daily challenge.
-- Official attempt system.
+- Repeatable attempt and best-score system.
 - Daily leaderboard.
-- Login requirement for score submission.
+- Login requirement for Daily play.
 
 ### Milestone 4: Post-Prototype Improvements
 

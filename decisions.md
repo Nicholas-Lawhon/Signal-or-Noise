@@ -50,3 +50,6 @@ Settled decisions. This file is the live index only: do not load historical deci
 | D044 | Relax Medium/Hard Gate 2 to dominance thresholds | Active content calibration |
 | D045 | Phase 4B accepted; activate production content and archive prototype seeds | Active content / roadmap |
 | D046 | Phase 5 uses Neon free tier; client-ID guest strategy | Active database / guest foundation; details in `docs/consultant_memo_phase_5.md` |
+| D047 | Phase 6 uses Clerk Hobby; completed Classic guest runs may be claimed once | Active auth / guest conversion; details in `docs/consultant_memo_phase_6.md` |
+| D048 | Daily Challenge requires login; no unofficial guest play | Active Daily/auth product rule; locked in `soul.md` |
+| D049 | Daily Challenge is repeatable; leaderboard uses best completed attempt per user/day | Active Daily/leaderboard rule; locked in `soul.md` |

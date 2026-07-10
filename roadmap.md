@@ -1,6 +1,6 @@
 # roadmap.md — Signal or Noise?
 
-> **Current phase: Phase 6 - Auth & Guest Play (charter preparation).**
+> **Current phase: Phase 6 - Auth & Guest Play (approved; ready for implementation).**
 > Phases 0 + 1 COMPLETE and audited (A002 PASS). Phase 2 COMPLETE under D024.
 > Phase 3 COMPLETE and audited (A005 PASS WITH FINDINGS). Phase order
 > renumbered by D027 (Content Expansion moved up from Phase 8). Only the
@@ -105,8 +105,8 @@ storage. Server-side score calculation — never trust the client.
 
 ## Phase 6 — Auth & Guest Play ⬜ (was Phase 5)
 
-Optional login. Guests play everything unofficially; login gates leaderboard
-submission and saved stats.
+Optional login for Classic Run. Guests play Classic unofficially; login gates
+saved stats, leaderboard eligibility, and all Daily Challenge play.
 
 **Consultant memo required before this phase** (auth provider selection).
 
@@ -118,8 +118,8 @@ completion time.
 
 ## Phase 8 — Daily Challenge ⬜ (was Phase 7)
 
-10 rounds, same pool for everyone, one official attempt per logged-in user per day,
-guest unofficial play, daily leaderboard, mixed difficulty.
+10 rounds, same curated pool for everyone, login required, unlimited attempts,
+best completed score per user/day on the daily leaderboard, mixed difficulty.
 
 ## Phase 9 — MVP Polish ⬜
 

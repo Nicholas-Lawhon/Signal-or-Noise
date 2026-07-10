@@ -106,8 +106,9 @@ Classic Run:      Player-chosen difficulty.
                   Rounds: Easy 10 / Medium 15 / Hard 20
                   Starting bankroll: Easy $12,500 / Medium $10,000 / Hard $7,500
 Daily Challenge:  10 rounds, same scenarios for everyone, mixed difficulty,
-                  default $10,000, one official attempt per logged-in user per day.
-                  Guests play unofficially.
+                  default $10,000. Login required; guests cannot start.
+                  Authenticated users may replay freely; the leaderboard uses
+                  each user's best completed attempt for that date.
 ```
 
 ### Difficulty

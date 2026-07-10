@@ -371,7 +371,8 @@ Add after DB setup:
 - Submit round
 - Complete run
 - Submit daily challenge score
-- Prevent duplicate daily official attempt
+- Allow multiple authenticated Daily runs while keeping each run immutable
+- Maintain one best Daily leaderboard result per user/date using locked tiebreakers
 - Guest cannot submit official leaderboard score
 
 ### Manual QA
@@ -449,7 +450,8 @@ Do:
 - Calculate score on server.
 - Hide reveal fields until after decision.
 - Save decisions immediately.
-- Lock Daily Challenge official attempt after start or completion.
+- Make each Daily attempt immutable after its decisions are submitted.
+- Recompute the user's best completed Daily result transactionally.
 - Mark abandoned attempts appropriately.
 
 Do not overbuild:

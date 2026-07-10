@@ -9,7 +9,6 @@ A player who has not logged in.
 Can:
 
 - Play Classic Run
-- Play Daily Challenge unofficially
 - See results
 - Be prompted to create account
 - View limited public leaderboards
@@ -17,6 +16,7 @@ Can:
 Cannot:
 
 - Submit official leaderboard scores
+- Start a Daily Challenge
 - Save profile stats across devices
 - Claim leaderboard rank
 - Join future friend challenges
@@ -85,9 +85,9 @@ As a guest player, I want to start playing without creating an account so there 
 Acceptance criteria:
 
 - Guest can start Classic Run.
-- Guest can play Daily Challenge unofficially.
 - Guest is not blocked by signup before gameplay.
 - Guest sees login prompt when trying to save or submit score.
+- Guest sees a login prompt before starting Daily Challenge.
 
 ## Epic 2: Classic Run
 
@@ -213,27 +213,29 @@ Acceptance criteria:
 - It uses configured starting bankroll.
 - It shows daily progress.
 
-### Story 3.2 — Official Attempt
+### Story 3.2 — Repeatable Daily Attempts
 
-As a logged-in player, I want one official Daily Challenge attempt so the leaderboard is fair.
-
-Acceptance criteria:
-
-- Logged-in user can submit one official score per day.
-- Replays are either blocked or marked unofficial.
-- Official attempt status is shown.
-- Score submission is automatic or clearly confirmed.
-
-### Story 3.3 — Guest Daily Challenge
-
-As a guest, I want to try the Daily Challenge without logging in.
+As a logged-in player, I want to replay the curated Daily Challenge so I can
+improve my score and compete for my best result.
 
 Acceptance criteria:
 
-- Guest can play Daily Challenge unofficially.
-- Guest sees result.
-- Guest cannot submit to leaderboard without login.
-- Guest is prompted to sign in after completion.
+- Logged-in users can start unlimited attempts for the active date.
+- Every attempt is stored independently and cannot be edited after decisions.
+- The summary shows whether the attempt improved the user's daily best.
+- The leaderboard shows one position per user using the best completed attempt.
+
+### Story 3.3 — Daily Challenge Login Gate
+
+As a guest, I want a clear login path when I choose Daily Challenge so I can
+authenticate and play the curated challenge.
+
+Acceptance criteria:
+
+- Guest cannot start or receive a Daily Challenge run.
+- Guest is prompted to sign in before gameplay.
+- Successful sign-in returns the player to the Daily Challenge start flow.
+- Authenticated users may start or replay the active Daily Challenge.
 
 ### Story 3.4 — Daily Leaderboard
 

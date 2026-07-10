@@ -426,8 +426,9 @@ A leaderboard-eligible attempt should use:
 - Fixed scenario list
 - Fixed starting bankroll
 - Fixed difficulty setting or official mixed difficulty
-- One official attempt for Daily Challenge
+- Unlimited authenticated Daily Challenge attempts
 - No editing results after reveal
-- No replaying same daily set for improved official score
+- One Daily leaderboard position per user, using that day's best completed run
 
-Practice and guest runs may be replayed freely but should not contaminate official leaderboards.
+Classic guest runs remain unofficial. Daily Challenge requires login, and every
+Daily attempt is immutable once its decisions are submitted.

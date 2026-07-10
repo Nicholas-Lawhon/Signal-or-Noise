@@ -212,10 +212,10 @@ Features:
 
 - Daily challenge schedule
 - 10-round daily challenge
-- Official attempt enforcement
+- Unlimited authenticated attempts with immutable completed runs
 - Daily leaderboard
-- Logged-in user submission
-- Guest play without leaderboard submission
+- Best completed score per user/day
+- Login required before Daily play
 - Daily Challenge end summary
 - Mixed difficulty logic
 
@@ -349,8 +349,10 @@ Signal Score is meaningful, tracked, and leaderboard-supported, but not the main
 
 - 10 rounds.
 - Same scenarios for everyone.
-- One official attempt per logged-in user per day.
-- Guests can play but cannot submit to leaderboard.
+- Login is required; guests cannot start Daily Challenge.
+- Authenticated users may make unlimited attempts.
+- The leaderboard keeps one position per user using their best completed attempt
+  for that date.
 - Leaderboard primary ranking: final bankroll.
 - Tiebreakers:
   1. Higher Signal Score

@@ -336,8 +336,8 @@ Implement optional login.
 Rules:
 
 - Guest can play Classic Run.
-- Guest can play Daily Challenge unofficially.
 - Login required for leaderboard submission.
+- Login required to start Daily Challenge.
 - Logged-in user can save runs and stats.
 
 Acceptance criteria:
@@ -383,17 +383,17 @@ Implement:
 
 - 10-round Daily Challenge.
 - Same scenario pool for all users.
-- One official attempt per logged-in user per day.
-- Guest unofficial play.
-- Daily leaderboard.
+- Unlimited attempts for logged-in users.
+- Login required before a Daily run is created.
+- Daily leaderboard uses each user's best completed attempt for the date.
 - Mixed difficulty scenario set.
 
 Acceptance criteria:
 
 - Daily challenge can be completed.
-- Official attempt rules work.
-- Duplicate official submissions are prevented.
-- Guest prompt works.
+- Repeat attempts remain separate and immutable.
+- Only the user's best completed attempt occupies a leaderboard position.
+- Guest login gate and authenticated return flow work.
 - Leaderboard updates.
 
 ## Phase 8 — Content Expansion
@@ -450,8 +450,9 @@ Ends after the configured round count or bankruptcy
 10 rounds
 Same scenario set for everyone
 Starting bankroll default $10,000 unless configured
-One official attempt per logged-in user per day
-Guests can play unofficially
+Unlimited attempts for logged-in users
+Best completed attempt per user/day appears on leaderboard
+Guests cannot start Daily Challenge
 ```
 
 ### Confidence
