@@ -1,6 +1,6 @@
 # Phase 9B — MVP Polish and Analytics
 
-**Status:** approved
+**Status:** complete
 **Risk:** normal
 **Owner:** GPT 5.6 Sol at Medium reasoning in a dedicated Codex task
 **Branch/worktree:** `codex/phase-9b-polish-analytics` / `C:\Repos\Signal_Or_Noise-p9b-sol`

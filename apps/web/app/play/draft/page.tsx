@@ -11,6 +11,7 @@ import type {
 import { api, ApiRequestError } from '@/lib/api';
 import { formatMoney, formatPercent, formatSignedMoney } from '@/lib/format';
 import Sparkline from '@/components/Sparkline';
+import { capture } from '@/lib/analytics';
 
 type View = 'loading' | 'intro' | 'pick' | 'reveal' | 'error';
 
@@ -78,7 +79,7 @@ function DraftCard({
           type="button"
           aria-expanded={expanded}
           onClick={() => setExpanded((value) => !value)}
-          className="flex-1 rounded-lg border border-son-border bg-son-surface px-3 py-2 text-xs font-semibold text-son-textSecondary transition-colors hover:border-son-borderStrong"
+          className="min-h-11 flex-1 rounded-lg border border-son-border bg-son-surface px-3 py-2 text-xs font-semibold text-son-textSecondary transition-colors hover:border-son-borderStrong"
         >
           {expanded ? 'Hide the full case' : 'Read the full case'}
         </button>
@@ -87,7 +88,7 @@ function DraftCard({
           aria-pressed={selected}
           disabled={disabled && !selected}
           onClick={onToggle}
-          className={`flex-1 rounded-lg border px-3 py-2 text-xs font-semibold transition-colors ${
+          className={`min-h-11 flex-1 rounded-lg border px-3 py-2 text-xs font-semibold transition-colors ${
             selected
               ? 'border-son-signalCyan bg-son-signalCyan/10 text-son-signalCyan'
               : disabled
@@ -162,6 +163,7 @@ function DraftClient() {
     setActionError(null);
     try {
       const created = await api.createDraft();
+      capture({ name: 'draft_started', properties: {} });
       setDraft(created.draft);
       setSelected([]);
       setResult(null);
@@ -195,6 +197,7 @@ function DraftClient() {
     setActionError(null);
     try {
       const completed = await api.submitDraftSelections(draft.id, [...selected].sort());
+      capture({ name: 'draft_completed', properties: {} });
       showReveal(completed.draft);
     } catch (error) {
       if (error instanceof ApiRequestError && error.status === 409) {
@@ -245,8 +248,8 @@ function DraftClient() {
 
   if (view === 'intro') {
     return (
-      <main className="flex min-h-screen flex-col items-center px-4 py-8">
-        <div className="w-full max-w-md">
+      <main className="page-shell">
+        <div className="mx-auto w-full max-w-3xl">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-son-signalCyan">
             Six hidden companies. One window.
           </p>
@@ -297,8 +300,8 @@ function DraftClient() {
 
   if (view === 'pick' && draft) {
     return (
-      <main className="flex min-h-screen flex-col items-center px-4 py-6 pb-28">
-        <div className="w-full max-w-md">
+      <main className="page-shell pb-40 lg:pb-32">
+        <div className="mx-auto w-full max-w-4xl">
           <div className="mb-4 rounded-lg border border-son-border bg-son-card px-4 py-3">
             <div className="flex items-center justify-between text-sm">
               <span className="font-semibold text-son-text">Portfolio Draft</span>
@@ -317,7 +320,7 @@ function DraftClient() {
             ) : null}
           </div>
 
-          <div className="space-y-3">
+          <div className="grid gap-3 md:grid-cols-2">
             {draft.cards.map((card) => (
               <DraftCard
                 key={card.slot}
@@ -337,8 +340,8 @@ function DraftClient() {
         </div>
 
         {/* Sticky lock-in bar */}
-        <div className="fixed inset-x-0 bottom-0 border-t border-son-border bg-son-bg/95 px-4 py-3 backdrop-blur">
-          <div className="mx-auto w-full max-w-md">
+        <div className="fixed inset-x-0 bottom-[calc(3.5rem+env(safe-area-inset-bottom))] z-40 border-t border-son-border bg-son-bg/95 px-4 py-3 backdrop-blur lg:bottom-0">
+          <div className="mx-auto w-full max-w-4xl">
             <button
               type="button"
               disabled={selected.length !== 3 || busy}
@@ -360,8 +363,8 @@ function DraftClient() {
   if (view === 'reveal' && result) {
     const beat = result.finalValue - result.budget;
     return (
-      <main className="flex min-h-screen flex-col items-center px-4 py-6">
-        <div className="w-full max-w-md">
+      <main className="page-shell signal-enter" aria-live="polite">
+        <div className="mx-auto w-full max-w-3xl">
           <div className="rounded-2xl border border-son-border bg-son-card p-5">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-son-signalCyan">
               Draft complete &middot; {result.windowLabel}

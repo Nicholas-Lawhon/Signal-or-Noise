@@ -9,6 +9,7 @@ import type { BattleDecisionPayload, BattleStatePayload } from '@signal-or-noise
 import { api, ApiRequestError } from '@/lib/api';
 import { formatMoney, formatPercent, formatSignalScore, formatSignedMoney } from '@/lib/format';
 import Sparkline from '@/components/Sparkline';
+import { capture } from '@/lib/analytics';
 
 const POLL_INTERVAL_MS = 2500;
 
@@ -110,6 +111,7 @@ function BattleRoom() {
   const formRoundRef = useRef<number | null>(null);
   const deadlineFetchRef = useRef(0);
   const latestStatusRef = useRef<BattleStatePayload['status'] | null>(null);
+  const completionCapturedRef = useRef(false);
 
   /** Applies a payload unless an older concurrent response arrives late. */
   const applyState = useCallback((next: BattleStatePayload) => {
@@ -167,6 +169,13 @@ function BattleRoom() {
 
   useEffect(() => {
     latestStatusRef.current = battle?.status ?? null;
+  }, [battle]);
+
+  useEffect(() => {
+    if (completionCapturedRef.current || battle?.status !== 'completed' || !battle.summary) return;
+    completionCapturedRef.current = true;
+    const outcome = battle.summary.outcome === 'you_won' ? 'win' : battle.summary.outcome === 'you_lost' ? 'loss' : 'draw';
+    capture({ name: 'battle_completed', properties: { outcome } });
   }, [battle]);
 
   // Countdown ticker; when the deadline passes, ask the server to settle.
@@ -385,8 +394,8 @@ function BattleRoom() {
       ? `/play/battle/join/${battle.inviteCode}`
       : null;
     return (
-      <main className="flex min-h-screen flex-col items-center px-4 py-8">
-        <div className="w-full max-w-md">
+      <main className="page-shell">
+        <div className="mx-auto w-full max-w-3xl">
           <h1 className="text-2xl font-bold text-son-text">Battle created.</h1>
           <p className="mt-2 text-sm leading-relaxed text-son-textSecondary">
             Send this invite to one friend. The first signed-in player to accept becomes your
@@ -488,8 +497,8 @@ function BattleRoom() {
     if (battle.you.hasDecidedCurrentRound || !round) {
       const call = battle.you.currentCall;
       return (
-        <main className="flex min-h-screen flex-col items-center px-4 py-6">
-          <div className="w-full max-w-md">
+        <main className="page-shell">
+          <div className="mx-auto w-full max-w-3xl">
             {scoreBar}
             <div className="rounded-2xl border border-son-borderStrong bg-son-cardElevated p-8 text-center">
               <h2 className="text-2xl font-bold text-son-text">Call locked.</h2>
@@ -519,8 +528,8 @@ function BattleRoom() {
 
     const canLockIn = !busy && action !== null && (action === 'pass' || confidence !== null);
     return (
-      <main className="flex min-h-screen flex-col items-center px-4 py-6">
-        <div className="w-full max-w-md">
+      <main className="page-shell">
+        <div className="mx-auto w-full max-w-3xl">
           {scoreBar}
 
           <div className="mb-6 rounded-2xl border border-son-border bg-son-card p-5">
@@ -597,7 +606,7 @@ function BattleRoom() {
                       setAction(a);
                       if (a === 'pass') setConfidence(null);
                     }}
-                    className={`flex-1 rounded-lg border px-4 py-2.5 text-sm transition-colors ${
+                    className={`min-h-11 flex-1 rounded-lg border px-4 py-2.5 text-sm transition-colors ${
                       isSelected
                         ? `${DECISION_SELECTED[a]} font-semibold`
                         : 'border-son-border bg-son-card text-son-textSecondary hover:border-son-borderStrong'
@@ -634,7 +643,7 @@ function BattleRoom() {
                     aria-pressed={isSelected}
                     disabled={disabled}
                     onClick={() => setConfidence(level)}
-                    className={`rounded-lg border p-3 text-left transition-colors ${classes}`}
+                    className={`min-h-16 rounded-lg border p-3 text-left transition-colors ${classes}`}
                   >
                     <div className={`text-xs ${disabled ? '' : isSelected ? CONFIDENCE_SELECTED_TEXT[level] : 'text-son-textSecondary'}`}>
                       {config.label} ({pct}%)
@@ -673,8 +682,8 @@ function BattleRoom() {
   const summary = battle.summary;
 
   return (
-    <main className="flex min-h-screen flex-col items-center px-4 py-6">
-      <div className="w-full max-w-md">
+    <main className="page-shell signal-enter" aria-live="polite">
+      <div className="mx-auto w-full max-w-3xl">
         {scoreBar}
 
         {finished && summary ? (

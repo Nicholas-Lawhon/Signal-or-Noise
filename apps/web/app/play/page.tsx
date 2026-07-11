@@ -33,14 +33,16 @@ export default function PlayPage() {
             </span>
           </TrackedLink>
 
-          <div className="panel min-h-44 p-6 opacity-70">
-            <h2 className="text-lg font-semibold text-son-textMuted">Portfolio Draft</h2>
-            <p className="mt-1 text-sm text-son-textMuted">Draft your portfolio of picks.</p>
-            <span className="mt-2 inline-block rounded-full border border-son-borderSubtle px-3 py-0.5 text-xs text-son-textMuted">
-              Coming soon
-            </span>
-          </div>
-          <div className="panel min-h-44 p-6 opacity-70"><h2 className="text-lg font-semibold">Friend Battle</h2><p className="mt-1 text-sm text-son-textMuted">Face a friend on the same historical signals.</p><span className="mt-2 inline-block rounded-full border border-son-borderSubtle px-3 py-0.5 text-xs text-son-textMuted">Coming soon</span></div>
+          <TrackedLink event={{ name: 'mode_selected', properties: { mode: 'portfolio_draft' } }} href="/play/draft" className="panel block min-h-44 p-6 transition hover:-translate-y-1 hover:border-son-signalCyan/60">
+            <p className="eyebrow">Pick the winners</p><h2 className="mt-2 text-lg font-semibold text-son-text">Portfolio Draft</h2>
+            <p className="mt-1 text-sm leading-relaxed text-son-textSecondary">Six hidden companies from one historical window. Draft exactly three and chase the optimal portfolio.</p>
+            <span className="mt-3 inline-block rounded-full border border-son-borderSubtle px-3 py-1 text-xs text-son-textMuted">Guest friendly · No leaderboard</span>
+          </TrackedLink>
+          <TrackedLink event={{ name: 'mode_selected', properties: { mode: 'friend_battle' } }} href="/play/battle" className="panel block min-h-44 p-6 transition hover:-translate-y-1 hover:border-son-signalCyan/60">
+            <p className="eyebrow">Head to head</p><h2 className="mt-2 text-lg font-semibold text-son-text">Friend Battle</h2>
+            <p className="mt-1 text-sm leading-relaxed text-son-textSecondary">Two players, the same ordered scenarios, synchronized rounds, and an optional server-owned clock.</p>
+            <span className="mt-3 inline-block rounded-full border border-son-borderSubtle px-3 py-1 text-xs text-son-textMuted">Sign-in required · Invite a friend</span>
+          </TrackedLink>
         </div>
       </div>
     </main>

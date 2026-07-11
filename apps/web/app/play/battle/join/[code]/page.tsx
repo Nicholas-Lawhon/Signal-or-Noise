@@ -7,6 +7,7 @@ import { useUser } from '@clerk/nextjs';
 import type { BattleInvitePreviewPayload } from '@signal-or-noise/database';
 import { api, ApiRequestError } from '@/lib/api';
 import { formatMoney } from '@/lib/format';
+import { capture } from '@/lib/analytics';
 
 type LoadState =
   | { kind: 'loading' }
@@ -55,6 +56,7 @@ export default function JoinBattlePage() {
     setJoinError(null);
     try {
       const joined = await api.joinBattle(code);
+      capture({ name: 'battle_joined', properties: {} });
       router.push(`/play/battle/${encodeURIComponent(joined.battle.id)}`);
     } catch (error) {
       setJoinError(
@@ -69,8 +71,8 @@ export default function JoinBattlePage() {
   const signInHref = `/sign-in?redirect_url=${encodeURIComponent(`/play/battle/join/${code}`)}`;
 
   return (
-    <main className="flex min-h-screen flex-col items-center px-4 py-8">
-      <div className="w-full max-w-md">
+    <main className="page-shell">
+      <div className="mx-auto w-full max-w-3xl">
         <p className="text-xs font-bold uppercase tracking-[0.18em] text-son-signalCyan">
           You&apos;ve been challenged
         </p>

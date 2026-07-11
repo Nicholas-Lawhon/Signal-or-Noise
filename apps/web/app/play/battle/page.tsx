@@ -7,6 +7,7 @@ import { useUser } from '@clerk/nextjs';
 import type { BattleListEntryPayload, BattleTimer } from '@signal-or-noise/database';
 import { api, ApiRequestError } from '@/lib/api';
 import { formatMoney } from '@/lib/format';
+import { capture } from '@/lib/analytics';
 
 const DIFFICULTY_OPTIONS = [
   { value: 'easy', label: 'Easy', rounds: 10, bankroll: 12500 },
@@ -79,6 +80,7 @@ export default function BattleHomePage() {
     setCreateError(null);
     try {
       const created = await api.createBattle(difficulty, timerSeconds);
+      capture({ name: 'battle_invite_created', properties: {} });
       router.push(`/play/battle/${encodeURIComponent(created.battle.id)}`);
     } catch (error) {
       setCreateError(
@@ -91,8 +93,8 @@ export default function BattleHomePage() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center px-4 py-8">
-      <div className="w-full max-w-md">
+    <main className="page-shell">
+      <div className="mx-auto w-full max-w-3xl">
         <p className="text-xs font-bold uppercase tracking-[0.18em] text-son-signalCyan">
           Same cards. Same clock. One winner.
         </p>
@@ -163,7 +165,7 @@ export default function BattleHomePage() {
                       type="button"
                       aria-pressed={isSelected}
                       onClick={() => setTimerSeconds(option.value)}
-                      className={`rounded-lg border px-2 py-2.5 text-sm font-semibold transition-colors ${
+                      className={`min-h-11 rounded-lg border px-2 py-2.5 text-sm font-semibold transition-colors ${
                         isSelected
                           ? 'border-son-signalCyan bg-son-signalCyan/10 text-son-signalCyan'
                           : 'border-son-border bg-son-surface text-son-textSecondary hover:border-son-borderStrong'

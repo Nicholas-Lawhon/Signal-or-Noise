@@ -1,6 +1,6 @@
 # Phase 9A — Competitive Modes
 
-**Status:** approved
+**Status:** complete
 **Risk:** high
 **Owner:** Claude Fable, interactive Claude Code session
 **Branch/worktree:** `codex/phase-9a-competitive-modes` / `C:\Repos\Signal_Or_Noise-p9a-fable`

@@ -129,7 +129,7 @@ best completed score per user/day on the daily leaderboard, mixed difficulty.
 authenticated resume/replay, server-owned scoring/reveal privacy, and best-attempt
 Daily leaderboard integration ship end to end.
 
-## Phase 9 — Competitive Expansion and MVP Polish ⬜
+## Phase 9 — Competitive Expansion and MVP Polish ✅
 
 D051 authorizes two parallel, independently owned tracks because the user is
 running the high-risk competitive work in a separate Claude harness/worktree.
@@ -152,6 +152,11 @@ the MVP QA checklist.
 **Phase boundary:** both track suites pass, 9A receives independent high-risk
 review, both branches integrate cleanly, the new modes receive the shared visual
 system, and the integrated acceptance suite passes before Phase 9 is accepted.
+
+**Accepted 2026-07-10.** Both tracks and the focused integration repair passed
+independent review. Shared Neon is migrated; the final merged suite reports 61
+engine, 77 content, 42 database, and 26 web tests with zero skips, plus 20/20
+browser checks across Chromium and mobile WebKit.
 
 ## Business Track (parallel, milestone-gated)
 
