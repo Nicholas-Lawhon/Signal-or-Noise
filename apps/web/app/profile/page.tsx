@@ -35,8 +35,8 @@ export default function ProfilePage() {
   }, [isLoaded, isSignedIn]);
 
   return (
-    <main className="flex min-h-screen flex-col items-center px-4 py-12">
-      <div className="w-full max-w-md">
+    <main className="page-shell flex flex-col items-center">
+      <div className="w-full max-w-3xl">
         <h1 className="mb-1 text-2xl font-bold text-son-text">My Stats</h1>
         <p className="mb-8 text-sm text-son-textSecondary">
           Saved results from your account&apos;s runs.

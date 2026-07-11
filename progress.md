@@ -5,7 +5,9 @@ Blocked/Questions accurate. Git history and one phase closeout preserve history.
 
 ## Current Status
 
-- **Phase:** 0-8 COMPLETE. Phase 8 - Daily Challenge was accepted on 2026-07-10
+- **Phase:** 0-8 COMPLETE. Phase 9B - MVP Polish and Analytics is complete in
+  its isolated worktree and ready for the Phase 9 boundary review/integration.
+  Phase 9A remains independently owned. Phase 8 - Daily Challenge was accepted on 2026-07-10
   (archived charter: `agents/history/phase_8/P08_daily_challenge.md`; closeout:
   `agents/phase-closeouts/P08_daily_challenge.md`). Phase 7 - Leaderboards was
   accepted on 2026-07-10 (archived charter:
@@ -41,8 +43,13 @@ Blocked/Questions accurate. Git history and one phase closeout preserve history.
   aliases and optional unique public display names. Current tests: game engine
   41, content 77, database 22 (including Neon integration), web 16. Content
   and Gate 2 remain at 0 errors / 40 non-blocking WARNs / 0 missing variants.
-- **Next task:** Phase 9A Competitive Modes and Phase 9B Polish/Analytics proceed
-  in parallel on isolated branches/worktrees; Growth Gate A/B remains separate.
+  Phase 9B adds the responsive shared shell and visual system, polished public
+  journey and gameplay reveal, accessible charts/interactions, persisted sound
+  and analytics preferences, privacy-bounded optional PostHog instrumentation,
+  complete rules/settings/disclaimer routes, and automated browser smoke QA.
+- **Next task:** Complete Phase 9A, independently review both tracks, integrate
+  their branches, apply the allowed focused shared-visual repair if needed, and
+  run the integrated Phase 9 acceptance suite; Growth Gate A/B remains separate.
 - **Workflow state:** D051 is the user-approved Phase 9 exception to D043: two
   independent track charters/owners converge at one integrated phase boundary.
   D054 permits direct routine branch/worktree git operations while retaining

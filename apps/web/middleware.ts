@@ -1,4 +1,5 @@
 import { clerkMiddleware } from '@clerk/nextjs/server';
+import { NextResponse } from 'next/server';
 
 /**
  * Public-by-default: the middleware only makes the verified Clerk session
@@ -6,7 +7,9 @@ import { clerkMiddleware } from '@clerk/nextjs/server';
  * to guests, and login-gated behavior (saved stats, claiming, Daily entry) is
  * enforced by the server identity boundary and the database services.
  */
-export default clerkMiddleware();
+export default process.env.E2E_PUBLIC_MODE === 'true'
+  ? () => NextResponse.next()
+  : clerkMiddleware();
 
 export const config = {
   matcher: [

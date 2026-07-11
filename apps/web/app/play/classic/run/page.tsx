@@ -10,6 +10,9 @@ import { api, ApiRequestError } from '@/lib/api';
 import type { SubmitDecisionResult } from '@/lib/api';
 import { formatMoney, formatSignedMoney, formatPercent, formatSignalScore } from '@/lib/format';
 import Sparkline from '@/components/Sparkline';
+import AnimatedMoney from '@/components/AnimatedMoney';
+import { capture } from '@/lib/analytics';
+import { playRevealSound } from '@/lib/sound';
 
 // Fully-literal class strings so Tailwind's JIT compiler emits them.
 // Do NOT build these by interpolating color names at runtime.
@@ -218,6 +221,7 @@ function ClassicRunClient() {
         companyGuess: trimmedGuess.length > 0 ? trimmedGuess : undefined,
       });
       setLastResult(result);
+      capture({ name: 'round_submitted', properties: { mode: isDaily ? 'daily' : 'classic', action, ...(action !== 'pass' && confidence ? { confidence } : {}) } });
       setView('locked');
     } catch (error) {
       if (error instanceof ApiRequestError && error.status === 409) {
@@ -281,8 +285,8 @@ function ClassicRunClient() {
       !submitting && action !== null && (action === 'pass' || confidence !== null);
 
     return (
-      <main className="flex min-h-screen flex-col items-center px-4 py-6">
-        <div className="w-full max-w-md">
+      <main className="page-shell">
+        <div className="mx-auto w-full max-w-3xl">
           {/* Top bar */}
           <div className="mb-4 rounded-lg border border-son-border bg-son-card px-4 py-3">
             <div className="flex items-center justify-between text-sm">
@@ -396,11 +400,12 @@ function ClassicRunClient() {
                   <button
                     key={a}
                     type="button"
+                    aria-pressed={isSelected}
                     onClick={() => {
                       setAction(a);
                       if (a === 'pass') setConfidence(null);
                     }}
-                    className={`flex-1 rounded-lg border px-4 py-2.5 text-sm transition-colors ${
+                    className={`min-h-11 flex-1 rounded-lg border px-4 py-2.5 text-sm transition-colors ${
                       isSelected
                         ? `${DECISION_SELECTED[a]} font-semibold`
                         : 'border-son-border bg-son-card text-son-textSecondary hover:border-son-borderStrong'
@@ -438,8 +443,9 @@ function ClassicRunClient() {
                     key={level}
                     type="button"
                     disabled={disabled}
+                    aria-pressed={selected}
                     onClick={() => setConfidence(level)}
-                    className={`rounded-lg border p-3 text-left transition-colors ${classes}`}
+                    className={`min-h-16 rounded-lg border p-3 text-left transition-colors ${classes}`}
                   >
                     <div className={`text-xs ${disabled ? '' : selected ? CONFIDENCE_SELECTED_TEXT[level] : 'text-son-textSecondary'}`}>
                       {config.label} ({pct}%)
@@ -526,7 +532,7 @@ function ClassicRunClient() {
 
           <button
             type="button"
-            onClick={() => setView('reveal')}
+            onClick={() => { const result = isPass ? 'pass' : lastRound.pnlAmount > 0 ? 'win' : lastRound.pnlAmount < 0 ? 'loss' : 'flat'; playRevealSound(result); capture({ name: 'reveal_viewed', properties: { mode: isDaily ? 'daily' : 'classic', result } }); setView('reveal'); }}
             className="mt-8 w-full rounded-lg bg-son-signalBlue px-6 py-3 text-base font-semibold text-son-textInverse transition-colors hover:brightness-110"
           >
             Reveal Result
@@ -543,7 +549,7 @@ function ClassicRunClient() {
     const isPass = lastRound.action === 'pass';
 
     return (
-      <main className="flex min-h-screen flex-col items-center px-4 py-6">
+      <main className="page-shell signal-enter" aria-live="polite">
         <div className="w-full max-w-md">
           <div className="rounded-2xl border border-son-border bg-son-card p-5">
             {/* Win/loss/pass banner */}
@@ -629,9 +635,7 @@ function ClassicRunClient() {
               </p>
               <p className="text-son-textSecondary">
                 New bankroll:{' '}
-                <span className="text-son-text font-medium">
-                  {formatMoney(lastRound.bankrollAfter)}
-                </span>
+                <span className="text-son-text font-medium"><AnimatedMoney from={lastRound.bankrollBefore} to={lastRound.bankrollAfter} /></span>
               </p>
               <p className="text-son-textSecondary">
                 Signal Score:{' '}
