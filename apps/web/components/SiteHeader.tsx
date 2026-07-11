@@ -15,18 +15,21 @@ import {
 export default function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-son-borderSubtle bg-son-bg/90 backdrop-blur">
-      <div className="mx-auto flex h-12 w-full max-w-md items-center justify-between px-4">
-        <Link href="/" className="text-sm font-bold tracking-tight text-son-text">
+      <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Link href="/" className="text-base font-black tracking-tight text-son-text">
           Signal or Noise<span className="text-son-signalCyan">?</span>
         </Link>
-        <div className="flex min-h-8 items-center gap-3">
+        <nav aria-label="Primary navigation" className="hidden items-center gap-6 lg:flex">
+          <Link href="/play" className="text-sm font-semibold text-son-textSecondary hover:text-son-text">Play</Link>
           <Link
             href="/leaderboards"
-            className="text-xs font-semibold text-son-textSecondary transition-colors hover:text-son-text"
+            className="text-sm font-semibold text-son-textSecondary transition-colors hover:text-son-text"
           >
             Leaderboards
           </Link>
-          <ClerkLoaded>
+          <Link href="/rules" className="text-sm font-semibold text-son-textSecondary hover:text-son-text">Rules</Link>
+        </nav>
+        <div className="flex min-h-8 items-center gap-3"><ClerkLoaded>
             <SignedOut>
               <Link
                 href="/sign-in"
@@ -48,8 +51,7 @@ export default function SiteHeader() {
                 }}
               />
             </SignedIn>
-          </ClerkLoaded>
-        </div>
+          </ClerkLoaded></div>
       </div>
     </header>
   );

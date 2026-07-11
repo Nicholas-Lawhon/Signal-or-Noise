@@ -2,9 +2,10 @@ type SparklineProps = {
   prices: number[];
   height?: number;
   variant?: 'lookback' | 'outcome';
+  label?: string;
 };
 
-export default function Sparkline({ prices, height = 96, variant = 'outcome' }: SparklineProps) {
+export default function Sparkline({ prices, height = 96, variant = 'outcome', label }: SparklineProps) {
   if (!prices || prices.length < 2) {
     return (
       <div style={{ height }} className="flex items-center justify-center text-xs text-son-textMuted">
@@ -16,6 +17,8 @@ export default function Sparkline({ prices, height = 96, variant = 'outcome' }: 
   const min = Math.min(...prices);
   const max = Math.max(...prices);
   const range = max - min || 1;
+  const change = ((prices[prices.length - 1] - prices[0]) / prices[0]) * 100;
+  const summary = label ?? `${variant === 'lookback' ? 'Pre-decision price' : 'Outcome price'} chart. ${change >= 0 ? 'Rose' : 'Fell'} ${Math.abs(change).toFixed(1)} percent from first to last point.`;
 
   const width = 400;
   const h = height;
@@ -38,8 +41,10 @@ export default function Sparkline({ prices, height = 96, variant = 'outcome' }: 
   }
 
   return (
-    <div style={{ width: '100%', height }}>
+    <figure style={{ width: '100%', height }}>
       <svg
+        role="img"
+        aria-label={summary}
         viewBox={`0 0 ${width} ${h}`}
         preserveAspectRatio="none"
         style={{ width: '100%', height: '100%' }}
@@ -52,7 +57,7 @@ export default function Sparkline({ prices, height = 96, variant = 'outcome' }: 
           strokeLinecap="round"
           strokeLinejoin="round"
         />
-      </svg>
-    </div>
+      </svg><figcaption className="sr-only">{summary}</figcaption>
+    </figure>
   );
 }
