@@ -13,7 +13,8 @@ review. It does not micromanage implementation checkpoints.
 4. Choose the cheapest model capable of owning the entire phase. Prefer autonomy
    and long-horizon competence over saving tokens on execution while spending more
    tokens on coordination. If the user does not specify a model, default to GPT
-   5.6 Luna at max reasoning in a new Codex task/thread.
+   5.6 Luna at xHigh reasoning in a new Codex task/thread. Request `xhigh` for
+   Luna's maximum-intended effort; `max` currently resolves to Medium in the app.
 5. Ask for phase authorization once. After authorization, dispatch directly in
    the harness the user chose; do not require per-step approval.
 
@@ -41,8 +42,8 @@ current task; phase implementations and large tasks use a new task/thread.
    fix-up handoff.
 6. On acceptance, finish the required project-file/archive edits, then have a
    dedicated GPT 5.6 Luna task at Low reasoning perform all git operations needed
-   to integrate/commit and update branch state. Confirm its visible header before
-   work begins. Never push without user approval.
+   to integrate/commit and update branch state. Manual visible-header
+   confirmation is not required. Never push without user approval.
 
 ## Context Discipline
 

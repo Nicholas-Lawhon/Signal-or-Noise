@@ -19,22 +19,18 @@ Default loop: clarify real product decisions, obtain one phase authorization,
 dispatch one autonomous owner in the user's chosen harness, stay out of its
 internal checkpoints, and review once when the full phase is ready.
 
-Default an unspecified phase/large-task owner to GPT 5.6 Luna at max reasoning
-in a new Codex task/thread. Use same-task Codex subagents only for small bounded,
+Default an unspecified phase/large-task owner to GPT 5.6 Luna at xHigh reasoning
+in a new Codex task/thread. For Luna, request the Codex effort label `xhigh` for
+the maximum-intended setting; `max` currently resolves to Medium in the app. Use
+same-task Codex subagents only for small bounded,
 non-model-sensitive work: their interface does not provide model/reasoning
-selection or status confirmation. API model/thinking values are requested, not
-confirmed. For model-sensitive GPT work, explicitly select the requested model
-and reasoning effort in a dedicated task/thread, then do not begin until its
-user-visible app header has been checked and matches the request. Do not map or
-assume equivalence between API and app effort labels; the app header is
-authoritative and a prompt alone is not confirmation. If it does not match,
-cancel/recreate the task or have the user retarget it before work begins. If the
-user explicitly permits a mismatched task to finish, label it non-authoritative
-and do not use it for required ownership or review. A requested non-GPT model
-requires the headless CLI path in `routing.md`.
+selection. For model-sensitive GPT work, explicitly select the requested model
+and reasoning effort in a dedicated task/thread; manual visible-header
+confirmation is not required. If the task or runtime reports a mismatch,
+cancel/recreate it, have the user retarget it, or obtain an explicit exception.
+A requested non-GPT model requires the headless CLI path in `routing.md`.
 Delegate every git operation and broad diff summary to a dedicated GPT 5.6 Luna
-task at Low reasoning using the documented Codex workflow. Confirm the visible
-task header says GPT 5.6 Luna and Low before work begins. The pinned Codex CLI
+task at Low reasoning using the documented Codex workflow. The pinned Codex CLI
 helpers are fallback paths only; never replace delegated git work with direct
 orchestrator git commands.
 

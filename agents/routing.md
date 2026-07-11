@@ -26,23 +26,20 @@ other.
 
 - **GPT/Codex model:** phase implementations and other large tasks use a new
   Codex task/thread. Same-task Codex subagents have no available interface for
-  selecting or confirming their model and reasoning effort, so never use them
-  for model-sensitive work. Instead, create a dedicated task/thread, explicitly
-  select the requested model and reasoning effort, and do not begin
-  model-sensitive work until the user-visible app header has been checked and
-  matches the request. API model/thinking values are requested settings, not
-  confirmation; do not map or assume equivalence between API and app effort
-  labels. The app header is authoritative, and an agent prompt is not
-  confirmation. On a mismatch, cancel/recreate the task or let the user retarget
-  it before work begins. If the user explicitly allows a mismatched task to
-  finish, label it non-authoritative and do not use it to satisfy required
-  ownership or review. Same-task subagents are limited to small, bounded,
+  selecting their model and reasoning effort, so never use them for
+  model-sensitive work. Instead, create a dedicated task/thread and explicitly
+  select the requested model and reasoning effort in the invocation. Manual
+  visible-header confirmation is not required. If the task or runtime reports a
+  mismatch, cancel/recreate it, let the user retarget it, or obtain an explicit
+  exception. Same-task subagents are limited to small, bounded,
   non-model-sensitive work.
 - **Non-GPT model:** invoke a headless CLI session from the selected worktree.
   Claude uses Claude Code; Grok uses its CLI; DeepSeek uses OpenCode. A Codex
   subagent cannot stand in for a specifically requested non-GPT model.
 - When the user does not name a model, default phase and large-task execution to
-  **GPT 5.6 Luna with max reasoning** in a new Codex task/thread.
+  **GPT 5.6 Luna with xHigh reasoning** in a new Codex task/thread. For Luna,
+  `xhigh` is the Codex effort label for the maximum-intended reasoning setting;
+  do not request `max`, which currently resolves to Medium in the app.
 - Preserve the exact requested GPT line and reasoning level. If the harness
   cannot start that model, troubleshoot first; if it still fails, ask the user
   before choosing a replacement, using this roster to recommend one.
@@ -77,9 +74,9 @@ other outward/irreversible actions.
 All git operations in the orchestrated workflow—including status, diff, staging,
 committing, branch cleanup, merging, and pushing—are delegated to a dedicated
 Codex task using **GPT 5.6 Luna at Low reasoning**. Target the exact local project
-or worktree, explicitly select `gpt-5.6-luna` and `low`, and confirm the visible
-task header matches before allowing git commands. Same-task subagents cannot
-substitute because their model and effort cannot be selected or confirmed. The
+or worktree and explicitly select `gpt-5.6-luna` and `low`; no manual header
+confirmation is required. Same-task subagents cannot substitute because their
+model and effort cannot be selected. The
 orchestrator supplies the exact intended scope and retains responsibility for
 authorization and the result. Luna Low must not push without explicit user
 approval or discard unrelated work.
@@ -100,9 +97,8 @@ powershell -NoProfile -ExecutionPolicy Bypass -File scripts/Invoke-DiffSummarize
 ```
 
 Both helpers pin `gpt-5.6-luna`, `model_reasoning_effort="low"`, and strict
-configuration validation. A CLI request is not a substitute for visible header
-confirmation when the app flow is available. The summary is a routing aid, not
-approval. Expand into the raw diff only for security-sensitive areas,
+configuration validation. The summary is a routing aid, not approval. Expand
+into the raw diff only for security-sensitive areas,
 discrepancies, or risks the summary identifies.
 
 ## Routing Rules

@@ -74,9 +74,9 @@ inside the phase without creating a new approval/report loop.
 - In orchestrated work, all git operations are performed by a dedicated Codex
   task using GPT 5.6 Luna at **Low** reasoning, following `agents/routing.md`;
   orchestrators and phase owners delegate status/diff/stage/commit/branch/push
-  work instead of running git themselves. The visible task header must confirm
-  both the model and Low effort before work begins. This does not broaden push
-  or destructive-operation authority.
+  work instead of running git themselves. Select the required model and effort
+  in the task invocation; manual visible-header confirmation is not required.
+  This does not broaden push or destructive-operation authority.
 - A dedicated phase branch is recommended because it gives the phase one clean
   diff and keeps incomplete work off the main branch.
 - A separate worktree is optional. Use one for parallel agents, a dirty primary

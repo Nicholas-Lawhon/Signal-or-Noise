@@ -43,6 +43,16 @@ Blocked/Questions accurate. Git history and one phase closeout preserve history.
   and Gate 2 remain at 0 errors / 40 non-blocking WARNs / 0 missing variants.
 - **Next task:** Phase 9 - MVP Polish and Growth Gate A/B preparation proceed in
   parallel on separate branches/worktrees.
+- **Growth Gate A status:** Growth Phase 1 - Foundation was accepted on
+  2026-07-10. The five internal foundation artifacts are complete;
+  no public launch, outreach, account creation, registration, spend, provider
+  selection, or product-code change was performed. The existing
+  `agents/routing.md` correction is preserved: Luna's maximum-intended Codex
+  reasoning uses `xhigh`, while `max` currently resolves to Medium. Growth Gate
+  B preparation may proceed. D-01 public-name selection remains the first open
+  decision and D-02 follows it. D-03, D-04, D-05, and D-07 have approved
+  directions with implementation or external-review dependencies; D-06 formal
+  tester recruitment is optional rather than a Gate B or launch requirement.
 - **Workflow state:** D043 is active: one charter, one autonomous Phase Owner,
   one closeout, and one phase-boundary review. Legacy H/R artifacts remain
   evidence only under `agents/history/`.
