@@ -1,6 +1,13 @@
 import type {
+  BattleInvitePreviewPayload,
+  BattleListEntryPayload,
+  BattleStatePayload,
+  BattleTimer,
+  CompletedDraftPayload,
+  CurrentDraftPayload,
   CurrentRunPayload,
   DailyChallengePayload,
+  DraftPayload,
   LeaderboardPagePayload,
   PlayerStatsPayload,
   PublicIdentityPayload,
@@ -127,4 +134,59 @@ export const api = {
       method: 'PATCH',
       body: JSON.stringify({ displayName }),
     }),
+  // Portfolio Draft (D052)
+  createDraft: () =>
+    apiFetch<{ draft: CurrentDraftPayload; context: ApiContext }>('/api/draft', {
+      method: 'POST',
+    }),
+  currentDraft: () =>
+    apiFetch<{ draft: CurrentDraftPayload | null; context: ApiContext }>('/api/draft'),
+  draft: (draftId: string) =>
+    apiFetch<{ draft: DraftPayload; context: ApiContext }>(
+      `/api/draft/${encodeURIComponent(draftId)}`,
+    ),
+  submitDraftSelections: (draftId: string, slots: number[]) =>
+    apiFetch<{ draft: CompletedDraftPayload; context: ApiContext }>(
+      `/api/draft/${encodeURIComponent(draftId)}/selections`,
+      { method: 'POST', body: JSON.stringify({ slots }) },
+    ),
+  // Friend Battle (D052)
+  createBattle: (difficulty: 'easy' | 'medium' | 'hard', timerSeconds: BattleTimer) =>
+    apiFetch<{ battle: BattleStatePayload; context: ApiContext }>('/api/battles', {
+      method: 'POST',
+      body: JSON.stringify({ difficulty, timerSeconds }),
+    }),
+  listBattles: () =>
+    apiFetch<{ battles: BattleListEntryPayload[]; context: ApiContext }>('/api/battles'),
+  battleInvite: (code: string) =>
+    apiFetch<{ invite: BattleInvitePreviewPayload; context: ApiContext }>(
+      `/api/battles/invite/${encodeURIComponent(code)}`,
+    ),
+  joinBattle: (code: string) =>
+    apiFetch<{ battle: BattleStatePayload; context: ApiContext }>(
+      `/api/battles/invite/${encodeURIComponent(code)}/join`,
+      { method: 'POST' },
+    ),
+  battleState: (battleId: string) =>
+    apiFetch<{ battle: BattleStatePayload; context: ApiContext }>(
+      `/api/battles/${encodeURIComponent(battleId)}`,
+    ),
+  battleReady: (battleId: string, round: number) =>
+    apiFetch<{ battle: BattleStatePayload; context: ApiContext }>(
+      `/api/battles/${encodeURIComponent(battleId)}/ready`,
+      { method: 'POST', body: JSON.stringify({ round }) },
+    ),
+  submitBattleDecision: (
+    battleId: string,
+    payload: {
+      roundIndex: number;
+      action: 'long' | 'short' | 'pass';
+      confidence?: 'low' | 'medium' | 'high' | 'all_in';
+      companyGuess?: string;
+    },
+  ) =>
+    apiFetch<{ battle: BattleStatePayload; context: ApiContext }>(
+      `/api/battles/${encodeURIComponent(battleId)}/decisions`,
+      { method: 'POST', body: JSON.stringify(payload) },
+    ),
 };

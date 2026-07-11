@@ -73,6 +73,37 @@ export const publicDisplayNameRequestSchema = z.object({
     .nullable(),
 }).strict();
 
+/** Draft picks travel as card slots 0-5 — never as scenario ids. */
+export const draftSelectionRequestSchema = z.object({
+  slots: z.array(z.number().int().min(0).max(5)).length(3)
+    .refine((slots) => new Set(slots).size === slots.length, {
+      message: 'Draft picks must be three distinct companies',
+    }),
+}).strict();
+
+export const createBattleRequestSchema = z.object({
+  difficulty: z.enum(['easy', 'medium', 'hard']),
+  timerSeconds: z.union([
+    z.null(),
+    z.literal(30),
+    z.literal(60),
+    z.literal(120),
+  ]).default(60),
+}).strict();
+
+export const inviteCodeRequestSchema = z.string().regex(/^[a-f0-9]{32}$/);
+
+export const battleReadyRequestSchema = z.object({
+  round: z.number().int().nonnegative(),
+}).strict();
+
+export const battleDecisionRequestSchema = z.object({
+  roundIndex: z.number().int().nonnegative(),
+  action: z.enum(['long', 'short', 'pass']),
+  confidence: z.enum(['low', 'medium', 'high', 'all_in']).optional(),
+  companyGuess: z.string().trim().min(1).max(100).optional(),
+}).strict();
+
 export async function parseEmptyMutationRequest(request: Request): Promise<boolean> {
   const text = await request.text();
   if (text.trim().length === 0) return true;
