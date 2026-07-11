@@ -100,7 +100,7 @@
                    },
     "reveal":  {
                    "shortText":  "That was Nike. Elevated inventory, freight pressure, currency headwinds, and uneven regional demand drove a sharp valuation reset.",
-                   "funFact":  "NikeÃ¢â‚¬â„¢s direct-to-consumer strategy combined company-owned stores with a growing digital business while wholesale remained material.",
+                   "funFact":  "Nike’s direct-to-consumer strategy combined company-owned stores with a growing digital business while wholesale remained material.",
                    "whyItMoved":  [
                                       "Inventory rose faster than sales and required heavier promotional activity.",
                                       "Freight, input costs, and foreign-exchange movements pressured gross margin.",
@@ -109,12 +109,12 @@
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ NKE",
+                        "label":  "Yahoo Finance historical data — NKE",
                         "url":  "https://finance.yahoo.com/quote/NKE/history/",
                         "notes":  "Split-adjusted closes for 2021-11-01 and 2022-11-01, chart samples, and calculated price return."
                     },
                     {
-                        "label":  "Nike fiscal 2023 Form 10-K Ã¢â‚¬â€ SEC EDGAR",
+                        "label":  "Nike fiscal 2023 Form 10-K — SEC EDGAR",
                         "url":  "https://www.sec.gov/edgar/browse/?CIK=NKE\u0026owner=exclude",
                         "notes":  "Direct and wholesale channels, inventory, promotions, freight, currency, and regional demand claims."
                     }
@@ -179,13 +179,13 @@
                                                "Adidas",
                                                "VF Corporation",
                                                "Lululemon",
-                                               "EstÃƒÂ©e Lauder"
+                                               "Estée Lauder"
                                            ],
                    "hardLikelyGuesses":  [
                                              "VF Corporation",
                                              "Adidas",
                                              "Lululemon",
-                                             "EstÃƒÂ©e Lauder"
+                                             "Estée Lauder"
                                          ],
                    "gate2":  {
                                  "easy":  {

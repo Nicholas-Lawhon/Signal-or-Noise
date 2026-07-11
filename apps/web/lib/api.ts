@@ -15,6 +15,7 @@ import type {
   RunSummaryPayload,
 } from '@signal-or-noise/database';
 import type { CompletedRound } from '@signal-or-noise/game-engine';
+import { normalizeMojibakeDeep } from '@signal-or-noise/content/src/textEncoding';
 
 /** Shared context every gameplay endpoint returns alongside its payload. */
 export type ApiContext = {
@@ -73,7 +74,10 @@ async function apiFetch<T>(input: string, init?: RequestInit): Promise<T> {
       error?.message ?? 'Something went wrong',
     );
   }
-  return body as T;
+  // Older imported scenario rows may contain UTF-8 text decoded as Windows-1252.
+  // Normalize at the API/UI boundary so existing guest runs and fresh imports
+  // render the same readable player-facing copy.
+  return normalizeMojibakeDeep(body) as T;
 }
 
 export const api = {

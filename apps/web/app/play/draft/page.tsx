@@ -224,7 +224,7 @@ function DraftClient() {
 
   if (view === 'loading') {
     return (
-      <main className="flex min-h-screen items-center justify-center bg-son-bg">
+      <main id="main-content" tabIndex={-1} className="flex min-h-screen items-center justify-center bg-son-bg">
         <p className="text-son-textMuted">Loading your draft...</p>
       </main>
     );
@@ -232,7 +232,7 @@ function DraftClient() {
 
   if (view === 'error') {
     return (
-      <main className="flex min-h-screen flex-col items-center justify-center gap-4 px-4">
+      <main id="main-content" tabIndex={-1} className="flex min-h-screen flex-col items-center justify-center gap-4 px-4">
         <p className="text-center text-sm text-son-textSecondary">
           {fatalError ?? 'Something went wrong.'}
         </p>
@@ -248,7 +248,7 @@ function DraftClient() {
 
   if (view === 'intro') {
     return (
-      <main className="page-shell">
+      <main id="main-content" tabIndex={-1} className="page-shell">
         <div className="mx-auto w-full max-w-3xl">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-son-signalCyan">
             Six hidden companies. One window.
@@ -300,7 +300,7 @@ function DraftClient() {
 
   if (view === 'pick' && draft) {
     return (
-      <main className="page-shell pb-40 lg:pb-32">
+      <main id="main-content" tabIndex={-1} className="page-shell pb-40 lg:pb-32">
         <div className="mx-auto w-full max-w-4xl">
           <div className="mb-4 rounded-lg border border-son-border bg-son-card px-4 py-3">
             <div className="flex items-center justify-between text-sm">
@@ -363,7 +363,7 @@ function DraftClient() {
   if (view === 'reveal' && result) {
     const beat = result.finalValue - result.budget;
     return (
-      <main className="page-shell signal-enter" aria-live="polite">
+      <main id="main-content" tabIndex={-1} className="page-shell signal-enter" aria-live="polite">
         <div className="mx-auto w-full max-w-3xl">
           <div className="rounded-2xl border border-son-border bg-son-card p-5">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-son-signalCyan">
@@ -502,7 +502,7 @@ export default function PortfolioDraftPage() {
   return (
     <Suspense
       fallback={
-        <main className="flex min-h-screen items-center justify-center bg-son-bg">
+        <main id="main-content" tabIndex={-1} className="flex min-h-screen items-center justify-center bg-son-bg">
           <p className="text-son-textMuted">Loading...</p>
         </main>
       }

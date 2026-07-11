@@ -53,6 +53,10 @@ export default function SiteHeader() {
             </SignedIn>
           </ClerkLoaded></div>
       </div>
+      <nav aria-label="Game help" className="mx-auto flex max-w-6xl items-center gap-5 border-t border-son-borderSubtle px-4 py-2 text-xs font-semibold text-son-textMuted sm:px-6 lg:hidden">
+        <Link href="/rules" className="hover:text-son-text">Rules</Link>
+        <Link href="/settings" className="hover:text-son-text">Settings</Link>
+      </nav>
     </header>
   );
 }

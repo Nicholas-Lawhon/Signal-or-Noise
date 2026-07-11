@@ -1,7 +1,7 @@
 import TrackedLink from '@/components/TrackedLink';
 export default function PlayPage() {
   return (
-    <main className="page-shell">
+    <main id="main-content" tabIndex={-1} className="page-shell">
       <div className="mx-auto w-full max-w-5xl">
         <h1 className="mb-1 text-2xl font-bold text-son-text">Choose a Mode</h1>
         <p className="mb-8 text-sm text-son-textSecondary">

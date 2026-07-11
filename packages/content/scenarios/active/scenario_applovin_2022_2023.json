@@ -108,12 +108,12 @@
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ APP",
+                        "label":  "Yahoo Finance historical data — APP",
                         "url":  "https://finance.yahoo.com/quote/APP/history/",
                         "notes":  "Split-adjusted closes, chart samples, and return."
                     },
                     {
-                        "label":  "AppLovin 2023 Form 10-K Ã¢â‚¬â€ SEC EDGAR",
+                        "label":  "AppLovin 2023 Form 10-K — SEC EDGAR",
                         "url":  "https://www.sec.gov/edgar/browse/?CIK=1751008\u0026owner=exclude",
                         "notes":  "Advertising platform, machine-learning engine, owned applications, platform dependencies, and reveal claims."
                     }

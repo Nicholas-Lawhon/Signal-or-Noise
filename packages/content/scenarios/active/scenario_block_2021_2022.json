@@ -109,12 +109,12 @@
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ XYZ (formerly SQ)",
+                        "label":  "Yahoo Finance historical data — XYZ (formerly SQ)",
                         "url":  "https://finance.yahoo.com/quote/XYZ/history/",
                         "notes":  "Historical closes for the then-SQ shares, chart samples, and calculated return."
                     },
                     {
-                        "label":  "Block 2022 Form 10-K Ã¢â‚¬â€ SEC EDGAR",
+                        "label":  "Block 2022 Form 10-K — SEC EDGAR",
                         "url":  "https://www.sec.gov/edgar/browse/?CIK=1512673\u0026owner=exclude",
                         "notes":  "Corporate renaming, seller and consumer ecosystems, acquisition, transaction mix, and risks."
                     }
@@ -236,7 +236,7 @@
                                                                 {
                                                                     "company":  "Block",
                                                                     "confidence":  74,
-                                                                    "pointingFact":  "Multi-product fintech with two distinct ledgersÃ¢â‚¬â€seller commerce tools and consumer Cash AppÃ¢â‚¬â€facing normalization as speculative demand fades in late 2021."
+                                                                    "pointingFact":  "Multi-product fintech with two distinct ledgers—seller commerce tools and consumer Cash App—facing normalization as speculative demand fades in late 2021."
                                                                 },
                                                                 {
                                                                     "company":  "PayPal",
@@ -274,7 +274,7 @@
                                                               {
                                                                   "company":  "Block",
                                                                   "confidence":  44,
-                                                                  "pointingFact":  "Late-2021 fintech platform with two core ledgersÃ¢â‚¬â€sellers and consumer cashÃ¢â‚¬â€broadening adjacent services after a multi-year price run-up."
+                                                                  "pointingFact":  "Late-2021 fintech platform with two core ledgers—sellers and consumer cash—broadening adjacent services after a multi-year price run-up."
                                                               },
                                                               {
                                                                   "company":  "Shopify",
@@ -294,7 +294,7 @@
                                                               {
                                                                   "company":  "Affirm",
                                                                   "confidence":  12,
-                                                                  "pointingFact":  "Consumer fintech extending product surface after a steep 2020Ã¢â‚¬â€œ21 re-rating into higher funding costs."
+                                                                  "pointingFact":  "Consumer fintech extending product surface after a steep 2020–21 re-rating into higher funding costs."
                                                               }
                                                           ],
                                               "direction":  {

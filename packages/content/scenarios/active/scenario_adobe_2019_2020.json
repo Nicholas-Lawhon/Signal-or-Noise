@@ -112,7 +112,7 @@
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ ADBE",
+                        "label":  "Yahoo Finance historical data — ADBE",
                         "url":  "https://finance.yahoo.com/quote/ADBE/history/",
                         "notes":  "Split-adjusted closes for 2019-01-02 and 2020-01-02; sampled lookback/outcome series and computed price return."
                     },
@@ -278,7 +278,7 @@
                                                 "direction":  {
                                                                   "call":  "toss_up",
                                                                   "confidence":  48,
-                                                                  "cue":  "Sticky renewals support the long case, but lookback prices already rolled over from a peak and the short case of saturation plus alternatives is equally plausible into 2019Ã¢â‚¬â€œ2020."
+                                                                  "cue":  "Sticky renewals support the long case, but lookback prices already rolled over from a peak and the short case of saturation plus alternatives is equally plausible into 2019–2020."
                                                               }
                                             },
                                  "hard":  {

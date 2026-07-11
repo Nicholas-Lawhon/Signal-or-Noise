@@ -262,7 +262,7 @@ function BattleRoom() {
 
   if (fatalError) {
     return (
-      <main className="flex min-h-screen flex-col items-center justify-center gap-4 px-4">
+      <main id="main-content" tabIndex={-1} className="flex min-h-screen flex-col items-center justify-center gap-4 px-4">
         <p className="text-center text-sm text-son-textSecondary">{fatalError}</p>
         <Link
           href="/play/battle"
@@ -276,7 +276,7 @@ function BattleRoom() {
 
   if (!battle) {
     return (
-      <main className="flex min-h-screen flex-col items-center justify-center gap-3 bg-son-bg px-4">
+      <main id="main-content" tabIndex={-1} className="flex min-h-screen flex-col items-center justify-center gap-3 bg-son-bg px-4">
         <p role="status" aria-live="polite" className="text-son-textMuted">
           {connectionError ?? 'Loading the battle...'}
         </p>
@@ -394,7 +394,7 @@ function BattleRoom() {
       ? `/play/battle/join/${battle.inviteCode}`
       : null;
     return (
-      <main className="page-shell">
+      <main id="main-content" tabIndex={-1} className="page-shell">
         <div className="mx-auto w-full max-w-3xl">
           <h1 className="text-2xl font-bold text-son-text">Battle created.</h1>
           <p className="mt-2 text-sm leading-relaxed text-son-textSecondary">
@@ -444,7 +444,7 @@ function BattleRoom() {
     const youReady = battle.you.readyRound >= 0;
     const opponentReady = (battle.opponent?.readyRound ?? -1) >= 0;
     return (
-      <main className="flex min-h-screen flex-col items-center justify-center px-4">
+      <main id="main-content" tabIndex={-1} className="flex min-h-screen flex-col items-center justify-center px-4">
         <div className="w-full max-w-md rounded-2xl border border-son-borderStrong bg-son-cardElevated p-8 text-center">
           <h1 className="text-2xl font-bold text-son-text">
             {opponentName} is in.
@@ -497,7 +497,7 @@ function BattleRoom() {
     if (battle.you.hasDecidedCurrentRound || !round) {
       const call = battle.you.currentCall;
       return (
-        <main className="page-shell">
+        <main id="main-content" tabIndex={-1} className="page-shell">
           <div className="mx-auto w-full max-w-3xl">
             {scoreBar}
             <div className="rounded-2xl border border-son-borderStrong bg-son-cardElevated p-8 text-center">
@@ -528,7 +528,7 @@ function BattleRoom() {
 
     const canLockIn = !busy && action !== null && (action === 'pass' || confidence !== null);
     return (
-      <main className="page-shell">
+      <main id="main-content" tabIndex={-1} className="page-shell">
         <div className="mx-auto w-full max-w-3xl">
           {scoreBar}
 
@@ -682,7 +682,7 @@ function BattleRoom() {
   const summary = battle.summary;
 
   return (
-    <main className="page-shell signal-enter" aria-live="polite">
+    <main id="main-content" tabIndex={-1} className="page-shell signal-enter" aria-live="polite">
       <div className="mx-auto w-full max-w-3xl">
         {scoreBar}
 

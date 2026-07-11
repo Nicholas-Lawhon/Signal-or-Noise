@@ -107,12 +107,12 @@
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ OKTA",
+                        "label":  "Yahoo Finance historical data — OKTA",
                         "url":  "https://finance.yahoo.com/quote/OKTA/history/",
                         "notes":  "Split-adjusted closes, chart samples, and return."
                     },
                     {
-                        "label":  "Okta fiscal 2023 Form 10-K Ã¢â‚¬â€ SEC EDGAR",
+                        "label":  "Okta fiscal 2023 Form 10-K — SEC EDGAR",
                         "url":  "https://www.sec.gov/edgar/browse/?CIK=1660134\u0026owner=exclude",
                         "notes":  "Acquisition, workforce and customer identity offerings, integration, competition, and reveal claims."
                     }

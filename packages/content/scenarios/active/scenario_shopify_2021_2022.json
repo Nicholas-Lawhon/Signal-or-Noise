@@ -107,12 +107,12 @@
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ SHOP",
+                        "label":  "Yahoo Finance historical data — SHOP",
                         "url":  "https://finance.yahoo.com/quote/SHOP/history/",
                         "notes":  "Split-adjusted closes, chart samples, share-split adjustment, and calculated return."
                     },
                     {
-                        "label":  "Shopify 2022 Form 40-F Ã¢â‚¬â€ SEC EDGAR",
+                        "label":  "Shopify 2022 Form 40-F — SEC EDGAR",
                         "url":  "https://www.sec.gov/edgar/browse/?CIK=1594805\u0026owner=exclude",
                         "notes":  "Merchant solutions, subscription model, logistics investment, growth normalization, and reveal claims."
                     }

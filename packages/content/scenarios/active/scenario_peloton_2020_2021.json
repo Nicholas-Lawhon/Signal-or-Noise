@@ -112,7 +112,7 @@
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ PTON",
+                        "label":  "Yahoo Finance historical data — PTON",
                         "url":  "https://finance.yahoo.com/quote/PTON/history/",
                         "notes":  "Split-adjusted closes for 2020-05-01 and 2021-05-03; sampled lookback/outcome series and computed price return."
                     },

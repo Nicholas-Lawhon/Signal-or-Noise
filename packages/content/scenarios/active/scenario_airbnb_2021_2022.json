@@ -107,12 +107,12 @@
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ ABNB",
+                        "label":  "Yahoo Finance historical data — ABNB",
                         "url":  "https://finance.yahoo.com/quote/ABNB/history/",
                         "notes":  "Split-adjusted closes for 2021-02-16 and 2022-02-16, chart samples, and calculated price return."
                     },
                     {
-                        "label":  "Airbnb 2021 Form 10-K Ã¢â‚¬â€ SEC EDGAR",
+                        "label":  "Airbnb 2021 Form 10-K — SEC EDGAR",
                         "url":  "https://www.sec.gov/edgar/browse/?CIK=ABNB\u0026owner=exclude",
                         "notes":  "Host count, booking recovery, travel mix, regulatory exposure, and material reveal claims."
                     }
@@ -232,7 +232,7 @@
                                                                 {
                                                                     "company":  "Airbnb",
                                                                     "confidence":  72,
-                                                                    "pointingFact":  "Consumer platform matching travelers with independently supplied host capacity; Ã¢â‚¬Å“Open CalendarÃ¢â‚¬Â and pandemic reopening map cleanly to hosts reactivating inventory."
+                                                                    "pointingFact":  "Consumer platform matching travelers with independently supplied host capacity; “Open Calendar” and pandemic reopening map cleanly to hosts reactivating inventory."
                                                                 },
                                                                 {
                                                                     "company":  "Uber",

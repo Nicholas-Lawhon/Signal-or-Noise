@@ -35,7 +35,7 @@ export default function ProfilePage() {
   }, [isLoaded, isSignedIn]);
 
   return (
-    <main className="page-shell flex flex-col items-center">
+    <main id="main-content" tabIndex={-1} className="page-shell flex flex-col items-center">
       <div className="w-full max-w-3xl">
         <h1 className="mb-1 text-2xl font-bold text-son-text">My Stats</h1>
         <p className="mb-8 text-sm text-son-textSecondary">

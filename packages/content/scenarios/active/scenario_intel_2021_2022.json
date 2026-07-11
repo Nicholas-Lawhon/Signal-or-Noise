@@ -109,12 +109,12 @@
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ INTC",
+                        "label":  "Yahoo Finance historical data — INTC",
                         "url":  "https://finance.yahoo.com/quote/INTC/history/",
                         "notes":  "Split-adjusted closes for 2021-07-01 and 2022-07-01, chart samples, and calculated price return."
                     },
                     {
-                        "label":  "Intel 2022 Form 10-K Ã¢â‚¬â€ SEC EDGAR",
+                        "label":  "Intel 2022 Form 10-K — SEC EDGAR",
                         "url":  "https://www.sec.gov/edgar/browse/?CIK=INTC\u0026owner=exclude",
                         "notes":  "Manufacturing strategy, capital investment, competition, product execution, and PC-market reveal claims."
                     }

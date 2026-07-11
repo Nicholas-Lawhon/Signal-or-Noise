@@ -109,12 +109,12 @@
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ LMND",
+                        "label":  "Yahoo Finance historical data — LMND",
                         "url":  "https://finance.yahoo.com/quote/LMND/history/",
                         "notes":  "Split-adjusted closes, chart samples, and return."
                     },
                     {
-                        "label":  "Lemonade 2022 Form 10-K Ã¢â‚¬â€ SEC EDGAR",
+                        "label":  "Lemonade 2022 Form 10-K — SEC EDGAR",
                         "url":  "https://www.sec.gov/edgar/browse/?CIK=1691421\u0026owner=exclude",
                         "notes":  "Product expansion, premiums, customers, loss ratios, weather exposure, acquisition, and capital risks."
                     }

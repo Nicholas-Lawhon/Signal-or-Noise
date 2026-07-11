@@ -74,7 +74,7 @@
       "longCase": "More viewing and a larger installed base could attract advertisers and content partners to the platform.",
       "shortCase": "Hardware economics, platform competition, and negotiations with content suppliers could limit the value of that audience.",
       "setupHints": [
-        "The companyÃ¢â‚¬â„¢s software is built into some television sets and external devices."
+        "The company’s software is built into some television sets and external devices."
       ]
     },
     "medium": {
@@ -95,7 +95,7 @@
     }
   },
   "reveal": {
-    "shortText": "That was Roku. At-home viewing increased engagement and helped the companyÃ¢â‚¬â„¢s platform revenue grow faster than device sales.",
+    "shortText": "That was Roku. At-home viewing increased engagement and helped the company’s platform revenue grow faster than device sales.",
     "funFact": "The company separates its hardware-oriented player business from its higher-margin platform business.",
     "whyItMoved": [
       "At-home viewing increased platform engagement.",
@@ -105,7 +105,7 @@
   },
   "sources": [
     {
-      "label": "Yahoo Finance historical data Ã¢â‚¬â€ ROKU",
+      "label": "Yahoo Finance historical data — ROKU",
       "url": "https://finance.yahoo.com/quote/ROKU/history/",
       "notes": "Split-adjusted closes for 2020-01-02 and 2021-01-04; chart series and return."
     },
@@ -187,7 +187,7 @@
     ],
     "gate2": {
       "easy": {
-        "payloadHash": "sha256:f42ba04a5491c069f589c6d343c21189f994dfeccd54ce149f1cb75771d4d4a3",
+        "payloadHash": "sha256:e75f4ea4d393f929fd0d3f5f1415e61d473fc299fe7002193154ea8f17d81cc4",
         "model": "grok-4.5",
         "promptVersion": "guess.v1+direction.v1",
         "testedAt": "2026-07-10T05:00:00.000Z",

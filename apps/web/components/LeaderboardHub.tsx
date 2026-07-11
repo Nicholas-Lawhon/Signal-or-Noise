@@ -127,6 +127,27 @@ export default function LeaderboardHub({
     setPage(1);
   };
 
+  const emptyState = board === 'daily'
+    ? {
+      title: 'No Daily scores yet',
+      description: 'Be the first to finish this challenge and put a score on the board.',
+      href: '/play/daily',
+      action: 'Play Daily Challenge',
+    }
+    : board === 'classic'
+      ? {
+        title: `No ${difficulty} Classic scores yet`,
+        description: 'Finish an official run to claim the first spot on this board.',
+        href: '/play/classic',
+        action: 'Play Classic',
+      }
+      : {
+        title: 'No Signal scores yet',
+        description: 'Make a few bold calls in Classic and start the all-time Signal ranking.',
+        href: '/play/classic',
+        action: 'Play Classic',
+      };
+
   return (
     <div className="w-full max-w-md">
       <div className="mb-6">
@@ -224,19 +245,15 @@ export default function LeaderboardHub({
       ) : state.data.rows.length === 0 ? (
         <>
           <div className="rounded-2xl border border-son-border bg-son-card p-5 text-center">
-            <h2 className="text-base font-semibold text-son-text">No scores on this page</h2>
+            <h2 className="text-base font-semibold text-son-text">{emptyState.title}</h2>
             <p className="mt-1 text-sm leading-relaxed text-son-textSecondary">
               {state.data.pagination.totalEntries === 0
-                ? board === 'daily'
-                  ? 'No one has finished this Daily Challenge date.'
-                  : board === 'classic'
-                    ? `Be the first to finish an official ${difficulty} Classic Run.`
-                    : 'Finish or save an official run to start the Signal ranking.'
+                ? emptyState.description
                 : 'Use Previous to return to a populated leaderboard page.'}
             </p>
-            {board === 'classic' && state.data.pagination.totalEntries === 0 ? (
-              <Link href="/play/classic" className="mt-4 inline-block rounded-lg bg-son-signalBlue px-5 py-2.5 text-sm font-bold text-son-textInverse">
-                Play Classic
+            {state.data.pagination.totalEntries === 0 ? (
+              <Link href={emptyState.href} className="mt-4 inline-block rounded-lg bg-son-signalBlue px-5 py-2.5 text-sm font-bold text-son-textInverse">
+                {emptyState.action}
               </Link>
             ) : null}
           </div>

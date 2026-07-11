@@ -5,7 +5,8 @@ Blocked/Questions accurate. Git history and one phase closeout preserve history.
 
 ## Current Status
 
-- **Phase:** 0-9 COMPLETE. Phase 9 - Competitive Expansion and MVP Polish was
+- **Phase:** Phase 10 - First Playtest Repairs is accepted and complete.
+  Phases 0-9 are complete. Phase 9 - Competitive Expansion and MVP Polish was
   accepted on 2026-07-10 after independent high-risk review, focused shared-
   visual integration, and the final merged acceptance suite. Phase 8 - Daily
   Challenge was accepted on 2026-07-10
@@ -77,8 +78,10 @@ Blocked/Questions accurate. Git history and one phase closeout preserve history.
   D-03, D-04, D-05, and D-07 have approved directions with implementation or
   external-review dependencies; D-06 formal tester recruitment is optional
   rather than a Gate B or launch requirement.
-- **Next task:** Growth Gate B preparation may proceed; the MVP feature roadmap
-  and Growth Gate A foundation are complete.
+- **Next task:** Growth Gate B preparation may continue.
+- **Phase 10 deferred action:** Revisit the shorter landing-to-first-decision
+  funnel after more behavioral playtest data. It was intentionally not
+  implemented in Phase 10.
 - **Workflow state:** D051's two parallel Phase 9 tracks converged and were
   accepted at one integrated boundary under D043.
   D054 permits direct routine branch/worktree git operations while retaining

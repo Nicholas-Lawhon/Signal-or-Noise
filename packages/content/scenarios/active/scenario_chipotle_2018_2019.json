@@ -112,7 +112,7 @@
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ CMG",
+                        "label":  "Yahoo Finance historical data — CMG",
                         "url":  "https://finance.yahoo.com/quote/CMG/history/",
                         "notes":  "Split-adjusted closes for 2018-01-02 and 2019-01-02; sampled lookback/outcome series and computed price return."
                     },
@@ -316,7 +316,7 @@
                                               "direction":  {
                                                                 "call":  "toss_up",
                                                                 "confidence":  47,
-                                                                "cue":  "Established footprint can amplify recovery, but reputation overhang and higher service costs leave 2018Ã¢â‚¬â€œ19 path two-sided."
+                                                                "cue":  "Established footprint can amplify recovery, but reputation overhang and higher service costs leave 2018–19 path two-sided."
                                                             }
                                           }
                              }

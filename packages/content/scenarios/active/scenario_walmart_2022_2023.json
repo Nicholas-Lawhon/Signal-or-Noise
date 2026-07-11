@@ -103,18 +103,18 @@
                    "funFact":  "Walmart completed a three-for-one stock split in 2024; the historical prices in this card are split adjusted.",
                    "whyItMoved":  [
                                       "Food inflation and grocery demand supported frequent customer traffic.",
-                                      "Consumers trading down favored the companyÃ¢â‚¬â„¢s value positioning and purchasing scale.",
+                                      "Consumers trading down favored the company’s value positioning and purchasing scale.",
                                       "Inventory actions and expense control helped margins recover from the initial shock."
                                   ]
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ WMT",
+                        "label":  "Yahoo Finance historical data — WMT",
                         "url":  "https://finance.yahoo.com/quote/WMT/history/",
                         "notes":  "Split-adjusted closes, chart samples, later stock-split adjustment, and calculated return."
                     },
                     {
-                        "label":  "Walmart fiscal 2023 Form 10-K Ã¢â‚¬â€ SEC EDGAR",
+                        "label":  "Walmart fiscal 2023 Form 10-K — SEC EDGAR",
                         "url":  "https://www.sec.gov/edgar/browse/?CIK=104169\u0026owner=exclude",
                         "notes":  "Grocery mix, inventory, inflation, traffic, expense and margin claims."
                     }

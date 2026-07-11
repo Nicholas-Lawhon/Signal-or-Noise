@@ -48,4 +48,6 @@ export type {
   ContentCatalogValidationResult,
 } from './catalogValidation';
 
+export { normalizeMojibake, normalizeMojibakeDeep } from './textEncoding';
+
 export { ACTIVE_SCENARIOS, getActiveScenarios } from './activeScenarios';

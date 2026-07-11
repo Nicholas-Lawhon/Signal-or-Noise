@@ -3,7 +3,7 @@ import Link from 'next/link';
 const confidences = [['Low', '10%', '±1'], ['Medium', '40%', '±2'], ['High', '70%', '±3'], ['All-In', '100%', '±5']];
 
 export default function RulesPage() {
-  return <main className="page-shell"><article className="mx-auto max-w-4xl">
+  return <main id="main-content" tabIndex={-1} className="page-shell"><article className="mx-auto max-w-4xl">
     <p className="eyebrow">Read. Decide. Reveal.</p><h1 className="mt-2 text-4xl font-black">How to play</h1>
     <p className="mt-3 max-w-2xl text-lg text-son-textSecondary">Study disguised market history, make your call, and beat the reveal. Every bankroll is fictional.</p>
     <div className="mt-8 grid gap-5 md:grid-cols-2">

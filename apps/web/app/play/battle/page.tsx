@@ -93,7 +93,7 @@ export default function BattleHomePage() {
   };
 
   return (
-    <main className="page-shell">
+    <main id="main-content" tabIndex={-1} className="page-shell">
       <div className="mx-auto w-full max-w-3xl">
         <p className="text-xs font-bold uppercase tracking-[0.18em] text-son-signalCyan">
           Same cards. Same clock. One winner.

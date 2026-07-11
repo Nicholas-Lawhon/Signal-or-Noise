@@ -112,7 +112,7 @@
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ AMD",
+                        "label":  "Yahoo Finance historical data — AMD",
                         "url":  "https://finance.yahoo.com/quote/AMD/history/",
                         "notes":  "Split-adjusted closes for 2019-01-02 and 2020-01-02; sampled lookback/outcome series and computed price return."
                     },

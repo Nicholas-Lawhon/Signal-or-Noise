@@ -100,7 +100,7 @@
                    },
     "reveal":  {
                    "shortText":  "That was DocuSign. Remote work accelerated adoption of its agreement workflow tools, sending revenue expectations higher.",
-                   "funFact":  "The companyÃ¢â‚¬â„¢s products cover steps around preparing, signing, and managing agreements.",
+                   "funFact":  "The company’s products cover steps around preparing, signing, and managing agreements.",
                    "whyItMoved":  [
                                       "Remote work increased demand for digital agreement workflows.",
                                       "Subscription revenue grew as customers expanded usage.",
@@ -109,7 +109,7 @@
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ DOCU",
+                        "label":  "Yahoo Finance historical data — DOCU",
                         "url":  "https://finance.yahoo.com/quote/DOCU/history/",
                         "notes":  "Split-adjusted closes for 2020-01-02 and 2021-01-04; chart series and return."
                     },

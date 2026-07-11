@@ -107,12 +107,12 @@
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ CRWD",
+                        "label":  "Yahoo Finance historical data — CRWD",
                         "url":  "https://finance.yahoo.com/quote/CRWD/history/",
                         "notes":  "Split-adjusted closes for 2023-01-03 and 2024-01-03, chart samples, and calculated price return."
                     },
                     {
-                        "label":  "CrowdStrike fiscal 2024 Form 10-K Ã¢â‚¬â€ SEC EDGAR",
+                        "label":  "CrowdStrike fiscal 2024 Form 10-K — SEC EDGAR",
                         "url":  "https://www.sec.gov/edgar/browse/?CIK=CRWD\u0026owner=exclude",
                         "notes":  "Recurring revenue, subscription module adoption, competitive risks, and operating leverage claims."
                     }

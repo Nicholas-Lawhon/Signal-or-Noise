@@ -13,12 +13,20 @@ const DIFFICULTIES: {
 
 export default function ClassicSetupPage() {
   return (
-    <main className="page-shell">
+    <main id="main-content" tabIndex={-1} className="page-shell">
       <div className="mx-auto w-full max-w-3xl">
         <h1 className="mb-1 text-2xl font-bold text-son-text">Classic Run</h1>
         <p className="mb-8 text-sm text-son-textSecondary">
           Choose your difficulty and run length.
         </p>
+
+        <div className="mb-6 rounded-2xl border border-son-signalBlue/40 bg-son-signalBlue/10 p-4 text-sm leading-relaxed text-son-textSecondary">
+          <p className="font-semibold text-son-text">Guest play is welcome.</p>
+          <p className="mt-1">
+            Guest results are unofficial and stay on this device. Sign in to save a finished
+            run, keep your stats, and qualify for official Classic leaderboards.
+          </p>
+        </div>
 
         <ResumeRunCard />
 

@@ -112,7 +112,7 @@
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ UPST",
+                        "label":  "Yahoo Finance historical data — UPST",
                         "url":  "https://finance.yahoo.com/quote/UPST/history/",
                         "notes":  "Split-adjusted closes for 2021-01-04 and 2022-01-03; sampled lookback/outcome series and computed price return."
                     },

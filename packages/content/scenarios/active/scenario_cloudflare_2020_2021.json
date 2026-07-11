@@ -112,7 +112,7 @@
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ NET",
+                        "label":  "Yahoo Finance historical data — NET",
                         "url":  "https://finance.yahoo.com/quote/NET/history/",
                         "notes":  "Split-adjusted closes for 2020-01-02 and 2021-01-04; sampled lookback/outcome series and computed price return."
                     },

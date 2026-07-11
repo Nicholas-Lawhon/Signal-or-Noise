@@ -112,7 +112,7 @@
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ CRM",
+                        "label":  "Yahoo Finance historical data — CRM",
                         "url":  "https://finance.yahoo.com/quote/CRM/history/",
                         "notes":  "Split-adjusted closes for 2020-01-02 and 2021-01-04; sampled lookback/outcome series and computed price return."
                     },

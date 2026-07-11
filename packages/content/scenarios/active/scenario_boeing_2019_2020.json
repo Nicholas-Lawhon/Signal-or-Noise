@@ -100,7 +100,7 @@
                    },
     "reveal":  {
                    "shortText":  "That was Boeing. The grounding of its key narrow-body program disrupted deliveries, raised costs, and damaged confidence.",
-                   "funFact":  "Commercial airplanes, defense systems, and services are all material parts of the companyÃ¢â‚¬â„¢s business.",
+                   "funFact":  "Commercial airplanes, defense systems, and services are all material parts of the company’s business.",
                    "whyItMoved":  [
                                       "A major aircraft program was grounded pending regulatory review.",
                                       "Production and delivery interruptions hurt cash flow.",
@@ -109,7 +109,7 @@
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ BA",
+                        "label":  "Yahoo Finance historical data — BA",
                         "url":  "https://finance.yahoo.com/quote/BA/history/",
                         "notes":  "Split-adjusted closes for 2019-03-11 and 2020-03-11; chart series and return."
                     },

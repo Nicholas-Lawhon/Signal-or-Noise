@@ -107,12 +107,12 @@
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ DDOG",
+                        "label":  "Yahoo Finance historical data — DDOG",
                         "url":  "https://finance.yahoo.com/quote/DDOG/history/",
                         "notes":  "Split-adjusted closes, chart samples, and return."
                     },
                     {
-                        "label":  "Datadog 2022 Form 10-K Ã¢â‚¬â€ SEC EDGAR",
+                        "label":  "Datadog 2022 Form 10-K — SEC EDGAR",
                         "url":  "https://www.sec.gov/edgar/browse/?CIK=1561550\u0026owner=exclude",
                         "notes":  "Usage model, product expansion, customer adoption, competition, and reveal claims."
                     }

@@ -74,7 +74,7 @@
       "longCase": "Convenient pickup services, owned brands, and frequent store visits could sustain sales across categories.",
       "shortCase": "Excess discretionary inventory and rising freight and labor costs could force markdowns and crush margins.",
       "setupHints": [
-        "Most digital orders are fulfilled by the companyÃ¢â‚¬â„¢s existing store network."
+        "Most digital orders are fulfilled by the company’s existing store network."
       ]
     },
     "medium": {
@@ -105,12 +105,12 @@
   },
   "sources": [
     {
-      "label": "Yahoo Finance historical data Ã¢â‚¬â€ TGT",
+      "label": "Yahoo Finance historical data — TGT",
       "url": "https://finance.yahoo.com/quote/TGT/history/",
       "notes": "Split-adjusted closes, chart samples, and return for the stated dates."
     },
     {
-      "label": "Target 2022 Form 10-K Ã¢â‚¬â€ SEC EDGAR",
+      "label": "Target 2022 Form 10-K — SEC EDGAR",
       "url": "https://www.sec.gov/edgar/browse/?CIK=27419&owner=exclude",
       "notes": "Store fulfillment, category mix, inventory actions, freight, labor, and margin reveal claims."
     }
@@ -185,7 +185,7 @@
     ],
     "gate2": {
       "easy": {
-        "payloadHash": "sha256:5bc26da0f93b351d0af19c72debe3bc092c26a2b5ee97cf37720f21ccdaf3a3d",
+        "payloadHash": "sha256:7dfab8a29373ce34d270146a4a4f50b3245a11266f3b9c27bb271e2db226db7e",
         "model": "grok-4.5",
         "promptVersion": "guess.v1+direction.v1",
         "testedAt": "2026-07-09T12:00:00.000Z",

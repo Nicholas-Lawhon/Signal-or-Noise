@@ -112,7 +112,7 @@
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ SNAP",
+                        "label":  "Yahoo Finance historical data — SNAP",
                         "url":  "https://finance.yahoo.com/quote/SNAP/history/",
                         "notes":  "Split-adjusted closes for 2020-01-02 and 2021-01-04; sampled lookback/outcome series and computed price return."
                     },
@@ -272,7 +272,7 @@
                                                                 {
                                                                     "company":  "Meta Platforms",
                                                                     "confidence":  24,
-                                                                    "pointingFact":  "Large social platform converting rising usage into marketer spend, though less purely Ã¢â‚¬Ëœdistribution-partner constrainedÃ¢â‚¬â„¢ than peers"
+                                                                    "pointingFact":  "Large social platform converting rising usage into marketer spend, though less purely ‘distribution-partner constrained’ than peers"
                                                                 }
                                                             ],
                                                 "direction":  {

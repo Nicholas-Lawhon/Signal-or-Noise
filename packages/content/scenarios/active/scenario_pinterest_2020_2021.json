@@ -109,7 +109,7 @@
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ PINS",
+                        "label":  "Yahoo Finance historical data — PINS",
                         "url":  "https://finance.yahoo.com/quote/PINS/history/",
                         "notes":  "Split-adjusted closes for 2020-01-02 and 2021-01-04; chart series and return."
                     },

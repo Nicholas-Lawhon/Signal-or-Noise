@@ -37,7 +37,7 @@ const DECISION_SELECTED: Record<RoundAction, string> = {
 /** sessionStorage key marking an explicit "Save this run" request (D047). */
 const CLAIM_INTENT_KEY = 'son_claim_intent_run';
 
-type View = 'loading' | 'error' | 'round' | 'locked' | 'reveal' | 'summary';
+type View = 'loading' | 'error' | 'round' | 'reveal' | 'summary';
 
 function ClassicRunClient() {
   const searchParams = useSearchParams();
@@ -186,7 +186,7 @@ function ClassicRunClient() {
 
   if (view === 'loading') {
     return (
-      <main className="flex min-h-screen items-center justify-center bg-son-bg">
+      <main id="main-content" tabIndex={-1} className="flex min-h-screen items-center justify-center bg-son-bg">
         <p className="text-son-textMuted">Loading your run...</p>
       </main>
     );
@@ -194,7 +194,7 @@ function ClassicRunClient() {
 
   if (view === 'error') {
     return (
-      <main className="flex min-h-screen flex-col items-center justify-center gap-4 px-4">
+      <main id="main-content" tabIndex={-1} className="flex min-h-screen flex-col items-center justify-center gap-4 px-4">
         <p className="text-center text-sm text-son-textSecondary">
           {fatalError ?? 'Something went wrong.'}
         </p>
@@ -222,7 +222,16 @@ function ClassicRunClient() {
       });
       setLastResult(result);
       capture({ name: 'round_submitted', properties: { mode: isDaily ? 'daily' : 'classic', action, ...(action !== 'pass' && confidence ? { confidence } : {}) } });
-      setView('locked');
+      const revealResult = action === 'pass'
+        ? 'pass'
+        : result.round.pnlAmount > 0
+          ? 'win'
+          : result.round.pnlAmount < 0
+            ? 'loss'
+            : 'flat';
+      playRevealSound(revealResult);
+      capture({ name: 'reveal_viewed', properties: { mode: isDaily ? 'daily' : 'classic', result: revealResult } });
+      setView('reveal');
     } catch (error) {
       if (error instanceof ApiRequestError && error.status === 409) {
         // This round was already submitted (double tap / stale tab): resync.
@@ -285,7 +294,7 @@ function ClassicRunClient() {
       !submitting && action !== null && (action === 'pass' || confidence !== null);
 
     return (
-      <main className="page-shell">
+      <main id="main-content" tabIndex={-1} className="page-shell">
         <div className="mx-auto w-full max-w-3xl">
           {/* Top bar */}
           <div className="mb-4 rounded-lg border border-son-border bg-son-card px-4 py-3">
@@ -483,65 +492,6 @@ function ClassicRunClient() {
     );
   }
 
-  // ---- Locked View ----
-  if (view === 'locked' && lastResult) {
-    const lastRound = lastResult.round;
-    const isPass = lastRound.action === 'pass';
-    const confLabel = lastRound.confidence ? CONFIDENCE_CONFIG[lastRound.confidence].label : null;
-    const pct = lastRound.confidence
-      ? (CONFIDENCE_CONFIG[lastRound.confidence].bankrollPercent * 100).toFixed(0)
-      : null;
-
-    return (
-      <main className="flex min-h-screen flex-col items-center justify-center px-4">
-        <div className="w-full max-w-md rounded-2xl border border-son-borderStrong bg-son-cardElevated p-8 text-center">
-          <h2 className="text-2xl font-bold text-son-text">Call locked.</h2>
-
-          <div className="mt-6 space-y-2 text-sm">
-            <p className="text-son-textSecondary">
-              Your call:{' '}
-              <span className="font-semibold text-son-text">
-                {lastRound.action.charAt(0).toUpperCase() + lastRound.action.slice(1)}
-              </span>
-            </p>
-            {isPass ? (
-              <p className="text-son-textSecondary">Nothing at risk.</p>
-            ) : (
-              <>
-                <p className="text-son-textSecondary">
-                  Confidence:{' '}
-                  <span className="font-semibold text-son-text">
-                    {confLabel} ({pct}%)
-                  </span>
-                </p>
-                <p className="text-son-textSecondary">
-                  At risk:{' '}
-                  <span className="font-semibold text-son-text">
-                    {formatMoney(lastRound.stakeAmount)}
-                  </span>
-                </p>
-              </>
-            )}
-            {lastRound.companyGuess && (
-              <p className="text-son-textSecondary">
-                Company call:{' '}
-                <span className="font-semibold text-son-text">{lastRound.companyGuess}</span>
-              </p>
-            )}
-          </div>
-
-          <button
-            type="button"
-            onClick={() => { const result = isPass ? 'pass' : lastRound.pnlAmount > 0 ? 'win' : lastRound.pnlAmount < 0 ? 'loss' : 'flat'; playRevealSound(result); capture({ name: 'reveal_viewed', properties: { mode: isDaily ? 'daily' : 'classic', result } }); setView('reveal'); }}
-            className="mt-8 w-full rounded-lg bg-son-signalBlue px-6 py-3 text-base font-semibold text-son-textInverse transition-colors hover:brightness-110"
-          >
-            Reveal Result
-          </button>
-        </div>
-      </main>
-    );
-  }
-
   // ---- Reveal View ----
   if (view === 'reveal' && lastResult) {
     const lastRound = lastResult.round;
@@ -549,7 +499,7 @@ function ClassicRunClient() {
     const isPass = lastRound.action === 'pass';
 
     return (
-      <main className="page-shell signal-enter" aria-live="polite">
+      <main id="main-content" tabIndex={-1} className="page-shell signal-enter" aria-live="polite">
         <div className="w-full max-w-md">
           <div className="rounded-2xl border border-son-border bg-son-card p-5">
             {/* Win/loss/pass banner */}
@@ -731,7 +681,7 @@ function ClassicRunClient() {
     ) : null;
 
     return (
-      <main className="flex min-h-screen flex-col items-center px-4 py-6">
+      <main id="main-content" tabIndex={-1} className="flex min-h-screen flex-col items-center px-4 py-6 pb-28 lg:pb-12">
         <div className="w-full max-w-md">
           <div className="rounded-2xl border border-son-border bg-son-card p-6">
             {wentBankrupt ? (
@@ -850,7 +800,7 @@ export default function ClassicRunPage() {
   return (
     <Suspense
       fallback={
-        <main className="flex min-h-screen items-center justify-center bg-son-bg">
+        <main id="main-content" tabIndex={-1} className="flex min-h-screen items-center justify-center bg-son-bg">
           <p className="text-son-textMuted">Loading...</p>
         </main>
       }

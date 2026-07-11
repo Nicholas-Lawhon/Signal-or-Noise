@@ -108,12 +108,12 @@
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ PYPL",
+                        "label":  "Yahoo Finance historical data — PYPL",
                         "url":  "https://finance.yahoo.com/quote/PYPL/history/",
                         "notes":  "Split-adjusted closes for 2021-11-01 and 2022-11-01, chart samples, and calculated price return."
                     },
                     {
-                        "label":  "PayPal 2022 Form 10-K Ã¢â‚¬â€ SEC EDGAR",
+                        "label":  "PayPal 2022 Form 10-K — SEC EDGAR",
                         "url":  "https://www.sec.gov/edgar/browse/?CIK=PYPL\u0026owner=exclude",
                         "notes":  "Payments model, engagement strategy, active-account priorities, competition, macroeconomic risks, and reveal claims."
                     }

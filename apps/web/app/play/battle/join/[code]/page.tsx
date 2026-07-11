@@ -71,7 +71,7 @@ export default function JoinBattlePage() {
   const signInHref = `/sign-in?redirect_url=${encodeURIComponent(`/play/battle/join/${code}`)}`;
 
   return (
-    <main className="page-shell">
+    <main id="main-content" tabIndex={-1} className="page-shell">
       <div className="mx-auto w-full max-w-3xl">
         <p className="text-xs font-bold uppercase tracking-[0.18em] text-son-signalCyan">
           You&apos;ve been challenged

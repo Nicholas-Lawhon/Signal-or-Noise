@@ -100,7 +100,7 @@
                    },
     "reveal":  {
                    "shortText":  "That was Uber. Mobility rebounded, delivery remained scaled, and improving operating discipline shifted attention toward cash flow.",
-                   "funFact":  "UberÃ¢â‚¬â„¢s platform combined mobility, delivery, and freight operations rather than relying on a single transaction category.",
+                   "funFact":  "Uber’s platform combined mobility, delivery, and freight operations rather than relying on a single transaction category.",
                    "whyItMoved":  [
                                       "Gross bookings and mobility activity recovered as travel and commuting returned.",
                                       "Delivery scale remained meaningful after pandemic restrictions eased.",
@@ -109,12 +109,12 @@
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ UBER",
+                        "label":  "Yahoo Finance historical data — UBER",
                         "url":  "https://finance.yahoo.com/quote/UBER/history/",
                         "notes":  "Split-adjusted closes, chart samples, and calculated return."
                     },
                     {
-                        "label":  "Uber 2023 Form 10-K Ã¢â‚¬â€ SEC EDGAR",
+                        "label":  "Uber 2023 Form 10-K — SEC EDGAR",
                         "url":  "https://www.sec.gov/edgar/browse/?CIK=1543151\u0026owner=exclude",
                         "notes":  "Segment mix, bookings, mobility recovery, delivery scale, regulation, and profitability claims."
                     }

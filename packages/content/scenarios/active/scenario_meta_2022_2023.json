@@ -112,7 +112,7 @@
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ META",
+                        "label":  "Yahoo Finance historical data — META",
                         "url":  "https://finance.yahoo.com/quote/META/history/",
                         "notes":  "Split-adjusted closes for 2022-01-03 and 2023-01-03; chart series and return."
                     },

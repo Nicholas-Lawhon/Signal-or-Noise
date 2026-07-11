@@ -109,7 +109,7 @@
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ SBUX",
+                        "label":  "Yahoo Finance historical data — SBUX",
                         "url":  "https://finance.yahoo.com/quote/SBUX/history/",
                         "notes":  "Split-adjusted closes for 2020-03-23 and 2021-03-22; chart series and return."
                     },

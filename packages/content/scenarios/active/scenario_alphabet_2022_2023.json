@@ -112,7 +112,7 @@
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ GOOGL",
+                        "label":  "Yahoo Finance historical data — GOOGL",
                         "url":  "https://finance.yahoo.com/quote/GOOGL/history/",
                         "notes":  "Split-adjusted closes for 2022-01-03 and 2023-01-03; sampled lookback/outcome series and computed price return."
                     },

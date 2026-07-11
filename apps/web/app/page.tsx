@@ -1,7 +1,7 @@
 import Link from 'next/link';
 export default function LandingPage() {
   return (
-    <main className="page-shell flex min-h-[calc(100vh-8rem)] items-center">
+    <main id="main-content" tabIndex={-1} className="page-shell flex min-h-[calc(100vh-8rem)] items-center">
       <div className="mx-auto grid w-full items-center gap-10 lg:grid-cols-[1.05fr_.95fr]">
       <div className="max-w-2xl">
         <p className="eyebrow">Market history, disguised</p>

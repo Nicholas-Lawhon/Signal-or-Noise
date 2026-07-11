@@ -100,7 +100,7 @@
                    },
     "reveal":  {
                    "shortText":  "That was Fastly. Surging online traffic increased demand for its network services, though the business remained sensitive to large customers.",
-                   "funFact":  "The companyÃ¢â‚¬â„¢s revenue is primarily usage based, so customer traffic can affect reported growth quickly.",
+                   "funFact":  "The company’s revenue is primarily usage based, so customer traffic can affect reported growth quickly.",
                    "whyItMoved":  [
                                       "Online activity increased demand for network-performance services.",
                                       "Usage-based revenue grew with customer traffic.",
@@ -109,7 +109,7 @@
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ FSLY",
+                        "label":  "Yahoo Finance historical data — FSLY",
                         "url":  "https://finance.yahoo.com/quote/FSLY/history/",
                         "notes":  "Split-adjusted closes for 2020-01-02 and 2021-01-04; chart series and return."
                     },

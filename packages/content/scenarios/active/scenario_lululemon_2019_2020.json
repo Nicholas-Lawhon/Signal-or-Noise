@@ -112,7 +112,7 @@
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ LULU",
+                        "label":  "Yahoo Finance historical data — LULU",
                         "url":  "https://finance.yahoo.com/quote/LULU/history/",
                         "notes":  "Split-adjusted closes for 2019-01-02 and 2020-01-02; sampled lookback/outcome series and computed price return."
                     },

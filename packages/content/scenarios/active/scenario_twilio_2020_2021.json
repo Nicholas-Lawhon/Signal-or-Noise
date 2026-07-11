@@ -112,7 +112,7 @@
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ TWLO",
+                        "label":  "Yahoo Finance historical data — TWLO",
                         "url":  "https://finance.yahoo.com/quote/TWLO/history/",
                         "notes":  "Split-adjusted closes for 2020-01-02 and 2021-01-04; sampled lookback/outcome series and computed price return."
                     },

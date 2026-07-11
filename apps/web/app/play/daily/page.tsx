@@ -88,7 +88,7 @@ export default function DailyChallengePage() {
   const details = state.kind === 'ready' ? state.status : null;
 
   return (
-    <main className="page-shell flex flex-col items-center">
+    <main id="main-content" tabIndex={-1} className="page-shell flex flex-col items-center">
       <div className="w-full max-w-3xl">
         <p className="text-xs font-bold uppercase tracking-[0.18em] text-son-signalCyan">
           Same card. Same order.

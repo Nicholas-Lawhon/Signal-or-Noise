@@ -100,7 +100,7 @@
                    },
     "reveal":  {
                    "shortText":  "That was Sea Limited. Gaming bookings fell, commerce losses remained heavy, and the global growth-stock reset erased most of the prior gains.",
-                   "funFact":  "SeaÃ¢â‚¬â„¢s businesses combined digital entertainment, e-commerce, and digital financial services across multiple emerging markets.",
+                   "funFact":  "Sea’s businesses combined digital entertainment, e-commerce, and digital financial services across multiple emerging markets.",
                    "whyItMoved":  [
                                       "Bookings in the digital-entertainment business declined as pandemic engagement normalized.",
                                       "The commerce operation required substantial sales and marketing investment.",
@@ -109,12 +109,12 @@
                },
     "sources":  [
                     {
-                        "label":  "Yahoo Finance historical data Ã¢â‚¬â€ SE",
+                        "label":  "Yahoo Finance historical data — SE",
                         "url":  "https://finance.yahoo.com/quote/SE/history/",
                         "notes":  "Split-adjusted closes, chart samples, and return."
                     },
                     {
-                        "label":  "Sea Limited 2022 Form 20-F Ã¢â‚¬â€ SEC EDGAR",
+                        "label":  "Sea Limited 2022 Form 20-F — SEC EDGAR",
                         "url":  "https://www.sec.gov/edgar/browse/?CIK=1703399\u0026owner=exclude",
                         "notes":  "Segment mix, entertainment bookings, commerce investment, regional competition, and reveal claims."
                     }
