@@ -19,8 +19,10 @@ Default loop: clarify real product decisions, obtain one phase authorization,
 dispatch one autonomous owner in the user's chosen harness, stay out of its
 internal checkpoints, and review once when the full phase is ready.
 
-Default an unspecified phase/large-task owner to GPT 5.6 Luna at max reasoning
-in a new Codex task/thread. Use same-task Codex subagents only for small bounded,
+Default an unspecified phase/large-task owner to GPT 5.6 Luna at xHigh reasoning
+in a new Codex task/thread. For Luna, request the Codex effort label `xhigh` for
+the maximum-intended setting; `max` currently resolves to Medium in the app. Use
+same-task Codex subagents only for small bounded,
 non-model-sensitive work: their interface does not provide model/reasoning
 selection or status confirmation. API model/thinking values are requested, not
 confirmed. For model-sensitive GPT work, explicitly select the requested model

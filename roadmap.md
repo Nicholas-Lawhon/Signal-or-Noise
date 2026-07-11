@@ -163,9 +163,11 @@ browser checks across Chromium and mobile WebKit.
 Growth role activates per gate — see `agents/roles/growth.md` and
 `business/growth-roadmap.md`.
 
-- **Gate A — Foundation (active):** positioning, audience, name/domain/handle
-  checks, tester recruitment, channel hypotheses, and measurement requirements.
-- **Gate B — Product readiness and beta:** coordinate Phase 9 and Expo readiness;
+- **Gate A — Foundation (complete 2026-07-10):** positioning, audience,
+  name/domain/handle checks, tester recruitment, channel hypotheses, and
+  measurement requirements. Closeout: `agents/phase-closeouts/G01_growth_foundation.md`.
+- **Gate B — Product readiness and beta (next):** resolve public-name clearance
+  first, then coordinate Phase 9 and Expo readiness;
   prepare the integrated website, store assets, private testing, launch plan,
   share copy, social calendar, and creator/community outreach.
 - **Gate C — Coordinated launch:** release web, iOS, and Android with a useful

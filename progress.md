@@ -69,13 +69,22 @@ Blocked/Questions accurate. Git history and one phase closeout preserve history.
   Draft/Battle are now first-class mode entries with integrated responsive
   styling, accurate rules, non-overlapping mobile controls, and typed D053-safe
   lifecycle events.
-- **Next task:** Growth Gate A/B continues separately; the MVP feature roadmap is
-  complete and ready for the next explicitly approved product/growth phase.
+- **Growth Gate A status:** Growth Phase 1 - Foundation was accepted on
+  2026-07-10. The five internal foundation artifacts are complete; no public
+  launch, outreach, account creation, registration, spend, provider selection,
+  or product-code change was performed. Growth Gate B preparation may proceed.
+  D-01 public-name selection remains the first open decision and D-02 follows it.
+  D-03, D-04, D-05, and D-07 have approved directions with implementation or
+  external-review dependencies; D-06 formal tester recruitment is optional
+  rather than a Gate B or launch requirement.
+- **Next task:** Growth Gate B preparation may proceed; the MVP feature roadmap
+  and Growth Gate A foundation are complete.
 - **Workflow state:** D051's two parallel Phase 9 tracks converged and were
   accepted at one integrated boundary under D043.
   D054 permits direct routine branch/worktree git operations while retaining
-  Luna Low for broad diff and consequential integration work. Legacy H/R
-  artifacts remain evidence only under `agents/history/`.
+  Luna Low for broad diff and consequential integration work. Luna's
+  maximum-intended Codex reasoning uses `xhigh`, while `max` currently resolves
+  to Medium. Legacy H/R artifacts remain evidence only under `agents/history/`.
 - **Blocked/Questions:** None. A live two-authenticated-browser Battle walkthrough
   remains desirable supplemental QA, but all two-user acceptance behavior passes
   in the 20-test shared-Neon competitive suite without weakening Clerk.

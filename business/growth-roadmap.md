@@ -48,14 +48,18 @@ be approved before products are configured in any storefront.
   research, not legal clearance.
 - Private-tester recruitment plan and screener spanning puzzle players,
   finance-curious gamers, trivia players, and less-finance-oriented controls.
+  Executing the structured cohort is optional; the plan is retained as a ready
+  research instrument rather than a Gate B or launch prerequisite.
 - Measurement specification: event names, funnel definitions, attribution needs,
   consent/privacy requirements, reporting cadence, and data owner.
 - Legal/support checklist covering privacy, terms, disclaimer, support contact,
   refund handling, and store disclosures.
 
-**Metrics:** qualified tester pool, recruitment conversion, channel response,
-landing-page intent signals, and measurement coverage.
-**Exit gate:** positioning and recruitment plan approved; required names/handles
+**Metrics:** channel response, landing-page intent signals, and measurement
+coverage; qualified tester pool and recruitment conversion apply only if the
+optional structured study is activated.
+**Exit gate:** positioning approved and the optional recruitment plan available;
+required names/handles
 have no known blocker; analytics and legal requirements are implementation-ready.
 
 ### 2. Product Readiness and Private Beta
