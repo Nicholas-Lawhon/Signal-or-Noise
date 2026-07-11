@@ -11,6 +11,8 @@ export type {
   PreparedContentImport,
 } from './contentImport';
 export { RunService, parseRunOwner } from './runService';
+export { PortfolioDraftService } from './draftService';
+export { FriendBattleService } from './battleService';
 export {
   ensureUserForExternalAuth,
   getPlayerStats,
@@ -34,8 +36,25 @@ export type {
   LeaderboardRowPayload,
 } from './leaderboardService';
 export type {
+  BattleDecisionPayload,
+  BattleInvitePreviewPayload,
+  BattleListEntryPayload,
+  BattleOpponentLastCallPayload,
+  BattleOpponentPayload,
+  BattleRevealPayload,
+  BattleSelfPayload,
+  BattleStatePayload,
+  BattleStatusValue,
+  BattleSummaryPayload,
+  BattleSummaryRoundPayload,
+  BattleTimer,
+  CompletedDraftPayload,
+  CurrentDraftPayload,
   CurrentRunPayload,
   DailyChallengePayload,
+  DraftCardPayload,
+  DraftPayload,
+  DraftRevealCompanyPayload,
   PlayerStatsPayload,
   PublicIdentityPayload,
   PreDecisionRoundPayload,

@@ -39,10 +39,11 @@ current task; phase implementations and large tasks use a new task/thread.
    where test evidence, risk, or a discrepancy warrants it.
 5. Accept, or request one focused repair against the same charter. Do not create a
    fix-up handoff.
-6. On acceptance, finish the required project-file/archive edits, then have a
-   dedicated GPT 5.6 Luna task at Low reasoning perform all git operations needed
-   to integrate/commit and update branch state. Confirm its visible header before
-   work begins. Never push without user approval.
+6. On acceptance, finish the required project-file/archive edits. Use a dedicated
+   GPT 5.6 Luna task at Low reasoning for broad diff summary and consequential
+   integration/commit work; routine inspection and branch setup may be direct.
+   Confirm its visible header before delegated work begins. Never push without
+   user approval.
 
 ## Context Discipline
 

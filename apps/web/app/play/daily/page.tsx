@@ -88,8 +88,8 @@ export default function DailyChallengePage() {
   const details = state.kind === 'ready' ? state.status : null;
 
   return (
-    <main className="flex min-h-screen flex-col items-center px-4 py-8">
-      <div className="w-full max-w-md">
+    <main className="page-shell flex flex-col items-center">
+      <div className="w-full max-w-3xl">
         <p className="text-xs font-bold uppercase tracking-[0.18em] text-son-signalCyan">
           Same card. Same order.
         </p>

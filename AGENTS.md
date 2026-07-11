@@ -71,12 +71,12 @@ inside the phase without creating a new approval/report loop.
 
 ## Branches and Worktrees
 
-- In orchestrated work, all git operations are performed by a dedicated Codex
-  task using GPT 5.6 Luna at **Low** reasoning, following `agents/routing.md`;
-  orchestrators and phase owners delegate status/diff/stage/commit/branch/push
-  work instead of running git themselves. The visible task header must confirm
-  both the model and Low effort before work begins. This does not broaden push
-  or destructive-operation authority.
+- Orchestrators may perform routine status inspection and branch/worktree setup.
+  Broad diff summaries and consequential integration work (large staging,
+  commits, conflict-heavy merges, cleanup, and pushes) normally go to a
+  dedicated GPT 5.6 Luna task at **Low** reasoning under `agents/routing.md`.
+  Confirm its visible model/effort header before delegated work begins. This
+  does not broaden push or destructive-operation authority.
 - A dedicated phase branch is recommended because it gives the phase one clean
   diff and keeps incomplete work off the main branch.
 - A separate worktree is optional. Use one for parallel agents, a dirty primary

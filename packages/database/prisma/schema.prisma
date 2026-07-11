@@ -73,21 +73,55 @@ enum LeaderboardType {
   monthly_bankroll
 }
 
+enum PortfolioDraftStatus {
+  in_progress
+  completed
+  abandoned
+}
+
+enum BattleStatus {
+  awaiting_opponent
+  awaiting_ready
+  in_progress
+  completed
+  expired
+}
+
+enum BattleRoundPhase {
+  deciding
+  reveal
+}
+
+enum BattleRole {
+  creator
+  opponent
+}
+
+enum BattleOutcome {
+  creator_win
+  opponent_win
+  draw
+}
+
 model User {
-  id                              String             @id @default(cuid())
-  externalAuthId                  String?            @unique
-  email                           String?            @unique
-  displayName                     String?
-  publicAlias                     String             @unique
-  publicDisplayName               String?
-  publicDisplayNameNormalized     String?            @unique
-  createdAt                       DateTime           @default(now())
-  updatedAt                       DateTime           @updatedAt
-  profile                         Profile?
-  stats                           PlayerStats?
-  runs                            Run[]
-  roundDecisions                  RoundDecision[]
-  leaderboard                     LeaderboardEntry[]
+  id                          String               @id @default(cuid())
+  externalAuthId              String?              @unique
+  email                       String?              @unique
+  displayName                 String?
+  publicAlias                 String               @unique
+  publicDisplayName           String?
+  publicDisplayNameNormalized String?              @unique
+  createdAt                   DateTime             @default(now())
+  updatedAt                   DateTime             @updatedAt
+  profile                     Profile?
+  stats                       PlayerStats?
+  runs                        Run[]
+  roundDecisions              RoundDecision[]
+  leaderboard                 LeaderboardEntry[]
+  portfolioDrafts             PortfolioDraft[]
+  battlesCreated              FriendBattle[]       @relation("BattleCreator")
+  battlesJoined               FriendBattle[]       @relation("BattleOpponent")
+  battlePlayers               FriendBattlePlayer[]
 }
 
 model Profile {
@@ -120,11 +154,12 @@ model PlayerStats {
 }
 
 model GuestSession {
-  id              String   @id @default(cuid())
-  clientSessionId String   @unique
-  createdAt       DateTime @default(now())
-  lastSeenAt      DateTime @updatedAt
+  id              String           @id @default(cuid())
+  clientSessionId String           @unique
+  createdAt       DateTime         @default(now())
+  lastSeenAt      DateTime         @updatedAt
   runs            Run[]
+  portfolioDrafts PortfolioDraft[]
 }
 
 model Era {
@@ -190,6 +225,7 @@ model Scenario {
   contentPacks        ScenarioContentPack[]
   roundDecisions      RoundDecision[]
   poolEntries         DailyChallengePoolEntry[]
+  battleDecisions     FriendBattleDecision[]
 
   @@index([status])
   @@index([eraId])
@@ -351,6 +387,110 @@ model RoundDecision {
 
   @@unique([runId, roundIndex])
   @@index([scenarioId])
+}
+
+// Portfolio Draft (D052): six Medium hidden companies from one compatible
+// historical window, choose exactly three. The six-scenario snapshot is
+// immutable from creation; selection commits exactly once and results are
+// server-calculated. No Signal Score and no MVP leaderboard.
+model PortfolioDraft {
+  id                  String               @id @default(cuid())
+  userId              String?
+  guestSessionId      String?
+  status              PortfolioDraftStatus @default(in_progress)
+  isOfficial          Boolean              @default(false)
+  windowStart         DateTime             @db.Date
+  windowEnd           DateTime             @db.Date
+  scenarioIds         Json
+  selectedScenarioIds Json?
+  budget              Decimal
+  finalValue          Decimal?
+  optimalScenarioIds  Json?
+  optimalValue        Decimal?
+  createdAt           DateTime             @default(now())
+  completedAt         DateTime?
+  user                User?                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  guestSession        GuestSession?        @relation(fields: [guestSessionId], references: [id], onDelete: Cascade)
+
+  @@index([userId, status])
+  @@index([guestSessionId, status])
+}
+
+// Friend Battle (D052): exactly two signed-in players over one immutable
+// ordered scenario snapshot with synchronized, server-timed rounds. Server
+// time is authoritative; roundDeadlineAt is an absolute timestamp so a
+// reconnect resumes the same deadline.
+model FriendBattle {
+  id                String               @id @default(cuid())
+  inviteCode        String               @unique
+  creatorId         String
+  opponentId        String?
+  difficulty        Difficulty
+  timerSeconds      Int?
+  status            BattleStatus         @default(awaiting_opponent)
+  scenarioOrder     Json
+  startingBankroll  Decimal
+  totalRounds       Int
+  currentRoundIndex Int                  @default(0)
+  roundPhase        BattleRoundPhase     @default(deciding)
+  roundDeadlineAt   DateTime?
+  outcome           BattleOutcome?
+  createdAt         DateTime             @default(now())
+  expiresAt         DateTime
+  completedAt       DateTime?
+  creator           User                 @relation("BattleCreator", fields: [creatorId], references: [id], onDelete: Cascade)
+  opponent          User?                @relation("BattleOpponent", fields: [opponentId], references: [id], onDelete: Cascade)
+  players           FriendBattlePlayer[]
+
+  @@index([creatorId, status])
+  @@index([opponentId, status])
+}
+
+model FriendBattlePlayer {
+  id              String                 @id @default(cuid())
+  battleId        String
+  userId          String
+  role            BattleRole
+  currentBankroll Decimal
+  signalScore     Decimal                @default(0)
+  isBankrupt      Boolean                @default(false)
+  readyRound      Int                    @default(-1)
+  createdAt       DateTime               @default(now())
+  updatedAt       DateTime               @updatedAt
+  battle          FriendBattle           @relation(fields: [battleId], references: [id], onDelete: Cascade)
+  user            User                   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  decisions       FriendBattleDecision[]
+
+  @@unique([battleId, userId])
+  @@unique([battleId, role])
+}
+
+// A decision row stores its deterministic round result at submit time, but
+// player aggregates only change when the round settles (both decisions in),
+// and no result field crosses the API before the joint reveal.
+model FriendBattleDecision {
+  id                  String             @id @default(cuid())
+  battleId            String
+  userId              String
+  scenarioId          String
+  roundIndex          Int
+  action              RoundAction
+  confidence          Confidence?
+  companyGuess        String?
+  companyGuessCorrect Boolean?
+  stakeAmount         Decimal
+  bankrollBefore      Decimal
+  bankrollAfter       Decimal
+  pnlAmount           Decimal
+  signalScoreDelta    Decimal
+  wasCorrect          Boolean?
+  wasAutoPass         Boolean            @default(false)
+  createdAt           DateTime           @default(now())
+  player              FriendBattlePlayer @relation(fields: [battleId, userId], references: [battleId, userId], onDelete: Cascade)
+  scenario            Scenario           @relation(fields: [scenarioId], references: [id])
+
+  @@unique([battleId, userId, roundIndex])
+  @@index([battleId, roundIndex])
 }
 
 model LeaderboardEntry {

@@ -25,7 +25,7 @@ export default function LeaderboardsPage({ searchParams }: { searchParams: Searc
   const initialPage = Number.isInteger(rawPage) && rawPage > 0 ? rawPage : 1;
 
   return (
-    <main className="flex min-h-screen flex-col items-center px-4 py-8">
+    <main className="page-shell flex flex-col items-center">
       <LeaderboardHub
         initialBoard={initialBoard}
         initialDifficulty={initialDifficulty}

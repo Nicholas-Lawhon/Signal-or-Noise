@@ -54,3 +54,7 @@ Settled decisions. This file is the live index only: do not load historical deci
 | D048 | Daily Challenge requires login; no unofficial guest play | Active Daily/auth product rule; locked in `soul.md` |
 | D049 | Daily Challenge is repeatable; leaderboard uses best completed attempt per user/day | Active Daily/leaderboard rule; locked in `soul.md` |
 | D050 | Phase 7 leaderboard fairness, public identity, Signal aggregation, and tie ranks | Active leaderboard policy; details in `agents/history/phase_7/P07_leaderboards.md` |
+| D051 | Phase 9 splits into parallel Competitive Modes and Polish/Analytics tracks | Active Phase 9 scope/workflow; user-approved exception to the usual one-owner phase shape |
+| D052 | Portfolio Draft and synchronized Friend Battle rules | Active MVP gameplay rules; locked in `soul.md` and `agents/phases/P09A_competitive_modes.md` |
+| D053 | PostHog cookieless typed analytics | Active analytics/privacy policy; no autocapture, replay, identity, or sensitive/free-form properties |
+| D054 | Direct routine git; Luna Low for broad/consequential integration work | Active git-routing refinement; supersedes the all-git-offload wording in D043-era workflow docs |

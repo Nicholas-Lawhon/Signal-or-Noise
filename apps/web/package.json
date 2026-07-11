@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest run",
+    "test:e2e": "playwright test",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -17,6 +18,7 @@
     "@signal-or-noise/database": "workspace:^",
     "@signal-or-noise/game-engine": "workspace:*",
     "next": "^14.2.0",
+    "posthog-js": "^1.257.2",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
     "server-only": "^0.0.1",
@@ -26,6 +28,7 @@
     "@types/node": "^20.14.0",
     "@types/react": "^18.3.0",
     "@types/react-dom": "^18.3.0",
+    "@playwright/test": "^1.54.1",
     "autoprefixer": "^10.5.2",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.0",

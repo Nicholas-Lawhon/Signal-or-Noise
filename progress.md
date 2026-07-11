@@ -5,7 +5,10 @@ Blocked/Questions accurate. Git history and one phase closeout preserve history.
 
 ## Current Status
 
-- **Phase:** 0-8 COMPLETE. Phase 8 - Daily Challenge was accepted on 2026-07-10
+- **Phase:** 0-9 COMPLETE. Phase 9 - Competitive Expansion and MVP Polish was
+  accepted on 2026-07-10 after independent high-risk review, focused shared-
+  visual integration, and the final merged acceptance suite. Phase 8 - Daily
+  Challenge was accepted on 2026-07-10
   (archived charter: `agents/history/phase_8/P08_daily_challenge.md`; closeout:
   `agents/phase-closeouts/P08_daily_challenge.md`). Phase 7 - Leaderboards was
   accepted on 2026-07-10 (archived charter:
@@ -39,14 +42,43 @@ Blocked/Questions accurate. Git history and one phase closeout preserve history.
   Phase 7 adds public Daily, difficulty-separated Classic, and cumulative Signal
   leaderboards from canonical official finished runs, plus stable generated
   aliases and optional unique public display names. Current tests: game engine
-  41, content 77, database 22 (including Neon integration), web 16. Content
+  61, content 77, database 42 (including 20 competitive Neon integration
+  tests), web 26. Integrated browser smoke coverage has 20 passing checks across
+  Chromium and mobile WebKit. Content
   and Gate 2 remain at 0 errors / 40 non-blocking WARNs / 0 missing variants.
-- **Next task:** Phase 9 - MVP Polish and Growth Gate A/B preparation proceed in
-  parallel on separate branches/worktrees.
-- **Workflow state:** D043 is active: one charter, one autonomous Phase Owner,
-  one closeout, and one phase-boundary review. Legacy H/R artifacts remain
-  evidence only under `agents/history/`.
-- **Blocked/Questions:** None.
+- **Phase 9A track state:** Competitive mode engine, persistence, leakage-safe
+  APIs, and feature-local Draft/Battle screens are implemented and independently
+  high-risk reviewed at the merged boundary. The review confirmed migration
+  constraints, ownership, serializable concurrency/immutability, synchronized
+  readiness, deadline auto-Pass/reconnect, opponent privacy, expiry, bankruptcy,
+  tiebreaks, and viewer-scoped API responses against D052.
+  Migration `20260712090000_phase9a_competitive_modes` is deployed to Neon and
+  Prisma reports the schema up to date. The production build, workspace
+  typechecks, content gates, 61 game-engine tests, 22 web tests, and all 42
+  database tests pass with zero skips. Schema-backed guest Draft completes and
+  reconnects correctly in browser QA at approximately 375px and desktop.
+  Battle auth gates are responsive at both widths; the only available browser
+  session was signed out, so a live two-authenticated-browser walkthrough was
+  unavailable. Its synchronized/timed behavior is covered by 20 passing Neon
+  integration tests using two distinct users, including leakage, auto-Pass,
+  reconnect, expiry, bankruptcy, concurrency, and full completion paths.
+- **Phase 9B track state:** Adds the responsive shared shell and visual system, polished public
+  journey and gameplay reveal, accessible charts/interactions, persisted sound
+  and analytics preferences, privacy-bounded optional PostHog instrumentation,
+  complete rules/settings/disclaimer routes, and automated browser smoke QA.
+  Draft/Battle are now first-class mode entries with integrated responsive
+  styling, accurate rules, non-overlapping mobile controls, and typed D053-safe
+  lifecycle events.
+- **Next task:** Growth Gate A/B continues separately; the MVP feature roadmap is
+  complete and ready for the next explicitly approved product/growth phase.
+- **Workflow state:** D051's two parallel Phase 9 tracks converged and were
+  accepted at one integrated boundary under D043.
+  D054 permits direct routine branch/worktree git operations while retaining
+  Luna Low for broad diff and consequential integration work. Legacy H/R
+  artifacts remain evidence only under `agents/history/`.
+- **Blocked/Questions:** None. A live two-authenticated-browser Battle walkthrough
+  remains desirable supplemental QA, but all two-user acceptance behavior passes
+  in the 20-test shared-Neon competitive suite without weakening Clerk.
 
 ## How to Run
 
@@ -73,5 +105,5 @@ The web app additionally needs `apps/web/.env.local` (never committed) holding
 ## Archived History
 
 Detailed history is under `agents/history/`; read it only for a concrete
-provenance question. Phase closeouts live in `agents/phase-closeouts/`
-(latest: `P08_daily_challenge.md`).
+provenance question. Phase closeouts live in `agents/phase-closeouts/` (latest:
+`P09A_competitive_modes.md` and `P09B_polish_analytics.md`).

@@ -13,8 +13,8 @@ const DIFFICULTIES: {
 
 export default function ClassicSetupPage() {
   return (
-    <main className="flex min-h-screen flex-col items-center px-4 py-12">
-      <div className="w-full max-w-md">
+    <main className="page-shell">
+      <div className="mx-auto w-full max-w-3xl">
         <h1 className="mb-1 text-2xl font-bold text-son-text">Classic Run</h1>
         <p className="mb-8 text-sm text-son-textSecondary">
           Choose your difficulty and run length.
@@ -22,7 +22,7 @@ export default function ClassicSetupPage() {
 
         <ResumeRunCard />
 
-        <div className="space-y-3">
+        <div className="grid gap-3 sm:grid-cols-3">
           {DIFFICULTIES.map((d) => (
             <a
               key={d.key}
