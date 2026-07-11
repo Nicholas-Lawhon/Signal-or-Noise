@@ -13,7 +13,6 @@ import {
   summarizeRun,
 } from '@signal-or-noise/game-engine';
 import type { CompletedRound, RunState } from '@signal-or-noise/game-engine';
-import { ZodError } from 'zod';
 import {
   claimCompletedGuestRunSchema,
   createClassicRunSchema,
@@ -31,66 +30,21 @@ import type {
   RunSummaryPayload,
   ScenarioOrderEntry,
 } from './contracts';
+import { guessIsCorrect } from './companyGuess';
 import { DatabaseDomainError } from './errors';
-
-type TransactionClient = Prisma.TransactionClient;
+import {
+  decimalToNumber as number,
+  ownerWhere,
+  parseInput,
+  resolveOwner,
+  shuffled,
+} from './serviceUtils';
+import type { TransactionClient } from './serviceUtils';
 
 type RunWithDecisions = Run & {
   roundDecisions: RoundDecision[];
   guestSession: { clientSessionId: string } | null;
 };
-
-function parseInput<T>(parse: () => T): T {
-  try {
-    return parse();
-  } catch (error) {
-    if (error instanceof ZodError) {
-      throw new DatabaseDomainError(
-        'INVALID_INPUT',
-        error.issues.map((issue) => `${issue.path.join('.')}: ${issue.message}`).join('; '),
-      );
-    }
-    throw error;
-  }
-}
-
-function number(value: Prisma.Decimal | number): number {
-  return typeof value === 'number' ? value : value.toNumber();
-}
-
-function shuffled<T>(values: readonly T[], random: () => number): T[] {
-  const result = [...values];
-  for (let index = result.length - 1; index > 0; index -= 1) {
-    const swapIndex = Math.floor(random() * (index + 1));
-    [result[index], result[swapIndex]] = [result[swapIndex], result[index]];
-  }
-  return result;
-}
-
-function ownerWhere(owner: RunOwner): Prisma.RunWhereInput {
-  return owner.kind === 'user'
-    ? { userId: owner.userId }
-    : { guestSession: { clientSessionId: owner.guestSessionId } };
-}
-
-async function resolveOwner(
-  tx: TransactionClient,
-  owner: RunOwner,
-): Promise<{ userId: string | null; guestSessionId: string | null; isOfficial: boolean }> {
-  if (owner.kind === 'user') {
-    const user = await tx.user.findUnique({ where: { id: owner.userId }, select: { id: true } });
-    if (!user) throw new DatabaseDomainError('NOT_FOUND', 'User not found');
-    return { userId: user.id, guestSessionId: null, isOfficial: true };
-  }
-
-  const guest = await tx.guestSession.upsert({
-    where: { clientSessionId: owner.guestSessionId },
-    create: { clientSessionId: owner.guestSessionId },
-    update: {},
-    select: { id: true },
-  });
-  return { userId: null, guestSessionId: guest.id, isOfficial: false };
-}
 
 function assertRunOwner(run: RunWithDecisions, owner: RunOwner): void {
   const ownsRun = owner.kind === 'user'
@@ -146,20 +100,6 @@ function hydrateRunState(run: RunWithDecisions): RunState {
     currentStreak: run.currentStreak,
     bestStreak: run.bestStreak,
   };
-}
-
-function guessIsCorrect(
-  guess: string | undefined,
-  company: { companyName: string; ticker: string; acceptedNames: string[] },
-): boolean | null {
-  if (!guess) return null;
-  const accepted = [company.companyName, company.ticker, ...company.acceptedNames]
-    .map(normalizeCompanyGuess);
-  return accepted.includes(normalizeCompanyGuess(guess));
-}
-
-function normalizeCompanyGuess(value: string): string {
-  return value.toLowerCase().replace(/[^a-z0-9]/g, '');
 }
 
 function completionTimeMs(startedAt: Date, completedAt: Date): number {

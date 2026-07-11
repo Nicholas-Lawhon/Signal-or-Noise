@@ -79,6 +79,46 @@ export type AdvanceRunOutput = {
   didEndRun: boolean;
 };
 
+export type DraftPoolEntry = {
+  scenarioId: string;
+  actualReturnPercent: number;
+};
+
+export type DraftResult = {
+  budget: number;
+  selectedScenarioIds: string[];
+  finalValue: number;
+  optimalScenarioIds: string[];
+  optimalValue: number;
+  gapFromOptimal: number;
+};
+
+export type DraftWindowCandidate = {
+  scenarioId: string;
+  /** ISO YYYY-MM-DD */
+  decisionDate: string;
+  /** ISO YYYY-MM-DD */
+  endDate: string;
+};
+
+export type DraftWindow = {
+  scenarioIds: string[];
+  /** Latest decision date in the window — the start of the shared overlap. */
+  windowStart: string;
+  /** Earliest end date in the window — the end of the shared overlap. */
+  windowEnd: string;
+};
+
+export type BattleTimerSeconds = 30 | 60 | 120 | null;
+
+export type BattlePlayerFinalState = {
+  finalBankroll: number;
+  signalScore: number;
+  isBankrupt: boolean;
+};
+
+export type BattleVerdict = 'a' | 'b' | 'draw';
+
 export type LeaderboardTiebreakerInput = {
   finalBankroll: number;
   signalScore: number;
