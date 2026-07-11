@@ -133,6 +133,7 @@ export default function BattleHomePage() {
                     <button
                       key={option.value}
                       type="button"
+                      aria-pressed={isSelected}
                       onClick={() => setDifficulty(option.value)}
                       className={`rounded-lg border p-3 text-left transition-colors ${
                         isSelected
@@ -160,6 +161,7 @@ export default function BattleHomePage() {
                     <button
                       key={option.label}
                       type="button"
+                      aria-pressed={isSelected}
                       onClick={() => setTimerSeconds(option.value)}
                       className={`rounded-lg border px-2 py-2.5 text-sm font-semibold transition-colors ${
                         isSelected
@@ -177,7 +179,7 @@ export default function BattleHomePage() {
               </p>
 
               {createError ? (
-                <p className="mt-4 rounded-lg border border-son-red/40 bg-son-red/10 px-3 py-2 text-sm text-son-red">
+                <p role="alert" className="mt-4 rounded-lg border border-son-red/40 bg-son-red/10 px-3 py-2 text-sm text-son-red">
                   {createError}
                 </p>
               ) : null}
@@ -198,9 +200,16 @@ export default function BattleHomePage() {
             <div className="mt-6">
               <h2 className="text-base font-semibold text-son-text">Your battles</h2>
               {loadError ? (
-                <p className="mt-3 rounded-lg border border-son-red/40 bg-son-red/10 px-3 py-2 text-sm text-son-red">
-                  {loadError}
-                </p>
+                <div role="alert" className="mt-3 rounded-lg border border-son-red/40 bg-son-red/10 px-3 py-2 text-sm text-son-red">
+                  <p>{loadError}</p>
+                  <button
+                    type="button"
+                    onClick={() => void load()}
+                    className="mt-2 rounded-md border border-son-red/50 px-3 py-1.5 text-xs font-semibold text-son-text"
+                  >
+                    Retry
+                  </button>
+                </div>
               ) : battles === null ? (
                 <div className="mt-3 animate-pulse rounded-lg border border-son-border bg-son-card p-4">
                   <div className="h-4 w-2/3 rounded bg-son-surface" />

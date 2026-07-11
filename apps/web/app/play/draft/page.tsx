@@ -76,6 +76,7 @@ function DraftCard({
       <div className="mt-3 flex gap-2">
         <button
           type="button"
+          aria-expanded={expanded}
           onClick={() => setExpanded((value) => !value)}
           className="flex-1 rounded-lg border border-son-border bg-son-surface px-3 py-2 text-xs font-semibold text-son-textSecondary transition-colors hover:border-son-borderStrong"
         >
@@ -83,6 +84,7 @@ function DraftCard({
         </button>
         <button
           type="button"
+          aria-pressed={selected}
           disabled={disabled && !selected}
           onClick={onToggle}
           className={`flex-1 rounded-lg border px-3 py-2 text-xs font-semibold transition-colors ${
@@ -270,7 +272,7 @@ function DraftClient() {
               </div>
             </div>
             {actionError ? (
-              <p className="mt-4 rounded-lg border border-son-red/40 bg-son-red/10 px-3 py-2 text-sm text-son-red">
+              <p role="alert" className="mt-4 rounded-lg border border-son-red/40 bg-son-red/10 px-3 py-2 text-sm text-son-red">
                 {actionError}
               </p>
             ) : null}
@@ -328,7 +330,7 @@ function DraftClient() {
           </div>
 
           {actionError ? (
-            <p className="mt-4 rounded-lg border border-son-red/40 bg-son-red/10 px-3 py-2 text-sm text-son-red">
+            <p role="alert" className="mt-4 rounded-lg border border-son-red/40 bg-son-red/10 px-3 py-2 text-sm text-son-red">
               {actionError}
             </p>
           ) : null}
@@ -464,7 +466,7 @@ function DraftClient() {
           )}
 
           {actionError ? (
-            <p className="mt-3 rounded-lg border border-son-red/40 bg-son-red/10 px-3 py-2 text-sm text-son-red">
+            <p role="alert" className="mt-3 rounded-lg border border-son-red/40 bg-son-red/10 px-3 py-2 text-sm text-son-red">
               {actionError}
             </p>
           ) : null}

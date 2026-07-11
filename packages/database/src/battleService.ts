@@ -601,7 +601,10 @@ export class FriendBattleService {
         id: battleId,
         status: { in: ['awaiting_opponent', 'awaiting_ready', 'in_progress'] },
       },
-      data: { status: 'expired' },
+      // A deadline belongs only to an actively deciding round. Clear it when
+      // the 24-hour battle lifetime wins the race so expired reconnects never
+      // carry a stale actionable timestamp.
+      data: { status: 'expired', roundDeadlineAt: null },
     });
   }
 

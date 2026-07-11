@@ -142,11 +142,147 @@ ALTER TABLE "FriendBattlePlayer" ADD CONSTRAINT "FriendBattlePlayer_battleId_fke
 ALTER TABLE "FriendBattlePlayer" ADD CONSTRAINT "FriendBattlePlayer_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "FriendBattleDecision" ADD CONSTRAINT "FriendBattleDecision_battleId_fkey" FOREIGN KEY ("battleId") REFERENCES "FriendBattle"("id") ON DELETE CASCADE ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE "FriendBattleDecision" ADD CONSTRAINT "FriendBattleDecision_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
-
--- AddForeignKey
 ALTER TABLE "FriendBattleDecision" ADD CONSTRAINT "FriendBattleDecision_scenarioId_fkey" FOREIGN KEY ("scenarioId") REFERENCES "Scenario"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- Ownership and competitive game-state invariants that Prisma cannot express.
+ALTER TABLE "PortfolioDraft" ADD CONSTRAINT "PortfolioDraft_exactly_one_owner_check"
+CHECK (
+  ("userId" IS NOT NULL AND "guestSessionId" IS NULL)
+  OR ("userId" IS NULL AND "guestSessionId" IS NOT NULL)
+);
+
+ALTER TABLE "PortfolioDraft" ADD CONSTRAINT "PortfolioDraft_official_user_check"
+CHECK (NOT "isOfficial" OR "userId" IS NOT NULL);
+
+ALTER TABLE "PortfolioDraft" ADD CONSTRAINT "PortfolioDraft_snapshot_check"
+CHECK (
+  "budget" = 10000
+  AND "windowStart" < "windowEnd"
+  AND CASE
+    WHEN jsonb_typeof("scenarioIds") = 'array' THEN jsonb_array_length("scenarioIds") = 6
+    ELSE false
+  END
+);
+
+ALTER TABLE "PortfolioDraft" ADD CONSTRAINT "PortfolioDraft_terminal_fields_check"
+CHECK (
+  (
+    "status" = 'completed'
+    AND "selectedScenarioIds" IS NOT NULL
+    AND "optimalScenarioIds" IS NOT NULL
+    AND "finalValue" IS NOT NULL
+    AND "optimalValue" IS NOT NULL
+    AND "completedAt" IS NOT NULL
+    AND jsonb_typeof("selectedScenarioIds") = 'array'
+    AND jsonb_array_length("selectedScenarioIds") = 3
+    AND jsonb_typeof("optimalScenarioIds") = 'array'
+    AND jsonb_array_length("optimalScenarioIds") = 3
+  )
+  OR (
+    "status" IN ('in_progress', 'abandoned')
+    AND "selectedScenarioIds" IS NULL
+    AND "optimalScenarioIds" IS NULL
+    AND "finalValue" IS NULL
+    AND "optimalValue" IS NULL
+    AND "completedAt" IS NULL
+  )
+);
+
+-- At most one resumable draft exists for each owner, including concurrent starts.
+CREATE UNIQUE INDEX "PortfolioDraft_one_in_progress_user_key"
+ON "PortfolioDraft"("userId")
+WHERE "status" = 'in_progress' AND "userId" IS NOT NULL;
+
+CREATE UNIQUE INDEX "PortfolioDraft_one_in_progress_guest_key"
+ON "PortfolioDraft"("guestSessionId")
+WHERE "status" = 'in_progress' AND "guestSessionId" IS NOT NULL;
+
+ALTER TABLE "FriendBattle" ADD CONSTRAINT "FriendBattle_configuration_check"
+CHECK (
+  "timerSeconds" IS NULL OR "timerSeconds" IN (30, 60, 120)
+);
+
+ALTER TABLE "FriendBattle" ADD CONSTRAINT "FriendBattle_snapshot_check"
+CHECK (
+  "creatorId" <> "opponentId"
+  AND "currentRoundIndex" >= 0
+  AND "currentRoundIndex" < "totalRounds"
+  AND "expiresAt" = "createdAt" + INTERVAL '24 hours'
+  AND CASE
+    WHEN jsonb_typeof("scenarioOrder") = 'array'
+      THEN jsonb_array_length("scenarioOrder") = "totalRounds"
+    ELSE false
+  END
+  AND (
+    ("difficulty" = 'easy' AND "totalRounds" = 10 AND "startingBankroll" = 12500)
+    OR ("difficulty" = 'medium' AND "totalRounds" = 15 AND "startingBankroll" = 10000)
+    OR ("difficulty" = 'hard' AND "totalRounds" = 20 AND "startingBankroll" = 7500)
+  )
+);
+
+ALTER TABLE "FriendBattle" ADD CONSTRAINT "FriendBattle_status_fields_check"
+CHECK (
+  (
+    "status" = 'awaiting_opponent'
+    AND "opponentId" IS NULL
+    AND "outcome" IS NULL
+    AND "completedAt" IS NULL
+  )
+  OR (
+    "status" IN ('awaiting_ready', 'in_progress')
+    AND "opponentId" IS NOT NULL
+    AND "outcome" IS NULL
+    AND "completedAt" IS NULL
+  )
+  OR (
+    "status" = 'completed'
+    AND "opponentId" IS NOT NULL
+    AND "outcome" IS NOT NULL
+    AND "completedAt" IS NOT NULL
+  )
+  OR (
+    "status" = 'expired'
+    AND "outcome" IS NULL
+    AND "completedAt" IS NULL
+  )
+);
+
+ALTER TABLE "FriendBattle" ADD CONSTRAINT "FriendBattle_deadline_check"
+CHECK (
+  (
+    "status" = 'in_progress'
+    AND "roundPhase" = 'deciding'
+    AND "timerSeconds" IS NOT NULL
+    AND "roundDeadlineAt" IS NOT NULL
+  )
+  OR (
+    NOT ("status" = 'in_progress' AND "roundPhase" = 'deciding' AND "timerSeconds" IS NOT NULL)
+    AND "roundDeadlineAt" IS NULL
+  )
+);
+
+ALTER TABLE "FriendBattlePlayer" ADD CONSTRAINT "FriendBattlePlayer_state_check"
+CHECK (
+  "currentBankroll" >= 0
+  AND "readyRound" >= -1
+);
+
+ALTER TABLE "FriendBattleDecision" ADD CONSTRAINT "FriendBattleDecision_action_confidence_check"
+CHECK (
+  ("action" = 'pass' AND "confidence" IS NULL AND "stakeAmount" = 0)
+  OR ("action" IN ('long', 'short') AND "confidence" IS NOT NULL)
+);
+
+ALTER TABLE "FriendBattleDecision" ADD CONSTRAINT "FriendBattleDecision_bankroll_check"
+CHECK (
+  "stakeAmount" >= 0
+  AND "bankrollBefore" >= 0
+  AND "bankrollAfter" >= 0
+);
+
+-- A decision must belong to one of the battle's two immutable player rows.
+ALTER TABLE "FriendBattleDecision" ADD CONSTRAINT "FriendBattleDecision_battleId_userId_fkey"
+FOREIGN KEY ("battleId", "userId")
+REFERENCES "FriendBattlePlayer"("battleId", "userId")
+ON DELETE CASCADE ON UPDATE CASCADE;
 

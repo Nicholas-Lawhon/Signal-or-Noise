@@ -104,25 +104,24 @@ enum BattleOutcome {
 }
 
 model User {
-  id                              String             @id @default(cuid())
-  externalAuthId                  String?            @unique
-  email                           String?            @unique
-  displayName                     String?
-  publicAlias                     String             @unique
-  publicDisplayName               String?
-  publicDisplayNameNormalized     String?            @unique
-  createdAt                       DateTime           @default(now())
-  updatedAt                       DateTime           @updatedAt
-  profile                         Profile?
-  stats                           PlayerStats?
-  runs                            Run[]
-  roundDecisions                  RoundDecision[]
-  leaderboard                     LeaderboardEntry[]
-  portfolioDrafts                 PortfolioDraft[]
-  battlesCreated                  FriendBattle[]     @relation("BattleCreator")
-  battlesJoined                   FriendBattle[]     @relation("BattleOpponent")
-  battlePlayers                   FriendBattlePlayer[]
-  battleDecisions                 FriendBattleDecision[]
+  id                          String               @id @default(cuid())
+  externalAuthId              String?              @unique
+  email                       String?              @unique
+  displayName                 String?
+  publicAlias                 String               @unique
+  publicDisplayName           String?
+  publicDisplayNameNormalized String?              @unique
+  createdAt                   DateTime             @default(now())
+  updatedAt                   DateTime             @updatedAt
+  profile                     Profile?
+  stats                       PlayerStats?
+  runs                        Run[]
+  roundDecisions              RoundDecision[]
+  leaderboard                 LeaderboardEntry[]
+  portfolioDrafts             PortfolioDraft[]
+  battlesCreated              FriendBattle[]       @relation("BattleCreator")
+  battlesJoined               FriendBattle[]       @relation("BattleOpponent")
+  battlePlayers               FriendBattlePlayer[]
 }
 
 model Profile {
@@ -422,45 +421,45 @@ model PortfolioDraft {
 // time is authoritative; roundDeadlineAt is an absolute timestamp so a
 // reconnect resumes the same deadline.
 model FriendBattle {
-  id                String                 @id @default(cuid())
-  inviteCode        String                 @unique
+  id                String               @id @default(cuid())
+  inviteCode        String               @unique
   creatorId         String
   opponentId        String?
   difficulty        Difficulty
   timerSeconds      Int?
-  status            BattleStatus           @default(awaiting_opponent)
+  status            BattleStatus         @default(awaiting_opponent)
   scenarioOrder     Json
   startingBankroll  Decimal
   totalRounds       Int
-  currentRoundIndex Int                    @default(0)
-  roundPhase        BattleRoundPhase       @default(deciding)
+  currentRoundIndex Int                  @default(0)
+  roundPhase        BattleRoundPhase     @default(deciding)
   roundDeadlineAt   DateTime?
   outcome           BattleOutcome?
-  createdAt         DateTime               @default(now())
+  createdAt         DateTime             @default(now())
   expiresAt         DateTime
   completedAt       DateTime?
-  creator           User                   @relation("BattleCreator", fields: [creatorId], references: [id], onDelete: Cascade)
-  opponent          User?                  @relation("BattleOpponent", fields: [opponentId], references: [id], onDelete: Cascade)
+  creator           User                 @relation("BattleCreator", fields: [creatorId], references: [id], onDelete: Cascade)
+  opponent          User?                @relation("BattleOpponent", fields: [opponentId], references: [id], onDelete: Cascade)
   players           FriendBattlePlayer[]
-  decisions         FriendBattleDecision[]
 
   @@index([creatorId, status])
   @@index([opponentId, status])
 }
 
 model FriendBattlePlayer {
-  id              String       @id @default(cuid())
+  id              String                 @id @default(cuid())
   battleId        String
   userId          String
   role            BattleRole
   currentBankroll Decimal
-  signalScore     Decimal      @default(0)
-  isBankrupt      Boolean      @default(false)
-  readyRound      Int          @default(-1)
-  createdAt       DateTime     @default(now())
-  updatedAt       DateTime     @updatedAt
-  battle          FriendBattle @relation(fields: [battleId], references: [id], onDelete: Cascade)
-  user            User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  signalScore     Decimal                @default(0)
+  isBankrupt      Boolean                @default(false)
+  readyRound      Int                    @default(-1)
+  createdAt       DateTime               @default(now())
+  updatedAt       DateTime               @updatedAt
+  battle          FriendBattle           @relation(fields: [battleId], references: [id], onDelete: Cascade)
+  user            User                   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  decisions       FriendBattleDecision[]
 
   @@unique([battleId, userId])
   @@unique([battleId, role])
@@ -470,7 +469,7 @@ model FriendBattlePlayer {
 // player aggregates only change when the round settles (both decisions in),
 // and no result field crosses the API before the joint reveal.
 model FriendBattleDecision {
-  id                  String       @id @default(cuid())
+  id                  String             @id @default(cuid())
   battleId            String
   userId              String
   scenarioId          String
@@ -485,11 +484,10 @@ model FriendBattleDecision {
   pnlAmount           Decimal
   signalScoreDelta    Decimal
   wasCorrect          Boolean?
-  wasAutoPass         Boolean      @default(false)
-  createdAt           DateTime     @default(now())
-  battle              FriendBattle @relation(fields: [battleId], references: [id], onDelete: Cascade)
-  user                User         @relation(fields: [userId], references: [id], onDelete: Cascade)
-  scenario            Scenario     @relation(fields: [scenarioId], references: [id])
+  wasAutoPass         Boolean            @default(false)
+  createdAt           DateTime           @default(now())
+  player              FriendBattlePlayer @relation(fields: [battleId, userId], references: [battleId, userId], onDelete: Cascade)
+  scenario            Scenario           @relation(fields: [scenarioId], references: [id])
 
   @@unique([battleId, userId, roundIndex])
   @@index([battleId, roundIndex])

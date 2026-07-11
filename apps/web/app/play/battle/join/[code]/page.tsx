@@ -138,7 +138,7 @@ export default function JoinBattlePage() {
             </div>
 
             {joinError ? (
-              <p className="mt-4 rounded-lg border border-son-red/40 bg-son-red/10 px-3 py-2 text-sm text-son-red">
+              <p role="alert" className="mt-4 rounded-lg border border-son-red/40 bg-son-red/10 px-3 py-2 text-sm text-son-red">
                 {joinError}
               </p>
             ) : null}

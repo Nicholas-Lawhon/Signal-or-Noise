@@ -618,6 +618,59 @@ describeCompetitive('Phase 9A competitive modes integration', () => {
       }
     });
 
+    it('expires an active timed round without retaining an actionable deadline', async () => {
+      const started = await startedBattle({ timerSeconds: 60 });
+      expect(started.roundDeadlineAt).not.toBeNull();
+      timeOffsetMs = 24 * 3_600_000 + 1_000;
+      try {
+        const expired = await battles.getBattleState({ userId: userA, battleId: started.id });
+        expect(expired.status).toBe('expired');
+        expect(expired.roundDeadlineAt).toBeNull();
+        expect(expired.summary!.outcome).toBe('expired');
+      } finally {
+        timeOffsetMs = 0;
+      }
+    });
+
+    it('rejects persistence writes that bypass owner and two-player invariants', async () => {
+      const guest = await prisma.guestSession.upsert({
+        where: { clientSessionId: guestOne },
+        create: { clientSessionId: guestOne },
+        update: {},
+      });
+      await expect(prisma.portfolioDraft.create({
+        data: {
+          userId: userA,
+          guestSessionId: guest.id,
+          windowStart: new Date('2020-01-01T00:00:00.000Z'),
+          windowEnd: new Date('2021-01-01T00:00:00.000Z'),
+          scenarioIds: ['a', 'b', 'c', 'd', 'e', 'f'],
+          budget: 10000,
+        },
+      })).rejects.toBeDefined();
+
+      const started = await startedBattle({ timerSeconds: null });
+      const scenario = await scenarioForRound(started.id, 0);
+      await expect(prisma.friendBattleDecision.create({
+        data: {
+          battleId: started.id,
+          userId: userC,
+          scenarioId: scenario.id,
+          roundIndex: 0,
+          action: 'pass',
+          confidence: null,
+          companyGuess: null,
+          companyGuessCorrect: null,
+          stakeAmount: 0,
+          bankrollBefore: started.startingBankroll,
+          bankrollAfter: started.startingBankroll,
+          pnlAmount: 0,
+          signalScoreDelta: -0.25,
+          wasCorrect: null,
+        },
+      })).rejects.toBeDefined();
+    });
+
     it('lists battles for both participants', async () => {
       const listA = await battles.listBattles({ userId: userA });
       expect(listA.length).toBeGreaterThan(0);

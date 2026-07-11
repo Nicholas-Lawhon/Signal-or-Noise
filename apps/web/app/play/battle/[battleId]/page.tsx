@@ -96,6 +96,7 @@ function BattleRoom() {
   const [battle, setBattle] = useState<BattleStatePayload | null>(null);
   const [fatalError, setFatalError] = useState<string | null>(null);
   const [actionError, setActionError] = useState<string | null>(null);
+  const [connectionError, setConnectionError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [copied, setCopied] = useState(false);
   const [nowTick, setNowTick] = useState(() => Date.now());
@@ -136,6 +137,7 @@ function BattleRoom() {
       const result = await api.battleState(battleId);
       applyState(result.battle);
       setFatalError(null);
+      setConnectionError(null);
     } catch (error) {
       if (error instanceof ApiRequestError && (error.status === 403 || error.status === 404 || error.status === 401)) {
         setFatalError(
@@ -143,6 +145,8 @@ function BattleRoom() {
             ? 'Sign in to view this battle.'
             : 'This battle is not yours to watch.',
         );
+      } else {
+        setConnectionError('Connection lost. Retrying automatically...');
       }
       // Transient network/server errors: keep the last known state and let
       // the next poll retry — the server deadline is authoritative anyway.
@@ -263,8 +267,19 @@ function BattleRoom() {
 
   if (!battle) {
     return (
-      <main className="flex min-h-screen items-center justify-center bg-son-bg">
-        <p className="text-son-textMuted">Loading the battle...</p>
+      <main className="flex min-h-screen flex-col items-center justify-center gap-3 bg-son-bg px-4">
+        <p role="status" aria-live="polite" className="text-son-textMuted">
+          {connectionError ?? 'Loading the battle...'}
+        </p>
+        {connectionError ? (
+          <button
+            type="button"
+            onClick={() => void refresh()}
+            className="rounded-lg border border-son-border bg-son-card px-4 py-2 text-sm font-semibold text-son-textSecondary hover:border-son-borderStrong"
+          >
+            Retry now
+          </button>
+        ) : null}
       </main>
     );
   }
@@ -285,6 +300,8 @@ function BattleRoom() {
         {battle.status === 'in_progress' && battle.roundPhase === 'deciding' && (
           remainingSeconds !== null ? (
             <span
+              role="timer"
+              aria-label={`${remainingSeconds} seconds remaining`}
               className={`font-bold tabular-nums ${
                 remainingSeconds <= 10 ? 'text-son-red' : 'text-son-amber'
               }`}
@@ -343,10 +360,23 @@ function BattleRoom() {
     </div>
   );
 
-  const errorBanner = actionError ? (
-    <p className="mb-3 rounded-lg border border-son-red/40 bg-son-red/10 px-4 py-2 text-sm text-son-red">
-      {actionError}
-    </p>
+  const errorBanner = actionError || connectionError ? (
+    <div
+      role={actionError ? 'alert' : 'status'}
+      aria-live={actionError ? 'assertive' : 'polite'}
+      className="mb-3 rounded-lg border border-son-red/40 bg-son-red/10 px-4 py-2 text-sm text-son-red"
+    >
+      <p>{actionError ?? connectionError}</p>
+      {connectionError ? (
+        <button
+          type="button"
+          onClick={() => void refresh()}
+          className="mt-2 rounded-md border border-son-red/50 px-3 py-1.5 text-xs font-semibold text-son-text"
+        >
+          Retry now
+        </button>
+      ) : null}
+    </div>
   ) : null;
 
   // ---- Waiting for an opponent ----
@@ -543,6 +573,7 @@ function BattleRoom() {
               id="battle-company-guess"
               type="text"
               value={companyGuess}
+              maxLength={100}
               onChange={(event) => setCompanyGuess(event.target.value)}
               placeholder="Name the hidden company"
               className="w-full rounded-lg border border-son-border bg-son-card px-4 py-3 text-sm text-son-text outline-none transition-colors placeholder:text-son-textMuted focus:border-son-signalBlue"
@@ -561,6 +592,7 @@ function BattleRoom() {
                   <button
                     key={a}
                     type="button"
+                    aria-pressed={isSelected}
                     onClick={() => {
                       setAction(a);
                       if (a === 'pass') setConfidence(null);
@@ -599,6 +631,7 @@ function BattleRoom() {
                   <button
                     key={level}
                     type="button"
+                    aria-pressed={isSelected}
                     disabled={disabled}
                     onClick={() => setConfidence(level)}
                     className={`rounded-lg border p-3 text-left transition-colors ${classes}`}
