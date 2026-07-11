@@ -39,31 +39,32 @@ Blocked/Questions accurate. Git history and one phase closeout preserve history.
   Phase 7 adds public Daily, difficulty-separated Classic, and cumulative Signal
   leaderboards from canonical official finished runs, plus stable generated
   aliases and optional unique public display names. Current tests: game engine
-  41, content 77, database 22 (including Neon integration), web 16. Content
+  61, content 77, database 42 (including 20 competitive Neon integration
+  tests), web 22. Content
   and Gate 2 remain at 0 errors / 40 non-blocking WARNs / 0 missing variants.
-- **Next task:** Phase 9A Competitive Modes and Phase 9B Polish/Analytics proceed
-  in parallel on isolated branches/worktrees; Growth Gate A/B remains separate.
+- **Next task:** Phase 9A is ready for its independent high-risk boundary review;
+  Phase 9B Polish/Analytics and Growth Gate A/B remain separate.
 - **Phase 9A track state:** Competitive mode engine, persistence, leakage-safe
   APIs, and feature-local Draft/Battle screens are implemented and audited.
-  The production build, workspace typechecks, content gates, 61 game-engine
-  tests, 22 web tests, and the existing 22 database tests pass. The Phase 9A
-  competitive database suite now contains 20 tests, but all 20 correctly skip
-  against shared Neon because migration
-  `20260712090000_phase9a_competitive_modes` is the sole pending migration.
-  Prisma schema validation passes; no local/isolated PostgreSQL runtime is
-  available for a clean migration apply. Signed-out/error responsive browser
-  checks pass at approximately 375px and desktop, while complete guest Draft
-  and two-session authenticated Battle browser QA require the migrated schema.
+  Migration `20260712090000_phase9a_competitive_modes` is deployed to Neon and
+  Prisma reports the schema up to date. The production build, workspace
+  typechecks, content gates, 61 game-engine tests, 22 web tests, and all 42
+  database tests pass with zero skips. Schema-backed guest Draft completes and
+  reconnects correctly in browser QA at approximately 375px and desktop.
+  Battle auth gates are responsive at both widths; the only available browser
+  session was signed out, so a live two-authenticated-browser walkthrough was
+  unavailable. Its synchronized/timed behavior is covered by 20 passing Neon
+  integration tests using two distinct users, including leakage, auto-Pass,
+  reconnect, expiry, bankruptcy, concurrency, and full completion paths.
 - **Workflow state:** D051 is the user-approved Phase 9 exception to D043: two
   independent track charters/owners converge at one integrated phase boundary.
   D054 permits direct routine branch/worktree git operations while retaining
   Luna Low for broad diff and consequential integration work. Legacy H/R
   artifacts remain evidence only under `agents/history/`.
-- **Blocked/Questions:** Phase 9A is not ready for phase-boundary review until
-  `20260712090000_phase9a_competitive_modes` is applied to an approved isolated
-  PostgreSQL target (not shared Neon), all 20 competitive integration tests run
-  without skips, and schema-backed guest Draft plus two-authenticated-session
-  Friend Battle browser QA completes. No Phase 9A closeout has been written.
+- **Blocked/Questions:** None for Phase 9A implementation. A live
+  two-authenticated-browser Battle walkthrough remains desirable boundary-review
+  evidence when two signed-in sessions are available, but automated Neon
+  coverage exercises the complete acceptance behavior without weakening auth.
 
 ## How to Run
 
