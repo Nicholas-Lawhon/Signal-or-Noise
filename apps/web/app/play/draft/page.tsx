@@ -118,19 +118,12 @@ function DraftClient() {
     });
   };
 
+  // Only the changed company moves; the player balances to 100% themselves
+  // (the lock button stays disabled until the total is exactly 100%).
   const setAllocation = (slot: number, value: number) => {
     const index = selected.indexOf(slot);
     if (index < 0) return;
-    const next = [...allocations]; next[index] = value;
-    const rest = selected.map((_, i) => i).filter((i) => i !== index);
-    let remaining = 100 - value;
-    for (const [position, restIndex] of rest.entries()) {
-      const left = rest.length - position - 1;
-      const candidate = left === 0 ? remaining : Math.min(60, Math.max(10, Math.round(remaining / (left + 1) / 10) * 10));
-      next[restIndex] = candidate; remaining -= candidate;
-    }
-    if (remaining !== 0 || next.some((allocation) => allocation < 10 || allocation > 60)) return;
-    setAllocations(next);
+    setAllocations((current) => current.map((allocation, i) => (i === index ? value : allocation)));
   };
 
   const lockPicks = async () => {
