@@ -188,6 +188,27 @@ shell yet (that is queue item 3).
 is guarded by automated constraint checks; web behavior is unchanged and the full
 acceptance suite passes.
 
+**Accepted 2026-07-13.** Merged to `main` at `15d5506`. Closeout:
+`agents/phase-closeouts/P12_expo_readiness.md`.
+
+## Phase 13 — Expo Mobile App ⬜
+
+Post-MVP queue item 3. Build the native iOS/Android app with Expo in
+`apps/mobile`, consuming the Phase 12 mobile shared surface
+(`@signal-or-noise/shared-types`, `@signal-or-noise/game-engine`, the neutral
+content subpaths) and the same server APIs and server-owned scoring as web —
+no duplicated scoring logic and no scenario catalog or reveal data in the
+client bundle. Includes the mobile API client (the native equivalent of
+`apps/web/lib/api.ts`) and native auth/session handling.
+
+**Gate:** does not start until Nicholas's final MVP pass confirms auth and
+session behavior are stable, since the mobile client's auth layer designs
+against them. Phase opens with a consultant-style decision memo (Expo
+SDK/router choice, native auth strategy, dev-vs-deployed API targeting)
+before the charter.
+
+**Accept:** to be locked in the Phase 13 charter after the decision memo.
+
 ## Business Track (parallel, milestone-gated)
 
 Growth role activates per gate — see `agents/roles/growth.md` and

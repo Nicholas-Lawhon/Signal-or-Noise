@@ -95,9 +95,12 @@ Blocked/Questions accurate. Git history and one phase closeout preserve history.
   D-03, D-04, D-05, and D-07 have approved directions with implementation or
   external-review dependencies; D-06 formal tester recruitment is optional
   rather than a Gate B or launch requirement.
-- **Next task:** Choose the next phase (Post-MVP queue item 3, the Expo mobile
-  app, is the natural successor; the user may land minor MVP tweaks first).
-  Growth Gate B preparation may continue in parallel.
+- **Next task:** Nicholas does a final MVP pass to confirm no auth or session
+  behavior tweaks are wanted (auth/session must be stable before the mobile API
+  client's auth layer is designed). Then Phase 13 - Expo Mobile App begins with
+  a consultant-style decision memo (Expo SDK/router choice, native auth
+  strategy, dev-vs-deployed API targeting) and a phase charter. Growth Gate B
+  preparation may continue in parallel.
 - **Phase 10 deferred action:** Revisit the shorter landing-to-first-decision
   funnel after more behavioral playtest data. It was intentionally not
   implemented in Phase 10.
