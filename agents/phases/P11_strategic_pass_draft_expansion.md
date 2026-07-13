@@ -1,6 +1,6 @@
 # Phase 11 — Strategic Pass and Portfolio Draft Expansion
 
-**Status:** in_progress
+**Status:** accepted (2026-07-13; closeout in `agents/phase-closeouts/P11_strategic_pass_draft_expansion.md`)
 **Risk:** high
 **Owner:** multi-track dedicated Codex threads with Orchestrator integration
 **Branch/worktree:** `phase/11-strategic-pass-draft-expansion` in the project checkout

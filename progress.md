@@ -5,15 +5,17 @@ Blocked/Questions accurate. Git history and one phase closeout preserve history.
 
 ## Current Status
 
-- **Phase:** Phase 11 - Strategic Pass and Portfolio Draft Expansion is in
-  progress on `phase/11-strategic-pass-draft-expansion`. Smart Pass, weighted
+- **Phase:** Phase 12 - Shared Package Cleanup for Expo Readiness is in
+  progress on `phase/12-expo-readiness`, owned by Claude Fable (charter:
+  `agents/phases/P12_expo_readiness.md`). Phase 11 - Strategic Pass and
+  Portfolio Draft Expansion was accepted 2026-07-13: Smart Pass, weighted
   Classic/Quick/Era Drafts, format-separated solo leaderboards, and invite-based
-  Draft Battles are implemented locally. The Phase 11 migration (with playtest
-  repairs: it now also drops the stale D052 six-card and three-pick check
-  constraints that blocked Quick Drafts) is applied to the dev database and
-  content is reimported; all draft formats verified end-to-end via the API and
-  the full database suite (51 tests) is green. Final independent review remains
-  before the phase can be ready for acceptance. Phase 10 - First Playtest
+  Draft Battles are merged to `main` (`1c99037`, fix `ad4612b`); the Phase 11
+  migration (including the playtest repair dropping the stale D052 six-card and
+  three-pick check constraints) is applied to the dev database with content
+  reimported, all draft formats verified end-to-end via the API, and the full
+  database suite (51 tests) green (retroactive closeout:
+  `agents/phase-closeouts/P11_strategic_pass_draft_expansion.md`). Phase 10 - First Playtest
   Repairs is accepted and complete. Phases 0-9 are complete. Phase 9 - Competitive
   Expansion and MVP Polish was
   accepted on 2026-07-10 after independent high-risk review, focused shared-
@@ -87,9 +89,9 @@ Blocked/Questions accurate. Git history and one phase closeout preserve history.
   D-03, D-04, D-05, and D-07 have approved directions with implementation or
   external-review dependencies; D-06 formal tester recruitment is optional
   rather than a Gate B or launch requirement.
-- **Next task:** Complete Phase 11 migrated PostgreSQL verification, resolve the
-  independent high-risk review, and close the phase. Growth Gate B preparation
-  may continue in parallel.
+- **Next task:** Execute Phase 12 (audit shared packages, extract the
+  platform-neutral shared surface, add constraint checks and the Metro/RN bundle
+  smoke test). Growth Gate B preparation may continue in parallel.
 - **Phase 10 deferred action:** Revisit the shorter landing-to-first-decision
   funnel after more behavioral playtest data. It was intentionally not
   implemented in Phase 10.
@@ -99,11 +101,8 @@ Blocked/Questions accurate. Git history and one phase closeout preserve history.
   Luna Low for broad diff and consequential integration work. Luna's
   maximum-intended Codex reasoning uses `xhigh`, while `max` currently resolves
   to Medium. Legacy H/R artifacts remain evidence only under `agents/history/`.
-- **Blocked/Questions:** Phase 11's migration and new PostgreSQL integration cases
-  require an authorized disposable/test database migration run (or authorization
-  to deploy the checked-in migration to the shared Neon development database).
-  No Phase 11 migration has been deployed. A live two-authenticated-browser
-  Battle walkthrough remains desirable supplemental QA.
+- **Blocked/Questions:** None. A live two-authenticated-browser Battle
+  walkthrough remains desirable supplemental QA (carried from Phases 9A/11).
 
 ## How to Run
 

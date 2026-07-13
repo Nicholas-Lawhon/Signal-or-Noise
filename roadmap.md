@@ -158,7 +158,7 @@ independent review. Shared Neon is migrated; the final merged suite reports 61
 engine, 77 content, 42 database, and 26 web tests with zero skips, plus 20/20
 browser checks across Chromium and mobile WebKit.
 
-## Phase 11 — Strategic Pass and Portfolio Draft Expansion ⬜
+## Phase 11 — Strategic Pass and Portfolio Draft Expansion ✅
 
 Add curator-reviewed Smart Pass scoring to every Classic-style decision loop.
 Expand Portfolio Draft with Classic, Quick, and Era formats, constrained variable
@@ -170,6 +170,23 @@ controlling requirements under D055.
 Classic, Daily, and Friend Battle; all three weighted Draft formats, official
 format-separated leaderboards, and invite-based Draft Battles work end to end;
 the full acceptance suite and independent high-risk review pass.
+
+**Accepted 2026-07-13.** Merged to `main` at `1c99037` with follow-up playtest
+fix `ad4612b`. Closeout: `agents/phase-closeouts/P11_strategic_pass_draft_expansion.md`.
+
+## Phase 12 — Shared Package Cleanup for Expo Readiness ⬜
+
+Post-MVP queue item 2. Make `packages/game-engine`, `packages/content` (its
+consumable surface), and the shared type/contract surface provably consumable by
+a future Expo/React Native app: extract shared types and API contracts to a
+platform-neutral home, remove web/Node-only coupling from what mobile will
+import, and add enforceable import/dependency constraints plus a Metro/React
+Native bundling smoke test. Zero behavior change to the web app; no Expo app
+shell yet (that is queue item 3).
+
+**Accept:** the shared surface mobile needs bundles under Metro/React Native and
+is guarded by automated constraint checks; web behavior is unchanged and the full
+acceptance suite passes.
 
 ## Business Track (parallel, milestone-gated)
 
