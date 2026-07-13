@@ -4,7 +4,7 @@ import { getDraftService } from '@/lib/server/database';
 import { apiContext, candidateOwners, getRequestIdentity } from '@/lib/server/identity';
 import { ensureGuestSessionId } from '@/lib/server/guestSession';
 import { jsonError, toErrorResponse } from '@/lib/server/apiErrors';
-import { parseEmptyMutationRequest } from '@/lib/server/requests';
+import { createDraftRequestSchema } from '@/lib/server/requests';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -12,14 +12,14 @@ export const dynamic = 'force-dynamic';
 /** Portfolio Draft is open to guests (D052); signed-in completions save. */
 export async function POST(request: Request): Promise<NextResponse> {
   try {
-    if (!(await parseEmptyMutationRequest(request))) {
-      return jsonError(400, 'INVALID_INPUT', 'This request does not accept a body');
-    }
+    const body = await request.json().catch(() => ({}));
+    const parsed = createDraftRequestSchema.safeParse(body);
+    if (!parsed.success) return jsonError(400, 'INVALID_INPUT', 'Invalid Draft format or era');
     const identity = await getRequestIdentity();
     const owner: RunOwner = identity.user
       ? { kind: 'user', userId: identity.user.userId }
       : { kind: 'guest', guestSessionId: ensureGuestSessionId() };
-    const draft = await getDraftService().createDraft({ owner });
+    const draft = await getDraftService().createDraft({ owner, ...parsed.data });
     return NextResponse.json({ draft, context: apiContext(identity) });
   } catch (error) {
     return toErrorResponse(error);

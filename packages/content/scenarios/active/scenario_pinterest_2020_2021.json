@@ -120,6 +120,10 @@
                     }
                 ],
     "review":  {
+      "smartPass": {
+        "eligible": false,
+        "explanation": "The pre-decision evidence forms a comparatively readable directional case. Countervailing risks remain, but they do not create enough unresolved tension for Smart Pass."
+      },
                    "generatedByAi":  true,
                    "humanReviewed":  true,
                    "reviewNotes":  "Moderate; adversarial rewrite from clean stored Grok evidence. Changed Medium and Hard plus the identifying Discovery Loop title, so every sibling payload requires rejudge. Removed discovery, visual, intent, advertising, commerce-feature, and engagement-inventory conjunctions that pointed directly to Pinterest. New usage-to-business-monetization tension fits Reddit, Spotify, Snap, Match Group, Yelp, and Pinterest. Stored review.gate2 remains intact and stale by hash.",

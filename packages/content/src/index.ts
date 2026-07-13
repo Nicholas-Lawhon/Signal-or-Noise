@@ -15,6 +15,7 @@ export type {
   ScenarioSource,
   FactBank,
   Review,
+  SmartPassReview,
   Scenario,
   ValidationIssue,
   ValidationWarning,
@@ -33,6 +34,7 @@ export {
   dailyChallengePoolsSchema,
   marketEraSchema,
   marketErasSchema,
+  smartPassReviewSchema,
 } from './schema';
 
 export {

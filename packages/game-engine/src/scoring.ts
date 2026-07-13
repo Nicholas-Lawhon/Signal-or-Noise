@@ -10,11 +10,13 @@ export function scoreRound(input: ScoreRoundInput): ScoreRoundOutput {
         : 0;
 
   if (input.action === 'pass') {
+    const smartPassAwarded = input.smartPassEligible === true;
     return {
       stakeAmount: 0,
       pnlAmount: 0,
       newBankroll: input.currentBankroll,
-      signalScoreDelta: -0.25 + guessDelta,
+      signalScoreDelta: (smartPassAwarded ? 1 : -0.25) + guessDelta,
+      smartPassAwarded,
       wasCorrect: null,
     };
   }
@@ -34,5 +36,12 @@ export function scoreRound(input: ScoreRoundInput): ScoreRoundOutput {
     : Math.max(0, input.currentBankroll + pnlAmount);
   const baseSignalScoreDelta = wasCorrect ? config.signalScoreValue : config.signalScoreValue * -1;
   const signalScoreDelta = baseSignalScoreDelta + guessDelta;
-  return { stakeAmount, pnlAmount, newBankroll, signalScoreDelta, wasCorrect };
+  return {
+    stakeAmount,
+    pnlAmount,
+    newBankroll,
+    signalScoreDelta,
+    smartPassAwarded: false,
+    wasCorrect,
+  };
 }

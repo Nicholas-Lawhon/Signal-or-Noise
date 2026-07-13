@@ -35,8 +35,13 @@ export default function PlayPage() {
 
           <TrackedLink event={{ name: 'mode_selected', properties: { mode: 'portfolio_draft' } }} href="/play/draft" className="panel block min-h-44 p-6 transition hover:-translate-y-1 hover:border-son-signalCyan/60">
             <p className="eyebrow">Pick the winners</p><h2 className="mt-2 text-lg font-semibold text-son-text">Portfolio Draft</h2>
-            <p className="mt-1 text-sm leading-relaxed text-son-textSecondary">Six hidden companies from one historical window. Draft exactly three and chase the optimal portfolio.</p>
+            <p className="mt-1 text-sm leading-relaxed text-son-textSecondary">Classic, Quick, or Era formats with 10% weighted allocations and a separate official solo leaderboard.</p>
             <span className="mt-3 inline-block rounded-full border border-son-borderSubtle px-3 py-1 text-xs text-son-textMuted">Guest friendly · No leaderboard</span>
+          </TrackedLink>
+          <TrackedLink event={{ name: 'mode_selected', properties: { mode: 'draft_battle' } }} href="/play/draft-battle" className="panel block min-h-44 p-6 transition hover:-translate-y-1 hover:border-son-signalCyan/60">
+            <p className="eyebrow">Private head to head</p><h2 className="mt-2 text-lg font-semibold text-son-text">Draft Battle</h2>
+            <p className="mt-1 text-sm leading-relaxed text-son-textSecondary">Two signed-in players, the same immutable cards, private weighted portfolios, and server-owned 2-minute or 5-minute deadlines.</p>
+            <span className="mt-3 inline-block rounded-full border border-son-borderSubtle px-3 py-1 text-xs text-son-textMuted">Opaque invite · no solo ranking</span>
           </TrackedLink>
           <TrackedLink event={{ name: 'mode_selected', properties: { mode: 'friend_battle' } }} href="/play/battle" className="panel block min-h-44 p-6 transition hover:-translate-y-1 hover:border-son-signalCyan/60">
             <p className="eyebrow">Head to head</p><h2 className="mt-2 text-lg font-semibold text-son-text">Friend Battle</h2>

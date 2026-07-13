@@ -32,6 +32,7 @@ import type {
 } from './contracts';
 import { guessIsCorrect } from './companyGuess';
 import { DatabaseDomainError } from './errors';
+import { parseSmartPassReview } from './smartPass';
 import {
   decimalToNumber as number,
   ownerWhere,
@@ -462,6 +463,7 @@ export class RunService {
           ticker: true,
           outcomeLabel: true,
           acceptedNames: true,
+          factBank: true,
           endingPrice: true,
           actualReturnPercent: true,
           revealShortText: true,
@@ -476,12 +478,14 @@ export class RunService {
       });
       if (!scenario) throw new DatabaseDomainError('INVALID_STATE', 'Current scenario is missing');
 
+      const smartPass = parseSmartPassReview(scenario.factBank);
       const companyGuessCorrect = guessIsCorrect(parsed.companyGuess, scenario);
       const advanced = advanceRun(hydrateRunState(run), {
         scenarioId: scenario.id,
         action: parsed.action,
         confidence: parsed.confidence,
         actualReturnPercent: number(scenario.actualReturnPercent),
+        smartPassEligible: smartPass.eligible,
         companyGuess: parsed.companyGuess ?? null,
         companyGuessCorrect,
       });
@@ -559,6 +563,8 @@ export class RunService {
             date: point.pointDate.toISOString().slice(0, 10),
             price: number(point.price),
           })),
+          smartPassEligible: smartPass.eligible,
+          smartPassExplanation: smartPass.explanation,
         },
       };
     }, { isolationLevel: 'Serializable', timeout: 30_000 });

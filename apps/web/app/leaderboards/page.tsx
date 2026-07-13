@@ -10,7 +10,7 @@ function isUtcCalendarDate(value: string): boolean {
 
 export default function LeaderboardsPage({ searchParams }: { searchParams: SearchParams }) {
   const rawBoard = typeof searchParams.board === 'string' ? searchParams.board : 'daily';
-  const initialBoard = rawBoard === 'classic' || rawBoard === 'signal' ? rawBoard : 'daily';
+  const initialBoard = rawBoard === 'classic' || rawBoard === 'signal' || rawBoard === 'draft' ? rawBoard : 'daily';
   const rawDifficulty = typeof searchParams.difficulty === 'string'
     ? searchParams.difficulty
     : 'easy';
@@ -23,6 +23,8 @@ export default function LeaderboardsPage({ searchParams }: { searchParams: Searc
     : new Date().toISOString().slice(0, 10);
   const rawPage = typeof searchParams.page === 'string' ? Number(searchParams.page) : 1;
   const initialPage = Number.isInteger(rawPage) && rawPage > 0 ? rawPage : 1;
+  const rawDraftFormat = typeof searchParams.format === 'string' ? searchParams.format : 'classic';
+  const initialDraftFormat = rawDraftFormat === 'quick' || rawDraftFormat === 'era' ? rawDraftFormat : 'classic';
 
   return (
     <main id="main-content" tabIndex={-1} className="page-shell flex flex-col items-center">
@@ -31,6 +33,7 @@ export default function LeaderboardsPage({ searchParams }: { searchParams: Searc
         initialDifficulty={initialDifficulty}
         initialDate={initialDate}
         initialPage={initialPage}
+        initialDraftFormat={initialDraftFormat}
       />
     </main>
   );

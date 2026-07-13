@@ -2,15 +2,18 @@ import { ANALYTICS_KEY, readPreference } from './preferences';
 
 export type AnalyticsEvent =
   | { name: 'page_viewed'; properties: { area: 'landing' | 'play' | 'rules' | 'settings' | 'disclaimer' | 'leaderboards' | 'profile' } }
-  | { name: 'mode_selected'; properties: { mode: 'classic' | 'daily' | 'portfolio_draft' | 'friend_battle' } }
+  | { name: 'mode_selected'; properties: { mode: 'classic' | 'daily' | 'portfolio_draft' | 'friend_battle' | 'draft_battle' } }
   | { name: 'run_started'; properties: { mode: 'classic' | 'daily'; difficulty?: 'easy' | 'medium' | 'hard' } }
   | { name: 'round_submitted'; properties: { mode: 'classic' | 'daily'; action: 'long' | 'short' | 'pass'; confidence?: 'low' | 'medium' | 'high' | 'all_in' } }
   | { name: 'reveal_viewed'; properties: { mode: 'classic' | 'daily'; result: 'win' | 'loss' | 'pass' | 'flat' } }
   | { name: 'run_completed'; properties: { mode: 'classic' | 'daily'; status: 'completed' | 'bankrupt' } }
-  | { name: 'draft_started'; properties: Record<string, never> }
-  | { name: 'draft_completed'; properties: Record<string, never> }
+  | { name: 'draft_started'; properties: { format: 'classic' | 'quick' | 'era' } }
+  | { name: 'draft_completed'; properties: { format: 'classic' | 'quick' | 'era' } }
+  | { name: 'draft_battle_created'; properties: { format: 'classic' | 'quick' | 'era' } }
+  | { name: 'draft_battle_submitted'; properties: { format: 'classic' | 'quick' | 'era' } }
   | { name: 'battle_invite_created'; properties: Record<string, never> }
   | { name: 'battle_joined'; properties: Record<string, never> }
+  | { name: 'draft_battle_joined'; properties: { format: 'classic' | 'quick' | 'era' } }
   | { name: 'battle_completed'; properties: { outcome: 'win' | 'loss' | 'draw' } };
 
 type PostHogWindow = Window & { posthog?: { capture: (name: string, properties: object) => void } };

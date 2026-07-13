@@ -58,3 +58,4 @@ Settled decisions. This file is the live index only: do not load historical deci
 | D052 | Portfolio Draft and synchronized Friend Battle rules | Active MVP gameplay rules; locked in `soul.md` and `agents/phases/P09A_competitive_modes.md` |
 | D053 | PostHog cookieless typed analytics | Active analytics/privacy policy; no autocapture, replay, identity, or sensitive/free-form properties |
 | D054 | Direct routine git; Luna Low for broad/consequential integration work | Active git-routing refinement; supersedes the all-git-offload wording in D043-era workflow docs |
+| D055 | Phase 11 Smart Pass and weighted Draft expansion | Active gameplay/scoring rules; locked in `soul.md` and `agents/phases/P11_strategic_pass_draft_expansion.md` |

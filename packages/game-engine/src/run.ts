@@ -75,6 +75,7 @@ export function applyRoundResult(run: RunState, input: ApplyRoundResultInput): R
     currentBankroll: run.currentBankroll,
     actualReturnPercent: input.actualReturnPercent,
     companyGuessCorrect: input.companyGuessCorrect ?? null,
+    smartPassEligible: input.smartPassEligible,
   });
 
   const round: CompletedRound = {

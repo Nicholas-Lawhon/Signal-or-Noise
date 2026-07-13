@@ -61,6 +61,20 @@ const LIKELY_GUESS_COUNT_RULES: Record<
   hard: { min: 4, max: null, reviewKey: 'hardLikelyGuesses' },
 };
 
+const SMART_PASS_INCONCLUSIVE_TERMS = [
+  'uncertain',
+  'inconclusive',
+  'mixed',
+  'tension',
+  'trade-off',
+  'tradeoff',
+  'either',
+  'versus',
+  'conflict',
+  'ambiguous',
+  'could',
+] as const;
+
 function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
@@ -163,6 +177,51 @@ function checkIdentityBannedTerms(
       message:
         'reviewed/active scenarios must list at least one identity-banned term',
     });
+  }
+}
+
+function checkSmartPassReview(
+  scenario: Scenario,
+  errors: ValidationIssue[],
+): void {
+  if (scenario.status !== 'reviewed' && scenario.status !== 'active') return;
+
+  const smartPass = scenario.review.smartPass;
+  if (!smartPass) {
+    errors.push({
+      path: 'review.smartPass',
+      message: 'reviewed/active scenarios must include Smart Pass metadata',
+    });
+    return;
+  }
+
+  const explanation = smartPass.explanation.trim();
+  if (
+    !SMART_PASS_INCONCLUSIVE_TERMS.some((term) =>
+      textContainsTerm(explanation, term),
+    )
+  ) {
+    errors.push({
+      path: 'review.smartPass.explanation',
+      message:
+        'Smart Pass explanation must describe genuinely inconclusive or competing pre-decision evidence',
+    });
+  }
+
+  const identityTerms = [
+    scenario.company.name,
+    scenario.company.ticker,
+    ...scenario.company.acceptedNames,
+    ...scenario.company.identityBannedTerms,
+  ];
+  for (const term of identityTerms) {
+    if (textContainsTerm(explanation, term)) {
+      errors.push({
+        path: 'review.smartPass.explanation',
+        message: `Smart Pass explanation must not name the hidden company or identity term "${term}"`,
+      });
+      break;
+    }
   }
 }
 
@@ -468,6 +527,7 @@ export function validateScenario(
   checkSetupHintCounts(scenario, errors);
   checkLeakage(scenario, errors);
   checkIdentityBannedTerms(scenario, errors);
+  checkSmartPassReview(scenario, errors);
   checkReturnPercent(scenario, errors);
   checkPriceReturnConsistency(scenario, errors);
   checkDateWindows(scenario, errors);

@@ -402,6 +402,10 @@ function ClassicRunClient() {
           {/* Make the Call */}
           <div className="mb-4">
             <p className="mb-2 text-sm font-semibold text-son-text">Make the Call</p>
+            <p className="mb-2 text-xs leading-relaxed text-son-textMuted">
+              Pass risks no bankroll. Some curator-reviewed cards are genuinely inconclusive
+              and award +1 Smart Pass Signal, but you will only learn that after the reveal.
+            </p>
             <div className="flex gap-2">
               {(['long', 'short', 'pass'] as RoundAction[]).map((a) => {
                 const isSelected = action === a;
@@ -601,6 +605,24 @@ function ClassicRunClient() {
                   {formatSignalScore(lastRound.signalScoreDelta)}
                 </span>
               </p>
+              {isPass && (
+                <div
+                  className={`rounded-lg border px-3 py-2 text-sm leading-relaxed ${
+                    reveal.smartPassEligible
+                      ? 'border-son-green/40 bg-son-green/10 text-son-green'
+                      : 'border-son-border bg-son-surface text-son-textSecondary'
+                  }`}
+                >
+                  <p className="font-semibold">
+                    {reveal.smartPassEligible
+                      ? 'Smart Pass: +1 Signal'
+                      : 'Standard Pass: −0.25 Signal'}
+                  </p>
+                  <p className="mt-1 text-xs leading-relaxed opacity-90">
+                    {reveal.smartPassExplanation}
+                  </p>
+                </div>
+              )}
               {lastRound.companyGuess && lastRound.companyGuessCorrect === true && (
                 <p className="text-son-green">
                   You called it &mdash; it was {reveal.companyName}. +2 Signal

@@ -11,6 +11,8 @@ describe('content import preparation', () => {
   it('validates all production content before database work', () => {
     const prepared = prepareContentImport(getDefaultContentImportSource());
     expect(prepared.scenarios).toHaveLength(40);
+    expect(prepared.scenarios.every((scenario) => scenario.review.smartPass)).toBe(true);
+    expect(prepared.scenarios.filter((scenario) => scenario.review.smartPass?.eligible)).toHaveLength(8);
     expect(prepared.scenarios.flatMap((scenario) => Object.keys(scenario.hiddenCard))).toHaveLength(120);
     expect(prepared.catalog.marketEras).toHaveLength(10);
     expect(prepared.catalog.dailyChallengePools).toHaveLength(10);
@@ -59,6 +61,7 @@ describe('round submission contract', () => {
       currentBankroll: 999999,
       actualReturnPercent: 20,
       signalScore: 500,
+      smartPassEligible: true,
     }).success).toBe(false);
   });
 

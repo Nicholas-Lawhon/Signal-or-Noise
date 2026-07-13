@@ -114,6 +114,10 @@
     }
   ],
   "review": {
+    "smartPass": {
+      "eligible": false,
+      "explanation": "The pre-decision evidence forms a comparatively readable directional case. Countervailing risks remain, but they do not create enough unresolved tension for Smart Pass."
+    },
     "generatedByAi": true,
     "humanReviewed": false,
     "reviewNotes": "H032 rewrote Medium and Hard after H030: the fixed boom-collapse-recovery silhouette plus an engagement/retention and subscription-media frame made Netflix dominant. The new variants use broader consumer-platform repeat-use, monetization, and acquisition-cost tension so 2011-2012 digital casualties also fit. Medium peer set: Groupon/Zynga/Pandora/Yelp. Hard peer set: Groupon/Zynga/Pandora/Yelp/Angie's List. Easy and shared labels remain unchanged; Medium/Hard Gate 2 results were removed as stale for blind rejudge.",

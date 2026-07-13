@@ -121,6 +121,10 @@
                     }
                 ],
     "review":  {
+      "smartPass": {
+        "eligible": false,
+        "explanation": "The pre-decision evidence forms a comparatively readable directional case. Countervailing risks remain, but they do not create enough unresolved tension for Smart Pass."
+      },
                    "generatedByAi":  true,
                    "humanReviewed":  true,
                    "reviewNotes":  "Famous; adversarial rewrite from clean stored Grok evidence. Ford Medium remains byte-identical because it passes; only Hard changed. Removed finished-goods, vehicle, factory-utilization, and transport-transition conjunctions that kept Ford and auto peers dominant. Hard now fits Caterpillar, GE, Intel, Boeing, appliance makers, and Ford through scarce supply versus redesign spending. Stored Hard review.gate2 is preserved but stale by hash.",

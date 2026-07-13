@@ -123,6 +123,10 @@
                     }
                 ],
     "review":  {
+      "smartPass": {
+        "eligible": false,
+        "explanation": "The pre-decision evidence forms a comparatively readable directional case. Countervailing risks remain, but they do not create enough unresolved tension for Smart Pass."
+      },
                    "generatedByAi":  true,
                    "humanReviewed":  true,
                    "reviewNotes":  "Famous; adversarial rewrite from clean stored Grok evidence. Changed Medium and Hard plus the identifying Attention Economy title, so all sibling payloads require rejudge. Removed advertising, audience, attention, social, privacy, and strategic-bet conjunctions that made Meta dominant. The mature digital cash engine versus long-horizon spend now fits Alphabet, Amazon, Microsoft, Tencent, Adobe, and Meta. Stored review.gate2 is intact and stale by hash.",

@@ -3,12 +3,15 @@ import type {
   BattleListEntryPayload,
   BattleStatePayload,
   BattleTimer,
+  DraftBattleInvitePreviewPayload,
+  DraftBattleStatePayload,
   CompletedDraftPayload,
   CurrentDraftPayload,
   CurrentRunPayload,
   DailyChallengePayload,
   DraftPayload,
   LeaderboardPagePayload,
+  DraftLeaderboardPagePayload,
   PlayerStatsPayload,
   PublicIdentityPayload,
   RevealPayload,
@@ -39,6 +42,10 @@ export type SubmitDecisionResult = {
 };
 
 export type LeaderboardApiPayload = LeaderboardPagePayload & {
+  viewer: { isAuthenticated: boolean };
+};
+
+export type DraftLeaderboardApiPayload = DraftLeaderboardPagePayload & {
   viewer: { isAuthenticated: boolean };
 };
 
@@ -123,11 +130,12 @@ export const api = {
       completedAttempts: number;
       context: ApiContext;
     }>('/api/daily/attempts'),
-  leaderboard: (query: LeaderboardApiQuery) => {
+  leaderboard: (query: LeaderboardApiQuery | { board: 'draft'; format: 'classic' | 'quick' | 'era'; page?: number }) => {
     const params = new URLSearchParams();
     params.set('board', query.board);
     if (query.board === 'daily') params.set('date', query.date);
     if (query.board === 'classic') params.set('difficulty', query.difficulty);
+    if (query.board === 'draft') params.set('format', query.format);
     if (query.page) params.set('page', String(query.page));
     return apiFetch<LeaderboardApiPayload>(`/api/leaderboards?${params.toString()}`);
   },
@@ -139,9 +147,14 @@ export const api = {
       body: JSON.stringify({ displayName }),
     }),
   // Portfolio Draft (D052)
-  createDraft: () =>
+  draftEras: () =>
+    apiFetch<{ eras: Array<{ id: string; name: string; description: string }> }>('/api/draft/eras'),
+  draftHistory: () =>
+    apiFetch<{ history: Array<{ id: string; format: 'classic' | 'quick' | 'era'; finalValue: number; gapFromOptimal: number; completedAt: string }>; context: ApiContext }>('/api/draft/history'),
+  createDraft: (format: 'classic' | 'quick' | 'era' = 'classic', eraId?: string) =>
     apiFetch<{ draft: CurrentDraftPayload; context: ApiContext }>('/api/draft', {
       method: 'POST',
+      body: JSON.stringify({ format, ...(eraId ? { eraId } : {}) }),
     }),
   currentDraft: () =>
     apiFetch<{ draft: CurrentDraftPayload | null; context: ApiContext }>('/api/draft'),
@@ -149,11 +162,27 @@ export const api = {
     apiFetch<{ draft: DraftPayload; context: ApiContext }>(
       `/api/draft/${encodeURIComponent(draftId)}`,
     ),
-  submitDraftSelections: (draftId: string, slots: number[]) =>
+  submitDraftSelections: (draftId: string, slots: number[], allocations: number[]) =>
     apiFetch<{ draft: CompletedDraftPayload; context: ApiContext }>(
       `/api/draft/${encodeURIComponent(draftId)}/selections`,
-      { method: 'POST', body: JSON.stringify({ slots }) },
+      { method: 'POST', body: JSON.stringify({ slots, ...(allocations ? { allocations } : {}) }) },
     ),
+  createDraftBattle: (format: 'classic' | 'quick' | 'era', timerSeconds: 120 | 300 | null, eraId?: string) =>
+    apiFetch<{ battle: DraftBattleStatePayload; context: ApiContext }>('/api/draft-battles', {
+      method: 'POST',
+      body: JSON.stringify({ format, timerSeconds, ...(eraId ? { eraId } : {}) }),
+    }),
+  draftBattleInvite: (code: string) =>
+    apiFetch<{ invite: DraftBattleInvitePreviewPayload; context: ApiContext }>(`/api/draft-battles/invite/${encodeURIComponent(code)}`),
+  joinDraftBattle: (code: string) =>
+    apiFetch<{ battle: DraftBattleStatePayload; context: ApiContext }>(`/api/draft-battles/invite/${encodeURIComponent(code)}/join`, { method: 'POST' }),
+  draftBattleState: (battleId: string) =>
+    apiFetch<{ battle: DraftBattleStatePayload; context: ApiContext }>(`/api/draft-battles/${encodeURIComponent(battleId)}`),
+  submitDraftBattle: (battleId: string, slots: number[], allocations: number[]) =>
+    apiFetch<{ battle: DraftBattleStatePayload; context: ApiContext }>(`/api/draft-battles/${encodeURIComponent(battleId)}/submissions`, {
+      method: 'POST',
+      body: JSON.stringify({ slots, allocations }),
+    }),
   // Friend Battle (D052)
   createBattle: (difficulty: 'easy' | 'medium' | 'hard', timerSeconds: BattleTimer) =>
     apiFetch<{ battle: BattleStatePayload; context: ApiContext }>('/api/battles', {

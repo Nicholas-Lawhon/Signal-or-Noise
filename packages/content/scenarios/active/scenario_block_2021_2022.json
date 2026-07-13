@@ -120,6 +120,10 @@
                     }
                 ],
     "review":  {
+      "smartPass": {
+        "eligible": false,
+        "explanation": "The pre-decision evidence forms a comparatively readable directional case. Countervailing risks remain, but they do not create enough unresolved tension for Smart Pass."
+      },
                    "generatedByAi":  true,
                    "humanReviewed":  true,
                    "reviewNotes":  "Moderate bucket. Stored Grok evidence isolated the merchant-plus-consumer ecosystems and two-sided fintech framing as the M/H identity path. Both variants now use a multi-product digital platform, customer-group expansion, integration complexity, and uneven product economics that fit broader software and service peers. Easy is unchanged. Stored M/H Gate 2 evidence is intentionally retained and stale pending blind rejudge.",

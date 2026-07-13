@@ -36,6 +36,35 @@ export const leaderboardQuerySchema = z.discriminatedUnion('board', [
   }).strict(),
 ]);
 
+export const draftLeaderboardQuerySchema = z.object({
+  format: z.enum(['classic', 'quick', 'era']),
+  page: z.number().int().positive().default(1),
+  pageSize: z.number().int().min(1).max(50).default(25),
+}).strict();
+
+export type DraftLeaderboardQuery = z.infer<typeof draftLeaderboardQuerySchema>;
+
+export type DraftLeaderboardPagePayload = {
+  format: 'classic' | 'quick' | 'era';
+  rows: Array<{
+    rank: number;
+    publicName: string;
+    finalValue: number;
+    gapFromOptimal: number;
+    completedAt: string;
+    isCurrentUser: boolean;
+  }>;
+  currentUserRow: {
+    rank: number;
+    publicName: string;
+    finalValue: number;
+    gapFromOptimal: number;
+    completedAt: string;
+    isCurrentUser: boolean;
+  } | null;
+  pagination: { page: number; pageSize: number; totalEntries: number; totalPages: number };
+};
+
 export type LeaderboardQuery = z.infer<typeof leaderboardQuerySchema>;
 
 export type LeaderboardRowPayload = {
@@ -326,6 +355,47 @@ export class LeaderboardService {
           isCurrentUser,
         }),
       ),
+    };
+  }
+
+  /** All-time best official solo Draft result per player and format. */
+  async listDraft(input: unknown, currentUserId?: string): Promise<DraftLeaderboardPagePayload> {
+    const query = parseInput(() => draftLeaderboardQuerySchema.parse(input));
+    const entries = await this.prisma.draftLeaderboardEntry.findMany({
+      where: { format: query.format },
+      orderBy: [{ finalValue: 'desc' }, { gapFromOptimal: 'asc' }, { completedAt: 'asc' }, { userId: 'asc' }],
+      include: { user: { select: { publicAlias: true, publicDisplayName: true } } },
+    });
+    const ranked: Array<{ entry: typeof entries[number]; rank: number }> = [];
+    entries.forEach((entry, index) => {
+      const previous = entries[index - 1];
+      const sameRank = previous
+        && Number(previous.finalValue) === Number(entry.finalValue)
+        && Number(previous.gapFromOptimal) === Number(entry.gapFromOptimal)
+        && previous.completedAt.getTime() === entry.completedAt.getTime();
+      ranked.push({ entry, rank: sameRank ? ranked[index - 1].rank : index + 1 });
+    });
+    const toRow = (item: typeof ranked[number]) => ({
+      rank: item.rank,
+      publicName: item.entry.user.publicDisplayName ?? item.entry.user.publicAlias,
+      finalValue: Number(item.entry.finalValue),
+      gapFromOptimal: Number(item.entry.gapFromOptimal),
+      completedAt: item.entry.completedAt.toISOString(),
+      isCurrentUser: item.entry.userId === currentUserId,
+    });
+    const offset = (query.page - 1) * query.pageSize;
+    const rows = ranked.slice(offset, offset + query.pageSize).map(toRow);
+    const current = currentUserId ? ranked.find((item) => item.entry.userId === currentUserId) : undefined;
+    return {
+      format: query.format,
+      rows,
+      currentUserRow: current ? toRow(current) : null,
+      pagination: {
+        page: query.page,
+        pageSize: query.pageSize,
+        totalEntries: ranked.length,
+        totalPages: Math.ceil(ranked.length / query.pageSize),
+      },
     };
   }
 }

@@ -594,6 +594,10 @@ function BattleRoom() {
 
           <div className="mb-4">
             <p className="mb-2 text-sm font-semibold text-son-text">Make the Call</p>
+            <p className="mb-2 text-xs leading-relaxed text-son-textMuted">
+              Pass risks no bankroll. Smart Pass eligibility is hidden until both decisions
+              settle; a reviewed inconclusive card earns +1 Signal, otherwise Pass is −0.25.
+            </p>
             <div className="flex gap-2">
               {(['long', 'short', 'pass'] as RoundAction[]).map((a) => {
                 const isSelected = action === a;
@@ -776,6 +780,17 @@ function BattleRoom() {
               <DecisionLine label="You" decision={reveal.you} />
               <DecisionLine label={battle.opponent?.name ?? 'Opponent'} decision={reveal.opponent} />
             </div>
+
+            {(reveal.you.action === 'pass' || reveal.opponent.action === 'pass') ? (
+              <div className="mt-4 rounded-lg border border-son-signalCyan/30 bg-son-signalCyan/5 px-3 py-2 text-sm leading-relaxed text-son-textSecondary">
+                <p className="font-semibold text-son-text">
+                  {reveal.smartPassEligible
+                    ? 'Smart Pass review: +1 Signal for each Pass'
+                    : 'Standard Pass review: −0.25 Signal for each Pass'}
+                </p>
+                <p className="mt-1 text-xs leading-relaxed">{reveal.smartPassExplanation}</p>
+              </div>
+            ) : null}
 
             <div className="mt-4 border-t border-son-border pt-4">
               <p className="text-sm leading-relaxed text-son-textSecondary">{reveal.shortText}</p>

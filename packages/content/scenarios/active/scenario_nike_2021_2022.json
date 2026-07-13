@@ -120,6 +120,10 @@
                     }
                 ],
     "review":  {
+      "smartPass": {
+        "eligible": false,
+        "explanation": "The pre-decision evidence forms a comparatively readable directional case. Countervailing risks remain, but they do not create enough unresolved tension for Smart Pass."
+      },
                    "generatedByAi":  true,
                    "humanReviewed":  true,
                    "reviewNotes":  "Famous bucket. Stored Grok evidence tied Medium to a global brand\u0027s wholesale-to-direct shift and Hard to the same channel-and-inventory setup. M/H now use broad branded consumer products, partner and owned distribution, pricing, loyalty, stock timing, promotions, and logistics pressure across apparel and non-apparel peers. Easy is unchanged. Stored M/H results remain stale adversarial evidence pending blind rejudge.",

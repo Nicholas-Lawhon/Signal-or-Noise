@@ -120,6 +120,10 @@
                     }
                 ],
     "review":  {
+      "smartPass": {
+        "eligible": false,
+        "explanation": "The pre-decision evidence forms a comparatively readable directional case. Countervailing risks remain, but they do not create enough unresolved tension for Smart Pass."
+      },
                    "generatedByAi":  true,
                    "humanReviewed":  true,
                    "reviewNotes":  "Moderate; adversarial rewrite from clean stored Grok evidence. Changed Medium and Hard plus the identifying shared Remote Workflow title, so every sibling payload requires rejudge. Removed remote-work, document, agreement, seat-surge, and early-pandemic workflow conjunctions. New specialist-versus-suite tension fits Adobe, Box, Atlassian, ServiceNow, Dropbox, and DocuSign. Stored review.gate2 remains intact and stale by hash.",

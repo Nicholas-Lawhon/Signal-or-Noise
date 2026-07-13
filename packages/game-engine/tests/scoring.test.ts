@@ -74,7 +74,41 @@ describe('scoreRound', () => {
     expect(result.pnlAmount).toBe(0);
     expect(result.newBankroll).toBe(10000);
     expect(result.signalScoreDelta).toBe(-0.25);
+    expect(result.smartPassAwarded).toBe(false);
     expect(result.wasCorrect).toBe(null);
+  });
+
+  it('awards Smart Pass only when curator metadata marks the card eligible', () => {
+    const eligible = scoreRound({
+      action: 'pass',
+      currentBankroll: 10000,
+      actualReturnPercent: -0.2,
+      smartPassEligible: true,
+    });
+    expect(eligible.signalScoreDelta).toBe(1);
+    expect(eligible.smartPassAwarded).toBe(true);
+    expect(eligible.newBankroll).toBe(10000);
+
+    const ineligible = scoreRound({
+      action: 'pass',
+      currentBankroll: 10000,
+      actualReturnPercent: -0.2,
+      smartPassEligible: false,
+    });
+    expect(ineligible.signalScoreDelta).toBe(-0.25);
+    expect(ineligible.smartPassAwarded).toBe(false);
+  });
+
+  it('does not apply Smart Pass metadata to Long or Short', () => {
+    const result = scoreRound({
+      action: 'long',
+      confidence: 'low',
+      currentBankroll: 10000,
+      actualReturnPercent: 0.1,
+      smartPassEligible: true,
+    });
+    expect(result.signalScoreDelta).toBe(1);
+    expect(result.smartPassAwarded).toBe(false);
   });
 
   // Case 6: All-In win

@@ -58,8 +58,9 @@ export default function ClassicSetupPage() {
             <p>
               <strong className="text-son-text">Signal Score</strong> measures how well you
               read the market: bolder correct calls score higher (+1 to +5), wrong calls cost
-              the same, and passing costs 0.25. Name the hidden company for +2 &mdash; but a
-              wrong name costs 1.
+              the same. Pass keeps $0 at risk: a curator-reviewed inconclusive card earns +1
+              Smart Pass Signal after the reveal; any other Pass costs 0.25. Name the hidden
+              company for +2 &mdash; but a wrong name costs 1.
             </p>
           </div>
         </div>

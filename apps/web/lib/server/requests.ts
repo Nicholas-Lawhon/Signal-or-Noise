@@ -47,6 +47,12 @@ export const leaderboardRequestSchema = z.discriminatedUnion('board', [
     page: pageSchema,
     pageSize: pageSizeSchema,
   }).strict(),
+  z.object({
+    board: z.literal('draft'),
+    format: z.enum(['classic', 'quick', 'era']).default('classic'),
+    page: pageSchema,
+    pageSize: pageSizeSchema,
+  }).strict(),
 ]);
 
 export function leaderboardRequestInput(
@@ -57,6 +63,7 @@ export function leaderboardRequestInput(
   input.board ??= 'daily';
   if (input.board === 'daily') input.date ??= today;
   if (input.board === 'classic') input.difficulty ??= 'easy';
+  if (input.board === 'draft') input.format ??= 'classic';
   return input;
 }
 
@@ -73,13 +80,58 @@ export const publicDisplayNameRequestSchema = z.object({
     .nullable(),
 }).strict();
 
+export const createDraftRequestSchema = z.object({
+  format: z.enum(['classic', 'quick', 'era']).default('classic'),
+  eraId: z.string().min(1).max(128).optional(),
+}).strict().superRefine((input, context) => {
+  if (input.format === 'era' && !input.eraId) {
+    context.addIssue({ code: z.ZodIssueCode.custom, path: ['eraId'], message: 'Era Draft needs an era' });
+  }
+});
+
 /** Draft picks travel as card slots 0-5 — never as scenario ids. */
 export const draftSelectionRequestSchema = z.object({
-  slots: z.array(z.number().int().min(0).max(5)).length(3)
+  slots: z.array(z.number().int().min(0).max(5)).min(2).max(3)
     .refine((slots) => new Set(slots).size === slots.length, {
-      message: 'Draft picks must be three distinct companies',
+      message: 'Draft picks must be distinct companies',
     }),
-}).strict();
+  allocations: z.array(z.number().int().min(10).max(60)).min(2).max(3),
+}).strict().superRefine((input, context) => {
+  if (input.allocations.length !== input.slots.length) {
+    context.addIssue({ code: z.ZodIssueCode.custom, path: ['allocations'], message: 'One allocation is required per pick' });
+  }
+  if (input.allocations.some((value) => value % 10 !== 0)
+    || input.allocations.reduce((sum, value) => sum + value, 0) !== 100) {
+    context.addIssue({ code: z.ZodIssueCode.custom, path: ['allocations'], message: 'Allocations must use 10% increments and total 100%' });
+  }
+});
+
+export const draftBattleFormatRequestSchema = z.object({
+  format: z.enum(['classic', 'quick', 'era']),
+  eraId: z.string().min(1).max(128).optional(),
+  timerSeconds: z.union([z.null(), z.literal(120), z.literal(300)]).default(120),
+}).strict().superRefine((input, context) => {
+  if (input.format === 'era' && !input.eraId) {
+    context.addIssue({ code: z.ZodIssueCode.custom, path: ['eraId'], message: 'Era Draft needs an era' });
+  }
+  if (input.format !== 'era' && input.eraId) {
+    context.addIssue({ code: z.ZodIssueCode.custom, path: ['eraId'], message: 'Only Era Draft accepts an era' });
+  }
+});
+
+export const draftBattleSubmissionRequestSchema = z.object({
+  slots: z.array(z.number().int().min(0).max(5)).min(2).max(3),
+  allocations: z.array(z.number().int().min(10).max(60)).min(2).max(3),
+}).strict().superRefine((input, context) => {
+  if (new Set(input.slots).size !== input.slots.length) {
+    context.addIssue({ code: z.ZodIssueCode.custom, path: ['slots'], message: 'Battle picks must be distinct' });
+  }
+  if (input.slots.length !== input.allocations.length
+    || input.allocations.some((value) => value % 10 !== 0)
+    || input.allocations.reduce((sum, value) => sum + value, 0) !== 100) {
+    context.addIssue({ code: z.ZodIssueCode.custom, path: ['allocations'], message: 'Allocations must use 10% increments and total 100%' });
+  }
+});
 
 export const createBattleRequestSchema = z.object({
   difficulty: z.enum(['easy', 'medium', 'hard']),

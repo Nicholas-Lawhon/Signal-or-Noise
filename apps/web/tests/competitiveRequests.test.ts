@@ -3,18 +3,23 @@ import {
   battleDecisionRequestSchema,
   battleReadyRequestSchema,
   createBattleRequestSchema,
+  createDraftRequestSchema,
+  draftBattleFormatRequestSchema,
+  draftBattleSubmissionRequestSchema,
   draftSelectionRequestSchema,
   inviteCodeRequestSchema,
 } from '../lib/server/requests';
 
 describe('Phase 9A web boundary request schemas', () => {
-  it('accepts exactly three distinct draft slots', () => {
-    expect(draftSelectionRequestSchema.safeParse({ slots: [0, 3, 5] }).success).toBe(true);
+  it('accepts valid quick or three-pick draft selections', () => {
+    expect(draftSelectionRequestSchema.safeParse({ slots: [0, 3, 5], allocations: [30, 30, 40] }).success).toBe(true);
+    expect(draftSelectionRequestSchema.safeParse({ slots: [0, 3], allocations: [60, 40] }).success).toBe(true);
+    expect(draftSelectionRequestSchema.safeParse({ slots: [0, 3, 5] }).success).toBe(false);
   });
 
   it('rejects malformed draft selections and smuggled fields', () => {
     for (const spoof of [
-      { slots: [0, 1] },
+      { slots: [0] },
       { slots: [0, 1, 2, 3] },
       { slots: [0, 1, 1] },
       { slots: [0, 1, 6] },
@@ -27,6 +32,16 @@ describe('Phase 9A web boundary request schemas', () => {
     ]) {
       expect(draftSelectionRequestSchema.safeParse(spoof).success).toBe(false);
     }
+  });
+
+  it('enforces D055 weighted Draft formats and Draft Battle privacy-bound inputs', () => {
+    expect(createDraftRequestSchema.safeParse({ format: 'quick' }).success).toBe(true);
+    expect(createDraftRequestSchema.safeParse({ format: 'era' }).success).toBe(false);
+    expect(draftBattleFormatRequestSchema.safeParse({ format: 'quick' }).success).toBe(true);
+    expect(draftBattleFormatRequestSchema.safeParse({ format: 'era', eraId: 'era-2000s', timerSeconds: 300 }).success).toBe(true);
+    expect(draftBattleSubmissionRequestSchema.safeParse({ slots: [0, 3], allocations: [60, 40] }).success).toBe(true);
+    expect(draftBattleSubmissionRequestSchema.safeParse({ slots: [0, 3], allocations: [50, 40] }).success).toBe(false);
+    expect(draftBattleSubmissionRequestSchema.safeParse({ slots: [0, 3], allocations: [60, 40], finalValue: 999 }).success).toBe(false);
   });
 
   it('accepts battle creation with D052 timers and defaults to 60 seconds', () => {
@@ -78,6 +93,7 @@ describe('Phase 9A web boundary request schemas', () => {
       { roundIndex: 0, action: 'buy' },
       { roundIndex: 0, action: 'long', confidence: 'max' },
       { roundIndex: 0, action: 'pass', userId: 'someone_else' },
+      { roundIndex: 0, action: 'pass', smartPassEligible: true },
     ]) {
       expect(battleDecisionRequestSchema.safeParse(spoof).success).toBe(false);
     }

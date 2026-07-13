@@ -116,6 +116,10 @@
     }
   ],
   "review": {
+    "smartPass": {
+      "eligible": false,
+      "explanation": "The pre-decision evidence forms a comparatively readable directional case. Countervailing risks remain, but they do not create enough unresolved tension for Smart Pass."
+    },
     "generatedByAi": true,
     "humanReviewed": true,
     "reviewNotes": "Moderate; adversarial rewrite from clean stored Grok evidence. Changed Medium and Hard plus the identifying Living Room Landgrab title, so Easy/Medium/Hard require rejudge. Removed streaming, media, entertainment interface, advertising, content partners, television, and device-category conjunctions. Installed-base access versus recurring monetization now fits Vizio, Fitbit, Peloton, Amazon, Sonos, and Roku. Stored review.gate2 is preserved and stale by hash.",

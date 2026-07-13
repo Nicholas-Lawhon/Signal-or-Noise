@@ -72,6 +72,23 @@ Counts as a completed round
 Preserves streak, does not increase it
 ```
 
+### Smart Pass (D055)
+
+Smart Pass is part of every Classic-style decision loop (Classic Run, Daily
+Challenge, and Friend Battle), not a separate mode.
+
+```text
+Curator-reviewed smart-pass-eligible scenario + Pass: +1 Signal Score
+Any other scenario + Pass:                         -0.25 Signal Score
+Any Pass:                                          $0 bankroll change
+```
+
+- Eligibility reflects genuinely inconclusive pre-decision evidence, not the
+  realized return alone, and is stored as reviewed scenario metadata.
+- Eligibility and its explanation remain hidden until the decision settles.
+- Pass completes the round and preserves but does not increase the streak.
+- A Friend Battle deadline Pass uses the same rule.
+
 ### Bankroll (primary score)
 
 - Long: `pnl = stake × actualReturnPercent`
@@ -143,7 +160,27 @@ Friend Battle:    Exactly 2 signed-in players, one immutable battle per invite,
   Long/Short/Pass, confidence, company-guess, or Signal Score mechanics.
 - Reveal shows all six companies and returns, the selected portfolio's final
   value, the optimal three selections, and the gap from optimal.
-- Portfolio Draft leaderboards are deferred until post-MVP.
+- Portfolio Draft leaderboards follow the post-MVP expansion rules in D055.
+
+### Portfolio Draft Expansion (D055)
+
+- Solo formats are Classic Draft (6 choose 3), Quick Draft (4 choose 2), and Era
+  Draft (6 choose 3 from a selected compatible era). All use Medium variants and
+  a fictional $10,000.
+- Players allocate the full portfolio in 10% increments. Every selected company
+  receives 10%-60%; allocations must total 100%. An equal-weight shortcut may
+  use the nearest valid 10% allocation when an exact equal split is impossible.
+- Final value, the optimal valid selection/allocation, and gap from optimal are
+  calculated by the server using the same format and weighting constraints.
+- Each format has a separate all-time leaderboard containing each signed-in
+  player's best completed solo result. Guests remain unofficial.
+- Draft Battle is exactly two signed-in players using the same immutable card
+  set and format. Selections and weights remain private until both settle.
+  Highest final value wins; equality draws. Solo leaderboards exclude battles.
+- Draft Battle timers are off, 2 minutes, or 5 minutes (2 minutes default). A
+  player without a complete valid submission at the deadline forfeits; if
+  neither submits, the battle ends without a winner. Unfinished battles expire
+  after 24 hours.
 
 ### Difficulty
 

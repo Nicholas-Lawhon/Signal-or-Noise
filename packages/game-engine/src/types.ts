@@ -10,6 +10,8 @@ export type ScoreRoundInput = {
   currentBankroll: number;
   actualReturnPercent: number;
   companyGuessCorrect?: boolean | null;
+  /** Server-supplied curator metadata; clients never choose this value. */
+  smartPassEligible?: boolean;
 };
 
 export type ScoreRoundOutput = {
@@ -17,6 +19,7 @@ export type ScoreRoundOutput = {
   pnlAmount: number;
   newBankroll: number;
   signalScoreDelta: number;
+  smartPassAwarded: boolean;
   wasCorrect: boolean | null;
 };
 
@@ -70,6 +73,7 @@ export type ApplyRoundResultInput = {
   actualReturnPercent: number;
   companyGuess?: string | null;
   companyGuessCorrect?: boolean | null;
+  smartPassEligible?: boolean;
 };
 
 export type AdvanceRunOutput = {
@@ -84,11 +88,22 @@ export type DraftPoolEntry = {
   actualReturnPercent: number;
 };
 
+export type DraftFormat = 'classic' | 'quick' | 'era';
+
+export type DraftFormatConfig = {
+  format: DraftFormat;
+  poolSize: 4 | 6;
+  picks: 2 | 3;
+};
+
 export type DraftResult = {
   budget: number;
+  format: DraftFormat;
   selectedScenarioIds: string[];
+  selectedAllocations: number[];
   finalValue: number;
   optimalScenarioIds: string[];
+  optimalAllocations: number[];
   optimalValue: number;
   gapFromOptimal: number;
 };

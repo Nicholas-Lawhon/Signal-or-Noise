@@ -112,6 +112,13 @@ export type FactBank = {
   prohibitedConjunctions?: string[];
 };
 
+export type SmartPassReview = {
+  /** Curator-reviewed evidence balance, intentionally independent of outcome. */
+  eligible: boolean;
+  /** Reveal-only explanation of the pre-decision evidence review. */
+  explanation: string;
+};
+
 /** One model company guess from a Gate 2 judge run (raw, no verdict). */
 export type Gate2Guess = {
   company: string;
@@ -155,6 +162,7 @@ export type Review = {
   easyLikelyGuesses: string[];
   mediumLikelyGuesses: string[];
   hardLikelyGuesses: string[];
+  smartPass?: SmartPassReview;
   /** Optional stored Gate 2 raw results. Required by production phase acceptance. */
   gate2?: Gate2Review;
 };

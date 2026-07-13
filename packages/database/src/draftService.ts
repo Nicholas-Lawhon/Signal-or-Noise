@@ -1,15 +1,18 @@
-import type { Prisma, PrismaClient } from '@prisma/client';
+import { Prisma } from '@prisma/client';
+import type { PrismaClient } from '@prisma/client';
 import {
   DRAFT_BUDGET,
-  DRAFT_POOL_SIZE,
   computeDraftResult,
+  equalWeightAllocations,
   findDraftWindows,
+  getDraftFormatConfig,
   portfolioFinalValue,
 } from '@signal-or-noise/game-engine';
-import type { DraftWindow } from '@signal-or-noise/game-engine';
+import type { DraftFormat, DraftPoolEntry, DraftWindow } from '@signal-or-noise/game-engine';
 import {
   createPortfolioDraftSchema,
   getCurrentPortfolioDraftSchema,
+  getDraftHistorySchema,
   getPortfolioDraftSchema,
   submitDraftSelectionSchema,
 } from './contracts';
@@ -17,6 +20,7 @@ import type {
   CompletedDraftPayload,
   CurrentDraftPayload,
   DraftCardPayload,
+  DraftEraPayload,
   RunOwner,
 } from './contracts';
 import { DatabaseDomainError } from './errors';
@@ -29,19 +33,46 @@ import {
   withSerializableRetry,
 } from './serviceUtils';
 import type { TransactionClient } from './serviceUtils';
+import { captureDraftSnapshot, parseDraftSnapshot } from './draftSnapshot';
+
+type DraftFormatValue = 'classic' | 'quick' | 'era';
+
+export type DraftLeaderboardMetric = {
+  finalValue: number;
+  gapFromOptimal: number;
+  completedAt: Date;
+};
+
+/** D055 best-result ordering: value, gap, then earliest completion. */
+export function isBetterDraftLeaderboardResult(
+  candidate: DraftLeaderboardMetric,
+  current: DraftLeaderboardMetric | null,
+): boolean {
+  if (!current) return true;
+  return candidate.finalValue > current.finalValue + 1e-9
+    || (Math.abs(candidate.finalValue - current.finalValue) <= 1e-9
+      && (candidate.gapFromOptimal < current.gapFromOptimal - 1e-9
+        || (Math.abs(candidate.gapFromOptimal - current.gapFromOptimal) <= 1e-9
+          && candidate.completedAt.getTime() < current.completedAt.getTime())));
+}
 
 type DraftRecord = {
   id: string;
   userId: string | null;
   status: 'in_progress' | 'completed' | 'abandoned';
   isOfficial: boolean;
+  format: DraftFormatValue;
+  eraId: string | null;
   windowStart: Date;
   windowEnd: Date;
   scenarioIds: unknown;
+  scenarioSnapshot: unknown;
   selectedScenarioIds: unknown;
+  allocations: unknown;
   budget: Prisma.Decimal | number;
   finalValue: Prisma.Decimal | number | null;
   optimalScenarioIds: unknown;
+  optimalAllocations: unknown;
   optimalValue: Prisma.Decimal | number | null;
   guestSession: { clientSessionId: string } | null;
 };
@@ -51,13 +82,18 @@ const DRAFT_SELECT = {
   userId: true,
   status: true,
   isOfficial: true,
+  format: true,
+  eraId: true,
   windowStart: true,
   windowEnd: true,
   scenarioIds: true,
+  scenarioSnapshot: true,
   selectedScenarioIds: true,
+  allocations: true,
   budget: true,
   finalValue: true,
   optimalScenarioIds: true,
+  optimalAllocations: true,
   optimalValue: true,
   guestSession: { select: { clientSessionId: true } },
 } as const;
@@ -80,11 +116,31 @@ function parseIdList(value: unknown, expected: number, label: string): string[] 
   return value as string[];
 }
 
+function parseAllocationList(value: unknown, expected: number, label: string): number[] | null {
+  if (value === null || value === undefined) return null;
+  if (
+    !Array.isArray(value)
+    || value.length !== expected
+    || value.some((entry) => typeof entry !== 'number' || !Number.isInteger(entry))
+  ) {
+    throw new DatabaseDomainError('INVALID_STATE', `${label} allocations are invalid`);
+  }
+  return value as number[];
+}
+
 /** Pre-decision-safe label: years only, no outcome-period dates. */
 function windowLabel(windowStart: Date, windowEnd: Date): string {
   const startYear = windowStart.toISOString().slice(0, 4);
   const endYear = windowEnd.toISOString().slice(0, 4);
   return startYear === endYear ? startYear : `${startYear}–${endYear}`;
+}
+
+function asDraftFormat(value: DraftFormatValue): DraftFormat {
+  return value;
+}
+
+function allocationValue(budget: number, allocationPercent: number, actualReturnPercent: number): number {
+  return Math.max(0, budget * allocationPercent / 100 * (1 + actualReturnPercent));
 }
 
 export class PortfolioDraftService {
@@ -93,13 +149,28 @@ export class PortfolioDraftService {
     private readonly random: () => number = Math.random,
   ) {}
 
-  /**
-   * Starts a new draft: picks one compatible historical window (D052) from
-   * the active catalog, snapshots six distinct hidden companies at Medium,
-   * and abandons any prior unfinished draft for the same owner.
-   */
+  async listEras(): Promise<DraftEraPayload[]> {
+    const eras = await this.prisma.era.findMany({
+      where: { scenarios: { some: { status: 'active', variants: { some: { difficulty: 'medium' } } } } },
+      orderBy: { name: 'asc' },
+      select: { id: true, name: true, description: true },
+    });
+    const eligible: DraftEraPayload[] = [];
+    for (const era of eras) {
+      try {
+        await this.pickDraftPool(this.prisma, 'era', era.id);
+        eligible.push(era);
+      } catch (error) {
+        if (!(error instanceof DatabaseDomainError) || error.code !== 'INVALID_STATE') throw error;
+      }
+    }
+    return eligible;
+  }
+
+  /** Starts a new immutable solo Draft snapshot. */
   async createDraft(input: unknown): Promise<CurrentDraftPayload> {
     const parsed = parseInput(() => createPortfolioDraftSchema.parse(input));
+    const format: DraftFormatValue = parsed.format ?? 'classic';
     const draftId = await withSerializableRetry(
       () => this.prisma.$transaction(async (tx) => {
         const owner = await resolveOwner(tx, parsed.owner);
@@ -112,81 +183,73 @@ export class PortfolioDraftService {
           },
           data: { status: 'abandoned' },
         });
-
-        const pool = await this.pickDraftPool(tx);
+        const pool = await this.pickDraftPool(tx, format, parsed.eraId);
+        const scenarioSnapshot = await captureDraftSnapshot(tx, pool.scenarioIds);
         const draft = await tx.portfolioDraft.create({
           data: {
             ...owner,
+            format,
+            eraId: parsed.eraId ?? null,
             windowStart: new Date(`${pool.windowStart}T00:00:00.000Z`),
             windowEnd: new Date(`${pool.windowEnd}T00:00:00.000Z`),
             scenarioIds: pool.scenarioIds,
+            scenarioSnapshot,
             budget: DRAFT_BUDGET,
           },
           select: { id: true },
         });
         return draft.id;
       }, { isolationLevel: 'Serializable' }),
-      'Draft creation conflicted — try again',
+      'Draft creation conflicted – try again',
     );
     const payload = await this.getDraft({ owner: parsed.owner, draftId });
-    if (payload.status !== 'in_progress') {
-      throw new DatabaseDomainError('INVALID_STATE', 'Draft is not in progress');
-    }
+    if (payload.status !== 'in_progress') throw new DatabaseDomainError('INVALID_STATE', 'Draft is not in progress');
     return payload;
   }
 
-  /**
-   * Chooses one compatible window, then six scenarios with distinct hidden
-   * companies inside it. Windows that cannot field six distinct companies
-   * are skipped.
-   */
-  private async pickDraftPool(tx: TransactionClient): Promise<{
-    scenarioIds: string[];
-    windowStart: string;
-    windowEnd: string;
-  }> {
+  private async pickDraftPool(
+    tx: TransactionClient,
+    format: DraftFormatValue,
+    eraId?: string,
+  ): Promise<{ scenarioIds: string[]; windowStart: string; windowEnd: string }> {
+    const config = getDraftFormatConfig(asDraftFormat(format));
     const candidates = await tx.scenario.findMany({
-      where: { status: 'active', variants: { some: { difficulty: 'medium' } } },
+      where: {
+        status: 'active',
+        variants: { some: { difficulty: 'medium' } },
+        ...(format === 'era' ? { eraId } : {}),
+      },
       select: { id: true, decisionDate: true, endDate: true, companyName: true },
     });
-    const companyByScenario = new Map(candidates.map((c) => [c.id, c.companyName]));
-    const windows = findDraftWindows(candidates.map((c) => ({
-      scenarioId: c.id,
-      decisionDate: c.decisionDate.toISOString().slice(0, 10),
-      endDate: c.endDate.toISOString().slice(0, 10),
-    })));
-
+    const companyByScenario = new Map(candidates.map((candidate) => [candidate.id, candidate.companyName]));
+    const windows = findDraftWindows(candidates.map((candidate) => ({
+      scenarioId: candidate.id,
+      decisionDate: candidate.decisionDate.toISOString().slice(0, 10),
+      endDate: candidate.endDate.toISOString().slice(0, 10),
+    })), config.poolSize);
     for (const window of shuffled(windows, this.random)) {
-      const picks = this.pickDistinctCompanies(window, companyByScenario);
+      const picks = this.pickDistinctCompanies(window, companyByScenario, config.poolSize);
       if (!picks) continue;
-      const chosen = candidates.filter((c) => picks.includes(c.id));
+      const chosen = candidates.filter((candidate) => picks.includes(candidate.id));
       return {
         scenarioIds: picks,
-        windowStart: chosen.reduce(
-          (max, c) => {
-            const date = c.decisionDate.toISOString().slice(0, 10);
-            return date > max ? date : max;
-          },
-          chosen[0].decisionDate.toISOString().slice(0, 10),
-        ),
-        windowEnd: chosen.reduce(
-          (min, c) => {
-            const date = c.endDate.toISOString().slice(0, 10);
-            return date < min ? date : min;
-          },
-          chosen[0].endDate.toISOString().slice(0, 10),
-        ),
+        windowStart: chosen.reduce((max, candidate) => {
+          const date = candidate.decisionDate.toISOString().slice(0, 10);
+          return date > max ? date : max;
+        }, chosen[0].decisionDate.toISOString().slice(0, 10)),
+        windowEnd: chosen.reduce((min, candidate) => {
+          const date = candidate.endDate.toISOString().slice(0, 10);
+          return date < min ? date : min;
+        }, chosen[0].endDate.toISOString().slice(0, 10)),
       };
     }
-    throw new DatabaseDomainError(
-      'INVALID_STATE',
-      'Not enough compatible scenarios for a Portfolio Draft',
-    );
+    throw new DatabaseDomainError('INVALID_STATE', `Not enough compatible scenarios for a ${format} Draft`);
   }
 
   private pickDistinctCompanies(
     window: DraftWindow,
     companyByScenario: Map<string, string>,
+    count: number,
   ): string[] | null {
     const picks: string[] = [];
     const seenCompanies = new Set<string>();
@@ -195,7 +258,7 @@ export class PortfolioDraftService {
       if (!company || seenCompanies.has(company)) continue;
       seenCompanies.add(company);
       picks.push(scenarioId);
-      if (picks.length === DRAFT_POOL_SIZE) return picks;
+      if (picks.length === count) return picks;
     }
     return null;
   }
@@ -212,135 +275,152 @@ export class PortfolioDraftService {
     return payload.status === 'in_progress' ? payload : null;
   }
 
+  async listHistory(input: unknown): Promise<Array<{
+    id: string;
+    format: DraftFormatValue;
+    finalValue: number;
+    gapFromOptimal: number;
+    completedAt: string;
+  }>> {
+    const parsed = parseInput(() => getDraftHistorySchema.parse(input));
+    const drafts = await this.prisma.portfolioDraft.findMany({
+      where: { userId: parsed.userId, isOfficial: true, status: 'completed', completedAt: { not: null } },
+      orderBy: { completedAt: 'desc' },
+      take: parsed.limit,
+      select: { id: true, format: true, finalValue: true, optimalValue: true, completedAt: true },
+    });
+    return drafts.map((draft) => ({
+      id: draft.id,
+      format: draft.format,
+      finalValue: number(draft.finalValue ?? 0),
+      gapFromOptimal: number(draft.optimalValue ?? 0) - number(draft.finalValue ?? 0),
+      completedAt: draft.completedAt!.toISOString(),
+    }));
+  }
+
   async getDraft(input: unknown): Promise<CurrentDraftPayload | CompletedDraftPayload> {
     const parsed = parseInput(() => getPortfolioDraftSchema.parse(input));
-    const draft = await this.prisma.portfolioDraft.findUnique({
-      where: { id: parsed.draftId },
-      select: DRAFT_SELECT,
-    });
+    const draft = await this.prisma.portfolioDraft.findUnique({ where: { id: parsed.draftId }, select: DRAFT_SELECT });
     if (!draft) throw new DatabaseDomainError('NOT_FOUND', 'Draft not found');
     assertDraftOwner(draft, parsed.owner);
-    if (draft.status === 'abandoned') {
-      throw new DatabaseDomainError('INVALID_STATE', 'Draft was abandoned');
-    }
+    if (draft.status === 'abandoned') throw new DatabaseDomainError('INVALID_STATE', 'Draft was abandoned');
     return draft.status === 'in_progress'
       ? this.buildCurrentDraftPayload(draft)
       : this.buildCompletedDraftPayload(draft);
   }
 
-  /**
-   * Records the one immutable selection and computes results server-side.
-   * The guarded updateMany means exactly one submission wins any race; every
-   * other attempt sees CONFLICT and can reload the completed reveal.
-   */
+  /** Locks one selection and calculates all scores inside one serializable transaction. */
   async submitSelections(input: unknown): Promise<CompletedDraftPayload> {
     const parsed = parseInput(() => submitDraftSelectionSchema.parse(input));
     await withSerializableRetry(
       () => this.prisma.$transaction(async (tx) => {
-        const draft = await tx.portfolioDraft.findUnique({
-          where: { id: parsed.draftId },
-          select: DRAFT_SELECT,
-        });
+        const draft = await tx.portfolioDraft.findUnique({ where: { id: parsed.draftId }, select: DRAFT_SELECT });
         if (!draft) throw new DatabaseDomainError('NOT_FOUND', 'Draft not found');
         assertDraftOwner(draft, parsed.owner);
-        if (draft.status !== 'in_progress') {
-          throw new DatabaseDomainError('CONFLICT', 'Draft picks were already locked');
+        if (draft.status !== 'in_progress') throw new DatabaseDomainError('CONFLICT', 'Draft picks were already locked');
+        const config = getDraftFormatConfig(asDraftFormat(draft.format));
+        const scenarioIds = parseIdList(draft.scenarioIds, config.poolSize, 'Draft');
+        if (parsed.slots.length !== config.picks) {
+          throw new DatabaseDomainError('INVALID_INPUT', `Choose exactly ${config.picks} companies`);
         }
-        const scenarioIds = parseIdList(draft.scenarioIds, DRAFT_POOL_SIZE, 'Draft');
         const selectedIds = parsed.slots.map((slot) => scenarioIds[slot]);
-        const scenarios = await tx.scenario.findMany({
-          where: { id: { in: scenarioIds } },
-          select: { id: true, actualReturnPercent: true },
+        const snapshot = parseDraftSnapshot(draft.scenarioSnapshot, config.poolSize);
+        const pool: DraftPoolEntry[] = snapshot.map((scenario) => ({ scenarioId: scenario.scenarioId, actualReturnPercent: scenario.actualReturnPercent }));
+        const result = computeDraftResult(pool, selectedIds, {
+          allocations: parsed.allocations,
+          format: asDraftFormat(draft.format),
         });
-        if (scenarios.length !== DRAFT_POOL_SIZE) {
-          throw new DatabaseDomainError('INVALID_STATE', 'Draft scenarios are missing');
-        }
-        const result = computeDraftResult(
-          scenarios.map((s) => ({
-            scenarioId: s.id,
-            actualReturnPercent: number(s.actualReturnPercent),
-          })),
-          selectedIds,
-        );
+        const completedAt = new Date();
         const locked = await tx.portfolioDraft.updateMany({
           where: { id: draft.id, status: 'in_progress' },
           data: {
             status: 'completed',
             selectedScenarioIds: result.selectedScenarioIds,
+            allocations: result.selectedAllocations,
             finalValue: result.finalValue,
             optimalScenarioIds: result.optimalScenarioIds,
+            optimalAllocations: result.optimalAllocations,
             optimalValue: result.optimalValue,
-            completedAt: new Date(),
+            completedAt,
           },
         });
-        if (locked.count !== 1) {
-          throw new DatabaseDomainError('CONFLICT', 'Draft picks were already locked');
+        if (locked.count !== 1) throw new DatabaseDomainError('CONFLICT', 'Draft picks were already locked');
+        if (draft.isOfficial && draft.userId) {
+          await this.updateSoloLeaderboard(tx, {
+            userId: draft.userId,
+            draftId: draft.id,
+            format: asDraftFormat(draft.format),
+            finalValue: result.finalValue,
+            gapFromOptimal: result.gapFromOptimal,
+            completedAt,
+          });
         }
       }, { isolationLevel: 'Serializable' }),
       'Draft picks were already locked',
     );
     const payload = await this.getDraft({ owner: parsed.owner, draftId: parsed.draftId });
-    if (payload.status !== 'completed') {
-      throw new DatabaseDomainError('INVALID_STATE', 'Draft did not complete');
-    }
+    if (payload.status !== 'completed') throw new DatabaseDomainError('INVALID_STATE', 'Draft did not complete');
     return payload;
   }
 
-  /**
-   * Pre-selection payload. Cards are keyed by slot index only: no scenario
-   * id, company, ticker, return, reveal text, or outcome chart may appear
-   * before the selection locks.
-   */
-  private async buildCurrentDraftPayload(draft: DraftRecord): Promise<CurrentDraftPayload> {
-    const scenarioIds = parseIdList(draft.scenarioIds, DRAFT_POOL_SIZE, 'Draft');
-    const scenarios = await this.prisma.scenario.findMany({
-      where: { id: { in: scenarioIds } },
-      select: {
-        id: true,
-        title: true,
-        decisionDateLabel: true,
-        holdingPeriodLabel: true,
-        variants: {
-          where: { difficulty: 'medium' },
-          select: {
-            companyDescription: true,
-            macroContext: true,
-            situation: true,
-            longCase: true,
-            shortCase: true,
-            setupHints: true,
-          },
-        },
-        marketPoints: {
-          where: { phase: 'pre_decision' },
-          orderBy: { ordinal: 'asc' },
-          select: { pointDate: true, price: true },
-        },
-      },
+  private async updateSoloLeaderboard(
+    tx: TransactionClient,
+    input: { userId: string; draftId: string; format: DraftFormat; finalValue: number; gapFromOptimal: number; completedAt: Date },
+  ): Promise<void> {
+    const current = await tx.draftLeaderboardEntry.findUnique({
+      where: { userId_format: { userId: input.userId, format: input.format } },
     });
-    const byId = new Map(scenarios.map((s) => [s.id, s]));
-    const cards: DraftCardPayload[] = scenarioIds.map((scenarioId, slot) => {
-      const scenario = byId.get(scenarioId);
-      const variant = scenario?.variants[0];
-      if (!scenario || !variant) {
-        throw new DatabaseDomainError('INVALID_STATE', 'Draft scenario content is missing');
-      }
+    const better = isBetterDraftLeaderboardResult(input, current ? {
+      finalValue: number(current.finalValue),
+      gapFromOptimal: number(current.gapFromOptimal),
+      completedAt: current.completedAt,
+    } : null);
+    if (!better) return;
+    if (current) {
+      await tx.draftLeaderboardEntry.update({
+        where: { id: current.id },
+        data: {
+          draftId: input.draftId,
+          finalValue: input.finalValue,
+          gapFromOptimal: input.gapFromOptimal,
+          completedAt: input.completedAt,
+        },
+      });
+    } else {
+      await tx.draftLeaderboardEntry.create({
+        data: {
+          userId: input.userId,
+          draftId: input.draftId,
+          format: input.format,
+          finalValue: input.finalValue,
+          gapFromOptimal: input.gapFromOptimal,
+          completedAt: input.completedAt,
+        },
+      });
+    }
+  }
+
+  private async buildCurrentDraftPayload(draft: DraftRecord): Promise<CurrentDraftPayload> {
+    const config = getDraftFormatConfig(asDraftFormat(draft.format));
+    const scenarioIds = parseIdList(draft.scenarioIds, config.poolSize, 'Draft');
+    const snapshot = parseDraftSnapshot(draft.scenarioSnapshot, config.poolSize);
+    const cards: DraftCardPayload[] = snapshot.map((scenario, slot) => {
       return {
         slot,
         title: scenario.title,
         decisionDateLabel: scenario.decisionDateLabel,
         holdingPeriodLabel: scenario.holdingPeriodLabel,
-        ...variant,
-        lookbackChart: scenario.marketPoints.map((point) => ({
-          date: point.pointDate.toISOString().slice(0, 10),
-          price: number(point.price),
-        })),
+        companyDescription: scenario.companyDescription, macroContext: scenario.macroContext,
+        situation: scenario.situation, longCase: scenario.longCase, shortCase: scenario.shortCase,
+        setupHints: scenario.setupHints, lookbackChart: scenario.lookbackChart,
       };
     });
     return {
       id: draft.id,
       status: 'in_progress',
       isOfficial: draft.isOfficial,
+      format: draft.format,
+      eraId: draft.eraId,
       budget: number(draft.budget),
       windowLabel: windowLabel(draft.windowStart, draft.windowEnd),
       cards,
@@ -348,28 +428,23 @@ export class PortfolioDraftService {
   }
 
   private async buildCompletedDraftPayload(draft: DraftRecord): Promise<CompletedDraftPayload> {
-    const scenarioIds = parseIdList(draft.scenarioIds, DRAFT_POOL_SIZE, 'Draft');
-    const selectedIds = parseIdList(draft.selectedScenarioIds, 3, 'Draft selection');
-    const optimalIds = parseIdList(draft.optimalScenarioIds, 3, 'Draft optimal');
-    const scenarios = await this.prisma.scenario.findMany({
-      where: { id: { in: scenarioIds } },
-      select: {
-        id: true,
-        title: true,
-        companyName: true,
-        ticker: true,
-        actualReturnPercent: true,
-      },
-    });
-    const byId = new Map(scenarios.map((s) => [s.id, s]));
+    const config = getDraftFormatConfig(asDraftFormat(draft.format));
+    const scenarioIds = parseIdList(draft.scenarioIds, config.poolSize, 'Draft');
+    const selectedIds = parseIdList(draft.selectedScenarioIds, config.picks, 'Draft selection');
+    const optimalIds = parseIdList(draft.optimalScenarioIds, config.picks, 'Draft optimal');
+    const allocations = parseAllocationList(draft.allocations, config.picks, 'Draft');
+    const optimalAllocations = parseAllocationList(draft.optimalAllocations, config.picks, 'Draft optimal');
+    const snapshot = parseDraftSnapshot(draft.scenarioSnapshot, config.poolSize);
+    const byId = new Map(snapshot.map((scenario) => [scenario.scenarioId, scenario]));
     const budget = number(draft.budget);
     const companies = scenarioIds.map((scenarioId, slot) => {
       const scenario = byId.get(scenarioId);
-      if (!scenario) {
-        throw new DatabaseDomainError('INVALID_STATE', 'Draft scenario content is missing');
-      }
+      if (!scenario) throw new DatabaseDomainError('INVALID_STATE', 'Draft scenario content is missing');
       const selected = selectedIds.includes(scenarioId);
       const actualReturnPercent = number(scenario.actualReturnPercent);
+      const selectedIndex = selectedIds.indexOf(scenarioId);
+      const optimalIndex = optimalIds.indexOf(scenarioId);
+      const allocationPercent = selected && allocations ? allocations[selectedIndex] : null;
       return {
         slot,
         title: scenario.title,
@@ -377,10 +452,14 @@ export class PortfolioDraftService {
         ticker: scenario.ticker,
         actualReturnPercent,
         selected,
-        optimal: optimalIds.includes(scenarioId),
-        sliceValue: selected
-          ? portfolioFinalValue([actualReturnPercent], budget / selectedIds.length)
-          : null,
+        optimal: optimalIndex >= 0,
+        allocationPercent,
+        allocatedValue: allocationPercent === null
+          ? (selected ? portfolioFinalValue([actualReturnPercent], budget / selectedIds.length) : null)
+          : allocationValue(budget, allocationPercent, actualReturnPercent),
+        ...(optimalIndex >= 0 && optimalAllocations
+          ? { optimalAllocationPercent: optimalAllocations[optimalIndex] }
+          : {}),
       };
     });
     const finalValue = number(draft.finalValue ?? 0);
@@ -389,6 +468,8 @@ export class PortfolioDraftService {
       id: draft.id,
       status: 'completed',
       isOfficial: draft.isOfficial,
+      format: draft.format,
+      eraId: draft.eraId,
       budget,
       windowLabel: windowLabel(draft.windowStart, draft.windowEnd),
       finalValue,
