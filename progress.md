@@ -5,8 +5,17 @@ Blocked/Questions accurate. Git history and one phase closeout preserve history.
 
 ## Current Status
 
-- **Phase:** Phase 10 - First Playtest Repairs is accepted and complete.
-  Phases 0-9 are complete. Phase 9 - Competitive Expansion and MVP Polish was
+- **Phase:** Phase 11 - Strategic Pass and Portfolio Draft Expansion is in
+  progress on `phase/11-strategic-pass-draft-expansion`. Smart Pass, weighted
+  Classic/Quick/Era Drafts, format-separated solo leaderboards, and invite-based
+  Draft Battles are implemented locally. The Phase 11 migration (with playtest
+  repairs: it now also drops the stale D052 six-card and three-pick check
+  constraints that blocked Quick Drafts) is applied to the dev database and
+  content is reimported; all draft formats verified end-to-end via the API and
+  the full database suite (51 tests) is green. Final independent review remains
+  before the phase can be ready for acceptance. Phase 10 - First Playtest
+  Repairs is accepted and complete. Phases 0-9 are complete. Phase 9 - Competitive
+  Expansion and MVP Polish was
   accepted on 2026-07-10 after independent high-risk review, focused shared-
   visual integration, and the final merged acceptance suite. Phase 8 - Daily
   Challenge was accepted on 2026-07-10
@@ -78,7 +87,9 @@ Blocked/Questions accurate. Git history and one phase closeout preserve history.
   D-03, D-04, D-05, and D-07 have approved directions with implementation or
   external-review dependencies; D-06 formal tester recruitment is optional
   rather than a Gate B or launch requirement.
-- **Next task:** Growth Gate B preparation may continue.
+- **Next task:** Complete Phase 11 migrated PostgreSQL verification, resolve the
+  independent high-risk review, and close the phase. Growth Gate B preparation
+  may continue in parallel.
 - **Phase 10 deferred action:** Revisit the shorter landing-to-first-decision
   funnel after more behavioral playtest data. It was intentionally not
   implemented in Phase 10.
@@ -88,9 +99,11 @@ Blocked/Questions accurate. Git history and one phase closeout preserve history.
   Luna Low for broad diff and consequential integration work. Luna's
   maximum-intended Codex reasoning uses `xhigh`, while `max` currently resolves
   to Medium. Legacy H/R artifacts remain evidence only under `agents/history/`.
-- **Blocked/Questions:** None. A live two-authenticated-browser Battle walkthrough
-  remains desirable supplemental QA, but all two-user acceptance behavior passes
-  in the 20-test shared-Neon competitive suite without weakening Clerk.
+- **Blocked/Questions:** Phase 11's migration and new PostgreSQL integration cases
+  require an authorized disposable/test database migration run (or authorization
+  to deploy the checked-in migration to the shared Neon development database).
+  No Phase 11 migration has been deployed. A live two-authenticated-browser
+  Battle walkthrough remains desirable supplemental QA.
 
 ## How to Run
 

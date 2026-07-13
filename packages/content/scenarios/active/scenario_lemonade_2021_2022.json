@@ -120,6 +120,10 @@
                     }
                 ],
     "review":  {
+      "smartPass": {
+        "eligible": false,
+        "explanation": "The pre-decision evidence forms a comparatively readable directional case. Countervailing risks remain, but they do not create enough unresolved tension for Smart Pass."
+      },
                    "generatedByAi":  true,
                    "humanReviewed":  true,
                    "reviewNotes":  "Obscure bucket. Stored Grok evidence showed that automated sales-underwriting-claims and explicit loss-ratio language made Medium identifiable, while claims volatility preserved the insurance silhouette on Hard. M/H now frame a young regulated service provider around automation, cohort maturation, volatile risk costs, repricing, and capital needs. Easy is unchanged. Stored M/H results are stale evidence pending blind rejudge.",

@@ -1,5 +1,6 @@
 import 'server-only';
 import {
+  DraftBattleService,
   FriendBattleService,
   LeaderboardService,
   PortfolioDraftService,
@@ -12,6 +13,7 @@ let runService: RunService | undefined;
 let leaderboardService: LeaderboardService | undefined;
 let draftService: PortfolioDraftService | undefined;
 let battleService: FriendBattleService | undefined;
+let draftBattleService: DraftBattleService | undefined;
 
 export function getDb(): PrismaClient {
   return getDatabaseClient();
@@ -43,4 +45,11 @@ export function getBattleService(): FriendBattleService {
     battleService = new FriendBattleService(getDatabaseClient());
   }
   return battleService;
+}
+
+export function getDraftBattleService(): DraftBattleService {
+  if (!draftBattleService) {
+    draftBattleService = new DraftBattleService(getDatabaseClient());
+  }
+  return draftBattleService;
 }

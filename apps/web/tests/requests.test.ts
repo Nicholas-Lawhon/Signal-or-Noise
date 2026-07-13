@@ -39,6 +39,7 @@ describe('web boundary request schemas', () => {
       { roundIndex: 0, action: 'pass', userId: 'someone_else' },
       { roundIndex: 0, action: 'pass', isOfficial: true },
       { roundIndex: 0, action: 'pass', actualReturnPercent: 5 },
+      { roundIndex: 0, action: 'pass', smartPassEligible: true },
     ]) {
       expect(submitDecisionRequestSchema.safeParse(spoof).success).toBe(false);
     }

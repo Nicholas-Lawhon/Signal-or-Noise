@@ -17,6 +17,7 @@ type LoadState =
 export default function ProfilePage() {
   const { isLoaded, isSignedIn } = useUser();
   const [state, setState] = useState<LoadState>({ kind: 'loading' });
+  const [draftHistory, setDraftHistory] = useState<Array<{ id: string; format: 'classic' | 'quick' | 'era'; finalValue: number; gapFromOptimal: number; completedAt: string }>>([]);
 
   useEffect(() => {
     if (!isLoaded || !isSignedIn) return;
@@ -29,6 +30,9 @@ export default function ProfilePage() {
       .catch(() => {
         if (!cancelled) setState({ kind: 'error' });
       });
+    void api.draftHistory().then((result) => {
+      if (!cancelled) setDraftHistory(result.history);
+    }).catch(() => undefined);
     return () => {
       cancelled = true;
     };
@@ -125,6 +129,13 @@ export default function ProfilePage() {
             </div>
           </div>
         )}
+        {isLoaded && isSignedIn && draftHistory.length > 0 ? (
+          <section className="mt-6 rounded-2xl border border-son-border bg-son-card p-5">
+            <div className="flex items-center justify-between gap-3"><h2 className="text-base font-semibold text-son-text">Draft history</h2><Link href="/leaderboards?board=draft" className="text-xs font-semibold text-son-signalCyan">View ranks</Link></div>
+            <p className="mt-1 text-xs text-son-textMuted">Completed solo Drafts only. Battles never appear here.</p>
+            <ul className="mt-4 space-y-2">{draftHistory.map((draft) => <li key={draft.id} className="flex items-center justify-between gap-3 rounded-lg bg-son-surface px-3 py-2 text-sm"><div><p className="font-semibold capitalize text-son-text">{draft.format} Draft</p><p className="text-xs text-son-textMuted">{new Date(draft.completedAt).toLocaleDateString()} · {formatMoney(draft.gapFromOptimal)} gap</p></div><span className="font-bold tabular-nums text-son-text">{formatMoney(draft.finalValue)}</span></li>)}</ul>
+          </section>
+        ) : null}
       </div>
     </main>
   );

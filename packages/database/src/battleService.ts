@@ -29,6 +29,7 @@ import type {
 } from './contracts';
 import { guessIsCorrect } from './companyGuess';
 import { DatabaseDomainError } from './errors';
+import { parseSmartPassReview } from './smartPass';
 import {
   decimalToNumber as number,
   parseInput,
@@ -407,10 +408,12 @@ export class FriendBattleService {
             companyName: true,
             ticker: true,
             acceptedNames: true,
+            factBank: true,
             actualReturnPercent: true,
           },
         });
         if (!scenario) throw new DatabaseDomainError('INVALID_STATE', 'Current scenario is missing');
+        const smartPass = parseSmartPassReview(scenario.factBank);
         const companyGuessCorrect = guessIsCorrect(parsed.companyGuess, scenario);
         const bankrollBefore = number(player.currentBankroll);
         const outcome = scoreRound({
@@ -418,6 +421,7 @@ export class FriendBattleService {
           confidence: parsed.confidence,
           currentBankroll: bankrollBefore,
           actualReturnPercent: number(scenario.actualReturnPercent),
+          smartPassEligible: smartPass.eligible,
           companyGuessCorrect,
         });
         await tx.friendBattleDecision.create({
@@ -538,9 +542,10 @@ export class FriendBattleService {
     if (!entry) throw new DatabaseDomainError('INVALID_STATE', 'Current scenario is missing');
     const scenario = await tx.scenario.findUnique({
       where: { id: entry.scenarioId },
-      select: { id: true, actualReturnPercent: true },
+      select: { id: true, actualReturnPercent: true, factBank: true },
     });
     if (!scenario) throw new DatabaseDomainError('INVALID_STATE', 'Current scenario is missing');
+    const smartPass = parseSmartPassReview(scenario.factBank);
     const existing = await tx.friendBattleDecision.findMany({
       where: { battleId: battle.id, roundIndex: battle.currentRoundIndex },
     });
@@ -552,6 +557,7 @@ export class FriendBattleService {
         action: 'pass',
         currentBankroll: bankrollBefore,
         actualReturnPercent: number(scenario.actualReturnPercent),
+        smartPassEligible: smartPass.eligible,
         companyGuessCorrect: null,
       });
       await tx.friendBattleDecision.create({
@@ -871,6 +877,7 @@ export class FriendBattleService {
         outcomeLabel: true,
         endingPrice: true,
         actualReturnPercent: true,
+        factBank: true,
         revealShortText: true,
         revealFunFact: true,
         revealWhyItMoved: true,
@@ -882,6 +889,7 @@ export class FriendBattleService {
       },
     });
     if (!scenario) throw new DatabaseDomainError('INVALID_STATE', 'Reveal scenario is missing');
+    const smartPass = parseSmartPassReview(scenario.factBank);
     return {
       roundIndex,
       scenarioId: scenario.id,
@@ -897,6 +905,8 @@ export class FriendBattleService {
         date: point.pointDate.toISOString().slice(0, 10),
         price: number(point.price),
       })),
+      smartPassEligible: smartPass.eligible,
+      smartPassExplanation: smartPass.explanation,
       you: decisionPayload(yours),
       opponent: decisionPayload(theirs),
     };

@@ -79,6 +79,31 @@ enum PortfolioDraftStatus {
   abandoned
 }
 
+enum DraftFormat {
+  classic
+  quick
+  era
+}
+
+enum DraftBattleStatus {
+  awaiting_opponent
+  awaiting_submissions
+  completed
+  expired
+}
+
+enum DraftBattleRole {
+  creator
+  opponent
+}
+
+enum DraftBattleOutcome {
+  creator_win
+  opponent_win
+  draw
+  no_winner
+}
+
 enum BattleStatus {
   awaiting_opponent
   awaiting_ready
@@ -119,6 +144,10 @@ model User {
   roundDecisions              RoundDecision[]
   leaderboard                 LeaderboardEntry[]
   portfolioDrafts             PortfolioDraft[]
+  draftLeaderboardEntries     DraftLeaderboardEntry[]
+  draftBattlesCreated         DraftBattle[]       @relation("DraftBattleCreator")
+  draftBattlesJoined          DraftBattle[]       @relation("DraftBattleOpponent")
+  draftBattlePlayers          DraftBattlePlayer[]
   battlesCreated              FriendBattle[]       @relation("BattleCreator")
   battlesJoined               FriendBattle[]       @relation("BattleOpponent")
   battlePlayers               FriendBattlePlayer[]
@@ -169,6 +198,8 @@ model Era {
   createdAt   DateTime   @default(now())
   updatedAt   DateTime   @updatedAt
   scenarios   Scenario[]
+  portfolioDrafts PortfolioDraft[]
+  draftBattles DraftBattle[]
 }
 
 model ContentPack {
@@ -399,21 +430,93 @@ model PortfolioDraft {
   guestSessionId      String?
   status              PortfolioDraftStatus @default(in_progress)
   isOfficial          Boolean              @default(false)
+  format              DraftFormat          @default(classic)
+  eraId               String?
   windowStart         DateTime             @db.Date
   windowEnd           DateTime             @db.Date
   scenarioIds         Json
+  scenarioSnapshot    Json
   selectedScenarioIds Json?
+  allocations         Json?
   budget              Decimal
   finalValue          Decimal?
   optimalScenarioIds  Json?
+  optimalAllocations   Json?
   optimalValue        Decimal?
   createdAt           DateTime             @default(now())
   completedAt         DateTime?
   user                User?                @relation(fields: [userId], references: [id], onDelete: Cascade)
   guestSession        GuestSession?        @relation(fields: [guestSessionId], references: [id], onDelete: Cascade)
+  era                 Era?                 @relation(fields: [eraId], references: [id], onDelete: Restrict)
+  leaderboardEntry    DraftLeaderboardEntry?
 
   @@index([userId, status])
   @@index([guestSessionId, status])
+  @@index([format, status, completedAt])
+}
+
+model DraftLeaderboardEntry {
+  id            String      @id @default(cuid())
+  userId        String
+  draftId       String      @unique
+  format        DraftFormat
+  finalValue    Decimal
+  gapFromOptimal Decimal
+  completedAt   DateTime
+  createdAt     DateTime    @default(now())
+  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  draft         PortfolioDraft @relation(fields: [draftId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, format])
+  @@index([format, finalValue, gapFromOptimal, completedAt])
+}
+
+// D055 Draft Battle: one immutable Draft snapshot, exactly two authenticated
+// players, and one private submission per player.
+model DraftBattle {
+  id                    String             @id @default(cuid())
+  inviteCode            String             @unique
+  creatorId             String
+  opponentId            String?
+  format                DraftFormat
+  eraId                 String?
+  timerSeconds          Int?
+  status                DraftBattleStatus  @default(awaiting_opponent)
+  scenarioIds           Json
+  scenarioSnapshot      Json
+  budget                Decimal
+  submissionDeadlineAt  DateTime?
+  outcome               DraftBattleOutcome?
+  createdAt             DateTime           @default(now())
+  expiresAt             DateTime
+  completedAt           DateTime?
+  creator               User               @relation("DraftBattleCreator", fields: [creatorId], references: [id], onDelete: Cascade)
+  opponent              User?              @relation("DraftBattleOpponent", fields: [opponentId], references: [id], onDelete: Cascade)
+  era                   Era?               @relation(fields: [eraId], references: [id], onDelete: Restrict)
+  players               DraftBattlePlayer[]
+
+  @@index([creatorId, status])
+  @@index([opponentId, status])
+}
+
+model DraftBattlePlayer {
+  id                  String       @id @default(cuid())
+  battleId            String
+  userId              String
+  role                DraftBattleRole
+  selectedScenarioIds Json?
+  allocations         Json?
+  finalValue          Decimal?
+  gapFromOptimal      Decimal?
+  submittedAt         DateTime?
+  forfeited           Boolean      @default(false)
+  createdAt           DateTime     @default(now())
+  updatedAt           DateTime     @updatedAt
+  battle              DraftBattle @relation(fields: [battleId], references: [id], onDelete: Cascade)
+  user                User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([battleId, userId])
+  @@unique([battleId, role])
 }
 
 // Friend Battle (D052): exactly two signed-in players over one immutable

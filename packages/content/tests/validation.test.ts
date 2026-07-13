@@ -36,6 +36,31 @@ describe('validateScenario', () => {
     }
   });
 
+  it('requires reviewed Smart Pass metadata and keeps the explanation reveal-safe', () => {
+    const missing = cloneScenario(loadActiveNetflix());
+    missing.status = 'active';
+    delete missing.review.smartPass;
+    const missingResult = validateScenario(missing, { skipGate2: true });
+    expect(missingResult.success).toBe(false);
+    if (!missingResult.success) {
+      expect(missingResult.errors.some((error) => error.path === 'review.smartPass')).toBe(true);
+    }
+
+    const leaking = cloneScenario(loadActiveNetflix());
+    leaking.status = 'active';
+    leaking.review.smartPass = {
+      eligible: true,
+      explanation: `Mixed evidence remains around ${leaking.company.name}; either case could win.`,
+    };
+    const leakingResult = validateScenario(leaking, { skipGate2: true });
+    expect(leakingResult.success).toBe(false);
+    if (!leakingResult.success) {
+      expect(
+        leakingResult.errors.some((error) => error.path === 'review.smartPass.explanation'),
+      ).toBe(true);
+    }
+  });
+
   it('fails when a hidden field contains the company name', () => {
     const scenario = cloneScenario(loadActiveNetflix());
     scenario.hiddenCard.medium.situation =

@@ -98,6 +98,11 @@ export default function DailyChallengePage() {
           10 mixed-difficulty rounds. Replay freely; your best completed attempt is the one
           that counts today.
         </p>
+        <p className="mt-3 max-w-2xl rounded-lg border border-son-signalCyan/30 bg-son-signalCyan/5 px-3 py-2 text-xs leading-relaxed text-son-textSecondary">
+          Pass is a deliberate read: it never changes bankroll, and a curator-reviewed
+          inconclusive card earns +1 Smart Pass Signal after the reveal. Eligibility stays
+          hidden until the round settles.
+        </p>
 
         {state.kind === 'loading' || !isLoaded ? (
           <div className="mt-6 animate-pulse rounded-2xl border border-son-border bg-son-card p-5">

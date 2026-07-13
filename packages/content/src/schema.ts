@@ -193,6 +193,11 @@ const factBankSchema = z.object({
   prohibitedConjunctions: z.array(z.string()).optional(),
 });
 
+export const smartPassReviewSchema = z.object({
+  eligible: z.boolean(),
+  explanation: nonEmptyString.min(32).max(320),
+}).strict();
+
 const gate2ReviewSchema = z
   .object({
     easy: gate2VariantResultSchema.optional(),
@@ -269,6 +274,8 @@ export const scenarioSchema = z.object({
     easyLikelyGuesses: z.array(z.string()),
     mediumLikelyGuesses: z.array(z.string()),
     hardLikelyGuesses: z.array(z.string()),
+    /** Required for reviewed/active scenarios by business validation. */
+    smartPass: smartPassReviewSchema.optional(),
     /** Optional; missing does not fail validation in H021. */
     gate2: gate2ReviewSchema,
   }),

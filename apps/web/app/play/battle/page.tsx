@@ -179,6 +179,10 @@ export default function BattleHomePage() {
               <p className="mt-1 text-xs text-son-textMuted">
                 Miss the clock and that round becomes a Pass. Server time is final.
               </p>
+              <p className="mt-2 text-xs leading-relaxed text-son-textMuted">
+                Pass never changes bankroll. A genuinely inconclusive reviewed card can award
+                +1 Smart Pass Signal, revealed only after both calls settle.
+              </p>
 
               {createError ? (
                 <p role="alert" className="mt-4 rounded-lg border border-son-red/40 bg-son-red/10 px-3 py-2 text-sm text-son-red">

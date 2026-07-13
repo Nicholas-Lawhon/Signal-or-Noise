@@ -120,6 +120,10 @@
                     }
                 ],
     "review":  {
+      "smartPass": {
+        "eligible": true,
+      "explanation": "Reopening traffic and new access methods support recovery, while closures, labor pressure, and a fixed footprint create a genuine trade-off."
+      },
                    "generatedByAi":  true,
                    "humanReviewed":  true,
                    "reviewNotes":  "Famous; adversarial rewrite from clean stored Grok evidence. Changed Medium and Hard. Removed global-chain, small-ticket, remote-ordering, loyalty, restaurant, and reopening-traffic conjunctions that concentrated guesses on Starbucks and quick-service restaurants. The repeat-visit physical-network tension now also fits Planet Fitness, Ulta, Chipotle, McDonald\u0027s, Walgreens, and Starbucks. Stored review.gate2 is preserved and stale by hash.",

@@ -80,7 +80,7 @@ export async function withSerializableRetry<T>(
     } catch (error) {
       const code = prismaErrorCode(error);
       if (code !== 'P2034' && code !== 'P2002') throw error;
-      if (code === 'P2002' || attempt >= attempts) {
+      if (attempt >= attempts) {
         throw new DatabaseDomainError('CONFLICT', conflictMessage);
       }
     }

@@ -158,6 +158,19 @@ independent review. Shared Neon is migrated; the final merged suite reports 61
 engine, 77 content, 42 database, and 26 web tests with zero skips, plus 20/20
 browser checks across Chromium and mobile WebKit.
 
+## Phase 11 — Strategic Pass and Portfolio Draft Expansion ⬜
+
+Add curator-reviewed Smart Pass scoring to every Classic-style decision loop.
+Expand Portfolio Draft with Classic, Quick, and Era formats, constrained variable
+weighting, separate all-time solo leaderboards, and synchronized two-player Draft
+Battles. Server-owned scoring, pre-decision privacy, and mobile-first play remain
+controlling requirements under D055.
+
+**Accept:** Smart Pass metadata and scoring are validated and leakage-safe across
+Classic, Daily, and Friend Battle; all three weighted Draft formats, official
+format-separated leaderboards, and invite-based Draft Battles work end to end;
+the full acceptance suite and independent high-risk review pass.
+
 ## Business Track (parallel, milestone-gated)
 
 Growth role activates per gate — see `agents/roles/growth.md` and
@@ -179,9 +192,7 @@ Growth role activates per gate — see `agents/roles/growth.md` and
 
 ## Post-MVP Queue (do not build during MVP)
 
-1. Smart pass scoring
-2. Portfolio Draft leaderboard and expanded draft formats
-3. Expanded Friend Battle settings and private leagues
-4. Shared package cleanup for Expo readiness
-5. Expo mobile app
-6. Expanded/paid content packs, cosmetics, advanced stats
+1. Expanded Friend Battle settings and private leagues
+2. Shared package cleanup for Expo readiness
+3. Expo mobile app
+4. Expanded/paid content packs, cosmetics, advanced stats

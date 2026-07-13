@@ -19,7 +19,9 @@ export async function GET(request: Request): Promise<NextResponse> {
       return jsonError(400, 'INVALID_INPUT', 'Invalid leaderboard filters');
     }
     const user = await getVerifiedUser();
-    const leaderboard = await getLeaderboardService().list(query.data, user?.userId);
+    const leaderboard = query.data.board === 'draft'
+      ? await getLeaderboardService().listDraft({ format: query.data.format, page: query.data.page, pageSize: query.data.pageSize }, user?.userId)
+      : await getLeaderboardService().list(query.data, user?.userId);
     return NextResponse.json(
       {
         ...leaderboard,

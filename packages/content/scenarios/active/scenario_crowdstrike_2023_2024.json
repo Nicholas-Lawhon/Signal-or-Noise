@@ -118,6 +118,10 @@
                     }
                 ],
     "review":  {
+      "smartPass": {
+        "eligible": false,
+        "explanation": "The pre-decision evidence forms a comparatively readable directional case. Countervailing risks remain, but they do not create enough unresolved tension for Smart Pass."
+      },
                    "generatedByAi":  true,
                    "humanReviewed":  true,
                    "reviewNotes":  "Famous bucket. Fact bank first; Hard drafted first. Peer pointing: Palo Alto fits platform consolidation; Zscaler fits cloud security subscriptions; Okta fits identity modules; Cloudflare fits critical cloud services. Chart review: deep software drawdown is shared by growth peers; prose avoids breach or endpoint-specific hooks. Payload-only self-check (non-authoritative): Easy [CrowdStrike 40, Palo Alto 27, Zscaler 18, Okta 9, Cloudflare 6]; Medium [Palo Alto 27, CrowdStrike 25, Zscaler 23, Okta 14, Cloudflare 11]; Hard [ServiceNow 24, Palo Alto 21, Zscaler 19, CrowdStrike 14, Okta 12], direction long 56 from retention and cross-sell versus procurement delays. Overlap and support checks passed.",

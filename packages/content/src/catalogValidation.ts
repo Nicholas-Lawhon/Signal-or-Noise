@@ -82,6 +82,20 @@ export function validateContentCatalog(
     });
   }
 
+  const activeScenarios = scenarios.filter((scenario) => scenario.status === 'active');
+  if (activeScenarios.length > 0) {
+    const eligibleCount = activeScenarios.filter(
+      (scenario) => scenario.review.smartPass?.eligible === true,
+    ).length;
+    const eligibleShare = eligibleCount / activeScenarios.length;
+    if (eligibleShare < 0.10 || eligibleShare > 0.20) {
+      errors.push({
+        path: 'scenarios.review.smartPass.eligible',
+        message: `Active scenarios must keep Smart Pass eligibility between 10% and 20% (got ${eligibleCount}/${activeScenarios.length}, ${(eligibleShare * 100).toFixed(1)}%)`,
+      });
+    }
+  }
+
   if (poolsResult.success) {
     poolsResult.data.forEach((pool, poolIndex) => {
       const companies = new Set<string>();

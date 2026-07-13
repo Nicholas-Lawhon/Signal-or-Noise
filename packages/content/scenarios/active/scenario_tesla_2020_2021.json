@@ -121,6 +121,10 @@
                     }
                 ],
     "review":  {
+      "smartPass": {
+        "eligible": false,
+        "explanation": "The pre-decision evidence forms a comparatively readable directional case. Countervailing risks remain, but they do not create enough unresolved tension for Smart Pass."
+      },
                    "generatedByAi":  true,
                    "humanReviewed":  true,
                    "reviewNotes":  "Famous; adversarial rewrite from clean stored Grok evidence. Changed Medium and Hard. Removed consumer-product, maturing category, direct sales, transport, vehicle, rival-distribution, and famous capacity-ramp conjunctions. The facility-ramp and yield tension now fits First Solar, Enphase, GlobalFoundries, Peloton, NIO, and Tesla. Stored review.gate2 is preserved and stale by hash.",

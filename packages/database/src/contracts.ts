@@ -200,16 +200,28 @@ export type PublicIdentityPayload = {
 };
 
 // ---------------------------------------------------------------------------
-// Portfolio Draft (D052)
+// Portfolio Draft (D052/D055)
 //
 // Pre-selection cards are addressed by slot index 0-5, never by scenario id:
 // production scenario ids embed company names, so exposing them before the
 // reveal would cross the pre-decision boundary.
 // ---------------------------------------------------------------------------
 
+export const draftFormatSchema = z.enum(['classic', 'quick', 'era']);
+export type DraftFormatValue = z.infer<typeof draftFormatSchema>;
+
 export const createPortfolioDraftSchema = z.object({
   owner: runOwnerSchema,
-}).strict();
+  format: draftFormatSchema.optional(),
+  eraId: z.string().min(1).max(128).optional(),
+}).strict().superRefine((input, context) => {
+  if (input.format === 'era' && !input.eraId) {
+    context.addIssue({ code: z.ZodIssueCode.custom, path: ['eraId'], message: 'Era Draft needs an era' });
+  }
+  if (input.format !== 'era' && input.eraId) {
+    context.addIssue({ code: z.ZodIssueCode.custom, path: ['eraId'], message: 'Only Era Draft accepts an era' });
+  }
+});
 
 export const getPortfolioDraftSchema = z.object({
   owner: runOwnerSchema,
@@ -220,14 +232,26 @@ export const getCurrentPortfolioDraftSchema = z.object({
   owner: runOwnerSchema,
 }).strict();
 
+export const getDraftHistorySchema = z.object({
+  userId: z.string().min(1).max(128),
+  limit: z.number().int().min(1).max(20).default(10),
+}).strict();
+
 export const submitDraftSelectionSchema = z.object({
   owner: runOwnerSchema,
   draftId: z.string().min(1).max(128),
-  slots: z.array(z.number().int().min(0).max(5)).length(3)
-    .refine((slots) => new Set(slots).size === slots.length, {
-      message: 'Draft picks must be three distinct companies',
-    }),
-}).strict();
+  slots: z.array(z.number().int().min(0).max(5)).min(2).max(3)
+    .refine((slots) => new Set(slots).size === slots.length, { message: 'Draft picks must be distinct companies' }),
+  allocations: z.array(z.number().int().min(10).max(60)).min(2).max(3),
+}).strict().superRefine((input, context) => {
+  if (input.allocations.length !== input.slots.length) {
+    context.addIssue({ code: z.ZodIssueCode.custom, path: ['allocations'], message: 'One allocation is required per pick' });
+  }
+  if (input.allocations.some((value) => value % 10 !== 0)
+    || input.allocations.reduce((sum, value) => sum + value, 0) !== 100) {
+    context.addIssue({ code: z.ZodIssueCode.custom, path: ['allocations'], message: 'Allocations must use 10% increments and total 100%' });
+  }
+});
 
 export type DraftCardPayload = {
   slot: number;
@@ -243,10 +267,14 @@ export type DraftCardPayload = {
   lookbackChart: Array<{ date: string; price: number }>;
 };
 
+export type DraftEraPayload = { id: string; name: string; description: string };
+
 export type CurrentDraftPayload = {
   id: string;
   status: 'in_progress';
   isOfficial: boolean;
+  format: DraftFormatValue;
+  eraId: string | null;
   budget: number;
   windowLabel: string;
   cards: DraftCardPayload[];
@@ -260,14 +288,17 @@ export type DraftRevealCompanyPayload = {
   actualReturnPercent: number;
   selected: boolean;
   optimal: boolean;
-  /** Final value of this company's equal slice; null when not selected. */
-  sliceValue: number | null;
+  allocationPercent: number | null;
+  allocatedValue: number | null;
+  optimalAllocationPercent?: number;
 };
 
 export type CompletedDraftPayload = {
   id: string;
   status: 'completed';
   isOfficial: boolean;
+  format: DraftFormatValue;
+  eraId: string | null;
   budget: number;
   windowLabel: string;
   finalValue: number;
@@ -277,6 +308,127 @@ export type CompletedDraftPayload = {
 };
 
 export type DraftPayload = CurrentDraftPayload | CompletedDraftPayload;
+
+export type DraftHistoryEntryPayload = {
+  id: string;
+  format: DraftFormatValue;
+  finalValue: number;
+  gapFromOptimal: number;
+  completedAt: string;
+};
+
+export type DraftLeaderboardRowPayload = {
+  rank: number;
+  publicName: string;
+  finalValue: number;
+  gapFromOptimal: number;
+  completedAt: string;
+  isCurrentUser: boolean;
+};
+
+export type DraftLeaderboardPagePayload = {
+  format: DraftFormatValue;
+  rows: DraftLeaderboardRowPayload[];
+  currentUserRow: DraftLeaderboardRowPayload | null;
+  pagination: { page: number; pageSize: number; totalEntries: number; totalPages: number };
+};
+
+// Draft Battle (D055). Scenario slots remain opaque until the joint settle.
+export const draftBattleTimerSchema = z.union([z.null(), z.literal(120), z.literal(300)]);
+
+export const createDraftBattleSchema = z.object({
+  userId: z.string().min(1).max(128),
+  format: draftFormatSchema,
+  eraId: z.string().min(1).max(128).optional(),
+  timerSeconds: draftBattleTimerSchema.default(120),
+}).strict().superRefine((input, context) => {
+  if (input.format === 'era' && !input.eraId) {
+    context.addIssue({ code: z.ZodIssueCode.custom, path: ['eraId'], message: 'Era Draft needs an era' });
+  }
+  if (input.format !== 'era' && input.eraId) {
+    context.addIssue({ code: z.ZodIssueCode.custom, path: ['eraId'], message: 'Only Era Draft accepts an era' });
+  }
+});
+
+export const getDraftBattleStateSchema = z.object({
+  userId: z.string().min(1).max(128),
+  battleId: z.string().min(1).max(128),
+}).strict();
+
+export const getDraftBattleInviteSchema = z.object({
+  userId: z.string().min(1).max(128),
+  inviteCode: z.string().regex(/^[a-f0-9]{32}$/),
+}).strict();
+
+export const joinDraftBattleSchema = getDraftBattleInviteSchema;
+
+export const submitDraftBattleSchema = z.object({
+  userId: z.string().min(1).max(128),
+  battleId: z.string().min(1).max(128),
+  slots: z.array(z.number().int().min(0).max(5)).min(2).max(3),
+  allocations: z.array(z.number().int().min(10).max(60)).min(2).max(3),
+}).strict().superRefine((input, context) => {
+  if (new Set(input.slots).size !== input.slots.length) {
+    context.addIssue({ code: z.ZodIssueCode.custom, path: ['slots'], message: 'Battle picks must be distinct' });
+  }
+  if (input.slots.length !== input.allocations.length) {
+    context.addIssue({ code: z.ZodIssueCode.custom, path: ['allocations'], message: 'One allocation is required per pick' });
+  }
+  if (input.allocations.some((value) => value % 10 !== 0)
+    || input.allocations.reduce((sum, value) => sum + value, 0) !== 100) {
+    context.addIssue({ code: z.ZodIssueCode.custom, path: ['allocations'], message: 'Allocations must use 10% increments and total 100%' });
+  }
+});
+
+export type DraftBattleStatusValue = 'awaiting_opponent' | 'awaiting_submissions' | 'completed' | 'expired';
+export type DraftBattleTimer = z.infer<typeof draftBattleTimerSchema>;
+export type DraftBattleSelfPayload = {
+  name: string;
+  hasSubmitted: boolean;
+  selectedSlots: number[] | null;
+  allocations: number[] | null;
+};
+export type DraftBattleOpponentPayload = { name: string; hasSubmitted: boolean } | null;
+export type DraftBattleRevealCompanyPayload = {
+  slot: number;
+  title: string;
+  companyName: string;
+  ticker: string;
+  actualReturnPercent: number;
+  youSelected: boolean;
+  opponentSelected: boolean;
+  youAllocationPercent: number | null;
+  opponentAllocationPercent: number | null;
+};
+export type DraftBattleRevealPayload = {
+  companies: DraftBattleRevealCompanyPayload[];
+  you: { finalValue: number | null; gapFromOptimal: number | null; forfeited: boolean };
+  opponent: { finalValue: number | null; gapFromOptimal: number | null; forfeited: boolean } | null;
+};
+export type DraftBattleStatePayload = {
+  id: string;
+  status: DraftBattleStatusValue;
+  format: DraftFormatValue;
+  eraId: string | null;
+  timerSeconds: DraftBattleTimer;
+  budget: number;
+  inviteCode?: string;
+  submissionDeadlineAt: string | null;
+  expiresAt: string;
+  serverNow: string;
+  cards: DraftCardPayload[] | null;
+  you: DraftBattleSelfPayload;
+  opponent: DraftBattleOpponentPayload;
+  outcome: 'you_won' | 'you_lost' | 'draw' | 'no_winner' | 'expired' | null;
+  reveal: DraftBattleRevealPayload | null;
+};
+export type DraftBattleInvitePreviewPayload = {
+  format: DraftFormatValue;
+  eraId: string | null;
+  timerSeconds: DraftBattleTimer;
+  status: DraftBattleStatusValue;
+  joinable: boolean;
+};
 
 // ---------------------------------------------------------------------------
 // Friend Battle (D052)
@@ -483,4 +635,7 @@ export type RevealPayload = {
   funFact: string;
   whyItMoved: string[];
   outcomeChart: Array<{ date: string; price: number }>;
+  /** Released only with the settled reveal, never in pre-decision payloads. */
+  smartPassEligible: boolean;
+  smartPassExplanation: string;
 };

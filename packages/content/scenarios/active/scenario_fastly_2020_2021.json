@@ -120,6 +120,10 @@
                     }
                 ],
     "review":  {
+      "smartPass": {
+        "eligible": false,
+        "explanation": "The pre-decision evidence forms a comparatively readable directional case. Countervailing risks remain, but they do not create enough unresolved tension for Smart Pass."
+      },
                    "generatedByAi":  true,
                    "humanReviewed":  true,
                    "reviewNotes":  "Obscure; adversarial rewrite from clean stored Grok evidence. Changed Medium and Hard plus the identifying Traffic Test title, making all sibling payloads require rejudge. Removed traffic, edge/CDN, internet-demand, usage-revenue, speed, and network-specialist conjunctions. New metered-capacity versus concentration tension fits Twilio, DigitalOcean, Snowflake, Cloudflare, Akamai, and Fastly. Stored review.gate2 is preserved but stale by hash.",

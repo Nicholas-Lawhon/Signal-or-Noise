@@ -123,6 +123,10 @@
                     }
                 ],
     "review":  {
+      "smartPass": {
+        "eligible": true,
+      "explanation": "Recurring adoption and a broad installed base support continued expansion, while saturation, migration friction, and high expectations pull the evidence the other way; the setup is genuinely mixed."
+      },
                    "generatedByAi":  true,
                    "humanReviewed":  true,
                    "reviewNotes":  "Phase 4B production candidate. Recognition bucket: famous. Authored fact-bank first and Hard first, then Medium/Easy. Payload-only editorial self-check retained the named peer set across difficulties, avoided correct-company dominance on Medium/Hard, kept both calls articulable, and found no unsupported candidate. No authoritative Gate 2 judgment is recorded. Phase-internal clean-Grok rewrite changed medium/hard only: removed the stored judge\u0027s company-pointing conjunctions while keeping concrete long/short tension. Stored Gate 2 evidence is preserved but stale for changed variants; clean rejudge required. Shared title unchanged, so no sibling-only rejudge expansion.",

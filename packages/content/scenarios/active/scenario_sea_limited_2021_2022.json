@@ -120,6 +120,10 @@
                     }
                 ],
     "review":  {
+      "smartPass": {
+        "eligible": false,
+        "explanation": "The pre-decision evidence forms a comparatively readable directional case. Countervailing risks remain, but they do not create enough unresolved tension for Smart Pass."
+      },
                    "generatedByAi":  true,
                    "humanReviewed":  true,
                    "reviewNotes":  "Moderate bucket. Stored Grok evidence identified the commerce-entertainment-finance trio and gaming-funded expansion on Medium; the mature-profit-engine-funded ecosystem still exposed Hard. M/H now use a multi-service digital platform, shared distribution, subsidized adjacent growth, a slowing established operation, normalization, and tight capital without geography or segment labels. Easy is unchanged. Stored M/H results are stale evidence pending blind rejudge.",

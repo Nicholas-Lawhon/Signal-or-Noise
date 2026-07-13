@@ -168,19 +168,21 @@ describeCompetitive('Phase 9A competitive modes integration', () => {
     it('rejects malformed selections and enforces ownership', async () => {
       const draft = await drafts.getCurrentDraft({ owner: guestOwner });
       const draftId = draft!.id;
-      await expect(drafts.submitSelections({ owner: guestOwner, draftId, slots: [0, 1] }))
+      await expect(drafts.submitSelections({ owner: guestOwner, draftId, slots: [0, 1, 2] }))
         .rejects.toMatchObject({ code: 'INVALID_INPUT' });
-      await expect(drafts.submitSelections({ owner: guestOwner, draftId, slots: [0, 1, 2, 3] }))
+      await expect(drafts.submitSelections({ owner: guestOwner, draftId, slots: [0, 1], allocations: [50, 50] }))
         .rejects.toMatchObject({ code: 'INVALID_INPUT' });
-      await expect(drafts.submitSelections({ owner: guestOwner, draftId, slots: [0, 1, 1] }))
+      await expect(drafts.submitSelections({ owner: guestOwner, draftId, slots: [0, 1, 2, 3], allocations: [30, 30, 40] }))
         .rejects.toMatchObject({ code: 'INVALID_INPUT' });
-      await expect(drafts.submitSelections({ owner: guestOwner, draftId, slots: [0, 1, 6] }))
+      await expect(drafts.submitSelections({ owner: guestOwner, draftId, slots: [0, 1, 1], allocations: [30, 30, 40] }))
+        .rejects.toMatchObject({ code: 'INVALID_INPUT' });
+      await expect(drafts.submitSelections({ owner: guestOwner, draftId, slots: [0, 1, 6], allocations: [30, 30, 40] }))
         .rejects.toMatchObject({ code: 'INVALID_INPUT' });
 
       const stranger = { kind: 'guest', guestSessionId: guestTwo } as const;
       await expect(drafts.getDraft({ owner: stranger, draftId }))
         .rejects.toMatchObject({ code: 'FORBIDDEN' });
-      await expect(drafts.submitSelections({ owner: stranger, draftId, slots: [0, 1, 2] }))
+      await expect(drafts.submitSelections({ owner: stranger, draftId, slots: [0, 1, 2], allocations: [30, 30, 40] }))
         .rejects.toMatchObject({ code: 'FORBIDDEN' });
       await expect(drafts.getDraft({ owner: ownerA, draftId }))
         .rejects.toMatchObject({ code: 'FORBIDDEN' });
@@ -203,8 +205,8 @@ describeCompetitive('Phase 9A competitive modes integration', () => {
 
       // Race two submissions: exactly one wins, the loser sees CONFLICT.
       const [first, second] = await Promise.allSettled([
-        drafts.submitSelections({ owner: guestOwner, draftId: draft.id, slots: [0, 1, 2] }),
-        drafts.submitSelections({ owner: guestOwner, draftId: draft.id, slots: [3, 4, 5] }),
+        drafts.submitSelections({ owner: guestOwner, draftId: draft.id, slots: [0, 1, 2], allocations: [30, 30, 40] }),
+        drafts.submitSelections({ owner: guestOwner, draftId: draft.id, slots: [3, 4, 5], allocations: [30, 30, 40] }),
       ]);
       const outcomes = [first, second];
       expect(outcomes.filter((o) => o.status === 'fulfilled')).toHaveLength(1);
@@ -217,17 +219,18 @@ describeCompetitive('Phase 9A competitive modes integration', () => {
       expect(JSON.stringify((winner as PromiseFulfilledResult<unknown>).value))
         .toBe(JSON.stringify(completed));
 
-      // Hand-verify the equal-split math against raw scenario returns.
+      // Hand-verify the weighted math against raw scenario returns.
       const selectedSlots = completed.companies.filter((c) => c.selected).map((c) => c.slot);
-      const selectedReturns = selectedSlots.map((slot) => returnById.get(ids[slot])!);
-      const expectedFinal = selectedReturns.reduce(
-        (sum, r) => sum + Math.max(0, (10000 / 3) * (1 + r)),
+      const expectedFinal = selectedSlots.reduce(
+        (sum, slot) => {
+          const company = completed.companies[slot];
+          return sum + Math.max(0, 10000 * (company.allocationPercent! / 100) * (1 + returnById.get(ids[slot])!));
+        },
         0,
       );
       expect(completed.finalValue).toBeCloseTo(expectedFinal, 6);
-      const sortedReturns = [...returnById.values()].sort((a, b) => b - a).slice(0, 3);
-      const expectedOptimal = sortedReturns.reduce(
-        (sum, r) => sum + Math.max(0, (10000 / 3) * (1 + r)),
+      const expectedOptimal = completed.companies.filter((company) => company.optimal).reduce(
+        (sum, company) => sum + Math.max(0, 10000 * (company.optimalAllocationPercent! / 100) * (1 + company.actualReturnPercent)),
         0,
       );
       expect(completed.optimalValue).toBeCloseTo(expectedOptimal, 6);
@@ -239,7 +242,7 @@ describeCompetitive('Phase 9A competitive modes integration', () => {
 
       // Immutability: a repeat submission conflicts and changes nothing.
       await expect(
-        drafts.submitSelections({ owner: guestOwner, draftId: draft.id, slots: [3, 4, 5] }),
+        drafts.submitSelections({ owner: guestOwner, draftId: draft.id, slots: [3, 4, 5], allocations: [30, 30, 40] }),
       ).rejects.toMatchObject({ code: 'CONFLICT' });
     });
 
@@ -250,6 +253,7 @@ describeCompetitive('Phase 9A competitive modes integration', () => {
         owner: ownerA,
         draftId: draft.id,
         slots: [1, 3, 5],
+        allocations: [30, 30, 40],
       });
       expect(completed.status).toBe('completed');
       const record = await prisma.portfolioDraft.findUniqueOrThrow({
@@ -590,7 +594,11 @@ describeCompetitive('Phase 9A competitive modes integration', () => {
       expect(viewA.summary!.rounds).toHaveLength(totalRounds);
       const viewB = await battles.getBattleState({ userId: userB, battleId: state.id });
       expect(viewB.summary!.outcome).toBe('you_lost');
-      expect(viewB.you.signalScore).toBeCloseTo(-0.25 * totalRounds, 6);
+      const expectedPassScore = viewB.summary!.rounds.reduce(
+        (sum, round) => sum + round.you.signalScoreDelta,
+        0,
+      );
+      expect(viewB.you.signalScore).toBeCloseTo(expectedPassScore, 6);
     }, 120_000);
 
     it('expires unfinished battles 24 hours after creation with no winner', async () => {

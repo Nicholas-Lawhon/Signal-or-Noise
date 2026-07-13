@@ -4,8 +4,11 @@ import {
   DRAFT_PICKS,
   DRAFT_POOL_SIZE,
   computeDraftResult,
+  equalWeightAllocations,
   findDraftWindows,
+  isValidDraftAllocation,
   portfolioFinalValue,
+  weightedDraftFinalValue,
 } from '../src/draft';
 import type { DraftPoolEntry } from '../src/types';
 
@@ -138,5 +141,43 @@ describe('findDraftWindows', () => {
     expect(() =>
       findDraftWindows([interval('a', '2021-01-04', '2020-01-02')]),
     ).toThrow();
+  });
+});
+
+describe('D055 weighted Draft formats', () => {
+  it('validates 10% increments and the equal-weight shortcut', () => {
+    expect(equalWeightAllocations(2)).toEqual([50, 50]);
+    expect(equalWeightAllocations(3)).toEqual([30, 30, 40]);
+    expect(isValidDraftAllocation([60, 40], 2)).toBe(true);
+    expect(isValidDraftAllocation([60, 30, 10], 3)).toBe(true);
+    expect(isValidDraftAllocation([50, 30, 20], 2)).toBe(false);
+    expect(isValidDraftAllocation([33, 33, 34], 3)).toBe(false);
+  });
+
+  it('supports Quick Draft and computes weighted value', () => {
+    const quick = pool({ a: 0.5, b: 0.2, c: -0.1, d: 0.9 });
+    const result = computeDraftResult(quick, ['a', 'd'], [40, 60], 'quick');
+    expect(result.format).toBe('quick');
+    expect(result.selectedAllocations).toEqual([40, 60]);
+    expect(result.finalValue).toBeCloseTo(weightedDraftFinalValue([0.5, 0.9], [40, 60]), 6);
+    expect(result.optimalScenarioIds).toEqual(['a', 'd']);
+    expect(result.optimalAllocations).toEqual([40, 60]);
+    expect(result.gapFromOptimal).toBeCloseTo(0, 9);
+  });
+
+  it('finds the best valid allocation, not just the best three companies', () => {
+    const six = pool({ a: 0.8, b: 0.7, c: 0.1, d: 0.0, e: -0.2, f: -0.4 });
+    const result = computeDraftResult(six, ['a', 'b', 'c'], [30, 30, 40], 'classic');
+    expect(result.optimalScenarioIds).toEqual(['a', 'b', 'c']);
+    expect(result.optimalAllocations).toEqual([60, 30, 10]);
+    expect(result.optimalValue).toBeCloseTo(weightedDraftFinalValue([0.8, 0.7, 0.1], [60, 30, 10]), 6);
+    expect(result.gapFromOptimal).toBeGreaterThan(0);
+  });
+
+  it('rejects invalid weighted selections and pool sizes', () => {
+    const quick = pool({ a: 0.1, b: 0.2, c: 0.3, d: 0.4 });
+    expect(() => computeDraftResult(quick, ['a', 'b'], [50, 50], 'classic')).toThrow();
+    expect(() => computeDraftResult(quick, ['a', 'b'], [70, 30], 'quick')).toThrow();
+    expect(() => computeDraftResult(quick, ['a', 'b'], [40, 40], 'quick')).toThrow();
   });
 });

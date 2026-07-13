@@ -120,6 +120,10 @@
                     }
                 ],
     "review":  {
+      "smartPass": {
+        "eligible": false,
+        "explanation": "The pre-decision evidence forms a comparatively readable directional case. Countervailing risks remain, but they do not create enough unresolved tension for Smart Pass."
+      },
                    "generatedByAi":  true,
                    "humanReviewed":  true,
                    "reviewNotes":  "Famous bucket. Stored Grok evidence identified the integrated computing-chip company repairing a process roadmap as the Medium hook and process-rebuild language as the Hard hook. M/H now use a mature capital-intensive technology manufacturer, broad demand, product execution, construction commitments, and a shared capacity cycle. Easy is unchanged. Stored M/H results remain stale adversarial evidence pending blind rejudge.",

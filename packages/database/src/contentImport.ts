@@ -285,7 +285,12 @@ export async function importProductionContent(
         reviewedBy: null,
         reviewedAt: null,
         reviewNotes: scenario.review.reviewNotes,
-        factBank: toJson(scenario.review.factBank),
+        // Smart Pass is reviewed content metadata. Keep it inside the existing
+        // immutable JSON review snapshot so no schema/migration change is needed.
+        factBank: toJson({
+          ...scenario.review.factBank,
+          smartPass: scenario.review.smartPass,
+        }),
         likelyGuesses: toJson({
           easy: scenario.review.easyLikelyGuesses,
           medium: scenario.review.mediumLikelyGuesses,

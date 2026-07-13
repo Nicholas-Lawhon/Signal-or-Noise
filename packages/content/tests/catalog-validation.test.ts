@@ -195,6 +195,27 @@ describe('content catalog validation', () => {
     }
   });
 
+  it('rejects Smart Pass eligibility outside the 10%-20% active calibration', () => {
+    const scenarios = makeProductionScenarios().map((scenario) => ({
+      ...scenario,
+      review: {
+        ...scenario.review,
+        smartPass: { ...scenario.review.smartPass!, eligible: false },
+      },
+    }));
+    const selected = scenarios.slice(0, 10);
+    const result = validateContentCatalog(
+      makePools(selected.map((scenario) => scenario.id)),
+      loadEraData(),
+      makeInventory(scenarios),
+      scenarios,
+    );
+    expect(result.success).toBe(false);
+    if (!result.success) {
+      expect(result.errors.some((error) => error.path.includes('smartPass.eligible'))).toBe(true);
+    }
+  });
+
   it('rejects a production inventory with the wrong recognition mix', () => {
     const scenarios = makeProductionScenarios();
     const inventory = makeInventory(scenarios);

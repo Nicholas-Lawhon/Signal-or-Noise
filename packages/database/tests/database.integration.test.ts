@@ -355,7 +355,15 @@ describeDatabase('PostgreSQL persistence integration', () => {
       });
     }
     expect(finalResult?.run.status).toBe('completed');
-    expect(finalResult?.run.signalScore).toBe(-2.5);
+    const completedDecisions = await prisma.roundDecision.findMany({
+      where: { runId: current.id },
+      select: { signalScoreDelta: true },
+    });
+    const expectedSignalScore = completedDecisions.reduce(
+      (sum, decision) => sum + decision.signalScoreDelta.toNumber(),
+      0,
+    );
+    expect(finalResult?.run.signalScore).toBeCloseTo(expectedSignalScore, 6);
     expect(finalResult?.run.currentBankroll).toBe(12500);
     expect(await service.getCurrentRun({ owner })).toBeNull();
 
@@ -371,7 +379,9 @@ describeDatabase('PostgreSQL persistence integration', () => {
     const entry = board.currentUserRow;
     expect(entry).not.toBeNull();
     expect(entry?.bankroll).toBe(12500);
-    expect(entry?.signalScore).toBe(-2.5);
+    // Smart Pass (Phase 11) makes pass scoring content-dependent; assert
+    // against the recorded per-round deltas rather than a fixed constant.
+    expect(entry?.signalScore).toBeCloseTo(expectedSignalScore, 6);
     expect(entry?.correctCalls).toBe(0);
     expect(entry?.passes).toBe(10);
     expect(entry?.completionTimeMs).not.toBeNull();
@@ -465,7 +475,18 @@ describeDatabase('PostgreSQL persistence integration', () => {
     expect((await service.getRunSummary({ owner, runId: second.id })).status).toBe('bankrupt');
 
     const dailyBoard = await leaderboards.list({ board: 'daily', date: '2099-12-30' }, userId);
-    expect(dailyBoard.currentUserRow).toMatchObject({ bankroll: 10000, signalScore: -2.5 });
+    const firstAttemptDecisions = await prisma.roundDecision.findMany({
+      where: { runId: first.id },
+      select: { signalScoreDelta: true },
+    });
+    const firstAttemptSignalScore = firstAttemptDecisions.reduce(
+      (sum, decision) => sum + decision.signalScoreDelta.toNumber(),
+      0,
+    );
+    expect(dailyBoard.currentUserRow).toMatchObject({
+      bankroll: 10000,
+      signalScore: firstAttemptSignalScore,
+    });
 
     const attempts = await prisma.run.findMany({
       where: { dailyChallengeId: challengeId, userId },

@@ -119,6 +119,10 @@
                     }
                 ],
     "review":  {
+      "smartPass": {
+        "eligible": false,
+        "explanation": "The pre-decision evidence forms a comparatively readable directional case. Countervailing risks remain, but they do not create enough unresolved tension for Smart Pass."
+      },
                    "generatedByAi":  true,
                    "humanReviewed":  true,
                    "reviewNotes":  "Obscure bucket. Stored Grok evidence tied Medium to mobile-publisher advertising and a rebuilt prediction system; Hard still exposed the advertising exchange through privacy and matching language. M/H now describe a general digital transaction intermediary facing data restrictions, external rules, and cyclical budgets. Easy is unchanged. Stored M/H Gate 2 results remain as stale adversarial evidence pending blind rejudge.",

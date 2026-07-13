@@ -7,7 +7,7 @@ import { draftSelectionRequestSchema, runIdSchema } from '@/lib/server/requests'
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-/** Locks the one immutable set of three picks; the server computes results. */
+/** Locks one immutable weighted portfolio; the server computes results. */
 export async function POST(
   request: Request,
   { params }: { params: { draftId: string } },
@@ -18,7 +18,7 @@ export async function POST(
     const body = await request.json().catch(() => null);
     const parsed = draftSelectionRequestSchema.safeParse(body);
     if (!parsed.success) {
-      return jsonError(400, 'INVALID_INPUT', 'Pick exactly three distinct companies');
+      return jsonError(400, 'INVALID_INPUT', 'Choose valid distinct companies and allocate exactly 100%');
     }
     const identity = await getRequestIdentity();
     const draft = await withOwnerFallback(candidateOwners(identity), (owner) =>
@@ -26,6 +26,7 @@ export async function POST(
         owner,
         draftId: draftId.data,
         slots: parsed.data.slots,
+        allocations: parsed.data.allocations,
       }));
     return NextResponse.json({ draft, context: apiContext(identity) });
   } catch (error) {

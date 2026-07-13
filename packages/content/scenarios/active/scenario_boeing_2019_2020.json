@@ -120,6 +120,10 @@
                     }
                 ],
     "review":  {
+      "smartPass": {
+        "eligible": false,
+        "explanation": "The pre-decision evidence forms a comparatively readable directional case. Countervailing risks remain, but they do not create enough unresolved tension for Smart Pass."
+      },
                    "generatedByAi":  true,
                    "humanReviewed":  true,
                    "reviewNotes":  "Famous; adversarial rewrite from clean stored Grok evidence. Changed Medium and Hard, plus identifying shared title, so Easy/Medium/Hard payloads require rejudge. Removed certification, overseer, program-interruption, installed-base, remedies, and delivery-restoration conjunctions that made Boeing dominant. New tension is contracted long-cycle demand versus rework, delayed collections, and fixed overhead across Spirit AeroSystems, GE, Honeywell, Siemens, Caterpillar, and Boeing. Stored review.gate2 is preserved but stale by hash.",
