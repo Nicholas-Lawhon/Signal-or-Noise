@@ -7,7 +7,7 @@ import type {
   DraftBattleInvitePreviewPayload,
   DraftBattleStatePayload,
   DraftCardPayload,
-} from '@signal-or-noise/database';
+} from '@signal-or-noise/shared-types';
 import { api, ApiRequestError } from '@/lib/api';
 import { formatMoney, formatPercent } from '@/lib/format';
 import Sparkline from '@/components/Sparkline';

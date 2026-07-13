@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import type { CurrentRunPayload } from '@signal-or-noise/database';
+import type { CurrentRunPayload } from '@signal-or-noise/shared-types';
 import { api } from '@/lib/api';
 import { formatMoney } from '@/lib/format';
 

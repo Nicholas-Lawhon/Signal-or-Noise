@@ -5,7 +5,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useUser } from '@clerk/nextjs';
 import { CONFIDENCE_CONFIG, calculateStake } from '@signal-or-noise/game-engine';
 import type { Confidence, RoundAction } from '@signal-or-noise/game-engine';
-import type { CurrentRunPayload, RunSummaryPayload } from '@signal-or-noise/database';
+import type { CurrentRunPayload, RunSummaryPayload } from '@signal-or-noise/shared-types';
 import { api, ApiRequestError } from '@/lib/api';
 import type { SubmitDecisionResult } from '@/lib/api';
 import { formatMoney, formatSignedMoney, formatPercent, formatSignalScore } from '@/lib/format';

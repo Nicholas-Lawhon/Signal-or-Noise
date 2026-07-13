@@ -5,7 +5,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { CONFIDENCE_CONFIG, calculateStake } from '@signal-or-noise/game-engine';
 import type { Confidence, RoundAction } from '@signal-or-noise/game-engine';
-import type { BattleDecisionPayload, BattleStatePayload } from '@signal-or-noise/database';
+import type { BattleDecisionPayload, BattleStatePayload } from '@signal-or-noise/shared-types';
 import { api, ApiRequestError } from '@/lib/api';
 import { formatMoney, formatPercent, formatSignalScore, formatSignedMoney } from '@/lib/format';
 import Sparkline from '@/components/Sparkline';

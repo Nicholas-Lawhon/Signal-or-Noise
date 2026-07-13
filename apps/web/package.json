@@ -17,6 +17,7 @@
     "@signal-or-noise/content": "workspace:*",
     "@signal-or-noise/database": "workspace:^",
     "@signal-or-noise/game-engine": "workspace:*",
+    "@signal-or-noise/shared-types": "workspace:*",
     "next": "^14.2.0",
     "posthog-js": "^1.257.2",
     "react": "^18.3.0",

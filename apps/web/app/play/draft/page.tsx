@@ -3,7 +3,7 @@
 import { Suspense, useCallback, useEffect, useRef, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useUser } from '@clerk/nextjs';
-import type { CompletedDraftPayload, CurrentDraftPayload, DraftCardPayload } from '@signal-or-noise/database';
+import type { CompletedDraftPayload, CurrentDraftPayload, DraftCardPayload } from '@signal-or-noise/shared-types';
 import { api, ApiRequestError } from '@/lib/api';
 import { formatMoney, formatPercent, formatSignedMoney } from '@/lib/format';
 import Sparkline from '@/components/Sparkline';

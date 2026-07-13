@@ -6,7 +6,8 @@
     "build": "pnpm -r build",
     "test": "pnpm -r test",
     "typecheck": "pnpm -r typecheck",
-    "lint": "pnpm --filter web lint"
+    "lint": "pnpm --filter web lint",
+    "mobile:smoke": "pnpm --filter @signal-or-noise/mobile-smoke test"
   },
   "packageManager": "pnpm@9.15.0"
 }

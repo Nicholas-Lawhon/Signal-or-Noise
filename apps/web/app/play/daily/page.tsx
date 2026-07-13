@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useUser } from '@clerk/nextjs';
 import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import type { DailyChallengePayload } from '@signal-or-noise/database';
+import type { DailyChallengePayload } from '@signal-or-noise/shared-types';
 import { api, ApiRequestError } from '@/lib/api';
 import { formatMoney } from '@/lib/format';
 
