@@ -174,7 +174,7 @@ the full acceptance suite and independent high-risk review pass.
 **Accepted 2026-07-13.** Merged to `main` at `1c99037` with follow-up playtest
 fix `ad4612b`. Closeout: `agents/phase-closeouts/P11_strategic_pass_draft_expansion.md`.
 
-## Phase 12 — Shared Package Cleanup for Expo Readiness ⬜
+## Phase 12 — Shared Package Cleanup for Expo Readiness ✅
 
 Post-MVP queue item 2. Make `packages/game-engine`, `packages/content` (its
 consumable surface), and the shared type/contract surface provably consumable by

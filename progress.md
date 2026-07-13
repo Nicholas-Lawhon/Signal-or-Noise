@@ -6,7 +6,7 @@ Blocked/Questions accurate. Git history and one phase closeout preserve history.
 ## Current Status
 
 - **Phase:** Phase 12 - Shared Package Cleanup for Expo Readiness is
-  implemented and verified on `phase/12-expo-readiness`, pending user acceptance
+  accepted 2026-07-13 and merged to `main` (`15d5506`)
   (charter: `agents/phases/P12_expo_readiness.md`; closeout:
   `agents/phase-closeouts/P12_expo_readiness.md`). It adds the zod-only
   `packages/shared-types` (API contracts moved out of the database package),
@@ -95,9 +95,9 @@ Blocked/Questions accurate. Git history and one phase closeout preserve history.
   D-03, D-04, D-05, and D-07 have approved directions with implementation or
   external-review dependencies; D-06 formal tester recruitment is optional
   rather than a Gate B or launch requirement.
-- **Next task:** User review/acceptance of Phase 12, then merge
-  `phase/12-expo-readiness` to `main`. Growth Gate B preparation may continue
-  in parallel.
+- **Next task:** Choose the next phase (Post-MVP queue item 3, the Expo mobile
+  app, is the natural successor; the user may land minor MVP tweaks first).
+  Growth Gate B preparation may continue in parallel.
 - **Phase 10 deferred action:** Revisit the shorter landing-to-first-decision
   funnel after more behavioral playtest data. It was intentionally not
   implemented in Phase 10.

@@ -1,6 +1,6 @@
 # Phase 12 — Shared Package Cleanup for Expo Readiness
 
-**Status:** in_progress
+**Status:** accepted (2026-07-13; closeout in `agents/phase-closeouts/P12_expo_readiness.md`)
 **Risk:** normal
 **Owner:** Claude Fable (Orchestrator session, user-assigned 2026-07-13; may use bounded subagents)
 **Branch/worktree:** `phase/12-expo-readiness` in the project checkout
