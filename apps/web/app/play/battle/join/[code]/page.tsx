@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useCallback, useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { useUser } from '@clerk/nextjs';
-import type { BattleInvitePreviewPayload } from '@signal-or-noise/database';
+import type { BattleInvitePreviewPayload } from '@signal-or-noise/shared-types';
 import { api, ApiRequestError } from '@/lib/api';
 import { formatMoney } from '@/lib/format';
 import { capture } from '@/lib/analytics';

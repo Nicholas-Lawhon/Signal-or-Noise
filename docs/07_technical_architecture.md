@@ -214,7 +214,11 @@ Owns:
 
 ### packages/shared-types
 
-Owns shared interfaces that do not belong specifically to game-engine.
+Owns shared interfaces that do not belong specifically to game-engine. As of
+Phase 12 this exists and holds the API request schemas and response payload
+types (`contracts.ts`, formerly in `packages/database`) plus leaderboard query
+schemas and page payloads. Its only runtime dependency is `zod`; it is part of
+the mobile shared surface guarded by `tools/mobile-smoke`.
 
 ### packages/ui
 
@@ -530,3 +534,22 @@ When building Expo mobile:
 - Use the same server-side scoring rules.
 - Do not duplicate scoring logic in mobile app.
 - Reuse content schema and validation pipeline.
+
+### Mobile Shared Surface (Phase 12)
+
+The exact modules the Expo app may import are defined and enforced by
+`tools/mobile-smoke` (see its README):
+
+- `@signal-or-noise/shared-types` — API contracts and leaderboard
+  queries/payloads (zod-only).
+- `@signal-or-noise/game-engine` — pure logic, no platform dependencies.
+- `@signal-or-noise/content/types`, `/schema`, `/textEncoding` — the
+  platform-neutral content subpaths. The full content index (the bundled
+  scenario catalog with reveal data) and `@signal-or-noise/database` are
+  forbidden in mobile bundles.
+
+`pnpm mobile:smoke` runs a static import-constraint check plus a real Metro/
+React Native bundle of the surface; both also run as part of `pnpm test`.
+Client code in `apps/web` imports contract types from
+`@signal-or-noise/shared-types` (never from the database package), keeping the
+same boundary the mobile app will use.

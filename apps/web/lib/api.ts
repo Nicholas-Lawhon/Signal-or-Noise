@@ -16,9 +16,9 @@ import type {
   PublicIdentityPayload,
   RevealPayload,
   RunSummaryPayload,
-} from '@signal-or-noise/database';
+} from '@signal-or-noise/shared-types';
 import type { CompletedRound } from '@signal-or-noise/game-engine';
-import { normalizeMojibakeDeep } from '@signal-or-noise/content/src/textEncoding';
+import { normalizeMojibakeDeep } from '@signal-or-noise/content/textEncoding';
 
 /** Shared context every gameplay endpoint returns alongside its payload. */
 export type ApiContext = {

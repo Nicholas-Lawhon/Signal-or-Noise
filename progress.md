@@ -5,9 +5,15 @@ Blocked/Questions accurate. Git history and one phase closeout preserve history.
 
 ## Current Status
 
-- **Phase:** Phase 12 - Shared Package Cleanup for Expo Readiness is in
-  progress on `phase/12-expo-readiness`, owned by Claude Fable (charter:
-  `agents/phases/P12_expo_readiness.md`). Phase 11 - Strategic Pass and
+- **Phase:** Phase 12 - Shared Package Cleanup for Expo Readiness is
+  implemented and verified on `phase/12-expo-readiness`, pending user acceptance
+  (charter: `agents/phases/P12_expo_readiness.md`; closeout:
+  `agents/phase-closeouts/P12_expo_readiness.md`). It adds the zod-only
+  `packages/shared-types` (API contracts moved out of the database package),
+  package `exports` boundaries, client imports rerouted off the database
+  package, and the `tools/mobile-smoke` import-constraint check plus Metro/RN
+  bundle smoke test (`pnpm mobile:smoke`, also inside `pnpm test`). Zero web
+  behavior change; full suite, build, and 24 e2e checks green. Phase 11 - Strategic Pass and
   Portfolio Draft Expansion was accepted 2026-07-13: Smart Pass, weighted
   Classic/Quick/Era Drafts, format-separated solo leaderboards, and invite-based
   Draft Battles are merged to `main` (`1c99037`, fix `ad4612b`); the Phase 11
@@ -89,9 +95,9 @@ Blocked/Questions accurate. Git history and one phase closeout preserve history.
   D-03, D-04, D-05, and D-07 have approved directions with implementation or
   external-review dependencies; D-06 formal tester recruitment is optional
   rather than a Gate B or launch requirement.
-- **Next task:** Execute Phase 12 (audit shared packages, extract the
-  platform-neutral shared surface, add constraint checks and the Metro/RN bundle
-  smoke test). Growth Gate B preparation may continue in parallel.
+- **Next task:** User review/acceptance of Phase 12, then merge
+  `phase/12-expo-readiness` to `main`. Growth Gate B preparation may continue
+  in parallel.
 - **Phase 10 deferred action:** Revisit the shorter landing-to-first-decision
   funnel after more behavioral playtest data. It was intentionally not
   implemented in Phase 10.

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import type { PublicIdentityPayload } from '@signal-or-noise/database';
+import type { PublicIdentityPayload } from '@signal-or-noise/shared-types';
 import { ApiRequestError, api } from '@/lib/api';
 
 type State =

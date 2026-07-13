@@ -1,5 +1,5 @@
 {
-  "name": "@signal-or-noise/game-engine",
+  "name": "@signal-or-noise/shared-types",
   "version": "0.0.1",
   "private": true,
   "type": "module",
@@ -9,11 +9,12 @@
     ".": "./src/index.ts"
   },
   "scripts": {
-    "test": "vitest run",
     "typecheck": "tsc --noEmit"
   },
+  "dependencies": {
+    "zod": "^3.23.0"
+  },
   "devDependencies": {
-    "typescript": "^5.6.0",
-    "vitest": "^2.1.0"
+    "typescript": "^5.6.0"
   }
 }

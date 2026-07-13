@@ -1,0 +1,27 @@
+{
+  "name": "@signal-or-noise/mobile-smoke",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Guards the mobile shared surface: import-constraint check plus Metro/React Native bundle smoke test.",
+  "scripts": {
+    "check:imports": "node check-imports.mjs",
+    "bundle": "node bundle.cjs",
+    "test": "node check-imports.mjs && node bundle.cjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@signal-or-noise/content": "workspace:*",
+    "@signal-or-noise/game-engine": "workspace:*",
+    "@signal-or-noise/shared-types": "workspace:*"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.0",
+    "@babel/runtime": "^7.25.0",
+    "metro": "^0.80.12",
+    "metro-runtime": "^0.80.12",
+    "metro-react-native-babel-preset": "^0.77.0",
+    "metro-react-native-babel-transformer": "^0.77.0",
+    "typescript": "^5.6.0",
+    "zod": "^3.23.0"
+  }
+}

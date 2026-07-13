@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useUser } from '@clerk/nextjs';
-import type { PlayerStatsPayload } from '@signal-or-noise/database';
+import type { PlayerStatsPayload } from '@signal-or-noise/shared-types';
 import { api } from '@/lib/api';
 import { formatMoney, formatSignalScore } from '@/lib/format';
 import PublicIdentityCard from '@/components/PublicIdentityCard';

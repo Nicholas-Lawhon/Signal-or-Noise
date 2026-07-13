@@ -88,7 +88,10 @@ test('all weighted Draft formats submit valid allocations and reload immutable r
     const pickButtons = page.getByRole('button', { name: 'Draft this company' });
     await expect(pickButtons).toHaveCount(count);
     for (let index = 0; index < picks; index += 1) await pickButtons.first().click();
-    await page.getByLabel('Allocation for Hidden company 1').selectOption('60');
+    // Allocations no longer auto-rebalance; the player balances to 100% manually.
+    for (let index = 0; index < picks; index += 1) {
+      await page.getByLabel(`Allocation for Hidden company ${index + 1}`).selectOption(String(weights[index]));
+    }
     await expect(page.getByText('Allocated: 100%', { exact: false })).toBeVisible();
     expect(await noOverflow(page)).toBe(true);
     await page.getByRole('button', { name: 'Lock in portfolio' }).click();
@@ -171,7 +174,9 @@ test('Draft Battle invite, timed weighted submission, privacy, and reveal work o
   await expect(page.getByText('Revealed 1')).toHaveCount(0);
   const cardsToPick = page.getByRole('button', { name: /Hidden company/ });
   await cardsToPick.nth(0).click(); await cardsToPick.nth(1).click();
+  // Allocations no longer auto-rebalance; balance both cards to 100% manually.
   await page.getByLabel('Allocation for card 1').selectOption('60');
+  await page.getByLabel('Allocation for card 2').selectOption('40');
   await expect(page.getByText('Allocated: 100%', { exact: false })).toBeVisible();
   await page.getByRole('button', { name: 'Submit private portfolio' }).click();
   expect(submission).toEqual({ slots: [0, 1], allocations: [60, 40] });
